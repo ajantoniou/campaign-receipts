@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-announce-campaign-for-the-ny-14-primary-7440",
+  "title": "Will Representative Bowman announce campaign for the NY-14 primary? 7440",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.45,
+  "volume": 1862879,
+  "expirationDate": "2026-09-08T08:27:19.119Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.45
+    },
+    {
+      "name": "No",
+      "price": 0.55
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 18889
+  }
+}

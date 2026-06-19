@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-endorse-a-primary-challenger-in-q3",
+  "title": "Does Representative Bowman endorse a primary challenger in Q3?",
+  "category": "POLICY",
+  "impliedProbability": 0.32,
+  "volume": 2736374,
+  "expirationDate": "2026-10-02T13:09:00.647Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.32
+    },
+    {
+      "name": "No",
+      "price": 0.68
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 809127
+  }
+}

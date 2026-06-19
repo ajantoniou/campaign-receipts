@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-announce-campaign-for-q3-74",
+  "title": "Does Super PAC 'Liberty First' announce campaign for Q3? 74",
+  "category": "STATE",
+  "impliedProbability": 0.17,
+  "volume": 1260891,
+  "expirationDate": "2026-07-05T02:30:31.677Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.17
+    },
+    {
+      "name": "No",
+      "price": 0.83
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 660958
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-endorse-a-primary-challenger-in-the-ny-14-primary",
+  "title": "Does The Tech Anti-Trust Bill endorse a primary challenger in the NY-14 primary?",
+  "category": "STATE",
+  "impliedProbability": 0.49,
+  "volume": 896534,
+  "expirationDate": "2026-09-22T03:39:21.365Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.49
+    },
+    {
+      "name": "No",
+      "price": 0.51
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 11215
+  }
+}

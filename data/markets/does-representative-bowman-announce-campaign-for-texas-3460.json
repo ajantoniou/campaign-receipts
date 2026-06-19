@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-announce-campaign-for-texas-3460",
+  "title": "Does Representative Bowman announce campaign for Texas? 3460",
+  "category": "FEDERAL",
+  "impliedProbability": 0.21,
+  "volume": 2391811,
+  "expirationDate": "2026-08-12T04:21:26.412Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.21
+    },
+    {
+      "name": "No",
+      "price": 0.79
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 663407
+  }
+}

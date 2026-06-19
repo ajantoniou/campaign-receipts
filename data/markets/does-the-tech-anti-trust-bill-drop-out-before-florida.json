@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-drop-out-before-florida",
+  "title": "Does The Tech Anti-Trust Bill drop out before Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.87,
+  "volume": 1263591,
+  "expirationDate": "2026-10-12T05:44:29.794Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.87
+    },
+    {
+      "name": "No",
+      "price": 0.13
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 526837
+  }
+}

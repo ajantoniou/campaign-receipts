@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-win-re-election-in-the-ny-14-primary",
+  "title": "Will Representative Bowman win re-election in the NY-14 primary?",
+  "category": "POLICY",
+  "impliedProbability": 0.03,
+  "volume": 163914,
+  "expirationDate": "2026-08-11T15:16:04.798Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.03
+    },
+    {
+      "name": "No",
+      "price": 0.97
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 30245
+  }
+}

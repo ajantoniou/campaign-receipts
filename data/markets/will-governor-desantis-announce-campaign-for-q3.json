@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-announce-campaign-for-q3",
+  "title": "Will Governor DeSantis announce campaign for Q3?",
+  "category": "POLICY",
+  "impliedProbability": 0.17,
+  "volume": 3942134,
+  "expirationDate": "2026-07-28T07:57:38.275Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.17
+    },
+    {
+      "name": "No",
+      "price": 0.83
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 854715
+  }
+}

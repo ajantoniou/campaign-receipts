@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-florida-4026",
+  "title": "Who will win Florida? 4026",
+  "category": "POLICY",
+  "impliedProbability": 0.12,
+  "volume": 2197756,
+  "expirationDate": "2026-07-22T14:20:09.316Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.12
+    },
+    {
+      "name": "No",
+      "price": 0.88
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 585643
+  }
+}

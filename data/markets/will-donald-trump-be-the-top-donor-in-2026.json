@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-be-the-top-donor-in-2026",
+  "title": "Will Donald Trump be the top donor in 2026?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.23,
+  "volume": 785127,
+  "expirationDate": "2026-09-01T01:21:25.651Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.23
+    },
+    {
+      "name": "No",
+      "price": 0.77
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 183971
+  }
+}

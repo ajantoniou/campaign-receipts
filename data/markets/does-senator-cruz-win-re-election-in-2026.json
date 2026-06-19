@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-win-re-election-in-2026",
+  "title": "Does Senator Cruz win re-election in 2026?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.37,
+  "volume": 3518629,
+  "expirationDate": "2026-08-17T01:13:23.262Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.37
+    },
+    {
+      "name": "No",
+      "price": 0.63
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 68795
+  }
+}

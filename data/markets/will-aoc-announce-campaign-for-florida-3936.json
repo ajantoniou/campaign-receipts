@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-announce-campaign-for-florida-3936",
+  "title": "Will AOC announce campaign for Florida? 3936",
+  "category": "FEDERAL",
+  "impliedProbability": 0.21,
+  "volume": 4028583,
+  "expirationDate": "2026-08-01T04:13:14.819Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.21
+    },
+    {
+      "name": "No",
+      "price": 0.79
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 993640
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-endorse-a-primary-challenger-in-texas",
+  "title": "Does The Tech Anti-Trust Bill endorse a primary challenger in Texas?",
+  "category": "STATE",
+  "impliedProbability": 0.45,
+  "volume": 551489,
+  "expirationDate": "2026-08-04T19:29:40.944Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.45
+    },
+    {
+      "name": "No",
+      "price": 0.55
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 469185
+  }
+}

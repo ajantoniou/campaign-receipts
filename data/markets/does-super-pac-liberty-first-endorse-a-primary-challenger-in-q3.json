@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-endorse-a-primary-challenger-in-q3",
+  "title": "Does Super PAC 'Liberty First' endorse a primary challenger in Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.74,
+  "volume": 3346739,
+  "expirationDate": "2026-08-24T00:05:15.836Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.74
+    },
+    {
+      "name": "No",
+      "price": 0.26
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 476112
+  }
+}

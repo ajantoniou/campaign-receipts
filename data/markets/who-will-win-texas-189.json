@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-texas-189",
+  "title": "Who will win Texas? 189",
+  "category": "STATE",
+  "impliedProbability": 0.54,
+  "volume": 2683679,
+  "expirationDate": "2026-10-08T01:52:01.064Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.54
+    },
+    {
+      "name": "No",
+      "price": 0.46
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 562046
+  }
+}

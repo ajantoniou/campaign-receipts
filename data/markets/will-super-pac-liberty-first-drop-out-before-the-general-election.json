@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-drop-out-before-the-general-election",
+  "title": "Will Super PAC 'Liberty First' drop out before the general election?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.27,
+  "volume": 729646,
+  "expirationDate": "2026-09-03T09:08:06.426Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.27
+    },
+    {
+      "name": "No",
+      "price": 0.73
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 970016
+  }
+}

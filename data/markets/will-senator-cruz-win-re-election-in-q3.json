@@ -1,0 +1,25 @@
+{
+  "id": "will-senator-cruz-win-re-election-in-q3",
+  "title": "Will Senator Cruz win re-election in Q3?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.01,
+  "volume": 4188640,
+  "expirationDate": "2026-09-13T03:38:13.296Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.01
+    },
+    {
+      "name": "No",
+      "price": 0.99
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 416780
+  }
+}

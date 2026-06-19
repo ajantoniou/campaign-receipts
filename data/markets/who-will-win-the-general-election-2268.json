@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-general-election-2268",
+  "title": "Who will win the general election? 2268",
+  "category": "STATE",
+  "impliedProbability": 0.75,
+  "volume": 3142353,
+  "expirationDate": "2026-09-23T10:46:30.125Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.75
+    },
+    {
+      "name": "No",
+      "price": 0.25
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 937854
+  }
+}

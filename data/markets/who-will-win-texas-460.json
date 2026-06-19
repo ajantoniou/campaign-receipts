@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-texas-460",
+  "title": "Who will win Texas? 460",
+  "category": "FEDERAL",
+  "impliedProbability": 0.13,
+  "volume": 2735925,
+  "expirationDate": "2026-10-01T20:10:15.393Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.13
+    },
+    {
+      "name": "No",
+      "price": 0.87
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 215805
+  }
+}

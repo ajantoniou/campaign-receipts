@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-raise-more-than-5m-in-the-ny-14-primary",
+  "title": "Will The Tech Anti-Trust Bill raise more than $5M in the NY-14 primary?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.89,
+  "volume": 2698039,
+  "expirationDate": "2026-09-26T01:02:51.037Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.89
+    },
+    {
+      "name": "No",
+      "price": 0.11
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 273922
+  }
+}

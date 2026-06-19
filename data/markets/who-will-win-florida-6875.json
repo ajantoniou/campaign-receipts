@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-florida-6875",
+  "title": "Who will win Florida? 6875",
+  "category": "FEDERAL",
+  "impliedProbability": 0.12,
+  "volume": 2009597,
+  "expirationDate": "2026-06-29T06:35:15.540Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.12
+    },
+    {
+      "name": "No",
+      "price": 0.88
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 420033
+  }
+}

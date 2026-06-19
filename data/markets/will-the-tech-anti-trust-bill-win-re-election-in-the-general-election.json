@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-win-re-election-in-the-general-election",
+  "title": "Will The Tech Anti-Trust Bill win re-election in the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.9,
+  "volume": 3552136,
+  "expirationDate": "2026-08-03T06:37:38.459Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.9
+    },
+    {
+      "name": "No",
+      "price": 0.1
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 660109
+  }
+}

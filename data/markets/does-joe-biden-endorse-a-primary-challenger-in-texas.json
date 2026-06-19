@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-endorse-a-primary-challenger-in-texas",
+  "title": "Does Joe Biden endorse a primary challenger in Texas?",
+  "category": "STATE",
+  "impliedProbability": 0.16,
+  "volume": 3904086,
+  "expirationDate": "2026-08-05T10:02:26.977Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.16
+    },
+    {
+      "name": "No",
+      "price": 0.84
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 464102
+  }
+}

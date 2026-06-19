@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-drop-out-before-q3",
+  "title": "Does Super PAC 'Liberty First' drop out before Q3?",
+  "category": "POLICY",
+  "impliedProbability": 0.5,
+  "volume": 2112760,
+  "expirationDate": "2026-08-12T06:53:07.249Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.5
+    },
+    {
+      "name": "No",
+      "price": 0.5
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 519991
+  }
+}

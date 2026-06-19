@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-2026-89",
+  "title": "Who will win 2026? 89",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.96,
+  "volume": 723236,
+  "expirationDate": "2026-08-05T20:36:46.811Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.96
+    },
+    {
+      "name": "No",
+      "price": 0.04
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 843702
+  }
+}

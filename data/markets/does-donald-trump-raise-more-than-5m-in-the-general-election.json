@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-raise-more-than-5m-in-the-general-election",
+  "title": "Does Donald Trump raise more than $5M in the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.81,
+  "volume": 1032204,
+  "expirationDate": "2026-06-25T23:00:20.066Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.81
+    },
+    {
+      "name": "No",
+      "price": 0.19
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 625301
+  }
+}

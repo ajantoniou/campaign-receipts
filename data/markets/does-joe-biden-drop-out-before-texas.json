@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-drop-out-before-texas",
+  "title": "Does Joe Biden drop out before Texas?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.55,
+  "volume": 316354,
+  "expirationDate": "2026-08-08T23:54:05.566Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.55
+    },
+    {
+      "name": "No",
+      "price": 0.45
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 780443
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-senator-cruz-raise-more-than-5m-in-2026-4341",
+  "title": "Will Senator Cruz raise more than $5M in 2026? 4341",
+  "category": "FEDERAL",
+  "impliedProbability": 0.1,
+  "volume": 716473,
+  "expirationDate": "2026-09-16T14:52:55.427Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.1
+    },
+    {
+      "name": "No",
+      "price": 0.9
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 268990
+  }
+}

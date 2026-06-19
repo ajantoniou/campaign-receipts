@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-endorse-a-primary-challenger-in-texas",
+  "title": "Will Super PAC 'Liberty First' endorse a primary challenger in Texas?",
+  "category": "POLICY",
+  "impliedProbability": 0.71,
+  "volume": 2555097,
+  "expirationDate": "2026-08-31T09:58:50.053Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.71
+    },
+    {
+      "name": "No",
+      "price": 0.29
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 373120
+  }
+}

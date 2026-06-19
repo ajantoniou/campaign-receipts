@@ -1,0 +1,25 @@
+{
+  "id": "will-joe-biden-drop-out-before-the-ny-14-primary",
+  "title": "Will Joe Biden drop out before the NY-14 primary?",
+  "category": "STATE",
+  "impliedProbability": 0.77,
+  "volume": 4194724,
+  "expirationDate": "2026-10-08T18:32:54.237Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.77
+    },
+    {
+      "name": "No",
+      "price": 0.23
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 997890
+  }
+}

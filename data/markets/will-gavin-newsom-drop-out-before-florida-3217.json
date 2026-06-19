@@ -1,0 +1,25 @@
+{
+  "id": "will-gavin-newsom-drop-out-before-florida-3217",
+  "title": "Will Gavin Newsom drop out before Florida? 3217",
+  "category": "POLICY",
+  "impliedProbability": 0.31,
+  "volume": 215008,
+  "expirationDate": "2026-08-18T16:36:23.768Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.31
+    },
+    {
+      "name": "No",
+      "price": 0.69
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 244328
+  }
+}

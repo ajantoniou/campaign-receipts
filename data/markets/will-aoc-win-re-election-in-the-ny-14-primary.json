@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-win-re-election-in-the-ny-14-primary",
+  "title": "Will AOC win re-election in the NY-14 primary?",
+  "category": "POLICY",
+  "impliedProbability": 0.29,
+  "volume": 2972214,
+  "expirationDate": "2026-06-26T13:25:59.052Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.29
+    },
+    {
+      "name": "No",
+      "price": 0.71
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 211688
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-endorse-a-primary-challenger-in-q3",
+  "title": "Does Gavin Newsom endorse a primary challenger in Q3?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.68,
+  "volume": 2415536,
+  "expirationDate": "2026-10-01T00:35:00.878Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.68
+    },
+    {
+      "name": "No",
+      "price": 0.32
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 443079
+  }
+}

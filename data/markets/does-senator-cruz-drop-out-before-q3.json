@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-drop-out-before-q3",
+  "title": "Does Senator Cruz drop out before Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.43,
+  "volume": 2192563,
+  "expirationDate": "2026-09-12T03:44:44.262Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.43
+    },
+    {
+      "name": "No",
+      "price": 0.57
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 397259
+  }
+}

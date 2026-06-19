@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-win-re-election-in-q3-1971",
+  "title": "Will The Crypto Regulation Bill win re-election in Q3? 1971",
+  "category": "STATE",
+  "impliedProbability": 0.77,
+  "volume": 2799144,
+  "expirationDate": "2026-09-12T04:31:09.709Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.77
+    },
+    {
+      "name": "No",
+      "price": 0.23
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 857882
+  }
+}

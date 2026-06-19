@@ -1,0 +1,25 @@
+{
+  "id": "does-aoc-win-re-election-in-texas",
+  "title": "Does AOC win re-election in Texas?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.51,
+  "volume": 1981418,
+  "expirationDate": "2026-08-21T03:03:23.163Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.51
+    },
+    {
+      "name": "No",
+      "price": 0.49
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 922878
+  }
+}

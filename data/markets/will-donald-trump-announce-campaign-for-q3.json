@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-announce-campaign-for-q3",
+  "title": "Will Donald Trump announce campaign for Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.5,
+  "volume": 2667983,
+  "expirationDate": "2026-08-24T22:47:31.669Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.5
+    },
+    {
+      "name": "No",
+      "price": 0.5
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 345777
+  }
+}

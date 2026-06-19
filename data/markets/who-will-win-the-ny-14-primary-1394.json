@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-ny-14-primary-1394",
+  "title": "Who will win the NY-14 primary? 1394",
+  "category": "POLICY",
+  "impliedProbability": 0.83,
+  "volume": 1535789,
+  "expirationDate": "2026-06-27T10:20:10.941Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.83
+    },
+    {
+      "name": "No",
+      "price": 0.17
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 67001
+  }
+}

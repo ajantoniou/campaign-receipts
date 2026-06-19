@@ -1,0 +1,25 @@
+{
+  "id": "will-senator-cruz-be-the-top-donor-in-q3",
+  "title": "Will Senator Cruz be the top donor in Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.02,
+  "volume": 1338851,
+  "expirationDate": "2026-08-01T11:30:12.194Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.02
+    },
+    {
+      "name": "No",
+      "price": 0.98
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 636860
+  }
+}

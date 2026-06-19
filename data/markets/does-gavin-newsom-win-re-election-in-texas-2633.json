@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-win-re-election-in-texas-2633",
+  "title": "Does Gavin Newsom win re-election in Texas? 2633",
+  "category": "POLICY",
+  "impliedProbability": 0.22,
+  "volume": 2464013,
+  "expirationDate": "2026-09-08T12:28:47.951Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.22
+    },
+    {
+      "name": "No",
+      "price": 0.78
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 895082
+  }
+}

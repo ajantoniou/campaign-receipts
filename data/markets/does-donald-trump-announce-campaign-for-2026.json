@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-announce-campaign-for-2026",
+  "title": "Does Donald Trump announce campaign for 2026?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.3,
+  "volume": 37156,
+  "expirationDate": "2026-06-29T16:38:32.995Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.3
+    },
+    {
+      "name": "No",
+      "price": 0.7
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 992972
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-aoc-be-the-top-donor-in-florida-5475",
+  "title": "Does AOC be the top donor in Florida? 5475",
+  "category": "POLICY",
+  "impliedProbability": 0.25,
+  "volume": 2679790,
+  "expirationDate": "2026-10-04T18:01:29.260Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.25
+    },
+    {
+      "name": "No",
+      "price": 0.75
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 429762
+  }
+}

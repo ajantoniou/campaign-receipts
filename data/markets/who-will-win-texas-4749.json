@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-texas-4749",
+  "title": "Who will win Texas? 4749",
+  "category": "POLICY",
+  "impliedProbability": 0.42,
+  "volume": 1350702,
+  "expirationDate": "2026-10-10T18:49:17.038Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.42
+    },
+    {
+      "name": "No",
+      "price": 0.58
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 539192
+  }
+}

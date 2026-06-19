@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-endorse-a-primary-challenger-in-2026-8560",
+  "title": "Does Super PAC 'Liberty First' endorse a primary challenger in 2026? 8560",
+  "category": "FEDERAL",
+  "impliedProbability": 0.59,
+  "volume": 253966,
+  "expirationDate": "2026-07-10T06:18:37.085Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.59
+    },
+    {
+      "name": "No",
+      "price": 0.41
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 77172
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-endorse-a-primary-challenger-in-q3",
+  "title": "Will Governor DeSantis endorse a primary challenger in Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.31,
+  "volume": 2261095,
+  "expirationDate": "2026-07-31T18:03:41.110Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.31
+    },
+    {
+      "name": "No",
+      "price": 0.69
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 888560
+  }
+}

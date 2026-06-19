@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-endorse-a-primary-challenger-in-florida-5004",
+  "title": "Does Senator Cruz endorse a primary challenger in Florida? 5004",
+  "category": "STATE",
+  "impliedProbability": 0.63,
+  "volume": 3306508,
+  "expirationDate": "2026-07-05T07:08:51.586Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.63
+    },
+    {
+      "name": "No",
+      "price": 0.37
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 163028
+  }
+}

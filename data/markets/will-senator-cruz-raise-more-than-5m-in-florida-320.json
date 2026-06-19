@@ -1,0 +1,25 @@
+{
+  "id": "will-senator-cruz-raise-more-than-5m-in-florida-320",
+  "title": "Will Senator Cruz raise more than $5M in Florida? 320",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.99,
+  "volume": 4603785,
+  "expirationDate": "2026-07-13T00:44:58.655Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.99
+    },
+    {
+      "name": "No",
+      "price": 0.01
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 995559
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-aoc-endorse-a-primary-challenger-in-the-general-election-5089",
+  "title": "Does AOC endorse a primary challenger in the general election? 5089",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.84,
+  "volume": 4177585,
+  "expirationDate": "2026-09-02T07:11:58.704Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.84
+    },
+    {
+      "name": "No",
+      "price": 0.16
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 607328
+  }
+}

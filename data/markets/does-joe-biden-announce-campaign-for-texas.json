@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-announce-campaign-for-texas",
+  "title": "Does Joe Biden announce campaign for Texas?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.64,
+  "volume": 1057764,
+  "expirationDate": "2026-07-10T14:24:27.420Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.64
+    },
+    {
+      "name": "No",
+      "price": 0.36
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 176548
+  }
+}

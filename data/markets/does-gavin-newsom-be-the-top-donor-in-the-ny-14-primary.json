@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-be-the-top-donor-in-the-ny-14-primary",
+  "title": "Does Gavin Newsom be the top donor in the NY-14 primary?",
+  "category": "POLICY",
+  "impliedProbability": 0.44,
+  "volume": 4427486,
+  "expirationDate": "2026-08-03T06:16:32.313Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.44
+    },
+    {
+      "name": "No",
+      "price": 0.56
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 155248
+  }
+}

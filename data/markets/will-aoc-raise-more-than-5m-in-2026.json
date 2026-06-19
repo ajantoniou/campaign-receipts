@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-raise-more-than-5m-in-2026",
+  "title": "Will AOC raise more than $5M in 2026?",
+  "category": "POLICY",
+  "impliedProbability": 0.89,
+  "volume": 3641938,
+  "expirationDate": "2026-08-31T06:03:32.037Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.89
+    },
+    {
+      "name": "No",
+      "price": 0.11
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 40521
+  }
+}

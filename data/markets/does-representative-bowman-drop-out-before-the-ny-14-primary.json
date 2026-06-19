@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-drop-out-before-the-ny-14-primary",
+  "title": "Does Representative Bowman drop out before the NY-14 primary?",
+  "category": "POLICY",
+  "impliedProbability": 0.2,
+  "volume": 593457,
+  "expirationDate": "2026-09-13T19:59:35.332Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.2
+    },
+    {
+      "name": "No",
+      "price": 0.8
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 62334
+  }
+}

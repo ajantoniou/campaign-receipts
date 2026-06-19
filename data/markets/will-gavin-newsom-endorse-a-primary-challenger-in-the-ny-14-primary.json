@@ -1,0 +1,25 @@
+{
+  "id": "will-gavin-newsom-endorse-a-primary-challenger-in-the-ny-14-primary",
+  "title": "Will Gavin Newsom endorse a primary challenger in the NY-14 primary?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.88,
+  "volume": 4698993,
+  "expirationDate": "2026-06-21T20:12:14.599Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.88
+    },
+    {
+      "name": "No",
+      "price": 0.12
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 188716
+  }
+}

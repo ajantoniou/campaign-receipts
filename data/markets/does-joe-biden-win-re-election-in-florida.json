@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-win-re-election-in-florida",
+  "title": "Does Joe Biden win re-election in Florida?",
+  "category": "STATE",
+  "impliedProbability": 0.08,
+  "volume": 1682396,
+  "expirationDate": "2026-08-29T22:45:07.421Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.08
+    },
+    {
+      "name": "No",
+      "price": 0.92
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 96846
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-florida-230",
+  "title": "Who will win Florida? 230",
+  "category": "STATE",
+  "impliedProbability": 0.73,
+  "volume": 635682,
+  "expirationDate": "2026-08-12T06:30:49.156Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.73
+    },
+    {
+      "name": "No",
+      "price": 0.27
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 960797
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-raise-more-than-5m-in-q3-5022",
+  "title": "Does The Crypto Regulation Bill raise more than $5M in Q3? 5022",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.72,
+  "volume": 318355,
+  "expirationDate": "2026-09-21T15:34:28.524Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.72
+    },
+    {
+      "name": "No",
+      "price": 0.28
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 236607
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-be-the-top-donor-in-the-ny-14-primary",
+  "title": "Will The Crypto Regulation Bill be the top donor in the NY-14 primary?",
+  "category": "POLICY",
+  "impliedProbability": 0.85,
+  "volume": 766967,
+  "expirationDate": "2026-09-11T05:56:11.136Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.85
+    },
+    {
+      "name": "No",
+      "price": 0.15
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 89667
+  }
+}

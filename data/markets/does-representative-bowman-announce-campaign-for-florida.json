@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-announce-campaign-for-florida",
+  "title": "Does Representative Bowman announce campaign for Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.99,
+  "volume": 340103,
+  "expirationDate": "2026-07-11T20:37:10.493Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.99
+    },
+    {
+      "name": "No",
+      "price": 0.01
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 801353
+  }
+}

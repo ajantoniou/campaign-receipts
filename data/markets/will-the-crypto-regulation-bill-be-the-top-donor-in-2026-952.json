@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-be-the-top-donor-in-2026-952",
+  "title": "Will The Crypto Regulation Bill be the top donor in 2026? 952",
+  "category": "STATE",
+  "impliedProbability": 0.47,
+  "volume": 687449,
+  "expirationDate": "2026-07-15T05:52:02.581Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.47
+    },
+    {
+      "name": "No",
+      "price": 0.53
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 596152
+  }
+}

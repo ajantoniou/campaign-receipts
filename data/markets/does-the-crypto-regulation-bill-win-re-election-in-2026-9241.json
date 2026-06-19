@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-win-re-election-in-2026-9241",
+  "title": "Does The Crypto Regulation Bill win re-election in 2026? 9241",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.32,
+  "volume": 669579,
+  "expirationDate": "2026-08-08T07:40:01.026Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.32
+    },
+    {
+      "name": "No",
+      "price": 0.68
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 708323
+  }
+}

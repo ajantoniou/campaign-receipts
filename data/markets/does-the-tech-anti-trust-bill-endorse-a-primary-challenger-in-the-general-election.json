@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-endorse-a-primary-challenger-in-the-general-election",
+  "title": "Does The Tech Anti-Trust Bill endorse a primary challenger in the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.01,
+  "volume": 4631553,
+  "expirationDate": "2026-07-25T02:50:29.254Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.01
+    },
+    {
+      "name": "No",
+      "price": 0.99
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 140797
+  }
+}

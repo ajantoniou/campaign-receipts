@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-texas-235",
+  "title": "Who will win Texas? 235",
+  "category": "POLICY",
+  "impliedProbability": 0.6,
+  "volume": 4781723,
+  "expirationDate": "2026-06-27T04:25:51.598Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.6
+    },
+    {
+      "name": "No",
+      "price": 0.4
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 273607
+  }
+}

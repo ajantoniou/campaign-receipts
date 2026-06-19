@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-endorse-a-primary-challenger-in-florida",
+  "title": "Does Super PAC 'Liberty First' endorse a primary challenger in Florida?",
+  "category": "POLICY",
+  "impliedProbability": 0.96,
+  "volume": 1128082,
+  "expirationDate": "2026-08-10T02:28:05.332Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.96
+    },
+    {
+      "name": "No",
+      "price": 0.04
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 111629
+  }
+}

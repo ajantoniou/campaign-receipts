@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-drop-out-before-q3",
+  "title": "Will Governor DeSantis drop out before Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.76,
+  "volume": 223025,
+  "expirationDate": "2026-08-19T01:01:40.537Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.76
+    },
+    {
+      "name": "No",
+      "price": 0.24
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 163645
+  }
+}

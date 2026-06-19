@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-general-election-92",
+  "title": "Who will win the general election? 92",
+  "category": "POLICY",
+  "impliedProbability": 0.16,
+  "volume": 3215685,
+  "expirationDate": "2026-09-06T22:22:06.704Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.16
+    },
+    {
+      "name": "No",
+      "price": 0.84
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 36239
+  }
+}

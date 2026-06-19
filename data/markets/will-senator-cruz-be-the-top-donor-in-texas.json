@@ -1,0 +1,25 @@
+{
+  "id": "will-senator-cruz-be-the-top-donor-in-texas",
+  "title": "Will Senator Cruz be the top donor in Texas?",
+  "category": "POLICY",
+  "impliedProbability": 0.71,
+  "volume": 4066611,
+  "expirationDate": "2026-10-03T14:56:55.144Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.71
+    },
+    {
+      "name": "No",
+      "price": 0.29
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 589023
+  }
+}

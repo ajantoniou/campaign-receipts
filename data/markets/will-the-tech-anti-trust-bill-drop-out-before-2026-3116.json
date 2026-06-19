@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-drop-out-before-2026-3116",
+  "title": "Will The Tech Anti-Trust Bill drop out before 2026? 3116",
+  "category": "FEDERAL",
+  "impliedProbability": 0.22,
+  "volume": 4529486,
+  "expirationDate": "2026-08-29T20:20:32.718Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.22
+    },
+    {
+      "name": "No",
+      "price": 0.78
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 348000
+  }
+}

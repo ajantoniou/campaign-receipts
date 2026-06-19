@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-raise-more-than-5m-in-the-ny-14-primary",
+  "title": "Does Donald Trump raise more than $5M in the NY-14 primary?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.17,
+  "volume": 4068514,
+  "expirationDate": "2026-09-07T01:22:50.984Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.17
+    },
+    {
+      "name": "No",
+      "price": 0.83
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 31998
+  }
+}

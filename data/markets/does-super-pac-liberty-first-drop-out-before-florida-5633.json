@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-drop-out-before-florida-5633",
+  "title": "Does Super PAC 'Liberty First' drop out before Florida? 5633",
+  "category": "FEDERAL",
+  "impliedProbability": 0.97,
+  "volume": 4503261,
+  "expirationDate": "2026-09-25T15:13:57.765Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.97
+    },
+    {
+      "name": "No",
+      "price": 0.03
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 665787
+  }
+}

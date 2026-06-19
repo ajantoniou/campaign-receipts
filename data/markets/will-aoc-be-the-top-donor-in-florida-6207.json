@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-be-the-top-donor-in-florida-6207",
+  "title": "Will AOC be the top donor in Florida? 6207",
+  "category": "FEDERAL",
+  "impliedProbability": 0.06,
+  "volume": 1135713,
+  "expirationDate": "2026-09-14T20:47:17.718Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.06
+    },
+    {
+      "name": "No",
+      "price": 0.94
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 212983
+  }
+}

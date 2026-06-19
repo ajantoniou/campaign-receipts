@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-general-election-6801",
+  "title": "Who will win the general election? 6801",
+  "category": "FEDERAL",
+  "impliedProbability": 0.55,
+  "volume": 1549952,
+  "expirationDate": "2026-08-21T01:40:35.953Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.55
+    },
+    {
+      "name": "No",
+      "price": 0.45
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 729671
+  }
+}

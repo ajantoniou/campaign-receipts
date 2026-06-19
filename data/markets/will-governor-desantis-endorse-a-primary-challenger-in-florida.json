@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-endorse-a-primary-challenger-in-florida",
+  "title": "Will Governor DeSantis endorse a primary challenger in Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.47,
+  "volume": 1550930,
+  "expirationDate": "2026-08-07T09:05:31.733Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.47
+    },
+    {
+      "name": "No",
+      "price": 0.53
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 894096
+  }
+}

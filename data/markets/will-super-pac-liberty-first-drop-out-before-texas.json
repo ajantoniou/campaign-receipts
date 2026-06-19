@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-drop-out-before-texas",
+  "title": "Will Super PAC 'Liberty First' drop out before Texas?",
+  "category": "POLICY",
+  "impliedProbability": 0.25,
+  "volume": 354356,
+  "expirationDate": "2026-07-18T14:13:50.743Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.25
+    },
+    {
+      "name": "No",
+      "price": 0.75
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 505951
+  }
+}

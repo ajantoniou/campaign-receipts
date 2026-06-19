@@ -1,0 +1,25 @@
+{
+  "id": "does-governor-desantis-endorse-a-primary-challenger-in-texas",
+  "title": "Does Governor DeSantis endorse a primary challenger in Texas?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.43,
+  "volume": 1818068,
+  "expirationDate": "2026-10-06T01:44:35.668Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.43
+    },
+    {
+      "name": "No",
+      "price": 0.57
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 328766
+  }
+}

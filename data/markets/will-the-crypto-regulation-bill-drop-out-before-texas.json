@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-drop-out-before-texas",
+  "title": "Will The Crypto Regulation Bill drop out before Texas?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.5,
+  "volume": 925762,
+  "expirationDate": "2026-08-30T05:10:17.643Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.5
+    },
+    {
+      "name": "No",
+      "price": 0.5
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 349363
+  }
+}

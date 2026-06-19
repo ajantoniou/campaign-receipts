@@ -1,0 +1,25 @@
+{
+  "id": "does-governor-desantis-announce-campaign-for-the-general-election-371",
+  "title": "Does Governor DeSantis announce campaign for the general election? 371",
+  "category": "FEDERAL",
+  "impliedProbability": 0.33,
+  "volume": 2710449,
+  "expirationDate": "2026-07-16T00:50:31.328Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.33
+    },
+    {
+      "name": "No",
+      "price": 0.67
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 391906
+  }
+}

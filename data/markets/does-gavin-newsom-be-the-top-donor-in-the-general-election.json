@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-be-the-top-donor-in-the-general-election",
+  "title": "Does Gavin Newsom be the top donor in the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.76,
+  "volume": 3300709,
+  "expirationDate": "2026-07-22T19:40:48.221Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.76
+    },
+    {
+      "name": "No",
+      "price": 0.24
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 160586
+  }
+}

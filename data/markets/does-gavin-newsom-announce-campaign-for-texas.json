@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-announce-campaign-for-texas",
+  "title": "Does Gavin Newsom announce campaign for Texas?",
+  "category": "POLICY",
+  "impliedProbability": 0.79,
+  "volume": 4679542,
+  "expirationDate": "2026-08-19T03:37:27.910Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.79
+    },
+    {
+      "name": "No",
+      "price": 0.21
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 214484
+  }
+}

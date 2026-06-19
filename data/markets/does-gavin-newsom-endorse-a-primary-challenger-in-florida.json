@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-endorse-a-primary-challenger-in-florida",
+  "title": "Does Gavin Newsom endorse a primary challenger in Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.36,
+  "volume": 787082,
+  "expirationDate": "2026-09-24T02:14:45.506Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.36
+    },
+    {
+      "name": "No",
+      "price": 0.64
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 207038
+  }
+}

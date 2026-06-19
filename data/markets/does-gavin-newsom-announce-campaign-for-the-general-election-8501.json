@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-announce-campaign-for-the-general-election-8501",
+  "title": "Does Gavin Newsom announce campaign for the general election? 8501",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.92,
+  "volume": 556537,
+  "expirationDate": "2026-10-11T15:42:14.186Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.92
+    },
+    {
+      "name": "No",
+      "price": 0.08
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 783319
+  }
+}

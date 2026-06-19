@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-endorse-a-primary-challenger-in-the-general-election",
+  "title": "Will Governor DeSantis endorse a primary challenger in the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.05,
+  "volume": 4574398,
+  "expirationDate": "2026-07-18T19:08:19.682Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.05
+    },
+    {
+      "name": "No",
+      "price": 0.95
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 687540
+  }
+}

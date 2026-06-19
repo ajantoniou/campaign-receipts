@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-win-re-election-in-q3",
+  "title": "Will Super PAC 'Liberty First' win re-election in Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.46,
+  "volume": 1993297,
+  "expirationDate": "2026-09-07T14:31:02.891Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.46
+    },
+    {
+      "name": "No",
+      "price": 0.54
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 720834
+  }
+}

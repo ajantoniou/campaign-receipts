@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-raise-more-than-5m-in-the-ny-14-primary",
+  "title": "Will AOC raise more than $5M in the NY-14 primary?",
+  "category": "STATE",
+  "impliedProbability": 0.58,
+  "volume": 1359225,
+  "expirationDate": "2026-09-27T15:06:50.731Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.58
+    },
+    {
+      "name": "No",
+      "price": 0.42
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 966914
+  }
+}

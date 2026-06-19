@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-win-re-election-in-the-general-election",
+  "title": "Will The Crypto Regulation Bill win re-election in the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.98,
+  "volume": 1769997,
+  "expirationDate": "2026-08-10T00:15:19.257Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.98
+    },
+    {
+      "name": "No",
+      "price": 0.02
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 531411
+  }
+}

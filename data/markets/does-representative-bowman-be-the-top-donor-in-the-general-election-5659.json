@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-be-the-top-donor-in-the-general-election-5659",
+  "title": "Does Representative Bowman be the top donor in the general election? 5659",
+  "category": "STATE",
+  "impliedProbability": 0.22,
+  "volume": 724092,
+  "expirationDate": "2026-07-23T12:12:36.196Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.22
+    },
+    {
+      "name": "No",
+      "price": 0.78
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 924649
+  }
+}

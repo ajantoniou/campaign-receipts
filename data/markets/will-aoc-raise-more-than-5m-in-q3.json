@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-raise-more-than-5m-in-q3",
+  "title": "Will AOC raise more than $5M in Q3?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.58,
+  "volume": 647972,
+  "expirationDate": "2026-09-10T09:52:19.349Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.58
+    },
+    {
+      "name": "No",
+      "price": 0.42
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 775448
+  }
+}

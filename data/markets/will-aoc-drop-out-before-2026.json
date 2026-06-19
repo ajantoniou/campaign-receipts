@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-drop-out-before-2026",
+  "title": "Will AOC drop out before 2026?",
+  "category": "STATE",
+  "impliedProbability": 0.09,
+  "volume": 823497,
+  "expirationDate": "2026-10-02T13:09:33.496Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.09
+    },
+    {
+      "name": "No",
+      "price": 0.91
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 120170
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-announce-campaign-for-the-general-election",
+  "title": "Will Super PAC 'Liberty First' announce campaign for the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.49,
+  "volume": 502724,
+  "expirationDate": "2026-10-10T13:51:45.051Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.49
+    },
+    {
+      "name": "No",
+      "price": 0.51
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 4784
+  }
+}

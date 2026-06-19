@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-win-re-election-in-the-ny-14-primary-2259",
+  "title": "Will Governor DeSantis win re-election in the NY-14 primary? 2259",
+  "category": "FEDERAL",
+  "impliedProbability": 0.52,
+  "volume": 4990386,
+  "expirationDate": "2026-07-29T18:08:37.170Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.52
+    },
+    {
+      "name": "No",
+      "price": 0.48
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 95363
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-2026-9000",
+  "title": "Who will win 2026? 9000",
+  "category": "FEDERAL",
+  "impliedProbability": 0.87,
+  "volume": 4170274,
+  "expirationDate": "2026-07-23T23:54:53.560Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.87
+    },
+    {
+      "name": "No",
+      "price": 0.13
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 253863
+  }
+}

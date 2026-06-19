@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-win-re-election-in-the-ny-14-primary-9305",
+  "title": "Does The Crypto Regulation Bill win re-election in the NY-14 primary? 9305",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.73,
+  "volume": 906619,
+  "expirationDate": "2026-07-19T02:59:11.360Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.73
+    },
+    {
+      "name": "No",
+      "price": 0.27
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 455520
+  }
+}

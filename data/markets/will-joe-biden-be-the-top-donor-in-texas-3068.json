@@ -1,0 +1,25 @@
+{
+  "id": "will-joe-biden-be-the-top-donor-in-texas-3068",
+  "title": "Will Joe Biden be the top donor in Texas? 3068",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.57,
+  "volume": 94900,
+  "expirationDate": "2026-07-22T05:04:44.532Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.57
+    },
+    {
+      "name": "No",
+      "price": 0.43
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 934734
+  }
+}

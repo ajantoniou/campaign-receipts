@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-raise-more-than-5m-in-the-ny-14-primary",
+  "title": "Will Governor DeSantis raise more than $5M in the NY-14 primary?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.73,
+  "volume": 3682694,
+  "expirationDate": "2026-09-13T12:26:44.810Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.73
+    },
+    {
+      "name": "No",
+      "price": 0.27
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 571451
+  }
+}

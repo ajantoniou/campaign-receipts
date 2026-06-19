@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-raise-more-than-5m-in-florida",
+  "title": "Does Super PAC 'Liberty First' raise more than $5M in Florida?",
+  "category": "POLICY",
+  "impliedProbability": 0.25,
+  "volume": 479391,
+  "expirationDate": "2026-07-26T09:20:55.166Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.25
+    },
+    {
+      "name": "No",
+      "price": 0.75
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 184633
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-endorse-a-primary-challenger-in-2026",
+  "title": "Will Governor DeSantis endorse a primary challenger in 2026?",
+  "category": "POLICY",
+  "impliedProbability": 0.92,
+  "volume": 540970,
+  "expirationDate": "2026-09-25T15:32:41.007Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.92
+    },
+    {
+      "name": "No",
+      "price": 0.08
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 904911
+  }
+}

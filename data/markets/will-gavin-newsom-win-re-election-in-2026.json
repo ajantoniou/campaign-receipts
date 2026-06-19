@@ -1,0 +1,25 @@
+{
+  "id": "will-gavin-newsom-win-re-election-in-2026",
+  "title": "Will Gavin Newsom win re-election in 2026?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.54,
+  "volume": 2138528,
+  "expirationDate": "2026-07-17T22:48:39.767Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.54
+    },
+    {
+      "name": "No",
+      "price": 0.46
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 372789
+  }
+}

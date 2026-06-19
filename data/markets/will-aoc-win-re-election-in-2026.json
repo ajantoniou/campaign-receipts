@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-win-re-election-in-2026",
+  "title": "Will AOC win re-election in 2026?",
+  "category": "POLICY",
+  "impliedProbability": 0.02,
+  "volume": 2838151,
+  "expirationDate": "2026-09-29T19:53:59.806Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.02
+    },
+    {
+      "name": "No",
+      "price": 0.98
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 104119
+  }
+}

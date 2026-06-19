@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-drop-out-before-the-general-election",
+  "title": "Does The Crypto Regulation Bill drop out before the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.09,
+  "volume": 4741593,
+  "expirationDate": "2026-09-17T00:06:31.251Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.09
+    },
+    {
+      "name": "No",
+      "price": 0.91
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 611557
+  }
+}

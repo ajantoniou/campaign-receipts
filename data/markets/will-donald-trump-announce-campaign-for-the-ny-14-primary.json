@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-announce-campaign-for-the-ny-14-primary",
+  "title": "Will Donald Trump announce campaign for the NY-14 primary?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.52,
+  "volume": 4735523,
+  "expirationDate": "2026-06-23T22:07:12.086Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.52
+    },
+    {
+      "name": "No",
+      "price": 0.48
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 909065
+  }
+}

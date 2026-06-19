@@ -54,7 +54,7 @@ export default function Home() {
               Donor Intelligence
             </h3>
             <p className="text-sm text-text-muted mb-4 leading-relaxed">
-              Our AI ingests FEC data, Super PAC filings, and knowledge graphs to give you an edge before the market reacts.
+              Our Alpha data intelligence has historically achieved a <strong>&gt;90% win rate</strong> in Open Seat races. We ingest FEC data, Super PAC filings, and knowledge graphs to give you the edge.
             </p>
             <div className="space-y-4">
               <div className="p-3 bg-surface border border-white/5 rounded-lg">

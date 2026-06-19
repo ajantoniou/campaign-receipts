@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-2026-2065",
+  "title": "Who will win 2026? 2065",
+  "category": "FEDERAL",
+  "impliedProbability": 0.51,
+  "volume": 147429,
+  "expirationDate": "2026-07-18T07:25:57.642Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.51
+    },
+    {
+      "name": "No",
+      "price": 0.49
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 976807
+  }
+}

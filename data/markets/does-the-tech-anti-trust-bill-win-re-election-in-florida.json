@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-win-re-election-in-florida",
+  "title": "Does The Tech Anti-Trust Bill win re-election in Florida?",
+  "category": "POLICY",
+  "impliedProbability": 0.6,
+  "volume": 3602377,
+  "expirationDate": "2026-07-22T07:19:03.855Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.6
+    },
+    {
+      "name": "No",
+      "price": 0.4
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 980641
+  }
+}

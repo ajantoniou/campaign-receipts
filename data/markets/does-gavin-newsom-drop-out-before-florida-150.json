@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-drop-out-before-florida-150",
+  "title": "Does Gavin Newsom drop out before Florida? 150",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.86,
+  "volume": 2343305,
+  "expirationDate": "2026-06-24T07:46:05.506Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.86
+    },
+    {
+      "name": "No",
+      "price": 0.14
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 474876
+  }
+}

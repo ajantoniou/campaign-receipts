@@ -1,0 +1,25 @@
+{
+  "id": "will-senator-cruz-announce-campaign-for-the-ny-14-primary",
+  "title": "Will Senator Cruz announce campaign for the NY-14 primary?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.18,
+  "volume": 131396,
+  "expirationDate": "2026-09-30T09:03:10.039Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.18
+    },
+    {
+      "name": "No",
+      "price": 0.82
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 591879
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-raise-more-than-5m-in-q3",
+  "title": "Will Representative Bowman raise more than $5M in Q3?",
+  "category": "POLICY",
+  "impliedProbability": 0.18,
+  "volume": 2495864,
+  "expirationDate": "2026-07-04T20:04:35.105Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.18
+    },
+    {
+      "name": "No",
+      "price": 0.82
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 857693
+  }
+}

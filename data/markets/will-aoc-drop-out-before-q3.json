@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-drop-out-before-q3",
+  "title": "Will AOC drop out before Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.65,
+  "volume": 3058812,
+  "expirationDate": "2026-09-30T05:29:19.529Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.65
+    },
+    {
+      "name": "No",
+      "price": 0.35
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 288056
+  }
+}

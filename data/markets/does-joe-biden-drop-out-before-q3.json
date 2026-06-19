@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-drop-out-before-q3",
+  "title": "Does Joe Biden drop out before Q3?",
+  "category": "POLICY",
+  "impliedProbability": 0.73,
+  "volume": 2525867,
+  "expirationDate": "2026-06-28T17:22:20.045Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.73
+    },
+    {
+      "name": "No",
+      "price": 0.27
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 678884
+  }
+}

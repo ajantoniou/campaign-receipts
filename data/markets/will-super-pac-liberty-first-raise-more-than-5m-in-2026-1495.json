@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-raise-more-than-5m-in-2026-1495",
+  "title": "Will Super PAC 'Liberty First' raise more than $5M in 2026? 1495",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.8,
+  "volume": 3826285,
+  "expirationDate": "2026-07-18T17:57:55.617Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.8
+    },
+    {
+      "name": "No",
+      "price": 0.2
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 567082
+  }
+}

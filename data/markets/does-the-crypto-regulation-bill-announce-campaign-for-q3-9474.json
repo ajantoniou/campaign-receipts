@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-announce-campaign-for-q3-9474",
+  "title": "Does The Crypto Regulation Bill announce campaign for Q3? 9474",
+  "category": "STATE",
+  "impliedProbability": 0.88,
+  "volume": 3794478,
+  "expirationDate": "2026-07-20T02:45:04.638Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.88
+    },
+    {
+      "name": "No",
+      "price": 0.12
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 897769
+  }
+}

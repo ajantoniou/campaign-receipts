@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-drop-out-before-the-ny-14-primary-9275",
+  "title": "Does The Tech Anti-Trust Bill drop out before the NY-14 primary? 9275",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.79,
+  "volume": 1949510,
+  "expirationDate": "2026-08-22T00:10:06.579Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.79
+    },
+    {
+      "name": "No",
+      "price": 0.21
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 692603
+  }
+}

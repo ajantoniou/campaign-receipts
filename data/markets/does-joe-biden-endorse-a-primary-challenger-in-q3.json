@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-endorse-a-primary-challenger-in-q3",
+  "title": "Does Joe Biden endorse a primary challenger in Q3?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.05,
+  "volume": 4395771,
+  "expirationDate": "2026-09-22T19:28:35.418Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.05
+    },
+    {
+      "name": "No",
+      "price": 0.95
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 768386
+  }
+}

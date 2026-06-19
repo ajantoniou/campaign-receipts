@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-drop-out-before-florida",
+  "title": "Will The Crypto Regulation Bill drop out before Florida?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.82,
+  "volume": 4920270,
+  "expirationDate": "2026-10-09T01:45:07.411Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.82
+    },
+    {
+      "name": "No",
+      "price": 0.18
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 695116
+  }
+}

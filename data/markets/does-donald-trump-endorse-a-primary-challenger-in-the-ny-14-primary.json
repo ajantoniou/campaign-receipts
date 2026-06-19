@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-endorse-a-primary-challenger-in-the-ny-14-primary",
+  "title": "Does Donald Trump endorse a primary challenger in the NY-14 primary?",
+  "category": "POLICY",
+  "impliedProbability": 0.8,
+  "volume": 3581447,
+  "expirationDate": "2026-10-05T04:41:00.156Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.8
+    },
+    {
+      "name": "No",
+      "price": 0.2
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 714212
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-endorse-a-primary-challenger-in-q3",
+  "title": "Will Donald Trump endorse a primary challenger in Q3?",
+  "category": "POLICY",
+  "impliedProbability": 0.96,
+  "volume": 1695528,
+  "expirationDate": "2026-07-30T03:45:17.844Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.96
+    },
+    {
+      "name": "No",
+      "price": 0.04
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 585272
+  }
+}

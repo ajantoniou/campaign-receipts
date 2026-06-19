@@ -1,0 +1,25 @@
+{
+  "id": "does-aoc-drop-out-before-the-general-election",
+  "title": "Does AOC drop out before the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.88,
+  "volume": 744086,
+  "expirationDate": "2026-10-08T02:28:32.170Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.88
+    },
+    {
+      "name": "No",
+      "price": 0.12
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 331225
+  }
+}

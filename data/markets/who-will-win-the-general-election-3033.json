@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-general-election-3033",
+  "title": "Who will win the general election? 3033",
+  "category": "POLICY",
+  "impliedProbability": 0.05,
+  "volume": 4403142,
+  "expirationDate": "2026-07-17T22:08:57.644Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.05
+    },
+    {
+      "name": "No",
+      "price": 0.95
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 692257
+  }
+}

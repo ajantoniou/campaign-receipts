@@ -1,0 +1,25 @@
+{
+  "id": "will-joe-biden-raise-more-than-5m-in-the-general-election",
+  "title": "Will Joe Biden raise more than $5M in the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.19,
+  "volume": 1094711,
+  "expirationDate": "2026-10-08T09:49:52.423Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.19
+    },
+    {
+      "name": "No",
+      "price": 0.81
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 478977
+  }
+}

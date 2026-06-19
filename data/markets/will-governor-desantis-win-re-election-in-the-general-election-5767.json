@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-win-re-election-in-the-general-election-5767",
+  "title": "Will Governor DeSantis win re-election in the general election? 5767",
+  "category": "STATE",
+  "impliedProbability": 0.33,
+  "volume": 1456625,
+  "expirationDate": "2026-07-10T20:28:51.518Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.33
+    },
+    {
+      "name": "No",
+      "price": 0.67
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 408131
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-raise-more-than-5m-in-florida",
+  "title": "Does Representative Bowman raise more than $5M in Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.17,
+  "volume": 85703,
+  "expirationDate": "2026-09-11T19:34:20.826Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.17
+    },
+    {
+      "name": "No",
+      "price": 0.83
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 546757
+  }
+}

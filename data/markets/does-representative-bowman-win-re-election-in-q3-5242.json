@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-win-re-election-in-q3-5242",
+  "title": "Does Representative Bowman win re-election in Q3? 5242",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.99,
+  "volume": 2987658,
+  "expirationDate": "2026-09-05T11:52:17.188Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.99
+    },
+    {
+      "name": "No",
+      "price": 0.01
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 741378
+  }
+}

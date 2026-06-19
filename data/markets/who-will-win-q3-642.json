@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-q3-642",
+  "title": "Who will win Q3? 642",
+  "category": "FEDERAL",
+  "impliedProbability": 0.68,
+  "volume": 1271932,
+  "expirationDate": "2026-07-07T01:44:35.838Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.68
+    },
+    {
+      "name": "No",
+      "price": 0.32
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 600884
+  }
+}

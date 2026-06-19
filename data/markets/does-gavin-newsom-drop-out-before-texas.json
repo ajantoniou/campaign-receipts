@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-drop-out-before-texas",
+  "title": "Does Gavin Newsom drop out before Texas?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.31,
+  "volume": 178528,
+  "expirationDate": "2026-09-02T23:36:10.533Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.31
+    },
+    {
+      "name": "No",
+      "price": 0.69
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 97815
+  }
+}

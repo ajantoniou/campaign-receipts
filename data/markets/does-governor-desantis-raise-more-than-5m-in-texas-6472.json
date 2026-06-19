@@ -1,0 +1,25 @@
+{
+  "id": "does-governor-desantis-raise-more-than-5m-in-texas-6472",
+  "title": "Does Governor DeSantis raise more than $5M in Texas? 6472",
+  "category": "STATE",
+  "impliedProbability": 0.31,
+  "volume": 2469801,
+  "expirationDate": "2026-10-10T02:39:24.696Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.31
+    },
+    {
+      "name": "No",
+      "price": 0.69
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 441022
+  }
+}

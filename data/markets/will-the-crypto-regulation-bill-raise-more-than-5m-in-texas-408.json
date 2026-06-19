@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-raise-more-than-5m-in-texas-408",
+  "title": "Will The Crypto Regulation Bill raise more than $5M in Texas? 408",
+  "category": "STATE",
+  "impliedProbability": 0.93,
+  "volume": 3082241,
+  "expirationDate": "2026-09-28T07:09:50.679Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.93
+    },
+    {
+      "name": "No",
+      "price": 0.07
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 640368
+  }
+}

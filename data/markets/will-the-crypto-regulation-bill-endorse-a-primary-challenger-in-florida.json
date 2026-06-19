@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-endorse-a-primary-challenger-in-florida",
+  "title": "Will The Crypto Regulation Bill endorse a primary challenger in Florida?",
+  "category": "POLICY",
+  "impliedProbability": 0.21,
+  "volume": 4134436,
+  "expirationDate": "2026-06-24T22:48:01.438Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.21
+    },
+    {
+      "name": "No",
+      "price": 0.79
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 386944
+  }
+}

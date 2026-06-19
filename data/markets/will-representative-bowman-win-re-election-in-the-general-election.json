@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-win-re-election-in-the-general-election",
+  "title": "Will Representative Bowman win re-election in the general election?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.08,
+  "volume": 1381775,
+  "expirationDate": "2026-07-27T09:26:03.228Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.08
+    },
+    {
+      "name": "No",
+      "price": 0.92
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 992843
+  }
+}

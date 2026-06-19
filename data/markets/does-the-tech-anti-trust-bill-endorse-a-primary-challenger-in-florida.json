@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-endorse-a-primary-challenger-in-florida",
+  "title": "Does The Tech Anti-Trust Bill endorse a primary challenger in Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.87,
+  "volume": 1552669,
+  "expirationDate": "2026-08-13T07:40:34.999Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.87
+    },
+    {
+      "name": "No",
+      "price": 0.13
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 649962
+  }
+}

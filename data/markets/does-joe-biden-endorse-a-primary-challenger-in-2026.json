@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-endorse-a-primary-challenger-in-2026",
+  "title": "Does Joe Biden endorse a primary challenger in 2026?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.67,
+  "volume": 2562260,
+  "expirationDate": "2026-10-04T17:11:07.975Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.67
+    },
+    {
+      "name": "No",
+      "price": 0.33
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 566344
+  }
+}

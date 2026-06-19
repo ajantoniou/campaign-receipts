@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-be-the-top-donor-in-florida-1959",
+  "title": "Does Joe Biden be the top donor in Florida? 1959",
+  "category": "FEDERAL",
+  "impliedProbability": 0.5,
+  "volume": 4400979,
+  "expirationDate": "2026-08-02T00:55:56.707Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.5
+    },
+    {
+      "name": "No",
+      "price": 0.5
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 937692
+  }
+}

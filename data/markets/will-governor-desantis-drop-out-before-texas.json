@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-drop-out-before-texas",
+  "title": "Will Governor DeSantis drop out before Texas?",
+  "category": "STATE",
+  "impliedProbability": 0.79,
+  "volume": 2884201,
+  "expirationDate": "2026-08-15T10:12:50.405Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.79
+    },
+    {
+      "name": "No",
+      "price": 0.21
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 848766
+  }
+}

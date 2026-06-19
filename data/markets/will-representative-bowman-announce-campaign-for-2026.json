@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-announce-campaign-for-2026",
+  "title": "Will Representative Bowman announce campaign for 2026?",
+  "category": "POLICY",
+  "impliedProbability": 0.21,
+  "volume": 1138039,
+  "expirationDate": "2026-07-27T09:59:17.656Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.21
+    },
+    {
+      "name": "No",
+      "price": 0.79
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 909206
+  }
+}

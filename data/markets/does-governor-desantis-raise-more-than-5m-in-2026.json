@@ -1,0 +1,25 @@
+{
+  "id": "does-governor-desantis-raise-more-than-5m-in-2026",
+  "title": "Does Governor DeSantis raise more than $5M in 2026?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.44,
+  "volume": 3554235,
+  "expirationDate": "2026-08-13T23:13:03.587Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.44
+    },
+    {
+      "name": "No",
+      "price": 0.56
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 934755
+  }
+}

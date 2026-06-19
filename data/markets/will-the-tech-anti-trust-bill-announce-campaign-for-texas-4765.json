@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-announce-campaign-for-texas-4765",
+  "title": "Will The Tech Anti-Trust Bill announce campaign for Texas? 4765",
+  "category": "FEDERAL",
+  "impliedProbability": 0.14,
+  "volume": 2285053,
+  "expirationDate": "2026-08-12T03:17:05.225Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.14
+    },
+    {
+      "name": "No",
+      "price": 0.86
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 252342
+  }
+}

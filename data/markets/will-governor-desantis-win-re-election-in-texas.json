@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-win-re-election-in-texas",
+  "title": "Will Governor DeSantis win re-election in Texas?",
+  "category": "STATE",
+  "impliedProbability": 0.62,
+  "volume": 1809130,
+  "expirationDate": "2026-07-10T09:03:20.861Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.62
+    },
+    {
+      "name": "No",
+      "price": 0.38
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 888136
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-win-re-election-in-the-ny-14-primary-1546",
+  "title": "Does Donald Trump win re-election in the NY-14 primary? 1546",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.24,
+  "volume": 3995897,
+  "expirationDate": "2026-07-12T02:01:32.568Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.24
+    },
+    {
+      "name": "No",
+      "price": 0.76
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 370010
+  }
+}

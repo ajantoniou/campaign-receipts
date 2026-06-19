@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-drop-out-before-the-ny-14-primary",
+  "title": "Does Gavin Newsom drop out before the NY-14 primary?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.25,
+  "volume": 1475656,
+  "expirationDate": "2026-09-06T20:53:24.388Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.25
+    },
+    {
+      "name": "No",
+      "price": 0.75
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 4126
+  }
+}

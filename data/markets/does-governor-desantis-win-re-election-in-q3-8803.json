@@ -1,0 +1,25 @@
+{
+  "id": "does-governor-desantis-win-re-election-in-q3-8803",
+  "title": "Does Governor DeSantis win re-election in Q3? 8803",
+  "category": "FEDERAL",
+  "impliedProbability": 0.2,
+  "volume": 4744628,
+  "expirationDate": "2026-06-27T01:32:10.901Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.2
+    },
+    {
+      "name": "No",
+      "price": 0.8
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 889441
+  }
+}

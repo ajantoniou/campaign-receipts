@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-endorse-a-primary-challenger-in-q3-566",
+  "title": "Does The Tech Anti-Trust Bill endorse a primary challenger in Q3? 566",
+  "category": "STATE",
+  "impliedProbability": 0.33,
+  "volume": 32243,
+  "expirationDate": "2026-07-14T08:04:26.054Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.33
+    },
+    {
+      "name": "No",
+      "price": 0.67
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 96166
+  }
+}

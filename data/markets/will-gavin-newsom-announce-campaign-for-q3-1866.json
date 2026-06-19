@@ -1,0 +1,25 @@
+{
+  "id": "will-gavin-newsom-announce-campaign-for-q3-1866",
+  "title": "Will Gavin Newsom announce campaign for Q3? 1866",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.99,
+  "volume": 4168623,
+  "expirationDate": "2026-10-09T21:51:26.703Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.99
+    },
+    {
+      "name": "No",
+      "price": 0.01
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 139357
+  }
+}

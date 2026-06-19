@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-raise-more-than-5m-in-the-ny-14-primary",
+  "title": "Does Gavin Newsom raise more than $5M in the NY-14 primary?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.33,
+  "volume": 1266253,
+  "expirationDate": "2026-09-30T11:35:38.702Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.33
+    },
+    {
+      "name": "No",
+      "price": 0.67
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 570846
+  }
+}

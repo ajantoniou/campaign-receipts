@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-be-the-top-donor-in-florida",
+  "title": "Will Donald Trump be the top donor in Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.28,
+  "volume": 4433519,
+  "expirationDate": "2026-06-22T08:13:50.025Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.28
+    },
+    {
+      "name": "No",
+      "price": 0.72
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 771757
+  }
+}

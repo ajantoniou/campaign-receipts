@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-be-the-top-donor-in-the-ny-14-primary",
+  "title": "Does Representative Bowman be the top donor in the NY-14 primary?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.05,
+  "volume": 947940,
+  "expirationDate": "2026-08-02T05:16:53.747Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.05
+    },
+    {
+      "name": "No",
+      "price": 0.95
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 171504
+  }
+}

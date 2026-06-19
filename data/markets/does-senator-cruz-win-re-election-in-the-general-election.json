@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-win-re-election-in-the-general-election",
+  "title": "Does Senator Cruz win re-election in the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.23,
+  "volume": 3777616,
+  "expirationDate": "2026-09-12T20:28:21.083Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.23
+    },
+    {
+      "name": "No",
+      "price": 0.77
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 521556
+  }
+}

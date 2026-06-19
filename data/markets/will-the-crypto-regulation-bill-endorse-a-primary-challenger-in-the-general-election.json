@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-endorse-a-primary-challenger-in-the-general-election",
+  "title": "Will The Crypto Regulation Bill endorse a primary challenger in the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.09,
+  "volume": 3315986,
+  "expirationDate": "2026-10-10T12:16:42.405Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.09
+    },
+    {
+      "name": "No",
+      "price": 0.91
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 495678
+  }
+}

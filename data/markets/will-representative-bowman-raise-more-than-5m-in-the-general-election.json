@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-raise-more-than-5m-in-the-general-election",
+  "title": "Will Representative Bowman raise more than $5M in the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.81,
+  "volume": 3492457,
+  "expirationDate": "2026-08-08T15:57:11.863Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.81
+    },
+    {
+      "name": "No",
+      "price": 0.19
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 133122
+  }
+}

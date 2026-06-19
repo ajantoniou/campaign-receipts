@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-endorse-a-primary-challenger-in-q3-4245",
+  "title": "Does The Crypto Regulation Bill endorse a primary challenger in Q3? 4245",
+  "category": "STATE",
+  "impliedProbability": 0.04,
+  "volume": 3629099,
+  "expirationDate": "2026-08-18T14:42:07.564Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.04
+    },
+    {
+      "name": "No",
+      "price": 0.96
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 269520
+  }
+}

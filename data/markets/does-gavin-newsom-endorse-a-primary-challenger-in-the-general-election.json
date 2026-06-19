@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-endorse-a-primary-challenger-in-the-general-election",
+  "title": "Does Gavin Newsom endorse a primary challenger in the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.83,
+  "volume": 895277,
+  "expirationDate": "2026-09-22T16:43:57.234Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.83
+    },
+    {
+      "name": "No",
+      "price": 0.17
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 746469
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-drop-out-before-the-general-election",
+  "title": "Will The Tech Anti-Trust Bill drop out before the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.42,
+  "volume": 2929766,
+  "expirationDate": "2026-06-29T19:19:38.240Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.42
+    },
+    {
+      "name": "No",
+      "price": 0.58
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 245598
+  }
+}

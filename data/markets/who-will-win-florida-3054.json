@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-florida-3054",
+  "title": "Who will win Florida? 3054",
+  "category": "FEDERAL",
+  "impliedProbability": 0.07,
+  "volume": 4277565,
+  "expirationDate": "2026-08-25T00:04:40.743Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.07
+    },
+    {
+      "name": "No",
+      "price": 0.93
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 222517
+  }
+}

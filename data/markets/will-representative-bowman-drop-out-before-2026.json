@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-drop-out-before-2026",
+  "title": "Will Representative Bowman drop out before 2026?",
+  "category": "STATE",
+  "impliedProbability": 0.33,
+  "volume": 2752065,
+  "expirationDate": "2026-06-19T21:56:57.049Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.33
+    },
+    {
+      "name": "No",
+      "price": 0.67
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 545181
+  }
+}

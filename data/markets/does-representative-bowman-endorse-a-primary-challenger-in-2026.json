@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-endorse-a-primary-challenger-in-2026",
+  "title": "Does Representative Bowman endorse a primary challenger in 2026?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.99,
+  "volume": 1863374,
+  "expirationDate": "2026-08-05T10:32:47.543Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.99
+    },
+    {
+      "name": "No",
+      "price": 0.01
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 535536
+  }
+}

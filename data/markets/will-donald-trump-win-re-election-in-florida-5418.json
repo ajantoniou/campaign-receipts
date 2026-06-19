@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-win-re-election-in-florida-5418",
+  "title": "Will Donald Trump win re-election in Florida? 5418",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.9,
+  "volume": 1466321,
+  "expirationDate": "2026-09-05T22:27:35.803Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.9
+    },
+    {
+      "name": "No",
+      "price": 0.1
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 819587
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-drop-out-before-the-general-election",
+  "title": "Does Gavin Newsom drop out before the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.92,
+  "volume": 4766000,
+  "expirationDate": "2026-06-26T10:26:00.331Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.92
+    },
+    {
+      "name": "No",
+      "price": 0.08
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 396920
+  }
+}

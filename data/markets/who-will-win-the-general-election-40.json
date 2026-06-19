@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-general-election-40",
+  "title": "Who will win the general election? 40",
+  "category": "STATE",
+  "impliedProbability": 0.93,
+  "volume": 797821,
+  "expirationDate": "2026-06-28T06:34:54.727Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.93
+    },
+    {
+      "name": "No",
+      "price": 0.07
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 150193
+  }
+}

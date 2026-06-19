@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-texas-3937",
+  "title": "Who will win Texas? 3937",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.2,
+  "volume": 1864985,
+  "expirationDate": "2026-08-03T21:34:02.759Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.2
+    },
+    {
+      "name": "No",
+      "price": 0.8
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 409510
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-governor-desantis-raise-more-than-5m-in-florida-248",
+  "title": "Does Governor DeSantis raise more than $5M in Florida? 248",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.31,
+  "volume": 3384326,
+  "expirationDate": "2026-09-30T13:15:46.925Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.31
+    },
+    {
+      "name": "No",
+      "price": 0.69
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 977238
+  }
+}

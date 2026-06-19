@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-drop-out-before-the-ny-14-primary",
+  "title": "Will Donald Trump drop out before the NY-14 primary?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.14,
+  "volume": 1439304,
+  "expirationDate": "2026-08-29T11:30:03.207Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.14
+    },
+    {
+      "name": "No",
+      "price": 0.86
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 980412
+  }
+}

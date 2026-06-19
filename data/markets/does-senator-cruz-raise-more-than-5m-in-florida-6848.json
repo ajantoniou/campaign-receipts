@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-raise-more-than-5m-in-florida-6848",
+  "title": "Does Senator Cruz raise more than $5M in Florida? 6848",
+  "category": "FEDERAL",
+  "impliedProbability": 0.48,
+  "volume": 601475,
+  "expirationDate": "2026-09-06T02:28:08.106Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.48
+    },
+    {
+      "name": "No",
+      "price": 0.52
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 12199
+  }
+}

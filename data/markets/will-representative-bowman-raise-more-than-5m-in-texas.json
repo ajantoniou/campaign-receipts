@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-raise-more-than-5m-in-texas",
+  "title": "Will Representative Bowman raise more than $5M in Texas?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.05,
+  "volume": 3732198,
+  "expirationDate": "2026-09-20T00:23:15.670Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.05
+    },
+    {
+      "name": "No",
+      "price": 0.95
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 192144
+  }
+}

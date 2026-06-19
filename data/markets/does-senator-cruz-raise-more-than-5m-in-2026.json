@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-raise-more-than-5m-in-2026",
+  "title": "Does Senator Cruz raise more than $5M in 2026?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.74,
+  "volume": 1941589,
+  "expirationDate": "2026-07-17T22:35:45.003Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.74
+    },
+    {
+      "name": "No",
+      "price": 0.26
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 354905
+  }
+}

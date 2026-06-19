@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-raise-more-than-5m-in-florida",
+  "title": "Does Donald Trump raise more than $5M in Florida?",
+  "category": "STATE",
+  "impliedProbability": 0.64,
+  "volume": 1049796,
+  "expirationDate": "2026-06-28T16:09:33.762Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.64
+    },
+    {
+      "name": "No",
+      "price": 0.36
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 830891
+  }
+}

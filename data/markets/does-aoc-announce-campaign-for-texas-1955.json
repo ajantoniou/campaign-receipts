@@ -1,0 +1,25 @@
+{
+  "id": "does-aoc-announce-campaign-for-texas-1955",
+  "title": "Does AOC announce campaign for Texas? 1955",
+  "category": "POLICY",
+  "impliedProbability": 0.87,
+  "volume": 2682741,
+  "expirationDate": "2026-10-11T01:20:01.692Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.87
+    },
+    {
+      "name": "No",
+      "price": 0.13
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 146202
+  }
+}

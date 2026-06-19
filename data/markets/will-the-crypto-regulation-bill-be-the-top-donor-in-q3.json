@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-be-the-top-donor-in-q3",
+  "title": "Will The Crypto Regulation Bill be the top donor in Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.7,
+  "volume": 39173,
+  "expirationDate": "2026-07-16T12:52:50.475Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.7
+    },
+    {
+      "name": "No",
+      "price": 0.3
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 189633
+  }
+}

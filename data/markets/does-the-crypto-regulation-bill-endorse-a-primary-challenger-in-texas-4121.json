@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-endorse-a-primary-challenger-in-texas-4121",
+  "title": "Does The Crypto Regulation Bill endorse a primary challenger in Texas? 4121",
+  "category": "FEDERAL",
+  "impliedProbability": 0.08,
+  "volume": 2168488,
+  "expirationDate": "2026-09-25T01:01:07.996Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.08
+    },
+    {
+      "name": "No",
+      "price": 0.92
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 451023
+  }
+}

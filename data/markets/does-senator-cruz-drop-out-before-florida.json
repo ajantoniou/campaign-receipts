@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-drop-out-before-florida",
+  "title": "Does Senator Cruz drop out before Florida?",
+  "category": "STATE",
+  "impliedProbability": 0.49,
+  "volume": 4064693,
+  "expirationDate": "2026-09-21T03:32:18.608Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.49
+    },
+    {
+      "name": "No",
+      "price": 0.51
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 912948
+  }
+}

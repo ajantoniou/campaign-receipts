@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-announce-campaign-for-2026-3893",
+  "title": "Does Senator Cruz announce campaign for 2026? 3893",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.92,
+  "volume": 1157901,
+  "expirationDate": "2026-06-20T08:32:59.576Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.92
+    },
+    {
+      "name": "No",
+      "price": 0.08
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 820969
+  }
+}

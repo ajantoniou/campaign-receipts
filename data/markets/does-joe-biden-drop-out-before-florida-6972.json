@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-drop-out-before-florida-6972",
+  "title": "Does Joe Biden drop out before Florida? 6972",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.55,
+  "volume": 233083,
+  "expirationDate": "2026-07-05T17:49:22.312Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.55
+    },
+    {
+      "name": "No",
+      "price": 0.45
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 538631
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-be-the-top-donor-in-the-general-election",
+  "title": "Will AOC be the top donor in the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.46,
+  "volume": 2110760,
+  "expirationDate": "2026-08-07T02:24:48.065Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.46
+    },
+    {
+      "name": "No",
+      "price": 0.54
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 309159
+  }
+}

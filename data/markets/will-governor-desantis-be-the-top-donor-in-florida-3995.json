@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-be-the-top-donor-in-florida-3995",
+  "title": "Will Governor DeSantis be the top donor in Florida? 3995",
+  "category": "POLICY",
+  "impliedProbability": 0.89,
+  "volume": 2236311,
+  "expirationDate": "2026-06-23T22:33:31.258Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.89
+    },
+    {
+      "name": "No",
+      "price": 0.11
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 95114
+  }
+}

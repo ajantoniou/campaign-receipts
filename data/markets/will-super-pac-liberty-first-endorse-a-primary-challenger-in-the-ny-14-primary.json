@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-endorse-a-primary-challenger-in-the-ny-14-primary",
+  "title": "Will Super PAC 'Liberty First' endorse a primary challenger in the NY-14 primary?",
+  "category": "STATE",
+  "impliedProbability": 0.04,
+  "volume": 3694506,
+  "expirationDate": "2026-07-01T08:54:22.983Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.04
+    },
+    {
+      "name": "No",
+      "price": 0.96
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 721075
+  }
+}

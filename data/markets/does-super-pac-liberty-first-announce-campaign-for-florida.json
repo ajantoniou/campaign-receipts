@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-announce-campaign-for-florida",
+  "title": "Does Super PAC 'Liberty First' announce campaign for Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.32,
+  "volume": 554313,
+  "expirationDate": "2026-10-05T02:13:46.834Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.32
+    },
+    {
+      "name": "No",
+      "price": 0.68
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 854977
+  }
+}

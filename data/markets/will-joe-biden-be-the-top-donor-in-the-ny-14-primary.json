@@ -1,0 +1,25 @@
+{
+  "id": "will-joe-biden-be-the-top-donor-in-the-ny-14-primary",
+  "title": "Will Joe Biden be the top donor in the NY-14 primary?",
+  "category": "STATE",
+  "impliedProbability": 0.36,
+  "volume": 1641233,
+  "expirationDate": "2026-09-27T20:11:06.446Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.36
+    },
+    {
+      "name": "No",
+      "price": 0.64
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 649162
+  }
+}

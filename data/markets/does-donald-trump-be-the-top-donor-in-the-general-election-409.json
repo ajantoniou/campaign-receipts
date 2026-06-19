@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-be-the-top-donor-in-the-general-election-409",
+  "title": "Does Donald Trump be the top donor in the general election? 409",
+  "category": "POLICY",
+  "impliedProbability": 0.75,
+  "volume": 2522881,
+  "expirationDate": "2026-07-13T01:24:44.072Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.75
+    },
+    {
+      "name": "No",
+      "price": 0.25
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 629355
+  }
+}

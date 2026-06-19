@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-be-the-top-donor-in-texas",
+  "title": "Does The Tech Anti-Trust Bill be the top donor in Texas?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.84,
+  "volume": 4301938,
+  "expirationDate": "2026-10-03T18:12:50.579Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.84
+    },
+    {
+      "name": "No",
+      "price": 0.16
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 25832
+  }
+}

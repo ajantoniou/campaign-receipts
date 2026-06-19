@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-drop-out-before-q3",
+  "title": "Does Representative Bowman drop out before Q3?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.56,
+  "volume": 1304452,
+  "expirationDate": "2026-07-04T10:25:22.836Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.56
+    },
+    {
+      "name": "No",
+      "price": 0.44
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 323387
+  }
+}

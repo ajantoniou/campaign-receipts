@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-be-the-top-donor-in-the-general-election",
+  "title": "Does The Tech Anti-Trust Bill be the top donor in the general election?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.22,
+  "volume": 1033955,
+  "expirationDate": "2026-06-22T08:00:10.021Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.22
+    },
+    {
+      "name": "No",
+      "price": 0.78
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 660534
+  }
+}

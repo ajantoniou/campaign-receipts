@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-announce-campaign-for-the-ny-14-primary",
+  "title": "Does Super PAC 'Liberty First' announce campaign for the NY-14 primary?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.45,
+  "volume": 61135,
+  "expirationDate": "2026-06-21T04:22:40.915Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.45
+    },
+    {
+      "name": "No",
+      "price": 0.55
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 865047
+  }
+}

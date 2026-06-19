@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-win-re-election-in-the-ny-14-primary",
+  "title": "Will Super PAC 'Liberty First' win re-election in the NY-14 primary?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.56,
+  "volume": 4396530,
+  "expirationDate": "2026-10-05T01:40:24.131Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.56
+    },
+    {
+      "name": "No",
+      "price": 0.44
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 929777
+  }
+}

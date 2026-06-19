@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-raise-more-than-5m-in-q3",
+  "title": "Does Super PAC 'Liberty First' raise more than $5M in Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.32,
+  "volume": 4459547,
+  "expirationDate": "2026-09-14T15:22:47.697Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.32
+    },
+    {
+      "name": "No",
+      "price": 0.68
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 670719
+  }
+}

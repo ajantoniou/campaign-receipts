@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-win-re-election-in-2026",
+  "title": "Will The Tech Anti-Trust Bill win re-election in 2026?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.18,
+  "volume": 1645765,
+  "expirationDate": "2026-10-04T00:50:33.254Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.18
+    },
+    {
+      "name": "No",
+      "price": 0.82
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 840541
+  }
+}

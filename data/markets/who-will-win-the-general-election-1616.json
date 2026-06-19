@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-general-election-1616",
+  "title": "Who will win the general election? 1616",
+  "category": "STATE",
+  "impliedProbability": 0.06,
+  "volume": 4238003,
+  "expirationDate": "2026-09-30T00:55:37.451Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.06
+    },
+    {
+      "name": "No",
+      "price": 0.94
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 737934
+  }
+}

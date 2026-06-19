@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-be-the-top-donor-in-the-ny-14-primary",
+  "title": "Will The Tech Anti-Trust Bill be the top donor in the NY-14 primary?",
+  "category": "POLICY",
+  "impliedProbability": 0.72,
+  "volume": 3679594,
+  "expirationDate": "2026-07-26T06:36:02.629Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.72
+    },
+    {
+      "name": "No",
+      "price": 0.28
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 539777
+  }
+}

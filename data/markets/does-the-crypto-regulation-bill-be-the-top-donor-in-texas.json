@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-be-the-top-donor-in-texas",
+  "title": "Does The Crypto Regulation Bill be the top donor in Texas?",
+  "category": "STATE",
+  "impliedProbability": 0.69,
+  "volume": 4982752,
+  "expirationDate": "2026-07-15T05:13:33.038Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.69
+    },
+    {
+      "name": "No",
+      "price": 0.31
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 106330
+  }
+}

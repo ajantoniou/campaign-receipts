@@ -1,0 +1,25 @@
+{
+  "id": "will-senator-cruz-be-the-top-donor-in-florida",
+  "title": "Will Senator Cruz be the top donor in Florida?",
+  "category": "STATE",
+  "impliedProbability": 0.72,
+  "volume": 4832063,
+  "expirationDate": "2026-07-03T10:03:50.258Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.72
+    },
+    {
+      "name": "No",
+      "price": 0.28
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 101707
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-texas-7086",
+  "title": "Who will win Texas? 7086",
+  "category": "STATE",
+  "impliedProbability": 0.92,
+  "volume": 765172,
+  "expirationDate": "2026-06-27T11:17:34.214Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.92
+    },
+    {
+      "name": "No",
+      "price": 0.08
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 94010
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-raise-more-than-5m-in-the-ny-14-primary-7023",
+  "title": "Does Representative Bowman raise more than $5M in the NY-14 primary? 7023",
+  "category": "POLICY",
+  "impliedProbability": 0.02,
+  "volume": 232089,
+  "expirationDate": "2026-06-24T22:53:16.413Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.02
+    },
+    {
+      "name": "No",
+      "price": 0.98
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 310836
+  }
+}

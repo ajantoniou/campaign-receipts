@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-ny-14-primary-2876",
+  "title": "Who will win the NY-14 primary? 2876",
+  "category": "STATE",
+  "impliedProbability": 0.94,
+  "volume": 3222114,
+  "expirationDate": "2026-08-15T22:28:50.535Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.94
+    },
+    {
+      "name": "No",
+      "price": 0.06
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 263893
+  }
+}

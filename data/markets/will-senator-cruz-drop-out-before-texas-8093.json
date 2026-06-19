@@ -1,0 +1,25 @@
+{
+  "id": "will-senator-cruz-drop-out-before-texas-8093",
+  "title": "Will Senator Cruz drop out before Texas? 8093",
+  "category": "POLICY",
+  "impliedProbability": 0.98,
+  "volume": 790886,
+  "expirationDate": "2026-08-13T08:26:01.248Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.98
+    },
+    {
+      "name": "No",
+      "price": 0.02
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 886458
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-drop-out-before-2026",
+  "title": "Will Governor DeSantis drop out before 2026?",
+  "category": "POLICY",
+  "impliedProbability": 0.68,
+  "volume": 2212551,
+  "expirationDate": "2026-06-20T05:40:20.256Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.68
+    },
+    {
+      "name": "No",
+      "price": 0.32
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 299409
+  }
+}

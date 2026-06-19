@@ -1,0 +1,25 @@
+{
+  "id": "will-governor-desantis-win-re-election-in-florida-6195",
+  "title": "Will Governor DeSantis win re-election in Florida? 6195",
+  "category": "STATE",
+  "impliedProbability": 0.28,
+  "volume": 3698985,
+  "expirationDate": "2026-07-01T05:11:14.667Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.28
+    },
+    {
+      "name": "No",
+      "price": 0.72
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 126619
+  }
+}

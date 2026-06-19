@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-announce-campaign-for-q3",
+  "title": "Does Donald Trump announce campaign for Q3?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.81,
+  "volume": 809022,
+  "expirationDate": "2026-09-11T10:57:48.834Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.81
+    },
+    {
+      "name": "No",
+      "price": 0.19
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 888996
+  }
+}

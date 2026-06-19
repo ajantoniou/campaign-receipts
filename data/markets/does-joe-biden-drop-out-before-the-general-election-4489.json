@@ -1,0 +1,25 @@
+{
+  "id": "does-joe-biden-drop-out-before-the-general-election-4489",
+  "title": "Does Joe Biden drop out before the general election? 4489",
+  "category": "FEDERAL",
+  "impliedProbability": 0.3,
+  "volume": 1873346,
+  "expirationDate": "2026-08-08T06:26:54.679Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.3
+    },
+    {
+      "name": "No",
+      "price": 0.7
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 817182
+  }
+}

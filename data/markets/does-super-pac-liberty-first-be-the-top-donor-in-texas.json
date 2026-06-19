@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-be-the-top-donor-in-texas",
+  "title": "Does Super PAC 'Liberty First' be the top donor in Texas?",
+  "category": "STATE",
+  "impliedProbability": 0.44,
+  "volume": 2805845,
+  "expirationDate": "2026-06-28T13:37:11.992Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.44
+    },
+    {
+      "name": "No",
+      "price": 0.56
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 246979
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-gavin-newsom-raise-more-than-5m-in-the-general-election",
+  "title": "Will Gavin Newsom raise more than $5M in the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.96,
+  "volume": 691300,
+  "expirationDate": "2026-06-28T00:29:02.703Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.96
+    },
+    {
+      "name": "No",
+      "price": 0.04
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 165661
+  }
+}

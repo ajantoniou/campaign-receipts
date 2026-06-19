@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-announce-campaign-for-the-general-election",
+  "title": "Will The Crypto Regulation Bill announce campaign for the general election?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.72,
+  "volume": 247907,
+  "expirationDate": "2026-06-22T19:22:58.740Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.72
+    },
+    {
+      "name": "No",
+      "price": 0.28
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 63006
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-raise-more-than-5m-in-2026",
+  "title": "Will The Tech Anti-Trust Bill raise more than $5M in 2026?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.36,
+  "volume": 1022276,
+  "expirationDate": "2026-06-20T02:52:50.945Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.36
+    },
+    {
+      "name": "No",
+      "price": 0.64
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 694135
+  }
+}

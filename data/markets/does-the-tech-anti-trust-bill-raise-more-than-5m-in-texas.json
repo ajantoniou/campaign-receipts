@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-raise-more-than-5m-in-texas",
+  "title": "Does The Tech Anti-Trust Bill raise more than $5M in Texas?",
+  "category": "POLICY",
+  "impliedProbability": 0.34,
+  "volume": 821914,
+  "expirationDate": "2026-06-28T17:37:30.255Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.34
+    },
+    {
+      "name": "No",
+      "price": 0.66
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 173671
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-representative-bowman-endorse-a-primary-challenger-in-the-general-election",
+  "title": "Will Representative Bowman endorse a primary challenger in the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.33,
+  "volume": 2228708,
+  "expirationDate": "2026-09-17T05:56:22.227Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.33
+    },
+    {
+      "name": "No",
+      "price": 0.67
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 920786
+  }
+}

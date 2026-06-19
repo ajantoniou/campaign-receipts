@@ -1,0 +1,25 @@
+{
+  "id": "does-governor-desantis-announce-campaign-for-the-ny-14-primary-1706",
+  "title": "Does Governor DeSantis announce campaign for the NY-14 primary? 1706",
+  "category": "FEDERAL",
+  "impliedProbability": 0.61,
+  "volume": 3614406,
+  "expirationDate": "2026-07-24T16:27:26.200Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.61
+    },
+    {
+      "name": "No",
+      "price": 0.39
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 328432
+  }
+}

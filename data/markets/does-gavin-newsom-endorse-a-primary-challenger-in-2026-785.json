@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-endorse-a-primary-challenger-in-2026-785",
+  "title": "Does Gavin Newsom endorse a primary challenger in 2026? 785",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.88,
+  "volume": 1230778,
+  "expirationDate": "2026-07-24T12:20:11.539Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.88
+    },
+    {
+      "name": "No",
+      "price": 0.12
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 833068
+  }
+}

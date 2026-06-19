@@ -1,0 +1,25 @@
+{
+  "id": "does-aoc-win-re-election-in-florida",
+  "title": "Does AOC win re-election in Florida?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.19,
+  "volume": 654084,
+  "expirationDate": "2026-06-22T23:25:24.944Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.19
+    },
+    {
+      "name": "No",
+      "price": 0.81
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 997771
+  }
+}

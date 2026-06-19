@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-drop-out-before-the-general-election",
+  "title": "Does Representative Bowman drop out before the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.5,
+  "volume": 2064773,
+  "expirationDate": "2026-09-20T16:12:11.346Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.5
+    },
+    {
+      "name": "No",
+      "price": 0.5
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 569947
+  }
+}

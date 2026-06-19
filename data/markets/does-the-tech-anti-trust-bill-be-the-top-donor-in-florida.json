@@ -1,0 +1,25 @@
+{
+  "id": "does-the-tech-anti-trust-bill-be-the-top-donor-in-florida",
+  "title": "Does The Tech Anti-Trust Bill be the top donor in Florida?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.52,
+  "volume": 1663007,
+  "expirationDate": "2026-09-18T01:17:51.314Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.52
+    },
+    {
+      "name": "No",
+      "price": 0.48
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 155306
+  }
+}

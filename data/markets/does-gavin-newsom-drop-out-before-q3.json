@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-drop-out-before-q3",
+  "title": "Does Gavin Newsom drop out before Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.9,
+  "volume": 631095,
+  "expirationDate": "2026-06-24T14:49:34.837Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.9
+    },
+    {
+      "name": "No",
+      "price": 0.1
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 605350
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-announce-campaign-for-texas",
+  "title": "Does Senator Cruz announce campaign for Texas?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.8,
+  "volume": 2537531,
+  "expirationDate": "2026-07-15T18:49:35.273Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.8
+    },
+    {
+      "name": "No",
+      "price": 0.2
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 401251
+  }
+}

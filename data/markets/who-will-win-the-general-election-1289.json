@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-general-election-1289",
+  "title": "Who will win the general election? 1289",
+  "category": "FEDERAL",
+  "impliedProbability": 0.06,
+  "volume": 2200908,
+  "expirationDate": "2026-08-21T03:07:43.175Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.06
+    },
+    {
+      "name": "No",
+      "price": 0.94
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 931587
+  }
+}

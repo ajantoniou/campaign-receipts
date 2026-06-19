@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-q3-1673",
+  "title": "Who will win Q3? 1673",
+  "category": "POLICY",
+  "impliedProbability": 0.63,
+  "volume": 3133684,
+  "expirationDate": "2026-07-03T20:51:31.902Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.63
+    },
+    {
+      "name": "No",
+      "price": 0.37
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 398165
+  }
+}

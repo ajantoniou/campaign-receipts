@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-florida-3006",
+  "title": "Who will win Florida? 3006",
+  "category": "FEDERAL",
+  "impliedProbability": 0.98,
+  "volume": 1415079,
+  "expirationDate": "2026-07-05T04:33:16.862Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.98
+    },
+    {
+      "name": "No",
+      "price": 0.02
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 478641
+  }
+}

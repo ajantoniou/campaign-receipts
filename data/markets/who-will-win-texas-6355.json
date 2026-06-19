@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-texas-6355",
+  "title": "Who will win Texas? 6355",
+  "category": "STATE",
+  "impliedProbability": 0.51,
+  "volume": 1814588,
+  "expirationDate": "2026-07-17T20:00:32.840Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.51
+    },
+    {
+      "name": "No",
+      "price": 0.49
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 745470
+  }
+}

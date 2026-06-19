@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-raise-more-than-5m-in-the-general-election",
+  "title": "Does Senator Cruz raise more than $5M in the general election?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.81,
+  "volume": 2451818,
+  "expirationDate": "2026-07-04T03:23:33.285Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.81
+    },
+    {
+      "name": "No",
+      "price": 0.19
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 122593
+  }
+}

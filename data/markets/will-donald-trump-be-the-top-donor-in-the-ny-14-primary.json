@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-be-the-top-donor-in-the-ny-14-primary",
+  "title": "Will Donald Trump be the top donor in the NY-14 primary?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.43,
+  "volume": 2873297,
+  "expirationDate": "2026-08-08T22:56:43.358Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.43
+    },
+    {
+      "name": "No",
+      "price": 0.57
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 421952
+  }
+}

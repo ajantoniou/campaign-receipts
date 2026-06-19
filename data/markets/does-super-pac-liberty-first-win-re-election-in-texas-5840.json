@@ -1,0 +1,25 @@
+{
+  "id": "does-super-pac-liberty-first-win-re-election-in-texas-5840",
+  "title": "Does Super PAC 'Liberty First' win re-election in Texas? 5840",
+  "category": "POLICY",
+  "impliedProbability": 0.63,
+  "volume": 3770543,
+  "expirationDate": "2026-08-17T08:40:49.989Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.63
+    },
+    {
+      "name": "No",
+      "price": 0.37
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 689202
+  }
+}

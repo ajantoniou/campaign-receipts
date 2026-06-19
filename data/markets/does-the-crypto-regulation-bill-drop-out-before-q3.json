@@ -1,0 +1,25 @@
+{
+  "id": "does-the-crypto-regulation-bill-drop-out-before-q3",
+  "title": "Does The Crypto Regulation Bill drop out before Q3?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.98,
+  "volume": 2153807,
+  "expirationDate": "2026-08-02T04:31:20.468Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.98
+    },
+    {
+      "name": "No",
+      "price": 0.02
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 791197
+  }
+}

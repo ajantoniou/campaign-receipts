@@ -1,0 +1,25 @@
+{
+  "id": "does-gavin-newsom-raise-more-than-5m-in-q3",
+  "title": "Does Gavin Newsom raise more than $5M in Q3?",
+  "category": "STATE",
+  "impliedProbability": 0.3,
+  "volume": 3418953,
+  "expirationDate": "2026-08-30T04:18:45.267Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.3
+    },
+    {
+      "name": "No",
+      "price": 0.7
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 959886
+  }
+}

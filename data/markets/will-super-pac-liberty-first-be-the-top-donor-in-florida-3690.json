@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-be-the-top-donor-in-florida-3690",
+  "title": "Will Super PAC 'Liberty First' be the top donor in Florida? 3690",
+  "category": "FEDERAL",
+  "impliedProbability": 0.77,
+  "volume": 3525423,
+  "expirationDate": "2026-09-14T01:45:27.332Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.77
+    },
+    {
+      "name": "No",
+      "price": 0.23
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 885500
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-joe-biden-endorse-a-primary-challenger-in-the-general-election",
+  "title": "Will Joe Biden endorse a primary challenger in the general election?",
+  "category": "STATE",
+  "impliedProbability": 0.26,
+  "volume": 1276522,
+  "expirationDate": "2026-07-11T12:25:03.394Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.26
+    },
+    {
+      "name": "No",
+      "price": 0.74
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 29801
+  }
+}

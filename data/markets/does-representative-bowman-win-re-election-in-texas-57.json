@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-win-re-election-in-texas-57",
+  "title": "Does Representative Bowman win re-election in Texas? 57",
+  "category": "STATE",
+  "impliedProbability": 0.67,
+  "volume": 1027139,
+  "expirationDate": "2026-10-10T00:07:39.465Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.67
+    },
+    {
+      "name": "No",
+      "price": 0.33
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 333793
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-announce-campaign-for-the-general-election",
+  "title": "Does Senator Cruz announce campaign for the general election?",
+  "category": "POLICY",
+  "impliedProbability": 0.93,
+  "volume": 3028754,
+  "expirationDate": "2026-08-16T08:19:41.788Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.93
+    },
+    {
+      "name": "No",
+      "price": 0.07
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 548582
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-raise-more-than-5m-in-q3",
+  "title": "Will The Tech Anti-Trust Bill raise more than $5M in Q3?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.83,
+  "volume": 4111614,
+  "expirationDate": "2026-07-31T04:20:24.434Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.83
+    },
+    {
+      "name": "No",
+      "price": 0.17
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 719360
+  }
+}

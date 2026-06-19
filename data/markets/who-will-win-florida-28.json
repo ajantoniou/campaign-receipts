@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-florida-28",
+  "title": "Who will win Florida? 28",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.63,
+  "volume": 1084931,
+  "expirationDate": "2026-07-01T13:23:45.468Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.63
+    },
+    {
+      "name": "No",
+      "price": 0.37
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 632514
+  }
+}

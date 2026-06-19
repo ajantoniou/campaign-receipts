@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-florida-5043",
+  "title": "Who will win Florida? 5043",
+  "category": "FEDERAL",
+  "impliedProbability": 0.14,
+  "volume": 3012752,
+  "expirationDate": "2026-08-13T08:11:46.259Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.14
+    },
+    {
+      "name": "No",
+      "price": 0.86
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 125370
+  }
+}

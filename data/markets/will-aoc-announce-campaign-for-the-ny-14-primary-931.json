@@ -1,0 +1,25 @@
+{
+  "id": "will-aoc-announce-campaign-for-the-ny-14-primary-931",
+  "title": "Will AOC announce campaign for the NY-14 primary? 931",
+  "category": "STATE",
+  "impliedProbability": 0.57,
+  "volume": 4502978,
+  "expirationDate": "2026-08-14T17:34:58.162Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.57
+    },
+    {
+      "name": "No",
+      "price": 0.43
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 482072
+  }
+}

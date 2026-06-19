@@ -1,0 +1,25 @@
+{
+  "id": "does-representative-bowman-endorse-a-primary-challenger-in-florida",
+  "title": "Does Representative Bowman endorse a primary challenger in Florida?",
+  "category": "POLICY",
+  "impliedProbability": 0.44,
+  "volume": 3179220,
+  "expirationDate": "2026-08-28T12:23:07.128Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.44
+    },
+    {
+      "name": "No",
+      "price": 0.56
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 440550
+  }
+}

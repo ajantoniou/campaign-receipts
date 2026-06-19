@@ -1,0 +1,25 @@
+{
+  "id": "will-donald-trump-raise-more-than-5m-in-texas",
+  "title": "Will Donald Trump raise more than $5M in Texas?",
+  "category": "POLICY",
+  "impliedProbability": 0.79,
+  "volume": 1823860,
+  "expirationDate": "2026-07-21T15:05:57.914Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.79
+    },
+    {
+      "name": "No",
+      "price": 0.21
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 464351
+  }
+}

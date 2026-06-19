@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-2026-4226",
+  "title": "Who will win 2026? 4226",
+  "category": "POLICY",
+  "impliedProbability": 0.08,
+  "volume": 1295959,
+  "expirationDate": "2026-08-30T22:14:13.177Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.08
+    },
+    {
+      "name": "No",
+      "price": 0.92
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 391674
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-endorse-a-primary-challenger-in-q3-8156",
+  "title": "Does Senator Cruz endorse a primary challenger in Q3? 8156",
+  "category": "FEDERAL",
+  "impliedProbability": 0.13,
+  "volume": 2535927,
+  "expirationDate": "2026-08-31T04:23:18.621Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.13
+    },
+    {
+      "name": "No",
+      "price": 0.87
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 964992
+  }
+}

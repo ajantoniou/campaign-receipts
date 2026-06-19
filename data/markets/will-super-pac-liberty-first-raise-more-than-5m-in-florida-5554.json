@@ -1,0 +1,25 @@
+{
+  "id": "will-super-pac-liberty-first-raise-more-than-5m-in-florida-5554",
+  "title": "Will Super PAC 'Liberty First' raise more than $5M in Florida? 5554",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.1,
+  "volume": 2169562,
+  "expirationDate": "2026-08-31T23:09:41.812Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.1
+    },
+    {
+      "name": "No",
+      "price": 0.9
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 326967
+  }
+}

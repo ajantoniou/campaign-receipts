@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-win-re-election-in-q3",
+  "title": "Does Donald Trump win re-election in Q3?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.53,
+  "volume": 124573,
+  "expirationDate": "2026-09-08T04:14:49.129Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.53
+    },
+    {
+      "name": "No",
+      "price": 0.47
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 676809
+  }
+}

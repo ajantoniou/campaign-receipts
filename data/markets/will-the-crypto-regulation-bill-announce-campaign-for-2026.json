@@ -1,0 +1,25 @@
+{
+  "id": "will-the-crypto-regulation-bill-announce-campaign-for-2026",
+  "title": "Will The Crypto Regulation Bill announce campaign for 2026?",
+  "category": "FEDERAL",
+  "impliedProbability": 0.74,
+  "volume": 4688715,
+  "expirationDate": "2026-07-06T19:55:15.931Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.74
+    },
+    {
+      "name": "No",
+      "price": 0.26
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 454739
+  }
+}

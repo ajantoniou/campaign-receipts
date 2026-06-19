@@ -1,0 +1,25 @@
+{
+  "id": "who-will-win-the-general-election-1461",
+  "title": "Who will win the general election? 1461",
+  "category": "STATE",
+  "impliedProbability": 0.09,
+  "volume": 4349616,
+  "expirationDate": "2026-09-07T10:27:38.928Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.09
+    },
+    {
+      "name": "No",
+      "price": 0.91
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 859270
+  }
+}

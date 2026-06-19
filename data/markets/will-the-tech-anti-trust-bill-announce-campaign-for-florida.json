@@ -1,0 +1,25 @@
+{
+  "id": "will-the-tech-anti-trust-bill-announce-campaign-for-florida",
+  "title": "Will The Tech Anti-Trust Bill announce campaign for Florida?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.97,
+  "volume": 2888123,
+  "expirationDate": "2026-08-15T14:50:40.110Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.97
+    },
+    {
+      "name": "No",
+      "price": 0.03
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 399396
+  }
+}

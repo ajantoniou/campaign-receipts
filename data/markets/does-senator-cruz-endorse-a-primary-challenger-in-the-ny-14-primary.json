@@ -1,0 +1,25 @@
+{
+  "id": "does-senator-cruz-endorse-a-primary-challenger-in-the-ny-14-primary",
+  "title": "Does Senator Cruz endorse a primary challenger in the NY-14 primary?",
+  "category": "DONOR_INTEL",
+  "impliedProbability": 0.56,
+  "volume": 3466074,
+  "expirationDate": "2026-10-05T18:56:36.219Z",
+  "status": "OPEN",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.56
+    },
+    {
+      "name": "No",
+      "price": 0.44
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 392518
+  }
+}

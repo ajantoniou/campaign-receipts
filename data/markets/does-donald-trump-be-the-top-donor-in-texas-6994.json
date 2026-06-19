@@ -1,0 +1,25 @@
+{
+  "id": "does-donald-trump-be-the-top-donor-in-texas-6994",
+  "title": "Does Donald Trump be the top donor in Texas? 6994",
+  "category": "STATE",
+  "impliedProbability": 0.52,
+  "volume": 1936303,
+  "expirationDate": "2026-10-01T03:51:11.974Z",
+  "status": "CLOSED",
+  "fecEdgeAvailable": true,
+  "options": [
+    {
+      "name": "Yes",
+      "price": 0.52
+    },
+    {
+      "name": "No",
+      "price": 0.48
+    }
+  ],
+  "intel": {
+    "summary": "A top donor just pivoted funds to a dark horse candidate.",
+    "fecFilings": 3,
+    "superPacSpend": 876304
+  }
+}
