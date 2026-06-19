@@ -1,0 +1,189 @@
+[2026-05-16T15:09:46.114Z] SKIP_BUILD=1 — using existing artifacts/SEALED-v1-print{,-cover}.pdf
+[2026-05-16T15:09:46.116Z] Interior PDF: /Applications/DrAntoniou Projects/AgentCompanies/companies/concise-sealed/artifacts/SEALED-v1-print.pdf (8.05 MB)
+[2026-05-16T15:09:46.116Z] Cover PDF:    /Applications/DrAntoniou Projects/AgentCompanies/companies/concise-sealed/artifacts/SEALED-v1-print-cover.pdf    (0.43 MB)
+[2026-05-16T15:09:47.017Z]   uploaded paperback/SEALED-v1-print-1778944186116.pdf (8.05 MB)
+[2026-05-16T15:09:47.185Z]   uploaded paperback/SEALED-v1-print-cover-1778944186116.pdf (0.43 MB)
+[2026-05-16T15:09:47.406Z] Interior signed URL: https://jivahkfdkduxasnzpzgx.supabase.co/storage/v1/object/sign/sealed-masters/p...
+[2026-05-16T15:09:47.406Z] Cover    signed URL: https://jivahkfdkduxasnzpzgx.supabase.co/storage/v1/object/sign/sealed-masters/p...
+[2026-05-16T15:09:47.406Z] 
+--- Cost preview ---
+[2026-05-16T15:09:47.806Z] {
+  "shipping_address": {
+    "street1": "734 Stanhope Ln",
+    "city": "Matthews",
+    "postcode": "28105",
+    "phone_number": "+15555555555",
+    "state": "NC",
+    "country": "US",
+    "is_business": false,
+    "first_name": "Alex",
+    "last_name": "Antoniou",
+    "warnings": [],
+    "suggested_address": {
+      "country_code": "US",
+      "state_code": "NC",
+      "postcode": "28105-1515",
+      "city": "Matthews",
+      "street1": "734 Stanhope Ln",
+      "street2": null
+    }
+  },
+  "line_item_costs": [
+    {
+      "cost_excl_discounts": "5.48",
+      "total_tax": "0.40",
+      "tax_rate": "0.072500",
+      "quantity": 1,
+      "total_cost_excl_tax": "5.48",
+      "total_cost_excl_discounts": "5.48",
+      "total_cost_incl_tax": "5.88",
+      "discounts": [],
+      "unit_tier_cost": "5.48"
+    }
+  ],
+  "shipping_cost": {
+    "total_cost_excl_tax": "5.69",
+    "total_cost_incl_tax": "6.10",
+    "total_tax": "0.41",
+    "tax_rate": "0.07"
+  },
+  "fulfillment_cost": {
+    "total_cost_excl_tax": "0.75",
+    "total_cost_incl_tax": "0.81",
+    "total_tax": "0.06",
+    "tax_rate": "0.07"
+  },
+  "total_tax": "0.87",
+  "total_cost_excl_tax": "11.92",
+  "total_cost_incl_tax": "12.79",
+  "total_discount_amount": "0.00",
+  "currency": "USD"
+}
+[2026-05-16T15:09:47.806Z] 
+--- Creating print job (external_id=SEALED-WS13-PROOF-1778944186116) ---
+[2026-05-16T15:09:49.227Z] {
+  "id": 2875779,
+  "line_items": [
+    {
+      "id": 3359919,
+      "title": "SEALED — The 2016 Promises: Before the Deals",
+      "printable_normalization": {
+        "interior": {
+          "source_file": null,
+          "normalized_file": null,
+          "source_url": "https://jivahkfdkduxasnzpzgx.supabase.co/storage/v1/object/sign/sealed-masters/paperback/SEALED-v1-print-1778944186116.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8wM2NmYWQxZC00Y2VkLTQ1ZmQtYjk3Yy04NmRmY2U4MWNiYjYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFsZWQtbWFzdGVycy9wYXBlcmJhY2svU0VBTEVELXYxLXByaW50LTE3Nzg5NDQxODYxMTYucGRmIiwiaWF0IjoxNzc4OTQ0MTg3LCJleHAiOjE3NzkwMzA1ODd9.oSQAIR85ePqx6AqqPASQnyv3VxEFGuCxBCWVvNOj5qI",
+          "source_md5sum": null,
+          "job_id": null,
+          "page_count": null
+        },
+        "cover": {
+          "source_file": null,
+          "normalized_file": null,
+          "source_url": "https://jivahkfdkduxasnzpzgx.supabase.co/storage/v1/object/sign/sealed-masters/paperback/SEALED-v1-print-cover-1778944186116.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8wM2NmYWQxZC00Y2VkLTQ1ZmQtYjk3Yy04NmRmY2U4MWNiYjYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFsZWQtbWFzdGVycy9wYXBlcmJhY2svU0VBTEVELXYxLXByaW50LWNvdmVyLTE3Nzg5NDQxODYxMTYucGRmIiwiaWF0IjoxNzc4OTQ0MTg3LCJleHAiOjE3NzkwMzA1ODd9.WoJip2E4qD9TcgsSrDykIf3fwYZBHF3hESU9fHd4h1w",
+          "source_md5sum": null,
+          "job_id": null,
+          "page_count": null
+        },
+        "pod_package_id": "0600X0900BWSTDPB080CW444GXX"
+      },
+      "status": {
+        "name": "CREATED",
+        "messages": {
+          "info": "Line Item is currently being validated"
+        }
+      },
+      "is_reprint": false,
+      "thumbnail_url": "",
+      "external_id": "SEALED-WS13-PROOF-1778944186116-line1",
+      "quantity": 1,
+      "printable_id": null,
+      "order_line_item_id": null,
+      "tracking_id": "",
+      "tracking_urls": null,
+      "carrier_name": null,
+      "pod_package_id": "0600X0900BWSTDPB080CW444GXX"
+    }
+  ],
+  "shipping_level": "MAIL",
+  "shipping_option_id": "",
+  "status": {
+    "name": "CREATED",
+    "message": "Print-job is currently being validated",
+    "changed": "2026-05-16T15:09:49.031264Z"
+  },
+  "costs": {
+    "shipping_cost": null,
+    "line_item_costs": null,
+    "total_cost_excl_tax": null,
+    "total_tax": null,
+    "total_cost_incl_tax": null,
+    "currency": null,
+    "fulfillment_cost": null
+  },
+  "parent_job_id": null,
+  "child_job_ids": [],
+  "estimated_shipping_dates": null,
+  "reprints": [],
+  "is_cancellable": true,
+  "order_id": null,
+  "date_created": "2026-05-16T15:09:49.037298Z",
+  "date_modified": "2026-05-16T15:09:49.076774Z",
+  "external_id": "SEALED-WS13-PROOF-1778944186116",
+  "dropship_profile_id": "8228eb6c-65b3-4892-8b84-3bcf733afcb2",
+  "contact_email": "alex@antoniou.net",
+  "production_delay": 60,
+  "production_due_time": null,
+  "aggregated_payment_print_job": false,
+  "tax_country": null,
+  "order_marked_as_paid": null,
+  "payments": [],
+  "shipping_address": {
+    "user_id": "c0de126c-2d19-43e3-b413-1cab7fe1e444",
+    "organization": null,
+    "street1": "734 Stanhope Ln",
+    "street2": null,
+    "city": "Matthews",
+    "postcode": "28105",
+    "phone_number": "+15555555555",
+    "email": null,
+    "is_business": false,
+    "recipient_tax_id": null,
+    "name": "Alex Antoniou",
+    "state_code": "NC",
+    "country_code": "US",
+    "warnings": [],
+    "suggested_address": {
+      "country_code": "US",
+      "state_code": "NC",
+      "postcode": "28105-1515",
+      "city": "Matthews",
+      "street1": "734 Stanhope Ln",
+      "street2": null
+    }
+  },
+  "shipping_option_level": "MAIL"
+}
+[2026-05-16T15:09:49.227Z] ✓ Print job created: id=2875779
+[2026-05-16T15:09:49.227Z] 
+--- Polling status (every 30s, 5 min cap) ---
+[2026-05-16T15:09:49.227Z] t+0s   status=CREATED
+[2026-05-16T15:10:19.472Z] t+30s  status: CREATED → UNPAID
+[2026-05-16T15:10:19.472Z] {
+  "name": "UNPAID",
+  "message": "Print-job was accepted and needs to be paid",
+  "changed": "2026-05-16T15:10:14.206261Z"
+}
+[2026-05-16T15:10:49.697Z] t+60s  status=UNPAID (no change)
+[2026-05-16T15:11:19.891Z] t+91s  status=UNPAID (no change)
+[2026-05-16T15:11:50.050Z] t+121s  status=UNPAID (no change)
+[2026-05-16T15:12:20.270Z] t+151s  status=UNPAID (no change)
+[2026-05-16T15:12:50.440Z] t+181s  status=UNPAID (no change)
+[2026-05-16T15:13:20.645Z] t+211s  status=UNPAID (no change)
+[2026-05-16T15:13:51.029Z] t+242s  status=UNPAID (no change)
+[2026-05-16T15:14:21.231Z] t+272s  status=UNPAID (no change)
+[2026-05-16T15:14:51.401Z] t+302s  status=UNPAID (no change)
+[2026-05-16T15:14:51.401Z] 
+--- Final ---
+[2026-05-16T15:14:51.401Z] print_job_id: 2875779
+[2026-05-16T15:14:51.401Z] final_status: UNPAID
+[2026-05-16T15:14:51.401Z] external_id:  SEALED-WS13-PROOF-1778944186116

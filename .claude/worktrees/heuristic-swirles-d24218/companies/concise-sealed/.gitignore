@@ -1,0 +1,32 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+
+# Env + secrets
+.env
+.env.local
+.env.*.local
+*.key
+*-credentials.json
+
+# Build artifacts + caches
+*.log
+.DS_Store
+.cache/
+.turbo/
+
+# Agent worktrees (cleaned by scrub-worktrees.sh)
+.claude/worktrees/
+
+# Test output
+coverage/
+*.lcov
+
+# Puppeteer / chromium downloads
+.local-chromium/
+
+# Vercel / Render local
+.vercel
+.render

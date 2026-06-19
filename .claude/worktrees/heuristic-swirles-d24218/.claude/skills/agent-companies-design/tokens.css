@@ -1,0 +1,125 @@
+/* ============================================================
+   AgentCompanies — Design Tokens
+   Drop-in CSS custom properties for the family design system.
+
+   Usage:
+     - Include this file in your global stylesheet, OR
+     - Port these values into your theme system (Tailwind config,
+       CSS-in-JS theme, design-tokens.json).
+
+   Three paper variants are defined: warm (default), cool, sage.
+   Switch by toggling a class on <html> or <body>:
+       <html class="paper-warm">  (or "paper-cool", "paper-sage")
+
+   Verdict palette and typography are FIXED across all sites.
+   ============================================================ */
+
+:root {
+  /* ── Paper — Warm (default) ─────────────────────────────── */
+  --paper:        #FAF6EF;
+  --paper-2:      #F4EEDF;
+  --paper-3:      #EBE3D0;
+  --line:         #E0D8C3;
+  --line-soft:    #ECE5D2;
+
+  /* ── Ink (text + primary surfaces) ──────────────────────── */
+  --ink:          #1A1815;
+  --ink-2:        #3D3833;
+  --ink-3:        #6E665C;
+  --mute:         #9A9082;
+
+  /* ── Verdict — FIXED across portfolio (nonpartisan) ─────── */
+  --kept:         #4F7A4B;
+  --kept-bg:      #DCE8D2;
+  --kept-tint:    #EEF3E2;
+
+  --partial:      #A37222;
+  --partial-bg:   #F1DDB3;
+  --partial-tint: #F6EAC9;
+
+  --broken:       #A8423E;
+  --broken-bg:    #F1CFCC;
+  --broken-tint:  #F4DDDA;
+
+  --pending:      #4F6480;
+  --pending-bg:   #D2DBE6;
+  --pending-tint: #E1E7EE;
+
+  --decide:       #5C5246;
+  --decide-bg:    #DCD3BF;
+  --decide-tint:  #E8E0CC;
+
+  /* ── Type — FIXED family pairing ────────────────────────── */
+  --display: "Instrument Serif", "Source Serif Pro", "Iowan Old Style", Georgia, serif;
+  --sans:    "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono:    "Geist Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ── Radii ──────────────────────────────────────────────── */
+  --r-sm: 4px;
+  --r:    8px;
+  --r-lg: 14px;
+
+  /* ── Shadow (paper, low-elevation) ──────────────────────── */
+  --shadow-paper: 0 1px 0 rgba(26,24,21,0.04),
+                  0 12px 28px -18px rgba(26,24,21,0.18);
+
+  /* ── Animation primitives ───────────────────────────────── */
+  --ease-paper: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --dur-fast:   120ms;
+  --dur:        180ms;
+  --dur-slow:   320ms;
+}
+
+/* ── Paper variant: Cool grey (alt) ───────────────────────── */
+.paper-cool {
+  --paper:        #F4F6F8;
+  --paper-2:      #EAEEF2;
+  --paper-3:      #DDE3EA;
+  --line:         #D6DCE3;
+  --line-soft:    #E5EAF0;
+  --ink:          #161A1E;
+  --ink-2:        #363C42;
+  --ink-3:        #5F676E;
+  --mute:         #8A919A;
+}
+
+/* ── Paper variant: Sage (alt) ────────────────────────────── */
+.paper-sage {
+  --paper:        #F5F7F2;
+  --paper-2:      #E9EEE2;
+  --paper-3:      #DCE3D0;
+  --line:         #CFD7C0;
+  --line-soft:    #E0E6D5;
+  --ink:          #171A14;
+  --ink-2:        #363C30;
+  --ink-3:        #65695B;
+  --mute:         #8E9385;
+}
+
+/* ── Highlight tint (the hero underline color) ─────────────── */
+/* Vary per site; default is amber. Override on a wrapper class. */
+.highlight-amber { --highlight: var(--partial-bg); }
+.highlight-rose  { --highlight: #F1CCC6; }
+.highlight-blue  { --highlight: #C8D4E6; }
+
+/* ============================================================
+   Base setup (optional — include if not in your global stylesheet)
+   ============================================================ */
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+  line-height: 1.5;
+}
+
+/* Convenience helpers */
+.serif { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; }
+.mono  { font-family: var(--mono); font-feature-settings: "tnum"; }
+.tnum  { font-variant-numeric: tabular-nums; }
+.kern  { letter-spacing: -0.02em; }

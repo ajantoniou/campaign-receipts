@@ -1,0 +1,75 @@
+{
+  "slug": "cr-tx-senate-2026-superpacs-short-a",
+  "build": "cr-tx-superpacs-a",
+  "story_score_slug": "cr-tx-senate-2026-superpacs-short-a",
+  "program": "cr-new-news",
+  "verdict": "",
+  "_notes": "AUTHORED short (not carved from LF). CORRECTED FEC figures (2026-05-30). Angle: 'The money that LOST.' A friendly-named pro-Cornyn PAC spent $39.3M to STOP Ken Paxton; Paxton WON the May 26 primary anyway (~64%). Punchline lands on the backfire. NO VO — text cards + music + faceless atmosphere b-roll. All money/names via Remotion (navy CR brand) — never an AI face of a real person.",
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See CR-PRODUCTION-PIPELINE-v4.md Doctrine line 4.",
+  "sync_specs": [
+    { "id": "hook", "duration": 6.0 },
+    { "id": "soundsLikeNeighbors", "duration": 5.0 },
+    { "id": "whoPaid", "duration": 6.5 },
+    { "id": "whatFor", "duration": 5.5 },
+    { "id": "backfire", "duration": 7.0 },
+    { "id": "punchline", "duration": 6.5 },
+    { "id": "cta", "duration": 4.5 }
+  ],
+  "segments": {
+    "hook": {
+      "broll": {
+        "model": "kling3-pro",
+        "prompt": "Cozy living-room interior at dusk, an old glowing television set on a wooden stand, soft warm lamplight, empty armchair and couch in foreground, faceless wide shot, no people visible, no on-screen text, cinematic shallow depth of field, slow gentle push-in. Atmosphere only.",
+        "duration": 6.0,
+        "aspect": "9:16"
+      },
+      "composition": "TextSlate",
+      "props": { "brand": "campaign-receipts", "variant": "title", "text": "An ad rolls across your TV in Texas: “Texans for a Conservative Majority.”", "wrapWidth": 16 }
+    },
+    "soundsLikeNeighbors": {
+      "composition": "TextSlate",
+      "props": { "brand": "campaign-receipts", "variant": "title", "text": "Sounds like a crowd of your neighbors. It was one man.", "wrapWidth": 16 }
+    },
+    "whoPaid": {
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "WHO ACTUALLY PAID",
+        "prefix": "$",
+        "source": { "name": "John Nau", "amount": 7900000, "sublabel": "Houston beer-distribution billionaire" },
+        "destinations": [ { "label": "Texans for a Conservative Majority (pro-Cornyn)", "amount": 39300000 } ]
+      }
+    },
+    "whatFor": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "FEC committee C00542217",
+        "quote": "$39.3M in ads — not to lift their guy up, but to STOP one other Republican: Ken Paxton.",
+        "source": "Campaign Receipts · FEC Schedule E"
+      }
+    },
+    "backfire": {
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "from": 0,
+        "to": 64,
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 0,
+        "label": "PAXTON WON ANYWAY — MAY 26 PRIMARY",
+        "caption": "64 out of every 100 votes, against $39M of attack ads"
+      }
+    },
+    "punchline": {
+      "composition": "TextSlate",
+      "props": { "brand": "campaign-receipts", "variant": "title", "text": "$39 million tried to stop one man. He won anyway. The biggest check in the race lost.", "wrapWidth": 15 }
+    },
+    "cta": {
+      "composition": "TextSlate",
+      "props": { "brand": "campaign-receipts", "variant": "title", "text": "Read the receipt. campaignreceipts.com", "wrapWidth": 16 }
+    }
+  }
+}

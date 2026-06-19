@@ -1,0 +1,11 @@
+{
+  "asset": "moneyflow-whoosh.mp3",
+  "title": "Woosh - Metal tea strainer 1",
+  "author": "Sadiquecat",
+  "source_url": "https://freesound.org/people/Sadiquecat/sounds/742832/",
+  "preview_url": "https://cdn.freesound.org/previews/742/742832_5287430-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Real foley (metal tea strainer swung through air) — picks up an airy, paper-adjacent timbre that fits the persona's 'paper-airy, not aggressive' brief better than synth whoosh. Trim to ~300ms single-direction (cut the return swing if present) and normalize to -26 dB inside apply-sfx.mjs."
+}

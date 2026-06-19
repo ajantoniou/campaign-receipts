@@ -1,0 +1,20 @@
+node_modules/
+.next/
+out/
+dist/
+.DS_Store
+*.log
+.env
+.env.local
+.env*.local
+next-env.d.ts
+
+# Generated pipeline artifacts (local QC/build only; not canonical source)
+_build/
+_review/
+scripts/.upload-queue.log
+scripts/shorts/_build/
+public/shorts-upload-*/
+public/thumbnails-*/
+public/shorts/_normalize-backup/
+eng/qc-reports/**/frames/

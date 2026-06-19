@@ -1,0 +1,56 @@
+# render-remotion-renderer.yaml — proposed Render web service
+#
+# STATUS: not yet deployed. Local node renders are fine until daily
+# volume exceeds ~10 clips/day across the portfolio.
+#
+# When the threshold is hit:
+#   1. Push this file as render.yaml or import via Render dashboard
+#   2. Set REMOTION_REMOTE_URL env var in the calling pipelines
+#   3. Adapter HTTP transport (currently no-op fallback) routes to the
+#      service instead of `npx remotion render`
+#
+# Service contract:
+#   POST /render
+#     body: { "composition": "MoneyFlow", "props": {...}, "duration": 6 }
+#     200:  { "url": "https://<presigned-r2-or-s3-url>.mp4", "expires_at": "<iso>" }
+#     4xx:  { "error": "<message>" }
+#
+# Free tier sizing: 512MB RAM, 0.5 CPU. Remotion 4.x renders 1280×720
+# @ 30fps single-composition clips in ~real-time on this profile.
+# Concurrency=1 enforced at Remotion config + 1 instance.
+
+services:
+  - type: web
+    name: ac-remotion-renderer
+    runtime: node
+    plan: free                          # upgrade to starter ($7/mo) if cold-start latency hurts
+    region: oregon
+    rootDir: remotion
+    buildCommand: npm ci && npx remotion versions
+    startCommand: node server.mjs       # NOT YET WRITTEN — see /remotion/server.mjs.todo
+    healthCheckPath: /health
+    autoDeploy: false                   # manual deploy only — renders are expensive on cold cache
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: REMOTION_CONCURRENCY
+        value: "1"
+      - key: PORT
+        value: "10000"
+      # When wiring to R2 for output mp4 hosting:
+      # - key: R2_ACCESS_KEY_ID
+      #   sync: false
+      # - key: R2_SECRET_ACCESS_KEY
+      #   sync: false
+      # - key: R2_BUCKET
+      #   value: ac-remotion-renders
+
+# NOTE: server.mjs not implemented in this scaffold pass. To deploy:
+#   1. Implement Express handler at POST /render that:
+#      a. Validates {composition, props, duration} schema
+#      b. Spawns `npx remotion render` with --frames=0-<N>
+#      c. Uploads result to R2 / presigned URL
+#      d. Returns the URL
+#   2. Add health check at GET /health returning 200 { ok: true }
+#   3. Add JWT-or-shared-secret auth header check — this MUST NOT be a
+#      public endpoint (renders cost CPU even on free tier).

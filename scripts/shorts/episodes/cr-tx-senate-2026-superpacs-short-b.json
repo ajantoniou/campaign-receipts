@@ -1,0 +1,82 @@
+{
+  "slug": "cr-tx-senate-2026-superpacs-short-b",
+  "build": "cr-tx-superpacs-b",
+  "story_score_slug": "cr-tx-senate-2026-superpacs-short-b",
+  "program": "cr-new-news",
+  "verdict": "",
+  "_notes": "AUTHORED short (not carved from LF). CORRECTED FEC figures (2026-05-30). Angle: 'A California check in a Texas hat' / '$110M tried to pick your senator.' Disguised warm-Texas names + out-of-state-billionaire money vs your one ballot. Punchline lands on the asymmetry. NO VO — text cards + music + faceless atmosphere b-roll. All money via Remotion (navy CR brand) — never an AI face of a real person.",
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See CR-PRODUCTION-PIPELINE-v4.md Doctrine line 4.",
+  "sync_specs": [
+    { "id": "hook", "duration": 6.0 },
+    { "id": "bignumber", "duration": 5.5 },
+    { "id": "costume", "duration": 6.0 },
+    { "id": "realSource", "duration": 6.5 },
+    { "id": "gap", "duration": 6.5 },
+    { "id": "punchline", "duration": 6.5 },
+    { "id": "cta", "duration": 4.5 }
+  ],
+  "segments": {
+    "hook": {
+      "broll": {
+        "model": "kling3-pro",
+        "prompt": "Empty polling place at dawn, rows of cardboard voting booths with privacy curtains, soft cool light through windows, a single folding chair, no people visible, faceless wide shot, civic and quiet, no on-screen wording, cinematic slow drift. Atmosphere only.",
+        "duration": 6.0,
+        "aspect": "9:16"
+      },
+      "composition": "TextSlate",
+      "props": { "brand": "campaign-receipts", "variant": "title", "text": "$110 million tried to pick the next U.S. senator from Texas.", "wrapWidth": 16 }
+    },
+    "bignumber": {
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "from": 0,
+        "to": 110.2,
+        "prefix": "$",
+        "suffix": "M",
+        "decimals": 1,
+        "label": "OUTSIDE MONEY, ONE TEXAS SENATE SEAT",
+        "caption": "The most expensive Senate race in the country"
+      }
+    },
+    "costume": {
+      "composition": "TextSlate",
+      "props": { "brand": "campaign-receipts", "variant": "title", "text": "The names sound like Texas. “Texans for a Conservative Majority.” “Lone Star Rising.”", "wrapWidth": 16 }
+    },
+    "realSource": {
+      "composition": "DonorComparison",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "A CALIFORNIA CHECK IN A TEXAS HAT",
+        "subtitle": "Warm Texas names, out-of-state money",
+        "rows": [
+          { "name": "Reid Hoffman", "amount": "$1.5M", "cycle": "2026", "policy": "Silicon Valley → “Lone Star Rising”" },
+          { "name": "John Nau", "amount": "$7.9M", "cycle": "2026", "policy": "Houston billionaire → “Texans for a Conservative Majority”" }
+        ],
+        "footer": "FEC-sourced · names made to look like crowds"
+      }
+    },
+    "gap": {
+      "composition": "DonorComparison",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "THE GAP",
+        "subtitle": "One group’s airtime vs your ballot",
+        "rows": [
+          { "name": "One super-PAC", "amount": "$39M", "cycle": "2026", "policy": "Of ads in this one race" },
+          { "name": "A Texan after work", "amount": "1 ballot", "cycle": "2026", "policy": "Drives across town to vote" }
+        ],
+        "footer": "Most expensive Senate race in the country · FEC-sourced"
+      }
+    },
+    "punchline": {
+      "composition": "TextSlate",
+      "props": { "brand": "campaign-receipts", "variant": "title", "text": "$110 million tried to pick your senator. Your one ballot beat it.", "wrapWidth": 15 }
+    },
+    "cta": {
+      "composition": "TextSlate",
+      "props": { "brand": "campaign-receipts", "variant": "title", "text": "Read the receipt. campaignreceipts.com", "wrapWidth": 16 }
+    }
+  }
+}

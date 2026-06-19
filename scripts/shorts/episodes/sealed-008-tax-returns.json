@@ -1,0 +1,67 @@
+{
+  "slug": "sealed-008-tax-returns",
+  "build": "008",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-24 no-VO build per founder lock. 6 Remotion beats: presidents-grid hook, the audit-deflection card, three court-case timeline, the NYT-leak card, verdict, CTA.",
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See SEALED-PRODUCTION-PIPELINE-v3.md § Doctrine line 4.",
+  "sync_specs": [
+    { "id": "hook",         "duration": 5.0 },
+    { "id": "auditDeflect", "duration": 5.0 },
+    { "id": "courtCases",   "duration": 6.0 },
+    { "id": "nytLeak",      "duration": 5.0 },
+    { "id": "broken",       "duration": 5.0 },
+    { "id": "cta",          "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "1973 — 2016 · every president released",
+        "quote": "Nixon. Carter. Reagan. Bush. Clinton. Bush. Obama.",
+        "source": "Then one didn't."
+      }
+    },
+    "auditDeflect": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2015 trail promise",
+        "quote": "I'll release them after the audit.",
+        "source": "The audit never ended."
+      }
+    },
+    "courtCases": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "TWO SUPREME COURT CASES",
+        "events": [
+          { "date": "Jul 9 2020", "label": "Trump v. Vance — 7-2",   "outcome": "broken" },
+          { "date": "Jul 9 2020", "label": "Trump v. Mazars — 7-2", "outcome": "broken" },
+          { "date": "Sep 27 2020", "label": "NYT leak — never released", "outcome": "broken" }
+        ]
+      }
+    },
+    "nytLeak": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Sep 27, 2020 · New York Times",
+        "quote": "Returns published from a leak.",
+        "source": "A leak is not a release."
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Release tax returns",
+        "citation": "Never released voluntarily"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

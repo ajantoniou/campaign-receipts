@@ -1,0 +1,66 @@
+{
+  "slug": "sealed-012-lock-her-up",
+  "build": "012",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-24 no-VO. The pivot is the Nov 13 2016 60 Minutes interview where the prosecution promise was quietly buried.",
+  "no_vo": true,
+  "sync_specs": [
+    { "id": "hook",         "duration": 5.0 },
+    { "id": "rallyChant",   "duration": 5.0 },
+    { "id": "sixtyMinutes", "duration": 6.0 },
+    { "id": "emptyDocket",  "duration": 5.0 },
+    { "id": "broken",       "duration": 5.0 },
+    { "id": "cta",          "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2016 rally chant",
+        "quote": "Lock her up.",
+        "source": "Two weeks later, the promise was buried."
+      }
+    },
+    "rallyChant": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Rally trail · summer-fall 2016",
+        "quote": "The loudest chant of the year.",
+        "source": "Crowd promise · special prosecutor demanded"
+      }
+    },
+    "sixtyMinutes": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "60 Minutes · Nov 13, 2016",
+        "quote": "I don't want to hurt them, they're good people.",
+        "source": "Direct quote · two weeks post-election"
+      }
+    },
+    "emptyDocket": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "FOUR YEARS · NO ACTION",
+        "events": [
+          { "date": "Nov 13 2016", "label": "60 Minutes — promise quietly buried", "outcome": "broken" },
+          { "date": "2017-2020",   "label": "No special prosecutor appointed",    "outcome": "broken" },
+          { "date": "2017-2020",   "label": "No charges filed · no investigation", "outcome": "broken" }
+        ]
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Prosecute Clinton",
+        "citation": "0 charges · empty docket"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

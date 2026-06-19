@@ -1,0 +1,90 @@
+# HEA-37 — HealthBrew banned-phrase lint on changed markdown/text.
+# Runs from repo root; lint script has no npm deps beyond Node built-ins.
+
+name: Compliance Lint
+
+on:
+  pull_request:
+    paths:
+      - 'companies/healthbrew/**/*.md'
+      - 'companies/healthbrew/**/*.mdx'
+      - 'companies/healthbrew/**/*.txt'
+      - 'companies/healthbrew/compliance/**'
+      - '.github/workflows/compliance-lint.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'companies/healthbrew/**/*.md'
+      - 'companies/healthbrew/**/*.mdx'
+      - 'companies/healthbrew/**/*.txt'
+      - 'companies/healthbrew/compliance/**'
+      - '.github/workflows/compliance-lint.yml'
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Scan HealthBrew content for banned phrases
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run compliance lint on changed files
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          HB="companies/healthbrew"
+          LINT_JS="$HB/compliance/lint-content.js"
+          FAIL=0
+
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            echo "Comparing PR base $PR_BASE to head $PR_HEAD"
+            RANGE_SPEC=1
+            DIFF_FROM="$PR_BASE"
+            DIFF_TO="$PR_HEAD"
+          else
+            echo "Comparing HEAD~1 to HEAD"
+            RANGE_SPEC=0
+          fi
+
+          if [ "${RANGE_SPEC:-0}" -eq 1 ]; then
+            CHANGED=$(git diff "$DIFF_FROM" "$DIFF_TO" --name-only --diff-filter=ACM | grep -E "^${HB}/" | grep -E '\.(md|mdx|txt)$' || true)
+          else
+            CHANGED=$(git diff HEAD~1 HEAD --name-only --diff-filter=ACM | grep -E "^${HB}/" | grep -E '\.(md|mdx|txt)$' || true)
+          fi
+
+          if [ -z "${CHANGED// }" ]; then
+            echo "No HealthBrew .md/.mdx/.txt changes in range; skipping."
+            exit 0
+          fi
+
+          echo "Scanning:"
+          echo "$CHANGED"
+          echo ""
+
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            if [ ! -f "$file" ]; then
+              echo "Skipping missing file: $file"
+              continue
+            fi
+            echo "Linting: $file"
+            node "$LINT_JS" --file "$file" --severity hard_block || FAIL=1
+          done <<< "$(echo "$CHANGED")"
+
+          if [ "$FAIL" -ne 0 ]; then
+            echo ""
+            echo "Compliance lint FAILED (hard blocks). See compliance/README.md."
+            exit 1
+          fi
+          echo "All scanned files passed."

@@ -1,0 +1,43 @@
+{
+  "name": "sealed-press",
+  "version": "0.1.0",
+  "description": "SEALED Press — Publishing imprint for historical archives",
+  "scripts": {
+    "dev": "dotenv -e ../../.env -- next dev",
+    "build": "dotenv -e ../../.env -- next build",
+    "start": "dotenv -e ../../.env -- next start",
+    "lint": "next lint",
+    "generate:sample-pdf": "node scripts/generate-sealed-sample-pdf.mjs",
+    "generate:one-pager-share": "node scripts/generate-one-pager-share-pdf.mjs",
+    "press-kit-pdf": "node scripts/generate-press-kit-pdf.mjs",
+    "generate:retail-pdf": "node scripts/build-retail-pdf.mjs",
+    "watermark:share-images": "node scripts/watermark-share-images.mjs",
+    "verify:ls-webhook": "node scripts/verify-ls-webhook-fixture.mjs",
+    "verify:ls-webhook:integration": "dotenv -e ../../.env -- node scripts/verify-ls-webhook-fixture.mjs --integration"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "autoprefixer": "^10.4.14",
+    "bwip-js": "^4.10.1",
+    "next": "^14.0.0",
+    "postcss": "^8.4.24",
+    "puppeteer": "^24.43.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-jsx": "^5.1.1",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "dotenv-cli": "^8.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.18",
+    "pdf-lib": "^1.17.1",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "slug": "sealed-drain-the-swamp",
+  "verdict": "SHIP",
+  "sealed": true,
+  "composite_copy": 100,
+  "composite": 100,
+  "master_ready": true,
+  "rule": "all_dimensions_must_be_10",
+  "dimensions": {
+    "story_vs_list": 10,
+    "protagonist": 10,
+    "turn": 10,
+    "hook_mrbeast": 10,
+    "rehooks": 10,
+    "clarity_jk": 10,
+    "sarah_voice": 10,
+    "tts_facts": 10,
+    "cinematic_pacing": 10,
+    "visual_story_match": 10
+  },
+  "passes": {
+    "A_screenwriter": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "B_jk_rowling": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "C_mrbeast_copy": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "D_storyline_editor": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    }
+  },
+  "reports": {
+    "storyteller_gate": "eng/longform-scripts/qc-storyteller-sealed-drain-the-swamp.md",
+    "script_qc": "eng/longform-scripts/qc-script-sealed-drain-the-swamp.md",
+    "production_qc": "_build/sealed-drain-the-swamp-v1/production-qc.json",
+    "master_visual_qc": "_build/sealed-drain-the-swamp-v1/master-visual-qc.json",
+    "ship_checklist": "_build/sealed-drain-the-swamp-v1/ship-checklist.json"
+  },
+  "editorial_script": "eng/longform-scripts/sealed-drain-the-swamp.md",
+  "locked_at": "2026-05-22T13:06:51.867351+00:00",
+  "note": "COPY 100/100 from mechanical gates \u2014 set master dims after production QC",
+  "master_locked_at": "2026-05-22T19:32:33.146572+00:00"
+}

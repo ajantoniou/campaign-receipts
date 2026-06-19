@@ -1,0 +1,428 @@
+{
+  "_meta": {
+    "title": "What Happened to Trump's No More Wars Promise?",
+    "purpose": "SEALED2016.com bridge video. Shows the 2024 anti-war page, the live 404, the June 2025 Iran strike, and SEALED 2016 promise grades.",
+    "canonical_script": "eng/scripts/cr-new-news/cr-what-happened-to-trump-vo.txt",
+    "source_locks": "research/2026-05-27-cr-what-happened-to-trump-source-locks.md",
+    "estimated_cost_usd": 0
+  },
+  "slug": "cr-what-happened-to-trump",
+  "story_score_slug": "cr-what-happened-to-trump-vo",
+  "program": "cr-new-news",
+  "remotion_episode": "cr-what-happened-to-trump",
+  "total_duration_seconds": 550,
+  "vo_script_path": "eng/scripts/cr-new-news/cr-what-happened-to-trump-vo.txt",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "thumbnail": {
+    "template": "cr-new-news",
+    "headline": "THE PAGE IS GONE",
+    "subline": "SEVEN B-2s LATER",
+    "verdict": "RECEIPT",
+    "bg": "navy",
+    "portrait": "public/photos/wikipedia/donald-trump-2016.jpg"
+  },
+  "beats": [
+    {
+      "beat_id": "hook",
+      "label": "Seven planes, one vanished promise",
+      "start_sec": 0,
+      "end_sec": 33
+    },
+    {
+      "beat_id": "promise",
+      "label": "2024 promise pages",
+      "start_sec": 33,
+      "end_sec": 86
+    },
+    {
+      "beat_id": "404",
+      "label": "Live pages now 404",
+      "start_sec": 86,
+      "end_sec": 137
+    },
+    {
+      "beat_id": "strike",
+      "label": "Operation Midnight Hammer",
+      "start_sec": 137,
+      "end_sec": 221
+    },
+    {
+      "beat_id": "sealed",
+      "label": "SEALED 2016 grades",
+      "start_sec": 221,
+      "end_sec": 321
+    },
+    {
+      "beat_id": "judges",
+      "label": "Weaponization promise and judges",
+      "start_sec": 321,
+      "end_sec": 466
+    },
+    {
+      "beat_id": "cta",
+      "label": "Save the page and subscribe",
+      "start_sec": 466,
+      "end_sec": 550
+    }
+  ],
+  "clips": [
+    {
+      "clip_id": "hook-01-title",
+      "beat_id": "hook",
+      "duration": 16,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "Campaign Receipts",
+        "quote": "Seven planes. One page. One vanished promise."
+      },
+      "expected_on_screen_text": [
+        "Seven planes",
+        "One page",
+        "vanished promise"
+      ]
+    },
+    {
+      "clip_id": "hook-02-rnc-voice",
+      "beat_id": "hook",
+      "duration": 17,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "RNC acceptance speech · July 21, 2016",
+        "quote": "Trillions spent overseas. Roads, bridges, and airports left behind."
+      },
+      "expected_on_screen_text": [
+        "July 21, 2016",
+        "Trillions"
+      ]
+    },
+    {
+      "clip_id": "promise-01-war-page",
+      "beat_id": "promise",
+      "duration": 27,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "donaldjtrump.com/issues · Wayback Jan. 23, 2025",
+        "quote": "keep America out of unnecessary foreign wars"
+      },
+      "expected_on_screen_text": [
+        "unnecessary foreign wars"
+      ]
+    },
+    {
+      "clip_id": "promise-02-core-promise",
+      "beat_id": "promise",
+      "duration": 26,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "20 Core Promises · Promise 8",
+        "quote": "Prevent world war three. Restore peace in Europe and in the Middle East."
+      },
+      "expected_on_screen_text": [
+        "Prevent world war three"
+      ]
+    },
+    {
+      "clip_id": "gone-01-live-404",
+      "beat_id": "404",
+      "duration": 51,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "campaign-receipts",
+        "verdict": "LIVE PAGE RETURNS 404",
+        "subtitle": "Verified May 27, 2026"
+      },
+      "expected_on_screen_text": [
+        "404",
+        "May 27, 2026"
+      ]
+    },
+    {
+      "clip_id": "strike-01-calendar",
+      "beat_id": "strike",
+      "duration": 13,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "Timeline",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Five months after inauguration",
+        "events": [
+          {
+            "date": "Jan. 20, 2025",
+            "label": "Inauguration"
+          },
+          {
+            "date": "June 21, 2025",
+            "label": "Operation Midnight Hammer"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "Jan. 20",
+        "June 21"
+      ]
+    },
+    {
+      "clip_id": "strike-02-b2-count",
+      "beat_id": "strike",
+      "duration": 25,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "to": 7,
+        "prefix": "",
+        "suffix": " B-2s",
+        "caption": "Missouri to Iran"
+      },
+      "expected_on_screen_text": [
+        "7",
+        "B-2s"
+      ]
+    },
+    {
+      "clip_id": "strike-03-necessary",
+      "beat_id": "strike",
+      "duration": 46,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "Pentagon briefing · June 22, 2025",
+        "quote": "The campaign page said unnecessary. The strike was called necessary."
+      },
+      "expected_on_screen_text": [
+        "unnecessary",
+        "necessary"
+      ]
+    },
+    {
+      "clip_id": "sealed-01-scorecard",
+      "beat_id": "sealed",
+      "duration": 29,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "SEALED 2016 · 145 PROMISES",
+        "yAxisLabel": "Promises",
+        "maxValue": 60,
+        "bars": [
+          {
+            "label": "Kept",
+            "value": 46,
+            "color": "#1f7a4d"
+          },
+          {
+            "label": "Partly",
+            "value": 51,
+            "color": "#c59b2e"
+          },
+          {
+            "label": "Broken",
+            "value": 40,
+            "color": "#a4243b"
+          },
+          {
+            "label": "Reader",
+            "value": 8,
+            "color": "#5b6478"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "145",
+        "Kept",
+        "Broken"
+      ]
+    },
+    {
+      "clip_id": "sealed-02-iran-grades",
+      "beat_id": "sealed",
+      "duration": 57,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "SEALED2016.com · 2016 promise grades",
+        "quote": "Iran deal: KEPT. No more endless wars: PARTLY KEPT."
+      },
+      "expected_on_screen_text": [
+        "Iran deal",
+        "No more endless wars"
+      ]
+    },
+    {
+      "clip_id": "sealed-03-off-switch",
+      "beat_id": "sealed",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "SEALED 2016",
+        "quote": "The kept promise broke the other promise."
+      },
+      "expected_on_screen_text": [
+        "kept promise",
+        "broke"
+      ]
+    },
+    {
+      "clip_id": "judges-01-promise9",
+      "beat_id": "judges",
+      "duration": 22,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "20 Core Promises · Promise 9",
+        "quote": "End the weaponization of government against the American people."
+      },
+      "expected_on_screen_text": [
+        "weaponization"
+      ]
+    },
+    {
+      "clip_id": "judges-02-first-amendment",
+      "beat_id": "judges",
+      "duration": 87,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Four cases. Four judges.",
+        "yAxisLabel": "Federal release orders",
+        "maxValue": 4,
+        "bars": [
+          {
+            "label": "Khalil",
+            "value": 1,
+            "color": "#0a1f3d"
+          },
+          {
+            "label": "Ozturk",
+            "value": 1,
+            "color": "#5b6478"
+          },
+          {
+            "label": "Mahdawi",
+            "value": 1,
+            "color": "#a4243b"
+          },
+          {
+            "label": "Khan Suri",
+            "value": 1,
+            "color": "#c59b2e"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "Four cases",
+        "Khalil"
+      ]
+    },
+    {
+      "clip_id": "judges-03-same-shape",
+      "beat_id": "judges",
+      "duration": 36,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "campaign-receipts",
+        "verdict": "SAME SHAPE",
+        "subtitle": "Different subject. Same pattern."
+      },
+      "expected_on_screen_text": [
+        "SAME SHAPE"
+      ]
+    },
+    {
+      "clip_id": "cta-01-save-page",
+      "beat_id": "cta",
+      "duration": 72,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "Before you vote",
+        "quote": "Save the page before you vote."
+      },
+      "expected_on_screen_text": [
+        "Save the page"
+      ]
+    },
+    {
+      "clip_id": "cta-02-sites",
+      "beat_id": "cta",
+      "duration": 12,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "CampaignReceipts.com · Sealed2016.com",
+        "quote": "145 promises graded. Join the free newsletter."
+      },
+      "expected_on_screen_text": [
+        "CampaignReceipts.com",
+        "Sealed2016.com"
+      ]
+    }
+  ],
+  "music_cues": [
+    {
+      "start_sec": 0,
+      "end_sec": 120,
+      "mood": "quiet investigative piano",
+      "cue_id": "intro"
+    },
+    {
+      "start_sec": 120,
+      "end_sec": 360,
+      "mood": "low documentary pulse",
+      "cue_id": "body"
+    },
+    {
+      "start_sec": 360,
+      "end_sec": 560,
+      "mood": "restrained reveal",
+      "cue_id": "grades"
+    },
+    {
+      "start_sec": 560,
+      "end_sec": 660,
+      "mood": "plainspoken close",
+      "cue_id": "outro"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "scores": {
+    "turn_moved_earlier": 0,
+    "protagonist_named": 10,
+    "list_grammar_removed": 10,
+    "concept_list_present": 10
+  },
+  "composite": 7.5,
+  "verdict": "FAIL",
+  "fixes": [
+    "Move the 'wait, what?' turn earlier: the reveal 'Bush lost, Massie lost, Rabb won \u2014 same playbook, one variable' currently lands at Scene 5 (~2:30). Plant tension around the pattern break by line 10 or within Scene 2.",
+    "Consider opening with pattern tension: 'Two lost. One won. Same playbook' could anchor the hook, making the Delaware shell the mechanism rather than the mystery.",
+    "The storyline editor annotation says 'turn=same playbook, one variable' but this payoff arrives 150+ seconds in. Rule 28 requires earlier cognitive reward."
+  ],
+  "evidence": [
+    "PREV: turn implicit at 'And here's the punchline you only see if you've been watching' (~2:30 mark)",
+    "CURR: turn explicit at Scene 5 'Same playbook. Three outcomes. One variable.' (~2:30 mark) \u2014 no material improvement in timing",
+    "CURR Scene 1 names 'Chris Rabb' by line 6 (protagonist_named=10)",
+    "CURR replaces bullets with ## Scene headers and removes list grammar (list_grammar_removed=10)",
+    "CURR concept header expanded from 15\u219228 concepts including edw-action-fund, independent-expenditures, jcpoa-na (concept_list_present=10)"
+  ],
+  "_meta": {
+    "step": "screenwriter",
+    "slug": "adhoc",
+    "prev": "companies/campaign-receipts/content/scripts/cr-rabb-pa3-aipac-defeat-v1.md",
+    "curr": "companies/campaign-receipts/content/scripts/cr-rabb-pa3-aipac-defeat-v2.md",
+    "cost_usd": 0.0161,
+    "ts": "2026-05-25T00:25:07.806877"
+  }
+}

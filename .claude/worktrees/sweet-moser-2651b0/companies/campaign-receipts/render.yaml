@@ -1,0 +1,409 @@
+# Render service + cron definitions for CampaignReceipts.com.
+# Apply via: https://render.com/docs/blueprint-spec
+# This file lives at the project root inside the monorepo's
+# companies/campaign-receipts subtree; the deployable assumes you point
+# Render at companies/campaign-receipts as the service Root Directory.
+
+services:
+  - type: web
+    name: campaign-receipts
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: NEWSLETTER_CONFIRM_SECRET
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: FEC_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+      - key: LEMONSQUEEZY_API_KEY
+        sync: false
+      - key: LEMONSQUEEZY_STORE_ID
+        sync: false
+      - key: LEMONSQUEEZY_STORE_URL
+        sync: false
+      - key: LEMONSQUEEZY_WEBHOOK_SECRET
+        sync: false
+      - key: LEMONSQUEEZY_CR_VARIANT_ID_NEWSLETTER
+        sync: false
+      - key: LEMONSQUEEZY_CR_VARIANT_ID_SOFTWARE
+        sync: false
+      - key: HUNTER_API_KEY
+        sync: false
+
+  # Monthly verdict-routing spot audit per /methodology page.
+  # Samples 5% of graded promises and writes flagged re-routings to
+  # cr_audit_findings for human review. Does NOT mutate cr_promises.
+  - type: cron
+    name: campaign-receipts-spot-audit
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    # First day of each month at 09:00 UTC.
+    schedule: "0 9 1 * *"
+    buildCommand: npm install
+    startCommand: node scripts/run-spot-audit.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+
+  # Daily content refresh — 09:00 ET (UTC 13:00). Single entry-point
+  # (scripts/cron-daily.mjs) that keeps the public site current every
+  # day. Per founder rule "one cron worker, many jobs":
+  #   - archive-past-races          (flip is_active=false once a primary
+  #                                  date passes → strip self-prunes)
+  #   - snapshot-homepage-pulse     (live-activity ticker)
+  #   - snapshot-weekly             (receipt-of-week; idempotent by week)
+  #   - snapshot-leaderboard-history(daily rank deltas)
+  #   - refresh-video-companion     (upsert video_companion article rows
+  #                                  so every published YouTube long-form
+  #                                  has a Google-indexable companion page)
+  #   - fec-sync --limit=400        (Monday-only backfill, gated in-script)
+  # Every step is idempotent and wrapped in try/catch — a single failure
+  # does not abort the rest. This cron was previously authored but never
+  # wired into the blueprint; this entry closes that gap.
+  - type: cron
+    name: cr-content-daily
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 13 * * *" # daily 09:00 ET
+    buildCommand: npm install
+    startCommand: node scripts/cron-daily.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: FEC_API_KEY
+        sync: false
+
+  # ─── GTM crons (Day 8 launch sequence) ────────────────────────────
+  # 7-day cold-outreach cadence. Each cohort fires on its weekday at
+  # 09:00 ET (UTC 13:00). The script picks the cohort by --day=N.
+  # After Day 14, manually disable in Render dashboard.
+
+  - type: cron
+    name: cr-outreach-d1-journalists
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 13 * * 1" # Mon 09:00 ET — accountability journalists
+    buildCommand: npm install
+    # RE-ENABLED 2026-05-17 for Monday journalist launch.
+    # D1 runs --dry-run FIRST: logs 25 journalist recipients + draft
+    # email content + UTM tags but does NOT send. Founder reviews the
+    # daily digest at 18:00 ET Monday, then we drop --dry-run for D2.
+    startCommand: node scripts/run-outreach.mjs --day=1 --dry-run
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CR_GMAIL_USER
+        sync: false
+      - key: CR_GMAIL_APP_PASSWORD
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+
+  - type: cron
+    name: cr-outreach-d2-youtubers
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 13 * * 2"
+    buildCommand: npm install
+    # RE-ENABLED 2026-05-17. D2 youtubers — first real cohort send.
+    startCommand: node scripts/run-outreach.mjs --day=2
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CR_GMAIL_USER
+        sync: false
+      - key: CR_GMAIL_APP_PASSWORD
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+
+  - type: cron
+    name: cr-outreach-d3-substacks
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 13 * * 3"
+    buildCommand: npm install
+    # RE-ENABLED 2026-05-17. D3 substack writers.
+    startCommand: node scripts/run-outreach.mjs --day=3
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CR_GMAIL_USER
+        sync: false
+      - key: CR_GMAIL_APP_PASSWORD
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+
+  - type: cron
+    name: cr-outreach-d6-podcasts
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 13 * * 6" # Saturday — podcast hosts
+    buildCommand: npm install
+    # RE-ENABLED 2026-05-17. D6 podcast hosts.
+    startCommand: node scripts/run-outreach.mjs --day=6
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CR_GMAIL_USER
+        sync: false
+      - key: CR_GMAIL_APP_PASSWORD
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+
+  - type: cron
+    name: cr-outreach-d7-followup
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 13 * * 0" # Sunday — follow-up to D1+D2 non-openers
+    buildCommand: npm install
+    # RE-ENABLED 2026-05-17. D7 follow-up to D1+D2 non-openers.
+    startCommand: node scripts/run-outreach.mjs --day=7
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CR_GMAIL_USER
+        sync: false
+      - key: CR_GMAIL_APP_PASSWORD
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+
+  # Daily founder digest — 18:00 ET (UTC 22:00). Only thing founder reads.
+  - type: cron
+    name: cr-daily-digest
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 22 * * *"
+    buildCommand: npm install
+    startCommand: node scripts/send-daily-digest.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: FOUNDER_DIGEST_EMAIL
+        value: alex@antoniou.net
+
+  # Weekly FEC refresh — every Sunday 04:00 UTC (~midnight ET).
+  - type: cron
+    name: cr-fec-weekly
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 4 * * 0"
+    buildCommand: npm install
+    startCommand: node scripts/fec-sync.mjs --all-federal --cycle=2024
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: FEC_API_KEY
+        sync: false
+
+  # Nightly donor-to-vote alignment compute. Re-runs the join over
+  # cr_roll_calls × cr_bill_industry_positions × cr_industry_breakdown.
+  # Cheap (~30s), idempotent. Daily refresh is part of Pro tier value
+  # claim ("daily-updated correlation engine").
+  - type: cron
+    name: cr-alignment-nightly
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 8 * * *" # 03:00 ET
+    buildCommand: npm install
+    startCommand: node scripts/compute-alignment.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+
+  # Nightly bill-sponsor money trail compute. Same as above but joins
+  # bill sponsors → industry breakdown.
+  - type: cron
+    name: cr-bill-money-trail-nightly
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "30 8 * * *" # 03:30 ET, 30 min after alignment
+    buildCommand: npm install
+    startCommand: node scripts/compute-bill-money-trail.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+
+  # Weekly Congress.gov bill ingest. Picks up new bills + new roll-call
+  # votes from the past week. House-only for now (Congress.gov v3 API
+  # doesn't yet publish Senate roll-calls).
+  - type: cron
+    name: cr-bills-weekly
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 6 * * 1" # Monday 01:00 ET
+    buildCommand: npm install
+    startCommand: node scripts/seed-bills.mjs --congress=119
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: FEC_API_KEY
+        sync: false
+
+  # Monday pick: "Worst Broken Promise of the Week" — see WS2c.
+  - type: cron
+    name: cr-weekly-pick
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 11 * * 1" # Monday 06:00 ET
+    buildCommand: npm install
+    startCommand: node scripts/pick-weekly.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+
+  # ── Weekly content engine, PHASE 1 (build) ──────────────────
+  # Thursday 18:00 ET == 22:00 UTC (EDT). Gathers the last 7 days of DB
+  # changes, spawns the Sonnet journalist + viral-story personas,
+  # generates illustrations via the gen-router, writes weekly_story blog
+  # posts + a video handoff (cr_video_queue), and persists the assembled
+  # newsletter into cr_newsletter_issues (status='built'). Idempotent by
+  # ISO week. Spends ~$0.01-0.02/run on Anthropic + prepaid Higgsfield
+  # credits. Phase 2 just sends what this builds.
+  - type: cron
+    name: cr-weekly-content-build
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 22 * * 4" # Thursday 22:00 UTC ≈ 18:00 ET
+    buildCommand: npm install
+    startCommand: node scripts/weekly-content-build.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+
+  # ── Weekly content engine, PHASE 2 (send) ───────────────────
+  # Runs HOURLY, EVERY DAY ("0 * * * *"). The script gates each subscriber
+  # on their LOCAL Friday 05:00 window + an unsent ledger, so an hourly
+  # cron sweeps the full UTC-12..UTC+14 spread and delivers exactly one
+  # email per subscriber at their own Friday 05:00. A single Friday-UTC
+  # cron ("0 * * * 5") would MISS subscribers whose local Friday-05:00
+  # lands on a different UTC calendar day, so we run daily-hourly and let
+  # the script decide. If Phase 1 built no issue, it logs + exits 0.
+  - type: cron
+    name: cr-weekly-newsletter-send
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 * * * *" # hourly; script gates on local Friday 05:00 + unsent
+    buildCommand: npm install
+    startCommand: node scripts/weekly-newsletter-send.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false

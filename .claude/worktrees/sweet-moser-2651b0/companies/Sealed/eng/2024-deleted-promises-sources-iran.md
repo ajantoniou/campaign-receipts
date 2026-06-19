@@ -1,0 +1,17 @@
+## CHAPTER 1 REPLACEMENT — strike details
+
+The strike happened on the night of June 21, 2025. The Pentagon called it Operation Midnight Hammer ([AP News](https://apnews.com/article/iran-israel-war-nuclear-trump-06-22-2025), [NPR](https://www.npr.org/2025/06/22/nx-s1-5441763/details-emerge-about-operation-midnight-hammer)). Seven B-2 stealth bombers flew from Missouri. They dropped fourteen bunker-buster bombs. A submarine fired Tomahawk missiles. The whole strike took about 25 minutes ([CRS report to Congress](https://www.congress.gov/crs_external_products/IN/PDF/IN12571/IN12571.1.pdf)).
+
+Three sites were hit. Fordow. Natanz. Isfahan. All three are part of Iran's nuclear program ([Reuters via CRS](https://www.congress.gov/crs_external_products/IN/PDF/IN12571/IN12571.1.pdf), [CSIS](https://www.csis.org/analysis/what-operation-midnight-hammer-means-future-irans-nuclear-ambitions)). The Pentagon reported no U.S. casualties. Iran did not fire back at the planes ([NPR](https://www.npr.org/2025/06/22/nx-s1-5441763/details-emerge-about-operation-midnight-hammer)). Iran has not released a casualty count for the three sites. The broader 12-day Israel-Iran war that the strike was part of killed at least 1,062 people in Iran, per the Iranian Health Ministry ([UK House of Commons Library briefing](https://commonslibrary.parliament.uk/research-briefings/cbp-10292/)). That number covers all strikes in the war, not just the three U.S. sites.
+
+## CHAPTER 2 REPLACEMENT — "necessary" statement
+
+President Trump made the case himself. He spoke from the White House at about 10 p.m. on June 21, 2025, right after the bombs fell. He called the strike a "spectacular military success" and said Iran's nuclear sites had been "completely and totally obliterated" ([NPR transcript coverage](https://www.npr.org/2025/06/22/nx-s1-5441763/details-emerge-about-operation-midnight-hammer), [CRS report](https://www.congress.gov/crs_external_products/IN/PDF/IN12571/IN12571.1.pdf)). Pentagon officials told reporters the operation was "very narrowly tailored" and necessary to "destroy or severely degrade Iran's nuclear program" ([CRS report](https://www.congress.gov/crs_external_products/IN/PDF/IN12571/IN12571.1.pdf)). That was the word. Necessary. The same word the campaign page used. The President's team chose when it applied.
+
+## Sources cited (audit trail)
+
+- https://www.congress.gov/crs_external_products/IN/PDF/IN12571/IN12571.1.pdf — Congressional Research Service insight brief "U.S. Strikes on Nuclear Sites in Iran" (primary government document: date, targets, weapons, "narrowly tailored" / nuclear-program-degradation framing)
+- https://www.npr.org/2025/06/22/nx-s1-5441763/details-emerge-about-operation-midnight-hammer — NPR, "Details emerge about Operation Midnight Hammer" (operation name, Trump 10 p.m. address, "obliterated" / "spectacular military success" quotes, no U.S. casualties, 25-minute window)
+- https://apnews.com/article/iran-israel-war-nuclear-trump-06-22-2025 — AP News coverage of the June 21–22 strikes (wire confirmation of date and operation)
+- https://www.csis.org/analysis/what-operation-midnight-hammer-means-future-irans-nuclear-ambitions — CSIS analysis confirming three target sites and weapons load
+- https://commonslibrary.parliament.uk/research-briefings/cbp-10292/ — UK House of Commons Library research briefing "Iran: Impacts of June 2025 Israel and US strikes" (Iranian Health Ministry 1,062 figure for whole 12-day war, independent government summary)

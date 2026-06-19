@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="none">
+  <!-- Two Greek columns icon -->
+  <g transform="translate(2, 4) scale(1)">
+    <polygon points="16,3 4,10 28,10" fill="#0A0A0A"/>
+    <rect x="3" y="10" width="26" height="2.5" rx="0.5" fill="#0A0A0A"/>
+    <rect x="6" y="13" width="4" height="14" rx="0.8" fill="#0A0A0A"/>
+    <rect x="22" y="13" width="4" height="14" rx="0.8" fill="#0A0A0A"/>
+    <rect x="5" y="12.5" width="6" height="1.5" rx="0.5" fill="#0A0A0A"/>
+    <rect x="21" y="12.5" width="6" height="1.5" rx="0.5" fill="#0A0A0A"/>
+    <rect x="2" y="27" width="28" height="2.5" rx="0.5" fill="#0A0A0A"/>
+    <rect x="5" y="26" width="6" height="1.5" rx="0.5" fill="#0A0A0A"/>
+    <rect x="21" y="26" width="6" height="1.5" rx="0.5" fill="#0A0A0A"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="38" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#0A0A0A" letter-spacing="-0.5">Cliros</text>
+</svg>

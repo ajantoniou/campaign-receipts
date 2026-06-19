@@ -1,0 +1,180 @@
+{
+  "_meta": {
+    "title": "SEALED — Drain the Swamp (long-form v1)",
+    "purpose": "Ch. 2 ethics pledge + lobbying totals; text-cards + Remotion; Jessica voice; STORYLINE script.",
+    "canonical_script": "eng/longform-scripts/sealed-drain-the-swamp.md",
+    "visual_policy": "brand/visual-explainer-policy.md",
+    "history": [
+      "2026-05-22: initial v1 — text-card slots reused Iran cards (s5-01, s7-04, s9-03, s10-01) which leaked Iran content into Drain master at 02:07-02:13.",
+      "2026-05-23: cross-episode IDs replaced with swamp-* equivalents; durations retimed to actual VO (~155s, not the 220s plan). Lobbying chart now lands inside 01:09-01:27 to match the VO line at 1:06-1:24."
+    ]
+  },
+  "slug": "sealed-drain-the-swamp-v1",
+  "story_score_slug": "sealed-drain-the-swamp",
+  "total_duration_seconds": 155,
+  "vo_script_path": "eng/longform-scripts/sealed-drain-the-swamp.md",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "clips": [
+    {
+      "clip_id": "s1-01",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": { "brand": "sealed", "verdict": "BROKEN", "subtitle": "Chapter 2 · Drain the Swamp" },
+      "covers_script_section": "Scene 1 — chapter verdict stamp"
+    },
+    {
+      "clip_id": "s1-02",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "swamp-s1-02",
+      "expected_on_screen_text": ["DRAIN", "SWAMP"],
+      "covers_script_section": "Scene 1 — title card"
+    },
+    {
+      "clip_id": "s2-01",
+      "duration": 12,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "June 16, 2015",
+        "quote": "Politicians are almost completely controlled by lobbyists, donors, and special interests.",
+        "source": "Trump Tower launch — CBS transcript"
+      },
+      "covers_script_section": "Scene 2 — June 16 2015 quote"
+    },
+    {
+      "clip_id": "s2-02",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "swamp-s2-02",
+      "expected_on_screen_text": ["LOBBYISTS", "POLITICIANS", "POLICY"],
+      "covers_script_section": "Scene 2 — flow card (replaces Iran s5-01 leak)"
+    },
+    {
+      "clip_id": "s3-01",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "swamp-s3-02",
+      "expected_on_screen_text": ["EO 13770", "ETHICS"],
+      "covers_script_section": "Scene 3 — EO 13770 ethics-pledge promise card"
+    },
+    {
+      "clip_id": "s3-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "swamp-s4-02",
+      "expected_on_screen_text": ["JAN 28", "2017"],
+      "covers_script_section": "Scene 3 — Federal Register stamp Jan 28 2017"
+    },
+    {
+      "clip_id": "s4-01",
+      "duration": 16,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "sealed",
+        "title": "WHAT THE PLEDGE PROMISED",
+        "source": { "label": "VOTERS", "amount": "" },
+        "destinations": [
+          { "label": "5-YR LOBBY BAN", "amount": "" },
+          { "label": "NO FOREIGN LOBBY", "amount": "" }
+        ]
+      },
+      "covers_script_section": "Scene 4 — what voters expected (extends to cover both Scene 4 and lead-in to Scene 5)"
+    },
+    {
+      "clip_id": "s5-01",
+      "duration": 18,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "LOBBYING SPEND — WASHINGTON",
+        "yAxisLabel": "Billions USD",
+        "maxValue": 4,
+        "bars": [
+          { "label": "2016", "value": 3.15, "suffix": "B", "prefix": "$", "color": "#2a4d7c" },
+          { "label": "2020", "value": 3.53, "suffix": "B", "prefix": "$", "color": "#a4243b" }
+        ]
+      },
+      "expected_on_screen_text": ["3.15", "3.53", "2016", "2020"],
+      "covers_script_section": "Scene 5 — lobbying chart (lands inside VO 1:06-1:24)"
+    },
+    {
+      "clip_id": "s5-02",
+      "duration": 12,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "swamp-s5-02",
+      "expected_on_screen_text": ["JAN 19", "2021", "EO 13983"],
+      "covers_script_section": "Scene 6 — verdict beat: EO 13983 signed (replaces Iran s9-03 leak)"
+    },
+    {
+      "clip_id": "s6-01",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "swamp-s6-02",
+      "expected_on_screen_text": ["PRIVATIZED"],
+      "covers_script_section": "Scene 6 — privatized headline"
+    },
+    {
+      "clip_id": "s7-01",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "swamp-s8-01",
+      "expected_on_screen_text": ["FOLLOW", "PAPER"],
+      "covers_script_section": "Scene 7 — fair note (we follow the paper)"
+    },
+    {
+      "clip_id": "s8-01",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": { "brand": "sealed", "verdict": "BROKEN", "subtitle": "13 of 18 · Ch. 2" },
+      "expected_on_screen_text": ["BROKEN", "13"],
+      "covers_script_section": "Scene 8 — chapter verdict stamp"
+    },
+    {
+      "clip_id": "s9-01",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "swamp-verdict-1318",
+      "expected_on_screen_text": ["13", "18", "BROKEN"],
+      "covers_script_section": "Scene 8 — 13 of 18 BROKEN scorecard (replaces Iran s10-01 leak)"
+    },
+    {
+      "clip_id": "s9-02",
+      "duration": 12,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v5/s10-03-endcard.mp4",
+      "covers_script_section": "Scene 9 — endcard CTA reuse"
+    }
+  ],
+  "music_cues": [
+    { "start_sec": 0, "end_sec": 30, "mood": "tense piano", "cue_id": "intro" },
+    { "start_sec": 30, "end_sec": 95, "mood": "investigative", "cue_id": "body" },
+    { "start_sec": 95, "end_sec": 135, "mood": "rising", "cue_id": "reveal" },
+    { "start_sec": 135, "end_sec": 155, "mood": "resolve", "cue_id": "outro" }
+  ]
+}

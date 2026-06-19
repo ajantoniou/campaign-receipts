@@ -1,0 +1,184 @@
+{
+  "slug": "sealed-004-drain-the-swamp",
+  "build": "004",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-23 rebuild: 7 Remotion beats. Original receipt illustration prompt ('executive order document with wax seal') was producing 'EXESICUTIVE ORDER' + lorem-ipsum body \u2014 removed; EO numbers/dates/$ now live in Remotion. ChartBar shows the 3.15B \u2192 3.53B receipt; Timeline carries the EO 13770 / 13983 arc.",
+  "sync_specs": [
+    {
+      "id": "hook",
+      "endAnchors": [
+        "so",
+        "follow"
+      ]
+    },
+    {
+      "id": "enforcePaper",
+      "startAnchors": [
+        "so",
+        "follow"
+      ],
+      "endAnchors": [
+        "eight",
+        "13770"
+      ]
+    },
+    {
+      "id": "eo13770",
+      "startAnchors": [
+        "eight",
+        "13770"
+      ],
+      "endAnchors": [
+        "january",
+        "19th"
+      ]
+    },
+    {
+      "id": "eo13983",
+      "startAnchors": [
+        "january",
+        "19th",
+        "13983"
+      ],
+      "endAnchors": [
+        "lobbying",
+        "spend"
+      ]
+    },
+    {
+      "id": "lobbyChart",
+      "startAnchors": [
+        "lobbying",
+        "spend",
+        "rose"
+      ],
+      "endAnchors": [
+        "bigger",
+        "smaller"
+      ]
+    },
+    {
+      "id": "brokenVerdict",
+      "startAnchors": [
+        "bigger",
+        "smaller"
+      ],
+      "endAnchors": [
+        "145"
+      ]
+    },
+    {
+      "id": "cta",
+      "startAnchors": [
+        "145",
+        "promises",
+        "sealed2016"
+      ],
+      "endAnchors": null
+    }
+  ],
+  "segments": {
+    "hook": {
+      "youtubeBroll": {
+        "url": "https://www.youtube.com/watch?v=PxWu69vrdhA",
+        "start": "00:08",
+        "end": "00:16",
+        "license": "fair-use",
+        "title": "Donald Trump says it is time to \"drain the swamp\" in D.C. (CBS News)",
+        "year": 2016,
+        "notes": "2016 Johnstown PA rally; Trump at podium; audio stripped; VO overlay; CBS bug bottom-right cropped",
+        "duration": 6,
+        "cropTopPct": 0.85,
+        "_verified": "2026-05-23 \u2014 frames inspected at /tmp/cbs-frames/early03.jpg + early15.jpg (Trump podium + crowd, TRUMP PENCE lectern, no graphic obstructions)"
+      },
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2016 trail",
+        "quote": "Drain the swamp.",
+        "source": "Loudest promise of 2016"
+      }
+    },
+    "enforcePaper": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "ONE PIECE OF PAPER",
+        "events": [
+          {
+            "date": "Day 1",
+            "label": "Slogan: drain the swamp",
+            "outcome": "reader"
+          },
+          {
+            "date": "Day 8",
+            "label": "EO 13770 \u2014 ethics pledge",
+            "outcome": "partial"
+          },
+          {
+            "date": "Last day",
+            "label": "EO 13983 revokes it",
+            "outcome": "broken"
+          }
+        ]
+      }
+    },
+    "eo13770": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Jan 28, 2017 \u00b7 Day 8",
+        "quote": "EO 13770 \u2014 real 5-year lobbyist ban.",
+        "source": "White House \u00b7 SEALED 2016"
+      }
+    },
+    "eo13983": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Jan 19, 2021 \u00b7 last day",
+        "quote": "EO 13983 revokes the ethics pledge.",
+        "source": "Federal Register \u00b7 SEALED 2016"
+      }
+    },
+    "lobbyChart": {
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "LOBBYING SPEND \u2014 WASHINGTON",
+        "yAxisLabel": "Billions USD",
+        "maxValue": 4,
+        "bars": [
+          {
+            "label": "2016",
+            "value": 3.15,
+            "suffix": "B",
+            "color": "#2a4d7c"
+          },
+          {
+            "label": "2020",
+            "value": 3.53,
+            "suffix": "B",
+            "color": "#a4243b"
+          }
+        ]
+      }
+    },
+    "brokenVerdict": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Drain the swamp",
+        "citation": "Pledge revoked \u00b7 spend rose"
+      }
+    },
+    "cta": {
+      "vendor": "motion-card",
+      "line1": "145 PROMISES",
+      "line2": "SEALED2016.COM"
+    }
+  },
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See SEALED-PRODUCTION-PIPELINE-v3.md \u00a7 Doctrine line 4."
+}

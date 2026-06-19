@@ -1,0 +1,67 @@
+{
+  "slug": "sealed-015-scotus-roe",
+  "build": "015",
+  "verdict": "KEPT",
+  "_notes": "2026-05-24 no-VO build per founder lock. 6 Remotion beats: 3-justice hook, per-justice confirmation timeline, Barrett 8-days-before-election sourceCard, Dobbs decision card, verdict, CTA.",
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See SEALED-PRODUCTION-PIPELINE-v3.md § Doctrine line 4.",
+  "sync_specs": [
+    { "id": "hook",            "duration": 5.0 },
+    { "id": "threeJustices",   "duration": 6.0 },
+    { "id": "barrettTiming",   "duration": 5.0 },
+    { "id": "dobbs",           "duration": 5.0 },
+    { "id": "kept",            "duration": 5.0 },
+    { "id": "cta",             "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2017 — 2020 · one Supreme Court",
+        "quote": "Three justices in four years.",
+        "source": "Roe fell in 2022."
+      }
+    },
+    "threeJustices": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "THREE CONFIRMATIONS",
+        "events": [
+          { "date": "Apr 2017", "label": "Neil Gorsuch — 54-45",        "outcome": "kept" },
+          { "date": "Oct 2018", "label": "Brett Kavanaugh — 50-48",    "outcome": "kept" },
+          { "date": "Oct 2020", "label": "Amy Coney Barrett — 52-48",  "outcome": "kept" }
+        ]
+      }
+    },
+    "barrettTiming": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Oct 26, 2020",
+        "quote": "Barrett confirmed eight days before the election.",
+        "source": "Senate roll call 224"
+      }
+    },
+    "dobbs": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Jun 24, 2022",
+        "quote": "Dobbs v. Jackson Women's Health.",
+        "source": "597 U.S. 215 — Roe overturned"
+      }
+    },
+    "kept": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "KEPT",
+        "promise": "Supreme Court · overturn Roe",
+        "citation": "3 justices · 1 decision"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "cr-what-happened-to-trump",
+  "format_version": "v2",
+  "aspect_ratio": "9:16",
+  "notes": "CR Trump/SEALED offset-driven shorts. cut-shorts-v2.py with --cuts/--body uses start_sec and a 2.5s hook plus 28s body.",
+  "shorts": [
+    {
+      "id": "live-page-404-memory",
+      "start_sec": 86,
+      "hook_question": "Why is the page voters saw gone now?",
+      "punchline_overlays": [
+        { "t": 3.0, "duration": 4.0, "text": "The promise page is gone" },
+        { "t": 18.0, "duration": 4.0, "text": "Live site: 404" },
+        { "t": 24.0, "duration": 4.0, "text": "The internet remembers" }
+      ],
+      "footer": "CampaignReceipts.com | Sealed2016.com | Join the free newsletter"
+    },
+    {
+      "id": "seven-b2s-necessary",
+      "start_sec": 140,
+      "hook_question": "How did 'unnecessary wars' become 'necessary'?",
+      "punchline_overlays": [
+        { "t": 2.0, "duration": 4.0, "text": "Jan. 20 -> June 21" },
+        { "t": 12.0, "duration": 4.0, "text": "7 B-2s. Missouri to Iran." },
+        { "t": 22.0, "duration": 4.0, "text": "Unnecessary vs necessary" }
+      ],
+      "footer": "CampaignReceipts.com | 145 promises graded at Sealed2016.com"
+    },
+    {
+      "id": "kept-promise-broke-another",
+      "start_sec": 268,
+      "hook_question": "What if the kept promise broke the anti-war promise?",
+      "punchline_overlays": [
+        { "t": 2.0, "duration": 4.0, "text": "Promise 46: KEPT" },
+        { "t": 10.0, "duration": 4.0, "text": "Promise 51: PARTLY KEPT" },
+        { "t": 21.0, "duration": 5.0, "text": "The kept promise broke the other promise" }
+      ],
+      "footer": "CampaignReceipts.com | Full grades at Sealed2016.com"
+    }
+  ]
+}

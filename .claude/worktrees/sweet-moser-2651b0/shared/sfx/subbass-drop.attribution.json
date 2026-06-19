@@ -1,0 +1,12 @@
+{
+  "asset": "subbass-drop.mp3",
+  "title": "Synth Bass Drop Impact",
+  "author": "AlexLane",
+  "source_url": "https://freesound.org/people/AlexLane/sounds/475005/",
+  "preview_url": "https://cdn.freesound.org/previews/475/475005_2617886-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "duration_s": 2.794,
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Master WAV (96kHz/24-bit) on source page if needed. Trim decay to ~200ms and normalize to -24 dB peak inside apply-sfx.mjs at runtime. Moog Sub 37 fundamental — should sit in the 40-60 Hz range the persona asks for."
+}

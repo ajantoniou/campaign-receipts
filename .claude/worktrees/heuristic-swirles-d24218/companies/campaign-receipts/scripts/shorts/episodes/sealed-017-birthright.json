@@ -1,0 +1,66 @@
+{
+  "slug": "sealed-017-birthright",
+  "build": "017",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-24 no-VO. The verbatim 'next week' Axios HBO clip vs the empty White House EO archive. Pre-midterm political timing made obvious.",
+  "no_vo": true,
+  "sync_specs": [
+    { "id": "hook",       "duration": 5.0 },
+    { "id": "axiosClip",  "duration": 5.0 },
+    { "id": "weeksYears", "duration": 6.0 },
+    { "id": "noFiling",   "duration": 5.0 },
+    { "id": "broken",     "duration": 5.0 },
+    { "id": "cta",        "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Axios on HBO · Oct 30, 2018",
+        "quote": "I will sign it next week.",
+        "source": "The EO was never filed."
+      }
+    },
+    "axiosClip": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "8 days before the 2018 midterm",
+        "quote": "Direct quote — end birthright citizenship by EO.",
+        "source": "Pre-midterm political timing was deliberate"
+      }
+    },
+    "weeksYears": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "WEEKS BECAME YEARS",
+        "events": [
+          { "date": "Oct 30 2018", "label": "Quote: I will sign next week", "outcome": "reader" },
+          { "date": "Nov 6 2018",  "label": "Midterm passes · no EO",        "outcome": "broken" },
+          { "date": "Jan 20 2021", "label": "Term ends · no EO ever filed",  "outcome": "broken" }
+        ]
+      }
+    },
+    "noFiling": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "White House EO archive",
+        "quote": "No matching EO ever issued.",
+        "source": "14th Amendment never challenged"
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "End birthright citizenship",
+        "citation": "Promised in 7 days · never delivered"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

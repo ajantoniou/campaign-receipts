@@ -1,0 +1,11 @@
+{
+  "asset": "paper-rustle-loop.mp3",
+  "title": "Paper Rustling 01.wav",
+  "author": "swidmark",
+  "source_url": "https://freesound.org/people/swidmark/sounds/171320/",
+  "preview_url": "https://cdn.freesound.org/previews/171/171320_962819-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Real-paper foley (someone flipping through papers) — fits the 'real paper movement, not synth' constraint. ~13s source; loopable. Inside apply-sfx.mjs, take a 2-4s clean stretch (avoid the louder page-snaps) and normalize to -30 dB."
+}

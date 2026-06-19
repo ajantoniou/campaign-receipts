@@ -1,0 +1,51 @@
+
+# watch: video report
+
+- **Source:** /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/cr-bush-short-03-verdict.mp4
+- **Title:** cr-bush-short-03-verdict.mp4
+- **Duration:** 00:31 (30.5s)
+- **Resolution:** 1080x1920 (h264)
+- **Frames:** 12 @ 0.393 fps, full mode (budget 12, max 12)
+- **Frame size:** 768px wide
+- **Transcript:** none available
+
+## Frames
+
+Frames live at: `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames`
+
+**Read each frame path below with the Read tool to view the image.** Frames are in chronological order; `t=MM:SS` is the absolute timestamp in the source video.
+
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0001.jpg` (t=00:00)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0002.jpg` (t=00:03)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0003.jpg` (t=00:05)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0004.jpg` (t=00:08)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0005.jpg` (t=00:10)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0006.jpg` (t=00:13)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0007.jpg` (t=00:15)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0008.jpg` (t=00:18)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0009.jpg` (t=00:20)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0010.jpg` (t=00:23)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0011.jpg` (t=00:25)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict/frames/frame_0012.jpg` (t=00:28)
+
+## Transcript
+
+_No transcript available — proceed with frames only. Captions were missing and the Whisper fallback was unavailable (no API key set, or `--no-whisper` was used). Run `python3 /Applications/DrAntoniou Projects/AgentCompanies/shared/skills/watch/scripts/setup.py` to enable Whisper, then re-run._
+
+---
+_Work dir: `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict` — delete when done._
+
+[watch] working dir: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/shorts-cuts/shorts-out/watch-qc-cr-bush-short-03-verdict
+[watch] using local file…
+[watch] extracting ~12 frames at 0.393 fps over full 30.5s…
+[watch] extracting audio for Whisper (openai)…
+[watch] audio: 240 kB — uploading to openai Whisper…
+[watch] whisper fallback failed: Whisper request failed: HTTP Error 403: Forbidden — {
+    "error": {
+        "message": "Project `proj_Z1qh8sTVxjN6FajZ01SsXp9T` does not have access to model `whisper-1`",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": "model_not_found"
+    }
+}
+

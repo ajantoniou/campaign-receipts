@@ -1,0 +1,46 @@
+{
+  "slug": "cr-bell-bush-aipac-primary-vo",
+  "verdict": "SHIP",
+  "sealed": false,
+  "composite_copy": 100,
+  "composite": 0,
+  "master_ready": false,
+  "rule": "all_dimensions_must_be_10",
+  "dimensions": {
+    "story_vs_list": 10,
+    "protagonist": 10,
+    "turn": 10,
+    "hook_mrbeast": 10,
+    "rehooks": 10,
+    "clarity_jk": 10,
+    "sarah_voice": 10,
+    "tts_facts": 10,
+    "cinematic_pacing": 0,
+    "visual_story_match": 0
+  },
+  "passes": {
+    "A_screenwriter": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "B_jk_rowling": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "C_mrbeast_copy": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "D_storyline_editor": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    }
+  },
+  "reports": {
+    "storyteller_gate": "eng/scripts/cr-new-news/qc-storyteller-cr-bell-bush-aipac-primary-vo.md",
+    "script_qc": "eng/scripts/cr-new-news/qc-script-cr-bell-bush-aipac-primary-vo.md"
+  },
+  "editorial_script": "eng/scripts/cr-new-news/cr-bell-bush-aipac-primary-vo.txt",
+  "locked_at": "2026-05-23T02:50:32.904917+00:00",
+  "note": "COPY 100/100 from mechanical gates \u2014 set master dims after production QC"
+}

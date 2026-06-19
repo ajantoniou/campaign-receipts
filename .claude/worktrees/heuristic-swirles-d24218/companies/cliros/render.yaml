@@ -1,0 +1,184 @@
+# Cliros — Render Blueprint
+# Deploy: Next.js 16 web service from monorepo subfolder
+# Note: rootDir left empty; cd into subfolder in build/start commands
+# (matches working pattern from other AgentCompanies services)
+
+services:
+  - type: web
+    name: cliros
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: cd companies/cliros/app && npm install && (./node_modules/.bin/playwright install --with-deps chromium || echo "WARN: Playwright install failed, GSCCCA will be unavailable") && npm run build
+    startCommand: cd companies/cliros/app && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22.15.0"
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: PROPMIX_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # LemonSqueezy is the sole billing rail (sole-prop friendly, MoR).
+      # Stripe was evaluated and rejected (KYC + suspension risk on sole props,
+      # and LS's metered subscription primitive solves the saved-card use case).
+      - key: LEMONSQUEEZY_METERED_VARIANT_ID
+        sync: false
+      - key: LEMONSQUEEZY_PACKAGE_1_VARIANT_ID
+        sync: false
+      - key: LEMONSQUEEZY_PACKAGE_5_VARIANT_ID
+        sync: false
+      - key: LEMONSQUEEZY_PACKAGE_25_VARIANT_ID
+        sync: false
+      - key: NEXT_PUBLIC_GOOGLE_PLACES_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://cliros.ai
+      - key: CLIROS_BETA_MODE
+        value: "true"
+      - key: NEXT_PUBLIC_CLIROS_BETA_MODE
+        value: "true"
+      - key: GSCCCA_FAST_MODE
+        value: "1"
+      - key: GSCCCA_USERNAME
+        sync: false
+      - key: GSCCCA_PASSWORD
+        sync: false
+      - key: PACER_USERNAME
+        sync: false
+      - key: PACER_PASSWORD
+        sync: false
+      - key: LEMONSQUEEZY_API_KEY
+        sync: false
+      - key: LEMONSQUEEZY_STORE_ID
+        sync: false
+      - key: LEMONSQUEEZY_VARIANT_ID
+        sync: false
+      - key: LEMONSQUEEZY_WEBHOOK_SECRET
+        sync: false
+      - key: PLAYWRIGHT_BROWSERS_PATH
+        value: /opt/render/.cache/ms-playwright
+
+  # ─── Pipeline tick: one stage per run; */3 balances latency vs Render burn ───
+  - type: cron
+    name: cliros-pipeline-tick
+    plan: starter
+    region: oregon
+    rootDir: companies/cliros/app
+    schedule: "*/3 * * * *"
+    buildCommand: npm install && (./node_modules/.bin/playwright install --with-deps chromium || echo "WARN: Playwright install failed")
+    runCommand: npx tsx scripts/run_pipeline_tick.ts
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GSCCCA_USERNAME
+        sync: false
+      - key: GSCCCA_PASSWORD
+        sync: false
+      - key: GSCCCA_FAST_MODE
+        value: "1"
+      - key: PLAYWRIGHT_BROWSERS_PATH
+        value: /opt/render/.cache/ms-playwright
+
+  # ─── Atlanta permits daily refresh (City of Atlanta ArcGIS CSV) ───
+  - type: cron
+    name: cliros-permits-refresh
+    plan: starter
+    region: oregon
+    rootDir: companies/cliros/app
+    schedule: "0 9 * * *"   # 04:00 ET = 09:00 UTC
+    buildCommand: npm install
+    runCommand: npx tsx scripts/refresh_atlanta_permits.ts
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+
+  # ─── Support inbox AI triage (every 15 min — enough for cold-launch volume) ───
+  - type: cron
+    name: cliros-support-triage
+    plan: starter
+    region: oregon
+    rootDir: companies/cliros/app
+    schedule: "*/15 * * * *"
+    buildCommand: npm install
+    runCommand: npx tsx scripts/run_support_triage.ts
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+
+  # ─── Post-report feedback nudge (every 30 min) ───
+  # Asks each user who shipped a report >2h ago without leaving feedback
+  # to drop a thumbs-up/down + one sentence. Idempotent via
+  # search_reports.feedback_email_sent_at.
+  - type: cron
+    name: cliros-feedback-nudge
+    plan: starter
+    region: oregon
+    rootDir: companies/cliros/app
+    schedule: "*/30 * * * *"
+    buildCommand: npm install
+    runCommand: npx tsx scripts/notify_feedback_request.ts
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM
+        value: alex@cliros.ai
+      - key: NEXT_PUBLIC_APP_URL
+        value: https://cliros.ai
+
+  # ─── Prospect signup auto-notify (every 5 min) ───
+  # Emails alex@cliros.ai when a contacted prospect creates a cliros.ai
+  # account so we can grant their founding-attorney credits immediately.
+  # Idempotent via prospects.signup_notified_at — no double-emails.
+  - type: cron
+    name: cliros-prospect-signup-notify
+    plan: starter
+    region: oregon
+    rootDir: companies/cliros/app
+    schedule: "*/5 * * * *"
+    buildCommand: npm install
+    runCommand: npx tsx scripts/notify_prospect_signups.ts
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM
+        value: alex@cliros.ai
+      - key: CLIROS_FOUNDER_EMAIL
+        value: alex@antoniou.net

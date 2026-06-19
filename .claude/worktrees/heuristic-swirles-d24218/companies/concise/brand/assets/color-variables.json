@@ -1,0 +1,100 @@
+{
+  "version": "1.0",
+  "brand": "Concise",
+  "description": "Color palette for Concise brand — Option 2 (Concise parent + pseudonym author)",
+  "primary": {
+    "navy": {
+      "hex": "#1a2a4d",
+      "rgb": "rgb(26, 42, 77)",
+      "hsl": "hsl(219, 49%, 20%)",
+      "pantone": "533 C",
+      "cmyk": "95, 75, 50, 40",
+      "usage": "Primary text, headlines, brand mark, buttons"
+    }
+  },
+  "accent": {
+    "electric_cyan": {
+      "hex": "#00d9ff",
+      "rgb": "rgb(0, 217, 255)",
+      "hsl": "hsl(191, 100%, 50%)",
+      "pantone": "3125 C (or 306 C)",
+      "cmyk": "70, 5, 0, 0",
+      "usage": "Accent underline on logo, button hover states, CTAs, highlights"
+    }
+  },
+  "neutral": {
+    "white": {
+      "hex": "#ffffff",
+      "rgb": "rgb(255, 255, 255)",
+      "hsl": "hsl(0, 0%, 100%)",
+      "usage": "Background, typography on navy, light backgrounds"
+    },
+    "light_gray": {
+      "hex": "#f5f5f5",
+      "rgb": "rgb(245, 245, 245)",
+      "hsl": "hsl(0, 0%, 96%)",
+      "usage": "Subtle backgrounds, dividers, secondary backgrounds"
+    },
+    "charcoal": {
+      "hex": "#2c3e50",
+      "rgb": "rgb(44, 62, 80)",
+      "hsl": "hsl(210, 29%, 24%)",
+      "usage": "Dark text, borders, secondary headings"
+    }
+  },
+  "category_accents": {
+    "mcat_education": {
+      "hex": "#00d9ff",
+      "rgb": "rgb(0, 217, 255)",
+      "usage": "MCAT, education, medical category accent"
+    },
+    "politics_analysis": {
+      "hex": "#d4af37",
+      "rgb": "rgb(212, 175, 55)",
+      "pantone": "871 C",
+      "cmyk": "5, 25, 70, 0",
+      "usage": "Politics, analysis, Trump book category accent"
+    },
+    "advice_self_help": {
+      "hex": "#ff6b6b",
+      "rgb": "rgb(255, 107, 107)",
+      "hsl": "hsl(0, 100%, 71%)",
+      "usage": "Advice, self-help, practical category accent"
+    },
+    "science_reference": {
+      "hex": "#6c5ce7",
+      "rgb": "rgb(108, 92, 231)",
+      "hsl": "hsl(260, 78%, 63%)",
+      "usage": "Science, reference, technical category accent"
+    }
+  },
+  "css_variables": {
+    "--color-navy-primary": "#1a2a4d",
+    "--color-cyan-accent": "#00d9ff",
+    "--color-white": "#ffffff",
+    "--color-light-gray": "#f5f5f5",
+    "--color-charcoal": "#2c3e50",
+    "--color-category-mcat": "#00d9ff",
+    "--color-category-politics": "#d4af37",
+    "--color-category-advice": "#ff6b6b",
+    "--color-category-science": "#6c5ce7"
+  },
+  "tailwind_config": {
+    "extend": {
+      "colors": {
+        "concise": {
+          "navy": "#1a2a4d",
+          "cyan": "#00d9ff",
+          "gray-light": "#f5f5f5",
+          "charcoal": "#2c3e50",
+          "category": {
+            "mcat": "#00d9ff",
+            "politics": "#d4af37",
+            "advice": "#ff6b6b",
+            "science": "#6c5ce7"
+          }
+        }
+      }
+    }
+  }
+}

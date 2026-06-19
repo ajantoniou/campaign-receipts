@@ -1,0 +1,128 @@
+[watch] working dir: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k
+[watch] downloading via yt-dlp…
+[youtube] Extracting URL: https://www.youtube.com/watch?v=Bp7F7fC93to
+[youtube] Bp7F7fC93to: Downloading webpage
+[youtube] Bp7F7fC93to: Downloading android vr player API JSON
+[youtube] Bp7F7fC93to: Downloading player c2f7551f-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] Bp7F7fC93to: Downloading m3u8 information
+[info] Bp7F7fC93to: Downloading subtitles: en, en-orig
+[info] Bp7F7fC93to: Downloading 1 format(s): 398+251
+[info] Writing video subtitles to: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.en.vtt
+[download]    1.00KiB at  278.32KiB/s (00:00:00)[download]    3.00KiB at  744.99KiB/s (00:00:00)[download]    7.00KiB at  370.04KiB/s (00:00:00)[download]   15.00KiB at  622.20KiB/s (00:00:00)[download]   16.46KiB at  673.04KiB/s (00:00:00)[download] 100% of   16.46KiB in 00:00:00 at 168.52KiB/s
+[info] Writing video subtitles to: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.en-orig.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.en-orig.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  789.05KiB/s (00:00:00)[download]    7.00KiB at  571.71KiB/s (00:00:00)[download]   15.00KiB at  749.63KiB/s (00:00:00)[download]   16.46KiB at  799.45KiB/s (00:00:00)[download] 100% of   16.46KiB in 00:00:00 at 185.00KiB/s
+[info] Writing video metadata as JSON to: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.info.json
+[SubtitlesConvertor] Converting subtitles
+[SubtitlesConvertor] Subtitle file for vtt is already in the requested format
+[SubtitlesConvertor] Subtitle file for vtt is already in the requested format
+[download] Destination: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.f398.mp4
+[download]   0.0% of    3.27MiB at  Unknown B/s ETA Unknown[download]   0.1% of    3.27MiB at  Unknown B/s ETA Unknown[download]   0.2% of    3.27MiB at    6.01MiB/s ETA 00:00  [download]   0.4% of    3.27MiB at   10.30MiB/s ETA 00:00[download]   0.9% of    3.27MiB at   11.63MiB/s ETA 00:00[download]   1.9% of    3.27MiB at    4.76MiB/s ETA 00:00[download]   3.8% of    3.27MiB at    5.39MiB/s ETA 00:00[download]   7.6% of    3.27MiB at    7.18MiB/s ETA 00:00[download]  15.3% of    3.27MiB at    9.00MiB/s ETA 00:00[download]  30.6% of    3.27MiB at    9.36MiB/s ETA 00:00[download]  61.2% of    3.27MiB at   12.67MiB/s ETA 00:00[download] 100.0% of    3.27MiB at   14.11MiB/s ETA 00:00[download] 100% of    3.27MiB in 00:00:00 at 5.99MiB/s   
+[download] Destination: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.f251.webm
+[download]   0.1% of    1.44MiB at  Unknown B/s ETA Unknown[download]   0.2% of    1.44MiB at  Unknown B/s ETA Unknown[download]   0.5% of    1.44MiB at  Unknown B/s ETA Unknown[download]   1.0% of    1.44MiB at  Unknown B/s ETA Unknown[download]   2.1% of    1.44MiB at  Unknown B/s ETA Unknown[download]   4.3% of    1.44MiB at  Unknown B/s ETA Unknown[download]   8.6% of    1.44MiB at   22.80MiB/s ETA 00:00  [download]  17.2% of    1.44MiB at   15.84MiB/s ETA 00:00[download]  34.5% of    1.44MiB at   14.93MiB/s ETA 00:00[download]  69.1% of    1.44MiB at   13.35MiB/s ETA 00:00[download] 100.0% of    1.44MiB at   15.04MiB/s ETA 00:00[download] 100% of    1.44MiB in 00:00:00 at 4.49MiB/s   
+[Merger] Merging formats into "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.mp4"
+Deleting original file /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.f398.mp4 (pass -k to keep)
+Deleting original file /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/download/video.f251.webm (pass -k to keep)
+[watch] extracting ~20 frames at 0.192 fps over full 104.1s…
+
+# watch: video report
+
+- **Source:** https://www.youtube.com/watch?v=Bp7F7fC93to
+- **Title:** Rep. Thomas Massie gearing up for primary against Trump-backed candidate
+- **Uploader:** WHAS11
+- **Duration:** 01:44 (104.1s)
+- **Resolution:** 1280x720 (av1)
+- **Frames:** 20 @ 0.192 fps, full mode (budget 20, max 20)
+- **Frame size:** 512px wide
+- **Transcript:** 50 segments (via captions)
+
+## Frames
+
+Frames live at: `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames`
+
+**Read each frame path below with the Read tool to view the image.** Frames are in chronological order; `t=MM:SS` is the absolute timestamp in the source video.
+
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0001.jpg` (t=00:00)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0002.jpg` (t=00:05)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0003.jpg` (t=00:10)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0004.jpg` (t=00:16)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0005.jpg` (t=00:21)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0006.jpg` (t=00:26)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0007.jpg` (t=00:31)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0008.jpg` (t=00:36)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0009.jpg` (t=00:42)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0010.jpg` (t=00:47)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0011.jpg` (t=00:52)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0012.jpg` (t=00:57)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0013.jpg` (t=01:02)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0014.jpg` (t=01:08)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0015.jpg` (t=01:13)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0016.jpg` (t=01:18)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0017.jpg` (t=01:23)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0018.jpg` (t=01:28)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0019.jpg` (t=01:34)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k/frames/frame_0020.jpg` (t=01:39)
+
+## Transcript
+
+_Source: captions._
+
+```
+[00:01] Right now, Kentucky Representative Thomas Massie is in one of the closest
+[00:04] Thomas Massie is in one of the closest watched campaigns in the country, going
+[00:06] watched campaigns in the country, going up against Trump endorsed Ed Galrine in
+[00:08] up against Trump endorsed Ed Galrine in the midterm primary election this week.
+[00:11] the midterm primary election this week. Recent polls show favor for Galin.
+[00:13] Recent polls show favor for Galin. President Donald Trump took to social
+[00:15] President Donald Trump took to social media just hours ago, calling Massie
+[00:17] media just hours ago, calling Massie quote, a totally ineffective loser, end
+[00:19] quote, a totally ineffective loser, end quote. Today, the representative
+[00:21] quote. Today, the representative appeared on ABC's This Week and said all
+[00:24] appeared on ABC's This Week and said all of Trump's effort campaigning against
+[00:25] of Trump's effort campaigning against him could work out in his favor. um
+[00:28] him could work out in his favor. um every time he tweets about me, it's it's
+[00:30] every time he tweets about me, it's it's good for, you know, some money coming
+[00:32] good for, you know, some money coming in. How did this race become the most
+[00:34] in. How did this race become the most expensive race in the history of
+[00:36] expensive race in the history of Congress for a primary? It's because
+[00:38] Congress for a primary? It's because three billionaires from outside of
+[00:40] three billionaires from outside of Kentucky have funneled millions of
+[00:42] Kentucky have funneled millions of dollars in here. They're trying to buy a
+[00:44] dollars in here. They're trying to buy a seat. And so, it's not just the
+[00:46] seat. And so, it's not just the president's tweets. I could sustain
+[00:48] president's tweets. I could sustain those without a problem. It's because
+[00:50] those without a problem. It's because Miriam Adlesen and Paul Singer have
+[00:52] Miriam Adlesen and Paul Singer have dumped money in here.
+[00:54] dumped money in here. Massie has continued to be Trump's
+[00:55] Massie has continued to be Trump's biggest Republican political adversary,
+[00:58] biggest Republican political adversary, forcing votes on the release of the
+[00:59] forcing votes on the release of the Epstein files and voting against the one
+[01:01] Epstein files and voting against the one big beautiful bill. He has also been
+[01:03] big beautiful bill. He has also been vocal about Israel's lobbying influence
+[01:06] vocal about Israel's lobbying influence on sitting members of Congress or even
+[01:08] on sitting members of Congress or even candidates and wants to eliminate it. He
+[01:10] candidates and wants to eliminate it. He says his competitor's race is an
+[01:12] says his competitor's race is an example.
+[01:13] example. &gt;&gt; I'm the one they haven't been able to
+[01:15] &gt;&gt; I'm the one they haven't been able to bully, so they're putting all the brunt
+[01:17] bully, so they're putting all the brunt force on me. But you can tell that I'm
+[01:20] force on me. But you can tell that I'm ahead in the polls and they're
+[01:21] ahead in the polls and they're desperate. That's why they're sending
+[01:23] desperate. That's why they're sending the Secretary of War to my district
+[01:25] the Secretary of War to my district tomorrow. That's why the president's
+[01:26] tomorrow. That's why the president's losing sleep and tweeting about this.
+[01:29] losing sleep and tweeting about this. That's why Apac has dumped another $3
+[01:31] That's why Apac has dumped another $3 million into my race this weekend. It's
+[01:34] million into my race this weekend. It's because they're panicked and they really
+[01:36] because they're panicked and they really haven't been able to gain a lead in this
+[01:38] haven't been able to gain a lead in this race. Massie continues to assert he
+[01:40] race. Massie continues to assert he knows it will be a close race and that
+[01:42] knows it will be a close race and that every vote will
+```
+
+---
+_Work dir: `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/short-176k` — delete when done._

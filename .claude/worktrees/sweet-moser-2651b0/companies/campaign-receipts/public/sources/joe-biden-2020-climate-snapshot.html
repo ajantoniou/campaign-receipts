@@ -1,0 +1,640 @@
+<!-- CR-PROVENANCE
+  Source: https://joebiden.com/climate/
+  Wayback Machine snapshot: https://web.archive.org/web/20200601000000/https://joebiden.com/climate/
+  Nearest snapshot timestamp: 2020-06-01
+  Mirrored to CampaignReceipts.com on 2026-05-14 from the Wayback Machine via id_/ infix
+  (which returns raw archived content without Wayback wrapper chrome).
+  This file is a preserved copy of a removed/altered campaign-site policy page.
+  A fresh Wayback save was attempted on 2026-05-14 (anonymous IA Save Page Now endpoint; partial success due to IA rate limiting).
+-->
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"853c31a225",applicationID:"143000334"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M96J785');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://joebiden.com/wp-content/themes/bexc/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon-16x16.png">
+  <link rel="manifest" href="https://joebiden.com/wp-content/themes/bexc/favicons/site.webmanifest">
+  <link rel="mask-icon" href="https://joebiden.com/wp-content/themes/bexc/favicons/safari-pinned-tab.svg" color="#233f94">
+  <link rel="shortcut icon" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="https://joebiden.com/wp-content/themes/bexc/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Plan for Climate Change and Environmental Justice | Joe Biden</title>
+  <script src="https://use.typekit.net/lwk5jsx.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+    
+	<!-- This site is optimized with the Yoast SEO plugin v14.0.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Joe Biden knows climate change is the greatest threat facing our country and our world, and he has a bold plan for a clean energy revolution." />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<link rel="canonical" href="https://joebiden.com/climate/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Plan for Climate Change and Environmental Justice | Joe Biden" />
+	<meta property="og:description" content="Joe Biden knows climate change is the greatest threat facing our country and our world, and he has a bold plan for a clean energy revolution." />
+	<meta property="og:url" content="https://joebiden.com/climate/" />
+	<meta property="og:site_name" content="Joe Biden for President" />
+	<meta property="article:modified_time" content="2019-12-20T00:55:26+00:00" />
+	<meta property="og:image" content="https://joebiden.com/wp-content/uploads/2019/12/Website-Cards_HQ_Biden-President-Share-Cards_Climate_1024x577_120919.png" />
+	<meta property="og:image:width" content="1600" />
+	<meta property="og:image:height" content="836" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Plan for Climate Change and Environmental Justice | Joe Biden" />
+	<meta name="twitter:description" content="Joe Biden knows climate change is the greatest threat facing our country and our world, and he has a bold plan for a clean energy revolution." />
+	<meta name="twitter:image" content="https://joebiden.com/wp-content/uploads/2019/12/Website-Cards_HQ_Biden-President-Share-Cards_Climate_1024x577_120919.png" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://joebiden.com/#website","url":"https://joebiden.com/","name":"Joe Biden for President","description":"","potentialAction":[{"@type":"SearchAction","target":"https://joebiden.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://joebiden.com/climate/#primaryimage","inLanguage":"en-US","url":"https://joebiden.com/wp-content/uploads/2019/06/V091615DL-0543.jpg","width":600,"height":400,"caption":"Vice President Joe Biden gives remarks at the U.S. - China Climate Leaders Summit, held at the JW Marriott hotel, in Los Angeles, California, Sept. 16, 2015. Also in attendance is Mayor Eric Garcetti of Los Angeles. (Official White House Photo by David Lienemann)"},{"@type":"WebPage","@id":"https://joebiden.com/climate/#webpage","url":"https://joebiden.com/climate/","name":"Plan for Climate Change and Environmental Justice | Joe Biden","isPartOf":{"@id":"https://joebiden.com/#website"},"primaryImageOfPage":{"@id":"https://joebiden.com/climate/#primaryimage"},"datePublished":"2019-06-04T09:50:44+00:00","dateModified":"2019-12-20T00:55:26+00:00","description":"Joe Biden knows climate change is the greatest threat facing our country and our world, and he has a bold plan for a clean energy revolution.","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://joebiden.com/climate/"]}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//joebiden.com' />
+<link rel='stylesheet' id='bexc-main-css'  href='https://joebiden.com/wp-content/themes/bexc/css/main.css?ver=0.73' type='text/css' media='all' />
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/modernizr.min.js?ver=3.6.0'></script>
+<link rel="alternate" type="application/json+oembed" href="https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Fclimate%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Fclimate%2F&#038;format=xml" />
+<link rel="alternate" href="https://joebiden.com/climate/" hreflang="en" />
+<link rel="alternate" href="https://joebiden.com/es/el-plan-biden-para-una-revolucion-de-energia-limpia-y-justicia-ambiental/" hreflang="es" />
+                    <script src="https://secure.actblue.com/cf/assets/actblue.js" async></script>
+        <script>window.actBlueConfig = {styleSheetHref: "https://joebiden.com/wp-content/themes/bexc/css/actblue.css"};</script>
+            
+</head>
+
+<body class="page-template-default page page-id-906 has-alert language-en">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M96J785"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a class="skip-link screen-reader-text" href="#main-content">Skip to content</a>
+
+      <div id="alert-bar">
+        <div class="copy-wrap">
+                            <div class="title">Enough.</div>
+                                        <div class="body"><p>It’s time for us to take a hard look at uncomfortable truths.<br />
+It’s time for us to face the deep, open wound we have in this nation.<br />
+We need justice for George Floyd.</p>
+<p><em>&#8211; Joe Biden</em></p>
+</div>
+                    </div>
+    </div>
+  
+  <div class="site-header-wrapper">
+    <header id="site-header" class="clearfix">
+              <div class="site-title">
+          <a href="https://joebiden.com/" rel="home">
+                        <img class="no-lazyload" src="https://joebiden.com/wp-content/themes/bexc/img/logo.svg" width="135" height="56" alt="Logo for Joe Biden for President">
+          </a>
+        </div>
+            <nav id="nav-header">
+        <ul class="top">
+          <li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="https://joebiden.com/joes-story/">Joe&#8217;s Story</a></li>
+<li id="menu-item-2198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2198"><a href="https://joebiden.com/joes-vision/">Joe&#8217;s Vision</a></li>
+<li id="menu-item-134" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-134"><a href="https://joebiden.com/take-action/">Action Center</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="https://store.joebiden.com/">Store</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="https://joebiden.com/join/">Join the Team</a></li>
+                                                                              <li class="translation"><a href="https://joebiden.com/es/el-plan-biden-para-una-revolucion-de-energia-limpia-y-justicia-ambiental/">En Español</a></li>
+                                    
+                                <li class="social">
+              <ul>
+                                                      <li><a href="https://twitter.com/joebiden">
+                      <span class="icon-twitter"></span>
+                      <span class="element-invisible">Twitter</span>
+                    </a></li>
+                                                                        <li><a href="https://www.facebook.com/joebiden">
+                      <span class="icon-facebook"></span>
+                      <span class="element-invisible">Facebook</span>
+                    </a></li>
+                                                                        <li><a href="https://www.instagram.com/joebiden">
+                      <span class="icon-instagram"></span>
+                      <span class="element-invisible">Instagram</span>
+                    </a></li>
+                                                                        <li><a href="https://www.youtube.com/joebiden">
+                      <span class="icon-youtube"></span>
+                      <span class="element-invisible">Youtube</span>
+                    </a></li>
+                                                                        <li><a href="https://medium.com/@joebiden">
+                      <span class="icon-medium"></span>
+                      <span class="element-invisible">Medium</span>
+                    </a></li>
+                                                </ul>
+            </li>
+                  </ul>
+      </nav>
+                        <a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate-button">Donate</a>
+                    <a class="burger" href="#nav-header">
+        <span class="open">Menu</span>
+        <span class="close">Close</span>
+      </a>
+    </header><!-- #site-header -->
+  </div>
+
+  <div id="main-content">
+
+<main id="main">
+
+                    <div id="donate-bar">
+    <div class="donate-bar">
+              <h2>Support Joe</h2>
+            <ul>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=5" class="button red donate">$5</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=10" class="button red donate">$10</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=20" class="button red donate">$20</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=50" class="button red donate">$50</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=100" class="button red donate">$100</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=250" class="button red donate">$250</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=500" class="button red donate">$500</a></li>
+            <li class="other"><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate">Other</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <article class="view-page post-906 page type-page status-publish hentry">
+
+    <header class="entry-header">
+      <h1 class="entry-title">Climate</h1>
+    </header>
+    <div class="entry-content">
+      <p><span style="font-size: 32px; font-weight: bold; font-stretch: normal; line-height: 40px; font-family: brother-1816, sans-serif; letter-spacing: -1px; color: #12204a;">Joe&#8217;s Plan for a Clean Energy Revolution and Environmental Justice</span></p>
+<p style="text-align: center;">
+<figure class="video-wrapper" style="padding: 56.2% 0 0;"><script type="text/html" class="video-loader"><iframe title="Biden Plan for a Clean Energy Revolution &amp; Environmental Justice | Joe Biden for President" width="500" height="281" src="https://www.youtube.com/embed/Ku7uZ0Gok2g?feature=oembed&#038;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></script></figure>
+</p>
+<p>&nbsp;</p>
+<table border="0" width="350" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="bg-rollover" style="background-color: #3b5998; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; border-bottom-color: #233458; border-bottom-width: 5px; border-bottom-style: solid; min-width: 350px; max-width: 350px;" align="center" bgcolor="#3b5998"><a style="font-size: 18px; font-family: Gotham,Arial,sans-serif; color: #ffffff; text-decoration: none; -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px; padding: 12px 2px 10px 2px; display: inline-block;" href="https://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/joebiden/videos/335225833825028"><strong>SHARE ON FACEBOOK →</strong></a></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table border="0" width="350" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="bg-rollover" style="background-color: #1da1f2; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; border-bottom-color: #1887cb; border-bottom-width: 5px; border-bottom-style: solid; min-width: 350px; max-width: 350px;" align="center" bgcolor="#1DA1F2"><a style="font-size: 18px; font-family: Gotham,Arial,sans-serif; color: #ffffff; text-decoration: none; -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px; padding: 12px 2px 10px 2px; display: inline-block;" href="https://twitter.com/intent/tweet?text=We%20are%20in%20a%20climate%20emergency%20-%20and%20we%20need%20drastic%20action.%20Check%20out%20%40JoeBiden's%20plan%20for%20a%20Clean%20Energy%20Revolution%20and%20Environmental%20Justice%3A&amp;url=http://JoeBiden.com/climate"><strong>SHARE ON TWITTER →</strong></a></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<ul>
+<li><a href="https://go.joebiden.com/Clean-Energy-Revolution"><strong>TAKE ACTION: Do you agree that we need drastic action to address the climate emergency? Sign on here &gt;&gt;</strong></a></li>
+</ul>
+<p class="p3"><span class="s1">From coastal towns to rural farms to urban centers, climate change poses an existential threat – not just to our environment, but to our health, our communities, our national security, and our economic well-being. It also damages our communities with storms that wreak havoc on our towns and cities and our homes and schools. It puts our national security at risk by leading to regional instability that will require U.S military-supported relief activities and could make areas more vulnerable to terrorist activities.</span></p>
+<p class="p4"><span class="s2"><strong>Vice President Biden knows there is no greater challenge facing our country and our world. Today, he is outlining a bold plan – a Clean Energy Revolution – to address this grave threat and lead the world in addressing the climate emergency.</strong> </span></p>
+<p class="p4"><span class="s1">Biden believes the Green New Deal is a crucial framework for meeting the climate challenges we face. It powerfully captures two basic truths, which are at the core of his plan: (1) the United States urgently needs to embrace greater ambition on an epic scale to meet the scope of this challenge, and (2) our environment and our economy are completely and totally connected.</span></p>
+<p><center><noscript><img class="aligncenter wp-image-931 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/V091615DL-0543.jpg" alt="VP Biden speaking at the Climate Leaders Summit." width="600" height="400" srcset="https://joebiden.com/wp-content/uploads/2019/06/V091615DL-0543.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/V091615DL-0543-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-931 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20400%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/V091615DL-0543.jpg" alt="VP Biden speaking at the Climate Leaders Summit." width="600" height="400" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/V091615DL-0543.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/V091615DL-0543-300x200.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center></p>
+<p class="p4"><span class="s1">If we can harness all of our energy and talents, and unmatchable American innovation, we can turn this threat into an opportunity to revitalize the U.S. energy sector and boost growth economy-wide. We can create new industries that reinvigorate our manufacturing and create high-quality, middle-class jobs in cities and towns across the United States. We can lead America to become the world’s clean energy superpower. We can export our clean-energy technology across the globe and create high-quality, middle-class jobs here at home.<span class="Apple-converted-space">  </span></span><span class="s2">Getting to a 100% clean energy economy is not only an obligation, it&#8217;s an opportunity. We should fully adopt a clean energy future, not just for all of us today, but for our children and grandchildren, so their tomorrow is healthier, safer, and more just.</span></p>
+<p class="p4"><span class="s1">As president, Biden will lead the world to address the climate emergency and lead through the power of example, by ensuring the U.S. achieves a 100% clean energy economy and net-zero emissions no later than 2050.</span></p>
+<p class="p4"><span class="s1">The Biden Plan will: </span></p>
+<ol class="ol1">
+<li class="li4"><span class="s1"><b>Ensure the U.S. achieves a 100% clean energy economy and reaches net-zero emissions no later than 2050. </b>On day one, Biden will sign a series of new executive orders with unprecedented reach that go well beyond the Obama-Biden Administration platform and put us on the right track. And, he will demand that Congress enacts legislation in the first year of his presidency that: 1) establishes an enforcement mechanism that includes milestone targets no later than the end of his first term in 2025, 2) makes a historic investment in clean energy and climate research and innovation, 3) incentivizes the rapid deployment of clean energy innovations across the economy, especially in communities most impacted by climate change.</span></li>
+<li class="li4"><span class="s1"><b>Build a stronger, more resilient nation.</b> On day one, Biden will make smart infrastructure investments to rebuild the nation and to ensure that our buildings, water, transportation, and energy infrastructure can withstand the impacts of climate change.<span class="Apple-converted-space">  </span>Every dollar spent toward rebuilding our roads, bridges, buildings, the electric grid, and our water infrastructure will be used to prevent, reduce, and withstand a changing climate. As President, Biden will use the convening power of government to boost climate resilience efforts by developing regional climate resilience plans, in partnership with local universities and national labs, for local access to the most relevant science, data, information, tools, and training. </span></li>
+<li class="li4"><span class="s1"><b>Rally the rest of the world to meet the threat of climate change. </b>Climate change is a global challenge that requires decisive action from every country around the world. Joe Biden knows how to stand with America’s allies, stand up to adversaries, and level with any world leader about what must be done. He will not only recommit the United States to the Paris Agreement on climate change – he will go much further than that. He will lead an effort to get every major country to ramp up the ambition of their domestic climate targets. He will make sure those commitments are transparent and enforceable, and stop countries from cheating by using America’s economic leverage and power of example. He will fully integrate climate change into our foreign policy and national security strategies, as well as our approach to trade.</span></li>
+<li class="li4"><span class="s1"><b>Stand up to the abuse of power by polluters who disproportionately harm communities of color and low-income communities. </b>Vulnerable communities are disproportionately impacted by the climate emergency and pollution. The<b> </b>Biden Administration will take action against fossil fuel companies and other polluters who put profit over people and knowingly harm our environment and poison our communities’ air, land, and water, or conceal information regarding potential environmental and health risks. The Biden plan will ensure that communities across the country from Flint, Michigan to Harlan, Kentucky to the New Hampshire Seacoast have access to clean, safe drinking water. And he’ll make sure the development of solutions is an inclusive, community-driven process.</span></li>
+<li class="li4"><span class="s1"><b>Fulfill our obligation to workers and communities who powered our industrial revolution and subsequent decades of economic growth. </b>This is support they’ve earned for fueling our country’s industrial revolution and decades of economic growth. We’re not going to leave any workers or communities behind. </span></li>
+</ol>
+<p class="p4"><span class="s1">And, Vice President Biden has committed that Biden for President will not accept contributions from oil, gas and coal corporations or executives. </span></p>
+<p><center><noscript><img class="aligncenter wp-image-927 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/CPELqN1VAAER7q9.jpg" alt="VP Biden and President Obama survey a field of solar panels." width="600" height="400" srcset="https://joebiden.com/wp-content/uploads/2019/06/CPELqN1VAAER7q9.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/CPELqN1VAAER7q9-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-927 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20400%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/CPELqN1VAAER7q9.jpg" alt="VP Biden and President Obama survey a field of solar panels." width="600" height="400" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/CPELqN1VAAER7q9.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/CPELqN1VAAER7q9-300x200.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center></p>
+<p class="p4"><span class="s1"><b>The Biden plan will make a historic investment in our clean energy future and environmental justice, paid for by rolling back the Trump tax incentives that enrich corporations at the expense of American jobs and the environment. </b>Biden’s climate and environmental justice proposal will make a federal investment of $1.7 trillion over the next ten years, leveraging additional private sector and state and local investments to total to more than $5 trillion. President Trump’s tax cut led to trillions in stock buybacks and created new incentives to shift profits abroad. Joe Biden believes we should instead invest in a Clean Energy Revolution that creates jobs here at home.</span><span class="s1"><span class="Apple-converted-space">     </span></span></p>
+<p class="p4"><span class="s1">The Biden plan will be paid for by reversing the excesses of the Trump tax cuts for corporations, reducing incentives for tax havens, evasion, and outsourcing, ensuring corporations pay their fair share, closing other loopholes in our tax code that reward wealth not work, and ending subsidies for fossil fuels.</span></p>
+<div style="border: solid 2px #12204A; padding: 16px;">
+<p class="p4"><span class="s1"><b>JOE BIDEN: A “CLIMATE CHANGE PIONEER.” </b>Joe Biden has long appreciated the enormity of climate change and has always believed that we have a moral and economic imperative to address it. In 1986, he introduced one of the first-ever climate bills in Congress. Politifact recently called him a “climate change pioneer” and dubbed his early leadership “a watershed moment.” </span></p>
+<p class="p4"><span class="s1">As Chair of the Foreign Relations Committee, he organized several hearings on climate change and rallied support on a number of nonbinding resolutions on the issue, in an attempt to build momentum for action to address global climate change. In 1998, he was a key champion for the Tropical Forest Conservation Act, which allowed the U.S. to reach agreements with foreign governments to conserve tropical forests in exchange for debt relief (commonly referred to as debt-for-nature swaps). </span></p>
+<p class="p4"><span class="s1">In 2006, Senator Biden took executives from BP and Chevron to task for the subsidies going to the oil industry. </span></p>
+<p class="p4"><span class="s1">As Vice President, he oversaw the Recovery Act, the largest single investment in clean energy in U.S. history. The Obama-Biden Administration placed historic limits on carbon pollution, doubled fuel economy standards for cars and trucks, unleashed the potential of renewable, clean energy, and rallied the world to achieve the groundbreaking Paris Climate Accords. </span></p>
+<p class="p4"><span class="s1">Biden also understands that the movement towards a cleaner future comes from all of us. At a recent speech at the United States Conference of Mayors, he applauded efforts cities and states have taken on their own as the federal government has been absent for the last two years. <span class="Apple-converted-space">     </span></span></p>
+</div>
+<p><center><br />
+<noscript><img class="aligncenter wp-image-928 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/V061709DL-0124.jpg" alt="VP Biden speaking at the Senate Democratic Green Jobs Summit." width="600" height="400" srcset="https://joebiden.com/wp-content/uploads/2019/06/V061709DL-0124.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/V061709DL-0124-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-928 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20400%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/V061709DL-0124.jpg" alt="VP Biden speaking at the Senate Democratic Green Jobs Summit." width="600" height="400" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/V061709DL-0124.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/V061709DL-0124-300x200.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center></p>
+<div style="border: solid 2px #12204A; padding: 16px;">
+<p class="p5"><span class="s1"><b>The Biden Promise – Science, Not Fiction</b></span></p>
+<p class="p2"><span class="s1"><b><i>“Humans have released an increasing amount of greenhouse gases into the atmosphere through burning fossil fuels, and to a lesser extent, deforestation and land-use change. [&#8230;] This change has intensified the natural greenhouse effect, driving an increase in surface temperatures and other widespread changes in Earth’s climate that are unprecedented in the history of modern civilization.”<span class="Apple-converted-space">   </span></i> –</b> <b><i> Fourth National Climate Assessment </i></b></span></p>
+<p class="p2"><span class="s1"><b>Humans’ contribution to the greenhouse effect is indisputable.</b> Top climate experts, including the authors of the Fourth National Climate Assessment and the Intergovernmental Panel On Climate Change Special Report, have all concluded that human activities are estimated to have caused an approximate 1.0°C<b> </b>rise in the Earth’s global temperature to date. Excessive CO2 emissions caused by human activities, such as the burning of fossil fuels, have contributed to a severe exacerbation of a natural phenomenon known as the greenhouse effect. This natural occurrence takes place when solar radiation directed toward earth reaches the atmosphere. The atmosphere reflects some of the radiation, but approximately 90% of the radiation is absorbed by the land and water thereby heating the earth. Due to the additional greenhouse gases emitted by humans – such as carbon dioxide, water vapor, methane, nitrous oxide, and chlorofluorocarbons – more heat than normal is being trapped, contributing to an overall rise in global temperature.</span></p>
+<p class="p2"><span class="s1">If the global temperature continues to increase at the current rate and surpasses 1.5°C, the existential threat to life will not be limited to just ecological systems, but will extend to human life as well. We have already begun to witness the impacts on biodiversity and the ecosystem, as species loss and extinction have disturbingly accelerated as a result of increasing ocean temperature, shrinking ice sheets, rising sea levels, and much more. As the effects of global warming worsen, human health, livelihood, food security, water supply, and economic growth will be jeopardized. It is incumbent on us to implement a plan in order to reduce greenhouse gas emissions and begin to combat the consequential long-term and short-term effects of global warming on both the environment and on humans. </span></p>
+<p class="p8"><span class="s1"><i>Impacts of Climate Change According to </i><a href="https://climate.nasa.gov/evidence/"><span class="s3"><i>NASA</i></span></a><i>: </i></span></p>
+<ul class="ul1">
+<li class="li2"><span class="s1">“Warming Oceans: The oceans have absorbed much of this increased heat, with the top 700 meters (about 2,300 feet) of ocean showing warming of more than 0.4 degrees Fahrenheit since 1969.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li2"><span class="s1">“Shrinking Ice Sheets: The Greenland and Antarctic ice sheets have decreased in mass. Data from NASA&#8217;s Gravity Recovery and Climate Experiment show Greenland lost an average of 286 billion tons of ice per year between 1993 and 2016, while Antarctica lost about 127 billion tons of ice per year during the same time period. The rate of Antarctica ice mass loss has tripled in the last decade.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li2"><span class="s1">“Glacier Retreat: Glaciers are retreating almost everywhere around the world – including in the Alps, Himalayas, Andes, Rockies, Alaska, and Africa.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li2"><span class="s1">“Sea Level Rise: Global sea level rose about 8 inches in the last century. The rate in the last two decades, however, is nearly double that of the last century and is accelerating slightly every year.<br />
+</span></li>
+</ul>
+<ul class="ul1">
+<li class="li2"><span class="s1">“Extreme Events: The number of record high temperature events in the United States has been increasing, while the number of record low temperature events has been decreasing, since 1950. The U.S. has also witnessed increasing numbers of intense rainfall events.”</span></li>
+</ul>
+</div>
+<p><center><br />
+<noscript><img class="aligncenter wp-image-926 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/CPDwtl2UwAA_6Er.jpg" alt="VP Biden speaking at Solar Power International." width="600" height="400" srcset="https://joebiden.com/wp-content/uploads/2019/06/CPDwtl2UwAA_6Er.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/CPDwtl2UwAA_6Er-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-926 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20400%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/CPDwtl2UwAA_6Er.jpg" alt="VP Biden speaking at Solar Power International." width="600" height="400" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/CPDwtl2UwAA_6Er.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/CPDwtl2UwAA_6Er-300x200.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center></p>
+<h2 class="p2" style="text-align: center;"><span class="s1"><b>THE BIDEN PLAN FOR A CLEAN ENERGY REVOLUTION </b></span><span class="s1"><b>AND ENVIRONMENTAL JUSTICE </b></span></h2>
+<p class="p4"><span class="s1"><b>I. ENSURE THE U.S. ACHIEVES A 100% CLEAN ENERGY ECONOMY AND NET-ZERO EMISSIONS NO LATER THAN 2050</b></span></p>
+<p class="p4"><span class="s1">The United States must have a bold plan to achieve a 100% clean energy economy and net-zero emissions no later than 2050 here at home. On day one, Biden will sign a series of executive orders that put us on this track. And, he will demand that Congress enacts legislation in the first year of his presidency that 1) establishes an enforcement mechanism to achieve the 2050 goal, including a target no later than the end of his first term in 2025 to ensure we get to the finish line, 2) makes a historic investment in energy and climate research and innovation, 3) incentivizes the rapid deployment of clean energy innovations across the economy. Failure is not an option. If Congress falls short of its duty to act, Biden will hold them accountable. </span></p>
+<p class="p4"><span class="s2"><b>Biden’s Day One Unprecedented Executive Actions to Drive Historic Progress </b></span></p>
+<p class="p4"><span class="s1">On day one, Biden will use the full authority of the executive branch to make progress and significantly reduce emissions. Biden recognizes we must go further, faster and more aggressively than ever before, by:</span></p>
+<ul class="ul1">
+<li class="li4"><span class="s1">Requiring aggressive methane pollution limits for new and existing oil and gas operations.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Using the Federal government procurement system – which spends $500 billion every year – to drive towards 100% clean energy and zero-emissions vehicles.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Ensuring that all U.S. government installations, buildings, and facilities are more efficient and climate-ready, harnessing the purchasing power and supply chains to drive innovation.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Reducing greenhouse gas emissions from transportation – the fastest growing source of U.S. climate pollution – by preserving and implementing the existing Clean Air Act, and developing rigorous new fuel economy standards aimed at ensuring 100% of new sales for light- and medium-duty vehicles will be electrified and annual improvements for heavy duty vehicles.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Doubling down on the liquid fuels of the future, which make agriculture a key part of the solution to climate change. Advanced biofuels are now closer than ever as we begin to build the first plants for biofuels, creating jobs and new solutions to reduce emissions in planes, ocean-going vessels, and more.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Saving consumers money and reduce emissions through new, aggressive appliance- and building-efficiency standards.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Committing that every federal infrastructure investment should reduce climate pollution, and require any federal permitting decision to consider the effects of greenhouse gas emissions and climate change.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Requiring public companies to disclose climate risks and the greenhouse gas emissions in their operations and supply chains.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Protecting biodiversity, slowing extinction rates and helping leverage natural climate solutions by conserving 30% of America’s lands and waters by 2030.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1">Protecting America’s natural treasures by permanently protecting the Arctic National Wildlife Refuge and other areas impacted by President Trump’s attack on federal lands and waters, establishing national parks and monuments that reflect America’s natural heritage, banning new oil and gas permitting on public lands and waters, modifying royalties to account for climate costs, and establishing targeted programs to enhance reforestation and develop renewables on federal lands and waters with the goal of doubling offshore wind by 2030. </span></li>
+</ul>
+<p><center><noscript><img class="aligncenter wp-image-921 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/8156697387_080f57ccd3_o.jpg" alt="VP Biden speaking at a re-election rally." width="600" height="399" srcset="https://joebiden.com/wp-content/uploads/2019/06/8156697387_080f57ccd3_o.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/8156697387_080f57ccd3_o-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-921 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20399%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/8156697387_080f57ccd3_o.jpg" alt="VP Biden speaking at a re-election rally." width="600" height="399" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/8156697387_080f57ccd3_o.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/8156697387_080f57ccd3_o-300x200.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center></p>
+<p class="p4"><span class="s2"><b>Biden’s Year One Legislative Agenda on Climate Change</b></span></p>
+<p class="p4"><span class="s2">Establish an enforcement mechanism to achieve net-zero emissions no later than 2050</span><span class="s1">, including</span> <span class="s1">a target no later than the end of President Biden’s first term in 2025 to ensure we get to the finish line. This enforcement mechanism will be based on the principles that polluters must bear the full cost of the carbon pollution they are emitting and that our economy must achieve ambitious reductions in emissions economy-wide instead of having just a few sectors carry the burden of change. The enforcement mechanism will achieve clear, legally-binding emissions reductions with environmental integrity.<span class="Apple-converted-space">   </span></span></p>
+<p class="p4"><span class="s2">Make a historic investment in energy and climate research and innovation, as well as clean and resilient infrastructure and communities.</span></p>
+<p class="p4"><span class="s1">Notwithstanding the progress we have made in reducing emissions in the power sector, fossil fuels still comprise nearly 80% of global energy use. There is much more work to be done to identify affordable solutions. Today, we are on the cusp of breakthroughs in technologies, such as batteries that can more efficiently store energy for use at moments of peak demand, more efficient controls and sensors for advanced manufacturing, more effective and thinner insulation for buildings, and cybersecurity improvements to make smart grids more resilient to attacks.</span></p>
+<p class="p4"><span class="s1">We have to get rid of the old way of thinking that the clean economy and jobs don’t go together. <i>They do</i>. There are currently more than three million people in the United States employed in the clean energy economy. But, there is a huge opportunity to revitalize the U.S. energy sector, boost growth economy-wide, and re-claim the mantle as the world’s clean energy leader and top exporter. And, Joe Biden will ensure that clean economy jobs are good jobs. </span></p>
+<p class="p4"><span class="s1"><i>To accelerate this progress, President Biden will make the largest-ever investment in clean energy research and innovation</i>. After World War II, public investment in research and collaboration between universities and the private sector spurred American innovation, led to rapid economic and job growth, and helped build a strong middle class. The Biden plan will double down on this approach to create the industries of the future by investing $400 billion over ten years. That’s twice the investment of the Apollo program which put a man on the moon, in today’s dollars. This investment will enable us to develop new technological break-throughs that will create jobs and drastically reduce emissions.</span></p>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Bring together America’s top talent to innovate on climate.</i> America – with the leadership of government – has led the way on many technologies and innovations, from the GPS to computer networking. Biden will establish ARPA-C, a new, cross-agency Advanced Research Projects Agency focused on climate. This initiative will target affordable, game-changing technologies to help America achieve our 100% clean energy target, with a specific focus on the following, as recommended by the founding director of ARPA-E: </span>
+<ul class="ul1">
+<li class="li4"><span class="s1">grid-scale storage at one-tenth the cost of lithium-ion batteries; </span></li>
+<li class="li4"><span class="s1">small modular nuclear reactors at half the construction cost of today’s reactors; </span></li>
+<li class="li4"><span class="s1">refrigeration and air conditioning using refrigerants with no global warming potential; </span></li>
+<li class="li4"><span class="s1">zero net energy buildings at zero net cost; </span></li>
+<li class="li4"><span class="s1">using renewables to produce carbon-free hydrogen at the same cost as that from shale gas; </span></li>
+<li class="li4"><span class="s1">decarbonizing industrial heat needed to make steel, concrete, and chemicals and reimagining carbon-neutral construction materials; </span></li>
+<li class="li4"><span class="s1">decarbonizing the food and agriculture sector, and leveraging agriculture to remove carbon dioxide from the air and store it in the ground; and </span></li>
+<li class="li4"><span class="s1">capturing carbon dioxide from power plant exhausts followed by sequestering it deep underground or using it make alternative products. </span></li>
+</ul>
+</li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Target airline emissions: </i>Aviation accounts for nearly 2% of global greenhouse gas emissions, and that portion is expected to increase. Unfortunately today, few low-carbon technologies or fuels have been developed to tackle this challenge. Biden recognizes that must change and will pursue measures to incentivize the creation of new, sustainable fuels for aircraft, as well as other changes to aircraft technology and standards, and air traffic management.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><span class="s1"><i>Accelerate the development and deployment of carbon capture sequestration technology.</i> According to the Blue Green Alliance, “carbon capture, use, and storage (CCUS) is a rapidly growing technology that has the potential to create economic benefits for multiple industries while significantly reducing carbon dioxide emissions.” Biden shares the Carbon Capture Coalition’s goal “to make CCUS a widely available, cost-effective, and rapidly scalable solution to reduce carbon emissions to meet mid-century climate goals.” Toward this end, he will double down on federal investments and enhance tax incentives for CCUS. At the same time, to bring new carbon capture technologies to market, Biden will continue to fund carbon capture research, development, and demonstration.</span></span></li>
+<li class="li4"><span class="s1"><i>Identify the future of nuclear energy</i>. To address the climate emergency threatening our communities, economy, and national security, we must look at all low- and zero-carbon technologies. That’s why Biden will support a research agenda through ARPA-C to look at issues, ranging from cost to safety to waste disposal systems, that remain an ongoing challenge with nuclear power today. </span></li>
+</ul>
+<p class="p4"><strong><span class="s2">Incentivize the deployment of clean technology throughout our economy.</span></strong><span class="s1"> Creating the best, most innovative clean technology in the world is not enough. We also need to make sure it is used by households and industry in order to achieve aggressive emissions reductions. Toward that end, President Biden will incentivize clean technology deployment in the following ways:</span></p>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Improving the energy efficiency of our buildings</i>. Building on his efforts in the Recovery Act, Biden will set a target of reducing the carbon footprint of the U.S. building stock 50% by 2035, creating incentives for deep retrofits that combine appliance electrification, efficiency, and on-site clean power generation. He will work to identify barriers to help offset the upfront cost of building upgrades and put in place a national program to target a package of affordable energy efficiency retrofits in American homes. He will direct the U.S. Department of Housing and Urban Development to make housing for low-income communities more efficient. He will direct the U.S. Department of Energy to redouble efforts to accelerate new efficiency standards for household appliances and equipment. And, he will repair and accelerate the building code process and create a new funding mechanism for states and cities to adopt strict building codes and train builders and inspectors.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Accelerating the deployment of electric vehicles. </i>There are now one million electric vehicles on the road in the United States. But a key barrier to further deployment of these greenhouse-gas reducing vehicles is the lack of charging stations and coordination across all levels of government. As President, Biden will work with our nation’s governors and mayors to support the deployment of more than 500,000 new public charging outlets by the end of 2030. In addition, Biden will restore the full electric vehicle tax credit to incentivize the purchase of these vehicles. He will ensure the tax credit is designed to targeted middle class consumers and, to the greatest extent possible, to prioritize the purchase of vehicles made in America. And, he will work to develop a new fuel economy standard that goes beyond what the Obama-Biden Administration put in place.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Empowering local communities to develop transportation solutions.</i><b> </b>Communities across the country are experiencing a growing need for alternative and cleaner transportation options, including transit, dedicated bicycle and pedestrian thoroughfares, and first- and last-mile connections. The Biden Administration will transform the way we fund local transportation, giving state and local governments, with input from community stakeholders, more flexibility to use any new transportation funds to build safer, cleaner, and more accessible transportation ecosystem.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Partnering with farmers and ranchers so that better agriculture practices and deployment of digesters generate new sources of revenues. </i>For our family farmers, ranchers, and landowners the climate agenda is not just about growing nutritious food and making it accessible to all families, it’s also about having water they can rely on for growing that food. It’s about local farms and fresh food for every community. And it’s about making sure that floodwaters in the Midwest are not taking away family farms that have fed our people for decades. Biden will review regulatory roadblocks to new innovations and invest in climate-friendly farming such as conservation programs for cover crops and other practices aimed at restoring the soil and building soil carbon, and in the process, preventing run-off and helping family farmers deploy the latest technologies to maximize productivity. He will create new opportunities to support deployment of methane digesters to capture potent climate emissions and generate electricity. With these efforts, family farmers can benefit and help lead the Clean Energy Revolution.</span></li>
+</ul>
+<p><center><noscript><img class="aligncenter wp-image-930 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/V072710DL-0235.jpg" alt="VP Biden speaking at the Grand Canyon." width="600" height="400" srcset="https://joebiden.com/wp-content/uploads/2019/06/V072710DL-0235.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/V072710DL-0235-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-930 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20400%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/V072710DL-0235.jpg" alt="VP Biden speaking at the Grand Canyon." width="600" height="400" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/V072710DL-0235.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/V072710DL-0235-300x200.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center></p>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Mitigating the climate impact of urban sprawl. </i>Housing policy can be used as a tool to battle climate change and expand the middle class.<i> </i>Many lower- and middle-income Americans are forced to live far away from job centers due to high housing costs, leading not only to workers being overburdened by long commutes, but also to higher emissions associated with increased traffic and extra-long commuting times. Altering local regulations to eliminate sprawl and allow for denser, more affordable housing near public transit would cut commute times for many of the country’s workers while decreasing their carbon footprint. This means that emission-reduction strategies not only combat climate change but also save consumers money. Yet, many households often need support to afford the initial investment.<i> </i>Local housing authorities and utility companies have stepped up and helped households invest in energy-efficient upgrades by offering flexible financing plans and tax credits.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Enacting a national strategy to develop a low-carbon manufacturing sector in every state, accelerating cutting-edge technologies and ensuring businesses and workers have access to new technologies and skills, with a major focus on helping small and large manufacturers upgrade their capabilities to have both competitive and low-carbon futures</i>. The strategy will connect research universities, community colleges, incubators and accelerators, manufacturing institutes and employers, unions, and state and local governments – alone or as part of a regional pact – and provide them with significant funding for deployment of a place-based plan to help their state or region build a competitive and low-carbon future in manufacturing that reflects climate impacts in their local communities. Industries from textiles to machine tools to metal fabrication to the most advanced manufacturing technologies will be eligible for funding to modernize, compete, create jobs, and move to clean energy futures. Allocated tax credits and subsidies will be available for businesses to upgrade equipment and processes, invest in expanded or new factories, and deploy low-carbon technologies, as long as all stakeholders are part of the process of determining a bottom-line win for jobs, workers, clean energy, and long-term community investment. Where states feel competitive pressures or requirements in response to the climate emergency may threaten a local economy, President Biden’s national strategy will fund efforts to move to a more competitive or low-carbon manufacturing approach that can preemptively develop new economic strategies, including deployment of federal funding for technologies or manufacturing innovation centers.</span></li>
+</ul>
+<div style="border: solid 2px #12204A; padding: 16px;">
+<p class="p2"><span class="s1"><b>Harnessing Great Potential So America and Our Workers Lead the 21st Century Economy</b></span></p>
+<p class="p2"><span class="s1">Vice President Biden knows that our response to this climate emergency also presents an opportunity. More than three million people in the United States are already employed in the clean energy economy. But, that is only the beginning of what is possible if we harness all of our talent and creativity. If executed strategically, our response to climate change can create more than 10 million well-paying jobs in the United States that will grow a stronger, more inclusive middle class enjoyed by communities across the country, not just in cities along the coasts. </span></p>
+<p class="p2"><span class="s1">America has a great opportunity to lead in the industries of the future by strengthening emerging industries in agriculture, clean energy, and advanced manufacturing. This also presents an opportunity for America to create stable, well-paying jobs that drive clean energy here at home and abroad. </span></p>
+<p class="p2"><span class="s1">That’s why Joe Biden will make the largest investment in history in American innovation – including research and innovation to unlock and deploy new zero-carbon technologies for the future, create stable well-paying jobs across the U.S., and make zero-carbon technologies the most cost-effective and scalable way to meet our country’s energy needs.</span></p>
+<p class="p2"><span class="s2"><b>And, Joe Biden will ensure that clean economy jobs are good jobs.</b></span><span class="s1"><b> </b>We must ensure jobs created as part of the clean energy revolution offer good wages, benefits, and worker protections. Toward this end, President Biden will defend workers’ rights to form unions and collectively bargain in these emerging and growing industries; pursue new partnerships with community colleges, unions, and the private sector to develop programs to train all of America’s workforce to tap into the growing clean energy economy; incorporate skills training into infrastructure investment planning by engaging state and local communities; and reinvigorate and repurpose AmeriCorps for sustainability, so that every American can participate in the clean energy economy. These efforts will be worker-centered and driven in collaboration with the communities they will affect.</span></p>
+<p class="p2"><span class="s1">Unfortunately, today the Trump Administration is allowing America to fall behind in the clean energy race for the future. In 2017, China invested $3 in renewable energy for every $1 in America, giving China an edge on the technologies of tomorrow that will generate well-paying jobs. By 2030, the Biden Administration will put the United States back in the driver&#8217;s seat, making America the world’s leader in clean energy research, investment, commercialization, manufacturing, and exports..</span></p>
+</div>
+<p>&nbsp;</p>
+<p class="p11"><span class="s1"><b>II. BUILD A STRONGER MORE, RESILIENT NATION </b></span></p>
+<p class="p4"><span class="s1">The country is already experiencing the impact of climate change in diverse and varied communities across the nation. As the Trump Administration has abdicated leadership, America’s mayors and other local leaders have stepped up to build smarter cities that can withstand storms, floods, urban heat, and wildfire as well as sea level rise and so much more. A Biden Administration will once again give local leaders a true partner in the White House, enhancing their efforts and creating well-paying jobs to improve climate resiliency and invest in our economic future.</span><span class="s1"><span class="Apple-converted-space">     </span></span></p>
+<p class="p4"><span class="s1">Infrastructure is critical to economic growth. One International Monetary Fund study found that increasing infrastructure investment by 1% of GDP in advanced countries can raise growth by 0.4% to 1.5% and foster technological innovation. Joe Biden believes that this investment is essential and that, as we take long overdue steps to improve crumbling infrastructure, we must also prioritize achieving deep emission reductions. To that end, Biden will commit that every infrastructure investment that receives federal funding should reduce climate pollution, as much as possible. Climate impacts are regional, and the solutions will be too. </span></p>
+<p class="p4"><span class="s1">As part of the Clean Energy Revolution legislative package, President Biden will make groundbreaking investments in clean and resilient infrastructure and communities. In addition, President Biden will:</span></p>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Define the climate adaptation agenda</i>. Biden will bring together the best innovators to help design common-sense zoning and building codes and help communities build and rebuild before and after natural disasters and other shocks and stresses.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Develop new tools to manage and reduce risk and the cost of transferring risk.</i> Working with the insurance industry, the Biden Administration will identify ways to lower property insurance premiums for homeowners and communities who invest in resilience, expanding programs like the Community Rating System that FEMA currently administers across the country.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Build a new resilient infrastructure economy</i>. Biden will create a new class of well-paying jobs and job training around climate resilient industries. Coastal restoration, resilient infrastructure design, construction and evaluation (such as bridges that withstand high winds and roads that don’t wash out during storms and floods), natural solutions (such as tree plantings on a large scale to combat urban heat and its associated negative health impacts), and technological solutions to easily assess risk and protect people and their property are all proven to improve the resilience of communities. They are also opportunities for job growth and economic vitality all over the country.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s1"><i>Spark the second great railroad revolution. </i>Two centuries ago, the first great railroad expansion drove our industrial revolution. Today, the U.S. is lagging behind Europe and China in rail safety and speed. Biden will develop a plan to ensure that America has the cleanest, safest, and fastest rail system in the world – for both passengers and freight. </span>
+<ul class="ul1">
+<li class="li4"><span class="s1">With respect to <i>passenger rail</i>: He’ll start by putting the Northeast Corridor on higher speeds and shrinking the travel time from D.C. to New York by half – and build in conjunction with it a new, safer Hudson River Tunnel. He will make progress toward the completion of the California High Speed Rail project. He will expand the Northeast Corridor to the fast-growing South. Across the Midwest and the Great West, he will begin the construction of an end-to-end high speed rail system that will connect the coasts, unlocking new, affordable access for every American. </span></li>
+<li class="li4"><span class="s1">With respect to <i>freight: </i>A Biden Administration will pursue projects like a bridge that connects Oregon and Washington State that moves not only trucks but rail transit, and the completion of the CREATE project in Chicago that could cut in half the time it takes vital goods to move through the country. This plan will reduce pollution, help connect workers to quality jobs with shorter commutes, and spur investment in communities more efficiently connected to major metropolitan areas.</span></li>
+</ul>
+</li>
+</ul>
+<p><center><noscript><img class="aligncenter wp-image-924 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/CbhDizrVIAA2Hpo.jpg" alt="VP Biden in front of a hybrid bus." width="600" height="314" srcset="https://joebiden.com/wp-content/uploads/2019/06/CbhDizrVIAA2Hpo.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/CbhDizrVIAA2Hpo-300x157.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-924 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20314%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/CbhDizrVIAA2Hpo.jpg" alt="VP Biden in front of a hybrid bus." width="600" height="314" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/CbhDizrVIAA2Hpo.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/CbhDizrVIAA2Hpo-300x157.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center><center> </center></p>
+<div style="border: solid 2px #12204A; padding: 16px;">
+<p class="p2"><span class="s1"><b>American States and Cities: Leading by Example </b></span></p>
+<p class="p2"><span class="s1">In the void left by the Trump Administration’s inaction, American governors and mayors have set ambitious goals and implemented large-scale programs to address climate change. Their efforts also bolster local economies: The Bureau of Labor Statistics forecasts solar installers and wind turbine technicians to be the two fastest growing occupations through 2026 (with 105% and 96% growth, respectively). Local efforts include:</span></p>
+<ul class="ul1">
+<li class="li2"><span class="s1">New Mexico Governor Michelle Lujan Grisham pledged to reduce statewide greenhouse gas emissions by 45% by 2030; New Mexico is currently the country’s third-largest producer of oil.</span></li>
+<li class="li2"><span class="s1">Colorado Governor Jared Polis committed his state to 100% clean electricity by 2040; he signed an executive order to move the state to zero-emission vehicle standards and increase adoption of electric vehicles. </span></li>
+<li class="li2"><span class="s1">Oregon lawmakers have introduced a carbon cap and trade proposal that would set a 52 million metric ton cap on greenhouse gas emissions. This follows California’s own cap and trade system and that of nine northeast states (Connecticut, Delaware, Maine, Maryland, Massachusetts, New Hampshire, New York, Rhode Island, and Vermont) which comprise the Regional Greenhouse Gas Initiative.</span></li>
+<li class="li2"><span class="s1">Twenty-nine states, three territories, and Washington D.C., have adopted Renewable Portfolio Standards which mandate a specified portion of the electricity that utilities sell come from renewable resources.</span></li>
+<li class="li2"><span class="s1">Cities have taken the lead too: over 35 cities set a goal of 80% emissions reductions by 2050 and over 400 mayors honor the Paris Agreement. Cities are creatively tackling this problem including by implementing energy taxes that reduce emissions (Boulder, CO), electrifying public transit (e.g., Los Angeles), and pledging all municipal electricity be generated by carbon-free sources by 2020 (e.g., Kansas City, MO).</span></li>
+</ul>
+<p class="p2"><span class="s1">These states and cities deserve to once again have a partner in the White House. President Biden will be that partner.</span></p>
+</div>
+<p>&nbsp;</p>
+<p class="p4"><span class="s1"><b>III. RALLY THE REST OF THE WORLD TO ADDRESS THE GRAVE CLIMATE THREAT</b></span></p>
+<p class="p4"><span class="s1">The United States accounts for only 15% of global emissions, so we know we cannot solve this emergency on our own. Climate change is a global challenge that requires decisive action from every country around the world. That’s why the Obama-Biden Administration mobilized the world to achieve the 2015 Paris Climate Accord.</span></p>
+<p><center><noscript><img class="alignnone wp-image-922 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/20716608460_068ba7964e_o-1.jpg" alt="VP Biden and President Obama smiling in the Oval Office." width="600" height="626" srcset="https://joebiden.com/wp-content/uploads/2019/06/20716608460_068ba7964e_o-1.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/20716608460_068ba7964e_o-1-288x300.jpg 288w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload alignnone wp-image-922 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20626%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/20716608460_068ba7964e_o-1.jpg" alt="VP Biden and President Obama smiling in the Oval Office." width="600" height="626" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/20716608460_068ba7964e_o-1.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/20716608460_068ba7964e_o-1-288x300.jpg 288w" data-sizes="(max-width: 600px) 100vw, 600px" /></center><span class="s1">President Trump recklessly threw away that hard-won progress.</span></p>
+<p class="p4"><span class="s1">Biden will rejoin the Paris Agreement, but simply rejoining is not enough. Biden will use every tool of American foreign policy to push the rest of the world to raise their ambitions alongside the United States. A Biden Administration will:</span></p>
+<p class="p13"><span class="s2">Re-enter the Paris Agreement on day one of the Biden Administration and lead a major diplomatic push to raise the ambitions of countries’ climate targets.</span><span class="s1"> The Paris Agreement was a historic breakthrough for the world, and reflected the power of patient, strategic diplomacy in service of America’s long-term national interests. The core of the agreement relies on countries continually increasing the ambition of their climate targets over time. But since President Trump came into office, America has abdicated its own commitment to this agreement, and other major emitting nations have not moved fast enough to achieve their own goals. This means that re-entering Paris on day one of the Biden Administration is only the first step of an important and sustained effort to dramatically increase global climate ambition. Biden was there alongside President Obama to rally the world to get to Paris; and he will be prepared on day one of his presidency to take it to the next level. To catalyze this effort, Biden will, in his first 100 days in office:</span></p>
+<ul class="ul1">
+<li class="li4"><span class="s5">Convene a climate world summit to directly engage the leaders of the major carbon-emitting nations of the world to persuade them to join the United States in making more ambitious national pledges, above and beyond the commitments they have already made.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">Lead the world to lock in enforceable international agreements to reduce emissions in global shipping and aviation.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">Embrace the Kigali Amendment to the Montreal Protocol, adding momentum to curbing hydrofluorocarbons, an especially potent greenhouse gas, which could deliver a 0.5 degree Celsius reduction in global warming by mid-century.</span></li>
+</ul>
+<p class="p13"><span class="s2">Pursue strong new measures to stop other countries from cheating on their climate commitments.</span><span class="s1"> We can no longer separate trade policy from our climate objectives. Biden will not allow other nations, including China, to game the system by becoming destination economies for polluters, undermining our climate efforts and exploiting American workers and businesses. As the U.S. takes steps to make domestic polluters bear the full cost of their carbon pollution, the Biden Administration will impose carbon adjustment fees or quotas on carbon-intensive goods from countries that are failing to meet their climate and environmental obligations. This will ensure that American workers and their employers are not at a competitive disadvantage and simultaneously encourage other nations to raise their climate ambitions. Biden will also condition future trade agreements on partners’ commitments to meet their enhanced Paris climate targets.</span></p>
+<p class="p13"><span class="s2">Stop China from subsidizing coal exports and outsourcing carbon pollution.</span><span class="s1"> China is far and away the largest emitter of carbon in the world, and through its massive Belt and Road Initiative, Beijing is also annually financing billions of dollars of dirty fossil fuel energy projects across Asia and beyond. Biden will rally a united front of nations to hold China accountable to high environmental standards in its Belt and Road Initiative infrastructure projects, so that China can&#8217;t outsource pollution to other countries. Specifically, the U.S. will:</span></p>
+<ul class="ul1">
+<li class="li4"><span class="s5">Make future bilateral U.S.-China agreements on carbon mitigation – like the 2014 agreement that paved the way for the Paris accord – contingent on China eliminating unjustified export subsidies for coal and other high-emissions technologies and making verifiable progress in reducing the carbon footprint of projects connected to the Belt and Road Initiative.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">Seek a G20 commitment to end all export finance subsidies of high-carbon projects, building on past commitments from the G7 and multilateral export finance institutions to eliminate financing for coal in all but the poorest countries.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">With our partners, offer Belt and Road Initiative countries alternative sources of development financing for lower-carbon energy investments.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">Reform the International Monetary Fund and regional development bank standards on debt repayment priorities for development projects. The U.S. will lead like-minded nations to establish rules that take unsustainable climate and debt costs – such as those imposed by self-interested Chinese projects – into account in prioritizing who gets paid under international debt forbearance. Projects with high carbon impact and high debt costs will go to the end of the line, making them higher risk and more costly.</span></li>
+</ul>
+<p class="p13"><span class="s2">Demand a worldwide ban on fossil fuel subsidies.</span><span class="s1"> There is simply no excuse for subsidizing fossil fuel, either in the United States or around the world. In fact, a 2015 International Monetary Fund study showed that efficient fossil fuel pricing would have reduced global carbon emissions by nearly 30%. Biden will build on the achievements of the Obama-Biden Administration to get G20 countries to phase out inefficient fossil fuel subsidies. By engaging key leaders, including in China, Biden will secure a global commitment to eliminate fossil fuel subsidies by the end of his first term. He will lead by example, with the United States cutting fossil fuel subsidies at home in his first year and redirecting these resources to the historic investment in clean energy infrastructure (outlined in Part I of this plan).</span><span class="s1"><span class="Apple-converted-space">     </span></span></p>
+<p class="p13"><span class="s2">Create a Clean Energy Export and Climate Investment Initiative.</span><span class="s1"> This is also a moment of opportunity for American innovation. We can be the world’s clean energy superpower. Biden will establish a new government-wide effort to promote American clean energy exports and investments around the world to advance climate mitigation, adaptation, and resilience. The initiative will offer incentives for U.S. firms that supply low-carbon solutions to the international market in order to spur U.S. industry, jobs, and competitiveness, and make America the world leader in clean energy technologies. It will prioritize partnerships with countries that make high climate ambition commitments under Paris and provide low-cost financing to these countries for American clean energy exports. An initial focus will be small island states in the Pacific and Caribbean that are demonstrating climate leadership in the face of existential threats to their territorial homelands.</span></p>
+<p class="p13"><span class="s2">No financing dirty energy.</span><span class="s1"> President Biden will ensure the Overseas Private Investment Corporation (OPIC), the Export-Import Bank, and the new U.S. International Development Finance Corporation significantly reduce the carbon footprints of their portfolios. For example, these agencies will be prohibited from any financing for coal-fired power plants so that U.S. finance is no longer a dirtier alternative to the World Bank. </span></p>
+<p class="p13"><span class="s2">Meet America’s climate finance pledge and provide “green debt relief” for developing countries that make climate commitments.</span><span class="s1"> Biden will recommit the United States to the Green Climate Fund, fulfilling America’s pledge and enhancing our security by helping developing countries better manage the adverse effects of climate change, including conflict, migration, and state fragility. The U.S. will also work with international financial institutions to pursue shared debt relief for countries provided that they use those funds for climate-friendly development. </span></p>
+<p class="p13"><span class="s2">Catalyze Global Clean Energy Research.</span><span class="s1"> In 2015, the Obama-Biden Administration launched Mission Innovation, a global initiative of 23 countries and the European Union focused on research, development, and deployment of potential breakthrough technologies to accelerate clean energy innovation. Yet the U.S. has stepped back from this partnership even as the science has reinforced the urgency of the climate emergency. Biden will work with participating countries to reset the effort on a more ambitious track – beginning with a commitment to invest four times the originally-committed financial resources, which will help support research and development and unleash innovation at universities and research institutions around the world. Biden will also work to establish performance-based goals with tangible research and development outcomes; improve data collection and transparency to better track progress and improve accountability; enhance cooperation with private sector entrepreneurs; and help other countries build their institutional R&amp;D capabilities to ensure increased funding is spent most effectively.</span></p>
+<p class="p13"><span class="s2">Name and shame global climate outlaws.</span><span class="s1"> The U.S. Department of State publishes rankings of country’s records on human trafficking and human rights. A Biden Administration will institute a new Global Climate Change Report to hold countries to account for meeting, or failing to meet, their Paris commitments and for other steps that promote or undermine global climate solutions.</span></p>
+<p class="p13"><span class="s2">Pursue a global moratorium on offshore drilling in the Arctic and reestablish climate change as a priority for the Arctic Council.</span><span class="s1"> The Arctic poses profound national security challenges as its physical make-up changes due to extreme warming in the Arctic region. Yet, the Trump Administration has refused to allow the Arctic Council to even use the words “climate change.” Biden will elevate climate change to the top of the priority list for the Council, and focus on reducing two short-lived but highly potent pollutants, black carbon and methane. He will not only re-establish the U.S. commitment to remove Arctic waters from consideration for oil and gas leasing, he will also work with Arctic Council member nations to extend this moratorium globally. And, he will use the Arctic Council to put a spotlight on Russia’s activities in the Arctic, standing firm with council partners to hold Russia accountable for any efforts to further militarize the region.</span></p>
+<p class="p13"><span class="s2">Strengthen collaboration and ambition in the Americas.</span><span class="s1"> In our own hemisphere, the effects of climate change are already undermining security and prosperity, as well as driving increased migration. The Inter-American Development Bank estimates that projected damages to the region from droughts, floods, sea level rise, and other climate impacts associated with an increase in global temperature of 2 degrees Celsius will cost approximately $100 billion per year by 2050. But, the climate emergency also presents an enormous opportunity for the region to leapfrog dirty development in favor of the technologies of the future. Investments in clean energy and resilient and sustainable infrastructure will drive an innovation boom that helps us achieve the vision of a hemisphere that is secure, middle class, and democratic from Canada to Chile. Biden will work with countries throughout our region to develop a comprehensive strategy that meets these challenges and seizes these opportunities. This strategy will include:</span></p>
+<ul class="ul1">
+<li class="li4"><span class="s5">A framework to limit greenhouse gas emissions related to land use, forests, and agriculture.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">New common standards for the greening of manufacturing, mining, and tourism.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">Major investments in clean-energy technologies.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">A more integrated energy grid from Mexico through Central America and Colombia supplied by increasingly clean energy.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">A special focus on the Caribbean and the Northern Triangle of Central America to promote transitions to clean energy as well as climate change adaptation and resilience. Caribbean islands are particularly vulnerable to rising sea levels and more severe weather patterns, including hurricanes, and sustained drought in places like eastern Guatemala is causing more people to flee in search of better opportunities.</span></li>
+</ul>
+<p><center><noscript><img class="aligncenter wp-image-923 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/20717896369_a045e20a90_o.jpg" alt="VP Biden in a meeting with President Obama and other staff." width="600" height="400" srcset="https://joebiden.com/wp-content/uploads/2019/06/20717896369_a045e20a90_o.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/20717896369_a045e20a90_o-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-923 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20400%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/20717896369_a045e20a90_o.jpg" alt="VP Biden in a meeting with President Obama and other staff." width="600" height="400" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/20717896369_a045e20a90_o.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/20717896369_a045e20a90_o-300x200.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center></p>
+<p class="p13"><span class="s2"><strong>Make climate change a core national security priority.</strong></span><span class="s1"> Climate change is a “threat multiplier” that magnifies existing geopolitical and weather-related risks. To address our defense and intelligence leaders’ warnings about the threats climate change poses to global stability and security, Biden will elevate climate change as a national security priority. Specifically, he will: </span></p>
+<ul class="ul1">
+<li class="li4"><span class="s5">Commission a National Intelligence Estimate on national and economic security impacts from climate change, including water scarcity, increased risks of conflict, impacts on state fragility, and the security implications of resulting large-scale migrations. </span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">Direct the Secretary of Defense and Chairman of the Joint Chiefs of Staff to report to him annually on the impacts of climate change on defense posture, readiness, infrastructure, and threat picture, as well as the Defense Department’s strategy to manage those impacts.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">Direct the National Security Advisor, working with the Secretaries of Defense, State, Homeland Security, and others, to develop a comprehensive strategy to address the security implications of climate change.</span></li>
+</ul>
+<ul class="ul1">
+<li class="li4"><span class="s5">Invest in the climate resilience of our military bases and critical security infrastructure across the U.S. and around the world, to deal with the risk of climate change effects, including extreme weather events that caused over $8 billion in damages to Department of Defense bases in just the last year. Biden will direct the Secretaries of Defense and Energy to develop specific inventories of the most acute vulnerabilities in our critical infrastructure due to climate change, and prioritize upgrades, hardening, and resilience investments to mitigate them.</span></li>
+</ul>
+<div style="border: solid 2px #12204A; padding: 16px;">
+<p class="p2"><span class="s1"><b>Climate Change Poses Serious Risks to U.S. National Security</b></span></p>
+<p class="p2"><span class="s1">President Trump has not only reversed America’s progress on climate change, he has also ignored his own defense and intelligence leaders’ warnings about the threats that climate change poses to global stability and security. These risks range from direct threats to physical military assets to more indirect effects like regional destabilization.</span></p>
+<ul class="ul1">
+<li class="li2"><span class="s5">In a January 2019 report to Congress, the Department of Defense stated: “The effects of a changing climate are a national security issue with potential impacts to [DOD] missions, operational plans, and installations.” The report assessed 79 installations that it deemed mission critical, and concluded that over the next two decades, 53 of the 79 faced threats from flooding, 43 face threats from drought, and 36 face wildfire threat. Former Secretary of Defense Mattis stated in his confirmation proceedings that “climate change is impacting stability in areas of the world where our troops are operating today…it can be a driver of instability and the Department of Defense must pay attention to potential adverse impacts generated by this phenomenon.” </span></li>
+<li class="li2"><span class="s5">Just this past January, the Director of National Intelligence told Congress: “Global environmental and ecological degradation, as well as climate change, are likely to fuel competition for resources, economic distress, and social discontent through 2019 and beyond.. Damage to communication, energy, and transportation infrastructure could affect low-lying military bases, inflict economic costs, and cause human displacement and loss of life.” </span></li>
+<li class="li2"><span class="s1">Climate change will lead to higher levels of regional instability. For example, rising sea levels on Africa’s eastern coast could imperil large cities and require more US military-supported disaster relief activities. Further, deteriorating economic conditions in climate-impacted areas could increase piracy and terrorist activity, requiring a US military response. </span></li>
+<li class="li2"><span class="s1">The Arctic Ocean will become more accessible to maritime trade and oil/gas extraction, increasing the risk of the region’s militarization and Russian and Chinese influence. </span></li>
+<li class="li2"><span class="s1">Rising sea levels and related storm surges may result in the closure of at-risk military installations. Further, increasingly intense hurricanes cause structural damage to bases. For example, Hurricane Michael prevented Air Force Base Tyndall from resuming normal operations for nearly a month, affecting nearly one-third of the country’s F-22s.</span></li>
+<li class="li2"><span class="s1">Droughts negatively affect military operations by reducing water supply, delaying training activities, and increasing the rate of heat-related illnesses among soldiers. Within the US, the risk of drought is particularly high in the Southwest. </span></li>
+<li class="li2"><span class="s1">Thawing permafrost can impede military training exercises in areas like Alaska.</span></li>
+</ul>
+</div>
+<p>&nbsp;</p>
+<p class="p4"><span class="s1"><b>IV. STAND UP TO THE ABUSE OF POWER BY POLLUTERS WHO DISPROPORTIONATELY HARM COMMUNITIES OF COLOR AND LOW-INCOME COMMUNITIES</b></span></p>
+<p class="p4"><span class="s1">Everyone is already feeling the effects of climate change. But the impacts – on health, economics, and overall quality of life – are far more acute on communities of color, tribal lands, and low-income communities. “Climate change does not affect everyone equally in the United States,” according to Rachel Morello-Frosch, lead author of <a href="http://college.usc.edu/geography/ESPE/perepub.html"><span class="s6"><i>The Climate Gap</i></span></a>. “People of color and the poor will be hurt the most &#8211; unless elected officials and other policymakers intervene.”</span></p>
+<p class="p4"><span class="s1">We cannot turn a blind eye to the way in which environmental burdens and benefits have been and will continue to be distributed unevenly along racial and socioeconomic lines &#8211; not just with respect to climate change, but also pollution of our air, water, and land. The evidence of these disproportionate harms is clear. According to the Asthma and Allergy Foundation of America, African Americans are almost 3 times more likely to die from asthma related causes than their white counterparts. And, nearly 1 in 2 of Latinos in the US live in counties where the air doesn’t meet EPA public health standards for smog according to Green Latinos. And according to the U.S. Federal Government, 40% of the 567 federally recognized tribes in U.S. live in Alaska where the rapid pace of rising temperatures and melting sea ice and glaciers threaten the critical infrastructure and traditional livelihoods in the state. Biden will reinstate federal protections, rolled back by the Trump Administration, that were designed to protect communities. He will make it a priority for all agencies to engage in community-driven approaches to develop solutions for environmental injustices affecting communities of color, low-income, and indigenous communities. </span></p>
+<p class="p4"><span class="s1">In addition, he will:</span></p>
+<p class="p4"><span class="s2">Hold polluters accountable.</span><span class="s1"> Under the Trump Administration, the U.S. Environmental Protection Agency (EPA) has referred the fewest number of criminal anti-pollution cases to the Justice Department in 30 years. Allowing corporations to continue to pollute – affecting the health and safety of both their workers and surrounding communities – without consequences perpetuates an egregious abuse of power. Biden will direct his EPA and Justice Department to pursue these cases to the fullest extent permitted by law and, when needed, seek additional legislation as needed to hold corporate executives personally accountable – including jail time where merited. </span></p>
+<p class="p4"><span class="s2">Ensure access to safe drinking water for all communities<i>.</i></span><span class="s1"> Communities across America are experiencing a water crisis, in water infrastructure, contamination, accessibility and so much more. Here in the U.S., from rural areas to cities, from Flint, Michigan to Merrimack, New Hampshire to Martin County, Kentucky, many Americans cannot safely drink their tap water. In much of the southwest and west, the problem is a lack of sufficient water, expected to exacerbate with a changing climate. Biden will make water infrastructure a top priority, for example, by establishing systems to monitor lead and other contaminants in our water supply and take necessary action to eliminate health risks, including holding polluters accountable and support communities in upgrading their systems.</span></p>
+<div style="border: solid 2px #12204A; padding: 16px;">
+<p class="p2"><span class="s1"><b>Safe and Clean Water for All Americans</b></span><span class="s1"> </span></p>
+<p class="p5"><span class="s1">We can all agree that threats to our water system are threats to our quality of life. Americans watched in horror when residents, especially children, of Flint had dirty, foul water that tested with high levels of lead. But in fact, water challenges exist throughout the nation, from access to clean drinking water and upgrading aged municipal infrastructure to our ports, from recreation to ocean plastics, from oil spills and run-off to the energy-water nexus and green infrastructure, our waters and our public health faces interrelated challenges and opportunities everywhere in our nation.</span></p>
+<p class="p2"><span class="s1">A study by the National Academy of Sciences found that 3 to 10% of Americans live in areas where water quality is subpar – often due to aging infrastructure that needs to be updated or replaced.</span><span class="s1"> </span></p>
+<p class="p2"><span class="s1">According to American Rivers, “the average American sewage pipe is 33 years old, with many pipes dating back 50 or even 100 years.” The group notes that aging infrastructure also leads to greater storm water runoff and sewer overflows – and heavy storms can super-saturate the system, resulting in raw sewage and polluted stormwater contaminating nearby streams and rivers.</span></p>
+<p class="p2"><span class="s1">Other places have a scarcity of water. For example, some researchers believe that Lake Meade which supplies water to 21 million Americans will be dry by 2021. And, according to American Rivers, reservoirs on the <a href="http://americanrivers.org/river/colorado-river/"><span class="s6">Colorado River</span></a> already lose 1.8 million acre-feet of water to evaporation in an average year, about 13%of the river’s annual flow.</span></p>
+<p class="p2"><span class="s1">More frequent and more powerful storms will result in an increase in <a href="http://americanrivers.org/threats-solutions/clean-water/stormwater-runoff/"><span class="s6">polluted runoff</span></a> from urban and rural areas, sending pollutants from the landscape into nearby waterways. The threat is even more dire in communities with aging infrastructure where one pipe carries stormwater and sewage<span class="Apple-converted-space">  </span>together; heavy storms can overwhelm the system, resulting in raw sewage and polluted stormwater entering into nearby streams and rivers.</span></p>
+<p class="p2"><span class="s1">Communities must upgrade<a href="https://www.americanrivers.org/threats-solutions/clean-water/green-infrastructure/"><span class="s6"> aging infrastructure</span></a>, or they will experience greater increases in stormwater runoff and sewer overflows. </span></p>
+<p class="p5"><span class="s1">Our water challenges vary by region:</span></p>
+<p class="p5"><span class="s1"><b>The Midwest: </b>The recent increase in flooding is directly related to the intensification of rainfall. Combined with increased amounts of rain, impacts on the Great Lakes – home to 80% of the nation’s fresh water – exacerbates existing water-related issues in communities throughout the Midwest, such as the proliferation of PFAS, invasive species such as the Asian Carp and algae blooms in Toledo.</span></p>
+<p class="p5"><span class="s1"><b>Southeast/Gulf Coasts: </b>Tropical and coastal storms, including hurricanes are becoming more devastating.</span></p>
+<p class="p5"><span class="s1"><b>Eastern Seaboard, Gulf Coast: </b>Rising sea level threatens coastal lives and property, and causes coastal aquifers to become salty and unusable.</span></p>
+<p class="p5"><span class="s1"><b>Southwestern U.S.: </b>Warmer temperatures are combining with reduced precipitation to drive water loss from the region’s reservoirs and from the land surface. Intensified, hotter, drought is already impacting the region’s forests, with widespread tree death, diseases, and forest fires reshaping iconic ecosystems.</span></p>
+<p class="p5"><span class="s1"><b>Western U.S.: </b>The West is warming faster than much of the rest of the lower 48, and this has particular impacts on water and makes it easier for fires to start and spread.  As a result of the warming climate: more precipitation falls as rain, rather than snow; there is less snow accumulation in the mountains, and snow melts faster in the spring because of the warmer temperatures and increased rainfall.</span></p>
+<p class="p5"><span class="s1"><b>The Northwest: </b>In addition to the sea level and hydrological impacts listed above, the Northwest is vulnerable to changes in the ocean. Adding CO2 to the atmosphere acidifies the ocean, and as climate warms, the ocean holds less oxygen.</span></p>
+<p class="p5"><span class="s1"><b>Alaska: </b>The Arctic is warming faster than anywhere else on the planet, because the melting of sea ice sets additional warming in motion which accelerates the melting in a self-reinforcing and amplifying cycle. Alaska is the fastest-warming U.S. state. Warmer temperatures are melting permafrost, creating sinkholes and erosion that damages buildings, roads, and pipelines.</span></p>
+<p class="p2"><span class="s1"><b>Hawaii:</b> Hawaii is strongly impacted by ocean changes. Sea level rise is beginning to threaten coastal resources, including structures, roads, cultural sites, beaches, and key infrastructure. A recent report estimated that a 1m sea level rise would cost the state 19 billion just for structures and flooded land – and ten times that for the associated damage to roads and other infrastructure, loss of visitors, and impacts to natural resources.</span></p>
+</div>
+<p>&nbsp;</p>
+<p class="p4"><span class="s2">Ensure that communities harmed by climate change and pollution are the first to benefit from the Clean Economy Revolution.</span><span class="s1"> Low-income communities and communities of color don’t equally share in the benefits of well-paying job opportunities that result from our clean energy economy. For example, African Americans hold only 1% of energy jobs. As President, Biden will make sure these communities receive preference in competitive grant programs in the Clean Economy Revolution. </span></p>
+<div style="border: solid 2px #12204A; padding: 16px;">
+<p class="p2"><span class="s1"><b>People of Color and Low-Income Communities Are at Especially High Risk </b></span></p>
+<p class="p2"><span class="s1"><b>From Climate Change and Pollution</b></span></p>
+<ul class="ul1">
+<li class="li2"><span class="s1">People of color and low-income communities are more likely to live in areas most vulnerable to flooding and other climate change-related weather events. They are also less likely to have the funds to prepare for and recover from extreme weather. In the wake of Hurricane Harvey, black and Hispanic residents were twice as likely as non-Hispanic white individuals to report experiencing an income shock and lack of recovery support.</span></li>
+<li class="li2"><span class="s1">African American children living in poverty are more likely than wealthier white children to live in a community that borders toxic chemical facilities. Extreme weather can increase the health risks of being co-located with these toxic structures.</span></li>
+<li class="li2"><span class="s1">Failure to reduce emissions disproportionately hurts black and Hispanic residents who experience 37% higher exposure to nitrogen dioxide (a toxic pollutant) compared to non-Hispanic whites. This leads to an increased rate of premature death due to heart disease.</span></li>
+<li class="li2"><span class="s1">Resiliency investments can raise property values and push lower-income families out of their neighborhoods. Climate change mitigation efforts must consciously protect low-income communities from “green gentrification.”</span></li>
+<li class="li2"><span class="s1">Climate change poses particular threats to indigenous tribes given that approximately 1.1 million American Indians and Alaska Natives live on or near reservations or native land in the Northwest, Southwest, Alaska, and Great Plains.</span></li>
+</ul>
+</div>
+<p><center><noscript><img class="aligncenter wp-image-929 size-full" src="https://joebiden.com/wp-content/uploads/2019/06/V072610DL-0160.jpg" alt="VP Biden speaking outdoors." width="600" height="400" srcset="https://joebiden.com/wp-content/uploads/2019/06/V072610DL-0160.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/V072610DL-0160-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></noscript><img class="lazyload aligncenter wp-image-929 size-full" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20600%20400%22%3E%3C/svg%3E' data-src="https://joebiden.com/wp-content/uploads/2019/06/V072610DL-0160.jpg" alt="VP Biden speaking outdoors." width="600" height="400" data-srcset="https://joebiden.com/wp-content/uploads/2019/06/V072610DL-0160.jpg 600w, https://joebiden.com/wp-content/uploads/2019/06/V072610DL-0160-300x200.jpg 300w" data-sizes="(max-width: 600px) 100vw, 600px" /></center></p>
+<p class="p4"><span class="s1"><b>V. FULFILL OUR OBLIGATION TO WORKERS AND COMMUNITIES WHO POWERED OUR INDUSTRIAL REVOLUTION AND DECADES OF ECONOMIC GROWTH</b></span></p>
+<p class="p4"><span class="s1">Biden will commit our country to fulfilling our obligation to all workers impacted by the energy transition, like coal miners and power plant workers and their communities. Coal miners and power plant workers took on dangerous jobs to power our industrial revolution and the decades of subsequent economic growth. As economic trends continue to shift our country away from coal as an energy source, we have an obligation to help these workers and their communities succeed.</span></p>
+<p class="p4"><span class="s1">President Biden will:</span></p>
+<p class="p4"><span class="s2">Secure the benefits coal miners and their families have earned.</span><span class="s1"> As marketplace competition continues to shift the country away from coal-fired electricity, we have an obligation to these workers who’ve worked hard and sacrificed for the rest of us. Biden will make sure coal miners and their families receive not only the respect they deserve but also the pensions and health benefits they have been promised. Congress should do the right thing and pass legislation now to protect the retirement benefits owed to miners, their dependents, and their widows. But if Congress doesn’t act before Biden takes office, he will make sure we fulfill this obligation. And, Biden will increase coal companies’ payments into the black lung benefits program, reform the black lung benefits system so it is no longer rigged in favor of coal companies who can hire lawyers and doctors to ensure miners’ benefits are denied, expand efforts to help miners detect black lung cases earlier and access care, and enforce regulations to reduce cases of black lung in the first place. </span></p>
+<p class="p4"><span class="s2">Invest in coal and power plant communities and other communities impacted by the climate transformation.</span><span class="s1"> Each of these communities are necessary. We can’t write them off or act like they don’t matter. Each has assets that can be leveraged to diversify their economies, create good, middle class jobs, and help the country get stronger – assets like a rich culture, natural beauty, a proven workforce, and entrepreneurial spirit. The federal government should be a partner to help these communities capitalize on these strengths and build vibrant communities where good jobs are available and young people want to stay or return home. To support coal and power plant workers and their communities, President Biden will make an unprecedented investment building upon the vision put forward in the Obama-Biden Administration’s Power+ Plan. And, he’ll establish a Task Force on Coal and Power Plant Communities, as the Obama-Biden Administration did for Detroit when the auto industry was in turmoil. For example, the Task Force will help these communities access federal investments and leverage private sector investments to help create high-paying union jobs based upon the unique assets of each community, partner with unions and community colleges to create training opportunities for these new jobs, repair infrastructure, keep public employees like firefighters and teachers on the payroll, and keep local hospitals open.</span></p>
+<div style="border: solid 2px #12204A; padding: 16px;">
+<p class="p2"><span class="s1"><b>Obama-Biden Administration Record</b></span></p>
+<p class="p2"><span class="s1">The Obama-Biden Administration kick-started a new era of American leadership in renewable energy by making significant investments in clean energy technology and promulgating regulations to curb carbon emissions.</span></p>
+<ul class="ul1">
+<li class="li2"><span class="s1">Included in the 2009 American Recovery and Reinvestment Act more than $90 billion and leveraged $150 billion of private and local spending for clean energy investments. </span></li>
+<li class="li2"><span class="s1">Increased the share of domestically-produced wind turbine components made in the US from 35% in 2006-2007 to 67% in 2011 and a dramatic plunge in solar costs helping it get closer to grid parity (i.e., lower cost than traditional energy sources).</span></li>
+<li class="li2"><span class="s1">Jump-started the Department of Energy’s Advanced Research Projects Agency-Energy (ARPA-E) program which invested in 475 transformative energy technologies and secured $1.25 billion in private sector follow-on funding for related projects.</span></li>
+<li class="li2"><span class="s1">Helped lead and sign the Paris Climate Agreement, setting the world on a path toward a sustainable future.</span></li>
+<li class="li2"><span class="s1">Set bold corporate average fuel economy (CAFE) standards requiring a 54.5 miles-per-gallon standard for cars and light-duty trucks by model year 2025, which the National Highway Traffic and Safety Administration predicted: “[would save] consumers more than $1.7 trillion in gas costs and [reduce] U.S. oil consumption by 12 billion barrels.”</span></li>
+<li class="li2"><span class="s1">Implemented first-ever medium- and heavy-duty fuel efficiency standards projected to save nearly $170 billion in fuel costs.</span></li>
+<li class="li2"><span class="s1">Implemented energy efficiency standards for buildings, homes and appliances, with a particular focus on saving consumers money on heating and cooling bills; in the Administration’s first term the Department of Energy and Department of Housing and Urban Development completed energy efficiency upgrades in more than 1 million homes, saving families more than $400 each on average.</span></li>
+<li class="li2"><span class="s1">Expanded or established protections for more than 550 million acres of federal lands and waters and banned drilling in large parts of the Atlantic and Arctic Oceans.</span></li>
+<li class="li2"><span class="s1">Helped create more resilient infrastructure that can withstand climate change; a 2013 Executive Order also required federal agencies to release climate change adaptation plans to plan for the adverse impacts of more extreme weather and rising sea-levels.</span></li>
+</ul>
+</div>
+    </div>
+  </article>
+
+
+</main><!-- #main -->
+
+
+</div><!-- #main-content -->
+
+<footer id="site-footer" class="clearfix">
+
+  <div class="site-footer__column site-footer__column--a">
+
+              <form name="signup" class="bsd-signup" action="https://go.joebiden.com/page/s/join_the_team" data-ajax="https://go.joebiden.com/page/sapi/join_the_team" method="post">
+
+        <div class="form-inline clearfix">
+          <div class="fieldset" id="bsd-field-email-footer">
+            <div class="label"><label class="field" for="email-footer">Email Address</label></div>
+            <div class="input"><input type="email" class="text" size="48" id="email-footer" name="email" required="required"></div>
+          </div>
+
+          <div class="fieldset" id="bsd-field-zip-footer">
+            <div class="label"><label class="field" for="zip-footer">ZIP Code</label></div>
+            <div class="input"><input size="8" id="zip-footer" name="zip" type="text" class="text" required="required"></div>
+          </div>
+        </div>
+
+        <div class="form-inline clearfix">
+          <div class="fieldset" id="bsd-field-mobile-footer">
+            <div class="label"><label class="field" for="mobile-footer">Mobile Phone</label></div>
+            <div class="input"><input type="tel" class="text" size="15" id="mobile-footer" name="mobile"></div>
+          </div>
+
+          <div class="form-submit">
+            <button class="button" data-submitting="Adding"  data-success="Success">
+              <div class="text">Join Us</div>
+              <div class="submitting"></div>
+              <div class="success"><span class="icon-check"></span></div>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    
+    <nav id="nav-footer">
+        <ul class="menu clearfix">
+        <li id="menu-item-1134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1134"><a href="https://joebiden.com/accessibility/">Accessibility</a></li>
+<li id="menu-item-357" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-357"><a href="https://jobs.lever.co/joebiden">Work with Us</a></li>
+<li id="menu-item-801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-801"><a href="https://go.joebiden.com/page/s/contact-us">Contact Us</a></li>
+<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="https://joebiden.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-567" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-567"><a href="https://joebiden.com/terms/">Terms and Conditions</a></li>
+<li id="menu-item-2532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2532"><a href="https://joebiden.com/limited-license/">Limited License</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="site-footer__column site-footer__column--b">
+              <ul class="social">
+                              <li><a href="https://twitter.com/joebiden">
+              <span class="icon-twitter"></span>
+              <span class="element-invisible">Twitter</span>
+            </a></li>
+                                        <li><a href="https://www.facebook.com/joebiden">
+              <span class="icon-facebook"></span>
+              <span class="element-invisible">Facebook</span>
+            </a></li>
+                                        <li><a href="https://www.instagram.com/joebiden">
+              <span class="icon-instagram"></span>
+              <span class="element-invisible">Instagram</span>
+            </a></li>
+                                        <li><a href="https://www.youtube.com/joebiden">
+              <span class="icon-youtube"></span>
+              <span class="element-invisible">Youtube</span>
+            </a></li>
+                                        <li><a href="https://medium.com/@joebiden">
+              <span class="icon-medium"></span>
+              <span class="element-invisible">Medium</span>
+            </a></li>
+                        </ul>
+    
+          <div class="disclaimer">Paid for by Biden for President.</div>
+    
+          <div class="footer-text"><p>Support our presidential campaign to elect Joe Biden by signing up to <a href="https://go.joebiden.com/page/s/volunteer">volunteer</a> or making a <a href="https://joebiden.com/donate">donation online</a>.</p>
+<p>To contribute by mail, please <a href="https://joebiden.com/contribute-by-mail/">click here</a></p>
+<p>By providing your mobile phone number you consent to receive recurring text messages from Biden for President. Message &amp; Data Rates May Apply. Text HELP for Info. Text STOP to opt out. <a href="https://joebiden.com/terms/" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://joebiden.com/terms/&amp;source=gmail&amp;ust=1581725443991000&amp;usg=AFQjCNEsUlicPhXgHi_AP5JqaKbJjV-rcw">Terms and Conditions</a> and <a href="https://joebiden.com/privacy-policy//" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://joebiden.com/privacy-policy//&amp;source=gmail&amp;ust=1581725443991000&amp;usg=AFQjCNFOyAJ7Sl2zluxSS9XBL0rgPs5INg">Privacy Policy.</a></p>
+</div>
+    
+    <div class="site-footer__copyright">&copy; Copyright 2020. All rights reserved.</div>
+  </div>
+
+</footer><!-- #site-footer -->
+
+            <script type="text/javascript">
+      var modal_expires = 0;
+            var modal_cookie = 'modal-lightbox';
+            </script>
+
+              <div class="modal-wrapper modal-wrapper--donation" id="modal">
+          <div class="modal-container">
+            <div class="modal">
+              <div class="modal-outer">
+                <div class="modal-inner">
+                  <a class="close modal-close" href="#site-header">Continue to JoeBiden.com</a>
+                  <h2>
+                                          <div class="title">JOE BIDEN IS THE PRESUMPTIVE NOMINEE</div>
+                                                                                  <div class="subtitle">Joe Biden will defeat Donald Trump, but he needs your help to do it. Chip in today to help build the campaign infrastructure we need to win.</div>
+                                                          </h2>
+                                      <div class="form actblue-form-embed" data-ab-form="true" data-ab-token="wP7LdpCeYwHgoXgGk9ww4JXX">
+                      <a href="https://secure.actblue.com/donate/biden2020_search_embed_a?refcode=lightbox">Donate</a>
+                    </div>
+                                  </div>
+              </div>
+                              <div class="background" style="background-image: url(https://joebiden.com/wp-content/uploads/2019/11/join-overlay-2-optimized.jpg);"></div>
+                            <img class="logo no-lazyload" src="https://joebiden.com/wp-content/themes/bexc/img/logo-white.svg" width="135" height="56" alt="Logo for Joe Biden for President">
+
+            </div>
+          </div>
+        </div>
+
+            
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='https://joebiden.com/wp-content/themes/bexc/js/min/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+
+<style>.lazyload,.lazyloading{opacity:0;}.lazyloaded{opacity:1;transition:opacity 300ms;}</style><noscript><style>.lazyload{display:none;}</style></noscript><script data-noptimize="1">window.lazySizesConfig=window.lazySizesConfig||{};window.lazySizesConfig.loadMode=1;</script><script async data-noptimize="1" src='https://joebiden.com/wp-content/plugins/autoptimize/classes/external/js/lazysizes.min.js?ao_version=2.7.0'></script><script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/plugins.min.js?ver=0.73'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/main.min.js?ver=0.73'></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"853c31a225","applicationID":"143000334","transactionName":"MVxbNkICCxEEVUZaWwgWeAFECgoMSkZTVFE=","queueTime":0,"applicationTime":359,"atts":"HRtYQAoYGB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

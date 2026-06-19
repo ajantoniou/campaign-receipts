@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#FAF8F3"/>
+  <g transform="translate(76, 84)" fill="#1A1A1A" stroke="none">
+    <!-- Pediment with layered depth -->
+    <polygon points="180,0 0,72 360,72"/>
+    <polygon points="180,16 24,80 336,80" fill="#FAF8F3"/>
+    <polygon points="180,28 36,84 324,84" fill="#1A1A1A"/>
+    <!-- Seal star -->
+    <g transform="translate(180, 56)">
+      <polygon points="0,-14 4,-4 14,-4 6,3 9,13 0,7 -9,13 -6,3 -14,-4 -4,-4" fill="#FAF8F3"/>
+    </g>
+    <!-- Cornice -->
+    <rect x="0" y="84" width="360" height="6"/>
+    <rect x="6" y="92" width="348" height="3"/>
+    <!-- Greek-key frieze -->
+    <g transform="translate(0, 100)" stroke="#1A1A1A" stroke-width="1.5" fill="none">
+      <path d="M 30 8 L 30 0 L 50 0 L 50 12 L 38 12 L 38 4 L 46 4 L 46 8"/>
+      <path d="M 70 8 L 70 0 L 90 0 L 90 12 L 78 12 L 78 4 L 86 4 L 86 8"/>
+      <path d="M 110 8 L 110 0 L 130 0 L 130 12 L 118 12 L 118 4 L 126 4 L 126 8"/>
+      <path d="M 150 8 L 150 0 L 170 0 L 170 12 L 158 12 L 158 4 L 166 4 L 166 8"/>
+      <path d="M 190 8 L 190 0 L 210 0 L 210 12 L 198 12 L 198 4 L 206 4 L 206 8"/>
+      <path d="M 230 8 L 230 0 L 250 0 L 250 12 L 238 12 L 238 4 L 246 4 L 246 8"/>
+      <path d="M 270 8 L 270 0 L 290 0 L 290 12 L 278 12 L 278 4 L 286 4 L 286 8"/>
+      <path d="M 310 8 L 310 0 L 330 0 L 330 12 L 318 12 L 318 4 L 326 4 L 326 8"/>
+    </g>
+    <rect x="0" y="116" width="360" height="3"/>
+    <!-- Column capitals -->
+    <rect x="44" y="122" width="52" height="6"/>
+    <polygon points="50,128 90,128 84,140 56,140"/>
+    <rect x="264" y="122" width="52" height="6"/>
+    <polygon points="270,128 310,128 304,140 276,140"/>
+    <!-- Fluted columns -->
+    <rect x="56" y="140" width="28" height="160"/>
+    <line x1="64" y1="146" x2="64" y2="294" stroke="#FAF8F3" stroke-width="1"/>
+    <line x1="70" y1="146" x2="70" y2="294" stroke="#FAF8F3" stroke-width="1"/>
+    <line x1="76" y1="146" x2="76" y2="294" stroke="#FAF8F3" stroke-width="1"/>
+    <rect x="276" y="140" width="28" height="160"/>
+    <line x1="284" y1="146" x2="284" y2="294" stroke="#FAF8F3" stroke-width="1"/>
+    <line x1="290" y1="146" x2="290" y2="294" stroke="#FAF8F3" stroke-width="1"/>
+    <line x1="296" y1="146" x2="296" y2="294" stroke="#FAF8F3" stroke-width="1"/>
+    <!-- Column bases -->
+    <polygon points="56,300 84,300 90,312 50,312"/>
+    <rect x="44" y="312" width="52" height="6"/>
+    <polygon points="276,300 304,300 310,312 270,312"/>
+    <rect x="264" y="312" width="52" height="6"/>
+    <!-- Stepped stylobate -->
+    <rect x="20" y="320" width="320" height="6"/>
+    <rect x="10" y="328" width="340" height="6"/>
+    <rect x="0" y="336" width="360" height="8"/>
+  </g>
+</svg>

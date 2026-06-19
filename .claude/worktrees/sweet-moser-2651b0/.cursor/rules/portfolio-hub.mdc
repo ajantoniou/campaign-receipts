@@ -1,0 +1,15 @@
+---
+description: Canonical portfolio hub for env, skills, and platform docs (cross-company)
+alwaysApply: true
+---
+
+# Portfolio hub — navigation
+
+When waking cold in this repo:
+
+1. Read **`README.md` → “Regain context”** — ordered list (hub → BIBLE → PORTFOLIO_BRIEF → SESSION_DECISIONS tail — not the whole log).
+2. Open **`shared/portfolio-hub/README.md`** — **environment-and-secrets**, **platforms-and-tools**, **cloudflare-platform**, **paperclip-and-skills**, related `shared/docs/`.
+3. Author shared skills only under **`shared/skills/`**; symlink into `.cursor/skills/` and `.claude/skills/` when exposing to tools.
+4. Secrets live only in **repository root `.env`** (gitignored); key names and routing rules live in **`shared/portfolio-hub/environment-and-secrets.md`**.
+
+Do not scatter new “where keys live” docs under `companies/` — extend the hub instead.

@@ -1,0 +1,11 @@
+{
+  "asset": "subbass-drop-2.mp3",
+  "title": "Bass Drop Huge",
+  "author": "david_werecat",
+  "source_url": "https://freesound.org/people/david_werecat/sounds/231660/",
+  "preview_url": "https://cdn.freesound.org/previews/231/231660_4183223-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Alternate variant to AlexLane's; this one is deeper / longer-tail so it works for the biggest headline reveals. Trim to ~200ms and normalize to -24 dB peak inside apply-sfx.mjs at runtime."
+}

@@ -1,0 +1,155 @@
+{
+  "slug": "sealed-003-aipac-campus",
+  "build": "003",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-23 rebuild: 6 Remotion beats so the back-half VO (EO 13899 / Title VI / BROKEN stamp) plays against the right picture. Removed FAL stills that produced lorem-ipsum + 'EXESICUTIVE ORDER' typo on the prior build.",
+  "sync_specs": [
+    {
+      "id": "hook",
+      "endAnchors": [
+        "signed",
+        "executive"
+      ]
+    },
+    {
+      "id": "eoSign",
+      "startAnchors": [
+        "signed",
+        "executive"
+      ],
+      "endAnchors": [
+        "picture",
+        "student"
+      ]
+    },
+    {
+      "id": "studentBeat",
+      "startAnchors": [
+        "picture",
+        "student"
+      ],
+      "endAnchors": [
+        "expanded",
+        "title"
+      ]
+    },
+    {
+      "id": "titleVI",
+      "startAnchors": [
+        "expanded",
+        "title",
+        "vi"
+      ],
+      "endAnchors": [
+        "campaign",
+        "open"
+      ]
+    },
+    {
+      "id": "broken",
+      "startAnchors": [
+        "campaign",
+        "open",
+        "debate"
+      ],
+      "endAnchors": [
+        "145"
+      ]
+    },
+    {
+      "id": "cta",
+      "startAnchors": [
+        "145",
+        "promises",
+        "sealed"
+      ],
+      "endAnchors": null
+    }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2016 trail",
+        "quote": "Protect campus speech.",
+        "source": "SEALED 2016 \u00b7 campus promise"
+      }
+    },
+    "eoSign": {
+      "youtubeBroll": {
+        "url": "https://www.youtube.com/watch?v=X6BUfqUvouE",
+        "start": "00:20",
+        "end": "00:30",
+        "license": "fair-use",
+        "title": "Trump Signs Executive Order To Combat Anti-Semitism (Manyika Review re-upload of WH pool feed)",
+        "year": 2019,
+        "notes": "EO 13899 signing \u2014 Trump at desk with EO folder, pen in hand, Presidential seal visible; audio stripped; VO overlay. Underlying footage is WH pool (public domain) re-hosted by news channel.",
+        "duration": 6,
+        "cropTopPct": 1.0,
+        "_verified": "2026-05-23 \u2014 frame-inspected /tmp/eo-signing/f05.jpg (Trump at desk pen-in-hand) + f08.jpg (holding signed folder). Previous q6b2GJkbUE0 (AP Archive 4min) rejected: was full Hanukkah reception speeches + menorah lighting, EO signing not in clip at all."
+      },
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "DEC 2019 \u2014 EO 13899",
+        "events": [
+          {
+            "date": "2016",
+            "label": "Campus-speech pledge",
+            "outcome": "reader"
+          },
+          {
+            "date": "Dec 2019",
+            "label": "EO 13899 signed",
+            "outcome": "broken"
+          }
+        ]
+      }
+    },
+    "studentBeat": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "On campus",
+        "quote": "Federal rules now reach criticism of Israel.",
+        "source": "Executive Order 13899 \u00b7 Dec 11 2019"
+      }
+    },
+    "titleVI": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "TITLE VI \u2014 SCOPE EXPANDED",
+        "events": [
+          {
+            "date": "Pre-2019",
+            "label": "Race / national origin",
+            "outcome": "reader"
+          },
+          {
+            "date": "EO 13899",
+            "label": "+ Anti-Semitism standard",
+            "outcome": "broken"
+          }
+        ]
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Protect campus speech",
+        "citation": "EO 13899 narrows debate"
+      }
+    },
+    "cta": {
+      "vendor": "motion-card",
+      "line1": "145 PROMISES",
+      "line2": "SEALED2016.COM"
+    }
+  },
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See SEALED-PRODUCTION-PIPELINE-v3.md \u00a7 Doctrine line 4."
+}

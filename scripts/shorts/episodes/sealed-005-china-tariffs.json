@@ -1,0 +1,155 @@
+{
+  "slug": "sealed-005-china-tariffs",
+  "build": "005",
+  "verdict": "KEPT",
+  "_notes": "2026-05-23 rebuild: 6 Remotion beats. Original receipt illustration prompt ('tariff stamp icon on cream ledger paper') produced the 'HAAD COMNAP UN TARRIT OF 3ND CCORN' gibberish stamp \u2014 removed; tariffs, codes, and dates now live in Remotion ChartBar + SourceCard + VerdictStamp.",
+  "sync_specs": [
+    {
+      "id": "hook",
+      "endAnchors": [
+        "once",
+        "office",
+        "tariffs"
+      ]
+    },
+    {
+      "id": "tariff350",
+      "startAnchors": [
+        "once",
+        "office",
+        "350"
+      ],
+      "endAnchors": [
+        "section",
+        "301"
+      ]
+    },
+    {
+      "id": "section301",
+      "startAnchors": [
+        "section",
+        "301"
+      ],
+      "endAnchors": [
+        "but",
+        "receipt",
+        "matters"
+      ]
+    },
+    {
+      "id": "receiptMatters",
+      "startAnchors": [
+        "but",
+        "here",
+        "next"
+      ],
+      "endAnchors": [
+        "so",
+        "grades"
+      ]
+    },
+    {
+      "id": "kept",
+      "startAnchors": [
+        "so",
+        "grades",
+        "book"
+      ],
+      "endAnchors": [
+        "sealed2016",
+        "sealed"
+      ]
+    },
+    {
+      "id": "cta",
+      "startAnchors": [
+        "sealed2016",
+        "sealed"
+      ],
+      "endAnchors": null
+    }
+  ],
+  "segments": {
+    "hook": {
+      "youtubeBroll": {
+        "url": "https://www.youtube.com/watch?v=PxWu69vrdhA",
+        "start": "00:16",
+        "end": "00:24",
+        "license": "fair-use",
+        "title": "Trump 2016 Pennsylvania rally (CBS News)",
+        "year": 2016,
+        "notes": "Same 2016 stump speech source as 004; different slice for visual variety; audio stripped; VO overlay paraphrases 'piggy bank' line (line not on screen)",
+        "duration": 6,
+        "cropTopPct": 0.85,
+        "_verified": "2026-05-23 \u2014 same source as 004; founder decision: use visual context, VO carries the piggy-bank paraphrase"
+      },
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2016 trail",
+        "quote": "China is using our country as a piggy bank.",
+        "source": "SEALED 2016 \u00b7 trade promise"
+      }
+    },
+    "tariff350": {
+      "composition": "CountUp",
+      "props": {
+        "brand": "sealed",
+        "from": 0,
+        "to": 350,
+        "prefix": "$",
+        "suffix": "B+",
+        "label": "TARIFFS ON CHINESE GOODS",
+        "caption": "Section 301 \u00b7 2018-2019"
+      }
+    },
+    "section301": {
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "SECTION 301 TARIFFS",
+        "yAxisLabel": "Billions USD",
+        "maxValue": 400,
+        "bars": [
+          {
+            "label": "2018 R1",
+            "value": 50,
+            "suffix": "B",
+            "color": "#2a4d7c"
+          },
+          {
+            "label": "2018-19",
+            "value": 350,
+            "suffix": "B+",
+            "color": "#a4243b"
+          }
+        ]
+      }
+    },
+    "receiptMatters": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "After Jan 2021",
+        "quote": "Next administration kept almost every tariff in place.",
+        "source": "USTR \u00b7 SEALED 2016"
+      }
+    },
+    "kept": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "KEPT",
+        "promise": "China tariffs",
+        "citation": "Section 301 \u00b7 Phase One Jan 2020"
+      }
+    },
+    "cta": {
+      "vendor": "motion-card",
+      "line1": "EVERY PROMISE",
+      "line2": "SEALED2016.COM"
+    }
+  },
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See SEALED-PRODUCTION-PIPELINE-v3.md \u00a7 Doctrine line 4."
+}

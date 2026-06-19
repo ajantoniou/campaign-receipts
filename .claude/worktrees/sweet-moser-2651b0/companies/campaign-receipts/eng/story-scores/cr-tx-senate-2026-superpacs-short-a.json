@@ -1,0 +1,49 @@
+{
+  "slug": "cr-tx-senate-2026-superpacs-short-a",
+  "verdict": "SHIP",
+  "sealed": true,
+  "composite_copy": 100,
+  "composite": 100,
+  "master_ready": true,
+  "rule": "all_dimensions_must_be_10",
+  "dimensions": {
+    "story_vs_list": 10,
+    "protagonist": 10,
+    "turn": 10,
+    "hook_mrbeast": 10,
+    "rehooks": 10,
+    "clarity_jk": 10,
+    "sarah_voice": 10,
+    "tts_facts": 10,
+    "cinematic_pacing": 10,
+    "visual_story_match": 10
+  },
+  "passes": {
+    "A_screenwriter": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "B_jk_rowling": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "C_mrbeast_copy": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    },
+    "D_storyline_editor": {
+      "score": 10,
+      "note": "bootstrap after mechanical gates \u2014 panel may re-score"
+    }
+  },
+  "reports": {
+    "storyteller_gate": "eng/shorts-scripts/qc-storyteller-cr-tx-senate-2026-superpacs-short-a.md",
+    "script_qc": "eng/shorts-scripts/qc-script-cr-tx-senate-2026-superpacs-short-a.md",
+    "production_qc": "scripts/shorts/_build/cr-tx-superpacs-a/production-qc.json",
+    "ship_checklist": "scripts/shorts/_build/cr-tx-superpacs-a/ship-checklist.json"
+  },
+  "editorial_script": "eng/shorts-scripts/cr-tx-senate-2026-superpacs-short-a.md",
+  "locked_at": "2026-05-31T21:15:45.904811+00:00",
+  "note": "COPY 100/100 from mechanical gates \u2014 set master dims after production QC",
+  "master_locked_at": "2026-05-31T21:22:40.154212+00:00"
+}

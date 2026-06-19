@@ -1,0 +1,271 @@
+{
+  "_meta": {
+    "title": "CR new-news — $35M Beat Thomas Massie (KY-4 R primary)",
+    "purpose": "Most expensive U.S. House primary in history; outside committees (UDP/RJC/Preserve America) removed the libertarian R who voted no on Israel funding + the BBB. Includes Massie's CBS quote and Gallrein's FOX victory clip.",
+    "pillar": "donors_races",
+    "estimated_cost_usd": 0.6,
+    "canonical_script": "eng/scripts/cr-new-news/cr-massie-gallrein-primary.md",
+    "deep_link": "https://campaignreceipts.com/race/ky-04-2026-r-primary"
+  },
+  "slug": "cr-massie-gallrein-primary",
+  "program": "cr-new-news",
+  "remotion_episode": "cr-massie-gallrein-primary",
+  "total_duration_seconds": 285,
+  "vo_script_path": "eng/scripts/cr-new-news/cr-massie-gallrein-primary-vo.txt",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "thumbnail": {
+    "template": "cr-new-news",
+    "headline": "$35M",
+    "subline": "BEAT MASSIE",
+    "verdict": "RECEIPT",
+    "portrait": "public/photos/wikipedia/thomas-massie.jpg"
+  },
+  "beats": [
+    { "beat_id": "hook", "label": "Hook", "start_sec": 0, "end_sec": 22 },
+    { "beat_id": "cast", "label": "Who Massie was", "start_sec": 22, "end_sec": 78 },
+    { "beat_id": "context", "label": "Why DC came in", "start_sec": 78, "end_sec": 130 },
+    { "beat_id": "receipt", "label": "Donor cluster", "start_sec": 130, "end_sec": 195 },
+    { "beat_id": "israel", "label": "Massie on the record", "start_sec": 195, "end_sec": 230 },
+    { "beat_id": "primary-night", "label": "Election night", "start_sec": 230, "end_sec": 265 },
+    { "beat_id": "verdict", "label": "Verdict", "start_sec": 265, "end_sec": 285 }
+  ],
+  "clips": [
+    {
+      "clip_id": "hook-01-countup",
+      "beat_id": "hook",
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "HOOK — $35M in one House primary",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "$",
+        "to": 35000000,
+        "suffix": "",
+        "label": "Total spend in one House primary",
+        "caption": "Most expensive U.S. House primary in history"
+      }
+    },
+    {
+      "clip_id": "hook-02-headline",
+      "beat_id": "hook",
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "Stakes — KY-4 result",
+      "vendor": "text-card",
+      "text_card_id": "massie-hook-headline"
+    },
+    {
+      "clip_id": "hook-03-context",
+      "beat_id": "hook",
+      "duration": 8,
+      "aspect": "16:9",
+      "covers_script_section": "$35M total · $16M outside",
+      "vendor": "text-card",
+      "text_card_id": "massie-context-spending"
+    },
+    {
+      "clip_id": "cast-massie",
+      "beat_id": "cast",
+      "duration": 18,
+      "aspect": "16:9",
+      "covers_script_section": "Who Massie is — libertarian engineer",
+      "vendor": "politician-caricature",
+      "caricature_slug": "thomas-massie",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "explain-massie-no-votes",
+      "beat_id": "cast",
+      "duration": 12,
+      "aspect": "16:9",
+      "covers_script_section": "Massie's no votes (BBB, foreign aid, Epstein)",
+      "vendor": "text-card",
+      "text_card_id": "massie-explain-no-votes"
+    },
+    {
+      "clip_id": "trump-truth-social",
+      "beat_id": "cast",
+      "duration": 12,
+      "aspect": "16:9",
+      "covers_script_section": "Trump endorses Gallrein",
+      "vendor": "text-card",
+      "text_card_id": "massie-trump-quote"
+    },
+    {
+      "clip_id": "cast-gallrein-image",
+      "beat_id": "cast",
+      "duration": 14,
+      "aspect": "16:9",
+      "covers_script_section": "Gallrein — Trump-backed Navy SEAL",
+      "vendor": "reuse",
+      "reuse_path": "_build/cr-massie-gallrein-primary/fair-use-clips/clip-gallrein-victory.mp4",
+      "fair_use_sidecar": "_build/cr-massie-gallrein-primary/fair-use-clips/clip-gallrein-victory.json"
+    },
+    {
+      "clip_id": "context-define-outside",
+      "beat_id": "context",
+      "duration": 10,
+      "aspect": "16:9",
+      "covers_script_section": "Define outside money in plain English",
+      "vendor": "text-card",
+      "text_card_id": "massie-define-outside-money"
+    },
+    {
+      "clip_id": "chart-spending-scale",
+      "beat_id": "context",
+      "duration": 28,
+      "aspect": "16:9",
+      "covers_script_section": "Typical primary vs ~$16M against Massie",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Outside spending against Massie",
+        "yAxisLabel": "Millions of dollars (approx.)",
+        "maxValue": 18,
+        "bars": [
+          { "label": "Typical KY-4 primary", "value": 1, "suffix": "M", "color": "#5b6478" },
+          { "label": "Anti-Massie outside spend", "value": 16, "suffix": "M", "color": "#a4243b" },
+          { "label": "Total race spend", "value": 35, "suffix": "M", "color": "#0a1f3d" }
+        ]
+      },
+      "expected_on_screen_text": ["Typical", "Anti-Massie", "Total"]
+    },
+    {
+      "clip_id": "moneyflow-cluster",
+      "beat_id": "receipt",
+      "duration": 32,
+      "aspect": "16:9",
+      "covers_script_section": "Money trail — UDP/RJC/Adelson → ads → margin",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "How the outside money moved",
+        "source": {
+          "name": "Israel-policy & Trump-aligned committees",
+          "amount": 16400000,
+          "sublabel": "UDP (AIPAC), RJC, Preserve America (Adelson)"
+        },
+        "destinations": [
+          { "label": "TV, mail, digital ads", "outcome": "Anti-Massie message" },
+          { "label": "KY-4 Republican primary", "outcome": "May 19, 2026" },
+          { "label": "Certified result", "outcome": "Gallrein 54% · Massie 45%" }
+        ]
+      }
+    },
+    {
+      "clip_id": "cast-adelson",
+      "beat_id": "receipt",
+      "duration": 12,
+      "aspect": "16:9",
+      "covers_script_section": "Miriam Adelson + Preserve America",
+      "vendor": "politician-caricature",
+      "caricature_slug": "miriam-adelson",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "fec-source",
+      "beat_id": "receipt",
+      "duration": 14,
+      "aspect": "16:9",
+      "covers_script_section": "FEC filings — UDP / RJC / Preserve America",
+      "vendor": "text-card",
+      "text_card_id": "massie-fec-source"
+    },
+    {
+      "clip_id": "clip-massie-cbs-95",
+      "beat_id": "israel",
+      "duration": 17,
+      "aspect": "16:9",
+      "covers_script_section": "Massie on CBS — 95% from Israeli lobby",
+      "vendor": "reuse",
+      "reuse_path": "_build/cr-massie-gallrein-primary/fair-use-clips/clip-massie-cbs-95.mp4",
+      "fair_use_sidecar": "_build/cr-massie-gallrein-primary/fair-use-clips/clip-massie-cbs-95.json"
+    },
+    {
+      "clip_id": "trail-timeline",
+      "beat_id": "primary-night",
+      "duration": 22,
+      "aspect": "16:9",
+      "covers_script_section": "Primary timeline — endorsements + ad ramp + result",
+      "vendor": "remotion",
+      "composition": "Timeline",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Primary timeline · KY-4",
+        "candidates": [
+          { "name": "Thomas Massie", "caricature_slug": "thomas-massie", "role": "Incumbent (R)" },
+          { "name": "Ed Gallrein", "role": "Challenger · Trump-endorsed" }
+        ],
+        "events": [
+          { "date": "Spring 2026", "label": "UDP, RJC, Preserve America ramp ads vs Massie" },
+          { "date": "May 17, 2026", "label": "AIPAC reportedly drops $3M in final weekend" },
+          { "date": "May 19, 2026", "label": "Gallrein wins · Massie concedes" }
+        ]
+      }
+    },
+    {
+      "clip_id": "clip-gallrein-victory",
+      "beat_id": "primary-night",
+      "duration": 14,
+      "aspect": "16:9",
+      "covers_script_section": "Gallrein victory speech — advance the president's agenda",
+      "vendor": "reuse",
+      "reuse_path": "_build/cr-massie-gallrein-primary/fair-use-clips/clip-gallrein-victory.mp4",
+      "fair_use_sidecar": "_build/cr-massie-gallrein-primary/fair-use-clips/clip-gallrein-victory.json"
+    },
+    {
+      "clip_id": "overlay-election-margin",
+      "beat_id": "verdict",
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "Five-point-ish margin",
+      "vendor": "text-card",
+      "text_card_id": "massie-overlay-margin"
+    },
+    {
+      "clip_id": "verdict-01-stamp",
+      "beat_id": "verdict",
+      "duration": 13,
+      "aspect": "16:9",
+      "covers_script_section": "Receipt stamp",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "campaign-receipts",
+        "verdict": "RECEIPT",
+        "promise": "$35M race · $16M outside vs Massie · Gallrein 54% / Massie 45%",
+        "citation": "KY-4 Republican primary · May 19, 2026 · FEC.gov + KY SOS",
+        "candidates": [
+          { "name": "Thomas Massie", "caricature_slug": "thomas-massie" },
+          { "name": "Ed Gallrein" }
+        ]
+      },
+      "sfx": [{ "at_sec": 0, "cue": "verdict-stamp-hit" }]
+    },
+    {
+      "clip_id": "verdict-02-cta",
+      "beat_id": "verdict",
+      "duration": 8,
+      "aspect": "16:9",
+      "covers_script_section": "CTA",
+      "vendor": "text-card",
+      "text_card_id": "massie-cta"
+    }
+  ],
+  "music_cues": [
+    { "start_sec": 0, "end_sec": 100, "mood": "tense piano, slow build", "cue_id": "intro" },
+    { "start_sec": 100, "end_sec": 220, "mood": "investigative strings", "cue_id": "trail" },
+    { "start_sec": 220, "end_sec": 285, "mood": "resolve", "cue_id": "outro" }
+  ],
+  "sfx": []
+}

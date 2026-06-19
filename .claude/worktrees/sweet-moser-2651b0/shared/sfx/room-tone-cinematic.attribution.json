@@ -1,0 +1,11 @@
+{
+  "asset": "room-tone-cinematic.mp3",
+  "title": "Empty Office Room Tone",
+  "author": "richwise",
+  "source_url": "https://freesound.org/people/richwise/sounds/456207/",
+  "preview_url": "https://cdn.freesound.org/previews/456/456207_1481531-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Recording of an empty office before anyone arrives — exactly the persona brief ('empty newsroom at 2am'). NOTE: there is a faint periodic beep from office equipment every few seconds — recommend EQ-notching the beep frequency or selecting a beep-free stretch when looping. Normalize to -36 dB."
+}

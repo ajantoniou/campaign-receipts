@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:800px;height:800px;background:#F4EFE6;font-family:"Geist",system-ui,sans-serif}
+.canvas{position:relative;width:800px;height:800px;display:flex;align-items:center;justify-content:center}
+.stamp{position:relative;width:720px;height:720px;border-radius:50%;background:#FAF6EE;border:8px solid #111;box-shadow:inset 0 0 0 14px #FAF6EE, inset 0 0 0 18px #111}
+.ringtext{position:absolute;inset:0;width:100%;height:100%}
+.ringtext text{font-family:"Geist Mono",ui-monospace,monospace;font-size:34px;letter-spacing:18px;fill:#2A2A2A;text-transform:uppercase;font-weight:500}
+.glyph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Instrument Serif","Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:400;font-size:480px;line-height:1;color:#111;transform:translateY(-8px)}
+.amber-dot{position:absolute;left:50%;bottom:78px;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:#E8A33D;box-shadow:0 0 0 4px #FAF6EE}
+.tick-l,.tick-r{position:absolute;top:50%;width:34px;height:2px;background:#111;transform:translateY(-50%)}
+.tick-l{left:38px}.tick-r{right:38px}
+</style></head><body><div class="canvas">
+  <div class="stamp">
+    <svg class="ringtext" viewBox="0 0 720 720">
+      <defs><path id="top" d="M 360,360 m -300,0 a 300,300 0 1,1 600,0" fill="none"/>
+      <path id="bot" d="M 360,360 m -300,0 a 300,300 0 1,0 600,0" fill="none"/></defs>
+      <text><textPath href="#top" startOffset="50%" text-anchor="middle">CAMPAIGN RECEIPTS</textPath></text>
+      <text><textPath href="#bot" startOffset="50%" text-anchor="middle">NONPARTISAN &#x2022; PRIMARY SOURCE</textPath></text>
+    </svg>
+    <div class="tick-l"></div><div class="tick-r"></div>
+    <div class="glyph">R</div>
+    <div class="amber-dot"></div>
+  </div>
+</div></body></html>

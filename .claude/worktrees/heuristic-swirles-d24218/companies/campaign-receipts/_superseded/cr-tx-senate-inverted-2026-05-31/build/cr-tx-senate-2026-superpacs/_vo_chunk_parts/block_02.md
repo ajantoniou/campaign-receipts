@@ -1,0 +1,3 @@
+## VO
+
+**VO:** "Start with the biggest one. Texans for a Conservative Majority. The name sounds like a room full of neighbors. So we pulled its filing. Every super PAC must tell the government who pays it. That filing is public. It is free to read. And here is the part most people miss. The crowd is not a crowd. It is mostly one man. His name is John Nau. His family business distributes beer across Texas, and he is a billionaire. He put in about fifteen point six million dollars. A Wall Street boss named Stephen Schwarzman added four million. So a name that says Texans is really a few rich men. That group has spent twenty-four million dollars. All of it against one Republican, Ken Paxton."

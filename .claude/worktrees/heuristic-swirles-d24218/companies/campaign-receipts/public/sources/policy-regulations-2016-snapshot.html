@@ -1,0 +1,428 @@
+<!--
+  Archived from: https://www.donaldjtrump.com/policies/regulations
+  Snapshot via Wayback Machine: https://web.archive.org/web/20161107000000/https://www.donaldjtrump.com/policies/regulations
+  Mirrored to CampaignReceipts.com on 2026-05-13 for citation durability.
+  This is an archival copy of a public 2016 campaign-site policy page.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Regulations | Donald J Trump for President</title>
+<meta name='keywords' content=''/>
+<meta name='description' content='Donald J. Trump is the very definition of the American success story, continually setting the standards of excellence in business, real estate and entertainment. Show support for his presidential campaign here.'/>
+<link rel='canonical' href='https://www.donaldjtrump.com/policies/regulations'/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/favicon.ico?v=1.2">
+<link rel="stylesheet" href="https://assets.donaldjtrump.com/screen04172016.css?10082016" type="text/css"/>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Old+Standard+TT:400,700,400italic' rel='stylesheet' type='text/css'>
+ 
+<script src="//assets.adobedtm.com/ccb66fd3556ba80512894ddaac0f1024ce58d90d/satelliteLib-dd574bd6e7e9efe3999269eb66caa610091049a9.js"></script>
+<!--[if IE]>
+<script src="/js/html5shiv.js"></script>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script async src="/js/jquery.customSelect.min.js"></script>
+<script async src="//vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>
+<script async src="//vjs.zencdn.net/5.0.2/video.min.js"></script>
+<script>
+	if (window.top !== window.self) window.top.location.replace(window.self.location.href);
+	$(function(){
+	    // Mobile Menu
+	    $('.mobile_menu_icon').on('click',function(){
+	        $(this).toggleClass('active');
+	        $('nav').slideToggle();
+	        return false;
+	    });
+	    // Popup Close
+		$('#popup_close a').on('click',function(){
+			$('#popup_bkg').hide();
+			$('#popup_form_wrapper').hide();
+			return false;
+		});
+		// Popup Form
+		$('a.pop_form').on('click',function(){
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+			$('#popup_bkg').show();
+			$('#popup_form_wrapper').fadeIn(500,function(){
+				if(!$('#popup_form_wrapper').hasClass('active')){
+					$('select').customSelect();
+					$('#popup_form_wrapper').addClass('active');
+				}
+			});
+			return false;
+		});
+
+	    // Form Submission Control
+	    $('#new_submission').on('submit', function(evt){
+	        $('#new_submission').find('span.error').remove();
+	        $('#popup_form_items input.submit').val('Sending... Wait');
+	        evt.preventDefault();
+	        var params = $('#new_submission').find(':input').serializeArray();
+	        $.ajax({
+	            dataType:'json',
+	            data: params,
+	            type: 'POST',
+	            success: function(data){
+	                if (data.success == 'yes'){
+	                	$('#popup_top').hide();
+	                	$('#popup_form_items').html('<h3>Thank You For Signing Up!</h3><h4>Join Us On Social Media</h4><div id="thank_you_social_buttons"><a href="https://twitter.com/realdonaldtrump" onclick="window.open (this.href); return false;"><img src="https://assets.donaldjtrump.com/site/twitter.png" alt="Trump Twitter"></a><a href="https://www.facebook.com/DonaldTrump" onclick="window.open (this.href); return false;"><img src="https://assets.donaldjtrump.com/site/facebook.png" alt="Trump Facebook"></a><a href="https://instagram.com/realdonaldtrump" onclick="window.open (this.href); return false;"><img src="https://assets.donaldjtrump.com/site/instagram.png" alt="Trump Instagram"></a><a href="https://www.youtube.com/user/trump" onclick="window.open (this.href); return false;"><img src="https://assets.donaldjtrump.com/site/youtube.png" alt="Trump Youtube"></a></div>');
+	                } else{
+	                    for (var item in data.errors){
+	                    	if(data.errors[item].field_id == '205'){
+	                    		console.log('captcha');
+	                        	$('#forms_field_205').find('label').after("<span class='error'>You must check the captcha</span>");
+	                    	}else{
+	                        	var itemID = '#ddform_'+data.errors[item].field_id;
+		                        var type = $(itemID).attr('type');
+		                        var fieldLabel = $(itemID).closest('.dform_element').find('label').text().replace('*','');
+		                        var errMsg = fieldLabel+' is required';
+		                        if(type == 'email'){
+		                            errMsg = 'You must enter a valid email';
+		                        }
+		                        $(itemID).parent('.dform_container').append("<span class='error'>"+errMsg+"</span>");
+	                    	}
+	                    }
+	        			$('#popup_form_items input.submit').val('Submit');
+	                }
+	            }
+	        });
+	        return false;
+	    });
+
+	    // Form Error Remover
+		$('#new_submission input').on('focus',function(){$(this).next('span.error').remove();});
+
+	    // Form Error Remover(2)
+		$('#new_submission select').on('change',function(){$(this).parent('div').find('span.error').remove();});
+	});
+</script>
+<meta property="og:title" content="Regulations">
+<meta property="og:image" content="">
+<link rel="stylesheet" type="text/css" href="/js/slickslider/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/js/slickslider/slick-theme.css"/>
+<script type="text/javascript" src="/js/slickslider/slick.min.js"></script>
+<style type="text/css">.press_item{}.press_item .djt-policy-date{font-family:'Old Standard TT',serif;text-align:center;font-size:14px;color:#464646;}.press_item .djt-policy-title{font-size:26px;color:#464646;text-align:center;font-family:'Old Standard TT',serif;}.djt-policy-section{margin:0 0 40px;}.djt-policy-section h3{font-size:14px;color:#464646;margin:25px 0 15px 0;}.djt-policy-section ul{margin:5px 5px 5px 15px;list-style:none;}.djt-policy-section ul li{margin:0 0 25px;font-size:14px;color:#464646;}.djt-policy-section ul li:before{content:"o ";color:#c8102e;font-size:5px;vertical-align:middle;background:#c8102e;border-radius:25px;padding:0 1px;margin:0 5px 0 0;}.djt-policy-section ul ul{margin:5px 5px 5px 25px;}.djt-policy-section ul ul li{margin:0 0 5px;}.press .main .container_right .nav_section h5{margin-bottom:15px;}.nav_section .nav_content-title{text-align:center;font-size:14px;background-color:#2b3260;margin:0 0 15px;}.nav_content-title p{color:#fff;font-weight:bold;line-height:16px;padding:10px 0;}.nav_content-title p span{font-size:12px;font-weight:normal;}.nav_section.djt-video-section{text-align:center;}.nav_section .djt-nav-vid{max-width:100%;}.nav_section.djt-policy-gallery{max-width:340px;margin:0 auto;}.nav_section.djt-nav-remarks p{line-height:normal;}.slider-big-img{max-width:290px;margin:0 auto;}.slider-img-nav .slide-img-container{width:75px;margin:5px 15px 15px;}.slider-img-nav img,.slider-big-img img{max-width:100%;}.slider-img-nav .slick-prev{bottom:-25px;top:inherit;width:75px;left:20%;}.slider-img-nav .slick-prev:before{content:'< Prev';color:#b20107;font-family:'Montserrat',sans-serif;font-size:14px;}.slider-img-nav .slick-next{bottom:-25px;top:inherit;width:75px;right:20%;}.slider-img-nav .slick-next:before{content:'Next >';color:#b20107;font-family:'Montserrat',sans-serif;font-size:14px;}.djt-popup-slider-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;background-color:#000;display:none;}.djt-popup-slider-container .djt-popup-close{position:fixed;top:15px;right:15px;color:#fff;font-size:20px;}.djt-popup-slider-container .djt-popup-close:hover{cursor:pointer;}.djt-popup-slider{width:100%;max-width:40%;margin:100px auto 0;min-width:265px;}.djt-popup-slider img{max-width:100%;margin:0 auto;}.djt-popup-slider .slick-prev:before{color:#b20107;}.djt-popup-slider .slick-next:before{color:#b20107;}@media (min-width:768px) and (max-width:960px) {.slider-img-nav .slick-prev{left:0;}.slider-img-nav .slick-next{right:0;}}.djt-link-cont{text-align:center;}.djt-link-cont .djt-nav-section-link{text-decoration:underline;font-size:14px;}</style>
+<script type="text/javascript">
+		$(function(){
+			$('.djt-big-slider').on('click', function() {$('.djt-popup-slider-container').css('display','block');});
+			$('.djt-popup-close').on('click', function() {$('.djt-popup-slider-container').css('display','none');});
+		});
+		</script>
+</head>
+<body class="internal press">
+<div id="wrapper">
+ 
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M27JCG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M27JCG');</script>
+ 
+<noscript>
+<div style="padding: 2%; width: 75%; margin: 0 auto; text-align: center; font-size: 18px; line-height: 30px;">Your browser is NOT configured correctly to visit the Donald J. Trump website. For full functionality and to utilize most of the website's capabilities you must have JavaScript enabled. Here are the <a href="http://www.enable-javascript.com" target="_blank"> instructions how to enable JavaScript in your web browser</a>.</div>
+</noscript>
+<style type="text/css">#top_container{background-color:#2b325f;height:25px;}header{background-color:#fff;}#wrapper{margin:0 auto -237px}#wrapper header{height:80px;border-top:none;border-bottom:none;}#wrapper header nav{background-color:#fff;}#wrapper header nav ul li.nav_donate{border-left:1px solid #c9c9c9;}#wrapper header nav ul li #nav_donate{background-color:#bc0000;color:#fff;}#wrapper header nav ul li a{color:#464646;}header nav ul li{border-left:1px solid #c9c9c9;}header nav ul li a{line-height:80px}header nav ul li ul{top:81px;background-image:none;}header .brand{top:4px;}header .brand:after{background:transparent;content:none;}#top_navigation ul li a{color:#fff;font-family:'Montserrat',serif!important;}.mobile_menu_icon{color:#bc0000!important;}.mobile_menu_icon span{background-color:#bc0000!important;}.mobile_menu_icon.active span{background-color:#fff!important;}.mobile_menu_icon span:before,.mobile_menu_icon span:after{background-color:#bc0000!important;}</style>
+<a href="https://vote.gop/?utm_campaign=djt_gotv_website&utm_medium=web&utm_source=djtcom&utm_content=header-button">
+<div class="djt-top-register">
+Be a Voter <img src="https://assets.donaldjtrump.com/_july16/img/djt-register-arrow@1x.png" srcset="https://assets.donaldjtrump.com/_july16/img/djt-register-arrow@2x.png">
+</div>
+</a>
+<div id="top_container">
+<div id="top_navigation">
+<ul>
+<li><a href="/schedule/">Schedule</a></li>
+<li><a href="/about/">About</a></li>
+<li><a href="/gallery/">Gallery</a></li>
+</ul>
+</div>
+</div>
+<header>
+<div class="container">
+<div class="brand">
+<a href="https://www.donaldjtrump.com/" title="Make America Great Again! | Donald J Trump for President">
+<img src="https://assets.donaldjtrump.com/vphome/tp_newer_logo.png" srcset="https://assets.donaldjtrump.com/vphome/tp_newer_logo@2x.png 2x" alt="Trump Pence Logo">
+</a>
+</div>
+<a class="mobile_menu_icon" href="javascript:;"><span></span></a>
+<nav>
+<ul>
+<li class="mobile_only"><a href="/about">About</a></li>
+<li class="mobile_only"><a href="/schedule">Schedule</a></li>
+<li class="mobile_only"><a href="/issues">Issues</a></li>
+<li>
+<a href="/policies/" class="active">Positions</a>
+<ul style="width: 340px;">
+<li><a href="/contract/">Contract with the American Voter</a></li>
+<li><a href="https://www.donaldjtrump.com/policies/child-care/">Child Care</a></li><li><a href="https://www.donaldjtrump.com/policies/constitution-and-second-amendment/">Constitution and Second Amendment</a></li><li><a href="https://www.donaldjtrump.com/policies/cyber-security/">Cybersecurity</a></li><li><a href="https://www.donaldjtrump.com/policies/economy/">Economy</a></li><li><a href="https://www.donaldjtrump.com/policies/education/">Education</a></li><li><a href="https://www.donaldjtrump.com/policies/energy/">Energy</a></li><li><a href="https://www.donaldjtrump.com/policies/foreign-policy-and-defeating-isis/">Foreign Policy and Defeating ISIS</a></li><li><a href="https://www.donaldjtrump.com/policies/health-care/">Health Care</a></li><li><a href="https://www.donaldjtrump.com/policies/immigration/">Immigration</a></li><li><a href="https://www.donaldjtrump.com/policies/an-americas-infrastructure-first-plan/">INFRASTRUCTURE</a></li><li><a href="https://www.donaldjtrump.com/policies/national-defense/">National Defense</a></li><li><a href="https://www.donaldjtrump.com/policies/regulations/" class="active">Regulations</a></li><li><a href="https://www.donaldjtrump.com/policies/tax-plan/">Tax Plan</a></li><li><a href="https://www.donaldjtrump.com/policies/trade/">Trade</a></li><li><a href="https://www.donaldjtrump.com/policies/veterans-affairs-reform/">Veterans Affairs Reform</a></li>
+</ul>
+</li>
+<li>
+<a href="/states/">States</a>
+<ul style="width: 200px;">
+<li><a href="https://www.donaldjtrump.com/states/arizona">Arizona</a></li><li><a href="https://www.donaldjtrump.com/states/colorado">Colorado</a></li><li><a href="https://www.donaldjtrump.com/states/florida">Florida</a></li><li><a href="https://www.donaldjtrump.com/states/georgia">Georgia</a></li><li><a href="https://www.donaldjtrump.com/states/indiana">Indiana</a></li><li><a href="https://www.donaldjtrump.com/states/iowa">Iowa</a></li><li><a href="https://www.donaldjtrump.com/states/maine">Maine</a></li><li><a href="https://www.donaldjtrump.com/states/michigan">Michigan</a></li><li><a href="https://www.donaldjtrump.com/states/minnesota">Minnesota</a></li><li><a href="https://www.donaldjtrump.com/states/nevada">Nevada</a></li><li><a href="https://www.donaldjtrump.com/states/new-hampshire">New Hampshire</a></li><li><a href="https://www.donaldjtrump.com/states/north-carolina">North Carolina</a></li><li><a href="https://www.donaldjtrump.com/states/ohio">Ohio</a></li><li><a href="https://www.donaldjtrump.com/states/pennsylvania">Pennsylvania</a></li><li><a href="https://www.donaldjtrump.com/states/virginia">Virginia</a></li>
+</ul>
+</li>
+<li><a href="#" class="pop_form">Get Involved</a></li>
+<li>
+<a href="/media">Media</a>
+<ul style="width: 200px;">
+<li><a href="/content-center/">Content Center</a></li>
+<li><a href="https://www.donaldjtrump.com/media/category/in-the-news">In The News</a></li><li><a href="https://www.donaldjtrump.com/media/category/video">Video</a></li><li><a href="https://www.donaldjtrump.com/media/category/speeches">Speeches</a></li>
+<li><a href="/press-releases/">Press Releases</a></li>
+<li><a href="/press-releases/category/endorsements/">Endorsements</a></li>
+</ul>
+</li>
+<li class="mobile_only"><a href="/press-releases">Press Releases</a></li>
+<li class="mobile_only"><a href="/news/category/video/">Video</a></li>
+<li class="mobile_only"><a href="/gallery">Gallery</a></li>
+<li><a href="http://shop.donaldjtrump.com">Shop</a></li>
+<li><a href="https://secure.donaldjtrump.com/donate-homepage/?amount=150&amp;utm_campaign=djt_website_donate&amp;utm_source=website&amp;utm_medium=web&amp;utm_content=top_nav" id="nav_donate">Contribute</a></li>
+</ul>
+</nav>
+<br class="clear">
+</div>
+</header>
+<section class="banner">
+<div class="banner_message">
+<h1>Regulations</h1>
+</div>
+<div class="banner_image">
+<img src="https://assets.donaldjtrump.com/site/about_banner2.jpg" alt="Internal Banner Image">
+</div>
+</section>
+<section class="main">
+<div class="container">
+<div class="container_left">
+<div class="press_item">
+<h2 class="djt-policy-title"></h2>
+<div class="djt-policy-section">
+<h3>DONALD J. TRUMP’S VISION</h3>
+<ul>
+<li>Ask all Department heads to submit a list of every wasteful and unnecessary regulation which kills jobs, and which does not improve public safety, and eliminate them.</li></ul><ul>
+<li>Reform the entire regulatory code to ensure that we keep jobs and wealth in America.&nbsp;</li></ul><ul>
+<li>End the radical regulations that force jobs out of our communities and inner cities. We will stop punishing Americans for working and doing business in the United States.</li></ul><ul>
+<li>Issue a temporary moratorium on new agency regulations that are not compelled by Congress or public safety in order&nbsp;to give our American companies the certainty they need to reinvest in our community, get cash off of the sidelines, start hiring again, and expanding businesses. We will no longer regulate our companies and our jobs out of existence.</li></ul><ul>
+<li>Cancel immediately all illegal and overreaching executive orders.</li></ul><ul>
+<li>Eliminate our most intrusive regulations, like the Waters of The U.S. Rule. We will also scrap the EPA’s so-called Clean Power Plan which the government estimates will cost $7.2 billion a year.</li></ul><ul>
+<li>Decrease&nbsp;the size of our already bloated government after a thorough agency review.</li></ul><p><em>Read Donald J. Trump’s Plan To Put an End to Burdensome Regulations, <a href="https://www.donaldjtrump.com/press-releases/unleashing-americamericas-prosperity-to-create-jobs-and-increase-wages">here</a>.</em></p><p><em>Read Mr. Trump's Remarks at the&nbsp;<a href="https://www.donaldjtrump.com/press-releases/an-america-first-economic-plan-winning-the-global-competition">Detroit Economic Club</a> and the&nbsp;<a href="https://www.donaldjtrump.com/press-releases/trump-delivers-speech-on-jobs-at-new-york-economic-club">New York Economic Club</a>.</em></p>
+</div>
+<div class="djt-policy-section">
+<h3>KEY ISSUES</h3>
+<ul>
+<li>Every year, over-regulation costs our economy $2 trillion dollars a year and reduces household wealth by almost $15,000 dollars. [<a href="https://www.donaldjtrump.com/press-releases/fact-sheet-donald-j.-trumps-pro-growth-economic-policy-will-create-25-milli">Donald J. Trump Press Release</a>, Sept. 15, 2016]</li></ul><ul>
+<li>President Obama has issued close to four hundred new major regulations since taking office, each with a cost to the American economy of $100 million or more. [<a href="http://www.wsj.com/articles/obama-readies-flurry-of-regulations-1460077858">The Wall Street Journal</a>, April 7, 2016]</li></ul><ul>
+<li>In 2015 alone, federal agencies issued over 3,300 final rules and regulations, up from 2,400 the prior year. [<a href="https://www.donaldjtrump.com/press-releases/fact-sheet-donald-j.-trumps-pro-growth-economic-policy-will-create-25-milli">Donald J. Trump Press Release</a>, Sept. 15, 2016]</li></ul><ul>
+<li>The U.S. economy today is twenty-five percent smaller than it would have been without the surge of regulations since 1980. [<a href="http://mercatus.org/publication/cumulative-cost-regulations">Mercatus Center</a>, April 26, 2016]</li></ul><ul>
+<li>The federal register is now over 80,000 pages long. [<a href="https://www.gpo.gov/fdsys/pkg/FR-2015-12-31/pdf/FR-2015-12-31-FrontMatter.pdf">Office of the Federal Register</a>, Dec. 31, 2015]</li></ul>
+</div>
+<div class="djt-policy-section">
+<h3>CONTRAST WITH HILLARY CLINTON</h3>
+<ul><li>Hillary Clinton has pledged to expand many of the President’s most intrusive job-killing regulations, including anti-energy regulations on oil, shale and natural gas that will massively raise electricity prices and destroy millions of jobs.</li></ul><ul>
+<li>Hillary Clinton Has Vowed To “Defend And Build On” The Obama Administration’s Anti-Coal Regulations. [<a href="https://www.donaldjtrump.com/press-releases/clinton-supports-radical-environmental-regulations-that-will-cost-jobs">Donald J. Trump Press Release</a>, August 11, 2016]</li></ul>
+</div>
+</div>
+</div>
+<div class="container_right">
+<div class="nav_section djt-policy-gallery">
+<h5>Gallery</h5>
+<div class="nav_content-title">
+<p></p>
+</div>
+<div class="slider-big-img">
+<div class="slide-img-container">
+<img class="djt-big-slider" src="//assets.donaldjtrump.com/_policies/sliders/3389/djt-policy-infographic-reg1__medium.jpg">
+</div>
+<div class="slide-img-container">
+<img class="djt-big-slider" src="//assets.donaldjtrump.com/_policies/sliders/3389/djt-policy-infographic-reg2__medium.jpg">
+</div>
+</div>
+<div class="slider-img-nav">
+<div class="slide-img-container">
+<img src="//assets.donaldjtrump.com/_policies/sliders/3389/djt-policy-infographic-reg1__small.jpg">
+</div>
+<div class="slide-img-container">
+<img src="//assets.donaldjtrump.com/_policies/sliders/3389/djt-policy-infographic-reg2__small.jpg">
+</div>
+</div>
+</div>
+<div class="djt-popup-slider-container">
+<div class="djt-popup-close"><span>X</span></div>
+<div class="djt-popup-slider">
+<div class="slide-img-container">
+<img src="">
+</div>
+</div>
+</div>
+</div>
+<br class="clear">
+</div>
+</section>
+<div id="push"></div>
+</div>
+<div class="djt-popup-slider-container">
+<div class="djt-popup-close"><span>X</span></div>
+<div class="djt-popup-slider">
+<div class="slide-img-container">
+<img class="djt-big-slider" src="//assets.donaldjtrump.com/_policies/sliders/3389/djt-policy-infographic-reg1__large.jpg">
+</div>
+<div class="slide-img-container">
+<img class="djt-big-slider" src="//assets.donaldjtrump.com/_policies/sliders/3389/djt-policy-infographic-reg2__large.jpg">
+</div>
+</div>
+</div>
+<script type="text/javascript">
+			$(function(){
+				$('.djt-popup-slider').slick({
+					dots: true,
+					infinite: true,
+					speed: 500,
+					fade: true,
+					cssEase: 'linear',
+				});
+				$('.slider-big-img').slick({
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					arrows: false,
+					fade: true,
+					asNavFor: '.djt-popup-slider'
+				});
+				$('.slider-img-nav').slick({
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					asNavFor: '.slider-big-img',
+					dots: false,
+					centerMode: true,
+					focusOnSelect: true
+				});
+
+			});
+		</script>
+<footer>
+<div class="social">
+<a href="https://twitter.com/realdonaldtrump" class="social_item twitter" target="_blank">twitter</a>
+<a href="https://www.facebook.com/DonaldTrump" class="social_item facebook" target="_blank">facebook</a>
+<a href="https://instagram.com/realdonaldtrump/" class="social_item instagram" target="_blank">instagram</a>
+<a href="https://www.youtube.com/donaldtrump" class="social_item youtube" target="_blank">youtube</a>
+</div>
+<p><span class="white_box">Paid for by Donald J. Trump for President, Inc.</span></p>
+<p style="margin-bottom: 5px;"><a href="/contact/">Contact The Campaign</a> - <a href="/about/privacy-policy/">Privacy Policy</a> - Tel: <a href="tel:6467361779">646-736-1779</a></p>
+<p style="margin: 0 0 5px 0;padding: 0 10%;width: 80%;">
+*By entering your mobile number you are agreeing to receive periodic text messages from Donald J. Trump for President, Inc.<br>
+Message and data rates may apply. Text "STOP" to opt-out. T&C/Privacy Policy: <a href="https://www.donaldjtrump.com/sms-terms/88022" rel="nofollow">sms-terms/88022</a>
+</p>
+<a href="http://www.parscale.com" id="web_developer">Web Design by Giles-Parscale</a>
+ 
+<script type="text/javascript">_satellite.pageBottom();</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 962628614;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/962628614/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+ 
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">
+twttr.conversion.trackPid('nus1w', { tw_sale_amount: 0, tw_order_quantity: 0 });
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nus1w&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0"/>
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=nus1w&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0"/>
+</noscript>
+ 
+</footer>
+<div id="popup_bkg"></div>
+<div id="popup_form_wrapper">
+<div id="popup_form">
+<div id="popup_close">
+<a href="#"><img src="https://assets.donaldjtrump.com/site/close.jpg" alt="Close"></a>
+</div>
+<div id="popup_top">
+<h2><span>Sign Up</span></h2>
+<h3>To Receive Updates From Donald J. Trump</h3>
+</div>
+<div id="popup_form_items">
+<script type="text/javascript" src="//www.donaldjtrump.com/themes/third_party/forms/forms_base.js"></script><form id="new_submission" class=" sign_up" method="post" action="https://www.donaldjtrump.com/policies/regulations/" enctype="multipart/form-data">
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="20"/>
+<input type="hidden" name="ACTU" value="94"/>
+<input type="hidden" name="FDATA" value="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"/>
+<input type="hidden" name="site_id" value="1"/>
+<input type="hidden" name="csrf_token" value="194415e638fe2d2d726675fd55594d13775729c6"/>
+</div>
+<div class="dform"><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_1" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_text_input dftop_label field_first_name dform_required" id="forms_field_2" style=""><label class="dform_label" for="ddform_2">First Name <span class="req">*</span></label><div class="dform_container"><input type="text" name="fields[2]" value="" class="text required validate[required] " id="ddform_2" placeholder="" data-placeholder="" maxlength=""/></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"><div class="dform_element dform_text_input dftop_label field_last_name dform_required" id="forms_field_6" style=""><label class="dform_label" for="ddform_6">Last Name <span class="req">*</span></label><div class="dform_container"><input type="text" name="fields[6]" value="" class="text required validate[required] " id="ddform_6" placeholder="" data-placeholder="" maxlength=""/></div></div></div><br clear="all"></div></div></div><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_10" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_email dftop_label field_email_address dform_required" id="forms_field_3" style=""><label class="dform_label" for="ddform_3">Email Address <span class="req">*</span></label><div class="dform_container"><input type="email" name="fields[3]" value="" class="text  required validate[required,custom[email]] " id="ddform_3" placeholder="" data-placeholder=""/></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"><div class="dform_element dform_text_input dftop_label field_mobile_number " id="forms_field_7" style=""><label class="dform_label" for="ddform_7">Mobile Number</label><div class="dform_container"><input type="text" name="fields[7]" value="" class="text " id="ddform_7" placeholder="" data-placeholder="" maxlength=""/></div></div></div><br clear="all"></div></div></div><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_11" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_text_input dftop_label field_address " id="forms_field_4" style=""><label class="dform_label" for="ddform_4">Address</label><div class="dform_container"><input type="text" name="fields[4]" value="" class="text " id="ddform_4" placeholder="" data-placeholder="" maxlength=""/></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"><div class="dform_element dform_text_input dftop_label field_city " id="forms_field_8" style=""><label class="dform_label" for="ddform_8">City</label><div class="dform_container"><input type="text" name="fields[8]" value="" class="text " id="ddform_8" placeholder="" data-placeholder="" maxlength=""/></div></div></div><br clear="all"></div></div></div><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_12" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_select dftop_label field_state dform_required" id="forms_field_5" style=""><label class="dform_label" for="ddform_5">State <span class="req">*</span></label><div class="dform_container"><select name="fields[5]" class=" required validate[required] " id="ddform_5">
+<option value="">Please Choose</option>
+<option value="Other">Other</option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AS">American Samoa</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="GU">Guam</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="MP">Northern Marianas</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="PR">Puerto Rico</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="VI">U.S. Virgin Islands</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA">Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+</select></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"><div class="dform_element dform_text_input dftop_label field_zip_code dform_required" id="forms_field_9" style=""><label class="dform_label" for="ddform_9">Zip Code <span class="req">*</span></label><div class="dform_container"><input type="text" name="fields[9]" value="" class="text required validate[required] " id="ddform_9" placeholder="" data-placeholder="" maxlength="5"/></div></div></div><br clear="all"></div></div></div><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_27" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_checkbox dftop_label field_volunteer " id="forms_field_26" style=""><div class="dform_container"><ul class="checkboxes"><li><label for="fields[26]-0"><input type="checkbox" name="fields[26][]" value="Volunteer" class="" id="fields[26]-0"/>&nbsp; I Would Like to Volunteer</label></li></ul></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"></div><br clear="all"></div></div></div><div class="dform_element dform_mailinglist dftop_label field_mailinglist " id="forms_field_24" style=""><div class="dform_container"><ul class="checkboxes"><li><label><input type="checkbox" name="fields[24]" value="yes" checked="checked"/>&nbsp;Yes, please subscribe me to the Donald J. Trump for President email list</label></li></ul></div></div><div class="dform_element dform_checkbox dftop_label field_text_messages " id="forms_field_240" style=""><div class="dform_container"><ul class="checkboxes"><li><label for="fields[240]-0"><input type="checkbox" name="fields[240][]" value="Yes" checked="checked" class="" id="fields[240]-0"/>&nbsp; Yes, please send me periodic text messages from Donald J. Trump for President</label></li></ul></div></div><div class="dform_element dform_html field_untitled " id="forms_field_241" style=""><div class="dform_container"><em>By subscribing with your mobile number you are agreeing to receive periodic text messages from Donald J. Trump for President, Inc. Message data rates may apply. Text "STOP" to opt-out. T&C/Privacy Policy: <a href="http://www.sms-terms.com/88022/" target="_blank">sms-terms.com/88022</a></em></div></div><div class="dform_element dform_textarea dftop_label field_comments " id="forms_field_23" style=""><label class="dform_label" for="ddform_23">Comments</label><div class="dform_container"><textarea name="fields[23]" cols="50" rows="4" class="" id="ddform_23" placeholder="" data-placeholder=""></textarea></div></div><div class="hiddenFields">
+<input type="hidden" name="fields[63]" value=""/>
+</div><div class="dform_element dform_captcha dftop_label field_captcha " id="forms_field_205" style=""><label class="dform_label" for="ddform_205">CAPTCHA</label><div class="dform_container"><div class="g-recaptcha" data-sitekey="6LfFRBsTAAAAAID_gT8DfxJs_9bZkSdvI3fl8ilA" data-theme="light" data-size="normal"></div><script type="text/javascript" src="https://www.google.com/recaptcha/api.js?"></script></div></div><div class="dform_element submit_button"> <div class="dform_container"><div class="dfinput_full"><input type="submit" class="submit" name="submit_button" value="Submit" data-value="Submit" data-wait="Verifying..."/></div></div></div></div></form>
+</div>
+</div>
+</div>
+</body>
+</html>

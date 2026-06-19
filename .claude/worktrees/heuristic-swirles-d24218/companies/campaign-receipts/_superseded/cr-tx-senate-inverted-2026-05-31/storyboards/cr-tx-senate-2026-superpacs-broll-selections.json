@@ -1,0 +1,33 @@
+{
+  "_meta": {
+    "stage": "Stage 18 — cinematic-broll-director real-asset selection",
+    "program": "cr-new-news",
+    "mode": "longform",
+    "slug": "cr-tx-senate-2026-superpacs",
+    "storyboard": "eng/storyboards/cr-tx-senate-2026-superpacs.json",
+    "photo_library": "companies/campaign-receipts/public/photos/wikipedia/",
+    "generated_by": "cinematic-broll-director.md",
+    "date": "2026-05-31"
+  },
+  "density_note": {
+    "verdict": "ZERO fair-use TV/news soundbite clips selected. Deliberate, rights-safe call. The two beats that were reserved for candidate soundbites (context-01, matters-01) are recut to Remotion TextSlate big-word cards.",
+    "rationale": [
+      "Thesis is 'the friendly PAC NAME is the costume' — a money/disclosure story about super-PACs and their hidden donors, NOT about what any candidate said. No beat's meaning depends on a candidate's quote or moving face.",
+      "Attaching real candidate floor/debate/announcement footage (Paxton, Allred, Crockett) to a nonpartisan money-disguise verdict risks a partisan read the script's both-sides framing (GOP-aimed AND Dem-aimed money) is built to avoid. Same call made on sealed-aipac-campus-eo for the same reason.",
+      "Verifiable real sources DO exist (yt-dlp probe confirmed: FOX4 DFW 'Rep. Jasmine Crockett announces run for U.S. Senate' W-Pe1GifYLs; 'Texas Senate Debate' pPeyyhHfcus; LiveNOW/FOX 'Trump endorses Paxton' ss3DyFqxgew). They were NOT cut because (a) precise ≤6s lip-matched in/out windows could not be frame-verified within budget for all three, and (b) per doctrine, an unverified in/out point risks a mismatched-speaker defect at the never-overridable Stage 25/26 QC. Better to ship clean Remotion than a partially-verified clip.",
+      "Named donors and candidates that the script DOES name are carried by politician-caricature (book-style illustration, not a real photo or AI face) per the validated CR Bush/Massie/Rabb pattern: john-nau, stephen-schwarzman, ken-paxton, jeff-yass, colin-allred, reid-hoffman, jasmine-crockett. All readable money/claims are Remotion (CountUp, MoneyFlow, ChartBar, DonorComparison, SourceCard, TextSlate, VerdictStamp)."
+    ]
+  },
+  "selections": [],
+  "acquire_recommendations": [
+    {
+      "note": "If founder wants the candidate-soundbite gravitas layer added later, these are the verified, citable sources to cut from (each needs a /watch pass to lock a ≤6s lip-matched window + source-card credit before insertion):",
+      "candidates": [
+        { "subject": "jasmine-crockett", "source_url": "https://www.youtube.com/watch?v=W-Pe1GifYLs", "credit": "FOX 4 Dallas-Fort Worth", "license": "fair-use commentary" },
+        { "subject": "ken-paxton", "source_url": "https://www.youtube.com/watch?v=ss3DyFqxgew", "credit": "LiveNOW from FOX", "license": "fair-use commentary" },
+        { "subject": "colin-allred", "source_url": "https://www.youtube.com/watch?v=pPeyyhHfcus", "credit": "Texas Senate Debate broadcast", "license": "fair-use commentary" }
+      ]
+    }
+  ],
+  "assets_verified_on_disk": "N/A — zero fair-use clips selected. politician-caricature assets are generated/cached on demand by politician-caricature.py at Stage 24 splice."
+}

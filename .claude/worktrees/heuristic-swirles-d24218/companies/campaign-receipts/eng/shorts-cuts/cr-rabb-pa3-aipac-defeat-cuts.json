@@ -1,0 +1,32 @@
+{
+  "slug": "cr-rabb-pa3-aipac-defeat",
+  "format_version": "v2",
+  "aspect_ratio": "9:16",
+  "notes": "CR new-news offset-driven shorts from Rabb PA-3 master. cr-rabb-short-02-money-visible is the no-VO specialist pick; cr-rabb-short-01-shell was a first cut and should not be the channel default.",
+  "shorts": [
+    {
+      "id": "cr-rabb-short-01-shell",
+      "start_sec": 70,
+      "hook_question": "A 91-Day-Old Foundation Spent $500K?",
+      "punchline_overlays": [
+        { "t": 4.0, "duration": 5.0, "text": "Wilmington P.O. box. No staff. No website." },
+        { "t": 12.0, "duration": 5.0, "text": "$500K to 314 Action Fund" },
+        { "t": 20.0, "duration": 5.0, "text": "Then $3.5M backing Ala Stanford" }
+      ],
+      "footer": "Full receipt + newsletter -> CampaignReceipts.com"
+    },
+    {
+      "id": "cr-rabb-short-02-money-visible",
+      "start_sec": 185,
+      "hook_question": "Why Did $3.5M Lose in Philly?",
+      "format_note": "No VO. Text + b-roll + music only.",
+      "punchline_overlays": [
+        { "t": 3.5, "duration": 4.0, "text": "$8.5M. Bush lost." },
+        { "t": 10.5, "duration": 4.0, "text": "$15.8M. Massie lost." },
+        { "t": 17.5, "duration": 4.0, "text": "$3.5M. Rabb won by 15." },
+        { "t": 22.5, "duration": 4.0, "text": "What changed? The money got named." }
+      ],
+      "footer": "Full receipt + newsletter -> CampaignReceipts.com"
+    }
+  ]
+}

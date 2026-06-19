@@ -1,0 +1,49 @@
+{
+  "stills": [
+    {
+      "id": "S1",
+      "prompt": "A bright high-key daylight photograph of a clean modern living room at midday, abundant white sunlight flooding through tall sheer white curtains, pale walls and a light oatmeal sofa, a switched-on flat-panel television on a low white console glowing pure bright white with abstract clean color bars (no recognizable advertisement, no person, no readable text, no face). Crisp daylight 5600K, evenly lit, high contrast, white-and-pale palette, no people. Shot on ARRI Alexa 35, Panavision Ultra Vintage anamorphic 40mm at T2.3, Tiffen Black Pro-Mist 1/4, deep focus, bright airy exposure. Hyperrealistic photography, captured on real cinema glass, never CGI, never plastic, real fabric weave on the sofa, real glass reflection on the screen with subtle imperfection, Kodak Vision3 250D film emulation, visible fine film grain, soft lens edge falloff, clean bright cinematic color grade. Lived-in, not pristine. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    },
+    {
+      "id": "S2",
+      "prompt": "A bright high-key tabletop macro photograph of a crisp clean white campaign-style placard mailer lying flat on a bright white tabletop, hard clean daylight raking across the paper so the edges and fold catch light, a blank printed line reading only a row of blank underscores where text would go (no readable words, no real names, no logo), a simple abstract generic stadium-crowd silhouette graphic printed in flat navy ink. Bright daylight 5600K, evenly lit, high contrast, white-and-navy palette, no people, no face. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod, Tiffen Black Pro-Mist 1/4 light, deep depth of field on the paper. Hyperrealistic photography, real paper grain and ink absorption, real fold and edge wear, never CGI, never plastic, Kodak Vision3 250D film emulation, fine 400 ASA grain, clean bright studio cinematic grade. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    },
+    {
+      "id": "S3",
+      "prompt": "A bright high-key overhead macro photograph looking straight down at a glossy bright white tabletop scattered with several blank generic check-shaped paper rectangles (no text, no numbers, no names), clear clean water beginning to sheet across the white surface and catch hard daylight in glossy bright reflections, one paper rectangle just starting to lift at a corner in the water. Bright daylight 5600K, evenly lit, high contrast, white palette, glossy bright highlights, no people, no face. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off overhead, Tiffen Black Pro-Mist 1/4 light, deep focus. Hyperrealistic photography, real paper grain, real water surface tension and refraction, real glossy reflection, never CGI, never plastic, Kodak Vision3 250D film emulation, fine 400 ASA grain, clean bright studio cinematic grade. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    },
+    {
+      "id": "S4",
+      "prompt": "A bright high-key tabletop macro photograph of a generic condensation-beaded amber glass bottle (no label, no logo, no text) standing beside a neat stack of blank bright white paper sheets and a polished fountain pen resting across the top sheet, set on a bright white tabletop with a single folded navy cloth edge entering frame. Hard clean daylight 5600K, evenly lit, high contrast, white-and-navy palette, bright glossy highlights on the glass, no people, no face. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod, Tiffen Black Pro-Mist 1/4 light, deep depth of field. Hyperrealistic photography, real glass surface with water beads and clean reflection, real paper grain, real metal detail on the pen, never CGI, never plastic, Kodak Vision3 250D film emulation, fine 400 ASA grain, clean bright studio cinematic grade. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    },
+    {
+      "id": "S5",
+      "prompt": "A bright high-key wide photograph down the center of a clean empty white-and-navy corridor or assembly aisle, bright midday daylight flooding in from large windows at both ends so the whole length is evenly and brightly lit with even fill, polished pale floor reflecting the bright light, rows of empty navy seats on either side, strong symmetrical leading lines toward a bright window. Bright daylight 5600K, high-key, high contrast, white-and-navy palette, completely empty, no people, no face. Shot on ARRI Alexa Mini LF, Panavision Ultra Vintage anamorphic 35mm at T2.3, locked-off, Tiffen Black Pro-Mist 1/4, deep focus, strong negative space. Hyperrealistic photography, real architectural material detail, real floor reflection, never CGI, never plastic, Kodak Vision3 250D film emulation, fine 400 ASA grain, clean bright cinematic grade. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    },
+    {
+      "id": "S6",
+      "prompt": "A bright high-key tabletop macro photograph of a row of blank white nested envelopes and folders on a bright white tabletop, the front envelope open to reveal another blank white envelope inside it, then another within that, all clean blank stationery with no text, no names, no logos, no addresses. Hard clean daylight 5600K casting crisp bright edges and clean bright edge separation, evenly lit, high contrast, pure white palette, no people, no face. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod, Tiffen Black Pro-Mist 1/4 light, deep depth of field. Hyperrealistic photography, real paper grain and fiber texture, real fold and edge detail, real crisp paper edge separation, never CGI, never plastic, Kodak Vision3 250D film emulation, fine 400 ASA grain, clean bright studio cinematic grade. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    },
+    {
+      "id": "S7",
+      "prompt": "A bright high-key tabletop macro photograph of a paper trail of overlapping blank white documents arranged in a receding line across a bright white desk, fully and evenly lit by hard clean daylight along its entire length, the final document at the far end a completely blank empty white page sitting in full bright light (the trail simply ends at an empty lit page, fully illuminated, not obscured). Bright daylight 5600K, high-key, high contrast, pure white palette, no text, no names, no people, no face. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod, Tiffen Black Pro-Mist 1/4 light, deep focus along the trail. Hyperrealistic photography, real paper grain, real overlap and edge separation in bright light, never CGI, never plastic, Kodak Vision3 250D film emulation, fine 400 ASA grain, clean bright studio cinematic grade. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    },
+    {
+      "id": "S8",
+      "prompt": "A bright high-key wide architectural photograph of a clean white classical-style government facade with tall columns and a pale stone triangular stone crown, lit by flat bright midday sun under a clear bright blue sky, generic classical architecture not resembling any specific recognizable real building, broad white steps in front, evenly and brightly lit across the whole facade with crisp daylight. Bright daylight 5600K, high-key, high contrast, white-stone-and-blue-sky palette, no people, no face, strong negative space of bright sky. Shot on ARRI Alexa Mini LF, Panavision Ultra Vintage anamorphic 55mm at T2.3, locked-off, Tiffen Black Pro-Mist 1/4, deep focus. Hyperrealistic photography, real stone surface texture and weathering, real clean sky gradient, never CGI, never plastic, Kodak Vision3 250D film emulation, fine 400 ASA grain, clean bright cinematic grade. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    },
+    {
+      "id": "S9",
+      "prompt": "A bright high-key tabletop macro photograph of a plain theatrical face mask lying flat on a bright white tabletop, lifted slightly at one edge to begin revealing a plain printed receipt-style strip of white paper underneath (the receipt blank, no readable text, no names, no numbers), hard clean daylight 5600K raking across both surfaces so everything is brightly and evenly lit with crisp short edge separation. Bright daylight, high-key, high contrast, white palette, no people, no real face likeness. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod, Tiffen Black Pro-Mist 1/4 light, deep depth of field. Hyperrealistic photography, real mask surface texture, real paper grain on the receipt, real crisp daylight edge separation, never CGI, never plastic, Kodak Vision3 250D film emulation, fine 400 ASA grain, clean bright studio cinematic grade. Photographic, not rendered.",
+      "image_size": "landscape_16_9"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "asset": "moneyflow-whoosh-3.mp3",
+  "title": "Cinematic Woosh SFX-001.wav",
+  "author": "AudioPapkin",
+  "source_url": "https://freesound.org/people/AudioPapkin/sounds/648538/",
+  "preview_url": "https://cdn.freesound.org/previews/648/648538_8698658-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Slightly more cinematic / processed than -1/-2; use sparingly only on the highest-stakes arrows (e.g. money-flow into the big donor reveal). Trim hard to ~300ms — the source is ~5s. Normalize to -26 dB."
+}

@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "title": "SEALED — Jerusalem Embassy (long-form v1)",
+    "canonical_script": "eng/longform-scripts/sealed-aipac-embassy.md",
+    "visual_policy": "brand/visual-explainer-policy.md"
+  },
+  "slug": "sealed-aipac-embassy-v1",
+  "story_score_slug": "sealed-aipac-embassy",
+  "total_duration_seconds": 205,
+  "vo_script_path": "eng/longform-scripts/sealed-aipac-embassy.md",
+  "voice": "jessica",
+  "voice_settings": { "stability": 0.55, "similarity_boost": 0.75, "style": 0.15, "model": "eleven_multilingual_v2" },
+  "clips": [
+    {
+      "clip_id": "s1-01",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": { "brand": "sealed", "verdict": "KEPT", "subtitle": "AY-pack priority #2" }
+    },
+    {
+      "clip_id": "s1-02",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s1-02",
+      "expected_on_screen_text": ["JERUSALEM", "EMBASSY"]
+    },
+    {
+      "clip_id": "s2-01",
+      "duration": 22,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s2-01",
+      "expected_on_screen_text": ["1995", "WAIVER"]
+    },
+    {
+      "clip_id": "s2-02",
+      "duration": 16,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s2-02",
+      "expected_on_screen_text": ["DEC 6", "2017"]
+    },
+    {
+      "clip_id": "s3-01",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s3-01",
+      "expected_on_screen_text": ["MAY 14", "2018"]
+    },
+    {
+      "clip_id": "s3-02",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s3-02",
+      "expected_on_screen_text": ["AY-PACK", "PRIORITY"]
+    },
+    {
+      "clip_id": "s4-01",
+      "duration": 18,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s4-01",
+      "expected_on_screen_text": ["SAME DAY", "GAZA"]
+    },
+    {
+      "clip_id": "s4-02",
+      "duration": 12,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s4-02",
+      "expected_on_screen_text": ["MAY 14", "2018"]
+    },
+    {
+      "clip_id": "s5-01",
+      "duration": 20,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s5-01",
+      "expected_on_screen_text": ["UN VOTE", "128"]
+    },
+    {
+      "clip_id": "s6-01",
+      "duration": 18,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s6-01",
+      "expected_on_screen_text": ["#74", "KEPT"]
+    },
+    {
+      "clip_id": "s7-01",
+      "duration": 16,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "embassy-s7-01"
+    }
+  ],
+  "music_cues": [
+    { "start_sec": 0, "end_sec": 45, "mood": "tense", "cue_id": "intro" },
+    { "start_sec": 45, "end_sec": 150, "mood": "investigative", "cue_id": "body" },
+    { "start_sec": 150, "end_sec": 205, "mood": "resolve", "cue_id": "outro" }
+  ]
+}

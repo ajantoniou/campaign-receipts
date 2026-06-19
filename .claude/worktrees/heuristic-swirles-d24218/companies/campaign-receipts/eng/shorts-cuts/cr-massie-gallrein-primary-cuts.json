@@ -1,0 +1,41 @@
+{
+  "slug": "cr-massie-gallrein-primary",
+  "format_version": "v2",
+  "aspect_ratio": "9:16",
+  "notes": "CR new-news offset-driven shorts (start_sec from storyboard beat math). cut-shorts-v2.py with --cuts/--body falls back from anchor to start_sec.",
+  "shorts": [
+    {
+      "id": "cr-massie-short-01-hook",
+      "start_sec": 0,
+      "hook_question": "$35M To Beat ONE Congressman?",
+      "punchline_overlays": [
+        { "t": 6.0, "duration": 4.0, "text": "Most expensive U.S. House primary EVER" },
+        { "t": 14.0, "duration": 4.0, "text": "Thomas Massie · KY-4" },
+        { "t": 20.0, "duration": 5.0, "text": "And the receipts are public." }
+      ],
+      "footer": "Watch full receipt → @CampaignReceipts"
+    },
+    {
+      "id": "cr-massie-short-02-95-percent",
+      "start_sec": 160,
+      "hook_question": "Did Massie REALLY say 95% of his opponent's money came from Israel?",
+      "punchline_overlays": [
+        { "t": 4.0, "duration": 4.0, "text": "FEC: UDP, RJC, Preserve America" },
+        { "t": 11.0, "duration": 5.0, "text": "Massie on CBS, days before primary" },
+        { "t": 19.0, "duration": 5.0, "text": "\"95% from the Israeli lobby\"" }
+      ],
+      "footer": "Watch full receipt → @CampaignReceipts"
+    },
+    {
+      "id": "cr-massie-short-03-verdict",
+      "start_sec": 232,
+      "hook_question": "Why did $35 million come to Kentucky?",
+      "punchline_overlays": [
+        { "t": 3.0, "duration": 4.0, "text": "Gallrein 54% · Massie 45%" },
+        { "t": 9.0, "duration": 5.0, "text": "$35M came to remove ONE \"no\" vote" },
+        { "t": 18.0, "duration": 5.0, "text": "Look up your own committee. Then vote." }
+      ],
+      "footer": "Watch full receipt → @CampaignReceipts"
+    }
+  ]
+}

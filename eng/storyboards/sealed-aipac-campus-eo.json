@@ -1,0 +1,663 @@
+{
+  "_meta": {
+    "title": "SEALED \u2014 He Promised to Widen It. One Order Narrowed It. (Campus EO 13899, long-form)",
+    "purpose": "One order, two ledgers. EO 13899 / IHRA / Title VI rendered as document-seal-timeline Remotion explainers over institutional backgrounds; unnamed editorial silhouettes for the donor + freshman; atmospheric campus/archive b-roll; BROKEN verdict owned by CR's OWN AUDIT (book separately logs Priority #3 Done). Zero Hedra/kling-i2v faces; zero Sora hyperreal faces; zero Wikipedia close-ups; 3rd-grade voter script.",
+    "estimated_cost_usd": 6.2,
+    "canonical_script": "content/scripts/sealed-aipac-campus-eo-v6-cadence.md",
+    "vo_audio": "_build/sealed-aipac-campus-eo/vo-v2.mp3",
+    "visual_policy": "brand/visual-explainer-policy.md",
+    "verdict_ownership": "BROKEN is Campaign Receipts' OWN AUDIT of the campus free-speech promise. The SEALED book separately logs the SAME order as a KEPT donor priority (A-I-P-A-C Priority #3, 'Done'). Never attribute BROKEN to the book."
+  },
+  "slug": "sealed-aipac-campus-eo",
+  "story_score_slug": "sealed-aipac-campus-eo",
+  "total_duration_seconds": 333,
+  "vo_script_path": "eng/scripts/cr-new-news/sealed-aipac-campus-eo-vo.txt",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "clips": [
+    {
+      "clip_id": "s1-00a",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "OpeningSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "People died so you could speak.",
+        "fadeInDelay": 0.4,
+        "holdSeconds": 5.5
+      },
+      "expected_on_screen_text": [
+        "People died so you could speak."
+      ],
+      "covers_script_section": "NEW OPEN (gravitas) \u2014 cold open: 'People died so you could speak.' [pause:600ms]"
+    },
+    {
+      "clip_id": "s1-00b",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "1776 \u2014 colonists fought a king for the right to speak against him. Some died for it.",
+        "variant": "quiet",
+        "wrapWidth": 28
+      },
+      "expected_on_screen_text": [
+        "1776"
+      ],
+      "covers_script_section": "NEW OPEN (gravitas) \u2014 'In 1776, American colonists fought a war against a king... Some of them died for that.' [pause:600ms]"
+    },
+    {
+      "clip_id": "s1-00c",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "THE FIRST AMENDMENT. PAID FOR IN BLOOD.",
+        "variant": "title",
+        "wrapWidth": 18
+      },
+      "expected_on_screen_text": [
+        "THE FIRST AMENDMENT",
+        "PAID FOR IN BLOOD"
+      ],
+      "covers_script_section": "NEW OPEN (gravitas) \u2014 'The First Amendment. The right to speak... So when a line moves on what you can say, it matters. It was paid for in blood.' [pause:800ms]"
+    },
+    {
+      "clip_id": "s1-00d",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "One order moved that line. And nobody voted on it.",
+        "variant": "quiet",
+        "wrapWidth": 24
+      },
+      "covers_script_section": "NEW OPEN (gravitas) \u2014 bridge into the order: 'On December 11, 2019, one order moved that line. And nobody voted on it.' [pause:400ms]"
+    },
+    {
+      "clip_id": "s1-01",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "OpeningSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "December 11, 2019 \u2014 one order kept a donor's promise and broke a voter's.",
+        "fadeInDelay": 0.3,
+        "holdSeconds": 4.5
+      },
+      "covers_script_section": "Scene 1 \u2014 Hook line 1 (the dated receipt) \u2014 now 'That same order kept a donor's promise and broke a voter's.'"
+    },
+    {
+      "clip_id": "s1-02",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "ONE PAPER. TWO LEDGERS.",
+        "variant": "title",
+        "wrapWidth": 14
+      },
+      "covers_script_section": "Scene 1 \u2014 'One paper. Two ledgers.' big-word beat"
+    },
+    {
+      "clip_id": "s1-03",
+      "duration": 4,
+      "aspect": "16:9",
+      "vendor": "wan",
+      "model_args": {},
+      "prompt": "Slow push-in on a single signed executive order resting on a dark wooden desk in a quiet government office, warm desk-lamp light raking across the embossed seal at the top of the page. The pen lies beside it. Two faint paper ledgers are stacked just out of focus on either side. Investigative documentary realism, Frontline / Retro Report aesthetic. No people, no chyron, no flags.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false,
+      "source_citation": "EO 13899, signed Dec 11, 2019 (Federal Register) \u2014 framing visual for the master 'two ledgers' loop"
+    },
+    {
+      "clip_id": "s2-01",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "You wanted campus free speech protected. That's a fair thing to want.",
+        "variant": "quiet",
+        "wrapWidth": 26
+      },
+      "covers_script_section": "Scene 2 \u2014 EMPATHY BEAT 1 / HOOK-ACK (opens the scene)"
+    },
+    {
+      "clip_id": "s2-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "wan",
+      "model_args": {},
+      "prompt": "Quiet establishing shot of an empty university lecture hall at golden hour, low sunlight through tall windows falling on rows of empty wooden seats, a closed campus handbook resting on the front desk. Calm, ordinary, hopeful. Documentary realism. No people, no text overlays, no banners.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false,
+      "source_citation": "Scene 2 establishing \u2014 'the school your kid is about to pay for' (atmosphere, no claim)"
+    },
+    {
+      "clip_id": "s2-03",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Campaign trail, 2016",
+        "quote": "Restore free speech in America, and stop government censorship.",
+        "source": "SEALED 2016 \u2014 promise as logged in the book"
+      },
+      "covers_script_section": "Scene 2 \u2014 the 2016 promise (book-line source card; VO stays paraphrased per no-quote lock)"
+    },
+    {
+      "clip_id": "s3-01",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "IHRA Working Definition of Antisemitism",
+        "page": "Adopted 2016",
+        "quote": "A non-legally binding working definition, with illustrative examples.",
+        "source": "International Holocaust Remembrance Alliance"
+      },
+      "covers_script_section": "Scene 3 \u2014 'meet a definition. Keep your eye on it.' (the tracked object)"
+    },
+    {
+      "clip_id": "s3-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "wan",
+      "model_args": {},
+      "prompt": "Macro tracking shot drifting slowly across a printed document titled with a working definition, the page laid flat under soft museum lighting, fingers nowhere in frame. A magnifying glass rests at the corner. The paper looks ordinary, archival, harmless. Investigative still-life realism. No people, no logos, no readable headlines.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false,
+      "source_citation": "Scene 3 \u2014 'just words on a page' (the guide before it gets teeth)"
+    },
+    {
+      "clip_id": "s3-03",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "ON ITS OWN, A GUIDE FORCES NOTHING.",
+        "variant": "title",
+        "wrapWidth": 18
+      },
+      "covers_script_section": "Scene 3 \u2014 'It was just words on a page. So how does a guide get teeth?' (open loop)"
+    },
+    {
+      "clip_id": "s4-01",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Executive Order 13899",
+        "page": "December 11, 2019",
+        "quote": "Agencies shall consider the IHRA definition... a non-legally binding working definition.",
+        "source": "Federal Register, EO 13899"
+      },
+      "covers_script_section": "Scene 4 \u2014 the order signed; verbatim 'shall consider ... non-legally binding'"
+    },
+    {
+      "clip_id": "s4-02",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "THAT'S THE DAY THE GUIDE STOPPED BEING JUST A GUIDE.",
+        "variant": "title",
+        "wrapWidth": 20
+      },
+      "covers_script_section": "Scene 4 \u2014 pays the Scene-3 loop ('how does a guide get teeth')"
+    },
+    {
+      "clip_id": "s4-03",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "wan",
+      "model_args": {},
+      "prompt": "Slow dolly across the top of a signed executive order on heavy paper, the embossed seal catching warm raking light, a fountain pen set down beside fresh ink. Behind it, an out-of-focus institutional office at dusk. The same document now reads heavier, official, weighted. Documentary realism, archival gravitas. No people, no flags, no chyron.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false,
+      "source_citation": "EO 13899 signed Dec 11, 2019 (Federal Register) \u2014 the order acquiring weight"
+    },
+    {
+      "clip_id": "s5-01",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Title VI, Civil Rights Act of 1964",
+        "quote": "No program receiving federal financial assistance may discriminate... on the ground of national origin.",
+        "source": "The lever: it lets Washington pull a school's federal money"
+      },
+      "covers_script_section": "Scene 5 \u2014 'Now meet the lever. It's called Title Six.'"
+    },
+    {
+      "clip_id": "s5-02",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "OverturnedLaw",
+      "props": {
+        "brand": "sealed",
+        "oldLawTitle": "JUST A GUIDE",
+        "oldLawCitations": [
+          "IHRA definition",
+          "non-legally binding"
+        ],
+        "newLawTitle": "A TITLE VI LEVER",
+        "newLawCitation": "EO 13899 + Title VI complaint"
+      },
+      "covers_script_section": "Scene 5 \u2014 'the guide's examples could feed a Title Six complaint' (guide \u2192 rule motif)"
+    },
+    {
+      "clip_id": "s5-03",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "sora2",
+      "model_args": {},
+      "prompt": "A single anonymous college student, seen only from behind in silhouette, sits at a wooden desk in a sunlit classroom and quietly raises a hand to speak. Plain backpack, no logos, head turned away from camera, features unseen. Wide framing of the whole room, the student small in the frame. Stylized editorial illustration look, muted institutional palette. One ordinary student in an ordinary room. No crowd, no podium, no flags.",
+      "seed_image": null,
+      "characters_count": 1,
+      "has_dialogue": false,
+      "source_citation": "Scene 5 \u2014 'here's a student. She says one sentence in class.' (unnamed editorial silhouette, the planted freshman)"
+    },
+    {
+      "clip_id": "s5-04",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "AND NOBODY VOTED ON THAT.",
+        "variant": "title",
+        "wrapWidth": 16
+      },
+      "covers_script_section": "Scene 5 \u2014 'the rule that sentence runs into just changed. And nobody voted on that.'"
+    },
+    {
+      "clip_id": "s6-01",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "WHOSE PROMISE JUST GOT KEPT?",
+        "variant": "title",
+        "wrapWidth": 16
+      },
+      "covers_script_section": "Scene 6 \u2014 EMPATHY BEAT 2 re-hook: 'Hold on. Whose promise just got kept here?'"
+    },
+    {
+      "clip_id": "s6-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "sora2",
+      "model_args": {},
+      "prompt": "An anonymous first-year college student, shown from behind in soft silhouette, walks alone across a quiet campus quad in early autumn light carrying a backpack. Leaves on the path, old stone buildings out of focus. Head turned away, features unseen, framed at full distance. Stylized editorial illustration, calm and human, muted palette. One student arriving somewhere a line had already been drawn. No crowd, no banners, no flags.",
+      "seed_image": null,
+      "characters_count": 1,
+      "has_dialogue": false,
+      "source_citation": "Scene 6 \u2014 'That student is a freshman. She just walked onto campus this fall.' (same unnamed silhouette, re-anchored)"
+    },
+    {
+      "clip_id": "s6-03",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "It widened nothing for her. It moved where her words could go.",
+        "variant": "quiet",
+        "wrapWidth": 26
+      },
+      "covers_script_section": "Scene 6 \u2014 'The order widened nothing for her.'"
+    },
+    {
+      "clip_id": "s7-01",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "WATCH THE SAME MACHINE RUN TODAY.",
+        "variant": "title",
+        "wrapWidth": 18
+      },
+      "covers_script_section": "Scene 7 \u2014 late re-hook: 'This is not a 2019 history lesson.'"
+    },
+    {
+      "clip_id": "s7-02",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "The same move, again",
+        "events": [
+          {
+            "date": "Dec 11, 2019",
+            "label": "EO 13899 signed",
+            "outcome": "kept"
+          },
+          {
+            "date": "Mar 2025",
+            "label": "60 schools warned (Title VI)",
+            "outcome": "kept"
+          },
+          {
+            "date": "Jul 2025",
+            "label": "Columbia adopts the IHRA guide",
+            "outcome": "kept"
+          }
+        ]
+      },
+      "covers_script_section": "Scene 7 \u2014 dated timeline: Columbia July 2025 (IHRA) + 60 schools March 2025 (Title VI scale)"
+    },
+    {
+      "clip_id": "s7-02b",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "Columbia did it under a deal \u2014 to get the cut federal money back.",
+        "variant": "quiet",
+        "wrapWidth": 26
+      },
+      "covers_script_section": "Scene 7 \u2014 'It did this under a deal. The deal restored federal money the government had cut.' (carries the deal sentence the timeline card skips)"
+    },
+    {
+      "clip_id": "s7-03",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "sealed",
+        "from": 0,
+        "to": 60,
+        "label": "CAMPUSES WARNED AT ONCE",
+        "caption": "March 2025 \u2014 same Title VI lever (scale, not IHRA)",
+        "easing": "out"
+      },
+      "expected_on_screen_text": [
+        "60"
+      ],
+      "covers_script_section": "Scene 7 \u2014 '60 campuses got letters about the same Title Six lever'"
+    },
+    {
+      "clip_id": "s8-01",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "Here's the part the headline skipped.",
+        "variant": "quiet",
+        "wrapWidth": 22
+      },
+      "covers_script_section": "Scene 8 \u2014 'Here's the part the headline skipped.' (master-loop payoff opens)"
+    },
+    {
+      "clip_id": "s8-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "sora2",
+      "model_args": {},
+      "prompt": "An anonymous lobbyist figure, seen only as a back-lit silhouette in a marble Washington corridor, closes a leather ledger and sets it on a desk. Body in shadow, head turned away, features unseen, not based on any real person. Wide framing down the corridor. Stylized editorial illustration, restrained institutional palette, cool light. Ordinary bookkeeping, a column entry being closed. No crowd, no flags, no campaign imagery.",
+      "seed_image": null,
+      "characters_count": 1,
+      "has_dialogue": false,
+      "source_citation": "Scene 8 \u2014 'Every promise sits in some ledger somewhere. This one's a donor's.' (unnamed silhouette before the AIPAC name; EMPATHY FLAG 1 runway)"
+    },
+    {
+      "clip_id": "s8-03",
+      "duration": 13,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "A-I-P-A-C donor ledger",
+        "page": "Priority #3",
+        "quote": "Done.",
+        "source": "SEALED paper trail \u2014 the donor-side receipt (a KEPT donor priority)"
+      },
+      "covers_script_section": "Scene 8 \u2014 'In that ledger, the order is Priority Three. The note reads Done.' (book = donor ledger, NOT the verdict)"
+    },
+    {
+      "clip_id": "s8-04",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "ONE ACT. TWO LEDGERS.",
+        "variant": "title",
+        "wrapWidth": 14
+      },
+      "covers_script_section": "Scene 8 \u2014 'So one act sits on two ledgers.' (pays the Scene-1 master loop)"
+    },
+    {
+      "clip_id": "s9-01",
+      "duration": 12,
+      "aspect": "16:9",
+      "vendor": "sora2",
+      "model_args": {},
+      "prompt": "The same anonymous first-year student from earlier, shown from behind in soft silhouette, stands at the front of a quiet classroom and speaks one sentence, calm and unbothered. Head turned away, features unseen, framed across the whole room. Stylized editorial illustration, warm late-afternoon light, muted palette. She still says her sentence; the room around her is unchanged. No crowd, no podium, no flags.",
+      "seed_image": null,
+      "characters_count": 1,
+      "has_dialogue": false,
+      "source_citation": "Scene 9 \u2014 EMPATHY BEAT 3: 'Remember that freshman. She still says her sentence.' (same unnamed silhouette, closes the thread)"
+    },
+    {
+      "clip_id": "s9-01b",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "People fought and died for the right to speak.",
+        "variant": "quiet",
+        "wrapWidth": 24
+      },
+      "covers_script_section": "NEW CLOSE (gravitas) \u2014 'Here's what this order taught us. People fought and died for the right to speak.' [pause:400ms] (precedes the lesson line)"
+    },
+    {
+      "clip_id": "s9-01c",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "AND SHE NEVER GOT A VOTE.",
+        "variant": "title",
+        "wrapWidth": 16
+      },
+      "expected_on_screen_text": [
+        "AND SHE NEVER GOT A VOTE"
+      ],
+      "covers_script_section": "Scene 9 \u2014 'Remember that freshman. She still says her sentence. The line just sits somewhere new now. And she never got a vote.' [pause:600ms]"
+    },
+    {
+      "clip_id": "s9-02",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "That right is only as wide as the rule behind it.",
+        "variant": "quiet",
+        "wrapWidth": 26
+      },
+      "covers_script_section": "Scene 9 \u2014 the lesson line, now reframed: 'That right is only as wide as the rule behind it.'"
+    },
+    {
+      "clip_id": "s9-02b",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "NO WAR. NO VOTE. JUST A SIGNATURE.",
+        "variant": "title",
+        "wrapWidth": 16
+      },
+      "expected_on_screen_text": [
+        "NO WAR",
+        "NO VOTE",
+        "JUST A SIGNATURE"
+      ],
+      "covers_script_section": "NEW CLOSE (gravitas) \u2014 'One order, signed by one person, can quietly move that line. No war. No vote. Just a signature.' [pause:600ms]"
+    },
+    {
+      "clip_id": "s9-02c",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "PROTECT IT FOR WHOM? WHERE IS THE LINE?",
+        "variant": "title",
+        "wrapWidth": 18
+      },
+      "expected_on_screen_text": [
+        "PROTECT IT FOR WHOM",
+        "WHERE IS THE LINE"
+      ],
+      "covers_script_section": "Scene 9 \u2014 'So next time someone says protect free speech, ask two things. Protect it for whom. And where is the line.'"
+    },
+    {
+      "clip_id": "s9-03",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Protect campus free speech (widen the debate)",
+        "citation": "Campaign Receipts audit \u2014 EO 13899, Dec 11, 2019",
+        "rotationDeg": -8
+      },
+      "expected_on_screen_text": [
+        "BROKEN"
+      ],
+      "covers_script_section": "Scene 9 \u2014 'By our own audit, that promise is BROKEN.' (CR's OWN AUDIT verdict, NOT the book)"
+    },
+    {
+      "clip_id": "s9-04",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "WOULD YOU COUNT IT?",
+        "variant": "title",
+        "wrapWidth": 12
+      },
+      "covers_script_section": "Scene 9 \u2014 comment trigger: 'Would you count that promise as kept?'"
+    },
+    {
+      "clip_id": "s9-04b",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "PEOPLE DIED TO WIDEN THAT LINE.",
+        "variant": "title",
+        "wrapWidth": 16
+      },
+      "expected_on_screen_text": [
+        "PEOPLE DIED TO WIDEN THAT LINE"
+      ],
+      "covers_script_section": "Scene 9 \u2014 'He promised to protect campus speech. Then one order drew the line around one kind of speech. People died to widen that line.' (carries the close before the comment-trigger question)"
+    },
+    {
+      "clip_id": "s9-05",
+      "duration": 18,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "ClosingSlate",
+      "props": {
+        "brand": "sealed",
+        "name": "The full receipt + free newsletter",
+        "detail": "linked below \u00b7 Campaign Receipts"
+      },
+      "covers_script_section": "Scene 9 \u2014 CTA cold close ('The full receipt and free newsletter are linked below.')"
+    }
+  ],
+  "music_cues": [
+    {
+      "start_sec": 0,
+      "end_sec": 50,
+      "mood": "tense piano",
+      "cue_id": "intro"
+    },
+    {
+      "start_sec": 50,
+      "end_sec": 153,
+      "mood": "investigative strings",
+      "cue_id": "setup"
+    },
+    {
+      "start_sec": 153,
+      "end_sec": 220,
+      "mood": "rising tension",
+      "cue_id": "reveal"
+    },
+    {
+      "start_sec": 220,
+      "end_sec": 269,
+      "mood": "resolved outro",
+      "cue_id": "verdict"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "chunk_id": "ch-03",
+    "tool": "kling",
+    "cinema_mode": "tabletop_macro",
+    "lens_mm": 100,
+    "duration_s": 6,
+    "prompt": "Tight tabletop-macro hold on a wall of anonymous brass numbered post office boxes in a dim, generic government mail-room lobby — small square doors in a grid, oxidized brass with patina, faint fingerprint smudges on the metal, fine dust along the lower edges of each door, one box near center frame slightly ajar by a quarter inch revealing nothing but black interior, the surrounding boxes closed and uniform, weathered cream-painted plaster wall behind the brass grid showing decades of soft scuff marks, no signage visible, no readable numbers larger than the tiny stamped digits on each door, no company names, no logos, no people, no hands. Slow locked-off-to-2-inch push-in over six seconds, the slightly-ajar box drifting toward the center of frame as the camera creeps closer. Single overhead fluorescent tube spilling cool 5600K daylight from above frame, soft falloff into the corners, gentle highlight halation on the polished brass edges, deep shadow pooling under the box lips. Shot on ARRI Alexa Mini LF with macro 100mm at T2.8, locked-off tripod with a slow 2-inch push-in, Tiffen Black Pro-Mist 1/4 light filtration, Kodak Vision3 250D film emulation with 400 ASA fine grain, high-key clean studio color science at 5600K, deep depth of field on the brass door faces with soft falloff to background plaster, 24fps base shutter 180 degrees. Hyperrealistic photography, captured on real cinema glass, never CGI, never plastic, never AI-art aesthetic. Real material texture — oxidized brass with visible micro-scratches, dust motes catching the overhead light, real paint grain and hairline cracks on the surrounding wall, real metal surface detail on each door hinge and keyhole. Lighting motivated by the visible overhead fluorescent, gentle highlight halation on the brass, controlled blacks that hold detail inside the ajar box. Kodak Vision3 fine film grain, subtle chromatic aberration at the edges of the frame, soft lens vignette, cinematic color grade. Lived-in, not pristine. Photographic, not rendered. Audio: diegetic only — faint mail-room ambient room tone, soft fluorescent hum overhead, distant footsteps on tile far down a corridor, a single dry paper rustle, no music, no dialogue.",
+    "negative_summary": "no people, no faces, no hands, no real brand names, no readable signage, no company logos, no USPS eagle, no addresses, no garbled text, no watermarks, no modern digital signage, no LED screens, no AI-art aesthetic, no plastic sheen, no CGI rendering, no large readable numerals, no flags, no posters",
+    "seed_image": "_build/cr-rabb-pa3-aipac-defeat/clips/seed-ch-03.png",
+    "estimated_cost_usd": 0.45,
+    "fallback_tool": "wan",
+    "fallback_reason": "Kling cinematic push-in preferred for the episode's one atmospheric key beat; Wan if cost cap forces a downgrade"
+  }
+]

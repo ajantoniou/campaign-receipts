@@ -1,0 +1,86 @@
+[
+  {
+    "n": 1,
+    "slug": "aipac-iran-deal",
+    "chapter": "AIPAC · Receipt 1 of 3",
+    "verdict": "BROKEN",
+    "filename": "share-01-aipac-iran-deal.png"
+  },
+  {
+    "n": 2,
+    "slug": "aipac-embassy",
+    "chapter": "AIPAC · Receipt 2 of 3",
+    "verdict": "KEPT",
+    "filename": "share-02-aipac-embassy.png"
+  },
+  {
+    "n": 3,
+    "slug": "aipac-campus-shield",
+    "chapter": "AIPAC · Receipt 3 of 3",
+    "verdict": "BROKEN",
+    "filename": "share-03-aipac-campus-shield.png"
+  },
+  {
+    "n": 4,
+    "slug": "drain-the-swamp",
+    "chapter": "Ch. 2 — Drain the Swamp",
+    "verdict": "BROKEN",
+    "filename": "share-04-drain-the-swamp.png"
+  },
+  {
+    "n": 5,
+    "slug": "china-tariffs",
+    "chapter": "Ch. 7 — Trade · China",
+    "verdict": "KEPT",
+    "filename": "share-05-china-tariffs.png"
+  },
+  {
+    "n": 6,
+    "slug": "repeal-obamacare",
+    "chapter": "Ch. 4 — Healthcare",
+    "verdict": "BROKEN",
+    "filename": "share-06-repeal-obamacare.png"
+  },
+  {
+    "n": 7,
+    "slug": "mexico-pays-for-wall",
+    "chapter": "Ch. 9 — The Wall",
+    "verdict": "BROKEN",
+    "filename": "share-07-mexico-pays-for-wall.png"
+  },
+  {
+    "n": 8,
+    "slug": "syria-end-wars",
+    "chapter": "Ch. 6 — No More Wars",
+    "verdict": "PARTIAL",
+    "filename": "share-08-syria-end-wars.png"
+  },
+  {
+    "n": 9,
+    "slug": "nato-pay-up",
+    "chapter": "Ch. 5 — NATO",
+    "verdict": "PARTIAL",
+    "filename": "share-09-nato-pay-up.png"
+  },
+  {
+    "n": 10,
+    "slug": "chicago-guns",
+    "chapter": "Ch. 8 — Law & Order",
+    "verdict": "READER",
+    "filename": "share-10-chicago-guns.png"
+  },
+  {
+    "n": 11,
+    "slug": "platform-deportation",
+    "chapter": "Ch. 10 — 2024 Platform",
+    "verdict": "KEPT",
+    "filename": "share-11-platform-deportation.png"
+  },
+  {
+    "n": 12,
+    "slug": "platform-who-withdraw",
+    "chapter": "Ch. 10 — 2024 Platform",
+    "verdict": "KEPT",
+    "filename": "share-12-platform-who-withdraw.png"
+  }
+]

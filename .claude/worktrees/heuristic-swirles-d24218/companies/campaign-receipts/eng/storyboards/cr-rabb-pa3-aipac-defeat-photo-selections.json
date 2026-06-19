@@ -1,0 +1,110 @@
+[
+  {
+    "chunk_id": "ch-01,ch-05,ch-06",
+    "subject": "chris-rabb",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Chris_Rabb",
+    "local_path": "public/photos/wikipedia/chris-rabb.jpg",
+    "license": "CC-BY-SA-4.0 / public domain (PA House official portrait expected)",
+    "credit": "Wikipedia — Chris Rabb official portrait (PA House of Representatives)",
+    "treatment": "ch-01: ken-burns push-in 105% → 100% over 4s (hero — 'the state rep who beat her'); ch-05: 2s side-by-side comparison hold with Bush/Massie portraits, no motion; ch-06: 3s static hold under AOC endorsement beat",
+    "fallback": "if missing, run fetch-wikipedia-photos.mjs --subject chris-rabb --download; secondary fallback: PA House official portrait at pahouse.com/Rabb; last-resort: Remotion monogram 'CR' card",
+    "on_disk": false
+  },
+  {
+    "chunk_id": "ch-02",
+    "subject": "sharif-street",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Sharif_Street",
+    "local_path": "public/photos/wikipedia/sharif-street.jpg",
+    "license": "public domain (PA Senate official portrait)",
+    "credit": "Wikipedia — Sharif Street official PA Senate portrait",
+    "treatment": "brief 2s static hold on his name during the 30% bar callout, neutral expression preferred",
+    "fallback": "if missing, run fetch-wikipedia-photos.mjs --subject sharif-street --download; secondary: pasen.gov official portrait; last-resort: Remotion monogram 'SS'",
+    "on_disk": false
+  },
+  {
+    "chunk_id": "ch-01,ch-02,ch-04",
+    "subject": "ala-stanford",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Ala_Stanford",
+    "local_path": "public/photos/wikipedia/ala-stanford.jpg",
+    "license": "CC-BY-SA-4.0 (Wikimedia Commons portrait expected; verify at fetch time)",
+    "credit": "Wikipedia — Ala Stanford portrait (Black Doctors COVID Consortium founder)",
+    "treatment": "ch-01: hero ken-burns push-in 105% → 100% over ~5s on 'pediatric surgeon'; ch-02: 2s static cut on 'free COVID testing tents'; ch-04: 1.5s cut on 'backing Dr. Stanford'",
+    "fallback": "if Wikipedia portrait absent on Commons, fallback chain: (a) Black Doctors COVID Consortium press kit at blackdoctorsconsortium.com, (b) HHS public-domain photo (she served as HHS Region 3 director 2021–2022 — federal employee portraits are public domain), (c) Remotion monogram 'AS' card with 'Pediatric surgeon / BDCC founder' footer. Run fetch-wikipedia-photos.mjs --subject ala-stanford --download first.",
+    "on_disk": false
+  },
+  {
+    "chunk_id": "ch-02",
+    "subject": "dwight-evans",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Dwight_Evans_(politician)",
+    "local_path": "public/photos/wikipedia/dwight-evans.jpg",
+    "license": "public domain (U.S. House official portrait)",
+    "credit": "Wikipedia — Dwight Evans official U.S. House portrait",
+    "treatment": "brief 1.5s cameo cut on 'Longtime Congressman Dwight Evans is retiring', neutral congressional portrait",
+    "fallback": "if missing, run fetch-wikipedia-photos.mjs --subject dwight-evans --download; congressional portraits are reliably on Commons; last-resort monogram 'DE'",
+    "on_disk": false
+  },
+  {
+    "chunk_id": "ch-05",
+    "subject": "cori-bush",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Cori_Bush",
+    "local_path": "public/photos/wikipedia/cori-bush.jpg",
+    "license": "public domain (U.S. House official portrait)",
+    "credit": "Wikipedia — Cori Bush official U.S. House portrait",
+    "treatment": "2s static cut as her name lands; will appear side-by-side with Massie + Rabb in three-episode comparison — same neutral congressional-portrait style across all three",
+    "fallback": "already on disk; no action needed",
+    "on_disk": true
+  },
+  {
+    "chunk_id": "ch-05",
+    "subject": "thomas-massie",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Thomas_Massie",
+    "local_path": "public/photos/wikipedia/thomas-massie.jpg",
+    "license": "public domain (U.S. House official portrait)",
+    "credit": "Wikipedia — Thomas Massie official U.S. House portrait",
+    "treatment": "2s static cut on his name, then held ~4s under the on-camera quote ('ninety-five percent of my opponent's money came from the Israeli lobby')",
+    "fallback": "already on disk; no action needed",
+    "on_disk": true
+  },
+  {
+    "chunk_id": "ch-05",
+    "subject": "miriam-adelson",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Miriam_Adelson",
+    "local_path": "public/photos/wikipedia/miriam-adelson.jpg",
+    "license": "CC-BY-SA-4.0",
+    "credit": "Wikipedia — Miriam Adelson portrait",
+    "treatment": "brief 1.5s cut on 'Adelson-linked transfer', neutral expression, no campaign-pose framing",
+    "fallback": "already on disk; no action needed",
+    "on_disk": true
+  },
+  {
+    "chunk_id": "ch-06",
+    "subject": "aoc",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Alexandria_Ocasio-Cortez",
+    "local_path": "public/photos/wikipedia/aoc.jpg",
+    "license": "public domain (U.S. House official portrait)",
+    "credit": "Wikipedia — Alexandria Ocasio-Cortez official U.S. House portrait",
+    "treatment": "2s static cut on 'A.O.C. endorsed Rabb' with Remotion date-stamp overlay 'April 24, 2026'",
+    "fallback": "if missing, run fetch-wikipedia-photos.mjs --subject aoc --download (or alias alexandria-ocasio-cortez); congressional portrait reliably on Commons",
+    "on_disk": false
+  },
+  {
+    "chunk_id": "ch-06",
+    "subject": "hasan-piker",
+    "source_type": "wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Hasan_Piker",
+    "local_path": "public/photos/wikipedia/hasan-piker.jpg",
+    "license": "CC-BY-SA-4.0 (Wikimedia Commons portrait)",
+    "credit": "Wikipedia — Hasan Piker portrait",
+    "treatment": "2s static cut on his name with Remotion overlay 'April 30, 2026 — Malcolm X Park'; prefer neutral-expression Commons portrait over any stream-screenshot",
+    "fallback": "if missing, run fetch-wikipedia-photos.mjs --subject hasan-piker --download; secondary: Wikimedia Commons direct search; last-resort: Remotion monogram 'HP' card with 'Twitch streamer / canvasser' footer",
+    "on_disk": false
+  }
+]

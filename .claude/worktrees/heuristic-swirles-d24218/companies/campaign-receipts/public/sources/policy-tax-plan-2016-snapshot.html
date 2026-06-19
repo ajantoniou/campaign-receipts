@@ -1,0 +1,457 @@
+<!--
+  Archived from: https://www.donaldjtrump.com/policies/tax-plan
+  Snapshot via Wayback Machine: https://web.archive.org/web/20161107000000/https://www.donaldjtrump.com/policies/tax-plan
+  Mirrored to CampaignReceipts.com on 2026-05-13 for citation durability.
+  This is an archival copy of a public 2016 campaign-site policy page.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tax Plan | Donald J Trump for President</title>
+<meta name='keywords' content=''/>
+<meta name='description' content='Donald J. Trump is the very definition of the American success story, continually setting the standards of excellence in business, real estate and entertainment. Show support for his presidential campaign here.'/>
+<link rel='canonical' href='https://www.donaldjtrump.com/policies/tax-plan'/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/favicon.ico?v=1.2">
+<link rel="stylesheet" href="https://assets.donaldjtrump.com/screen04172016.css?10082016" type="text/css"/>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Old+Standard+TT:400,700,400italic' rel='stylesheet' type='text/css'>
+ 
+<script src="//assets.adobedtm.com/ccb66fd3556ba80512894ddaac0f1024ce58d90d/satelliteLib-dd574bd6e7e9efe3999269eb66caa610091049a9.js"></script>
+<!--[if IE]>
+<script src="/js/html5shiv.js"></script>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script async src="/js/jquery.customSelect.min.js"></script>
+<script async src="//vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>
+<script async src="//vjs.zencdn.net/5.0.2/video.min.js"></script>
+<script>
+	if (window.top !== window.self) window.top.location.replace(window.self.location.href);
+	$(function(){
+	    // Mobile Menu
+	    $('.mobile_menu_icon').on('click',function(){
+	        $(this).toggleClass('active');
+	        $('nav').slideToggle();
+	        return false;
+	    });
+	    // Popup Close
+		$('#popup_close a').on('click',function(){
+			$('#popup_bkg').hide();
+			$('#popup_form_wrapper').hide();
+			return false;
+		});
+		// Popup Form
+		$('a.pop_form').on('click',function(){
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+			$('#popup_bkg').show();
+			$('#popup_form_wrapper').fadeIn(500,function(){
+				if(!$('#popup_form_wrapper').hasClass('active')){
+					$('select').customSelect();
+					$('#popup_form_wrapper').addClass('active');
+				}
+			});
+			return false;
+		});
+
+	    // Form Submission Control
+	    $('#new_submission').on('submit', function(evt){
+	        $('#new_submission').find('span.error').remove();
+	        $('#popup_form_items input.submit').val('Sending... Wait');
+	        evt.preventDefault();
+	        var params = $('#new_submission').find(':input').serializeArray();
+	        $.ajax({
+	            dataType:'json',
+	            data: params,
+	            type: 'POST',
+	            success: function(data){
+	                if (data.success == 'yes'){
+	                	$('#popup_top').hide();
+	                	$('#popup_form_items').html('<h3>Thank You For Signing Up!</h3><h4>Join Us On Social Media</h4><div id="thank_you_social_buttons"><a href="https://twitter.com/realdonaldtrump" onclick="window.open (this.href); return false;"><img src="https://assets.donaldjtrump.com/site/twitter.png" alt="Trump Twitter"></a><a href="https://www.facebook.com/DonaldTrump" onclick="window.open (this.href); return false;"><img src="https://assets.donaldjtrump.com/site/facebook.png" alt="Trump Facebook"></a><a href="https://instagram.com/realdonaldtrump" onclick="window.open (this.href); return false;"><img src="https://assets.donaldjtrump.com/site/instagram.png" alt="Trump Instagram"></a><a href="https://www.youtube.com/user/trump" onclick="window.open (this.href); return false;"><img src="https://assets.donaldjtrump.com/site/youtube.png" alt="Trump Youtube"></a></div>');
+	                } else{
+	                    for (var item in data.errors){
+	                    	if(data.errors[item].field_id == '205'){
+	                    		console.log('captcha');
+	                        	$('#forms_field_205').find('label').after("<span class='error'>You must check the captcha</span>");
+	                    	}else{
+	                        	var itemID = '#ddform_'+data.errors[item].field_id;
+		                        var type = $(itemID).attr('type');
+		                        var fieldLabel = $(itemID).closest('.dform_element').find('label').text().replace('*','');
+		                        var errMsg = fieldLabel+' is required';
+		                        if(type == 'email'){
+		                            errMsg = 'You must enter a valid email';
+		                        }
+		                        $(itemID).parent('.dform_container').append("<span class='error'>"+errMsg+"</span>");
+	                    	}
+	                    }
+	        			$('#popup_form_items input.submit').val('Submit');
+	                }
+	            }
+	        });
+	        return false;
+	    });
+
+	    // Form Error Remover
+		$('#new_submission input').on('focus',function(){$(this).next('span.error').remove();});
+
+	    // Form Error Remover(2)
+		$('#new_submission select').on('change',function(){$(this).parent('div').find('span.error').remove();});
+	});
+</script>
+<meta property="og:title" content="Tax Plan">
+<meta property="og:image" content="">
+<link rel="stylesheet" type="text/css" href="/js/slickslider/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/js/slickslider/slick-theme.css"/>
+<script type="text/javascript" src="/js/slickslider/slick.min.js"></script>
+<style type="text/css">.press_item{}.press_item .djt-policy-date{font-family:'Old Standard TT',serif;text-align:center;font-size:14px;color:#464646;}.press_item .djt-policy-title{font-size:26px;color:#464646;text-align:center;font-family:'Old Standard TT',serif;}.djt-policy-section{margin:0 0 40px;}.djt-policy-section h3{font-size:14px;color:#464646;margin:25px 0 15px 0;}.djt-policy-section ul{margin:5px 5px 5px 15px;list-style:none;}.djt-policy-section ul li{margin:0 0 25px;font-size:14px;color:#464646;}.djt-policy-section ul li:before{content:"o ";color:#c8102e;font-size:5px;vertical-align:middle;background:#c8102e;border-radius:25px;padding:0 1px;margin:0 5px 0 0;}.djt-policy-section ul ul{margin:5px 5px 5px 25px;}.djt-policy-section ul ul li{margin:0 0 5px;}.press .main .container_right .nav_section h5{margin-bottom:15px;}.nav_section .nav_content-title{text-align:center;font-size:14px;background-color:#2b3260;margin:0 0 15px;}.nav_content-title p{color:#fff;font-weight:bold;line-height:16px;padding:10px 0;}.nav_content-title p span{font-size:12px;font-weight:normal;}.nav_section.djt-video-section{text-align:center;}.nav_section .djt-nav-vid{max-width:100%;}.nav_section.djt-policy-gallery{max-width:340px;margin:0 auto;}.nav_section.djt-nav-remarks p{line-height:normal;}.slider-big-img{max-width:290px;margin:0 auto;}.slider-img-nav .slide-img-container{width:75px;margin:5px 15px 15px;}.slider-img-nav img,.slider-big-img img{max-width:100%;}.slider-img-nav .slick-prev{bottom:-25px;top:inherit;width:75px;left:20%;}.slider-img-nav .slick-prev:before{content:'< Prev';color:#b20107;font-family:'Montserrat',sans-serif;font-size:14px;}.slider-img-nav .slick-next{bottom:-25px;top:inherit;width:75px;right:20%;}.slider-img-nav .slick-next:before{content:'Next >';color:#b20107;font-family:'Montserrat',sans-serif;font-size:14px;}.djt-popup-slider-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;background-color:#000;display:none;}.djt-popup-slider-container .djt-popup-close{position:fixed;top:15px;right:15px;color:#fff;font-size:20px;}.djt-popup-slider-container .djt-popup-close:hover{cursor:pointer;}.djt-popup-slider{width:100%;max-width:40%;margin:100px auto 0;min-width:265px;}.djt-popup-slider img{max-width:100%;margin:0 auto;}.djt-popup-slider .slick-prev:before{color:#b20107;}.djt-popup-slider .slick-next:before{color:#b20107;}@media (min-width:768px) and (max-width:960px) {.slider-img-nav .slick-prev{left:0;}.slider-img-nav .slick-next{right:0;}}.djt-link-cont{text-align:center;}.djt-link-cont .djt-nav-section-link{text-decoration:underline;font-size:14px;}</style>
+<script type="text/javascript">
+		$(function(){
+			$('.djt-big-slider').on('click', function() {$('.djt-popup-slider-container').css('display','block');});
+			$('.djt-popup-close').on('click', function() {$('.djt-popup-slider-container').css('display','none');});
+		});
+		</script>
+</head>
+<body class="internal press">
+<div id="wrapper">
+ 
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M27JCG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M27JCG');</script>
+ 
+<noscript>
+<div style="padding: 2%; width: 75%; margin: 0 auto; text-align: center; font-size: 18px; line-height: 30px;">Your browser is NOT configured correctly to visit the Donald J. Trump website. For full functionality and to utilize most of the website's capabilities you must have JavaScript enabled. Here are the <a href="http://www.enable-javascript.com" target="_blank"> instructions how to enable JavaScript in your web browser</a>.</div>
+</noscript>
+<style type="text/css">#top_container{background-color:#2b325f;height:25px;}header{background-color:#fff;}#wrapper{margin:0 auto -237px}#wrapper header{height:80px;border-top:none;border-bottom:none;}#wrapper header nav{background-color:#fff;}#wrapper header nav ul li.nav_donate{border-left:1px solid #c9c9c9;}#wrapper header nav ul li #nav_donate{background-color:#bc0000;color:#fff;}#wrapper header nav ul li a{color:#464646;}header nav ul li{border-left:1px solid #c9c9c9;}header nav ul li a{line-height:80px}header nav ul li ul{top:81px;background-image:none;}header .brand{top:4px;}header .brand:after{background:transparent;content:none;}#top_navigation ul li a{color:#fff;font-family:'Montserrat',serif!important;}.mobile_menu_icon{color:#bc0000!important;}.mobile_menu_icon span{background-color:#bc0000!important;}.mobile_menu_icon.active span{background-color:#fff!important;}.mobile_menu_icon span:before,.mobile_menu_icon span:after{background-color:#bc0000!important;}</style>
+<a href="https://vote.gop/?utm_campaign=djt_gotv_website&utm_medium=web&utm_source=djtcom&utm_content=header-button">
+<div class="djt-top-register">
+Be a Voter <img src="https://assets.donaldjtrump.com/_july16/img/djt-register-arrow@1x.png" srcset="https://assets.donaldjtrump.com/_july16/img/djt-register-arrow@2x.png">
+</div>
+</a>
+<div id="top_container">
+<div id="top_navigation">
+<ul>
+<li><a href="/schedule/">Schedule</a></li>
+<li><a href="/about/">About</a></li>
+<li><a href="/gallery/">Gallery</a></li>
+</ul>
+</div>
+</div>
+<header>
+<div class="container">
+<div class="brand">
+<a href="https://www.donaldjtrump.com/" title="Make America Great Again! | Donald J Trump for President">
+<img src="https://assets.donaldjtrump.com/vphome/tp_newer_logo.png" srcset="https://assets.donaldjtrump.com/vphome/tp_newer_logo@2x.png 2x" alt="Trump Pence Logo">
+</a>
+</div>
+<a class="mobile_menu_icon" href="javascript:;"><span></span></a>
+<nav>
+<ul>
+<li class="mobile_only"><a href="/about">About</a></li>
+<li class="mobile_only"><a href="/schedule">Schedule</a></li>
+<li class="mobile_only"><a href="/issues">Issues</a></li>
+<li>
+<a href="/policies/" class="active">Positions</a>
+<ul style="width: 340px;">
+<li><a href="/contract/">Contract with the American Voter</a></li>
+<li><a href="https://www.donaldjtrump.com/policies/child-care/">Child Care</a></li><li><a href="https://www.donaldjtrump.com/policies/constitution-and-second-amendment/">Constitution and Second Amendment</a></li><li><a href="https://www.donaldjtrump.com/policies/cyber-security/">Cybersecurity</a></li><li><a href="https://www.donaldjtrump.com/policies/economy/">Economy</a></li><li><a href="https://www.donaldjtrump.com/policies/education/">Education</a></li><li><a href="https://www.donaldjtrump.com/policies/energy/">Energy</a></li><li><a href="https://www.donaldjtrump.com/policies/foreign-policy-and-defeating-isis/">Foreign Policy and Defeating ISIS</a></li><li><a href="https://www.donaldjtrump.com/policies/health-care/">Health Care</a></li><li><a href="https://www.donaldjtrump.com/policies/immigration/">Immigration</a></li><li><a href="https://www.donaldjtrump.com/policies/an-americas-infrastructure-first-plan/">INFRASTRUCTURE</a></li><li><a href="https://www.donaldjtrump.com/policies/national-defense/">National Defense</a></li><li><a href="https://www.donaldjtrump.com/policies/regulations/">Regulations</a></li><li><a href="https://www.donaldjtrump.com/policies/tax-plan/" class="active">Tax Plan</a></li><li><a href="https://www.donaldjtrump.com/policies/trade/">Trade</a></li><li><a href="https://www.donaldjtrump.com/policies/veterans-affairs-reform/">Veterans Affairs Reform</a></li>
+</ul>
+</li>
+<li>
+<a href="/states/">States</a>
+<ul style="width: 200px;">
+<li><a href="https://www.donaldjtrump.com/states/arizona">Arizona</a></li><li><a href="https://www.donaldjtrump.com/states/colorado">Colorado</a></li><li><a href="https://www.donaldjtrump.com/states/florida">Florida</a></li><li><a href="https://www.donaldjtrump.com/states/georgia">Georgia</a></li><li><a href="https://www.donaldjtrump.com/states/indiana">Indiana</a></li><li><a href="https://www.donaldjtrump.com/states/iowa">Iowa</a></li><li><a href="https://www.donaldjtrump.com/states/maine">Maine</a></li><li><a href="https://www.donaldjtrump.com/states/michigan">Michigan</a></li><li><a href="https://www.donaldjtrump.com/states/minnesota">Minnesota</a></li><li><a href="https://www.donaldjtrump.com/states/nevada">Nevada</a></li><li><a href="https://www.donaldjtrump.com/states/new-hampshire">New Hampshire</a></li><li><a href="https://www.donaldjtrump.com/states/north-carolina">North Carolina</a></li><li><a href="https://www.donaldjtrump.com/states/ohio">Ohio</a></li><li><a href="https://www.donaldjtrump.com/states/pennsylvania">Pennsylvania</a></li><li><a href="https://www.donaldjtrump.com/states/virginia">Virginia</a></li>
+</ul>
+</li>
+<li><a href="#" class="pop_form">Get Involved</a></li>
+<li>
+<a href="/media">Media</a>
+<ul style="width: 200px;">
+<li><a href="/content-center/">Content Center</a></li>
+<li><a href="https://www.donaldjtrump.com/media/category/in-the-news">In The News</a></li><li><a href="https://www.donaldjtrump.com/media/category/video">Video</a></li><li><a href="https://www.donaldjtrump.com/media/category/speeches">Speeches</a></li>
+<li><a href="/press-releases/">Press Releases</a></li>
+<li><a href="/press-releases/category/endorsements/">Endorsements</a></li>
+</ul>
+</li>
+<li class="mobile_only"><a href="/press-releases">Press Releases</a></li>
+<li class="mobile_only"><a href="/news/category/video/">Video</a></li>
+<li class="mobile_only"><a href="/gallery">Gallery</a></li>
+<li><a href="http://shop.donaldjtrump.com">Shop</a></li>
+<li><a href="https://secure.donaldjtrump.com/donate-homepage/?amount=150&amp;utm_campaign=djt_website_donate&amp;utm_source=website&amp;utm_medium=web&amp;utm_content=top_nav" id="nav_donate">Contribute</a></li>
+</ul>
+</nav>
+<br class="clear">
+</div>
+</header>
+<section class="banner">
+<div class="banner_message">
+<h1>Tax Plan</h1>
+</div>
+<div class="banner_image">
+<img src="https://assets.donaldjtrump.com/site/about_banner2.jpg" alt="Internal Banner Image">
+</div>
+</section>
+<section class="main">
+<div class="container">
+<div class="container_left">
+<div class="press_item">
+<h2 class="djt-policy-title"></h2>
+<div class="djt-policy-section">
+<h3>DONALD J. TRUMP’S VISION</h3>
+<ul>
+<li>Reduce taxes across-the-board, especially for working and middle-income Americans who will receive a massive tax reduction.</li></ul><ul>
+<li>Ensure the rich will pay their fair share, but no one will pay so much that it destroys jobs or undermines our ability to compete.</li></ul><ul>
+<li>Eliminate special interest loopholes, make our business tax rate more competitive to keep jobs in America, create new opportunities and revitalize our economy.</li></ul><ul>
+<li>Reduce the cost of childcare by allowing families to fully deduct the average cost of childcare from their taxes, including stay-at-home parents.&nbsp;</li></ul><p><em>Read the Fact Sheet on Donald J. Trump’s Tax Policy, <a href="https://www.donaldjtrump.com/press-releases/fact-sheet-donald-j.-trumps-pro-growth-economic-policy-will-create-25-milli">here</a>.</em></p><p><em>Read Mr. Trump's Remarks at the&nbsp;</em><em><a href="https://www.donaldjtrump.com/press-releases/an-america-first-economic-plan-winning-the-global-competition">Detroit Economic Club</a> </em><em>and the&nbsp;</em><em><a href="https://www.donaldjtrump.com/press-releases/trump-delivers-speech-on-jobs-at-new-york-economic-club">New York Economic Club</a>.</em></p>
+</div>
+<div class="djt-policy-section">
+<h3>Tax Law Changes</h3>
+<p>The Trump Plan will revise and update both the individual and corporate tax codes:</p><p><u>Individual Income Tax</u></p><p style="margin-left: 20px;"><em><strong>Tax rates</strong></em></p><p style="margin-left: 20px;">The Trump Plan will collapse the current seven tax brackets to three brackets. The rates and breakpoints are as shown below. Low-income Americans will have an effective income tax rate of 0.&nbsp;The tax brackets are similar to those in the House GOP tax blueprint.</p><p style="margin-left: 40px;">Brackets &amp; <strong>Rates </strong>for Married-Joint filers:<br>Less than $75,000: <strong>12%<br></strong>More than $75,000 but less than $225,000: <strong>25%<br></strong>More than $225,000: <strong>33%<br></strong><em>*Brackets for single filers are ½ of these amounts</em></p><p style="margin-left: 20px;">The Trump Plan will retain the existing capital gains rate structure (maximum rate of 20 percent) with tax brackets shown above. Carried interest will be taxed as ordinary income.</p><p style="margin-left: 20px;">The 3.8 percent Obamacare tax on investment income will be repealed, as will the alternative minimum tax.</p><p style="margin-left: 20px;"><strong><strong><em><strong>Deductions</strong></em></strong></strong></p><p style="margin-left: 20px;">The Trump Plan will increase the standard deduction for joint filers to $30,000, from $12,600, and the standard deduction for single filers will be $15,000. The personal exemptions will be eliminated as will the head-of-household filing status.</p><p style="margin-left: 20px;">In addition, the Trump Plan will cap itemized deductions at $200,000 for Married-Joint filers or $100,000 for Single filers.</p><p style="margin-left: 20px;"><strong><strong><strong><em>Death Tax</em></strong></strong></strong></p><p style="margin-left: 20px;">The Trump Plan will repeal the death tax, but capital gains held until death and valued over $10 million will be subject to tax to exempt small businesses and family farms. To prevent abuse, contributions of appreciated assets into a private charity established by the decedent or the decedent’s relatives will be disallowed.</p><p style="margin-left: 20px;"><strong><strong><strong><em>Childcare</em></strong></strong></strong></p><p style="margin-left: 20px;">Americans will be able to take an above-the-line deduction for children under age 13 that will be capped at state average for age of child, and for eldercare for a dependent. The exclusion will not be available to taxpayers with total income over $500,000 Married-Joint /$250,000 Single, and because of the cap on the size of the benefit, working and middle class families will see the largest percentage reduction in their taxable income.</p><p style="margin-left: 20px;">The childcare exclusion would be provided to families who use stay-at-home parents or grandparents as well as those who use paid caregivers, and would be limited to 4 children per taxpayer. The eldercare exclusion would be capped at $5,000 per year. The cap would increase each year at the rate of inflation.</p><p style="margin-left: 20px;">The Trump Plan would offer spending rebates for childcare expenses to certain low-income taxpayers through the Earned Income Tax Credit (EITC). The rebate would be equal to 7.65 percent of remaining eligible childcare expenses, subject to a cap of half of the payroll taxes paid by the taxpayer (based on the lower-earning parent in a two-earner household).</p><p style="margin-left: 20px;">This rebate would be available to married joint filers earning $62,400 ($31,200 for single taxpayers) or less. Limitations on costs eligible for exclusion and the number of beneficiaries would be the same as for the basic exclusion. The ceiling would increase with inflation each year.</p><p style="margin-left: 20px;">All taxpayers would be able to establish Dependent Care Savings Accounts (DCSAs) for the benefit of specific individuals, including unborn children. Total annual contributions to a DCSA are limited to $2,000 per year from all sources, which include the account owner (parent in the case of a minor or the person establishing elder care account), immediate family members of the account owner, and the employer of the account owner. When established for children, the funds remaining in the account when the child reaches 18 can be used for education expenses, but additional contributions could not be made.</p><p style="margin-left: 20px;">To encourage lower-income families to establish DCSAs for their children, the government will provide a 50 percent match on parental contributions of up to $1,000 per year for these households. When parents fill out their taxes they can check a box to directly deposit any portion of their EITC into their Dependent Care Savings Account. All deposits and earnings thereon will be free from taxation, and unused balances can rollover from year to year.</p><p><u>Business Tax</u></p><p>The Trump Plan will lower the business tax rate from 35 percent to 15 percent, and eliminate the corporate alternative minimum tax. This rate is available to all businesses, both small and large, that want to retain the profits within the business.</p><p>It will provide a deemed repatriation of corporate profits held offshore at a one-time tax rate of 10 percent.</p><p>It eliminates most corporate tax expenditures except for the Research and Development credit.</p><p>Firms engaged in manufacturing in the US may elect to expense capital investment and lose the deductibility of corporate interest expense. An election once made can only be revoked within the first 3 years of election; if revoked, returns for prior years would need to be amended to show revised status. After 3 years, <g>election</g> is irrevocable.</p><p>The annual cap for the business tax credit for on-site childcare authorized by Sec. 205 of the Economic Growth and Tax Relief Reconciliation Act of 2001 would be increased to $500,000 per year (up from $150,000) and recapture period would be reduced to 5 years (down from 10 years).</p><p>Businesses that pay a portion of an employee’s childcare expenses can exclude those contributions from income. Employees who are recipients of direct employer subsidies would not be able to exclude those costs from the individual income tax and the costs of direct subsidies to employees could not be used as a cost eligible for the credit.</p>
+</div>
+<div class="djt-policy-section">
+<h3>CONTRAST WITH HILLARY CLINTON</h3>
+<ul>
+<li>The Trump Plan protects all low-income and middle-income Americans and lowers their taxes. As the Tax Foundation put it: “Donald Trump’s plan is a tax cut for all income groups, while Hillary Clinton’s plan is a tax increase on selected income groups”. The Tax Foundation determined that, on average, taxpayers will receive a tax cut of $1,818 under the Trump Plan, but a tax increase of $176 under the Clinton plan.&nbsp;[<a href="http://taxfoundation.org/blog/tax-foundation-distributional-estimates-what-do-they-look-dollars">Tax Foundation</a>, Sept. 23, 2016]</li></ul><ul>
+<li>Donald J. Trump’s tax plan will increase the economy and grow jobs by almost 2 million, while Hillary Clinton’s tax plan will shrink the economy and lose 300,000 jobs.&nbsp;In combination with the total economic reform agenda, the Trump economic plan will create at least 25 million jobs over the next 10 years.&nbsp;[<a href="http://taxfoundation.org/article/details-and-analysis-donald-trump-tax-reform-plan-september-2016">Tax Foundation</a>, Sept. 19, 2016], [<a href="http://taxfoundation.org/article/details-and-analysis-hillary-clinton-s-tax-proposals">Tax Foundation</a>, Jan. 26, 2016].&nbsp;</li></ul>
+</div>
+</div>
+</div>
+<div class="container_right">
+<div class="nav_section djt-policy-gallery">
+<h5>Gallery</h5>
+<div class="nav_content-title">
+<p></p>
+</div>
+<div class="slider-big-img">
+<div class="slide-img-container">
+<img class="djt-big-slider" src="//assets.donaldjtrump.com/_policies/sliders/3398/djt-policy-infographic-tax__medium.jpg">
+</div>
+<div class="slide-img-container">
+<img class="djt-big-slider" src="//assets.donaldjtrump.com/_policies/sliders/3398/djt-policy-infographic-tax2-2__medium.jpg">
+</div>
+</div>
+<div class="slider-img-nav">
+<div class="slide-img-container">
+<img src="//assets.donaldjtrump.com/_policies/sliders/3398/djt-policy-infographic-tax__small.jpg">
+</div>
+<div class="slide-img-container">
+<img src="//assets.donaldjtrump.com/_policies/sliders/3398/djt-policy-infographic-tax2-2__small.jpg">
+</div>
+</div>
+</div>
+<div class="djt-popup-slider-container">
+<div class="djt-popup-close"><span>X</span></div>
+<div class="djt-popup-slider">
+<div class="slide-img-container">
+<img src="">
+</div>
+</div>
+</div>
+<div class="nav_section djt-video-section">
+<h5>Video</h5>
+<div class="nav_content-title">
+<p>
+​An America First Economic Plan: Winning The Global Competition<br>
+<span>Detroit, Michigan<br/>
+August 8, 2016</span>
+</p>
+</div>
+<a class="djt-nav-section-link" href="https://www.youtube.com/watch?v=YHGnr7dPRU8"><img class="djt-nav-vid" src="http://img.youtube.com/vi/YHGnr7dPRU8/hqdefault.jpg"></a>
+<p class="djt-link-cont"><a class="djt-nav-section-link" href="https://www.youtube.com/watch?v=YHGnr7dPRU8">Click to Watch</a></p>
+</div>
+<div class="nav_section djt-nav-remarks">
+<h5>Remarks</h5>
+<div class="nav_content-title">
+<p>​An America First Economic Plan: Winning The Global Competition</p>
+</div>
+<p>Taxes are one of the biggest differences in this race.<br/>
+<br/>
+Hillary Clinton – who has spent her career voting for tax increases – plans another massive job-killing $1.3 trillion-dollar tax increase. Her plan would tax many small businesses by almost fifty percent.<br/>
+<br/>
+Recently, at a campaign event, Hillary Clinton short-circuited again – to use a now famous term – when she accidentally told the truth and said she wanted to raise taxes on the middle class.<br/>
+<br/>
+I am proposing an across-the-board income tax reduction, especially for middle-income Americans. This will lead to millions of new good-paying jobs.<br/>
+<br/>
+The rich will pay their fair share, but no one will pay so much that it destroys jobs, or undermines our ability to compete.<br/>
+<br/>
+As part of this reform, we will eliminate the Carried Interest Deduction and other special interest loopholes that have been so good for Wall Street investors, and people like me, but unfair to American workers.<br/>
+<br/>
+Tax simplification will be a major feature of the plan.<br/>
+<br/>
+Our current tax code is so burdensome and complex that we waste 9 billion hours a year in tax code compliance.</p>
+<p class="djt-link-cont">
+<a class="djt-nav-section-link" href="https://www.donaldjtrump.com/press-releases/an-america-first-economic-plan-winning-the-global-competition">Read More</a>
+</p>
+</div>
+</div>
+<br class="clear">
+</div>
+</section>
+<div id="push"></div>
+</div>
+<div class="djt-popup-slider-container">
+<div class="djt-popup-close"><span>X</span></div>
+<div class="djt-popup-slider">
+<div class="slide-img-container">
+<img class="djt-big-slider" src="//assets.donaldjtrump.com/_policies/sliders/3398/djt-policy-infographic-tax__large.jpg">
+</div>
+<div class="slide-img-container">
+<img class="djt-big-slider" src="//assets.donaldjtrump.com/_policies/sliders/3398/djt-policy-infographic-tax2-2__large.jpg">
+</div>
+</div>
+</div>
+<script type="text/javascript">
+			$(function(){
+				$('.djt-popup-slider').slick({
+					dots: true,
+					infinite: true,
+					speed: 500,
+					fade: true,
+					cssEase: 'linear',
+				});
+				$('.slider-big-img').slick({
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					arrows: false,
+					fade: true,
+					asNavFor: '.djt-popup-slider'
+				});
+				$('.slider-img-nav').slick({
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					asNavFor: '.slider-big-img',
+					dots: false,
+					centerMode: true,
+					focusOnSelect: true
+				});
+
+			});
+		</script>
+<footer>
+<div class="social">
+<a href="https://twitter.com/realdonaldtrump" class="social_item twitter" target="_blank">twitter</a>
+<a href="https://www.facebook.com/DonaldTrump" class="social_item facebook" target="_blank">facebook</a>
+<a href="https://instagram.com/realdonaldtrump/" class="social_item instagram" target="_blank">instagram</a>
+<a href="https://www.youtube.com/donaldtrump" class="social_item youtube" target="_blank">youtube</a>
+</div>
+<p><span class="white_box">Paid for by Donald J. Trump for President, Inc.</span></p>
+<p style="margin-bottom: 5px;"><a href="/contact/">Contact The Campaign</a> - <a href="/about/privacy-policy/">Privacy Policy</a> - Tel: <a href="tel:6467361779">646-736-1779</a></p>
+<p style="margin: 0 0 5px 0;padding: 0 10%;width: 80%;">
+*By entering your mobile number you are agreeing to receive periodic text messages from Donald J. Trump for President, Inc.<br>
+Message and data rates may apply. Text "STOP" to opt-out. T&C/Privacy Policy: <a href="https://www.donaldjtrump.com/sms-terms/88022" rel="nofollow">sms-terms/88022</a>
+</p>
+<a href="http://www.parscale.com" id="web_developer">Web Design by Giles-Parscale</a>
+ 
+<script type="text/javascript">_satellite.pageBottom();</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 962628614;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/962628614/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+ 
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">
+twttr.conversion.trackPid('nus1w', { tw_sale_amount: 0, tw_order_quantity: 0 });
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nus1w&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0"/>
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=nus1w&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0"/>
+</noscript>
+ 
+</footer>
+<div id="popup_bkg"></div>
+<div id="popup_form_wrapper">
+<div id="popup_form">
+<div id="popup_close">
+<a href="#"><img src="https://assets.donaldjtrump.com/site/close.jpg" alt="Close"></a>
+</div>
+<div id="popup_top">
+<h2><span>Sign Up</span></h2>
+<h3>To Receive Updates From Donald J. Trump</h3>
+</div>
+<div id="popup_form_items">
+<script type="text/javascript" src="//www.donaldjtrump.com/themes/third_party/forms/forms_base.js"></script><form id="new_submission" class=" sign_up" method="post" action="https://www.donaldjtrump.com/policies/tax-plan" enctype="multipart/form-data">
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="20"/>
+<input type="hidden" name="ACTU" value="94"/>
+<input type="hidden" name="FDATA" value="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"/>
+<input type="hidden" name="site_id" value="1"/>
+<input type="hidden" name="csrf_token" value="c27c803218a2671c31c357b9fecdfef047fb1b78"/>
+</div>
+<div class="dform"><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_1" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_text_input dftop_label field_first_name dform_required" id="forms_field_2" style=""><label class="dform_label" for="ddform_2">First Name <span class="req">*</span></label><div class="dform_container"><input type="text" name="fields[2]" value="" class="text required validate[required] " id="ddform_2" placeholder="" data-placeholder="" maxlength=""/></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"><div class="dform_element dform_text_input dftop_label field_last_name dform_required" id="forms_field_6" style=""><label class="dform_label" for="ddform_6">Last Name <span class="req">*</span></label><div class="dform_container"><input type="text" name="fields[6]" value="" class="text required validate[required] " id="ddform_6" placeholder="" data-placeholder="" maxlength=""/></div></div></div><br clear="all"></div></div></div><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_10" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_email dftop_label field_email_address dform_required" id="forms_field_3" style=""><label class="dform_label" for="ddform_3">Email Address <span class="req">*</span></label><div class="dform_container"><input type="email" name="fields[3]" value="" class="text  required validate[required,custom[email]] " id="ddform_3" placeholder="" data-placeholder=""/></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"><div class="dform_element dform_text_input dftop_label field_mobile_number " id="forms_field_7" style=""><label class="dform_label" for="ddform_7">Mobile Number</label><div class="dform_container"><input type="text" name="fields[7]" value="" class="text " id="ddform_7" placeholder="" data-placeholder="" maxlength=""/></div></div></div><br clear="all"></div></div></div><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_11" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_text_input dftop_label field_address " id="forms_field_4" style=""><label class="dform_label" for="ddform_4">Address</label><div class="dform_container"><input type="text" name="fields[4]" value="" class="text " id="ddform_4" placeholder="" data-placeholder="" maxlength=""/></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"><div class="dform_element dform_text_input dftop_label field_city " id="forms_field_8" style=""><label class="dform_label" for="ddform_8">City</label><div class="dform_container"><input type="text" name="fields[8]" value="" class="text " id="ddform_8" placeholder="" data-placeholder="" maxlength=""/></div></div></div><br clear="all"></div></div></div><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_12" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_select dftop_label field_state dform_required" id="forms_field_5" style=""><label class="dform_label" for="ddform_5">State <span class="req">*</span></label><div class="dform_container"><select name="fields[5]" class=" required validate[required] " id="ddform_5">
+<option value="">Please Choose</option>
+<option value="Other">Other</option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AS">American Samoa</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="GU">Guam</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="MP">Northern Marianas</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="PR">Puerto Rico</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="VI">U.S. Virgin Islands</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA">Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+</select></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"><div class="dform_element dform_text_input dftop_label field_zip_code dform_required" id="forms_field_9" style=""><label class="dform_label" for="ddform_9">Zip Code <span class="req">*</span></label><div class="dform_container"><input type="text" name="fields[9]" value="" class="text required validate[required] " id="ddform_9" placeholder="" data-placeholder="" maxlength="5"/></div></div></div><br clear="all"></div></div></div><div class="dform_element dform_columns_2 dftop_label field_columns_2 " id="forms_field_27" style=""><div class="dform_container"><div class="dfcolumns"><div class="column sortable" data-number="1" style="width:50%"><div class="dform_element dform_checkbox dftop_label field_volunteer " id="forms_field_26" style=""><div class="dform_container"><ul class="checkboxes"><li><label for="fields[26]-0"><input type="checkbox" name="fields[26][]" value="Volunteer" class="" id="fields[26]-0"/>&nbsp; I Would Like to Volunteer</label></li></ul></div></div></div><div class="column column-last sortable" data-number="2" style="width:50%"></div><br clear="all"></div></div></div><div class="dform_element dform_mailinglist dftop_label field_mailinglist " id="forms_field_24" style=""><div class="dform_container"><ul class="checkboxes"><li><label><input type="checkbox" name="fields[24]" value="yes" checked="checked"/>&nbsp;Yes, please subscribe me to the Donald J. Trump for President email list</label></li></ul></div></div><div class="dform_element dform_checkbox dftop_label field_text_messages " id="forms_field_240" style=""><div class="dform_container"><ul class="checkboxes"><li><label for="fields[240]-0"><input type="checkbox" name="fields[240][]" value="Yes" checked="checked" class="" id="fields[240]-0"/>&nbsp; Yes, please send me periodic text messages from Donald J. Trump for President</label></li></ul></div></div><div class="dform_element dform_html field_untitled " id="forms_field_241" style=""><div class="dform_container"><em>By subscribing with your mobile number you are agreeing to receive periodic text messages from Donald J. Trump for President, Inc. Message data rates may apply. Text "STOP" to opt-out. T&C/Privacy Policy: <a href="http://www.sms-terms.com/88022/" target="_blank">sms-terms.com/88022</a></em></div></div><div class="dform_element dform_textarea dftop_label field_comments " id="forms_field_23" style=""><label class="dform_label" for="ddform_23">Comments</label><div class="dform_container"><textarea name="fields[23]" cols="50" rows="4" class="" id="ddform_23" placeholder="" data-placeholder=""></textarea></div></div><div class="hiddenFields">
+<input type="hidden" name="fields[63]" value=""/>
+</div><div class="dform_element dform_captcha dftop_label field_captcha " id="forms_field_205" style=""><label class="dform_label" for="ddform_205">CAPTCHA</label><div class="dform_container"><div class="g-recaptcha" data-sitekey="6LfFRBsTAAAAAID_gT8DfxJs_9bZkSdvI3fl8ilA" data-theme="light" data-size="normal"></div><script type="text/javascript" src="https://www.google.com/recaptcha/api.js?"></script></div></div><div class="dform_element submit_button"> <div class="dform_container"><div class="dfinput_full"><input type="submit" class="submit" name="submit_button" value="Submit" data-value="Submit" data-wait="Verifying..."/></div></div></div></div></form>
+</div>
+</div>
+</div>
+</body>
+</html>

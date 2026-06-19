@@ -1,0 +1,86 @@
+# Render service + cron definitions for CampaignReceipts.com.
+# Apply via: https://render.com/docs/blueprint-spec
+# This file lives at the project root inside the monorepo's
+# companies/campaign-receipts subtree; the deployable assumes you point
+# Render at companies/campaign-receipts as the service Root Directory.
+
+services:
+  - type: web
+    name: campaign-receipts
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: NEWSLETTER_CONFIRM_SECRET
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: FEC_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+      - key: LEMONSQUEEZY_API_KEY
+        sync: false
+      - key: LEMONSQUEEZY_STORE_ID
+        sync: false
+      - key: LEMONSQUEEZY_STORE_URL
+        sync: false
+      - key: LEMONSQUEEZY_WEBHOOK_SECRET
+        sync: false
+      - key: LEMONSQUEEZY_CR_VARIANT_ID_NEWSLETTER
+        sync: false
+      - key: LEMONSQUEEZY_CR_VARIANT_ID_SOFTWARE
+        sync: false
+      - key: HUNTER_API_KEY
+        sync: false
+
+  # Master Orchestrator Cron — Runs hourly to dispatch all necessary jobs.
+  # Consolidates the previous 15 overlapping cron jobs to enforce the
+  # "one cron worker, many jobs" architecture and reduce Render hosting costs.
+  - type: cron
+    name: cr-master-orchestrator
+    runtime: node
+    rootDir: companies/campaign-receipts
+    plan: starter
+    schedule: "0 * * * *" # Runs every hour at minute 0
+    buildCommand: npm install
+    startCommand: node scripts/cron-daily.mjs --orchestrate
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: FEC_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CR_GMAIL_USER
+        sync: false
+      - key: CR_GMAIL_APP_PASSWORD
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com
+      - key: FOUNDER_DIGEST_EMAIL
+        value: alex@antoniou.net

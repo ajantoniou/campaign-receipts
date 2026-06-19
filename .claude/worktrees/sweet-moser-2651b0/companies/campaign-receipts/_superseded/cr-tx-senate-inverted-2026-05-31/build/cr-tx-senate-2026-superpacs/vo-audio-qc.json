@@ -1,0 +1,87 @@
+{
+  "chunks": [
+    {
+      "chunk": "block_00.mp3",
+      "wer": 0.018867924528301883,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 1.9% \u2264 12%"
+    },
+    {
+      "chunk": "block_01.mp3",
+      "wer": 0.027272727272727226,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 2.7% \u2264 12%"
+    },
+    {
+      "chunk": "block_02.mp3",
+      "wer": 0.032258064516129004,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 3.2% \u2264 12%"
+    },
+    {
+      "chunk": "block_03.mp3",
+      "wer": 0.03937007874015752,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 3.9% \u2264 12%"
+    },
+    {
+      "chunk": "block_04.mp3",
+      "wer": 0.012195121951219523,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 1.2% \u2264 12%"
+    },
+    {
+      "chunk": "block_05.mp3",
+      "wer": 0.005714285714285672,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 0.6% \u2264 12%"
+    },
+    {
+      "chunk": "block_06.mp3",
+      "wer": 0.02631578947368418,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 2.6% \u2264 12%"
+    },
+    {
+      "chunk": "block_07.mp3",
+      "wer": 0.02970297029702973,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 3.0% \u2264 12%"
+    },
+    {
+      "chunk": "block_08.mp3",
+      "wer": 0.03703703703703709,
+      "ok": true,
+      "banned_fail": false,
+      "banned_reason": "",
+      "detail": "WER 3.7% \u2264 12%"
+    }
+  ],
+  "names": {
+    "Paxton": true,
+    "Allred": true,
+    "Crockett": true,
+    "Nau": true,
+    "Schwarzman": true,
+    "Yass": true,
+    "Hoffman": true,
+    "Hunt": true
+  },
+  "overall_pass": true
+}

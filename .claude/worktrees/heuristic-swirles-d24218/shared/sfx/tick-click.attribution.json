@@ -1,0 +1,11 @@
+{
+  "asset": "tick-click.mp3",
+  "title": "Typewriter - single key - type 1.wav",
+  "author": "yottasounds",
+  "source_url": "https://freesound.org/people/yottasounds/sounds/380138/",
+  "preview_url": "https://cdn.freesound.org/previews/380/380138_3249786-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Classic typewriter single key — the persona's preferred 'typewriter-key flavor'. Trim to ~30-50ms and normalize to -28 dB. Pitch-randomize +/- 1 semitone in apply-sfx.mjs across digit increments so CountUps don't sound mechanical."
+}

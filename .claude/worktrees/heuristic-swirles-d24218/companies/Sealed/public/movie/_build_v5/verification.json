@@ -1,0 +1,68 @@
+{
+  "duration_target_s": 42,
+  "audio_streams": 1,
+  "rms_pass": true,
+  "rms_rows": [
+    {
+      "label": "l1-145",
+      "voice_db": -20.08222,
+      "music_db": -49.436452,
+      "diff_db": 29.354232000000003,
+      "pass": true
+    },
+    {
+      "label": "l2-slogans",
+      "voice_db": -19.439142,
+      "music_db": -41.968217,
+      "diff_db": 22.529075000000002,
+      "pass": true
+    },
+    {
+      "label": "l3-score",
+      "voice_db": -21.153544,
+      "music_db": -40.560867,
+      "diff_db": 19.407323,
+      "pass": true
+    },
+    {
+      "label": "l4-new",
+      "voice_db": -20.258944,
+      "music_db": -41.955067,
+      "diff_db": 21.696123,
+      "pass": true
+    },
+    {
+      "label": "l5-deleted",
+      "voice_db": -21.376671,
+      "music_db": -40.773934,
+      "diff_db": 19.397262999999995,
+      "pass": true
+    },
+    {
+      "label": "l6-kept",
+      "voice_db": -23.053726,
+      "music_db": -49.472275,
+      "diff_db": 26.418549000000002,
+      "pass": true
+    },
+    {
+      "label": "l7-mark",
+      "voice_db": -21.584848,
+      "music_db": -44.446519,
+      "diff_db": 22.861671,
+      "pass": true
+    }
+  ],
+  "lufs": {
+    "voice": "-16.46",
+    "music": "-17.78",
+    "master": "-15.45"
+  },
+  "motion": {
+    "i2v": {
+      "attempted": [],
+      "succeeded": [],
+      "failed": []
+    }
+  }
+}

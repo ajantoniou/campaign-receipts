@@ -1,0 +1,342 @@
+{
+  "_meta": {
+    "title": "SEALED — Who Paid To Kill The Iran Deal (long-form v6)",
+    "purpose": "Remotion/Puppeteer-only text; no FLUX stills; no Wikimedia kling-i2v faces. Fixes: KILL KILL title, 3.67% chart, DonorComparison fairness beat, scene 7 CountUps, drop Zarif/Adelson kling.",
+    "estimated_cost_usd": 1.5,
+    "canonical_script": "eng/longform-scripts/sealed-iran-deal.md",
+    "reuse_build": "companies/campaign-receipts/_build/sealed-aipac-iran-deal-v2"
+  },
+  "slug": "sealed-aipac-iran-deal-v6",
+  "total_duration_seconds": 250,
+  "vo_script_path": "eng/longform-scripts/sealed-iran-deal.md",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "clips": [
+    {
+      "clip_id": "s1-01",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s1-01.mp4",
+      "covers_script_section": "Scene 1 — flags on dark map (Sora atmospheric)"
+    },
+    {
+      "clip_id": "s1-02",
+      "duration": 4,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s1-02",
+      "expected_on_screen_text": ["WHO PAID", "KILL THE IRAN DEAL"],
+      "covers_script_section": "Scene 1 — title card (Puppeteer, not FLUX)"
+    },
+    {
+      "clip_id": "s2-01",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s2-01.mp4",
+      "expected_on_screen_text": ["3.67", "60"],
+      "covers_script_section": "Scene 2 — Remotion ChartBar enrichment"
+    },
+    {
+      "clip_id": "s2-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s2-02",
+      "expected_on_screen_text": ["3 YEARS", "CAP HELD"],
+      "covers_script_section": "Scene 2 — compliance clock"
+    },
+    {
+      "clip_id": "s2-03",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s2-03",
+      "expected_on_screen_text": ["3.67", "60"],
+      "covers_script_section": "Scene 2 — source card p.1519"
+    },
+    {
+      "clip_id": "s3-01",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Promise #73",
+        "quote": "Tear up the Iran nuclear deal.",
+        "source": "SEALED 2016 — Trump campaign promises"
+      },
+      "expected_on_screen_text": ["Promise", "Iran"],
+      "covers_script_section": "Scene 3 — promise #73 (no Trump face)"
+    },
+    {
+      "clip_id": "s3-02",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s3-02",
+      "expected_on_screen_text": ["PROMISE", "73", "KEPT"],
+      "covers_script_section": "Scene 3 — promise scorecard"
+    },
+    {
+      "clip_id": "s3-03",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s3-03.mp4",
+      "covers_script_section": "Scene 3 — rally atmospheric"
+    },
+    {
+      "clip_id": "s4-01",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Federal Register",
+        "quote": "United States withdrawal from the JCPOA announced.",
+        "page": "May 8, 2018"
+      },
+      "expected_on_screen_text": ["May", "2018"],
+      "covers_script_section": "Scene 4 — withdrawal (no signing face)"
+    },
+    {
+      "clip_id": "s4-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s4-02",
+      "expected_on_screen_text": ["MAY 8", "2018"],
+      "covers_script_section": "Scene 4 — Federal Register date"
+    },
+    {
+      "clip_id": "s4-03",
+      "duration": 12,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s4-03.mp4",
+      "covers_script_section": "Scene 4 — empty conference table"
+    },
+    {
+      "clip_id": "s5-01",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s5-01",
+      "covers_script_section": "Scene 5 — money-flow diagram (HTML)"
+    },
+    {
+      "clip_id": "s5-02b-moneyflow",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s5-02b-moneyflow.mp4",
+      "expected_on_screen_text": ["82"],
+      "covers_script_section": "Scene 5 — Remotion MoneyFlow $82M"
+    },
+    {
+      "clip_id": "s5-03",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s5-03",
+      "expected_on_screen_text": ["BUYER"],
+      "covers_script_section": "Scene 5 — The Buyer card"
+    },
+    {
+      "clip_id": "s6-01",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s6-01.mp4",
+      "expected_on_screen_text": ["13899", "Iran", "Embassy"],
+      "covers_script_section": "Scene 6 — three-for-three (Remotion SourceCard)"
+    },
+    {
+      "clip_id": "s6-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "From the record",
+        "events": [
+          { "date": "2015", "label": "JCPOA signed", "outcome": "READER" },
+          { "date": "2017", "label": "Inauguration", "outcome": "PARTIAL" },
+          { "date": "2018", "label": "Deal withdrawn", "outcome": "KEPT" }
+        ]
+      },
+      "covers_script_section": "Scene 6 — headline dates montage"
+    },
+    {
+      "clip_id": "s7-01",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s7-01.mp4",
+      "covers_script_section": "Scene 7 — sealed envelope (Sora)"
+    },
+    {
+      "clip_id": "s7-02",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "sealed",
+        "from": 0,
+        "to": 82000000,
+        "prefix": "$",
+        "label": "SHELDON ADELSON",
+        "caption": "2016 cycle · Republican-aligned committees (FEC)"
+      },
+      "expected_on_screen_text": ["82"],
+      "covers_script_section": "Scene 7 — $82M CountUp (replaces Adelson kling)"
+    },
+    {
+      "clip_id": "s7-03",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "sealed",
+        "from": 82000000,
+        "to": 218000000,
+        "prefix": "$",
+        "label": "LIFETIME TO GOP CAUSES",
+        "caption": "Reported total · FEC / OpenSecrets"
+      },
+      "expected_on_screen_text": ["218"],
+      "covers_script_section": "Scene 7 — $218M lifetime CountUp"
+    },
+    {
+      "clip_id": "s7-04",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "SEALED book",
+        "page": "ch. Drain The Swamp, p.730–798",
+        "quote": "$82 million in the 2016 cycle alone. $218 million lifetime to Republican causes.",
+        "source": "FEC · OpenSecrets"
+      },
+      "covers_script_section": "Scene 7 — source citation"
+    },
+    {
+      "clip_id": "s8-01",
+      "duration": 15,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "DonorComparison",
+      "props": {
+        "brand": "sealed",
+        "title": "Mega-donors across the spectrum",
+        "subtitle": "2016 cycle · FEC / OpenSecrets",
+        "footer": "We follow the paper.",
+        "rows": [
+          { "name": "Adelson", "amount": "$82M", "cycle": "2016", "policy": "Iran deal · embassy · EO 13899", "highlight": true },
+          { "name": "Steyer", "amount": "~$91M", "cycle": "2016", "policy": "Climate · ballot measures" },
+          { "name": "Soros", "amount": "~$25M", "cycle": "2016", "policy": "Judicial · voter access" },
+          { "name": "Bloomberg", "amount": "~$24M", "cycle": "2016", "policy": "Gun safety · climate" },
+          { "name": "Saban", "amount": "~$14M", "cycle": "2016", "policy": "Pro-Israel Democrats" },
+          { "name": "Hoffman", "amount": "~$8M", "cycle": "2016", "policy": "Tech-friendly Democrats" }
+        ]
+      },
+      "expected_on_screen_text": ["Soros", "Bloomberg", "Saban", "Hoffman", "We follow"],
+      "covers_script_section": "Scene 8 — fairness note, text-only donors"
+    },
+    {
+      "clip_id": "s8-02",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v5/s8-02-signatories.mp4",
+      "covers_script_section": "Scene 8 — JCPOA signatories Remotion (no Kerry face)"
+    },
+    {
+      "clip_id": "s9-01",
+      "duration": 15,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "AFTER WITHDRAWAL",
+        "yAxisLabel": "% U-235",
+        "maxValue": 100,
+        "bars": [
+          { "label": "Under JCPOA", "value": 3.67, "suffix": "%", "color": "#2a4d7c" },
+          { "label": "After withdrawal", "value": 60.0, "suffix": "%", "color": "#a4243b" }
+        ]
+      },
+      "expected_on_screen_text": ["3.67", "60"],
+      "cited_figures": [
+        { "figure": "3.67%", "vo_form": "three point six seven percent" },
+        { "figure": "60%", "vo_form": "sixty percent" }
+      ],
+      "covers_script_section": "Scene 9 — enrichment chart (Remotion, not FLUX 3.6.7)"
+    },
+    {
+      "clip_id": "s9-02",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s9-02.mp4",
+      "covers_script_section": "Scene 9 — lab corridor atmospheric"
+    },
+    {
+      "clip_id": "s9-03",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s9-03",
+      "expected_on_screen_text": ["60", "1519"],
+      "covers_script_section": "Scene 9 — source card"
+    },
+    {
+      "clip_id": "s10-01",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "text-card",
+      "text_card_id": "s10-01",
+      "expected_on_screen_text": ["46", "51", "40", "8"],
+      "covers_script_section": "Scene 10 — verdict scorecard"
+    },
+    {
+      "clip_id": "s10-02",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v4-norm/s10-02.mp4",
+      "expected_on_screen_text": ["KEPT"],
+      "covers_script_section": "Scene 10 — verdict stamp hero"
+    },
+    {
+      "clip_id": "s10-03",
+      "duration": 20,
+      "aspect": "16:9",
+      "vendor": "reuse",
+      "reuse_path": "_build/sealed-aipac-iran-deal-v2/clips-v5/s10-03-endcard.mp4",
+      "expected_on_screen_text": ["SEALED", "2016", "SEALED2016"],
+      "covers_script_section": "Scene 10 — end card (Remotion/OCR-verified)"
+    }
+  ],
+  "music_cues": [
+    { "start_sec": 0, "end_sec": 60, "mood": "tense piano", "cue_id": "intro" },
+    { "start_sec": 60, "end_sec": 150, "mood": "investigative strings", "cue_id": "setup" },
+    { "start_sec": 150, "end_sec": 210, "mood": "rising tension", "cue_id": "reveal" },
+    { "start_sec": 210, "end_sec": 250, "mood": "resolved outro", "cue_id": "verdict" }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "sealed-013-coal",
+  "build": "013",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-24 no-VO. BLS Jan2017→Jan2021 jobs chart + EIA plant-closure timeline. Targets WV/PA/OH voter.",
+  "no_vo": true,
+  "sync_specs": [
+    { "id": "hook",        "duration": 5.0 },
+    { "id": "blsChart",    "duration": 6.0 },
+    { "id": "plantsClose", "duration": 5.0 },
+    { "id": "rhetoric",    "duration": 5.0 },
+    { "id": "broken",      "duration": 5.0 },
+    { "id": "cta",         "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2016 trail · WV · PA · OH",
+        "quote": "Beautiful clean coal.",
+        "source": "Receipt: coal jobs down 24%."
+      }
+    },
+    "blsChart": {
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "COAL MINING JOBS — BLS",
+        "yAxisLabel": "Thousands",
+        "maxValue": 60,
+        "bars": [
+          { "label": "Jan 2017", "value": 50.3, "suffix": "K", "color": "#a4243b" },
+          { "label": "Jan 2021", "value": 38.4, "suffix": "K", "color": "#2a4d7c" }
+        ]
+      }
+    },
+    "plantsClose": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "EIA plant retirement database",
+        "quote": "More than 50 coal plants closed.",
+        "source": "Trump term · 2017-2020"
+      }
+    },
+    "rhetoric": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Bureau of Labor Statistics · CES1021210001",
+        "quote": "Rhetoric kept the promise.",
+        "source": "The spreadsheet did not."
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Bring back coal",
+        "citation": "Jobs -24% · 50+ plants closed"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

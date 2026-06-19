@@ -1,0 +1,56 @@
+{
+  "slug": "sealed-006-mexico-pays-for-wall",
+  "build": "006",
+  "verdict": "BROKEN",
+  "sync_specs": [
+    { "id": "hook", "endAnchors": ["checks", "wrote"] },
+    { "id": "receipt", "startAnchors": ["miles"], "endAnchors": ["zero", "dollars"] },
+    { "id": "verdict", "startAnchors": ["broken"], "endAnchors": ["scorecard"] },
+    { "id": "cta", "startAnchors": ["sealed"], "endAnchors": null }
+  ],
+  "segments": {
+    "hook": {
+      "broll": {
+        "model": "kling3-pro",
+        "duration": 5,
+        "aspect": "9:16",
+        "prompt": "Desert border landscape with steel barrier fence receding to horizon, dramatic late sun, slow aerial drift, no people visible, no readable signs, documentary tone."
+      },
+      "composition": "CountUp",
+      "props": { "brand": "sealed", "from": 0, "to": 0, "prefix": "$", "label": "MEXICO PAID FOR THE WALL", "caption": "Campaign promise vs receipt" }
+    },
+    "receipt": {
+      "illustration": {
+        "duration": 3.5,
+        "prompt": "Editorial cross-section illustration border barrier on desert ridge, cream technical sketch, no legible measurements text, no photoreal faces."
+      },
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "BORDER BARRIER BUILT",
+        "yAxisLabel": "Miles",
+        "maxValue": 500,
+        "bars": [
+          { "label": "BUILT", "value": 450, "suffix": "mi", "color": "#a4243b" },
+          { "label": "FULL BORDER", "value": 1950, "suffix": "mi", "color": "#2a4d7c" }
+        ]
+      }
+    },
+    "verdict": {
+      "broll": {
+        "model": "sora2",
+        "duration": 4,
+        "aspect": "9:16",
+        "prompt": "Official port of entry truck lane from elevated angle, vehicles as small shapes, neutral customs architecture, slow pan, no readable logos, no faces."
+      },
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "sealed",
+        "title": "WHO PAID?",
+        "source": { "name": "Mexico", "amount": 0, "sublabel": "Paid for the wall" },
+        "destinations": [{ "label": "Pentagon funds" }, { "label": "Emergency realloc." }]
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

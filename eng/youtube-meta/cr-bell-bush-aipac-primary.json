@@ -1,0 +1,41 @@
+{
+  "slug": "cr-bell-bush-aipac-primary",
+  "mode": "longform",
+  "program": "cr-new-news",
+  "piece_id": "cr-bell-bush-aipac-primary",
+  "privacy": "public",
+  "title": "$8 MILLION Beat Cori Bush \u2014 By Just 5 Points",
+  "title_alt": [
+    "$8M Outside Spend Beat Cori Bush \u2014 MO-1 Primary Receipt",
+    "She Lost By 5 Points After $8M In Outside Ads",
+    "Cori Bush Lost MO-1: Here's Who Paid The $8M"
+  ],
+  "thumbnail": {
+    "template": "cr-new-news",
+    "headline": "$8M",
+    "subline": "BEAT CORI BUSH\nBY 5 POINTS",
+    "verdict": "RECEIPT",
+    "portrait": "public/photos/wikipedia/cori-bush.jpg"
+  },
+  "tags": [
+    "politics",
+    "campaign finance",
+    "cori bush",
+    "wesley bell",
+    "mo-1",
+    "fec",
+    "fact check",
+    "campaign receipts",
+    "missouri",
+    "primary",
+    "outside spending",
+    "udp",
+    "aipac"
+  ],
+  "description": "Let me tell you what happened in one House district \u2014 because the numbers are public, and almost nobody walks through them in plain English.\n\nMissouri's First, August 6, 2024. Outside groups spent about $8 million in one Democratic primary. Cori Bush still lost by only five points. Not a landslide \u2014 a sliver. Here's the FEC receipt trail, in 4 minutes.\n\n\ud83d\udccb Full receipt: https://campaignreceipts.com/politician/cori-bush\n\n\u23f1 Chapters\n0:00  $8M in one House district\n0:20  Who Bush and Bell are (the real story before the money)\n1:00  What \"outside money\" actually means\n1:30  The mailer, the TV, the fine print (United Democracy Project)\n2:10  The FEC receipts \u2014 independent expenditure filings\n3:00  Election night: 51% \u2013 46%\n3:20  The punchline: a margin, not a mandate\n3:50  What to do before your next primary\n\n\ud83d\udcda Sources\n\u2022 Federal Election Commission \u2014 independent expenditure filings, United Democracy Project & allied committees, MO-1 cycle 2023\u201324\n\u2022 Missouri Secretary of State \u2014 certified Democratic primary results, August 6, 2024\n\u2022 KSDK / local news fair-use clips for results & concession\n\nCampaign Receipts is a nonpartisan campaign-finance channel. Same skepticism whichever side the money comes from. Subscribe for more receipts.\n\n#politics #campaignfinance #coribush #wesleybell #fec #factcheck #aipac",
+  "monetization": {
+    "ai_disclosure_line": "Narration: ElevenLabs Jessica (synthesized voice). Research, scripts, and commentary by Campaign Receipts.",
+    "ad_friendly_call": "yellow-expected",
+    "appeal_after": "7d / 1k views"
+  }
+}

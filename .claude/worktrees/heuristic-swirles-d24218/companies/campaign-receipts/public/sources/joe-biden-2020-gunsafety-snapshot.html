@@ -1,0 +1,423 @@
+<!-- CR-PROVENANCE
+  Source: https://joebiden.com/gunsafety/
+  Wayback Machine snapshot: https://web.archive.org/web/20200601000000/https://joebiden.com/gunsafety/
+  Nearest snapshot timestamp: 2020-06-01
+  Mirrored to CampaignReceipts.com on 2026-05-14 from the Wayback Machine via id_/ infix
+  (which returns raw archived content without Wayback wrapper chrome).
+  This file is a preserved copy of a removed/altered campaign-site policy page.
+  A fresh Wayback save was attempted on 2026-05-14 (anonymous IA Save Page Now endpoint; partial success due to IA rate limiting).
+-->
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"853c31a225",applicationID:"143000334"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M96J785');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://joebiden.com/wp-content/themes/bexc/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon-16x16.png">
+  <link rel="manifest" href="https://joebiden.com/wp-content/themes/bexc/favicons/site.webmanifest">
+  <link rel="mask-icon" href="https://joebiden.com/wp-content/themes/bexc/favicons/safari-pinned-tab.svg" color="#233f94">
+  <link rel="shortcut icon" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="https://joebiden.com/wp-content/themes/bexc/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Joe Biden&#039;s Plan to End Gun Violence | Joe Biden for President</title>
+  <script src="https://use.typekit.net/lwk5jsx.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+    
+	<!-- This site is optimized with the Yoast SEO plugin v14.0.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Joe Biden&#039;s plan to end gun violence will tackle America&#039;s gun violence head on, and treat it as the public health epidemic it is." />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<link rel="canonical" href="https://joebiden.com/gunsafety/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Joe Biden&#039;s Plan to End Gun Violence | Joe Biden for President" />
+	<meta property="og:description" content="Joe Biden&#039;s plan to end gun violence will tackle America&#039;s gun violence head on, and treat it as the public health epidemic it is." />
+	<meta property="og:url" content="https://joebiden.com/gunsafety/" />
+	<meta property="og:site_name" content="Joe Biden for President" />
+	<meta property="article:modified_time" content="2019-12-20T01:25:02+00:00" />
+	<meta property="og:image" content="https://joebiden.com/wp-content/uploads/2019/12/Gun-Violence-Epidemic_V2.png" />
+	<meta property="og:image:width" content="1600" />
+	<meta property="og:image:height" content="836" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Joe Biden&#039;s Plan to End Gun Violence | Joe Biden for President" />
+	<meta name="twitter:description" content="Joe Biden&#039;s plan to end gun violence will tackle America&#039;s gun violence head on, and treat it as the public health epidemic it is." />
+	<meta name="twitter:image" content="https://joebiden.com/wp-content/uploads/2019/12/Gun-Violence-Epidemic_V2.png" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://joebiden.com/#website","url":"https://joebiden.com/","name":"Joe Biden for President","description":"","potentialAction":[{"@type":"SearchAction","target":"https://joebiden.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://joebiden.com/gunsafety/#webpage","url":"https://joebiden.com/gunsafety/","name":"Joe Biden's Plan to End Gun Violence | Joe Biden for President","isPartOf":{"@id":"https://joebiden.com/#website"},"datePublished":"2019-09-30T11:57:25+00:00","dateModified":"2019-12-20T01:25:02+00:00","description":"Joe Biden's plan to end gun violence will tackle America's gun violence head on, and treat it as the public health epidemic it is.","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://joebiden.com/gunsafety/"]}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//joebiden.com' />
+<link rel='stylesheet' id='bexc-main-css'  href='https://joebiden.com/wp-content/themes/bexc/css/main.css?ver=0.73' type='text/css' media='all' />
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/modernizr.min.js?ver=3.6.0'></script>
+<link rel="alternate" type="application/json+oembed" href="https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Fgunsafety%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Fgunsafety%2F&#038;format=xml" />
+<link rel="alternate" href="https://joebiden.com/gunsafety/" hreflang="en" />
+<link rel="alternate" href="https://joebiden.com/es/el-plan-biden-para-terminar-nuestra-epidemia-de-violencia-con-armas-de-fuego/" hreflang="es" />
+                    <script src="https://secure.actblue.com/cf/assets/actblue.js" async></script>
+        <script>window.actBlueConfig = {styleSheetHref: "https://joebiden.com/wp-content/themes/bexc/css/actblue.css"};</script>
+            
+</head>
+
+<body class="page-template-default page page-id-1333 has-alert language-en">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M96J785"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a class="skip-link screen-reader-text" href="#main-content">Skip to content</a>
+
+      <div id="alert-bar">
+        <div class="copy-wrap">
+                            <div class="title">Enough.</div>
+                                        <div class="body"><p>
+<br />
+It’s time for us to take a hard look at uncomfortable truths.<br />
+It’s time for us to face the deep, open wound we have in this nation.<br />
+We need justice for George Floyd.<br />
+<br />
+<em>&#8211; Joe Biden</em></p>
+</div>
+                    </div>
+    </div>
+  
+  <div class="site-header-wrapper">
+    <header id="site-header" class="clearfix">
+              <div class="site-title">
+          <a href="https://joebiden.com/" rel="home">
+                        <img class="no-lazyload" src="https://joebiden.com/wp-content/themes/bexc/img/logo.svg" width="135" height="56" alt="Logo for Joe Biden for President">
+          </a>
+        </div>
+            <nav id="nav-header">
+        <ul class="top">
+          <li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="https://joebiden.com/joes-story/">Joe&#8217;s Story</a></li>
+<li id="menu-item-2198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2198"><a href="https://joebiden.com/joes-vision/">Joe&#8217;s Vision</a></li>
+<li id="menu-item-134" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-134"><a href="https://joebiden.com/take-action/">Action Center</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="https://store.joebiden.com/">Store</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="https://joebiden.com/join/">Join the Team</a></li>
+                                                                              <li class="translation"><a href="https://joebiden.com/es/el-plan-biden-para-terminar-nuestra-epidemia-de-violencia-con-armas-de-fuego/">En Español</a></li>
+                                    
+                                <li class="social">
+              <ul>
+                                                      <li><a href="https://twitter.com/joebiden">
+                      <span class="icon-twitter"></span>
+                      <span class="element-invisible">Twitter</span>
+                    </a></li>
+                                                                        <li><a href="https://www.facebook.com/joebiden">
+                      <span class="icon-facebook"></span>
+                      <span class="element-invisible">Facebook</span>
+                    </a></li>
+                                                                        <li><a href="https://www.instagram.com/joebiden">
+                      <span class="icon-instagram"></span>
+                      <span class="element-invisible">Instagram</span>
+                    </a></li>
+                                                                        <li><a href="https://www.youtube.com/joebiden">
+                      <span class="icon-youtube"></span>
+                      <span class="element-invisible">Youtube</span>
+                    </a></li>
+                                                                        <li><a href="https://medium.com/@joebiden">
+                      <span class="icon-medium"></span>
+                      <span class="element-invisible">Medium</span>
+                    </a></li>
+                                                </ul>
+            </li>
+                  </ul>
+      </nav>
+                        <a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate-button">Donate</a>
+                    <a class="burger" href="#nav-header">
+        <span class="open">Menu</span>
+        <span class="close">Close</span>
+      </a>
+    </header><!-- #site-header -->
+  </div>
+
+  <div id="main-content">
+
+<main id="main">
+
+                    <div id="donate-bar">
+    <div class="donate-bar">
+              <h2>Support Joe</h2>
+            <ul>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=5" class="button red donate">$5</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=10" class="button red donate">$10</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=20" class="button red donate">$20</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=50" class="button red donate">$50</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=100" class="button red donate">$100</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=250" class="button red donate">$250</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage&amount=500" class="button red donate">$500</a></li>
+            <li class="other"><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate">Other</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <article class="view-page post-1333 page type-page status-publish hentry">
+
+    <header class="entry-header">
+      <h1 class="entry-title">THE BIDEN PLAN TO END OUR GUN VIOLENCE EPIDEMIC</h1>
+    </header>
+    <div class="entry-content">
+      <p><span style="font-weight: 400;">Joe Biden knows that gun violence is a public health epidemic. Almost </span><a href="https://www.cdc.gov/nchs/data/nvsr/nvsr68/nvsr68_09-508.pdf"><span style="font-weight: 400;">40,000 people</span></a><span style="font-weight: 400;"> die as a result of firearm injuries every year in the United States, and many more are wounded. Some of these deaths and injuries are the result of mass shootings that make national headlines. Others are the result of daily acts of gun violence or suicides that may not make national headlines, but are just as devastating to the families and communities left behind.</span></p>
+<p><span style="font-weight: 400;">Joe Biden has taken on the National Rifle Association (NRA) on the national stage and won &#8211; twice. In 1993, he shepherded through Congress the </span><a href="https://www.congress.gov/bill/103rd-congress/house-bill/1025"><span style="font-weight: 400;">Brady Handgun Violence Prevention Act</span></a><span style="font-weight: 400;">, which established the background check system that has since kept more than </span><a href="https://www.bjs.gov/index.cfm?ty=pbdetail&amp;iid=6126"><span style="font-weight: 400;">3 million</span></a><span style="font-weight: 400;"> firearms out of dangerous hands. In 1994, Biden &#8211; along with Senator Dianne Feinstein &#8211; secured </span><a href="https://www.congress.gov/bill/103rd-congress/house-bill/3355/text"><span style="font-weight: 400;">the passage</span></a><span style="font-weight: 400;"> of 10-year bans on assault weapons and high-capacity magazines. As president, Joe Biden will defeat the NRA again.</span></p>
+<p><span style="font-weight: 400;">Joe Biden also knows how to make progress on reducing gun violence using executive action. After the tragedy at Sandy Hook Elementary School in 2012, President Obama tasked Vice President Biden with developing both legislative proposals and executive actions to make our communities safer. As a result of this effort, the Obama-Biden Administration took more than </span><a href="https://obamawhitehouse.archives.gov/issues/preventing-gun-violence"><span style="font-weight: 400;">two dozen actions</span></a><span style="font-weight: 400;">, including narrowing the so-called “gun show loophole,” increasing the number of records in the background check system, and expanding funding for mental health services.</span></p>
+<p><span style="font-weight: 400;">It’s within our grasp to end our gun violence epidemic and respect the Second Amendment, which is limited. As president, Biden will pursue constitutional, common-sense gun safety policies. Biden will:</span></p>
+<p><b>Hold gun manufacturers accountable. </b><span style="font-weight: 400;">In 2005, then-Senator Biden voted </span><a href="https://www.senate.gov/legislative/LIS/roll_call_lists/roll_call_vote_cfm.cfm?congress=109&amp;session=1&amp;vote=00219"><span style="font-weight: 400;">against</span></a><span style="font-weight: 400;"> the </span><a href="https://www.congress.gov/bill/109th-congress/senate-bill/397"><span style="font-weight: 400;">Protection of Lawful Commerce in Arms Act</span></a><span style="font-weight: 400;">, but gun manufacturers successfully lobbied Congress to secure its passage. This law protects these manufacturers from being held civilly liable for their products &#8211; a protection granted to no other industry. Biden will prioritize repealing this protection.</span></p>
+<p><b>Get weapons of war off our streets.</b><span style="font-weight: 400;"> The bans on assault weapons and high-capacity magazines that Biden, along with Senator Feinstein, secured in 1994 </span><a href="https://www.newsweek.com/assault-weapons-ban-1994-gun-rights-1461951"><span style="font-weight: 400;">reduced the lethality</span></a><span style="font-weight: 400;"> of mass shootings. But, in order to secure the passage of the bans, they had to agree to a 10-year sunset provision and when the time came, the Bush Administration failed to extend them. As president, Biden will:</span></p>
+<ul>
+<li><b>Ban the manufacture and sale of assault weapons and high-capacity magazines. <a href="https://www.fws.gov/le/hunter-responsibility.html"><span style="font-weight: 400;">Federal law</span></a><span style="font-weight: 400;"> prevents hunters from hunting migratory game birds with more than three shells in their shotgun. That means our federal law does more to protect ducks than children. It’s wrong. Joe Biden will enact legislation to once again ban assault weapons. This time, the bans will be designed based on lessons learned from the 1994 bans. For example, the ban on assault weapons will be designed to prevent manufacturers from circumventing the law by making minor changes that don’t limit the weapon’s lethality. While working to pass this legislation, Biden will also use his </span><a href="https://www.atf.gov/resource-center/docs/january-2011-importability-certain-shotgunspdf/download"><span style="font-weight: 400;">executive authority</span></a><span style="font-weight: 400;"> to ban the importation of assault weapons. </span></b></li>
+</ul>
+<ul>
+<li><strong>Regulate possession of existing assault weapons under the National Firearms Act.</strong><span style="font-weight: 400;"> Currently, the National Firearms Act requires individuals possessing machine-guns, silencers, and short-barreled rifles to undergo a background check and register those weapons with the Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF). Due to these requirements, such weapons are </span><a href="https://giffords.org/wp-content/uploads/2018/03/Giffords_GLC_assault-weapons_NFA.pdf"><span style="font-weight: 400;">rarely</span></a><span style="font-weight: 400;"> used in crimes. As president, Biden will pursue legislation to </span><a href="https://giffords.org/wp-content/uploads/2018/03/Giffords_GLC_assault-weapons_NFA.pdf"><span style="font-weight: 400;">regulate possession of existing assault weapons</span></a><span style="font-weight: 400;"> under the National Firearms Act. </span></li>
+</ul>
+<ul>
+<li><strong>Buy back the assault weapons and high-capacity magazines already in our communities.</strong> <span style="font-weight: 400;">Biden will also institute a program to buy back weapons of war currently on our streets. This will give individuals who now possess assault weapons or high-capacity magazines two options: sell the weapons to the government, or register them under the National Firearms Act.</span></li>
+</ul>
+<ul>
+<li><strong>Reduce stockpiling of weapons</strong>.<span style="font-weight: 400;"> In order to reduce the stockpiling of firearms, Biden supports </span><a href="https://marchforourlives.com/peace-plan/"><span style="font-weight: 400;">legislation</span></a><span style="font-weight: 400;"> restricting the number of firearms an individual may purchase per month to one.</span></li>
+</ul>
+<p><b>Keep guns out of dangerous hands.</b><span style="font-weight: 400;"> The federal background check system (the National Instant Criminal Background Check System) is one of the best tools we have to prevent gun violence, but it’s only effective when it’s used. Biden will enact universal background check legislation and close other loopholes that allow people who should be prohibited from purchasing firearms from making those purchases. Specifically, he will:</span></p>
+<ul>
+<li><b>Require background checks for all gun sales.<span style="font-weight: 400;"> Today, an estimated </span><a href="https://annals.org/aim/fullarticle/2595892/firearm-acquisition-without-background-checks-results-national-survey"><span style="font-weight: 400;">1 in 5</span></a><span style="font-weight: 400;"> firearms are sold or transferred without a background check. Biden will enact universal background check legislation, requiring a background check for all gun sales with very limited exceptions, such as gifts between close family members. This will close the so-called “gun show and online sales loophole” that the Obama-Biden Administration narrowed, but which cannot be fully closed by executive action alone.</span></b></li>
+</ul>
+<ul>
+<li><strong>Close other loopholes in the federal background check system.</strong><span style="font-weight: 400;"> In addition to closing the “boyfriend loophole” highlighted below, Biden will:</span></li>
+</ul>
+<ul>
+<li><strong>Reinstate the Obama-Biden policy to keep guns out of the hands of certain people unable to manage their affairs for mental reasons, which President Trump reversed.</strong> <span style="font-weight: 400;">In 2016, the Obama-Biden Administration finalized a </span><a href="https://www.federalregister.gov/documents/2016/12/19/2016-30407/implementation-of-the-nics-improvement-amendments-act-of-2007"><span style="font-weight: 400;">rule</span></a><span style="font-weight: 400;"> to make sure the Social Security Administration (SSA) sends to the background check system records that it holds of individuals who are prohibited from purchasing or possessing firearms because they have been adjudicated by the SSA as unable to manage their affairs for mental reasons. But one of the first actions Donald Trump took as president was to </span><a href="https://www.congress.gov/bill/115th-congress/house-joint-resolution/40"><span style="font-weight: 400;">reverse</span></a><span style="font-weight: 400;"> this rule. President Biden will enact legislation to codify this policy.</span></li>
+</ul>
+<ul>
+<li><strong>Close the “hate crime loophole.”</strong> <span style="font-weight: 400;">Biden will enact </span><a href="https://www.congress.gov/bill/116th-congress/house-bill/2708"><span style="font-weight: 400;">legislation</span></a><span style="font-weight: 400;"> prohibiting an individual “who has been convicted of a misdemeanor hate crime, or received an enhanced sentence for a misdemeanor because of hate or bias in its commission” from purchasing or possessing a firearm.</span></li>
+</ul>
+<ul>
+<li><strong>Close the “Charleston loophole.”</strong> The Charleston loophole allows people to complete a firearms purchase if their background check is not completed within three business days. Biden supports the proposal in the Enhanced Background Checks Act of 2019, which extends the timeline from three to 10 business days. Biden will also direct the Federal Bureau of Investigation (FBI) to put on his desk within his first 100 days as president a report detailing the cases in which background checks are not completed within 10 business days and steps the federal government can take to reduce or eliminate this occurrence.</li>
+</ul>
+<ul>
+<li><b>Close the “fugitive from justice” loophole created by the Trump Administration. </b><span style="font-weight: 400;">Because of </span><a href="https://giffords.org/2017/11/giffords-law-center-demands-answers-fbi-trump-administration-removed-fugitives-national-background-check-system-gun-sales/"><span style="font-weight: 400;">actions</span></a><span style="font-weight: 400;"> by the Trump Administration, records of almost 500,000 fugitives from justice who are prohibited from purchasing firearms were deleted from the background check system. The Biden Administration will restore these records, and enact legislation to make clear that people facing arrest warrants are prohibited from purchasing or possessing firearms.</span></li>
+</ul>
+<p><b>End the online sale of firearms and ammunitions. </b><span style="font-weight: 400;">Biden will enact </span><a href="https://marchforourlives.com/peace-plan/"><span style="font-weight: 400;">legislation</span></a><span style="font-weight: 400;"> to prohibit all online sales of firearms, ammunition, kits, and gun parts.</span></p>
+<p><b>Create an effective program to ensure individuals who become prohibited from possessing firearms relinquish their weapons. <span style="font-weight: 400;">Federal law defines categories of individuals who are prohibited from purchasing or possessing firearms, and the federal background check system is an effective tool for ensuring prohibited persons cannot purchase firearms. But we lack any serious tool to ensure that when someone becomes newly prohibited &#8211; for example, because they commit a violent crime &#8211; they relinquish possession of their firearms. There are some promising models for how this could be enforced. </span><a href="https://lawcenter.giffords.org/wp-content/uploads/2019/02/Keeping-Illegal-Guns-Out-of-Dangerous-Hands-2.19.pdf"><span style="font-weight: 400;">For example</span></a><span style="font-weight: 400;">, California has a mandatory process for ensuring relinquishment by any individual newly subject to a domestic violence restraining order. As president, Biden will direct the FBI and ATF to outline a model relinquishment process, enact any necessary legislation to ensure relinquishment when individuals newly fall under one of the federal prohibitions, and then provide technical and financial assistance to state and local governments to establish effective relinquishment processes on their own.</span></b></p>
+<p><b>Incentivize state “extreme risk” laws. </b><a href="https://www.congress.gov/bill/116th-congress/senate-bill/506/text"><span style="font-weight: 400;">Extreme risk laws</span></a><span style="font-weight: 400;">, also called “red flag” laws, enable family members or law enforcement officials to temporarily remove an individual’s access to firearms when that individual is in crisis and poses a danger to themselves or others. Biden will incentivize the adoption of these laws by giving states funds to implement them. And, he’ll direct the U.S. Department of Justice to issue best practices and offer technical assistance to states interested in enacting an extreme risk law.</span></p>
+<p><b>Give states incentives to set up gun licensing programs. </b><span style="font-weight: 400;">Biden will enact </span><a href="https://www.congress.gov/bill/116th-congress/house-bill/3285"><span style="font-weight: 400;">legislation</span></a><span style="font-weight: 400;"> to give states and local governments grants to require individuals to obtain a license prior to purchasing a gun.</span></p>
+<p><b>Adequately fund the background check system.</b><span style="font-weight: 400;"> President Obama and Vice President Biden </span><a href="https://obamawhitehouse.archives.gov/sites/default/files/docs/november_exec_actions_progress_report_final.pdf"><span style="font-weight: 400;">expanded incentives</span></a><span style="font-weight: 400;"> for states to submit records of prohibited persons into the background checks system. As president, Biden will continue to prioritize that funding and ensure that the FBI is adequately funded to accurately and efficiently handle the NICS system.</span></p>
+<table>
+<tbody>
+<tr>
+<td><b><i>ADDRESSING THE DEADLY COMBINATION OF GUNS AND DOMESTIC VIOLENCE</i></b></p>
+<p><span style="font-weight: 400;">The statistics tell a devastating and overwhelming story. The likelihood that a woman in a domestic violence situation will be killed increases by a </span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1447915/"><span style="font-weight: 400;">factor of five</span></a><span style="font-weight: 400;"> if a gun is nearby. </span><a href="https://everytownresearch.org/reports/mass-shootings-analysis/"><span style="font-weight: 400;">Half</span> </a><span style="font-weight: 400;">of mass shootings involve an individual shooting a family member or former intimate partner. This deadly connection tragically impacts children as well: </span><a href="https://everytownresearch.org/reports/mass-shootings-analysis/"><span style="font-weight: 400;">86%</span></a><span style="font-weight: 400;"> of children killed in shootings with four or more victims were involved in domestic or family violence.</span></p>
+<p><span style="font-weight: 400;">Biden recognizes that the gun violence and domestic violence epidemics are linked and cannot be solved in isolation. Addressing the interconnectedness of these challenges will be a core focus of Biden’s anti-violence work as president. </span></p>
+<p><span style="font-weight: 400;">The </span><a href="https://www.congress.gov/bill/116th-congress/house-bill/1585"><span style="font-weight: 400;">Violence Against Women Reauthorization Act of 2019</span></a><span style="font-weight: 400;">, which Leader McConnell refuses to bring to the floor for a vote, includes a number of reforms to keep firearms out of the hands of abusers. Senator McConnell should ensure this legislation gets passed long before President Biden would take the oath of office. But if McConnell refuses to act, Biden will enact legislation to close the so-called “boyfriend loophole” and “stalking loophole” by prohibiting all individuals convicted of assault, battery, or stalking from purchasing or possessing firearms, regardless of their connection to the victim. This proposal is modeled after existing </span><a href="https://lawcenter.giffords.org/gun-laws/policy-areas/who-can-have-a-gun/domestic-violence-firearms/#federal"><span style="font-weight: 400;">laws</span></a><span style="font-weight: 400;"> in California, Connecticut, Hawaii, Nevada, New York, and Pennsylvania. Biden also supports enacting the </span><a href="https://www.congress.gov/bill/116th-congress/house-bill/1585"><span style="font-weight: 400;">proposal</span></a><span style="font-weight: 400;"> to prohibit anyone under a temporary restraining order from purchasing or possessing a firearm before their hearing.</span></p>
+<p><span style="font-weight: 400;">In addition, President Biden will:</span></p>
+<ul>
+<li style="font-weight: 400;"><b>Establish a new Task Force on Online Harassment and Abuse to focus on the connection between mass shootings, online harassment, extremism, and violence against women. </b><span style="font-weight: 400;">As President, Joe Biden will convene a national Task Force with federal agencies, state leaders, advocates, law enforcement, and technology experts to study rampant online sexual harassment, stalking, and threats, including revenge porn and deepfakes — and the connection between this harassment, mass shootings, extremism and violence against women. The Task Force will be charged with developing cutting-edge strategies and recommendations for how federal and state governments, social media companies, schools, and other public and private entities can tackle this unique challenge. The Task Force will consider platform accountability, transparent reporting requirements for incidents of harassment and response, and best practices. </span></li>
+</ul>
+<ul>
+<li style="font-weight: 400;"><b>Expand the use of evidence-based lethality assessments by law enforcement in cases of domestic violence.</b><span style="font-weight: 400;"> Lethality assessments, sometimes called “risk” or “danger” assessments, are a proven strategy to help law enforcement officers identify domestic violence survivors who are at high risk of being killed by their abusers. These survivors are then connected with social service programs that can offer services and safety planning. An evaluation of the Lethality Assessment Program (LEP) created by the Maryland Network Against Domestic Violence showed promising results. Increased federal funding will incentivize jurisdictions to take advantage of implementing these programs more widely.</span></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><b>Make sure firearm owners take on the responsibility of ensuring their weapons are used safely.</b></p>
+<ul>
+<li><b>Put America on the path to ensuring that 100% of firearms sold in America are smart guns. <span style="font-weight: 400;">Today, we have the technology to allow only authorized users to fire a gun. For example, existing smart gun technology requires a fingerprint match before use. Biden believes we should work to eventually require that 100% of firearms sold in the U.S. are smart guns. But, right now the NRA and gun manufacturers are bullying firearms dealers who try to sell these guns. Biden will stand up against these bullying tactics and issue a call to action for gun manufacturers, dealers, and other public and private entities to take steps to accelerate our transition to smart guns.</span></b></li>
+</ul>
+<ul>
+<li><b>Hold adults accountable for giving minors access to firearms. </b><span style="font-weight: 400;">Biden supports </span><a href="https://lawcenter.giffords.org/gun-laws/policy-areas/child-consumer-safety/child-access-prevention/"><span style="font-weight: 400;">legislation</span> </a><span style="font-weight: 400;">holding adults criminally and civilly liable for directly or negligently giving a minor access to a firearm, regardless of whether the minor actually gains possession of the firearm.</span></li>
+</ul>
+<ul>
+<li><b></b><b>Require gun owners to safely store their weapons. </b><span style="font-weight: 400;">Biden will pass legislation requiring firearm owners to store weapons safely in their homes. </span></li>
+</ul>
+<p><b>Empower law enforcement to effectively enforce our gun laws.</b></p>
+<ul>
+<li><b>Prioritize prosecution of straw purchasers. <span style="font-weight: 400;">“Straw purchasers” buy a firearm on behalf of an individual who cannot pass a background check. Biden will end those loopholes by enacting a law to make all straw purchases a serious federal crime and ensure the U.S. Justice Department has sufficient resources to prioritize their prosecution.</span></b></li>
+</ul>
+<ul>
+<li><b>Notify law enforcement when a potential firearms purchaser fails a background check.</b><span style="font-weight: 400;"> Too often, when prohibited persons attempting to buy a firearm fail a background check, state and local law enforcement is never informed of the attempt. As president, Biden will direct the FBI to set up a process to ensure timely notification of denials to state and local law enforcement, and he’ll support </span><a href="https://www.congress.gov/bill/116th-congress/senate-bill/875"><span style="font-weight: 400;">legislation</span></a><span style="font-weight: 400;"> to codify this process. This empowers law enforcement to follow up and ensure prohibited persons do not attempt to acquire firearms through other means.</span></li>
+</ul>
+<ul>
+<li><b>Require firearms owners to report if their weapon is lost or stolen.</b><span style="font-weight: 400;"> Responsible gun owners have a responsibility to inform law enforcement if their weapon is lost or stolen. Biden will enact legislation to make this the law of the land.</span></li>
+</ul>
+<ul>
+<li><b>Stop “ghost guns.” </b><span style="font-weight: 400;">One way people who cannot legally obtain a gun may gain access to a weapon is by assembling a one on their own, either by buying a kit of disassembled gun parts or 3D printing a working firearm. Biden will stop the proliferation of these so-called “ghost guns” by passing legislation requiring that purchasers of gun kits or 3D printing code pass a federal background check. Additionally, Biden will ensure that the authority for firearms exports stays with the State Department, and if needed reverse a </span><a href="https://www.forumarmstrade.org/uploads/1/9/0/8/19082495/giffords_exports_letter_7-9-18.pdf"><span style="font-weight: 400;">proposed rule</span></a><span style="font-weight: 400;"> by President Trump. This will ensure the State Department continues to block the code used to 3D print firearms from being made available on the Internet.</span></li>
+</ul>
+<ul>
+<li><b>Reform, fund, and empower the U.S. Justice Department to enforce our gun laws.<span style="font-weight: 400;"> Biden will direct his Attorney General to deliver to him within his first 100 days a set of recommendations for restructuring the ATF and related Justice Department agencies to most effectively enforce our gun laws. Biden will then work to secure sufficient funds for the Justice Department to effectively enforce our existing gun laws, increase the frequency of inspections of firearms dealers, and repeal riders that get in the way of that work.</span></b></li>
+</ul>
+<ul>
+<li><b>Direct the ATF to issue an </b><a href="https://giffords.org/wp-content/uploads/2019/07/Addressing-Gun-Violence-in-America%E2%80%94Policy-Solutions-and-Ideas-to-Build-a-Safer-Future-in-2020%E2%80%94Giffords.pdf"><b>annual report</b></a><b> on firearms trafficking.</b><span style="font-weight: 400;"> This report will provide officials with critical information to better identify strategies for curbing firearms trafficking.</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<td><b><i>TACKLE URBAN GUN VIOLENCE WITH TARGETED, EVIDENCE-BASED COMMUNITY INTERVENTIONS</i></b></p>
+<p><span style="font-weight: 400;">Daily acts of gun violence in our communities may not make national headlines, but are just as devastating to survivors and victims’ families as gun violence that does make the front page. And, these daily acts of gun violence disproportionately impact communities of color. But there is reason to be optimistic. There are </span><a href="https://lawcenter.giffords.org/wp-content/uploads/2019/01/Healing-Communities-in-Crisis.pdf"><span style="font-weight: 400;">proven strategies</span></a><span style="font-weight: 400;"> for reducing gun violence in urban communities without turning to incarceration. For example, </span><a href="https://lawcenter.giffords.org/wp-content/uploads/2019/01/Healing-Communities-in-Crisis.pdf"><span style="font-weight: 400;">Group Violence Intervention</span></a><span style="font-weight: 400;"> organizes community leaders to work with individuals most likely to commit acts of gun violence, express the community’s demand that the gun violence stop, and connect individuals who may be likely perpetrators with social and economic support services that may deter violent behavior. These types of interventions have reduced homicides by as much as </span><a href="https://lawcenter.giffords.org/wp-content/uploads/2019/01/Healing-Communities-in-Crisis.pdf"><span style="font-weight: 400;">60%</span></a><span style="font-weight: 400;">. </span><a href="https://lawcenter.giffords.org/wp-content/uploads/2019/01/Healing-Communities-in-Crisis.pdf"><span style="font-weight: 400;">Hospital-Based Violence Intervention</span></a><span style="font-weight: 400;"> engages young people who have been injured by gun violence while they are still in the hospital, connecting them to social and economic services that may decrease the likelihood they engage in or are victims of gun violence in the future. Biden will create a </span><a href="https://www.thetrace.org/2019/07/we-cant-end-inequality-until-we-stop-urban-gun-violence/"><span style="font-weight: 400;">$900 million, eight-year initiative</span></a><span style="font-weight: 400;"> to fund these and other types of evidence-based interventions in 40 cities across the country &#8211; the 20 cities with the highest number of homicides, and 20 cities with the highest number of homicides per capita. This proposal is </span><a href="https://www.thetrace.org/2019/07/we-cant-end-inequality-until-we-stop-urban-gun-violence/"><span style="font-weight: 400;">estimated to save more than 12,000 lives</span></a><span style="font-weight: 400;"> over the eight-year program.</span></td>
+</tr>
+</tbody>
+</table>
+<p><b>Dedicate the brightest scientific minds to solving the gun violence public health epidemic. </b><span style="font-weight: 400;">In 2013, President Obama issued a </span><a href="https://obamawhitehouse.archives.gov/the-press-office/2013/01/16/presidential-memorandum-engaging-public-health-research-causes-and-preve"><span style="font-weight: 400;">memorandum</span></a><span style="font-weight: 400;"> clarifying that a longstanding appropriations rider that prohibited the Centers for Disease Control and Prevention (CDC) and other federal scientific agencies from using federal dollars to “</span><a href="https://www.jec.senate.gov/public/_cache/files/0061b4e8-6a15-4bea-b9c4-a99ede7180f2/gun-violence-backgrounder-final.pdf"><span style="font-weight: 400;">advocate or promote gun control</span></a><span style="font-weight: 400;">” does not prohibit those agencies from researching the causes and prevention of gun violence. The National Institutes of Health (NIH) subsequently </span><a href="https://www.nih.gov/news-events/news-releases/nih-calls-research-projects-examining-violence"><span style="font-weight: 400;">embarked</span></a><span style="font-weight: 400;"> on funding some of this research, though Republican leadership in Congress refused to appropriate any funds to the CDC for this work. Biden will call for Congress to appropriate </span><a href="https://www.congress.gov/bill/116th-congress/house-bill/2740"><span style="font-weight: 400;">$50 million</span></a><span style="font-weight: 400;"> to accelerate this research at the CDC and NIH. </span></p>
+<p><b>Prohibit the use of federal funds to arm or train educators to discharge firearms.</b><span style="font-weight: 400;"> We should be passing rational gun laws, not requiring educators who already have too much on their plates to also protect the safety of their students. Biden supports barring states from using federal dollars to arm or train educators to discharge firearms.</span></p>
+<p><b>Address the epidemic of suicides by firearms. </b><span style="font-weight: 400;">Biden believes any plan to address the gun violence epidemic must address suicides by firearms, which account for </span><a href="https://www.cdc.gov/nchs/data/nvsr/nvsr68/nvsr68_09-508.pdf"><span style="font-weight: 400;">6 in 10</span></a><span style="font-weight: 400;"> gun-related deaths but are often left out of the conversation. Many of the policies noted above &#8211; including safe storage requirements and extreme risk protection orders &#8211; will have a serious impact on efforts to reduce gun violence. But there’s so much more we need to do to support people experiencing suicidal ideation. In the months ahead, Biden will put forward a comprehensive plan to improve access to mental health services.</span></p>
+<table>
+<tbody>
+<tr>
+<td><b><i>SUPPORTING SURVIVORS OF VIOLENCE AND THEIR COMMUNITIES</i></b></p>
+<p><span style="font-weight: 400;">Violence causes ripples of trauma throughout our communities, impacting not just the victims of violence but also their communities and first responders. Fear of school shootings is having a </span><a href="https://www.apa.org/news/press/releases/stress/2018/stress-gen-z.pdf"><span style="font-weight: 400;">noticeable impact</span></a><span style="font-weight: 400;"> on the mental health of Gen Z. Intimate partner violence is </span><a href="https://www.cdc.gov/violenceprevention/intimatepartnerviolence/fastfact.html"><span style="font-weight: 400;">linked</span></a><span style="font-weight: 400;"> to depression, post-traumatic stress, and other mental health challenges among survivors. And, this trauma can be intergenerational. Science now </span><a href="https://www.futureswithoutviolence.org/children-youth-teens/changing-minds-the-campaign-to-end-childhood-trauma/"><span style="font-weight: 400;">shows</span></a><span style="font-weight: 400;"> that young children who witness violence &#8211; including in their home &#8211; literally alters the parts of their brains that affect “</span><a href="https://www.futureswithoutviolence.org/children-youth-teens/changing-minds-the-campaign-to-end-childhood-trauma/"><span style="font-weight: 400;">reasoning, planning, and behavioral control</span></a><span style="font-weight: 400;">.”</span></p>
+<p><span style="font-weight: 400;">We need to reduce violence to prevent trauma from happening in the first place. But we also must treat the resulting trauma as a serious crisis in its own right.</span></p>
+<p><span style="font-weight: 400;">As president, Biden will:</span></p>
+<ul>
+<li><b>Make federal programs more trauma-informed. </b><span style="font-weight: 400;">During his first 100 days, Biden will direct his Cabinet to conduct a review of all federal programs that directly serve communities likely to experience violence and identify reforms to make sure those programs effectively address resulting trauma. Biden will then invest significant federal funds in expanding and improving the federal government’s support for trauma-informed and culturally responsive care.</span></li>
+</ul>
+<ul>
+<li><b>Create a network of trauma care centers</b><span style="font-weight: 400;">. Biden will bring together offices within the federal government to establish specialized trauma care centers for survivors of violence, with a special focus on survivors of domestic and sexual violence. Domestic violence services are focused on meeting the emergency needs of survivors, including safety planning and crisis intervention. As a result, frontline providers lack the resources they need to offer therapeutic services to help survivors heal from trauma. These trauma care centers will be flexible in meeting the needs of communities, and could be housed at rape crisis centers, domestic violence programs, universities, and existing mental health centers.</span></li>
+</ul>
+<ul>
+<li><b>Train health care and other service providers in trauma-centered care.</b><span style="font-weight: 400;"> To prevent revictimization and secondary trauma, Biden will align training efforts throughout relevant federal programs to include a focus on understanding the traumatic effects of violence, providing appropriate care to avoid furthering the trauma, linking survivors with evidence-based trauma therapies, and reducing myths about domestic and sexual violence. This will be accomplished through agency directives, policy guidance, and special conditions for grantees and contractors.</span></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+    </div>
+  </article>
+
+
+</main><!-- #main -->
+
+
+</div><!-- #main-content -->
+
+<footer id="site-footer" class="clearfix">
+
+  <div class="site-footer__column site-footer__column--a">
+
+              <form name="signup" class="bsd-signup" action="https://go.joebiden.com/page/s/join_the_team" data-ajax="https://go.joebiden.com/page/sapi/join_the_team" method="post">
+
+        <div class="form-inline clearfix">
+          <div class="fieldset" id="bsd-field-email-footer">
+            <div class="label"><label class="field" for="email-footer">Email Address</label></div>
+            <div class="input"><input type="email" class="text" size="48" id="email-footer" name="email" required="required"></div>
+          </div>
+
+          <div class="fieldset" id="bsd-field-zip-footer">
+            <div class="label"><label class="field" for="zip-footer">ZIP Code</label></div>
+            <div class="input"><input size="8" id="zip-footer" name="zip" type="text" class="text" required="required"></div>
+          </div>
+        </div>
+
+        <div class="form-inline clearfix">
+          <div class="fieldset" id="bsd-field-mobile-footer">
+            <div class="label"><label class="field" for="mobile-footer">Mobile Phone</label></div>
+            <div class="input"><input type="tel" class="text" size="15" id="mobile-footer" name="mobile"></div>
+          </div>
+
+          <div class="form-submit">
+            <button class="button" data-submitting="Adding"  data-success="Success">
+              <div class="text">Join Us</div>
+              <div class="submitting"></div>
+              <div class="success"><span class="icon-check"></span></div>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    
+    <nav id="nav-footer">
+        <ul class="menu clearfix">
+        <li id="menu-item-1134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1134"><a href="https://joebiden.com/accessibility/">Accessibility</a></li>
+<li id="menu-item-357" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-357"><a href="https://jobs.lever.co/joebiden">Work with Us</a></li>
+<li id="menu-item-801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-801"><a href="https://go.joebiden.com/page/s/contact-us">Contact Us</a></li>
+<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="https://joebiden.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-567" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-567"><a href="https://joebiden.com/terms/">Terms and Conditions</a></li>
+<li id="menu-item-2532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2532"><a href="https://joebiden.com/limited-license/">Limited License</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="site-footer__column site-footer__column--b">
+              <ul class="social">
+                              <li><a href="https://twitter.com/joebiden">
+              <span class="icon-twitter"></span>
+              <span class="element-invisible">Twitter</span>
+            </a></li>
+                                        <li><a href="https://www.facebook.com/joebiden">
+              <span class="icon-facebook"></span>
+              <span class="element-invisible">Facebook</span>
+            </a></li>
+                                        <li><a href="https://www.instagram.com/joebiden">
+              <span class="icon-instagram"></span>
+              <span class="element-invisible">Instagram</span>
+            </a></li>
+                                        <li><a href="https://www.youtube.com/joebiden">
+              <span class="icon-youtube"></span>
+              <span class="element-invisible">Youtube</span>
+            </a></li>
+                                        <li><a href="https://medium.com/@joebiden">
+              <span class="icon-medium"></span>
+              <span class="element-invisible">Medium</span>
+            </a></li>
+                        </ul>
+    
+          <div class="disclaimer">Paid for by Biden for President.</div>
+    
+          <div class="footer-text"><p>Support our presidential campaign to elect Joe Biden by signing up to <a href="https://go.joebiden.com/page/s/volunteer">volunteer</a> or making a <a href="https://joebiden.com/donate">donation online</a>.</p>
+<p>To contribute by mail, please <a href="https://joebiden.com/contribute-by-mail/">click here</a></p>
+<p>By providing your mobile phone number you consent to receive recurring text messages from Biden for President. Message &amp; Data Rates May Apply. Text HELP for Info. Text STOP to opt out. <a href="https://joebiden.com/terms/" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://joebiden.com/terms/&amp;source=gmail&amp;ust=1581725443991000&amp;usg=AFQjCNEsUlicPhXgHi_AP5JqaKbJjV-rcw">Terms and Conditions</a> and <a href="https://joebiden.com/privacy-policy//" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://joebiden.com/privacy-policy//&amp;source=gmail&amp;ust=1581725443991000&amp;usg=AFQjCNFOyAJ7Sl2zluxSS9XBL0rgPs5INg">Privacy Policy.</a></p>
+</div>
+    
+    <div class="site-footer__copyright">&copy; Copyright 2020. All rights reserved.</div>
+  </div>
+
+</footer><!-- #site-footer -->
+
+            <script type="text/javascript">
+      var modal_expires = 0;
+            var modal_cookie = 'modal-lightbox';
+            </script>
+
+              <div class="modal-wrapper modal-wrapper--donation" id="modal">
+          <div class="modal-container">
+            <div class="modal">
+              <div class="modal-outer">
+                <div class="modal-inner">
+                  <a class="close modal-close" href="#site-header">Continue to JoeBiden.com</a>
+                  <h2>
+                                          <div class="title">JOE BIDEN IS THE PRESUMPTIVE NOMINEE</div>
+                                                                                  <div class="subtitle">Joe Biden will defeat Donald Trump, but he needs your help to do it- starting with our May deadline. With only 3 days left, chip in today to make sure we hit our goal by midnight on Sunday.</div>
+                                                          </h2>
+                                      <div class="form actblue-form-embed" data-ab-form="true" data-ab-token="wP7LdpCeYwHgoXgGk9ww4JXX">
+                      <a href="https://secure.actblue.com/donate/biden2020_search_embed_a?refcode=lightbox">Donate</a>
+                    </div>
+                                  </div>
+              </div>
+                              <div class="background" style="background-image: url(https://joebiden.com/wp-content/uploads/2019/11/join-overlay-2-optimized.jpg);"></div>
+                            <img class="logo no-lazyload" src="https://joebiden.com/wp-content/themes/bexc/img/logo-white.svg" width="135" height="56" alt="Logo for Joe Biden for President">
+
+            </div>
+          </div>
+        </div>
+
+            
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='https://joebiden.com/wp-content/themes/bexc/js/min/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+
+<style>.lazyload,.lazyloading{opacity:0;}.lazyloaded{opacity:1;transition:opacity 300ms;}</style><noscript><style>.lazyload{display:none;}</style></noscript><script data-noptimize="1">window.lazySizesConfig=window.lazySizesConfig||{};window.lazySizesConfig.loadMode=1;</script><script async data-noptimize="1" src='https://joebiden.com/wp-content/plugins/autoptimize/classes/external/js/lazysizes.min.js?ao_version=2.7.0'></script><script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/plugins.min.js?ver=0.73'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/main.min.js?ver=0.73'></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"853c31a225","applicationID":"143000334","transactionName":"MVxbNkICCxEEVUZaWwgWeAFECgoMSkZTVFE=","queueTime":0,"applicationTime":395,"atts":"HRtYQAoYGB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

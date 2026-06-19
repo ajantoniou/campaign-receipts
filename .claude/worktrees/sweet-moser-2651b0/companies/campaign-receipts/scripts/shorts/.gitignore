@@ -1,0 +1,13 @@
+# Build artifacts — large intermediate files (fal i2v raw clips, captioned
+# intermediates, music-only renders, master mp4s, overlay PNGs).
+# Final published mp4 lives in public/shorts/ which IS committed.
+_build/*/i2v-*.mp4
+_build/*/seg-*.mp4
+_build/*/motion-base.mp4
+_build/*/captioned.mp4
+_build/*/master.mp4
+_build/*/mix.m4a
+_build/*/music-only.m4a
+_build/*/visual.mp4
+_build/*/concat-list.txt
+_build/*/_overlays/captions/

@@ -1,0 +1,514 @@
+{
+  "_meta": {
+    "title": "CR new-news \u2014 $3.5M Lost to Rabb (PA-3 Democratic primary)",
+    "purpose": "Third episode in the AIPAC-money playbook series. A 91-day-old Delaware shell (Kimbark Foundation) wired $500K into 314 Action Fund, which spent $3.5M backing Dr. Ala Stanford. Rabb still won by 15. Pattern: Bush LOST ($8.5M), Massie LOST ($15.8M), Rabb WON (vs $3.5M). The shell lost \u2014 not AIPAC.",
+    "pillar": "donors_races",
+    "estimated_cost_usd": 0.0,
+    "canonical_script": "eng/scripts/cr-new-news/cr-rabb-pa3-aipac-defeat-vo.txt",
+    "deep_link": "https://campaignreceipts.com/race/pa-3-2026"
+  },
+  "slug": "cr-rabb-pa3-aipac-defeat",
+  "program": "cr-new-news",
+  "remotion_episode": "cr-rabb-pa3-aipac-defeat",
+  "total_duration_seconds": 285,
+  "vo_script_path": "eng/scripts/cr-new-news/cr-rabb-pa3-aipac-defeat-vo.txt",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "thumbnail": {
+    "template": "cr-new-news",
+    "headline": "$500K",
+    "subline": "STOPPED A.I.P.A.C. SHELL",
+    "verdict": "RECEIPT",
+    "bg": "navy",
+    "portrait": "public/photos/wikipedia/chris-rabb.jpg"
+  },
+  "beats": [
+    {
+      "beat_id": "hook",
+      "label": "Hook \u2014 Delaware shell",
+      "start_sec": 0,
+      "end_sec": 28
+    },
+    {
+      "beat_id": "result",
+      "label": "Certified result PA-3",
+      "start_sec": 28,
+      "end_sec": 70
+    },
+    {
+      "beat_id": "po-box",
+      "label": "P.O. box reveal \u2014 Kimbark",
+      "start_sec": 70,
+      "end_sec": 130
+    },
+    {
+      "beat_id": "moneyflow",
+      "label": "314 Action spend on Stanford",
+      "start_sec": 130,
+      "end_sec": 185
+    },
+    {
+      "beat_id": "pattern",
+      "label": "Bush / Massie / Rabb pattern",
+      "start_sec": 185,
+      "end_sec": 235
+    },
+    {
+      "beat_id": "what-changed",
+      "label": "AOC + Hasan",
+      "start_sec": 235,
+      "end_sec": 257
+    },
+    {
+      "beat_id": "verdict",
+      "label": "Verdict \u2014 shell lost",
+      "start_sec": 257,
+      "end_sec": 275
+    },
+    {
+      "beat_id": "cta",
+      "label": "CTA \u2014 lesson",
+      "start_sec": 275,
+      "end_sec": 285
+    }
+  ],
+  "clips": [
+    {
+      "clip_id": "hook-01-stanford-portrait",
+      "beat_id": "hook",
+      "duration": 6,
+      "aspect": "16:9",
+      "covers_script_section": "HOOK \u2014 pediatric surgeon came in third",
+      "vendor": "politician-caricature",
+      "caricature_slug": "ala-stanford",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "hook-02-rabb-portrait",
+      "beat_id": "hook",
+      "duration": 6,
+      "aspect": "16:9",
+      "covers_script_section": "State rep who beat her \u2014 Chris Rabb",
+      "vendor": "politician-caricature",
+      "caricature_slug": "chris-rabb",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "hook-03-kimbark-reveal",
+      "beat_id": "hook",
+      "duration": 16,
+      "aspect": "16:9",
+      "covers_script_section": "Kimbark Foundation \u2014 91 days old \u2014 $500K",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "Kimbark Foundation \u00b7 Delaware \u00b7 incorporated Dec 19, 2025",
+        "quote": "91 days old when it wired $500,000 to the PAC backing the surgeon."
+      }
+    },
+    {
+      "clip_id": "result-01-pa3-bar",
+      "beat_id": "result",
+      "duration": 22,
+      "aspect": "16:9",
+      "covers_script_section": "PA-3 certified result \u2014 Rabb 44 / Street 30 / Stanford 24",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "PA-3 Democratic primary \u00b7 certified",
+        "yAxisLabel": "Vote share (%)",
+        "maxValue": 50,
+        "bars": [
+          {
+            "label": "Chris Rabb",
+            "value": 44,
+            "suffix": "%",
+            "color": "#0a1f3d"
+          },
+          {
+            "label": "Sharif Street",
+            "value": 30,
+            "suffix": "%",
+            "color": "#5b6478"
+          },
+          {
+            "label": "Ala Stanford",
+            "value": 24,
+            "suffix": "%",
+            "color": "#a4243b"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "Rabb",
+        "Street",
+        "Stanford"
+      ]
+    },
+    {
+      "clip_id": "result-02-street-portrait",
+      "beat_id": "result",
+      "duration": 6,
+      "aspect": "16:9",
+      "covers_script_section": "State Senator Sharif Street",
+      "vendor": "politician-caricature",
+      "caricature_slug": "sharif-street",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "result-03-stanford-portrait",
+      "beat_id": "result",
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "Free COVID testing tents \u2014 Dr. Stanford",
+      "vendor": "politician-caricature",
+      "caricature_slug": "ala-stanford",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "result-04-evans-portrait",
+      "beat_id": "result",
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "Dwight Evans retiring \u2014 open seat",
+      "vendor": "politician-caricature",
+      "caricature_slug": "dwight-evans",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "po-box-01-generative",
+      "beat_id": "po-box",
+      "duration": 12,
+      "aspect": "16:9",
+      "covers_script_section": "Picture a single P.O. box in Wilmington, Delaware",
+      "vendor": "reuse",
+      "reuse_path": "_build/cr-rabb-pa3-aipac-defeat/clips/ch-03-po-box.mp4"
+    },
+    {
+      "clip_id": "po-box-02-kimbark-flow",
+      "beat_id": "po-box",
+      "duration": 34,
+      "aspect": "16:9",
+      "covers_script_section": "Kimbark money flow \u2014 2 gifts, $1M, then nothing",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Kimbark Foundation \u2014 two gifts, then nothing",
+        "source": {
+          "name": "Kimbark Foundation",
+          "amount": 1000000,
+          "sublabel": "Delaware nonprofit \u00b7 incorporated Dec 19, 2025"
+        },
+        "destinations": [
+          {
+            "label": "$500K \u2192 EDW Action Fund",
+            "outcome": "Day 65 \u00b7 first-ever gift"
+          },
+          {
+            "label": "$500K \u2192 314 Action Fund",
+            "outcome": "Day 91 \u00b7 federal PAC"
+          },
+          {
+            "label": "Then nothing",
+            "outcome": "No further activity on file"
+          }
+        ]
+      }
+    },
+    {
+      "clip_id": "po-box-03-fec-source",
+      "beat_id": "po-box",
+      "duration": 14,
+      "aspect": "16:9",
+      "covers_script_section": "FEC committee C00633248 \u2014 pull it yourself",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "FEC.gov \u00b7 Committee C00633248 \u00b7 314 Action Fund",
+        "quote": "Same committee, every wire, every dollar \u2014 public filings."
+      }
+    },
+    {
+      "clip_id": "moneyflow-01-314-stanford",
+      "beat_id": "moneyflow",
+      "duration": 30,
+      "aspect": "16:9",
+      "covers_script_section": "314 Action spent $3.5M IE backing Stanford",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Where the $3.5M went",
+        "source": {
+          "name": "314 Action Fund",
+          "amount": 3500000,
+          "sublabel": "Independent expenditures supporting Dr. Ala Stanford"
+        },
+        "destinations": [
+          {
+            "label": "$2.75M \u00b7 Advertising",
+            "outcome": "TV + digital"
+          },
+          {
+            "label": "$656K \u00b7 Direct mail",
+            "outcome": "Philadelphia households"
+          },
+          {
+            "label": "$76K \u00b7 Media production",
+            "outcome": "Spot creation"
+          },
+          {
+            "label": "$8.5K \u00b7 Text messages",
+            "outcome": "Voter contact"
+          }
+        ]
+      }
+    },
+    {
+      "clip_id": "moneyflow-02-stanford-portrait",
+      "beat_id": "moneyflow",
+      "duration": 6,
+      "aspect": "16:9",
+      "covers_script_section": "Ad buys backing Dr. Stanford",
+      "vendor": "politician-caricature",
+      "caricature_slug": "ala-stanford",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "moneyflow-03-news-source",
+      "beat_id": "moneyflow",
+      "duration": 14,
+      "aspect": "16:9",
+      "covers_script_section": "Drop Site + Common Dreams trace Kimbark to AIPAC-aligned donors",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "Drop Site News \u00b7 Common Dreams",
+        "quote": "Kimbark shell traced back to donors aligned with AIPAC. AIPAC denies any connection. The receipt does not."
+      }
+    },
+    {
+      "clip_id": "pattern-01-bush-portrait",
+      "beat_id": "pattern",
+      "duration": 6,
+      "aspect": "16:9",
+      "covers_script_section": "Cori Bush \u2014 St. Louis nurse and pastor",
+      "vendor": "politician-caricature",
+      "caricature_slug": "cori-bush",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "pattern-02-massie-portrait",
+      "beat_id": "pattern",
+      "duration": 6,
+      "aspect": "16:9",
+      "covers_script_section": "Thomas Massie \u2014 Kentucky congressman",
+      "vendor": "politician-caricature",
+      "caricature_slug": "thomas-massie",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "pattern-03-adelson-portrait",
+      "beat_id": "pattern",
+      "duration": 5,
+      "aspect": "16:9",
+      "covers_script_section": "Adelson-linked transfer",
+      "vendor": "politician-caricature",
+      "caricature_slug": "miriam-adelson",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "pattern-04-three-race-bar",
+      "beat_id": "pattern",
+      "duration": 33,
+      "aspect": "16:9",
+      "covers_script_section": "Three-episode comparison \u2014 Bush / Massie / Rabb",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Same playbook \u00b7 three outcomes",
+        "yAxisLabel": "Anti-incumbent / target outside spend ($M)",
+        "maxValue": 18,
+        "bars": [
+          {
+            "label": "Bush \u00b7 LOST",
+            "value": 8.5,
+            "suffix": "M",
+            "color": "#a4243b"
+          },
+          {
+            "label": "Massie \u00b7 LOST",
+            "value": 15.8,
+            "suffix": "M",
+            "color": "#a4243b"
+          },
+          {
+            "label": "Rabb \u00b7 WON +15",
+            "value": 3.5,
+            "suffix": "M",
+            "color": "#1f7a3a"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "Bush",
+        "Massie",
+        "Rabb"
+      ]
+    },
+    {
+      "clip_id": "what-changed-01-aoc-portrait",
+      "beat_id": "what-changed",
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "April 24 \u2014 AOC endorses Rabb",
+      "vendor": "politician-caricature",
+      "caricature_slug": "aoc",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "what-changed-02-aoc-date",
+      "beat_id": "what-changed",
+      "duration": 2,
+      "aspect": "16:9",
+      "covers_script_section": "Date stamp \u2014 April 24, 2026",
+      "vendor": "text-card",
+      "text_card_id": "rabb-aoc-date"
+    },
+    {
+      "clip_id": "what-changed-03-hasan-portrait",
+      "beat_id": "what-changed",
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "April 30 \u2014 Hasan Piker canvasses Malcolm X Park",
+      "vendor": "politician-caricature",
+      "caricature_slug": "hasan-piker",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "what-changed-04-hasan-date",
+      "beat_id": "what-changed",
+      "duration": 2,
+      "aspect": "16:9",
+      "covers_script_section": "Date stamp \u2014 April 30, 2026 \u00b7 Malcolm X Park",
+      "vendor": "text-card",
+      "text_card_id": "rabb-hasan-date"
+    },
+    {
+      "clip_id": "what-changed-05-punchline",
+      "beat_id": "what-changed",
+      "duration": 4,
+      "aspect": "16:9",
+      "covers_script_section": "Punchline \u2014 money didn't stay invisible long enough",
+      "vendor": "text-card",
+      "text_card_id": "rabb-invisibility-punchline"
+    },
+    {
+      "clip_id": "verdict-01-headline",
+      "beat_id": "verdict",
+      "duration": 5,
+      "aspect": "16:9",
+      "covers_script_section": "Common Dreams headline \u2014 AIPAC Lost!",
+      "vendor": "text-card",
+      "text_card_id": "rabb-common-dreams-headline"
+    },
+    {
+      "clip_id": "verdict-02-stamp",
+      "beat_id": "verdict",
+      "duration": 13,
+      "aspect": "16:9",
+      "covers_script_section": "Verdict stamp \u2014 the shell lost, not AIPAC",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "campaign-receipts",
+        "verdict": "RECEIPT",
+        "promise": "THE SHELL LOST. THE PLAYBOOK DIDN'T.",
+        "citation": "FEC.gov \u00b7 Committee C00633248 \u00b7 314 Action Fund \u00b7 March 2026 monthly",
+        "candidates": [
+          {
+            "name": "Chris Rabb",
+            "caricature_slug": "chris-rabb"
+          },
+          {
+            "name": "Ala Stanford"
+          }
+        ]
+      },
+      "sfx": [
+        {
+          "at_sec": 0,
+          "cue": "verdict-stamp-hit"
+        }
+      ]
+    },
+    {
+      "clip_id": "cta-01-lesson",
+      "beat_id": "cta",
+      "duration": 10,
+      "aspect": "16:9",
+      "covers_script_section": "CTA \u2014 check the incorporation date before the r\u00e9sum\u00e9",
+      "vendor": "text-card",
+      "text_card_id": "rabb-cta-lesson"
+    }
+  ],
+  "text_cards": [
+    {
+      "text_card_id": "rabb-aoc-date",
+      "headline": "April 24, 2026",
+      "subline": "AOC endorses Rabb"
+    },
+    {
+      "text_card_id": "rabb-hasan-date",
+      "headline": "April 30, 2026",
+      "subline": "Hasan Piker \u00b7 Malcolm X Park \u00b7 live Twitch canvass"
+    },
+    {
+      "text_card_id": "rabb-invisibility-punchline",
+      "headline": "The money didn't stay invisible",
+      "subline": "long enough to work."
+    },
+    {
+      "text_card_id": "rabb-common-dreams-headline",
+      "headline": "\"AIPAC Lost!\"",
+      "subline": "Common Dreams \u00b7 day of certification"
+    },
+    {
+      "text_card_id": "rabb-cta-lesson",
+      "headline": "CHECK THE INCORPORATION DATE BEFORE THE R\u00c9SUM\u00c9.",
+      "subline": "Full receipt + every source \u2014 description below."
+    }
+  ],
+  "music_cues": [
+    {
+      "start_sec": 0,
+      "end_sec": 70,
+      "mood": "tense piano, slow build",
+      "cue_id": "intro"
+    },
+    {
+      "start_sec": 70,
+      "end_sec": 235,
+      "mood": "investigative strings",
+      "cue_id": "trail"
+    },
+    {
+      "start_sec": 235,
+      "end_sec": 285,
+      "mood": "resolve",
+      "cue_id": "outro"
+    }
+  ],
+  "sfx": []
+}

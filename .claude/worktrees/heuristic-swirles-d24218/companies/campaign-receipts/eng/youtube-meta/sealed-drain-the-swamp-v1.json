@@ -1,0 +1,23 @@
+{
+  "slug": "sealed-drain-the-swamp-v1",
+  "mode": "longform",
+  "program": "sealed",
+  "piece_id": "sealed-drain-the-swamp-v1",
+  "privacy": "public",
+  "packaging": "eng/qc-reports/sealed-drain-the-swamp-v1/mrbeast-packaging.md",
+  "monetization": {
+    "qc_report": "eng/qc-reports/sealed-drain-the-swamp-v1/youtube-monetization.md",
+    "ai_disclosure_line": "Narration: ElevenLabs Jessica (synthesized voice). Research, scripts, and commentary by Campaign Receipts.",
+    "ad_friendly_call": "green-expected",
+    "appeal_after": "7d / 1k views"
+  },
+  "title": "LOBBYING ROSE $400M WHILE TRUMP DRAINED THE SWAMP",
+  "title_alt": [
+    "DAY 8: PLEDGE SIGNED. LAST DAY: PLEDGE REVOKED.",
+    "BROKEN: DRAIN THE SWAMP — PLEDGE SIGNED, THEN REVOKED",
+    "EO 13770 Lasted One Term. Then EO 13983 Erased It."
+  ],
+  "thumbnail": { "headline": "$3.53B", "subline": "LOBBYING — AFTER THE PLEDGE", "verdict": "BROKEN" },
+  "tags": ["politics", "drain the swamp", "trump 2016", "lobbying", "ethics pledge", "fact check", "sealed 2016"],
+  "description": "Drain the swamp was the loudest promise of 2016 — so follow the one piece of paper that actually tried to enforce it, and what happened to it on his last day.\n\nEO 13770 (Jan 28, 2017) — five-year lobbyist ban + lifetime foreign-lobby ban. EO 13983 (Jan 20, 2021) — pledge revoked. Lobbying spend: $3.15B (2016) → $3.53B (2020). The book grades it BROKEN.\n\nFull 145-promise audit: https://sealed2016.com?utm_source=youtube&utm_medium=longform&utm_campaign=drain-swamp-v1\n\n#politics #factcheck #trump #2016 #lobbying"
+}

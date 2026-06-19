@@ -1,0 +1,51 @@
+{
+  "slug": "<slug>",
+  "verdict": "SHIP",
+  "composite_copy": 100,
+  "composite": 100,
+  "master_ready": true,
+  "rule": "all_dimensions_must_be_10_no_exceptions",
+  "dimensions": {
+    "story_vs_list": 10,
+    "protagonist": 10,
+    "turn": 10,
+    "hook_mrbeast": 10,
+    "rehooks": 10,
+    "clarity_jk": 10,
+    "sarah_voice": 10,
+    "tts_facts": 10,
+    "cinematic_pacing": 10,
+    "visual_story_match": 10
+  },
+  "passes": {
+    "A_screenwriter": {
+      "persona": "companies/NTO/personas/screenwriter.md",
+      "score": 10
+    },
+    "B_jk_rowling": {
+      "persona": "companies/NTO/personas/jk-rowling-storyteller.md",
+      "score": 10
+    },
+    "C_mrbeast_copy": {
+      "persona": "shared/personas/mrbeast-viral-producer.md",
+      "score": 10
+    },
+    "D_storyline_editor": {
+      "persona": "personas/storyline-editor.md",
+      "score": 10
+    },
+    "E_cinematic": {
+      "persona": "personas/council/10-video-editor.md",
+      "score": 10,
+      "also": ["personas/council/03-cinematographer.md", "personas/council/09-remotion-expert.md"]
+    }
+  },
+  "reports": {
+    "storyline_editor": "eng/qc-reports/<slug>/storyline-editor-pass.md",
+    "council_script": "eng/qc-reports/<slug>/council-script-YYYY-MM-DD.md",
+    "viral_script": "eng/qc-reports/<slug>/viral-script-YYYY-MM-DD.md"
+  },
+  "editorial_script": "eng/scripts/cr-new-news/<slug>.md",
+  "spoken_script": "eng/scripts/cr-new-news/<slug>-vo.txt",
+  "locked_at": "YYYY-MM-DDTHH:MM:SSZ"
+}

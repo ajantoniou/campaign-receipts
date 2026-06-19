@@ -1,0 +1,127 @@
+{
+    "style_note": "SEALED 2016 book lane \u2014 editorial caricature, not photo, not hyperreal",
+    "output_dir": "public/brand/caricatures",
+    "politicians": {
+        "donald-trump-2016": {
+            "name": "Donald Trump",
+            "role": "2016 presidential candidate",
+            "path": "public/brand/caricatures/donald-trump-2016.png",
+            "legacy_paths": [
+                "public/brand/trump-2016-sketch.jpg"
+            ]
+        },
+        "sheldon-adelson": {
+            "name": "Sheldon Adelson",
+            "role": "casino magnate and Republican mega-donor",
+            "path": "public/brand/caricatures/sheldon-adelson.png",
+            "legacy_paths": [
+                "public/brand/adelson-caricature.png"
+            ]
+        },
+        "cori-bush": {
+            "name": "Cori Bush",
+            "role": "U.S. Representative, Missouri 1st district",
+            "path": "public/brand/caricatures/cori-bush.png"
+        },
+        "wesley-bell": {
+            "name": "Wesley Bell",
+            "role": "St. Louis County prosecutor, 2024 congressional candidate",
+            "path": "public/brand/caricatures/wesley-bell.png"
+        },
+        "thomas-massie": {
+            "name": "Thomas Massie",
+            "role": "U.S. Representative, Kentucky 4th district (2013\u20132026)",
+            "path": "public/brand/caricatures/thomas-massie.png"
+        },
+        "ed-gallrein": {
+            "name": "Ed Gallrein",
+            "role": "Republican primary winner, KY-4 (May 2026)",
+            "path": "public/brand/caricatures/ed-gallrein.png"
+        },
+        "miriam-adelson": {
+            "name": "Miriam Adelson",
+            "role": "Republican mega-donor, founder of Preserve America PAC",
+            "path": "public/brand/caricatures/miriam-adelson.png"
+        },
+        "chris-rabb": {
+            "name": "Chris Rabb",
+            "role": "PA state representative and 2026 PA-3 Democratic primary winner",
+            "path": "public/brand/caricatures/chris-rabb.png"
+        },
+        "sharif-street": {
+            "name": "Sharif Street",
+            "role": "Pennsylvania state senator",
+            "path": "public/brand/caricatures/sharif-street.png"
+        },
+        "ala-stanford": {
+            "name": "Ala Stanford",
+            "role": "pediatric surgeon and founder of the Black Doctors COVID Consortium",
+            "path": "public/brand/caricatures/ala-stanford.png"
+        },
+        "dwight-evans": {
+            "name": "Dwight Evans",
+            "role": "outgoing U.S. Representative, Pennsylvania 3rd district",
+            "path": "public/brand/caricatures/dwight-evans.png"
+        },
+        "aoc": {
+            "name": "Alexandria Ocasio-Cortez",
+            "role": "U.S. Representative, New York 14th district",
+            "path": "public/brand/caricatures/aoc.png"
+        },
+        "hasan-piker": {
+            "name": "Hasan Piker",
+            "role": "political commentator and Twitch streamer",
+            "path": "public/brand/caricatures/hasan-piker.png"
+        },
+        "john-nau": {
+            "name": "John L. Nau III",
+            "role": "Texas beer-distribution billionaire and Republican mega-donor",
+            "path": "public/brand/caricatures/john-nau.png"
+        },
+        "stephen-schwarzman": {
+            "name": "Stephen Schwarzman",
+            "role": "Blackstone CEO and Republican mega-donor",
+            "path": "public/brand/caricatures/stephen-schwarzman.png"
+        },
+        "ken-paxton": {
+            "name": "Ken Paxton",
+            "role": "Texas Attorney General and U.S. Senate candidate",
+            "path": "public/brand/caricatures/ken-paxton.png"
+        },
+        "jeff-yass": {
+            "name": "Jeff Yass",
+            "role": "Susquehanna co-founder and mega-donor",
+            "path": "public/brand/caricatures/jeff-yass.png"
+        },
+        "colin-allred": {
+            "name": "Colin Allred",
+            "role": "former U.S. Representative and U.S. Senate candidate, Texas",
+            "path": "public/brand/caricatures/colin-allred.png"
+        },
+        "reid-hoffman": {
+            "name": "Reid Hoffman",
+            "role": "LinkedIn co-founder and Democratic mega-donor",
+            "path": "public/brand/caricatures/reid-hoffman.png"
+        },
+        "jasmine-crockett": {
+            "name": "Jasmine Crockett",
+            "role": "U.S. Representative, Texas 30th district",
+            "path": "public/brand/caricatures/jasmine-crockett.png"
+        },
+        "john-cornyn": {
+            "name": "John Cornyn",
+            "role": "U.S. Senator from Texas (incumbent), 2026 candidate",
+            "path": "public/brand/caricatures/john-cornyn.png"
+        },
+        "james-talarico": {
+            "name": "James Talarico",
+            "role": "Texas state representative, 2026 U.S. Senate Democratic candidate",
+            "path": "public/brand/caricatures/james-talarico.png"
+        },
+        "wesley-hunt": {
+            "name": "Wesley Hunt",
+            "role": "U.S. Representative from Texas, 2026 U.S. Senate candidate",
+            "path": "public/brand/caricatures/wesley-hunt.png"
+        }
+    }
+}

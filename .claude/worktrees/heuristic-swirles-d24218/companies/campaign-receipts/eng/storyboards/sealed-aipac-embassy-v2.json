@@ -1,0 +1,613 @@
+{
+  "_meta": {
+    "title": "SEALED \u2014 One Afternoon: The Embassy, The Date, The Half You Weren't Shown (long-form v2)",
+    "purpose": "v2 replacement of live SSuO2KOXr0Y. Explainer-first: Remotion slates/maps/timelines/source-cards + image-kenburns Wikipedia photos for real figures (NO kling/hedra synthetic faces, NO Sora hyperreal). Hold-both-tell-them-nothing tone. '60' numeral on screen ONLY on the gated OCHA-55/COI-73 source card (Beat 5). 3rd-grade voter script.",
+    "estimated_cost_usd": 0.5,
+    "canonical_script": "content/scripts/sealed-aipac-embassy-v2-v6-cadence.md",
+    "vo_audio": "_build/sealed-aipac-embassy-v2/vo-v2.mp3",
+    "visual_policy": "brand/visual-explainer-policy.md",
+    "death_toll_lock": "Spoken/thumbnail figure = 60. On-screen numeral '60' must co-render with OCHA-55 / COI-73 footnote (clip eb5-01). Hook frames carry NO numeral.",
+    "comment_trigger": "If the promise was kept, what do you call the same afternoon?"
+  },
+  "slug": "sealed-aipac-embassy-v2",
+  "story_score_slug": "sealed-aipac-embassy-v2",
+  "total_duration_seconds": 250,
+  "vo_script_path": "eng/scripts/cr-new-news/sealed-aipac-embassy-v2-vo.txt",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "clips": [
+    {
+      "clip_id": "eb1-01",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "OpeningSlate",
+      "props": {
+        "brand": "sealed",
+        "text": "May 14, 2018. A promise was kept. You were shown one half.",
+        "fadeInDelay": 0.3,
+        "holdSeconds": 5
+      },
+      "expected_on_screen_text": [
+        "May 14, 2018. A promise was kept. You were shown one half."
+      ],
+      "covers_script_section": "Beat 1 \u2014 hook: 'On May fourteenth, 2018, a promise was kept... you were only shown one half.' (NO '60' numeral on hook frame \u2014 founder lock)"
+    },
+    {
+      "clip_id": "eb1-01b",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "WRITTEN DOWN ON PURPOSE.",
+        "wrapWidth": 18
+      },
+      "expected_on_screen_text": ["WRITTEN DOWN ON PURPOSE"],
+      "covers_script_section": "NEW OPEN (gravitas) \u2014 'Some things get written down on purpose.'"
+    },
+    {
+      "clip_id": "eb1-01c",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "quiet",
+        "text": "A date. A count. A signed paper \u2014 so they cannot be quietly erased.",
+        "wrapWidth": 26
+      },
+      "covers_script_section": "NEW OPEN (gravitas) \u2014 'A date. A count. A signed paper. They are written down so they cannot be quietly erased.' [pause:400ms]"
+    },
+    {
+      "clip_id": "eb1-01d",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "ON THE RECORD.",
+        "wrapWidth": 14
+      },
+      "expected_on_screen_text": ["ON THE RECORD"],
+      "covers_script_section": "NEW OPEN (gravitas) \u2014 'That is what a record is for. It is how power is kept from showing you only the part it likes.'"
+    },
+    {
+      "clip_id": "eb1-02",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "quiet",
+        "text": "You remember the day the embassy moved. Maybe you picked a side. That's fair.",
+        "wrapWidth": 30
+      },
+      "covers_script_section": "Beat 1 \u2014 empathy acknowledgment: 'Maybe you picked a side that afternoon. That's fair.' [pause:400ms]"
+    },
+    {
+      "clip_id": "eb1-03",
+      "duration": 10,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "TWO THINGS HAPPENED. YOU REMEMBER ONE.",
+        "wrapWidth": 22
+      },
+      "expected_on_screen_text": [
+        "TWO THINGS HAPPENED"
+      ],
+      "covers_script_section": "Beat 1 \u2014 open loop: 'One spring afternoon. Two things happened... You only remember half of it.'"
+    },
+    {
+      "clip_id": "eb2-01",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "NOT YET",
+        "wrapWidth": 12
+      },
+      "expected_on_screen_text": [
+        "NOT YET"
+      ],
+      "covers_script_section": "Beat 2 \u2014 'For twenty years, four presidents said one thing: not yet.'"
+    },
+    {
+      "clip_id": "eb2-02",
+      "duration": 14,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "FOUR PRESIDENTS SIGNED THE WAIVER",
+        "events": [
+          {
+            "date": "1995",
+            "label": "Law lets any president pause the move"
+          },
+          {
+            "date": "Clinton",
+            "label": "Signed the six-month waiver"
+          },
+          {
+            "date": "Bush",
+            "label": "Signed the six-month waiver"
+          },
+          {
+            "date": "Obama",
+            "label": "Signed the six-month waiver"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "1995",
+        "Clinton",
+        "Bush",
+        "Obama"
+      ],
+      "covers_script_section": "Beat 2 \u2014 '1995 law... He just signed a paper every six months. Clinton signed it. Bush signed it. Obama signed it.'"
+    },
+    {
+      "clip_id": "eb2-03",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "image-kenburns",
+      "image_path": "public/photos/wikipedia/donald-trump-2016.jpg",
+      "covers_script_section": "Beat 2 \u2014 'Then one president stopped. And what they declined, somebody signed.' (Wikipedia photo, slow push-in)"
+    },
+    {
+      "clip_id": "eb3-01",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "DEC 6, 2017",
+        "wrapWidth": 14
+      },
+      "expected_on_screen_text": [
+        "DEC 6, 2017"
+      ],
+      "covers_script_section": "Beat 3 \u2014 'December sixth, two thousand seventeen. The first half landed on the record.'"
+    },
+    {
+      "clip_id": "eb3-02",
+      "duration": 11,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Presidential Proclamation 9683",
+        "quote": "The United States recognizes Jerusalem as the capital of Israel.",
+        "page": "Signed Dec 6, 2017",
+        "source": "Federal Register \u00b7 Proclamation 9683"
+      },
+      "covers_script_section": "Beat 3 \u2014 'The United States said Jerusalem was the capital. It was signed. It was dated. It was real. But a signature is not a building.'"
+    },
+    {
+      "clip_id": "eb4-01",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "RIBBON CUT",
+        "wrapWidth": 14
+      },
+      "expected_on_screen_text": [
+        "RIBBON CUT"
+      ],
+      "covers_script_section": "Beat 4 \u2014 'May fourteenth, 2018. The ribbon was cut. The embassy opened in Jerusalem.'"
+    },
+    {
+      "clip_id": "eb4-02",
+      "duration": 11,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "PoliticalMap",
+      "props": {
+        "brand": "sealed",
+        "region": "embassy-move",
+        "title": "EMBASSY OPENS",
+        "subtitle": "Tel Aviv \u2192 Jerusalem \u00b7 May 14, 2018",
+        "markers": [
+          {
+            "label": "Tel Aviv",
+            "x": 32,
+            "y": 62,
+            "appearAt": 0.6,
+            "color": "muted"
+          },
+          {
+            "label": "Jerusalem",
+            "x": 52,
+            "y": 48,
+            "appearAt": 2.0,
+            "color": "accent"
+          }
+        ],
+        "arrows": [
+          {
+            "fromX": 32,
+            "fromY": 62,
+            "toX": 52,
+            "toY": 48,
+            "appearAt": 2.5,
+            "label": "May 14"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "Jerusalem",
+        "May 14"
+      ],
+      "covers_script_section": "Beat 4 \u2014 embassy move map (no faces)"
+    },
+    {
+      "clip_id": "eb4-03",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "A TOP AIPAC PRIORITY",
+        "wrapWidth": 18
+      },
+      "expected_on_screen_text": [
+        "A TOP AIPAC PRIORITY"
+      ],
+      "covers_script_section": "Beat 4 \u2014 'This was a top A-I-P-A-C priority.' (no numeric rank \u2014 founder lock)"
+    },
+    {
+      "clip_id": "eb4-04",
+      "duration": 12,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "AIPAC",
+        "quote": "A pro-Israel lobby in Washington that works to shape U.S. policy.",
+        "page": "Plain English",
+        "source": "AIPAC \u2014 American Israel Public Affairs Committee"
+      },
+      "covers_script_section": "Beat 4 \u2014 'In other words, a group in Washington... a pro-Israel lobby. It works to shape U.S. policy. One date. One ribbon. But the date carried more.'"
+    },
+    {
+      "clip_id": "eb5-01",
+      "duration": 16,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Gaza border \u00b7 May 14, 2018",
+        "quote": "UN OCHA counted 55 killed that day. A later UN inquiry counted 73 who died of that day's wounds. 60 was the toll reported as the count rose.",
+        "page": "60",
+        "source": "UN OCHA, May 14, 2018 \u00b7 UN Commission of Inquiry, 2019"
+      },
+      "expected_on_screen_text": [
+        "60",
+        "55",
+        "73",
+        "UN OCHA"
+      ],
+      "covers_script_section": "Beat 5 \u2014 [[FOOTNOTE SLOT]] GATED: 'The same afternoon, sixty people died at the Gaza border.' The ONLY frame where the numeral '60' is allowed on screen \u2014 co-renders with OCHA-55 / COI-73 verbatim locked text. Founder death-toll lock."
+    },
+    {
+      "clip_id": "eb5-02",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "quiet",
+        "text": "These were real people. They died on a real day.",
+        "wrapWidth": 26
+      },
+      "covers_script_section": "Beat 5 \u2014 empathy/why-this-matters human breath: 'These were real people. They died on a real day.' [pause:300ms] (sequenced BEFORE the clinical frame returns per Stage 12.5)"
+    },
+    {
+      "clip_id": "eb5-03",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "quiet",
+        "text": "We are not here to tell you what to feel. We are only here to show you the date.",
+        "wrapWidth": 28
+      },
+      "covers_script_section": "Beat 5 \u2014 'We are not here to tell you what to feel. We are only here to show you the date. The number is the receipt.'"
+    },
+    {
+      "clip_id": "eb5-04",
+      "duration": 11,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "SAME AFTERNOON. ONE DATE HELD BOTH.",
+        "wrapWidth": 22
+      },
+      "expected_on_screen_text": [
+        "SAME AFTERNOON"
+      ],
+      "covers_script_section": "Beat 5 \u2014 'One afternoon held both. A ribbon in Jerusalem. A count at the border. You saw one half for seven years. The other half was on the front page.'"
+    },
+    {
+      "clip_id": "eb6-01",
+      "duration": 5,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "WAS ANYONE KEEPING COUNT?",
+        "wrapWidth": 20
+      },
+      "expected_on_screen_text": [
+        "WAS ANYONE KEEPING COUNT?"
+      ],
+      "covers_script_section": "Beat 6 \u2014 'Now, was anyone keeping a tally? Yes. And it came earlier than you think.'"
+    },
+    {
+      "clip_id": "eb6-02",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "UN VOTE ON THE NEW CAPITAL",
+        "yAxisLabel": "Votes",
+        "maxValue": 128,
+        "bars": [
+          {
+            "label": "Against recognition",
+            "value": 128,
+            "color": "#a4243b"
+          },
+          {
+            "label": "With the U.S.",
+            "value": 9,
+            "color": "#2a4d7c"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "128",
+        "9"
+      ],
+      "covers_script_section": "Beat 6 \u2014 'In December, the UN voted on the new capital. The count was one hundred twenty-eight to nine.'"
+    },
+    {
+      "clip_id": "eb6-03",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "UN General Assembly Resolution ES-10/L.22",
+        "quote": "128 to 9 \u2014 condemning the December recognition. Five months before the May afternoon.",
+        "page": "Dec 21, 2017",
+        "source": "UN General Assembly, Dec 21, 2017"
+      },
+      "expected_on_screen_text": [
+        "128",
+        "9",
+        "Dec 21, 2017"
+      ],
+      "covers_script_section": "Beat 6 \u2014 'That vote was about the December decision. It was not about this May afternoon. But the number is public.' (UN vote kept on its OWN date, Dec 21 2017 \u2014 founder lock)"
+    },
+    {
+      "clip_id": "eb6-04",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "ONE DATE, THREE THINGS",
+        "events": [
+          {
+            "date": "May 14, 2018",
+            "label": "A ribbon in Jerusalem",
+            "outcome": "kept"
+          },
+          {
+            "date": "May 14, 2018",
+            "label": "A count at the border"
+          },
+          {
+            "date": "Dec 21, 2017",
+            "label": "A vote already on the books"
+          }
+        ]
+      },
+      "expected_on_screen_text": [
+        "May 14, 2018",
+        "Dec 21, 2017"
+      ],
+      "covers_script_section": "Beat 6 \u2014 'So the date had a ribbon. It had a toll. And a vote was already on the books.'"
+    },
+    {
+      "clip_id": "eb7-01",
+      "duration": 9,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "KEPT",
+        "promise": "Move the U.S. embassy to Jerusalem",
+        "citation": "SEALED Promise #74 \u00b7 May 14, 2018"
+      },
+      "expected_on_screen_text": [
+        "KEPT"
+      ],
+      "covers_script_section": "Beat 7 \u2014 'The SEALED book grades this promise number seventy-four. KEPT. That grade is narrow. It grades the move itself. It does not grade the afternoon.'"
+    },
+    {
+      "clip_id": "eb7-02",
+      "duration": 11,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "quiet",
+        "text": "A promise can be kept. And it can still share a date with the rest of the story.",
+        "wrapWidth": 28
+      },
+      "covers_script_section": "Beat 7 \u2014 cold-close warmth: 'Here is what this afternoon taught us... Both are documented. Both share one date.'"
+    },
+    {
+      "clip_id": "eb7-02b",
+      "duration": 6,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "BOTH HALVES WERE WRITTEN DOWN.",
+        "wrapWidth": 20
+      },
+      "expected_on_screen_text": ["BOTH HALVES"],
+      "covers_script_section": "NEW CLOSE (gravitas) — 'Both halves were written down. That is the part that matters.' [pause:400ms]"
+    },
+    {
+      "clip_id": "eb7-02c",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "quiet",
+        "text": "A date on a page does not take sides. It keeps both halves where you can find them.",
+        "wrapWidth": 28
+      },
+      "covers_script_section": "NEW CLOSE (gravitas) — 'A date on a page does not take sides. It just keeps both halves where you can find them.'"
+    },
+    {
+      "clip_id": "eb7-02d",
+      "duration": 7,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "quiet",
+        "text": "The record gives you the whole afternoon — not the half someone picked for you.",
+        "wrapWidth": 28
+      },
+      "covers_script_section": "NEW CLOSE (gravitas) — 'The record is why you get the whole afternoon, and not the half someone picked for you.'"
+    },
+    {
+      "clip_id": "eb7-03",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "sealed",
+        "variant": "title",
+        "text": "YOU DESERVE THE WHOLE AFTERNOON.",
+        "wrapWidth": 22
+      },
+      "expected_on_screen_text": [
+        "YOU DESERVE THE WHOLE AFTERNOON"
+      ],
+      "covers_script_section": "Beat 7 \u2014 'You are allowed to hold both. Nobody tells you what to feel. You just deserve the whole afternoon.'"
+    },
+    {
+      "clip_id": "eb7-04",
+      "duration": 8,
+      "aspect": "16:9",
+      "vendor": "remotion",
+      "composition": "ClosingSlate",
+      "props": {
+        "brand": "sealed",
+        "name": "If the promise was kept, what do you call the same afternoon?",
+        "detail": "Full receipt + free newsletter linked below · SEALED"
+      },
+      "expected_on_screen_text": [
+        "If the promise was kept, what do you call the same afternoon?",
+        "Full receipt + free newsletter linked below · SEALED"
+      ],
+      "covers_script_section": "Beat 7 \u2014 end card: 'The full receipt and the free newsletter are linked below.' [pause:1.2s] + pinned comment trigger"
+    }
+  ],
+  "music_cues": [
+    {
+      "start_sec": 0,
+      "end_sec": 30,
+      "mood": "tense piano \u00b7 single held note",
+      "cue_id": "hook"
+    },
+    {
+      "start_sec": 30,
+      "end_sec": 80,
+      "mood": "investigative strings \u00b7 restrained",
+      "cue_id": "setup"
+    },
+    {
+      "start_sec": 80,
+      "end_sec": 115,
+      "mood": "archival build \u00b7 the ribbon",
+      "cue_id": "ribbon"
+    },
+    {
+      "start_sec": 115,
+      "end_sec": 155,
+      "mood": "music recedes to near-silence under the toll card \u00b7 no swell",
+      "cue_id": "the-other-half"
+    },
+    {
+      "start_sec": 155,
+      "end_sec": 185,
+      "mood": "restored low strings \u00b7 the count",
+      "cue_id": "tally"
+    },
+    {
+      "start_sec": 185,
+      "end_sec": 210,
+      "mood": "resolved outro \u00b7 quiet \u00b7 long tail",
+      "cue_id": "verdict"
+    }
+  ]
+}

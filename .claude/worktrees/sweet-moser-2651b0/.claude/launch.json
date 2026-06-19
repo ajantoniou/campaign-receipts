@@ -1,0 +1,54 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "campaign-receipts",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev", "-p", "3001"],
+      "port": 3001,
+      "cwd": "companies/campaign-receipts",
+      "env": { "NODE_ENV": "development", "DOTENV_CONFIG_PATH": "" }
+    },
+    {
+      "name": "site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev"],
+      "port": 3077,
+      "autoPort": true,
+      "cwd": "companies/estimateproof/site"
+    },
+    {
+      "name": "healthbrew",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "autoPort": true,
+      "cwd": "companies/healthbrew/web",
+      "env": { "NODE_ENV": "development" }
+    },
+    {
+      "name": "healthbrew-prod",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:render"],
+      "port": 3001,
+      "autoPort": true,
+      "cwd": "companies/healthbrew/web"
+    },
+    {
+      "name": "nto-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 4321,
+      "autoPort": true,
+      "cwd": "companies/NTO/web/site"
+    },
+    {
+      "name": "cliros-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3030,
+      "autoPort": true,
+      "cwd": "companies/cliros/app"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Two Greek columns with a pediment/entablature -->
+  <!-- Pediment (triangle top) -->
+  <polygon points="16,3 4,10 28,10" fill="#0A0A0A"/>
+  <!-- Entablature (horizontal beam) -->
+  <rect x="3" y="10" width="26" height="2.5" rx="0.5" fill="#0A0A0A"/>
+  <!-- Left column -->
+  <rect x="6" y="13" width="4" height="14" rx="0.8" fill="#0A0A0A"/>
+  <!-- Right column -->
+  <rect x="22" y="13" width="4" height="14" rx="0.8" fill="#0A0A0A"/>
+  <!-- Column capitals (wider tops) -->
+  <rect x="5" y="12.5" width="6" height="1.5" rx="0.5" fill="#0A0A0A"/>
+  <rect x="21" y="12.5" width="6" height="1.5" rx="0.5" fill="#0A0A0A"/>
+  <!-- Base/stylobate -->
+  <rect x="2" y="27" width="28" height="2.5" rx="0.5" fill="#0A0A0A"/>
+  <!-- Column bases -->
+  <rect x="5" y="26" width="6" height="1.5" rx="0.5" fill="#0A0A0A"/>
+  <rect x="21" y="26" width="6" height="1.5" rx="0.5" fill="#0A0A0A"/>
+</svg>

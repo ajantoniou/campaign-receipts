@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Civic-trust base — parchment + deep navy ink.
+   Contrast: #0f1f3a on #faf7ef ≈ 14.5:1 (AAA). */
+body {
+  background-color: #faf7ef;
+  color: #0f1f3a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font: inherit;
+}
+
+/* Accessibility: keyboard-only skip nav */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: #0f1f3a;
+  color: #faf7ef;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Editorial gold-rule divider — used in trust strip + footer. */
+.gold-rule {
+  background-image: linear-gradient(to right, transparent, #b08a3e 25%, #b08a3e 75%, transparent);
+  height: 1px;
+  width: 100%;
+}
+
+/* Civic edge vignette — faint red / white / blue creeping from the left
+   and right page edges. "Dying America" mood, not flag-waving. Sits as a
+   fixed pseudo-element behind page content so it doesn't shift anything.
+   At narrow viewports (<640px) we drop the vignette entirely — it eats
+   horizontal real estate on mobile without adding meaning. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(164, 36, 59, 0.10) 0%,        /* civic-red, ~10% */
+      rgba(164, 36, 59, 0.03) 4%,
+      transparent 12%,
+      transparent 88%,
+      rgba(42, 77, 124, 0.03) 96%,
+      rgba(42, 77, 124, 0.10) 100%       /* civic-blue, ~10% */
+    );
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* Thinner cream "white" highlights at the very edges, layered on top
+     of the red/blue, to give a sense of bleached/old paper bleeding in. */
+  background:
+    linear-gradient(
+      to right,
+      rgba(250, 247, 239, 0.45) 0%,
+      transparent 3%,
+      transparent 97%,
+      rgba(250, 247, 239, 0.45) 100%
+    );
+}
+@media (max-width: 640px) {
+  body::before, body::after { display: none; }
+}
+/* Make sure stacking context puts real content above the vignette. */
+body > * { position: relative; z-index: 1; }
+
+@layer components {
+  /* Book cover hero — physical-object shadow + slight perspective tilt
+     so the cover image reads as a book on a table, not a flat graphic.
+     Used by the landing-page hero (app/page.tsx). */
+  .sealed-book-cover {
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.10),
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 16px 32px rgba(0, 0, 0, 0.18);
+    transform: perspective(1200px) rotateY(-3deg);
+    transform-origin: center right;
+    transition: transform 400ms ease;
+  }
+  .sealed-book-cover :global(img),
+  .sealed-book-cover img {
+    display: block;
+    border-radius: 2px;
+    /* Fake spine shadow on the left edge of the cover. */
+    box-shadow: inset 8px 0 16px -8px rgba(0, 0, 0, 0.35);
+  }
+  @media (max-width: 1023px) {
+    .sealed-book-cover {
+      transform: perspective(1200px) rotateY(-1.5deg);
+    }
+  }
+  @media (hover: hover) {
+    .sealed-book-cover:hover {
+      transform: perspective(1200px) rotateY(-1deg);
+    }
+  }
+
+  /* Primary CTA — civic-red, the load-bearing trust action. */
+  .sealed-btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-civic-red px-8 py-3 text-center font-semibold text-parchment-50 shadow-sm transition hover:bg-civic-red-dark focus:outline-none focus:ring-2 focus:ring-civic-red/40 focus:ring-offset-2 focus:ring-offset-parchment-100;
+  }
+  /* Secondary — navy outline. */
+  .sealed-btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-ink-800/40 bg-transparent px-8 py-3 text-center font-semibold text-ink-900 transition hover:border-ink-800 hover:bg-ink-900/[0.04];
+  }
+  /* Notify (border) — when checkout isn't live. */
+  .sealed-btn-notify {
+    @apply inline-flex items-center justify-center rounded-md border border-civic-blue/60 bg-transparent px-8 py-3 text-center font-semibold text-civic-blue transition hover:border-civic-blue hover:bg-civic-blue/[0.06];
+  }
+  /* Notify (filled) — strong waitlist CTA. */
+  .sealed-btn-notify-solid {
+    @apply inline-flex items-center justify-center rounded-md bg-civic-blue px-8 py-4 text-center font-semibold text-parchment-50 transition hover:bg-civic-blue-dark;
+  }
+  /* Ghost — tertiary text link with frame. */
+  .sealed-btn-ghost {
+    @apply inline-flex items-center justify-center rounded-md border border-ink-700/30 px-8 py-3 text-center font-semibold text-ink-700 transition hover:border-ink-700/60 hover:text-ink-900;
+  }
+  .sealed-btn-bundle {
+    @apply block w-full rounded-md bg-ink-900 py-4 text-center text-lg font-semibold text-parchment-50 transition hover:bg-ink-800;
+  }
+
+  /* Eyebrow — small-caps, navy, modest tracking. The whisper above each headline. */
+  .sealed-eyebrow {
+    @apply font-sans text-[0.7rem] font-semibold uppercase tracking-eyebrow text-civic-blue;
+  }
+  .sealed-eyebrow-quiet {
+    @apply font-sans text-[0.7rem] font-semibold uppercase tracking-eyebrow text-ink-500;
+  }
+
+  /* Headline — serif, deep navy, NOT shouty. */
+  .sealed-headline {
+    @apply font-serif font-bold leading-[1.1] tracking-tight text-ink-900;
+  }
+}

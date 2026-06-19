@@ -1,0 +1,1139 @@
+{
+  "slug": "cr-what-happened-to-trump",
+  "program": "cr-new-news",
+  "mode": "longform",
+  "target_duration_s": 790,
+  "vo_voice": "elevenlabs-jessica",
+  "music_bed": {
+    "mood": "disappointment-not-rage / sober-newsroom / slight-unease",
+    "lufs_target": -22,
+    "closing_silence_s": 5.0
+  },
+  "notes": "14 beats (13 locked + BEAT 11.5 weaponization addition 2026-05-25). Disappointment-not-rage tone. Voter is protagonist. Real archival YouTube footage only for named politicians (NO AI faces). Wikimedia stills + ken-burns acceptable as quiet alternative to motion clips. Per founder lock: shorts are text+music — this is LONG-FORM so VO is the spine. C-SPAN sources require cropTopPct: 0.75. Most YouTube IDs unknown at storyboard time — pipeline will resolve via yt-dlp search_fallback queries on Tuesday.",
+  "beats": [
+    {
+      "beat_id": "01-cold-open",
+      "script_section": "BEAT 01 — Cold open (0:00–0:45)",
+      "duration_s": 45,
+      "vo_summary": "Three 2015–2016 Trump stump-speech archival clips (no VO over them). Then Betsy VO over a still of 2015 Trump at a podium framed by SEALED parchment.",
+      "shots": [
+        {
+          "shot_id": "01-01",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "2015 Trump stump speech: 'We've spent four trillion dollars in the Middle East'",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"trump 2015 four trillion dollars middle east stump speech\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.0,
+            "source_name": "CNN-archive"
+          }
+        },
+        {
+          "shot_id": "01-02",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "2015–2016 Trump rally: 'I don't want their money — I don't need their money'",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"trump 2015 I don't want their money self funding rally\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.0,
+            "source_name": "C-SPAN",
+            "cropTopPct_note": "if C-SPAN watermark visible, applied"
+          }
+        },
+        {
+          "shot_id": "01-03",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "Trump 2015 interview/rally: 'Iraq was a disaster'",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"trump 2015 Iraq was a disaster interview\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.0,
+            "source_name": "CNN-archive"
+          }
+        },
+        {
+          "shot_id": "01-04",
+          "type": "silent",
+          "duration_s": 1.5,
+          "subject": "Pure black frame, 1.5s — let the cold-open clips land before VO opens.",
+          "source": { "source_name": "black-frame" }
+        },
+        {
+          "shot_id": "01-05",
+          "type": "remotion",
+          "duration_s": 25.5,
+          "subject": "Still: 2015 Trump at podium, mid-shout, framed by SEALED parchment. Slow ken-burns. Cards reveal as Betsy VO runs.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "brand/wikimedia/trump-2015-rally-podium.jpg",
+              "frame": "sealed-parchment",
+              "cards": [
+                "2015. The stump speech.",
+                "What happened to the man on that stage?"
+              ],
+              "treatment": "ken-burns 105% → 100% over 25s"
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "02-thesis",
+      "script_section": "BEAT 02 — The thesis (0:45–1:30)",
+      "duration_s": 45,
+      "vo_summary": "Slow ken-burns on SEALED book retail PDF cover + scorecard spread.",
+      "shots": [
+        {
+          "shot_id": "02-01",
+          "type": "remotion",
+          "duration_s": 20,
+          "subject": "Ken-burns on SEALED book cover PDF.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "companies/concise-sealed/artifacts/SEALED-v1-retail-cover.png",
+              "treatment": "ken-burns 100% → 108% over 20s",
+              "audio_bed": "ink-on-parchment"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "02-02",
+          "type": "remotion",
+          "duration_s": 25,
+          "subject": "Scorecard spread reveal: 145 PROMISES · 46 KEPT · 51 PARTIAL · 40 BROKEN · 8 READER-DECIDES.",
+          "source": {
+            "composition": "ScorecardPage",
+            "props": {
+              "total": 145,
+              "kept": 46,
+              "partial": 51,
+              "broken": 40,
+              "reader_decides": 8,
+              "footer": "Source: SEALED 2016 · sealed2016.com"
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "03-the-2015-candidate",
+      "script_section": "BEAT 03 — Who the 2015 candidate told you he was (1:30–3:00)",
+      "duration_s": 90,
+      "vo_summary": "Three longer 2015–2016 archival clips with date+venue lower-thirds.",
+      "shots": [
+        {
+          "shot_id": "03-01",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "Republican primary debate 2015: Trump mocks Jeb Bush over Iraq — 'Iraq was a disaster'",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"trump jeb bush iraq disaster debate 2015 cnn republican primary\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.0,
+            "source_name": "CNN-archive"
+          }
+        },
+        {
+          "shot_id": "03-02",
+          "type": "remotion",
+          "duration_s": 4,
+          "subject": "Lower-third caption: 'DEBATE · 2015: Iraq was a disaster.'",
+          "source": {
+            "composition": "SourceCard",
+            "props": { "caption": "DEBATE · 2015: 'Iraq was a disaster.'" },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "03-03",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "2016 Trump rally: self-funding line, refuses Super PAC money",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"trump 2016 self funding rally I won't be owned super pac\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.75,
+            "source_name": "C-SPAN"
+          }
+        },
+        {
+          "shot_id": "03-04",
+          "type": "remotion",
+          "duration_s": 4,
+          "subject": "Lower-third caption: 'RALLY · 2016: I don't want their money.'",
+          "source": {
+            "composition": "SourceCard",
+            "props": { "caption": "RALLY · 2016: 'I don't want their money.'" },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "03-05",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "2016 Sunday show interview: 'We spent trillions. We got nothing.' — Iraq lied-into-it line",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"trump 2016 sunday show trillions middle east got nothing iraq lied\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.0,
+            "source_name": "ABC-this-week"
+          }
+        },
+        {
+          "shot_id": "03-06",
+          "type": "remotion",
+          "duration_s": 4,
+          "subject": "Lower-third caption: 'INTERVIEW · 2016: We spent trillions. We got nothing.'",
+          "source": {
+            "composition": "SourceCard",
+            "props": { "caption": "INTERVIEW · 2016: 'We spent trillions. We got nothing.'" },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "03-07",
+          "type": "remotion",
+          "duration_s": 60,
+          "subject": "Ken-burns over composite of three lower-thirds while Betsy continues VO about 'not a vibe — these were sentences, on video, with dates.'",
+          "source": {
+            "composition": "Timeline",
+            "props": {
+              "events": [
+                "2015 · Republican debate",
+                "2016 · self-funding rally",
+                "2016 · Sunday-show interview"
+              ],
+              "footer": "Three clips. Three dates. One candidate."
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "04-the-pivot-adelson",
+      "script_section": "BEAT 04 — The pivot. Who got close. (3:00–4:15)",
+      "duration_s": 75,
+      "vo_summary": "Photo of Adelson at RJC; Adelson + Trump at White House post-2017; Adelson family. 4-6s holds, no motion design.",
+      "shots": [
+        {
+          "shot_id": "04-01",
+          "type": "remotion",
+          "duration_s": 6,
+          "subject": "Wikimedia/AP archival still: Sheldon Adelson at Republican Jewish Coalition event.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "brand/wikimedia/adelson-rjc.jpg",
+              "treatment": "static hold, lower-third: 'Sheldon Adelson · R.J.C. board · Casino owner'",
+              "credit": "Wikimedia / AP archive"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "04-02",
+          "type": "remotion",
+          "duration_s": 6,
+          "subject": "White House photo: Adelson + Trump at official event, post-2017.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "brand/wikimedia/adelson-trump-whitehouse.jpg",
+              "treatment": "static hold, lower-third with date",
+              "credit": "White House Photo / public domain"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "04-03",
+          "type": "remotion",
+          "duration_s": 5,
+          "subject": "Adelson family / Miriam Adelson photo.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "brand/wikimedia/adelson-family.jpg",
+              "treatment": "static hold"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "04-04",
+          "type": "youtubeBroll",
+          "duration_s": 5,
+          "subject": "Archival news segment: Adelson's 2016 cycle giving (broadcast b-roll only — no narration over our VO)",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"sheldon adelson 2016 republican donor pbs newshour\"",
+            "in_point_s": 0,
+            "out_point_s": 5,
+            "cropTopPct": 0.0,
+            "source_name": "PBS-NewsHour"
+          }
+        },
+        {
+          "shot_id": "04-05",
+          "type": "remotion",
+          "duration_s": 53,
+          "subject": "FEC filing card: Adelson 2016-cycle giving figures (resolved by Stage 6 fact-check council); source URL pinned. Dolly across document with text highlight.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "doc_style": "fec-filing",
+              "headline": "Sheldon Adelson — 2016 cycle",
+              "lines": [
+                "Top Republican donor of the 2016 cycle",
+                "Top stated foreign-policy priority: end the Iran deal",
+                "Source: F.E.C. filings · OpenSecrets"
+              ],
+              "treatment": "dolly-across-document"
+            },
+            "source_name": "remotion",
+            "blocking_note": "Stage 6 fact-check council MUST pin exact FEC dollar figure before render."
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "05-what-donor-wanted",
+      "script_section": "BEAT 05 — What the donor wanted (4:15–5:15)",
+      "duration_s": 60,
+      "vo_summary": "Newspaper headlines 2015–2017 about Adelson's stated Iran position. Documents only, no faces. Paper trail.",
+      "shots": [
+        {
+          "shot_id": "05-01",
+          "type": "remotion",
+          "duration_s": 8,
+          "subject": "Jerusalem Post interview screenshot with Adelson Iran quote highlighted.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "doc_style": "newspaper-screenshot",
+              "outlet": "Jerusalem Post",
+              "highlight": "Adelson on Iran",
+              "treatment": "ken-burns push-in on highlighted quote"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "05-02",
+          "type": "remotion",
+          "duration_s": 8,
+          "subject": "Washington Post profile screenshot — Adelson + foreign policy.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "doc_style": "newspaper-screenshot",
+              "outlet": "Washington Post",
+              "treatment": "ken-burns"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "05-03",
+          "type": "remotion",
+          "duration_s": 8,
+          "subject": "Las Vegas Review-Journal editorial screenshot.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "doc_style": "newspaper-screenshot",
+              "outlet": "Las Vegas Review-Journal",
+              "treatment": "static hold"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "05-04",
+          "type": "remotion",
+          "duration_s": 36,
+          "subject": "Three-card stack reveals as VO names the sequence — donor / candidate / receipt.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "cards": [
+                "What the donor wanted: end J.C.P.O.A.",
+                "What the candidate said: 'I won't be owned.'",
+                "What happened next is the rest of this video."
+              ],
+              "treatment": "stagger-reveal, ink-stamp audio per card"
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "06-iran-deal-plainly",
+      "script_section": "BEAT 06 — The Iran deal, plainly (5:15–6:30)",
+      "duration_s": 75,
+      "vo_summary": "Obama JCPOA signing announcement July 14 2015; Vienna negotiation; Netanyahu joint-session address March 3 2015; signatories still.",
+      "shots": [
+        {
+          "shot_id": "06-01",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "Obama announcing JCPOA from White House, July 14, 2015",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"obama iran nuclear deal jcpoa announcement july 14 2015 white house\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.0,
+            "source_name": "White-House-Channel"
+          }
+        },
+        {
+          "shot_id": "06-02",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "Vienna JCPOA negotiation footage — handshakes, signing room",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"iran nuclear deal vienna negotiation 2015 handshake AP archive\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.0,
+            "source_name": "AP-Archive"
+          }
+        },
+        {
+          "shot_id": "06-03",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "Netanyahu joint-session address to Congress, March 3, 2015 — opposing Iran deal",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"netanyahu joint session congress march 3 2015 iran deal speech\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.75,
+            "source_name": "C-SPAN"
+          }
+        },
+        {
+          "shot_id": "06-04",
+          "type": "remotion",
+          "duration_s": 10,
+          "subject": "Card showing JCPOA signatories: US, UK, France, Germany, Russia, China, Iran — flags + dates.",
+          "source": {
+            "composition": "Timeline",
+            "props": {
+              "events": [
+                "JCPOA signed · July 14, 2015",
+                "Parties: U.S., U.K., France, Germany, Russia, China, Iran",
+                "Netanyahu address: March 3, 2015"
+              ],
+              "treatment": "stagger-reveal"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "06-05",
+          "type": "youtubeBroll",
+          "duration_s": 6,
+          "subject": "Trump announcing U.S. withdrawal from JCPOA, May 8, 2018 (Diplomatic Reception Room)",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"trump withdrawal iran nuclear deal may 8 2018 white house announcement\"",
+            "in_point_s": 0,
+            "out_point_s": 6,
+            "cropTopPct": 0.0,
+            "source_name": "White-House-Channel"
+          }
+        },
+        {
+          "shot_id": "06-06",
+          "type": "remotion",
+          "duration_s": 41,
+          "subject": "VerdictStamp: U.S. WITHDRAWAL · May 8, 2018 · single biggest foreign-policy reversal of his term. Held through VO.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "headline": "U.S. withdrawal: May 8, 2018",
+              "subhead": "Single biggest foreign-policy reversal of the first term.",
+              "treatment": "ink-stamp landing, then static hold"
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "07-first-kept-promise",
+      "script_section": "BEAT 07 — The first kept promise (6:30–7:30)",
+      "duration_s": 60,
+      "vo_summary": "SEALED book pages: Promise #46 KEPT (Tear up Iran deal) + Promise #47 KEPT (Move embassy to Jerusalem).",
+      "shots": [
+        {
+          "shot_id": "07-01",
+          "type": "remotion",
+          "duration_s": 12,
+          "subject": "SEALED book spread Promise #46 — parchment + gold + ink layout. Verdict stamp animates in: KEPT. Hold 4s.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "promise_id": 46,
+              "title": "Tear Up the Iran Nuclear Deal",
+              "verdict": "KEPT",
+              "treatment": "stamp-land + 4s hold"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "07-02",
+          "type": "remotion",
+          "duration_s": 12,
+          "subject": "Pan to Promise #47 — Move Embassy to Jerusalem. Stamp: KEPT. Hold.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "promise_id": 47,
+              "title": "Move Embassy to Jerusalem",
+              "verdict": "KEPT",
+              "treatment": "stamp-land + 4s hold"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "07-03",
+          "type": "youtubeBroll",
+          "duration_s": 4,
+          "subject": "Brief archival: Jerusalem embassy opening ceremony, May 2018",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"jerusalem embassy opening ceremony may 2018 ap archive\"",
+            "in_point_s": 0,
+            "out_point_s": 4,
+            "cropTopPct": 0.0,
+            "source_name": "AP-Archive"
+          }
+        },
+        {
+          "shot_id": "07-04",
+          "type": "remotion",
+          "duration_s": 32,
+          "subject": "Two-up scorecard card: both top-five Adelson priorities · F.E.C. record. Held through VO 'the grade is the grade.'",
+          "source": {
+            "composition": "ScorecardPage",
+            "props": {
+              "rows": [
+                "PROMISE 46 · Tear up the Iran deal · KEPT",
+                "PROMISE 47 · Move embassy to Jerusalem · KEPT"
+              ],
+              "footer": "Both top-five Adelson priorities. F.E.C. record."
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "08-next-page-same-speech",
+      "script_section": "BEAT 08 — The next page of the same speech (7:30–8:30)",
+      "duration_s": 60,
+      "vo_summary": "Promises #42 PARTIAL, #51 PARTIAL, #50 BROKEN (North Korea).",
+      "shots": [
+        {
+          "shot_id": "08-01",
+          "type": "remotion",
+          "duration_s": 10,
+          "subject": "SEALED Promise #42 page — verdict stamp: PARTIAL.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "promise_id": 42,
+              "title": "Stop Nation-Building Overseas",
+              "verdict": "PARTIAL"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "08-02",
+          "type": "remotion",
+          "duration_s": 10,
+          "subject": "SEALED Promise #51 page — verdict stamp: PARTIAL.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "promise_id": 51,
+              "title": "No More Endless Wars",
+              "verdict": "PARTIAL"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "08-03",
+          "type": "remotion",
+          "duration_s": 10,
+          "subject": "SEALED Promise #50 page — verdict stamp: BROKEN.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "promise_id": 50,
+              "title": "Solve the North Korea Nuclear Threat",
+              "verdict": "BROKEN"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "08-04",
+          "type": "remotion",
+          "duration_s": 30,
+          "subject": "Three-row scorecard card: the gap. Held through VO 'same rubric, same page, same book.'",
+          "source": {
+            "composition": "ScorecardPage",
+            "props": {
+              "rows": [
+                "PROMISE 42 · Stop nation-building · PARTIAL",
+                "PROMISE 51 · No more endless wars · PARTIAL",
+                "PROMISE 50 · Solve North Korea · BROKEN"
+              ],
+              "footer": "Same rubric. Same page. Same book."
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "09-soleimani",
+      "script_section": "BEAT 09 — Soleimani (8:30–9:30)",
+      "duration_s": 60,
+      "vo_summary": "Jan 3 2020 news chyrons; Baghdad airport map; D.O.D. press briefing podium. Bridge to June 2025 Iran strike.",
+      "shots": [
+        {
+          "shot_id": "09-01",
+          "type": "youtubeBroll",
+          "duration_s": 5,
+          "subject": "News chyron Jan 3 2020: 'U.S. STRIKE KILLS IRANIAN GENERAL'",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"soleimani killed baghdad airport january 3 2020 cnn breaking news chyron\"",
+            "in_point_s": 0,
+            "out_point_s": 5,
+            "cropTopPct": 0.0,
+            "source_name": "CNN-archive"
+          }
+        },
+        {
+          "shot_id": "09-02",
+          "type": "remotion",
+          "duration_s": 6,
+          "subject": "Map graphic — Baghdad International Airport, strike location pin. Date stamp Jan 3, 2020.",
+          "source": {
+            "composition": "Timeline",
+            "props": {
+              "map": "iraq-baghdad-airport",
+              "pin_label": "Baghdad Int'l Airport · Jan 3, 2020",
+              "treatment": "satellite-zoom-to-pin"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "09-03",
+          "type": "youtubeBroll",
+          "duration_s": 5,
+          "subject": "D.O.D. press briefing podium — Esper or admin statement on Soleimani strike, Jan 2020",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"esper pentagon press briefing soleimani strike january 2020\"",
+            "in_point_s": 0,
+            "out_point_s": 5,
+            "cropTopPct": 0.75,
+            "source_name": "C-SPAN"
+          }
+        },
+        {
+          "shot_id": "09-04",
+          "type": "remotion",
+          "duration_s": 8,
+          "subject": "Date-stamp card: 'Jan 3, 2020 · Baghdad airport · drone strike · Authorized by the President.'",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "headline": "Jan 3, 2020 · Baghdad airport · drone strike",
+              "subhead": "Authorized by the President. D.O.D. confirmed."
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "09-05",
+          "type": "youtubeBroll",
+          "duration_s": 5,
+          "subject": "June 2025 U.S. strike on Iran — wire / news b-roll (exact source TBD by Stage 6 fact-check council)",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"us military strike iran june 2025 pentagon announcement\"",
+            "in_point_s": 0,
+            "out_point_s": 5,
+            "cropTopPct": 0.0,
+            "source_name": "AP-Archive",
+            "blocking_note": "Stage 6 must pin official primary source for June 2025 strike before render."
+          }
+        },
+        {
+          "shot_id": "09-06",
+          "type": "remotion",
+          "duration_s": 31,
+          "subject": "Timeline card: Two strikes. Two terms. Same region. Held through VO landing 'the page said the opposite.'",
+          "source": {
+            "composition": "Timeline",
+            "props": {
+              "events": [
+                "Jan 3, 2020 · Soleimani strike · Baghdad",
+                "June 2025 · U.S. military strike on Iran"
+              ],
+              "footer": "Two strikes. Two terms. Same region."
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "10-breath-the-ledger",
+      "script_section": "BEAT 10 — Breath. The ledger. (9:30–10:15)",
+      "duration_s": 45,
+      "vo_summary": "Full SEALED scorecard graphic, parchment background. The number 145 big and centered. Camera holds. Soft room tone.",
+      "shots": [
+        {
+          "shot_id": "10-01",
+          "type": "remotion",
+          "duration_s": 45,
+          "subject": "Full-screen scorecard: '145' big and centered, four-color tally beneath. No motion. Soft room tone only.",
+          "source": {
+            "composition": "ScorecardPage",
+            "props": {
+              "hero_number": 145,
+              "tally": {
+                "kept": 46,
+                "partial": 51,
+                "broken": 40,
+                "reader_decides": 8
+              },
+              "footer": "Same rubric. Every candidate. Always.",
+              "treatment": "static hold, parchment bg, room-tone only"
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "11-2024-was-2015-again",
+      "script_section": "BEAT 11 — 2024 was 2015 again (10:15–11:15)",
+      "duration_s": 60,
+      "vo_summary": "Wayback Machine capture of donaldjtrump.com Feb 2026; '20 Core Promises' page; Issues page; Wayback timestamp.",
+      "shots": [
+        {
+          "shot_id": "11-01",
+          "type": "remotion",
+          "duration_s": 8,
+          "subject": "Wayback Machine screenshot: donaldjtrump.com 20 Core Promises page, promise 8 highlighted.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "doc_style": "wayback-screenshot",
+              "url": "donaldjtrump.com — 20 Core Promises",
+              "highlight": "Promise #8 — Prevent world war three",
+              "treatment": "ken-burns push-in to highlight"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "11-02",
+          "type": "remotion",
+          "duration_s": 8,
+          "subject": "Wayback screenshot: Issues / 'Renew American Strength and Leadership' page, 'unnecessary foreign wars' line highlighted.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "doc_style": "wayback-screenshot",
+              "url": "donaldjtrump.com — Issues",
+              "highlight": "'Keep America out of unnecessary foreign wars.'",
+              "treatment": "ken-burns push-in"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "11-03",
+          "type": "remotion",
+          "duration_s": 5,
+          "subject": "Black frame with Wayback Machine timestamp: 'Captured Feb 2026 · Page taken down Jan 20, 2025'",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "bg": "black",
+              "lines": [
+                "Captured: Feb 2026",
+                "Page taken down: Jan 20, 2025",
+                "Saved by the Wayback Machine"
+              ]
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "11-04",
+          "type": "youtubeBroll",
+          "duration_s": 5,
+          "subject": "Trump inauguration Jan 20 2025 — brief archival cutaway",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"trump inauguration january 20 2025 swearing in\"",
+            "in_point_s": 0,
+            "out_point_s": 5,
+            "cropTopPct": 0.75,
+            "source_name": "C-SPAN"
+          }
+        },
+        {
+          "shot_id": "11-05",
+          "type": "remotion",
+          "duration_s": 34,
+          "subject": "CTA card with companion PDF link: campaignreceipts.com/trump — 52 saved promises. Held through VO 'save the page · check the Wayback Machine on inauguration day.'",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "headline": "52 promises saved before they came down.",
+              "url": "campaignreceipts.com/trump",
+              "subhead": "Free companion P.D.F."
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "11_5-weaponization",
+      "script_section": "BEAT 11.5 — The other page that came down (11:15–12:00)",
+      "duration_s": 45,
+      "vo_summary": "Wayback screenshot of donaldjtrump.com Promise #9 verbatim quote. Documents-only sequence covering 2025 I.C.E. detentions of foreign grad students for pro-Palestine speech + home visits to U.S. citizens over social-media posts about Israel. Ends on BROKEN BY ACTION verdict stamp.",
+      "shots": [
+        {
+          "shot_id": "11_5-01",
+          "type": "remotion",
+          "duration_s": 6,
+          "subject": "Wayback Machine screenshot of donaldjtrump.com '20 Core Promises' page with Promise #9 highlighted — 'End the weaponization of government against the american people.'",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "doc_style": "wayback-screenshot",
+              "url": "donaldjtrump.com — 20 Core Promises",
+              "highlight": "Promise #9 — 'End the weaponization of government against the american people.'",
+              "treatment": "ken-burns push-in to highlight",
+              "credit": "Captured Feb 2026 via Internet Archive Wayback Machine; page taken down on or about Jan 20, 2025."
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "11_5-02",
+          "type": "youtubeBroll",
+          "duration_s": 5,
+          "subject": "News chyron / front-page graphic referencing Mahmoud Khalil arrest at Columbia — broad campus or news-set framing only, no identifying close-ups beyond verified named cases.",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"mahmoud khalil columbia university ice detention pro palestine 2025 ap reuters\"",
+            "in_point_s": 0,
+            "out_point_s": 5,
+            "cropTopPct": 0.0,
+            "source_name": "AP-Archive",
+            "blocking_note": "Stage 6 fact-check council MUST pin named-case primary source (court filing or I.C.E. press release) before render. Generic chyron acceptable until pinned; do not over-identify individuals beyond verified named cases."
+          }
+        },
+        {
+          "shot_id": "11_5-03",
+          "type": "remotion",
+          "duration_s": 5,
+          "subject": "Stylized I.C.E. detention document — redacted form-letter aesthetic, no real PII. Lower-third: '2025 · Foreign students detained by I.C.E. over pro-Palestine speech.'",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "doc_style": "ice-detention-notice-redacted",
+              "treatment": "static hold + lower-third",
+              "subhead": "Visas revoked. Detention facilities a thousand miles from their universities."
+            },
+            "source_name": "remotion",
+            "blocking_note": "Document is illustrative / Remotion-rendered. Stage 6 council must pin primary-source court filing or I.C.E. press release as on-screen citation."
+          }
+        },
+        {
+          "shot_id": "11_5-04",
+          "type": "remotion",
+          "duration_s": 5,
+          "subject": "Still: generic suburban front door, exterior, late afternoon light. No person. No identifying detail. Represents the home-visit reports.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "brand/stills/generic-front-door.jpg",
+              "treatment": "static hold, lower-third",
+              "lines": [
+                "2025 · Officers visiting U.S. citizens at home",
+                "over social-media posts about Israel."
+              ]
+            },
+            "source_name": "remotion",
+            "still_source_note": "Generate via fal FLUX Pro — anonymous suburban front door, no people, no identifying detail. Brief lives at brand/stills/."
+          }
+        },
+        {
+          "shot_id": "11_5-05",
+          "type": "youtubeBroll",
+          "duration_s": 5,
+          "subject": "Archival b-roll: A.C.L.U. press conference or civil-liberties-organization statement on speech-based federal action, 2025.",
+          "source": {
+            "youtube_url": null,
+            "search_fallback": "youtube-search:\"aclu free speech federal home visits social media 2025 press conference\"",
+            "in_point_s": 0,
+            "out_point_s": 5,
+            "cropTopPct": 0.0,
+            "source_name": "AP-Archive",
+            "blocking_note": "Stage 6 council must pin A.C.L.U. / C.A.I.R. / wire-service documentation with date and jurisdiction. Generic press-conference b-roll acceptable until pinned."
+          }
+        },
+        {
+          "shot_id": "11_5-06",
+          "type": "remotion",
+          "duration_s": 19,
+          "subject": "VerdictStamp lands: BROKEN BY ACTION. Subhead: 'The page promised the end of it. The term ran the opposite.' Held through VO landing 'You voted for the page. You did not vote for this.'",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "headline": "BROKEN BY ACTION",
+              "subhead": "The page promised the end of weaponization.",
+              "footer": "You voted for the page.",
+              "treatment": "ink-stamp landing, then static hold"
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "12-im-not-crazy",
+      "script_section": "BEAT 12 — The 'I'm not crazy' beat (12:00–12:45)",
+      "duration_s": 45,
+      "vo_summary": "Held still: kitchen table, printed SEALED scorecard, coffee mug, reading glasses, soft natural light. No people. Voter alone with the receipt.",
+      "shots": [
+        {
+          "shot_id": "12-01",
+          "type": "remotion",
+          "duration_s": 45,
+          "subject": "Held still of kitchen table + printed SEALED scorecard + coffee mug + reading glasses. Soft natural light. No motion design. Three captions reveal slowly: 'You are not crazy.' / 'The receipts are on one page.' / 'Disappointment is allowed.'",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "brand/stills/kitchen-table-sealed-scorecard.jpg",
+              "treatment": "static hold, slow caption stagger",
+              "cards": [
+                "You are not crazy.",
+                "The receipts are on one page.",
+                "Disappointment is allowed."
+              ]
+            },
+            "source_name": "remotion",
+            "still_source_note": "Generate via fal FLUX Pro — kitchen table aesthetic, no people, no political iconography. Brief lives at brand/stills/."
+          }
+        }
+      ]
+    },
+    {
+      "beat_id": "13-close-the-tool",
+      "script_section": "BEAT 13 — Close. The tool. (12:45–13:45)",
+      "duration_s": 65,
+      "vo_summary": "Slow push on SEALED book cover → wide of sealed2016.com homepage → campaignreceipts.com/trump → SEALED parchment logo + 5s music-bed-only tail.",
+      "shots": [
+        {
+          "shot_id": "13-01",
+          "type": "remotion",
+          "duration_s": 12,
+          "subject": "Slow push-in on SEALED book cover.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "companies/concise-sealed/artifacts/SEALED-v1-retail-cover.png",
+              "treatment": "ken-burns 100% → 110% over 12s"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "13-02",
+          "type": "remotion",
+          "duration_s": 12,
+          "subject": "Wide shot of sealed2016.com homepage screenshot.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "brand/stills/sealed2016-homepage.png",
+              "treatment": "ken-burns slow push"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "13-03",
+          "type": "remotion",
+          "duration_s": 12,
+          "subject": "Wide shot of campaignreceipts.com/trump page showing 52 deleted-promises companion.",
+          "source": {
+            "composition": "SourceCard",
+            "props": {
+              "still": "brand/stills/campaignreceipts-trump-page.png",
+              "treatment": "ken-burns slow push"
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "13-04",
+          "type": "remotion",
+          "duration_s": 20,
+          "subject": "Three-row CTA / scorecard card.",
+          "source": {
+            "composition": "ScorecardPage",
+            "props": {
+              "rows": [
+                "145 promises · sealed2016.com",
+                "52 deleted promises · campaignreceipts.com/trump",
+                "Same rubric. Every candidate. Always."
+              ]
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "13-05",
+          "type": "remotion",
+          "duration_s": 4,
+          "subject": "SEALED parchment logo card.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "logo": "sealed-parchment",
+              "footer": "SEALED · An audit, not a verdict."
+            },
+            "source_name": "remotion"
+          }
+        },
+        {
+          "shot_id": "13-06",
+          "type": "music-bed",
+          "duration_s": 5,
+          "subject": "Final card held during 5s music-bed-only tail. No abrupt cut. Per founder lock 2026-05-25.",
+          "source": {
+            "composition": "VerdictStamp",
+            "props": {
+              "logo": "sealed-parchment",
+              "footer": "SEALED · An audit, not a verdict.",
+              "treatment": "hold + music tail"
+            },
+            "source_name": "remotion"
+          }
+        }
+      ]
+    }
+  ],
+  "fair_use_envelope_check": {
+    "rules": {
+      "max_per_shot_s": 6,
+      "max_per_single_clip_s": 30,
+      "max_per_source_total_s": 90
+    },
+    "per_source_totals_s": {
+      "CNN-archive": 23,
+      "C-SPAN": 28,
+      "ABC-this-week": 6,
+      "PBS-NewsHour": 5,
+      "White-House-Channel": 12,
+      "AP-Archive": 25,
+      "remotion": 628,
+      "black-frame": 1.5
+    },
+    "violations": [],
+    "notes": "Every YouTube-archival source is well under the 90s-per-source cap. Largest single source is C-SPAN at 28s across 4 shots (cropTopPct: 0.75 applied to each); AP-Archive grew to 25s with BEAT 11.5 weaponization additions (Khalil chyron + A.C.L.U. press b-roll). Remotion cards carry the bulk (~80%) of screen time — consistent with the SEALED audit-document aesthetic and zero-AI-faces rule."
+  },
+  "remotion_cards_inventory": [
+    { "shot_id": "01-05", "composition": "SourceCard", "props": { "cards": ["2015. The stump speech.", "What happened to the man on that stage?"] } },
+    { "shot_id": "02-01", "composition": "SourceCard", "props": { "still": "SEALED-v1-retail-cover.png" } },
+    { "shot_id": "02-02", "composition": "ScorecardPage", "props": { "total": 145, "kept": 46, "partial": 51, "broken": 40, "reader_decides": 8 } },
+    { "shot_id": "03-02", "composition": "SourceCard", "props": { "caption": "DEBATE · 2015" } },
+    { "shot_id": "03-04", "composition": "SourceCard", "props": { "caption": "RALLY · 2016" } },
+    { "shot_id": "03-06", "composition": "SourceCard", "props": { "caption": "INTERVIEW · 2016" } },
+    { "shot_id": "03-07", "composition": "Timeline", "props": { "events": 3 } },
+    { "shot_id": "04-01", "composition": "SourceCard", "props": { "still": "adelson-rjc.jpg" } },
+    { "shot_id": "04-02", "composition": "SourceCard", "props": { "still": "adelson-trump-whitehouse.jpg" } },
+    { "shot_id": "04-03", "composition": "SourceCard", "props": { "still": "adelson-family.jpg" } },
+    { "shot_id": "04-05", "composition": "SourceCard", "props": { "doc_style": "fec-filing" } },
+    { "shot_id": "05-01", "composition": "SourceCard", "props": { "outlet": "Jerusalem Post" } },
+    { "shot_id": "05-02", "composition": "SourceCard", "props": { "outlet": "Washington Post" } },
+    { "shot_id": "05-03", "composition": "SourceCard", "props": { "outlet": "Las Vegas Review-Journal" } },
+    { "shot_id": "05-04", "composition": "VerdictStamp", "props": { "cards": 3 } },
+    { "shot_id": "06-04", "composition": "Timeline", "props": { "events": 3 } },
+    { "shot_id": "06-06", "composition": "VerdictStamp", "props": { "headline": "U.S. withdrawal: May 8, 2018" } },
+    { "shot_id": "07-01", "composition": "VerdictStamp", "props": { "promise_id": 46, "verdict": "KEPT" } },
+    { "shot_id": "07-02", "composition": "VerdictStamp", "props": { "promise_id": 47, "verdict": "KEPT" } },
+    { "shot_id": "07-04", "composition": "ScorecardPage", "props": { "rows": 2 } },
+    { "shot_id": "08-01", "composition": "VerdictStamp", "props": { "promise_id": 42, "verdict": "PARTIAL" } },
+    { "shot_id": "08-02", "composition": "VerdictStamp", "props": { "promise_id": 51, "verdict": "PARTIAL" } },
+    { "shot_id": "08-03", "composition": "VerdictStamp", "props": { "promise_id": 50, "verdict": "BROKEN" } },
+    { "shot_id": "08-04", "composition": "ScorecardPage", "props": { "rows": 3 } },
+    { "shot_id": "09-02", "composition": "Timeline", "props": { "map": "iraq-baghdad-airport" } },
+    { "shot_id": "09-04", "composition": "SourceCard", "props": { "headline": "Jan 3, 2020" } },
+    { "shot_id": "09-06", "composition": "Timeline", "props": { "events": 2 } },
+    { "shot_id": "10-01", "composition": "ScorecardPage", "props": { "hero_number": 145 } },
+    { "shot_id": "11-01", "composition": "SourceCard", "props": { "doc_style": "wayback-screenshot", "highlight": "Promise #8" } },
+    { "shot_id": "11-02", "composition": "SourceCard", "props": { "doc_style": "wayback-screenshot", "highlight": "unnecessary foreign wars" } },
+    { "shot_id": "11-03", "composition": "SourceCard", "props": { "bg": "black", "lines": 3 } },
+    { "shot_id": "11-05", "composition": "SourceCard", "props": { "url": "campaignreceipts.com/trump" } },
+    { "shot_id": "11_5-01", "composition": "SourceCard", "props": { "doc_style": "wayback-screenshot", "highlight": "Promise #9 — end weaponization" } },
+    { "shot_id": "11_5-03", "composition": "SourceCard", "props": { "doc_style": "ice-detention-notice-redacted" } },
+    { "shot_id": "11_5-04", "composition": "SourceCard", "props": { "still": "generic-front-door.jpg" } },
+    { "shot_id": "11_5-06", "composition": "VerdictStamp", "props": { "headline": "BROKEN BY ACTION" } },
+    { "shot_id": "12-01", "composition": "SourceCard", "props": { "still": "kitchen-table-sealed-scorecard.jpg", "cards": 3 } },
+    { "shot_id": "13-01", "composition": "SourceCard", "props": { "still": "SEALED-v1-retail-cover.png" } },
+    { "shot_id": "13-02", "composition": "SourceCard", "props": { "still": "sealed2016-homepage.png" } },
+    { "shot_id": "13-03", "composition": "SourceCard", "props": { "still": "campaignreceipts-trump-page.png" } },
+    { "shot_id": "13-04", "composition": "ScorecardPage", "props": { "rows": 3 } },
+    { "shot_id": "13-05", "composition": "VerdictStamp", "props": { "logo": "sealed-parchment" } },
+    { "shot_id": "13-06", "composition": "VerdictStamp", "props": { "logo": "sealed-parchment", "music_tail_s": 5 } }
+  ]
+}

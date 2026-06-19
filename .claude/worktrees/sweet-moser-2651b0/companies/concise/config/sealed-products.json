@@ -1,0 +1,41 @@
+{
+  "status": "pending",
+  "description": "SEALED product variant IDs from Lemon Squeezy",
+  "lastUpdated": "2026-05-06T23:20:00Z",
+  "notes": "Variants created by founder via LS dashboard per CON-25. Awaiting his comment with the standard and bundle variant IDs before replacing the placeholders.",
+  "variants": {
+    "standard": {
+      "name": "SEALED: The 2016 Promises — Before the Deals (Standard Edition)",
+      "price": 2200,
+      "currency": "USD",
+      "variantId": "PLACEHOLDER_STANDARD_ID",
+      "checkoutUrl": "https://demiurgiclabs.lemonsqueezy.com/checkout/buy/PLACEHOLDER_STANDARD_ID",
+      "description": "PDF + ePub + Audiobook narration"
+    },
+    "bundle": {
+      "name": "SEALED: The 2016 Promises — Before the Deals (Bundle + Tracking Sheet)",
+      "price": 2700,
+      "currency": "USD",
+      "variantId": "PLACEHOLDER_BUNDLE_ID",
+      "checkoutUrl": "https://demiurgiclabs.lemonsqueezy.com/checkout/buy/PLACEHOLDER_BUNDLE_ID",
+      "description": "PDF + ePub + Audiobook narration + Foreign Influence Policy Tracking Spreadsheet"
+    }
+  },
+  "shareLinks": {
+    "giftDiscountCode": "GIFT50",
+    "standardGiftUrlTemplate": "https://demiurgiclabs.lemonsqueezy.com/checkout/buy/{VARIANT_ID}?checkout[discount_code]=GIFT50",
+    "bundleGiftUrlTemplate": "https://demiurgiclabs.lemonsqueezy.com/checkout/buy/{VARIANT_ID}?checkout[discount_code]=GIFT50",
+    "notes": "Replace {VARIANT_ID} after founder posts variant IDs. Lemon Squeezy supports checkout[discount_code] prefill."
+  },
+  "testingStatus": {
+    "sandboxTested": false,
+    "liveModeApproved": false,
+    "liveModeLaunched": false
+  },
+  "approvals": {
+    "ctoCodeReview": null,
+    "ceoBrandApproval": null,
+    "chiefAccountantApproval": null,
+    "complianceVerification": null
+  }
+}

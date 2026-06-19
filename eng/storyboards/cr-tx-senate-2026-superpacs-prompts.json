@@ -1,0 +1,92 @@
+[
+  {
+    "clip_id": "hook-01-open",
+    "tool": "kling-i2v",
+    "seed_still_id": "S1",
+    "duration_s": 10,
+    "prompt": "Bright high-key daylight living room at midday, abundant white sunlight pouring through tall sheer white curtains that drift gently in a soft breeze. The camera performs a slow steady push-in across the bright room toward a switched-on flat-panel television glowing pure bright white with clean abstract color bars (no advertisement, no person, no readable text, no face). Sheer curtains sway softly, dust motes float in the bright sunbeams, the TV glow stays bright and even. Everything stays brightly and evenly lit at 5600K, high contrast, white-and-pale palette, fully and evenly lit, no underlit areas. Shot on ARRI Alexa 35 in LogC4, Panavision Ultra Vintage 2x anamorphic 40mm at T2.3, Tiffen Black Pro-Mist 1/4, handheld with natural breath and a slow forward dolly push, bright airy exposure holding clean highlights, Kodak Vision3 250D film emulation with fine 800 ASA grain, clean bright cinematic grade, deep focus, 24fps base shutter 180 degrees, total runtime roughly ten seconds. Hyperrealistic photography, real cinema glass, real fabric weave on furniture, real glass reflection on the screen, never CGI, never plastic, never AI-art aesthetic. Audio: diegetic only — faint room tone, soft curtain rustle in a light breeze, a low even electronic hum from the television, distant muffled daytime traffic, no music, no dialogue.",
+    "negative": "no people, no face, no real person likeness, no readable text, no real advertisement, no logo, no brand name, no dim lighting, no night, no shadow pooling, no vignette darkening, no warm low light, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "hook-01-open (narrative open, 9s beat held under TextSlate)",
+    "start_frame_continuation": null
+  },
+  {
+    "clip_id": "hook-03-friendly-name",
+    "tool": "kling-i2v",
+    "seed_still_id": "S2",
+    "duration_s": 10,
+    "prompt": "Bright high-key tabletop macro on a crisp clean white campaign-style placard mailer lying flat on a bright white tabletop in hard clean daylight. The camera performs a slow steady three-inch push-in across the paper; the raking bright light glides along the fold and edges as it moves, a blank printed line of plain underscores (no readable words, no real names, no logo) and a simple abstract navy stadium-crowd silhouette graphic stay crisp and brightly lit. The paper edge lifts almost imperceptibly. Everything stays brightly and evenly lit at 5600K, high contrast, white-and-navy palette, fully and evenly lit. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod with a slow three-inch push-in, Tiffen Black Pro-Mist 1/4 light, Kodak Vision3 250D film emulation with fine 400 ASA grain, clean bright studio grade at 5600K, deep depth of field on the document with soft falloff, slight halation on bright highlights, 24fps base shutter 180 degrees, total runtime roughly ten seconds. Hyperrealistic photography, real paper grain and ink absorption, real fold and edge wear, never CGI, never plastic. Audio: diegetic only — soft paper rustle as the camera moves, faint quiet-office room tone, distant even HVAC hum, no music, no dialogue.",
+    "negative": "no readable words, no real candidate names, no real campaign logo, no brand name, no people, no face, no dim lighting, no night, no shadow pooling, no vignette darkening, no warm low light, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "hook-03-friendly-name (21s card; 10s plate held/cross-dissolved under TextSlate)",
+    "start_frame_continuation": null
+  },
+  {
+    "clip_id": "stakes-02-the-flood",
+    "tool": "kling-i2v",
+    "seed_still_id": "S3",
+    "duration_s": 10,
+    "prompt": "Bright high-key overhead macro looking straight down at a glossy bright white tabletop scattered with blank generic check-shaped paper rectangles (no text, no numbers, no names). Clear clean water sheets fast across the bright white surface, catching hard daylight in glossy bright reflections; the paper rectangles lift, slide and tumble in the moving water, several drifting toward the edge of frame. The water stays clear and bright, the whole surface evenly and brightly lit at 5600K, high contrast, white palette, glossy bright highlights, fully and evenly lit. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off overhead with a very slight slow drift, Tiffen Black Pro-Mist 1/4 light, Kodak Vision3 250D film emulation with fine 400 ASA grain, clean bright studio grade at 5600K, deep focus, slight halation on water highlights, 24fps base shutter 180 degrees, total runtime roughly ten seconds. Hyperrealistic photography, real paper grain, real water surface tension and refraction, real glossy reflection, never CGI, never plastic. Audio: diegetic only — rushing water flow across a hard surface, wet paper slap and slide, light splashing, faint room tone, no music, no dialogue.",
+    "negative": "no text, no numbers, no real names, no logo, no brand name, no people, no face, no dim lighting, no night, no shadow pooling, no vignette darkening, no warm low light, no murky water, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "stakes-02-the-flood (money-as-flood metaphor)",
+    "start_frame_continuation": null
+  },
+  {
+    "clip_id": "r1-02-cornyn-nau",
+    "tool": "kling-i2v",
+    "seed_still_id": "S4",
+    "duration_s": 10,
+    "prompt": "Bright high-key tabletop macro of a generic condensation-beaded amber glass bottle (no label, no logo, no text) standing beside a neat stack of blank bright white paper and a polished fountain pen resting across the top sheet, on a bright white tabletop with a single folded navy cloth edge in frame. Hard clean daylight rakes the scene. The camera performs a slow lateral drift; condensation beads slide slowly down the bright glass, a faint clean reflection travels across the bottle, the paper stack and pen stay crisp and brightly lit. Everything stays brightly and evenly lit at 5600K, high contrast, white-and-navy palette, bright glossy highlights, fully and evenly lit. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod with a slow lateral drift, Tiffen Black Pro-Mist 1/4 light, Kodak Vision3 250D film emulation with fine 400 ASA grain, clean bright studio grade at 5600K, deep depth of field, slight halation on highlights, 24fps base shutter 180 degrees, total runtime roughly ten seconds. Hyperrealistic photography, real glass surface with water beads and clean reflection, real paper grain, real metal detail on the pen, never CGI, never plastic. Audio: diegetic only — faint quiet room tone, a soft single water-bead drip, distant even HVAC hum, no music, no dialogue.",
+    "negative": "no label, no logo, no brand name, no readable text, no people, no face, no dim lighting, no night, no shadow pooling, no vignette darkening, no warm low light, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "r1-02-cornyn-nau (money-man atmosphere, object-only)",
+    "start_frame_continuation": "hook-03-friendly-name"
+  },
+  {
+    "clip_id": "r2-01-walk-across",
+    "tool": "kling-i2v",
+    "seed_still_id": "S5",
+    "duration_s": 10,
+    "prompt": "Bright high-key wide down the center of a clean empty white-and-navy corridor or assembly aisle, bright midday daylight flooding in from large windows at both ends so the whole length stays evenly and brightly lit edge to edge with even edge-to-edge fill. The camera performs a slow steady forward dolly walking up the center aisle, the polished pale floor reflecting the bright light, rows of empty navy seats sliding past on either side, the bright window ahead growing as we approach. Completely empty, no people. Everything stays brightly and evenly lit at 5600K, high-key, high contrast, white-and-navy palette, fully and evenly lit, strong negative space. Shot on ARRI Alexa Mini LF in LogC4, Panavision Ultra Vintage 2x anamorphic 35mm at T2.3, Tiffen Black Pro-Mist 1/4, locked smooth forward dolly with no handheld energy, Kodak Vision3 250D film emulation with fine 400 ASA grain, clean bright cinematic grade, deep focus, slight anamorphic flare on the bright window, 24fps base shutter 180 degrees, total runtime roughly ten seconds. Hyperrealistic photography, real architectural material detail, real floor reflection, never CGI, never plastic. Audio: diegetic only — quiet large-room tone, soft even footstep reverb on a hard floor, faint air-handling hum, no music, no dialogue.",
+    "negative": "no people, no face, no real person likeness, no readable signage text, no brand name, no dim lighting, no night, no shadow pooling, no vignette darkening, no warm low light, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "r2-01-walk-across (walk-across-the-aisle pivot, 20s card; 10s plate held under TextSlate)",
+    "start_frame_continuation": null
+  },
+  {
+    "clip_id": "r3-01-whos-behind",
+    "tool": "kling-i2v",
+    "seed_still_id": "S6",
+    "duration_s": 10,
+    "prompt": "Bright high-key tabletop macro of a row of blank white nested envelopes and folders on a bright white tabletop in hard clean daylight, the front envelope open to reveal another blank white envelope inside, then another within that, all clean blank stationery with no text, no names, no logos. The camera performs a slow steady push-in toward the opening; a hand is not present, the envelopes rest still while the bright raking light reveals each nested layer in turn as we move closer. Everything stays brightly and evenly lit at 5600K, high contrast, pure white palette, crisp bright edges and clean bright separation, fully lit. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod with a slow push-in, Tiffen Black Pro-Mist 1/4 light, Kodak Vision3 250D film emulation with fine 400 ASA grain, clean bright studio grade at 5600K, deep depth of field, slight halation on highlights, 24fps base shutter 180 degrees, total runtime roughly ten seconds. Hyperrealistic photography, real paper grain and fiber texture, real fold and edge detail, never CGI, never plastic. Audio: diegetic only — soft paper rustle, faint quiet-office room tone, distant even HVAC hum, no music, no dialogue.",
+    "negative": "no text, no names, no logo, no brand name, no people, no face, no dim lighting, no night, no shadow pooling, no vignette darkening, no warm low light, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "r3-01-whos-behind (money-runs-through-a-second-group, 14s card; 10s plate held)",
+    "start_frame_continuation": null
+  },
+  {
+    "clip_id": "r3-04-passthrough-source",
+    "tool": "kling-i2v",
+    "seed_still_id": "S7",
+    "duration_s": 10,
+    "prompt": "Bright high-key tabletop macro of a paper trail of overlapping blank white documents receding across a bright white desk, fully and evenly lit by hard clean daylight along its entire length. The camera performs a slow steady push toward the far end of the trail, where the final document is a completely blank empty white page sitting in full bright light. The trail simply ends at an empty lit page; the page stays fully illuminated and bright as we arrive, never obscured. Everything stays brightly and evenly lit at 5600K, high-key, high contrast, pure white palette, fully and evenly lit. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod with a slow push-in along the trail, Tiffen Black Pro-Mist 1/4 light, Kodak Vision3 250D film emulation with fine 400 ASA grain, clean bright studio grade at 5600K, deep focus along the documents, slight halation on highlights, 24fps base shutter 180 degrees, total runtime roughly ten seconds. Hyperrealistic photography, real paper grain, real overlap and crisp edge separation in bright light, never CGI, never plastic. Audio: diegetic only — soft paper rustle as the camera moves, faint quiet room tone, distant even HVAC hum, no music, no dialogue.",
+    "negative": "no text, no names, no logo, no brand name, no people, no face, no dim lighting, no night, no shadow pooling, no vignette darkening, no fade to black, no warm low light, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "r3-04-passthrough-source (trail ends at a blank lit page; emptiness is the point, fully lit)",
+    "start_frame_continuation": "r3-01-whos-behind"
+  },
+  {
+    "clip_id": "why-01-real-question",
+    "tool": "kling-i2v",
+    "seed_still_id": "S8",
+    "duration_s": 10,
+    "prompt": "Bright high-key wide of a clean white classical-style government facade with tall columns and a pale stone triangular stone crown, lit by flat bright midday sun under a clear bright blue sky, generic classical architecture not resembling any specific recognizable real building, broad white steps in front. The camera performs a very slow locked push-in toward the columns; the bright flat sunlight holds even across the whole facade, a few high thin clouds drift slowly across the bright blue sky. Evenly and brightly lit at 5600K, high-key, high contrast, white-stone-and-blue-sky palette, no people, fully and evenly lit, strong bright negative space of sky. Shot on ARRI Alexa Mini LF in LogC4, Panavision Ultra Vintage 2x anamorphic 55mm at T2.3, Tiffen Black Pro-Mist 1/4, extremely slow locked push-in with no handheld energy, Kodak Vision3 250D film emulation with fine 400 ASA grain, clean bright cinematic grade, deep focus, 24fps base shutter 180 degrees, total runtime roughly ten seconds. Hyperrealistic photography, real stone surface texture and weathering, real clean sky gradient, never CGI, never plastic. Audio: diegetic only — open-air ambient, a light steady breeze, faint distant daytime city hum, occasional far-off bird call, no music, no dialogue.",
+    "negative": "no people, no face, no real person likeness, no recognizable specific real landmark, no readable signage text, no flag detail, no brand name, no dim lighting, no night, no dusk sky, no shadow pooling, no vignette darkening, no warm low light, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "why-01-real-question (Washington-writes-the-rules atmosphere, 18s card; 10s plate held)",
+    "start_frame_continuation": null
+  },
+  {
+    "clip_id": "verdict-02-costume",
+    "tool": "kling-i2v",
+    "seed_still_id": "S9",
+    "duration_s": 5,
+    "prompt": "Bright high-key tabletop macro of a plain theatrical face mask lying flat on a bright white tabletop in hard clean daylight. An unseen force lifts the mask cleanly away from the surface in one smooth quick reveal, exposing a plain printed receipt-style strip of white paper underneath (the receipt blank, no readable text, no names, no numbers). Hard clean daylight stays even and bright across both surfaces throughout, crisp short edge separation, fully and evenly lit. Brightly and evenly lit at 5600K, high-key, high contrast, white palette. Shot on ARRI Alexa Mini LF, macro 100mm at T2.8, locked-off tripod, Tiffen Black Pro-Mist 1/4 light, Kodak Vision3 250D film emulation with fine 400 ASA grain, clean bright studio grade at 5600K, deep depth of field, slight halation on highlights, 24fps base shutter 180 degrees, total runtime roughly five seconds. Hyperrealistic photography, real mask surface texture, real paper grain on the receipt, crisp bright daylight separation, never CGI, never plastic. Audio: diegetic only — a soft paper and card lift, faint quiet room tone, a light settling rustle, no music, no dialogue.",
+    "negative": "no readable text, no names, no numbers, no logo, no brand name, no real face likeness, no person, no dim lighting, no night, no shadow pooling, no vignette darkening, no warm low light, no garbled letters, no watermark, no CGI look, no plastic sheen, no AI-art aesthetic",
+    "covers": "verdict-02-costume (names-are-a-costume reveal; 8.71s beat, 5s plate held to fill)",
+    "start_frame_continuation": null
+  }
+]

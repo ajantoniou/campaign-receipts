@@ -1,0 +1,33 @@
+{
+  "name": "@portfolio/fec",
+  "version": "0.1.0-spec",
+  "private": true,
+  "description": "Shared FEC donor data library for the AgentCompanies portfolio. Consumed by CampaignReceipts, BillsTracker, and future projects that need to connect politicians to donors.",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'Build step not yet implemented — currently spec-only'",
+    "test": "echo 'Tests not yet implemented'",
+    "sync:cli": "node src/sync-cli.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "files": [
+    "src/",
+    "docs/",
+    "README.md"
+  ],
+  "keywords": [
+    "fec",
+    "campaign-finance",
+    "political-data",
+    "portfolio-shared"
+  ],
+  "author": "Alex Antoniou <alex@antoniou.net>",
+  "license": "UNLICENSED"
+}

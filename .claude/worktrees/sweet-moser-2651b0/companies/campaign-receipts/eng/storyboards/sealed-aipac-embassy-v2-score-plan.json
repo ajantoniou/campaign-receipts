@@ -1,0 +1,170 @@
+{
+  "slug": "sealed-aipac-embassy-v2",
+  "_meta": {
+    "stage": "19.7 score-composer",
+    "program": "sealed",
+    "mode": "longform",
+    "total_duration_seconds": 210,
+    "tone_lock": "hold-both-tell-them-nothing",
+    "clip_boundaries_s": {
+      "eb1-01": [0, 6], "eb1-02": [6, 15], "eb1-03": [15, 25],
+      "eb2-01": [25, 30], "eb2-02": [30, 44], "eb2-03": [44, 50],
+      "eb3-01": [50, 55], "eb3-02": [55, 66],
+      "eb4-01": [66, 71], "eb4-02": [71, 82], "eb4-03": [82, 88], "eb4-04": [88, 100],
+      "eb5-01": [100, 116], "eb5-02": [116, 123], "eb5-03": [123, 131], "eb5-04": [131, 142],
+      "eb6-01": [142, 147], "eb6-02": [147, 156], "eb6-03": [156, 165], "eb6-04": [165, 174],
+      "eb7-01": [174, 183], "eb7-02": [183, 194], "eb7-03": [194, 202], "eb7-04": [202, 210]
+    },
+    "video_producer_sketch_correction": "The video-producer's sketch placed the recede-to-silence window at 115-155s. The locked storyboard's gated toll card (eb5-01) actually runs 100-116s. This plan re-anchors the recede window to the TRUE clip boundary (begins ~96s, bottoms out across eb5-01 100-116, holds quiet through the human-breath clips eb5-02/03 to ~131s). Intent honored, timing formalized."
+  },
+  "music_cues": [
+    {
+      "cue_id": "cold-open-question",
+      "start_sec": 0,
+      "end_sec": 25,
+      "covers_clip_ids": ["eb1-01", "eb1-02", "eb1-03"],
+      "covers_beat": "Beat 1 — hook acknowledgment + the missing-half open loop",
+      "mood": "single cold piano figure · one held minor note, unresolved",
+      "instrumentation": "solo felt piano, no pad, no strings yet",
+      "intensity": 2,
+      "transition_in": "cold",
+      "transition_out": "crossfade",
+      "level_db": -20,
+      "prompt": "Solo felt piano, slow 60 bpm, a single unresolved minor figure repeating sparsely with long silence between phrases. Documentary cold open — a question hanging in the air. No drums, no pad, no swell. Think Frontline first 20 seconds. The note should feel like it is waiting for an answer.",
+      "purpose": "Sets the mystery under Line 1. The held, unresolved note IS the 'you were only shown one half' open loop — the music asks the same question the VO does."
+    },
+    {
+      "cue_id": "investigative-trail",
+      "start_sec": 25,
+      "end_sec": 66,
+      "covers_clip_ids": ["eb2-01", "eb2-02", "eb2-03", "eb3-01", "eb3-02"],
+      "covers_beat": "Beats 2–3 — the 20-year waiver / four presidents / Dec 6 recognition",
+      "mood": "restrained investigative strings under low piano · forward but patient",
+      "instrumentation": "low sustained cello bed + the same felt piano, sparse pizzicato marking the waiver signatures",
+      "intensity": 2,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "level_db": -20,
+      "prompt": "Investigative documentary bed: low sustained cello drone under sparse felt piano, occasional single pizzicato note marking each fact landing. 64 bpm, patient, archival. No melody that draws attention — it carries the timeline forward without commentary. Restraint is the mood. Never editorial, never tense yet.",
+      "purpose": "Carries the context build (how we got here) without telling the viewer how to feel. Pizzicato ticks land softly under the Clinton/Bush/Obama timeline; the bed warms slightly into Dec 6 but does not lift."
+    },
+    {
+      "cue_id": "ribbon-approach",
+      "start_sec": 66,
+      "end_sec": 96,
+      "covers_clip_ids": ["eb4-01", "eb4-02", "eb4-03", "eb4-04 (first ~8s)"],
+      "covers_beat": "Beat 4 — the ribbon is cut / AIPAC priority / 'but the date carried more'",
+      "mood": "slow string ascent · a quiet unease growing under the half you remember",
+      "instrumentation": "cello bed rising a step, second violin enters high and thin, piano drops out near the end",
+      "intensity": 3,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "level_db": -19,
+      "prompt": "Slow string ascent, 66 bpm. The cello bed steps up a tone; a thin high violin line enters and sustains, creating quiet unease — NOT triumph, NOT a stinger. This is the 'half you remember' rendered with a faint shadow underneath it. As the line 'but the date carried more' approaches, the felt piano falls silent and the strings thin out, leaving space. The arrangement is emptying out on purpose.",
+      "purpose": "This is the sinister-rise position in the arc, but restrained for a somber story — unease, not menace. It deliberately THINS rather than swells, so that the recede into the toll card feels like the floor dropping out, not a cut."
+    },
+    {
+      "cue_id": "the-other-half-recede",
+      "start_sec": 96,
+      "end_sec": 131,
+      "covers_clip_ids": ["eb4-04 (tail)", "eb5-01", "eb5-02", "eb5-03"],
+      "covers_beat": "Beat 5 — GATED toll card (eb5-01) + human breath + 'we are not here to tell you what to feel'",
+      "mood": "music recedes to near-silence · a single sub-audible low string · NO swell, NO grief cue",
+      "instrumentation": "one low cello note at the threshold of audibility, room tone, no piano, no melody",
+      "intensity": 1,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "level_db": -32,
+      "prompt": "Near-silence. A single low cello note held at the very threshold of hearing, almost room tone, no vibrato, no movement. Across the OCHA-55/COI-73 source card the music is functionally absent — the death-toll receipt lands in quiet. No swell, no minor-key grief manipulation, no rise. The quiet is the respect. Let the VO and the on-screen number sit alone.",
+      "purpose": "THE recede-to-silence beat — honors and formalizes the storyboard's documented intent. The 60 / OCHA-55 / COI-73 receipt lands in quiet so the room itself goes still. Bottoms out at -32 dB (near-silence, NOT a full dropout — stays above the 2s-silence forbidden gap). Holds quiet through the human-breath clips (eb5-02 'real people', eb5-03 'we are not here to tell you what to feel') per the Stage 12.5 sequencing lock: the human line breathes before anything returns."
+    },
+    {
+      "cue_id": "held-both-restore",
+      "start_sec": 131,
+      "end_sec": 165,
+      "covers_clip_ids": ["eb5-04", "eb6-01", "eb6-02", "eb6-03"],
+      "covers_beat": "Beat 5 close (one date held both) → Beat 6 (was anyone counting / 128–9 vote)",
+      "mood": "low strings return gently · warm but grave · the air re-opens without resolving",
+      "instrumentation": "cello bed fades back up, viola added for warmth, felt piano returns sparse",
+      "intensity": 2,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "level_db": -20,
+      "prompt": "Low strings fade back from silence, warm but grave, 64 bpm. A viola adds quiet warmth as the felt piano returns sparsely. The air re-opens — the viewer is allowed to breathe again — but nothing resolves to major. Under the 128-to-9 chart the bed steadies. This is recovery, not release; we are still holding both.",
+      "purpose": "Restores the bed after the silence so the viewer is brought back gently (avoids the sinister-then-nothing failure mode — the build got its quiet, now the room re-opens). Carries the 'was anyone counting' loop and the UN vote without editorializing."
+    },
+    {
+      "cue_id": "one-date-three-things-turn",
+      "start_sec": 165,
+      "end_sec": 183,
+      "covers_clip_ids": ["eb6-04", "eb7-01"],
+      "covers_beat": "Beat 6 thesis (ONE DATE, THREE THINGS timeline) → Beat 7 KEPT verdict stamp",
+      "mood": "warm string lift on the thesis · the whole afternoon comes into view · earned, not triumphant",
+      "instrumentation": "full but soft string section opens, low piano root note, a single warm major-leaning suspension that does NOT resolve to triumph",
+      "intensity": 3,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "level_db": -19,
+      "prompt": "A warm string lift, 66 bpm — the documentary 'now you see the whole picture' moment, NOT a victory swell. As the ONE DATE THREE THINGS timeline assembles, the strings open into a soft, full chord with a major-leaning suspension that stays unresolved — daylight, not triumph. Hold the warmth through the KEPT verdict stamp. This is the closest the piece comes to release, and it must stay grave: a kept promise that still shares a date with a toll. Think the moment a Frontline subject finally sees the full record, not a game-show win.",
+      "purpose": "The 'turn' / release position — but earned carefully for a somber story. The lift lands on the timeline thesis (the whole afternoon assembling), NOT on the death toll and NOT as a brass ta-da. It carries through the KEPT stamp so the verdict reads as fact, not celebration. The unresolved suspension keeps 'hold-both' intact."
+    },
+    {
+      "cue_id": "whole-afternoon-tail",
+      "start_sec": 183,
+      "end_sec": 210,
+      "covers_clip_ids": ["eb7-02", "eb7-03", "eb7-04"],
+      "covers_beat": "Beat 7 — cold-close warmth + 'you just deserve the whole afternoon' + end card",
+      "mood": "reflective felt piano · strings settle out · single note holding into a long fade",
+      "instrumentation": "strings thin away to solo felt piano, returning to the cold-open figure now resolved one step warmer",
+      "intensity": 2,
+      "transition_in": "crossfade",
+      "transition_out": "tail",
+      "level_db": -21,
+      "prompt": "Reflective close: the strings settle and thin away, leaving the solo felt piano from the cold open — but the figure now rests one step warmer, quietly resolved, as if the question has been answered honestly rather than happily. 60 bpm. After the last VO word ('linked below'), hold a single piano note and let it ring into a 6–7 second fade-out over the end card. No abrupt cut. Let the viewer sit with the weight of holding both.",
+      "purpose": "Verdict body + tail. Mirrors the cold-open piano figure (bookend) now gently resolved — the half-question is whole. Honors the breathing-room lock: the last spoken word ('below') ends near ~203–204s; the piano holds and fades across ~6–7s past VO into the end card so there is no abrupt cut."
+    }
+  ],
+  "sfx": [
+    {
+      "sfx_id": "waiver-paper-stamp",
+      "at_sec": 36,
+      "library_path": "brand/sfx/paper-stamp-soft.wav",
+      "level_db": -22,
+      "covers_clip_ids": ["eb2-02"],
+      "purpose": "One soft paper-stamp on the Timeline as the four-presidents waiver signatures land ('signed a paper every six months'). A single hit on the first signature, not one per name."
+    },
+    {
+      "sfx_id": "proclamation-seal",
+      "at_sec": 58,
+      "library_path": "brand/sfx/document-seal-soft.wav",
+      "level_db": -22,
+      "covers_clip_ids": ["eb3-02"],
+      "purpose": "Soft document-seal under the Proclamation 9683 source card ('It was signed. It was dated. It was real.'). Punctuates the record landing."
+    },
+    {
+      "sfx_id": "toll-card-no-sfx",
+      "at_sec": 100,
+      "library_path": null,
+      "level_db": null,
+      "covers_clip_ids": ["eb5-01"],
+      "purpose": "DELIBERATE ABSENCE. NO SFX anywhere across the gated toll card (eb5-01, 100–116s) or the human-breath clips. The death-toll receipt is honored with silence, not punctuation. Recorded here so a later pass does not 'fill the gap'."
+    },
+    {
+      "sfx_id": "vote-tally-chime",
+      "at_sec": 149,
+      "library_path": "brand/sfx/soft-chime-single.wav",
+      "level_db": -22,
+      "covers_clip_ids": ["eb6-02"],
+      "purpose": "One soft chime as the 128–9 ChartBar resolves ('one hundred twenty-eight to nine'). Marks the count appearing; single hit only."
+    },
+    {
+      "sfx_id": "verdict-stamp",
+      "at_sec": 176,
+      "library_path": "brand/sfx/verdict-stamp.wav",
+      "level_db": -15,
+      "covers_clip_ids": ["eb7-01"],
+      "purpose": "The KEPT VerdictStamp landing — the one and only 'loud' SFX of the episode. Lands ~2s into eb7-01 as the stamp hits. Held to -15 dB (grave, not celebratory) per the 'narrow grade' framing; never above -14."
+    }
+  ],
+  "scoring_notes": "Seven cues, one continuous emotional arc with no flat bed and no cue running over ~41s. The arc: a cold unresolved piano question (the missing half) → a patient investigative trail (how we got here) → a thinning unease as the ribbon you remember plays → a recede to near-silence so the 60 / OCHA-55 / COI-73 toll receipt lands in quiet → a gentle restoration of warm low strings (the room re-opens, you may breathe) → a carefully earned, non-triumphant warm lift on the ONE-DATE-THREE-THINGS thesis and the KEPT stamp → a reflective tail that returns to the cold-open piano figure, now one step warmer, and rings 6–7s past the last word into the end card. The hardest-hitting beat is intentionally a SILENCE, not a swell: cue 4 (the-other-half-recede, -32 dB across eb5-01) drops the floor out from under the ribbon so the death toll is met with stillness rather than a grief-stinger — this is the whole 'hold-both-tell-them-nothing' tone made audible. The only loud SFX is the KEPT verdict stamp at -15 dB, kept grave because the grade is narrow; the toll card carries deliberate, documented SFX absence so no later pass fills it. The tail bookends the cold-open question, resolving it honestly rather than happily."
+}

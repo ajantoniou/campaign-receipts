@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Sarah Voice A/B — Campaign Receipts</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root {
+    --ink: #1b1b1b;
+    --paper: #f7f3ea;
+    --rule: #d8cfb8;
+    --accent: #8a1c1c;
+    --muted: #6b6457;
+  }
+  html, body { background: var(--paper); color: var(--ink); }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    max-width: 760px;
+    margin: 2.5rem auto;
+    padding: 0 1.25rem 4rem;
+    line-height: 1.55;
+  }
+  h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+  .sub { color: var(--muted); font-style: italic; margin-bottom: 1.75rem; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0 0 1.5rem;
+    padding: 0.5rem 0 0.5rem 1rem;
+    background: #fffaf0;
+    font-size: 1.05rem;
+  }
+  .note {
+    background: #fff8e1;
+    border: 1px solid var(--rule);
+    padding: 0.75rem 1rem;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.95rem;
+  }
+  .row {
+    border-top: 1px solid var(--rule);
+    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .row:last-of-type { border-bottom: 1px solid var(--rule); }
+  .row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .name { font-size: 1.15rem; font-weight: bold; }
+  .name .pick { display: inline-block; margin-left: 0.5rem; font-size: 0.85rem; color: var(--accent); }
+  .meta { color: var(--muted); font-size: 0.85rem; font-family: ui-monospace, Menlo, monospace; }
+  audio { width: 100%; margin-top: 0.25rem; }
+  .baseline .name::before {
+    content: "BASELINE — ";
+    color: var(--accent);
+    font-weight: bold;
+  }
+  label.pick-radio {
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+  footer { margin-top: 2rem; color: var(--muted); font-size: 0.85rem; }
+  code { background: #ece4ce; padding: 0 0.25rem; border-radius: 2px; }
+</style>
+</head>
+<body>
+  <h1>Sarah Voice A/B Test</h1>
+  <p class="sub">Pick the voice that sounds like the smart neighbor explaining over coffee — not a news anchor, not a robot.</p>
+
+  <blockquote>
+    "Hey. So in twenty sixteen, Donald Trump promised to drain the swamp.
+    Eighty-two million dollars later, the swamp got paid.
+    Let me show you the receipts."
+  </blockquote>
+
+  <div class="note">
+    <strong>Listen with headphones.</strong> The winner becomes Sarah's canonical voice for all 145 SEALED promise videos.
+    All clips rendered with identical settings: <code>stability=0.55</code>, <code>similarity_boost=0.75</code>,
+    <code>style=0.15</code>, <code>speed=0.93</code>, model <code>eleven_multilingual_v2</code>.
+  </div>
+
+  <form id="ab">
+
+    <div class="row baseline">
+      <div class="row-head">
+        <div class="name">Bella (current Sarah)</div>
+        <div class="meta">voice_id: EXAVITQu4vr4xnSDxMaL · 9.24s · 145 KB</div>
+      </div>
+      <audio controls preload="none" src="bella-current.mp3"></audio>
+      <label class="pick-radio"><input type="radio" name="winner" value="bella-current" /> keep current</label>
+    </div>
+
+    <div class="row">
+      <div class="row-head">
+        <div class="name">Aria</div>
+        <div class="meta">voice_id: 9BWtsMINqrJLrRacOk9x · 10.87s · 171 KB</div>
+      </div>
+      <audio controls preload="none" src="aria.mp3"></audio>
+      <label class="pick-radio"><input type="radio" name="winner" value="aria" /> this one</label>
+    </div>
+
+    <div class="row">
+      <div class="row-head">
+        <div class="name">Grace <span class="pick">(substituted for retired "Sarah" voice_id)</span></div>
+        <div class="meta">voice_id: oWAxZDx7w5VEj9dCyTzz · 11.80s · 185 KB</div>
+      </div>
+      <audio controls preload="none" src="grace.mp3"></audio>
+      <label class="pick-radio"><input type="radio" name="winner" value="grace" /> this one</label>
+    </div>
+
+    <div class="row">
+      <div class="row-head">
+        <div class="name">Charlotte</div>
+        <div class="meta">voice_id: XB0fDUnXU5powFXDhCwa · 10.59s · 167 KB</div>
+      </div>
+      <audio controls preload="none" src="charlotte.mp3"></audio>
+      <label class="pick-radio"><input type="radio" name="winner" value="charlotte" /> this one</label>
+    </div>
+
+    <div class="row">
+      <div class="row-head">
+        <div class="name">Lily</div>
+        <div class="meta">voice_id: pFZP5JQG7iQjIQuC4Bku · 9.71s · 153 KB</div>
+      </div>
+      <audio controls preload="none" src="lily.mp3"></audio>
+      <label class="pick-radio"><input type="radio" name="winner" value="lily" /> this one</label>
+    </div>
+
+    <div class="row">
+      <div class="row-head">
+        <div class="name">Matilda</div>
+        <div class="meta">voice_id: XrExE9yKIg1WjnnlVkGX · 10.26s · 161 KB</div>
+      </div>
+      <audio controls preload="none" src="matilda.mp3"></audio>
+      <label class="pick-radio"><input type="radio" name="winner" value="matilda" /> this one</label>
+    </div>
+
+  </form>
+
+  <footer>
+    Substitutions: the planned "Sarah" stock voice_id <code>cgSgspJ2msvubVrgalSO</code> returns 404
+    from the ElevenLabs API (retired from the public library). Replaced with <strong>Grace</strong>
+    (<code>oWAxZDx7w5VEj9dCyTzz</code>) — warm American female, similar register.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,625 @@
+{
+  "_meta": {
+    "title": "CR new-news \u2014 Nearly $90M of outside money is picking the next Texas senator (TX Senate 2026 super-PACs)",
+    "purpose": "Friendly PAC names are a costume; the public FEC filing is where the real face is written. B-ROLL-FIRST: money facts \u2192 Remotion, named donors/candidates \u2192 politician-caricature, atmosphere \u2192 fal text-free plates. Real candidate soundbites (Paxton/Allred/Crockett/Cornyn) added at Stage 18 cinematic-broll layer.",
+    "pillar": "donors_races",
+    "estimated_cost_usd": 6.5,
+    "canonical_script": "content/scripts/cr-tx-senate-2026-superpacs-v6-cadence.md",
+    "deep_link": "https://campaignreceipts.com/race/tx-senate-2026"
+  },
+  "slug": "cr-tx-senate-2026-superpacs",
+  "program": "cr-new-news",
+  "remotion_episode": "cr-tx-senate-2026-superpacs",
+  "total_duration_seconds": 300,
+  "vo_script_path": "content/scripts/cr-tx-senate-2026-superpacs-v6-cadence.md",
+  "voice": "betsy",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_turbo_v2_5"
+  },
+  "thumbnail": {
+    "headline": "$88.6M",
+    "subline": "WHO PAID?",
+    "verdict": "RECEIPT",
+    "bg": "navy"
+  },
+  "beats": [
+    {
+      "beat_id": "hook",
+      "label": "Hook",
+      "start_sec": 0,
+      "end_sec": 32
+    },
+    {
+      "beat_id": "context",
+      "label": "Stakes / what is a super-PAC",
+      "start_sec": 32,
+      "end_sec": 80
+    },
+    {
+      "beat_id": "receipt1",
+      "label": "Receipt 1 \u2014 Texans for a Conservative Majority",
+      "start_sec": 80,
+      "end_sec": 130
+    },
+    {
+      "beat_id": "receipt2",
+      "label": "Receipt 2 \u2014 Truth and Courage",
+      "start_sec": 130,
+      "end_sec": 160
+    },
+    {
+      "beat_id": "receipt3",
+      "label": "Receipt 3 \u2014 Lone Star Rising (both sides)",
+      "start_sec": 160,
+      "end_sec": 195
+    },
+    {
+      "beat_id": "matters",
+      "label": "Why it matters (voter pivot)",
+      "start_sec": 195,
+      "end_sec": 230
+    },
+    {
+      "beat_id": "hidden",
+      "label": "The hidden ones (honest gap)",
+      "start_sec": 230,
+      "end_sec": 262
+    },
+    {
+      "beat_id": "verdict",
+      "label": "Verdict \u2014 the costume",
+      "start_sec": 262,
+      "end_sec": 285
+    },
+    {
+      "beat_id": "close",
+      "label": "Cold close + CTA",
+      "start_sec": 285,
+      "end_sec": 300
+    }
+  ],
+  "clips": [
+    {
+      "clip_id": "hook-01-couch-atmosphere",
+      "beat_id": "hook",
+      "duration": 9.0,
+      "aspect": "16:9",
+      "covers_script_section": "HOOK \u2014 tired of these ads, picture yourself on the couch",
+      "vendor": "reuse",
+      "reuse_path": "_build/cr-tx-senate-2026-superpacs/_atmosphere/hook-01-couch-atmosphere.mp4",
+      "source_citation": "Atmosphere only \u2014 Higgsfield/fal text-free plate generated at Stage 21 (prompt in -prompts.json). No claim on screen."
+    },
+    {
+      "clip_id": "hook-02-countup",
+      "beat_id": "hook",
+      "duration": 10.2,
+      "aspect": "16:9",
+      "covers_script_section": "Nearly ninety million dollars is already picking your next senator",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "$",
+        "to": 88600000,
+        "suffix": "",
+        "label": "Outside money in one Texas Senate race",
+        "caption": "Independent committees \u2014 not the candidates' campaigns \u00b7 FEC Schedule E, S/TX/2026"
+      }
+    },
+    {
+      "clip_id": "hook-03-whopaid",
+      "beat_id": "hook",
+      "duration": 7.7,
+      "aspect": "16:9",
+      "covers_script_section": "It says it is from Texans for a Conservative Majority. Who actually paid for that ad?",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "text": "On the ad it says \u201cTexans.\u201d Who paid?",
+        "variant": "title",
+        "wrapWidth": 22
+      }
+    },
+    {
+      "clip_id": "context-01-stakes",
+      "beat_id": "context",
+      "duration": 10.5,
+      "aspect": "16:9",
+      "covers_script_section": "Stakes \u2014 the most expensive Senate race in the country",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "text": "One Texas U.S. Senate seat. The most expensive Senate race in the country.",
+        "variant": "quiet",
+        "wrapWidth": 26
+      }
+    },
+    {
+      "clip_id": "context-02-superpac-explainer",
+      "beat_id": "context",
+      "duration": 15.7,
+      "aspect": "16:9",
+      "covers_script_section": "What is a super PAC \u2014 raises huge checks, buys ads, can't hand money to a campaign",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "How a super-PAC works",
+        "source": {
+          "name": "A few big donors",
+          "amount": 88600000,
+          "sublabel": "Write checks to a super-PAC"
+        },
+        "destinations": [
+          {
+            "label": "Super-PAC buys the ads",
+            "outcome": "Friendly name on the outside"
+          },
+          {
+            "label": "Cannot give to a campaign",
+            "outcome": "So the name is the group, not the candidate"
+          }
+        ]
+      }
+    },
+    {
+      "clip_id": "context-03-capitol-atmosphere",
+      "beat_id": "context",
+      "duration": 7.9,
+      "aspect": "16:9",
+      "covers_script_section": "The race for one Texas seat in the U.S. Senate",
+      "vendor": "reuse",
+      "reuse_path": "_build/cr-tx-senate-2026-superpacs/_atmosphere/context-03-capitol-atmosphere.mp4",
+      "source_citation": "Atmosphere only \u2014 Higgsfield/fal text-free establishing plate generated at Stage 21 (prompt in -prompts.json)."
+    },
+    {
+      "clip_id": "receipt1-01-name-card",
+      "beat_id": "receipt1",
+      "duration": 7.3,
+      "aspect": "16:9",
+      "covers_script_section": "Start with the biggest one \u2014 Texans for a Conservative Majority",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "FEC.gov \u00b7 Committee C00542217 \u00b7 Texans for a Conservative Majority",
+        "quote": "Every super-PAC must tell the government who pays it. That filing is public. It is free to read."
+      }
+    },
+    {
+      "clip_id": "receipt1-02-nau-caricature",
+      "beat_id": "receipt1",
+      "duration": 8.5,
+      "aspect": "16:9",
+      "covers_script_section": "It is mostly one man \u2014 John Nau, Texas beer-distribution billionaire, ~$15.6M",
+      "vendor": "politician-caricature",
+      "caricature_slug": "john-nau",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "receipt1-03-schwarzman-caricature",
+      "beat_id": "receipt1",
+      "duration": 6.1,
+      "aspect": "16:9",
+      "covers_script_section": "A Wall Street boss named Stephen Schwarzman added four million",
+      "vendor": "politician-caricature",
+      "caricature_slug": "stephen-schwarzman",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "receipt1-04-moneyflow",
+      "beat_id": "receipt1",
+      "duration": 14.6,
+      "aspect": "16:9",
+      "covers_script_section": "That group has spent twenty-four million, all against one Republican, Ken Paxton",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Texans for a Conservative Majority \u2014 who really paid",
+        "source": {
+          "name": "A few rich men",
+          "amount": 24100000,
+          "sublabel": "$24.1M spent \u00b7 FEC C00542217"
+        },
+        "destinations": [
+          {
+            "label": "John Nau \u00b7 $15.6M",
+            "outcome": "Texas beer-distribution billionaire"
+          },
+          {
+            "label": "Stephen Schwarzman \u00b7 $4M",
+            "outcome": "Blackstone CEO"
+          },
+          {
+            "label": "All of it AGAINST Ken Paxton",
+            "outcome": "Republican primary"
+          }
+        ]
+      }
+    },
+    {
+      "clip_id": "receipt1-05-paxton-caricature",
+      "beat_id": "receipt1",
+      "duration": 6.1,
+      "aspect": "16:9",
+      "covers_script_section": "All of it against one Republican, Ken Paxton",
+      "vendor": "politician-caricature",
+      "caricature_slug": "ken-paxton",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "receipt2-01-yass-caricature",
+      "beat_id": "receipt2",
+      "duration": 5.6,
+      "aspect": "16:9",
+      "covers_script_section": "Truth and Courage \u2014 biggest name we can see is Jeff Yass at two million",
+      "vendor": "politician-caricature",
+      "caricature_slug": "jeff-yass",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "receipt2-02-moneyflow",
+      "beat_id": "receipt2",
+      "duration": 11.2,
+      "aspect": "16:9",
+      "covers_script_section": "About twenty-two million, all against the Democrat, Colin Allred",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Truth and Courage \u2014 the biggest name we can see",
+        "source": {
+          "name": "Truth and Courage PAC",
+          "amount": 22000000,
+          "sublabel": "$22M spent \u00b7 FEC C00796045"
+        },
+        "destinations": [
+          {
+            "label": "Jeff Yass \u00b7 $2M itemized",
+            "outcome": "Biggest NAMED donor we can see"
+          },
+          {
+            "label": "Most of the $22M",
+            "outcome": "Not itemized to one person"
+          },
+          {
+            "label": "All of it AGAINST Colin Allred",
+            "outcome": "Democrat"
+          }
+        ]
+      }
+    },
+    {
+      "clip_id": "receipt2-03-allred-caricature",
+      "beat_id": "receipt2",
+      "duration": 4.7,
+      "aspect": "16:9",
+      "covers_script_section": "All of it against the Democrat, Colin Allred",
+      "vendor": "politician-caricature",
+      "caricature_slug": "colin-allred",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "receipt3-01-hoffman-caricature",
+      "beat_id": "receipt3",
+      "duration": 7.8,
+      "aspect": "16:9",
+      "covers_script_section": "Lone Star Rising \u2014 backer is California tech billionaire Reid Hoffman, $1.5M",
+      "vendor": "politician-caricature",
+      "caricature_slug": "reid-hoffman",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "receipt3-02-moneyflow",
+      "beat_id": "receipt3",
+      "duration": 13.3,
+      "aspect": "16:9",
+      "covers_script_section": "Liberal money against a Democrat, Jasmine Crockett \u2014 both sides wear the costume",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Lone Star Rising \u2014 sounds Texan, the money is liberal",
+        "source": {
+          "name": "Lone Star Rising PAC",
+          "amount": 8500000,
+          "sublabel": "$8.5M spent \u00b7 FEC C00918268"
+        },
+        "destinations": [
+          {
+            "label": "Reid Hoffman \u00b7 $1.5M",
+            "outcome": "LinkedIn co-founder, California"
+          },
+          {
+            "label": "All of it AGAINST Jasmine Crockett",
+            "outcome": "Inside the Democrats' own race"
+          }
+        ]
+      }
+    },
+    {
+      "clip_id": "receipt3-03-crockett-caricature",
+      "beat_id": "receipt3",
+      "duration": 5.6,
+      "aspect": "16:9",
+      "covers_script_section": "And it spends against a Democrat, Jasmine Crockett",
+      "vendor": "politician-caricature",
+      "caricature_slug": "jasmine-crockett",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "matters-01-stakes",
+      "beat_id": "matters",
+      "duration": 9.0,
+      "aspect": "16:9",
+      "covers_script_section": "Paxton and Allred want to speak for thirty million Texans",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "text": "These candidates want to speak for 30 million Texans.",
+        "variant": "quiet",
+        "wrapWidth": 24
+      }
+    },
+    {
+      "clip_id": "matters-02-comparison",
+      "beat_id": "matters",
+      "duration": 13.5,
+      "aspect": "16:9",
+      "covers_script_section": "One voter gets one ballot; a billionaire gets fifteen million dollars of airtime",
+      "vendor": "remotion",
+      "composition": "DonorComparison",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Whose voice is louder?",
+        "subtitle": "One ballot vs. one billionaire's airtime",
+        "rows": [
+          {
+            "name": "A Texas voter",
+            "amount": "1 ballot",
+            "cycle": "2026",
+            "policy": "Drives across town after work to vote"
+          },
+          {
+            "name": "One out-of-state billionaire",
+            "amount": "$15.6M",
+            "cycle": "2026",
+            "policy": "Of airtime \u00b7 FEC Schedule A",
+            "highlight": true
+          }
+        ],
+        "footer": "FEC.gov \u00b7 independent expenditures, TX Senate 2026"
+      }
+    },
+    {
+      "clip_id": "matters-03-bigwords",
+      "beat_id": "matters",
+      "duration": 6.7,
+      "aspect": "16:9",
+      "covers_script_section": "Money you were never meant to trace",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "text": "A handful of billionaires. Not a crowd of Texans.",
+        "variant": "title",
+        "wrapWidth": 20
+      }
+    },
+    {
+      "clip_id": "hidden-01-chartbar",
+      "beat_id": "hidden",
+      "duration": 12.7,
+      "aspect": "16:9",
+      "covers_script_section": "WinSenate $10M for Allred but donors not named; ~$5M against Wesley Hunt via one pass-through",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Some threads do not pull all the way",
+        "yAxisLabel": "Outside spend ($M)",
+        "maxValue": 12,
+        "bars": [
+          {
+            "label": "WinSenate \u00b7 for Allred",
+            "value": 10.1,
+            "suffix": "M",
+            "color": "#0a1f3d"
+          },
+          {
+            "label": "vs Wesley Hunt \u00b7 pass-through",
+            "value": 4.9,
+            "suffix": "M",
+            "color": "#5b6478"
+          }
+        ]
+      }
+    },
+    {
+      "clip_id": "hidden-02-honest-card",
+      "beat_id": "hidden",
+      "duration": 10.6,
+      "aspect": "16:9",
+      "covers_script_section": "We do not know those names yet. The filing does not show them. We will not make a name up.",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "FEC.gov \u00b7 C00865444 (WinSenate) \u00b7 C00932707 (Conservative Texans)",
+        "quote": "Donors NOT ITEMIZED in the 2026 filings. We will not make a name up."
+      }
+    },
+    {
+      "clip_id": "verdict-01-costume-card",
+      "beat_id": "verdict",
+      "duration": 9.0,
+      "aspect": "16:9",
+      "covers_script_section": "The friendly names are a costume; the real face is in the public filing",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "text": "The friendly name is the costume. Not the message.",
+        "variant": "title",
+        "wrapWidth": 22
+      }
+    },
+    {
+      "clip_id": "verdict-02-stamp",
+      "beat_id": "verdict",
+      "duration": 9.8,
+      "aspect": "16:9",
+      "covers_script_section": "The real face is written in only one place \u2014 the public filing",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "campaign-receipts",
+        "verdict": "RECEIPT",
+        "promise": "THE WARM NAME IS THE DISGUISE.",
+        "citation": "FEC.gov \u00b7 Schedule E + Schedule A \u00b7 TX Senate 2026 \u00b7 retrieved May 2026"
+      }
+    },
+    {
+      "clip_id": "close-01-outro",
+      "beat_id": "close",
+      "duration": 15.4,
+      "aspect": "16:9",
+      "covers_script_section": "Cold close \u2014 it is one filing, it is free, it is already yours. Newsletter linked below.",
+      "vendor": "remotion",
+      "composition": "LongformSubscribeOutro",
+      "props": {
+        "brand": "campaign-receipts",
+        "cta": "Read the receipt. It is already yours.",
+        "buttonLabel": "SUBSCRIBE",
+        "newsletterUrl": "campaignreceipts.com/weekly",
+        "handle": "@campaignreceipts"
+      }
+    }
+  ],
+  "music_cues": [
+    {
+      "id": "cold-open-question",
+      "start_s": 0,
+      "end_s": 32,
+      "mood": "single unresolved felt-piano figure, one held minor note, a question hanging",
+      "instrumentation": "solo felt piano, no pad, no drums",
+      "prompt": "Solo felt piano, slow 58 bpm, a single unresolved minor figure repeating sparsely with long silence between phrases. Documentary cold open, a question left hanging in the air. No drums, no pad, no swell. Frontline first-20-seconds restraint.",
+      "level_db": -20,
+      "fade_in_s": 0.8,
+      "fade_out_s": 1.0
+    },
+    {
+      "id": "investigative-establishing",
+      "start_s": 32,
+      "end_s": 130,
+      "mood": "steady investigative pulse, low cello + muted upright bass, patient forward motion",
+      "instrumentation": "felt piano, low cello, soft muted upright bass, light pizzicato accents",
+      "prompt": "Patient investigative documentary underscore, 70 bpm, felt piano with low cello and a soft muted upright bass walking quietly underneath, occasional pizzicato accent as each fact lands. Restrained, archival, building trust. No drums, no big swell, no tension yet.",
+      "level_db": -21,
+      "fade_in_s": 0.8,
+      "fade_out_s": 1.0
+    },
+    {
+      "id": "sinister-rise",
+      "start_s": 130,
+      "end_s": 262,
+      "mood": "slow sinister rise, low drone swelling under the pattern, dissonant cello, ticking unease",
+      "instrumentation": "low synth drone, dissonant cello, sparse ticking percussion, piano lower register",
+      "prompt": "Slowly rising sinister documentary tension, 72 bpm, a low drone swelling underneath a dissonant cello line, a sparse ticking pulse like a clock, piano playing in its lower register. The unease grows steadily as the same trick repeats across both parties. No release yet \u2014 hold the tension. No melody resolves.",
+      "level_db": -20,
+      "fade_in_s": 0.8,
+      "fade_out_s": 1.0
+    },
+    {
+      "id": "tada-release",
+      "start_s": 262,
+      "end_s": 273,
+      "mood": "the tension resolves \u2014 a single clarifying major chord opens up, light breaks through",
+      "instrumentation": "warm piano major resolution, a single sustained string swell up, soft bell shimmer",
+      "prompt": "The held tension finally resolves \u2014 a warm major piano chord opens up with a single sustained string swell rising into clarity and a soft bell shimmer on top. Cinematic ta-da release, the moment the disguise comes off and the truth is plain. 70 bpm, hopeful and clean. No drums.",
+      "level_db": -18,
+      "fade_in_s": 0.8,
+      "fade_out_s": 1.0
+    },
+    {
+      "id": "verdict-body",
+      "start_s": 273,
+      "end_s": 285,
+      "mood": "resolved, grounded, certain \u2014 the verdict settles",
+      "instrumentation": "warm piano, sustained low strings, steady and final",
+      "prompt": "Grounded, certain documentary resolution, 68 bpm, warm piano over sustained low strings, steady and final, the verdict settling into place. Confident but not triumphant. No drums.",
+      "level_db": -19,
+      "fade_in_s": 0.8,
+      "fade_out_s": 1.0
+    },
+    {
+      "id": "warm-cold-close-tail",
+      "start_s": 285,
+      "end_s": 300,
+      "mood": "warm, dignified, leaves the viewer with agency",
+      "instrumentation": "solo felt piano returns, one gentle resolved figure, soft string bed underneath",
+      "prompt": "Warm, dignified close, 60 bpm, solo felt piano playing one gentle resolved figure over a soft low string bed, leaving the viewer with quiet agency \u2014 the receipt is already yours. Mirrors the cold-open piano but now resolved. Fade to silence on a 1.2s tail. No drums.",
+      "level_db": -20,
+      "fade_in_s": 0.8,
+      "fade_out_s": 1.0
+    }
+  ],
+  "sfx": [
+    {
+      "sfx_id": "countup-tick",
+      "at_sec": 4,
+      "covers_clip_id": "hook-02-countup",
+      "cue": "soft mechanical odometer ticking that accelerates and lands on a low thud as the $88.6M number settles",
+      "level_db": -22
+    },
+    {
+      "sfx_id": "receipt1-paper-flip",
+      "at_sec": 80,
+      "covers_clip_id": "receipt1-01-name-card",
+      "cue": "single crisp paper-flip / filing page turn as the FEC filing is pulled",
+      "level_db": -20
+    },
+    {
+      "sfx_id": "moneyflow-pen",
+      "at_sec": 118,
+      "covers_clip_id": "receipt1-04-moneyflow",
+      "cue": "soft pen-on-paper scratch as each donor line is written into the money-flow",
+      "level_db": -23
+    },
+    {
+      "sfx_id": "receipt2-paper-flip",
+      "at_sec": 130,
+      "covers_clip_id": "receipt2-01-yass-caricature",
+      "cue": "second crisp paper-flip \u2014 pulling the next thread",
+      "level_db": -20
+    },
+    {
+      "sfx_id": "receipt3-paper-flip",
+      "at_sec": 160,
+      "covers_clip_id": "receipt3-01-hoffman-caricature",
+      "cue": "third paper-flip \u2014 and it happens again",
+      "level_db": -20
+    },
+    {
+      "sfx_id": "tada-swell-hit",
+      "at_sec": 262,
+      "covers_clip_id": "verdict-01-costume-card",
+      "cue": "soft cinematic riser resolving into a single warm bell hit exactly as the costume punchline lands",
+      "level_db": -17
+    },
+    {
+      "sfx_id": "verdict-stamp",
+      "at_sec": 274,
+      "covers_clip_id": "verdict-02-stamp",
+      "cue": "firm ink-stamp / gavel thud as the RECEIPT verdict stamp lands",
+      "level_db": -16
+    }
+  ]
+}

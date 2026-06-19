@@ -1,0 +1,171 @@
+{
+  "slug": "cr-tx-senate-2026-superpacs",
+  "started_at": "2026-05-31T13:43:12.356752",
+  "clips": {
+    "hook-01-couch-atmosphere": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/hook-01-couch-atmosphere.mp4",
+      "vendor": "reuse",
+      "duration": 9.0
+    },
+    "hook-02-countup": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/hook-02-countup.mp4",
+      "vendor": "remotion",
+      "duration": 10.2
+    },
+    "hook-03-whopaid": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/hook-03-whopaid.mp4",
+      "vendor": "remotion",
+      "duration": 7.7
+    },
+    "context-01-stakes": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/context-01-stakes.mp4",
+      "vendor": "remotion",
+      "duration": 10.5
+    },
+    "context-02-superpac-explainer": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/context-02-superpac-explainer.mp4",
+      "vendor": "remotion",
+      "duration": 15.7
+    },
+    "context-03-capitol-atmosphere": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/context-03-capitol-atmosphere.mp4",
+      "vendor": "reuse",
+      "duration": 7.9
+    },
+    "receipt1-01-name-card": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt1-01-name-card.mp4",
+      "vendor": "remotion",
+      "duration": 7.3
+    },
+    "receipt1-02-nau-caricature": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt1-02-nau-caricature.png",
+      "vendor": "politician-caricature",
+      "duration": 8.5,
+      "caricature_slug": "john-nau"
+    },
+    "receipt1-03-schwarzman-caricature": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt1-03-schwarzman-caricature.png",
+      "vendor": "politician-caricature",
+      "duration": 6.1,
+      "caricature_slug": "stephen-schwarzman"
+    },
+    "receipt1-04-moneyflow": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt1-04-moneyflow.mp4",
+      "vendor": "remotion",
+      "duration": 14.6
+    },
+    "receipt1-05-paxton-caricature": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt1-05-paxton-caricature.png",
+      "vendor": "politician-caricature",
+      "duration": 6.1,
+      "caricature_slug": "ken-paxton"
+    },
+    "receipt2-01-yass-caricature": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt2-01-yass-caricature.png",
+      "vendor": "politician-caricature",
+      "duration": 5.6,
+      "caricature_slug": "jeff-yass"
+    },
+    "receipt2-02-moneyflow": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt2-02-moneyflow.mp4",
+      "vendor": "remotion",
+      "duration": 11.2
+    },
+    "receipt2-03-allred-caricature": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt2-03-allred-caricature.png",
+      "vendor": "politician-caricature",
+      "duration": 4.7,
+      "caricature_slug": "colin-allred"
+    },
+    "receipt3-01-hoffman-caricature": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt3-01-hoffman-caricature.png",
+      "vendor": "politician-caricature",
+      "duration": 7.8,
+      "caricature_slug": "reid-hoffman"
+    },
+    "receipt3-02-moneyflow": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt3-02-moneyflow.mp4",
+      "vendor": "remotion",
+      "duration": 13.3
+    },
+    "receipt3-03-crockett-caricature": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/receipt3-03-crockett-caricature.png",
+      "vendor": "politician-caricature",
+      "duration": 5.6,
+      "caricature_slug": "jasmine-crockett"
+    },
+    "matters-01-stakes": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/matters-01-stakes.mp4",
+      "vendor": "remotion",
+      "duration": 9.0
+    },
+    "matters-02-comparison": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/matters-02-comparison.mp4",
+      "vendor": "remotion",
+      "duration": 13.5
+    },
+    "matters-03-bigwords": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/matters-03-bigwords.mp4",
+      "vendor": "remotion",
+      "duration": 6.7
+    },
+    "hidden-01-chartbar": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/hidden-01-chartbar.mp4",
+      "vendor": "remotion",
+      "duration": 12.7
+    },
+    "hidden-02-honest-card": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/hidden-02-honest-card.mp4",
+      "vendor": "remotion",
+      "duration": 10.6
+    },
+    "verdict-01-costume-card": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/verdict-01-costume-card.mp4",
+      "vendor": "remotion",
+      "duration": 9.0
+    },
+    "verdict-02-stamp": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/verdict-02-stamp.mp4",
+      "vendor": "remotion",
+      "duration": 9.8
+    },
+    "close-01-outro": {
+      "status": "ok",
+      "path": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs/clips/close-01-outro.mp4",
+      "vendor": "remotion",
+      "duration": 15.4
+    }
+  },
+  "vo": null,
+  "music": {
+    "status": "fail",
+    "error": "Command '['python3', '/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/scripts/pipeline/bake-music.py', '--episode-dir', '/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/_build/cr-tx-senate-2026-superpacs']' returned non-zero exit status 1."
+  },
+  "assembled": true,
+  "published": "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/public/longform/cr-tx-senate-2026-superpacs.mp4",
+  "total_spend_usd": 0.0
+}

@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "slug": "sealed-aipac-embassy-v2",
+    "program": "SEALED",
+    "mode": "longform",
+    "stage": "18-broll-selection",
+    "role": "cinematic-broll-director",
+    "storyboard_source": "eng/storyboards/sealed-aipac-embassy-v2.json",
+    "generated_for": "Stage 18 real-asset selection / verification",
+    "schema_note": "Keyed by clip_id. Only clips needing a REAL photo or archival b-roll asset (real person/place/building/documented event) are recorded here. Remotion code-rendered cards and generative clips are intentionally absent — they need no real-asset selection at this stage.",
+    "density_note": "By design this is an explainer-first storyboard: 23 of 24 clips are Remotion slates/maps/timelines/source-cards/charts/verdict-stamps. Exactly ONE clip carries a real-asset selection (eb2-03, the Trump portrait). This LOW real-asset density is correct and intentional per _meta.purpose — NO kling/hedra synthetic faces, NO Sora hyperreal, hold-both-tell-them-nothing tone. The story is carried by documents and dates, not by faces. Forcing more portraits would weaken the doctrine: the central move of this episode is to refuse the partisan close-up and let the receipts speak. No additional real assets are required to ship.",
+    "real_asset_clip_count": 1,
+    "remotion_clip_count": 23,
+    "generative_clip_count": 0
+  },
+  "selections": {
+    "eb2-03": {
+      "clip_id": "eb2-03",
+      "vendor": "image-kenburns",
+      "subject": "donald-trump",
+      "source_type": "wikipedia-commons",
+      "asset_path": "public/photos/wikipedia/donald-trump-2016.jpg",
+      "attribution_path": "public/photos/wikipedia/donald-trump-2016.attribution.json",
+      "asset_verified_on_disk": true,
+      "attribution_verified_on_disk": true,
+      "source_url": "https://commons.wikimedia.org/wiki/File:Official_Presidential_Portrait_of_President_Donald_J._Trump_(2025)_(cropped)(2).jpg",
+      "creator": "Daniel Torok",
+      "license": "Public domain",
+      "credit": "White House",
+      "treatment": "ken-burns slow push-in 104% -> 100% over the full 6s, ease-out, full-bleed. No swing, no tilt. The single face in a face-less episode lands as a quiet pivot, not a hero shot — restraint matches the 'Then one president stopped' beat.",
+      "frame_note": "Use the portrait as-is (already a tight, neutral, official crop). Keep the push-in subtle so it reads as a turn-of-the-page beat, not a glorification or an attack. No color treatment beyond the brand grade.",
+      "why_this_asset": "Beat 2 VO: 'Then one president stopped. And what they declined, somebody signed.' This is the one place the script names a single human actor breaking the 20-year waiver pattern, so the one real face in the episode belongs here. Official public-domain White House portrait (Daniel Torok) is the legitimate, neutral, non-partisan-sourced choice per selection doctrine rule 1 (real face = Wikipedia/Commons portrait) and rule 4 (no opposition-research framing). It is the asset the locked storyboard already points to — confirmed correct for the beat."
+    }
+  },
+  "recommendations": [
+    {
+      "type": "no-action-required",
+      "summary": "No additional real assets recommended for production. The explainer-first design is deliberate and self-consistent.",
+      "rationale": "Considered and rejected adding a Netanyahu portrait (asset exists on disk: public/photos/wikipedia/benjamin-netanyahu.jpg + sidecar) and an embassy-building still. Neither is warranted: (1) The script never names Netanyahu in VO — adding his face would invent a frame the narration does not support and risks reading as an editorial pointing-of-fingers, against the hold-both / tell-them-nothing tone. (2) The embassy 'building' beat (eb4-01 RIBBON CUT, eb4-02 PoliticalMap) is intentionally rendered as a Remotion map move 'Tel Aviv -> Jerusalem' (no faces) — a real ribbon-cutting photo would pull a partisan iconography the episode is engineered to avoid. Remotion is the right call for both."
+    },
+    {
+      "type": "optional-future-acquire",
+      "candidate": "embassy-exterior-jerusalem",
+      "needed_now": false,
+      "rationale": "IF a future edit ever wants a literal establishing beat under eb4-01/eb4-02, the only defensible source is a CC-licensed Wikimedia Commons exterior of the U.S. Embassy in Jerusalem (building only, no crowd, no flags-as-statement). NOT needed for this v2 ship and NOT added — flagged only so a later editor doesn't reach for a generative or partisan-sourced image. Do not acquire unless the storyboard changes."
+    }
+  ]
+}

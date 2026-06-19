@@ -1,0 +1,121 @@
+{
+  "batch": "sealed-aipac-shorts-2026-05-29",
+  "editor": "video-editor",
+  "produced_at": "2026-05-29",
+  "format": { "aspect": "9:16", "width": 1080, "height": 1920, "source_aspect": "16:9", "source_wh": "1280x720" },
+  "notes": [
+    "Carved from existing LF masters only. No new clips generated.",
+    "Source masters: _build/sealed-aipac-embassy-v2/master.mp4 (251.0s, live ihnYXzqIwUQ) and _build/sealed-aipac-campus-eo/master.mp4 (328.7s, live AAELowu_vOw).",
+    "Timecodes derived from the whisper-timed transcript in each master's watch-qc/watch-report.txt (per-line [MM:SS] stamps).",
+    "Each short gets a SILENT branded intro card (brand/shorts-intro.mp4, ~2s) spliced at head and a SILENT subscribe outro (brand/shorts-subscribe-outro.mp4, ~3s) at tail. Music must carry UNDER both silent cards — extend the master's music bed under the intro/outro, do not let audio drop to silence.",
+    "DO NOT duplicate live campus short CNmFoUgK4ls ('HE PROMISED CAMPUS FREE SPEECH. EO 13899 SAID NO.' = free-speech-headline angle). Both campus picks below are DIFFERENT beats: the donor-vs-voter ledger reveal, and the 'would you count it' verdict.",
+    "Live embassy short rT3G1VSV46g ('60 DEAD THE SAME DAY THE EMBASSY MOVED') exists from the v1 era; embassy short E1 below re-cuts the same tension from the praised v2 master but lands on the 'number is the receipt' payoff. Flagged for orchestrator/founder awareness — keep if a v2-quality refresh is wanted, else drop E1 and ship only E2.",
+    "Reframe caution: campus-eo receipt CARDS (Title VI quote, AIPAC donor ledger) are LEFT-WEIGHTED full-width cards with a blank right gutter — a naive center-crop slices the left edge. For card-heavy beats, scale-the-card-down-to-fit the 1080-wide safe zone (letterbox vertically) rather than hard center-crop. Full-screen CENTERED text cards (embassy 'real people', KEPT stamp, 'WOULD YOU COUNT IT?') center-crop cleanly.",
+    "C1 PER-SEGMENT REFRAME (video-editor correction, 2026-05-29): campus-c1-two-ledgers uses reframe_mode='per_segment' with a 'segments' array — the ONLY short that does. The earlier whole-clip scale_fit was wrong: it shrank full-frame b-roll into a small letterboxed island (looked like a render bug). The earlier 'left-weighted ledger card' premise was also wrong — that card is NOT in the 03:50-04:25 window; the visuals are full-frame b-roll + CENTERED-but-WIDE multi-word text cards that overflow a center-crop on both edges. ORCHESTRATOR ACTION REQUIRED: extend scripts/pipeline/splice-shorts-from-master.py to honor a per-segment reframe — when a short has reframe_mode='per_segment', apply each segment's own reframe_mode (center_crop | scale_fit) to its [in_tc,out_tc) sub-range, then concat. Segments are contiguous and cover the full in_tc->out_tc. The other three shorts keep their single whole-clip center_crop and re-render unchanged."
+  ],
+  "shorts": [
+    {
+      "id": "embassy-e1-the-receipt",
+      "source_slug": "sealed-aipac-embassy-v2",
+      "source_youtube_id": "ihnYXzqIwUQ",
+      "source_master": "_build/sealed-aipac-embassy-v2/master.mp4",
+      "beat_name": "Same date, two halves — the number is the receipt",
+      "in_tc": "00:02:03",
+      "out_tc": "00:02:38",
+      "duration_s": 35,
+      "audio_decision": "vo",
+      "audio_reason": "Lifted line runs clean sentence-to-sentence and lands on the 'same date as the ribbon / the number is the receipt' payoff with no mid-word clip; VO carries the tension better than text alone.",
+      "vo_text_lifted": "But the date carried more. The same afternoon, 60 people died at the Gaza border. These were real people. They died on a real day. We are not here to tell you what to feel. We are only here to show you the date. It was the same date as the ribbon. The number is the receipt.",
+      "reframe_plan": "Source is 1280x720 centered text cards ('These were real people. They died on a real day.', '60' Gaza-border card). Center-crop to 9:16 (crop horizontal to centered 405px-wide-equiv column, scale to 1080x1920). Text sits in the middle 60% so nothing clips. Keep any on-screen number/date fully in frame — verify the '60' and 'May 14, 2018' are not cropped.",
+      "text_cards": [
+        { "role": "hook", "approx_t": "0.0-2.5s", "placement": "upper third", "note": "comment-bait title from copywriter lands in first ~2.5s over opening of segment" },
+        { "role": "context", "approx_t": "~8-14s", "placement": "lower third footer band", "note": "channel handle footer persists; copywriter may add a 1-line date stamp card" },
+        { "role": "punchline_bigwords", "approx_t": "~30-35s", "placement": "center", "note": "1-4 big words at payoff, e.g. SAME DATE / THE RECEIPT — copywriter sets exact words" }
+      ],
+      "why_viral": "Self-contained one-tension beat: a kept promise and 60 deaths share one date. Forces the viewer to settle 'how do you hold both' = high comment propensity. One punchline (the date is the receipt). Real on-screen number motion.",
+      "intro_outro": { "head": "brand/shorts-intro.mp4", "tail": "brand/shorts-subscribe-outro.mp4" }
+    },
+    {
+      "id": "embassy-e2-four-presidents",
+      "source_slug": "sealed-aipac-embassy-v2",
+      "source_youtube_id": "ihnYXzqIwUQ",
+      "source_master": "_build/sealed-aipac-embassy-v2/master.mp4",
+      "beat_name": "Four presidents signed it. One stopped.",
+      "in_tc": "00:00:50",
+      "out_tc": "00:01:18",
+      "duration_s": 28,
+      "reframe_mode": "per_segment",
+      "segments": [
+        { "in_tc": "00:00:50", "out_tc": "00:01:03", "reframe_mode": "scale_fit", "content": "Wide Remotion timeline cards: left-anchored header 'FOUR PRESIDENTS SIGNED THE WAIVER' + a full-1280px horizontal timeline with year/name labels ('1995', 'CLINTON', 'BUSH', 'OBANA') spread edge to edge. A center-crop slices the header to 'D THE WAIVER' and cuts the outer name labels in half. Letterbox so the whole timeline + every label stays readable." },
+        { "in_tc": "00:01:03", "out_tc": "00:01:09", "reframe_mode": "center_crop", "content": "Full-frame cinematic Trump portrait b-roll, subject dead-centered. Center-crop FILLS the 9:16 frame cleanly; do NOT letterbox (that is the render bug we are fixing)." },
+        { "in_tc": "00:01:09", "out_tc": "00:01:14", "reframe_mode": "center_crop", "content": "Brief black fade (~01:09-01:10) into the centered narrow date card 'DEC 6, 2017' on black. Card is tightly centered (~430-850px) and survives a center-crop, filling the frame on black with no letterbox seams. Verify 'DEC 6, 2017' is fully in frame." },
+        { "in_tc": "00:01:14", "out_tc": "00:01:18", "reframe_mode": "scale_fit", "content": "Wide proclamation source card: header 'PRESIDENTIAL PROCLAMATION 9683 · SIGNED DEC 6, 2017' spans nearly full width and the quote 'The United States recognizes Jerusalem as the capital of Israel.' wraps edge to edge with a SOURCE chip top-right. A center-crop slices both the header date and 'capital of Israel'. Letterbox so the full proclamation + source attribution stay readable." }
+      ],
+      "audio_decision": "vo",
+      "audio_reason": "Named-president cadence (Clinton/Bush/Obama) plus the 'then one stopped' turn is a tight self-contained VO that ends on a clean boundary at 01:18; the rhythm is the hook and only works spoken.",
+      "vo_text_lifted": "First, how we got here. For 20 years, four presidents said one thing: not yet. A law from 1995 let any president pause the move. He just signed a paper every six months. So every president signed it. Clinton signed it. Bush signed it. Obama signed it. Then one president stopped. And what they declined, somebody signed.",
+      "reframe_plan": "CORRECTION (video-editor, 2026-05-29): the original whole-clip center_crop was wrong — this window is mostly WIDE Remotion timeline/source cards (header + full-width timeline labels + edge-to-edge proclamation quote) that a center-crop edge-slices (qc-engineer confirmed 'D THE WAIVER', half-cut Clinton/Bush labels, cut 'DEC 6, 2018' year, sliced proclamation edges). Only the Trump portrait (01:03-01:09) and the centered 'DEC 6, 2017' date card (01:09-01:14) are center-crop-clean. FIX = per_segment (see 'segments'): wide timeline + source cards scale_fit (letterbox); the portrait and the narrow centered date card center_crop to fill. Mirrors the C1 fix.",
+      "text_cards": [
+        { "role": "hook", "approx_t": "0.0-2.5s", "placement": "upper third", "note": "title sets the '20 years / 4 presidents' tension in first ~2.5s" },
+        { "role": "name_beats", "approx_t": "~12-20s", "placement": "center", "note": "Clinton / Bush / Obama appear as on-screen beats already in master; let them ride" },
+        { "role": "punchline_bigwords", "approx_t": "~24-28s", "placement": "center", "note": "1-4 big words on the turn, e.g. ONE STOPPED — copywriter sets exact words" }
+      ],
+      "why_viral": "Cross-party setup ('every president signed it' incl. Clinton, Bush, Obama) then 'one stopped' is bait that draws argument from both sides = nonpartisan comment driver. Self-contained mechanics; one punchline (the streak broke).",
+      "intro_outro": { "head": "brand/shorts-intro.mp4", "tail": "brand/shorts-subscribe-outro.mp4" }
+    },
+    {
+      "id": "campus-c1-two-ledgers",
+      "source_slug": "sealed-aipac-campus-eo",
+      "source_youtube_id": "AAELowu_vOw",
+      "source_master": "_build/sealed-aipac-campus-eo/master.mp4",
+      "beat_name": "One paper, two ledgers — donor's promise kept, voter's broken",
+      "in_tc": "00:03:50",
+      "out_tc": "00:04:25",
+      "duration_s": 35,
+      "reframe_mode": "per_segment",
+      "segments": [
+        { "in_tc": "00:03:50", "out_tc": "00:03:56", "reframe_mode": "scale_fit", "content": "'ONE ACT. TWO LEDGERS.' wide two-line text card — fills near-full 1280px width; a center-crop slices off 'ON' and the final 'O'. Letterbox." },
+        { "in_tc": "00:03:56", "out_tc": "00:04:09", "reframe_mode": "center_crop", "content": "Full-frame cinematic b-roll: girl standing in empty lecture hall. Center-crop FILLS the 9:16 frame (subject is centered); do NOT letterbox this — letterboxing it is the render bug we are fixing." },
+        { "in_tc": "00:04:09", "out_tc": "00:04:14", "reframe_mode": "scale_fit", "content": "'People fought and died for the right to speak.' wide two-line card — overflows a center-crop on both edges. Letterbox." },
+        { "in_tc": "00:04:14", "out_tc": "00:04:19", "reframe_mode": "scale_fit", "content": "'AND SHE NEVER GOT A VOTE.' wide two-line card — center-crop yields 'D SHE NE... OT A VOT'. Letterbox." },
+        { "in_tc": "00:04:19", "out_tc": "00:04:25", "reframe_mode": "scale_fit", "content": "'A promise about speech is only as wide as the rule behind it.' wide three-line card — overflows both edges. Letterbox." }
+      ],
+      "audio_decision": "vo",
+      "audio_reason": "The donor-ledger reveal ('priority three... done... one act, two ledgers... kept the donor's, broke the voter's') is a chain that only lands spoken; ends on a clean boundary at ~04:25 with no clip.",
+      "vo_text_lifted": "Here's the part the headline skipped. The sealed paper trail logs the same order as a kept promise. Every promise sits in some ledger somewhere. This one's a donor's. The donor is a lobby called AIPAC. In that ledger, the order is priority three. The note reads, done. So one act sits on two ledgers. It kept the donor's promise. By our own audit, it broke the voter's.",
+      "reframe_plan": "CORRECTION (video-editor, 2026-05-29): the original 'left-weighted AIPAC ledger card' diagnosis was wrong — that card is NOT in this window. The actual visuals at 03:50-04:25 are (a) full-frame girl-in-lecture-hall b-roll and (b) CENTERED-but-WIDE multi-word text cards that fill near-full 1280px width. A whole-clip scale_fit shrinks the b-roll into a tiny island (the render bug); a whole-clip center_crop slices the edge words off every wide card. Neither single mode works. FIX = per_segment (see 'segments'): b-roll segment center_crops to fill 9:16; each wide text-card segment scale_fits (letterbox) so the full sentence stays readable. SEE notes[] — orchestrator must extend splice-shorts-from-master.py to honor per-segment reframe.",
+      "text_cards": [
+        { "role": "hook", "approx_t": "0.0-2.5s", "placement": "upper third", "note": "title sets 'who actually got what they were promised' tension" },
+        { "role": "receipt_card", "approx_t": "~6-19s", "placement": "center", "note": "The on-screen receipt here is the 'ONE ACT. TWO LEDGERS.' card + the lecture-hall b-roll, NOT a graphical AIPAC ledger card (no such card exists in this window). The AIPAC 'priority three / done' reveal is carried by the VO over these visuals." },
+        { "role": "punchline_bigwords", "approx_t": "~30-35s", "placement": "center", "note": "1-4 big words, e.g. TWO LEDGERS or DONOR: KEPT / VOTER: BROKEN — copywriter sets exact words" }
+      ],
+      "why_viral": "DISTINCT from the live free-speech-headline short: this is the 'who is this actually for' reveal — the same signature is a kept promise to a donor and a broken one to voters. High comment propensity (the AIPAC ledger 'Done.' receipt is the argument trigger). One punchline (two ledgers).",
+      "intro_outro": { "head": "brand/shorts-intro.mp4", "tail": "brand/shorts-subscribe-outro.mp4" }
+    },
+    {
+      "id": "campus-c2-would-you-count-it",
+      "source_slug": "sealed-aipac-campus-eo",
+      "source_youtube_id": "AAELowu_vOw",
+      "source_master": "_build/sealed-aipac-campus-eo/master.mp4",
+      "beat_name": "No war, no vote, just a signature — would you count it?",
+      "in_tc": "00:04:49",
+      "out_tc": "00:05:24",
+      "duration_s": 35,
+      "reframe_mode": "per_segment",
+      "segments": [
+        { "in_tc": "00:04:49", "out_tc": "00:05:24", "reframe_mode": "scale_fit", "content": "EVERY visual in this window is a WIDE text/Remotion card that overflows a center-crop on both edges — there is NO full-frame b-roll or narrow centered subject here, so the whole short is one contiguous scale_fit (letterbox). Cards in order: (1) BROKEN verdict stamp card '~Protect campus free speech (widen the debate)' + 'Campaign Receipts audit — EO 13899, Dec 11, 2019' footer, both edge-to-edge; (2) the big two-line payoff 'WOULD YOU / COUNT IT?' which a center-crop reduces to 'OULD YO / COUNT IT' (qc-confirmed) — this is the comment-bait card and MUST read in full; (3) 'PEOPLE DIED TO / WIDEN THAT LINE.' (center-crop yields 'OPLE DIED'); (4) the closing CTA 'The full receipt + free newsletter' / 'linked below · Campaign Receipts', sliced both edges by a crop. Letterboxing all of it keeps every word readable." }
+      ],
+      "audio_decision": "vo",
+      "audio_reason": "Ends on the literal comment-bait question 'Would you count this promise as kept?' over the 'WOULD YOU COUNT IT?' card; the question must be heard to fire the comment impulse. Clean sentence boundaries throughout; ~35s.",
+      "vo_text_lifted": "One order signed by one person can quietly move that line. No war, no vote, just a signature. So next time someone says, protect free speech, ask two things: protect it for whom, and where is the line? He promised to widen the debate. The order narrowed it. By our own audit, that promise is broken. He promised to protect campus speech, then one order drew the line around one kind of speech. People died to widen that line. Would you count this promise as kept?",
+      "reframe_plan": "CORRECTION (video-editor, 2026-05-29): the original whole-clip center_crop was wrong — the 'WOULD YOU COUNT IT?' payoff is NOT a narrow centered big-words card; it is a wide two-line card whose outer letters ('WO...OU', the '?') fall outside a centered crop column, and the BROKEN verdict / 'PEOPLE DIED TO WIDEN THAT LINE.' / CTA cards are all wider still (qc-engineer confirmed 'OULD YO / COUNT IT', 'OPLE DIED', sliced CTA edges). No segment in this window is center-crop-clean, so the per_segment array is a single contiguous scale_fit over the full in_tc->out_tc. Encoded as per_segment (not a whole-clip scale_fit field) so the splice tool routes it through the same honored path as C1.",
+      "text_cards": [
+        { "role": "hook", "approx_t": "0.0-2.5s", "placement": "upper third", "note": "title primes the verdict question in first ~2.5s" },
+        { "role": "verdict_bigwords", "approx_t": "~28-33s", "placement": "center", "note": "BROKEN big-word at the audit line if present in master" },
+        { "role": "punchline_card", "approx_t": "~33-35s", "placement": "center", "note": "'WOULD YOU COUNT IT?' card lands as the final frame before the subscribe outro — the comment trigger" }
+      ],
+      "why_viral": "Ends on a direct question to the viewer ('would you count this promise as kept?') = the single highest comment-propensity move in the LF. Self-contained verdict; one punchline (BROKEN / would you count it). Distinct from the live short's headline framing.",
+      "intro_outro": { "head": "brand/shorts-intro.mp4", "tail": "brand/shorts-subscribe-outro.mp4" }
+    }
+  ]
+}

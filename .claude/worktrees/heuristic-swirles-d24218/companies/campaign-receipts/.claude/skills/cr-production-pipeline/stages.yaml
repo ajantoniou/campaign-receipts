@@ -1,0 +1,456 @@
+# SEALED + CR new-news production pipeline — machine-readable stage table.
+#
+# Source of truth: SEALED-PRODUCTION-PIPELINE-v3.md (the prose doctrine).
+# This YAML is consumed by scripts/pipeline/pipeline-state.py to drive the
+# `init / status / next / mark / resume` state machine.
+#
+# Field reference:
+#   id                : stage number (string, supports "12.5" / "17.5" / "24.a")
+#   name              : short human label
+#   kind              : "persona" | "tool" | "manual" | "gate"
+#   persona           : path to the .md the skill loads as subagent prompt
+#                       (only for kind=persona or kind=gate)
+#   job               : one-line decision this stage owns
+#   tool              : literal command to run (kind=tool / gate). Supports
+#                       <slug>, <mode>, <master>, <date> placeholders
+#   inputs            : space-separated prior outputs needed
+#   output            : on-disk artifact path (drives cache-hit detection)
+#   output_lf         : LF-mode override
+#   output_short      : short-mode override
+#   only_when         : [{mode: short}] | [{program: cr-new-news}] etc.
+#   skip_when         : same syntax, inverse
+#   model             : claude-opus | claude-haiku | deepseek
+#   cost_cap_usd      : per-stage spend ceiling (Chief Accountant gate)
+#   blocking          : false → advisory only; true (default) → hard-fail
+#   override_flag     : --founder-override-... to bypass (if allowed)
+#   never_overridable : true → no override path exists (gate is absolute)
+#   pause_reason      : if set, halt and wait for founder action
+#   halt_on_verdict   : KILL | FAIL → stop pipeline if verdict matches
+#
+# Persona stages are spawned via Agent subagent with the persona .md as the
+# system prompt. Tool stages shell out via Bash. Manual stages pause and
+# wait for the founder (e.g. Stage 29 = Studio upload).
+
+stages:
+  - id: "1"
+    name: "Analytics review (prior piece)"
+    kind: persona
+    persona: "personas/analytics-tracker.md"
+    job: "What worked / what didn't from prior piece. CTR, AVD, traffic source. Feed Stage 2."
+    inputs: ""
+    output: "reports/episodes/<slug>-72hr-prior.md"
+    model: claude-haiku
+    cost_cap_usd: "0.10"
+    blocking: "false"
+
+  - id: "2"
+    name: "Story extraction"
+    kind: persona
+    persona: "personas/story-investigator.md"
+    job: "Central tension, transformation arc, key reveal, emotional stakes, 5-9 narrative beats."
+    inputs: "briefs/<date>-<slug>-topic-brief.md"
+    output: "briefs/<date>-<slug>-story-extraction.md"
+    model: claude-opus
+    cost_cap_usd: "0.40"
+
+  - id: "3"
+    name: "Audience demand validation"
+    kind: persona
+    persona: "personas/audience-demand-strategist.md"
+    job: "GO/HOLD/KILL verdict + CTR/retention + 5 hook variations + must-click framing."
+    inputs: "briefs/<date>-<slug>-story-extraction.md"
+    output: "briefs/<date>-<slug>-validation.md"
+    model: claude-opus
+    cost_cap_usd: "0.30"
+    halt_on_verdict: "KILL"
+
+  - id: "4"
+    name: "Viral packaging lens"
+    kind: persona
+    persona: "personas/viral-panel/06-mrbeast-packaging.md"
+    job: "MrBeast packaging — score hook strength, pick title direction, set thumbnail brief."
+    inputs: "briefs/<date>-<slug>-validation.md"
+    output: "briefs/<date>-<slug>-virality.md"
+    model: claude-haiku
+    cost_cap_usd: "0.10"
+
+  - id: "5"
+    name: "Content research"
+    kind: persona
+    persona: "personas/series-architect.md"
+    job: "Primary-source receipts. NO secondary news as primary cite."
+    inputs: "briefs/<date>-<slug>-story-extraction.md"
+    output: "research/<date>-<slug>-sources.md"
+    model: claude-opus
+    cost_cap_usd: "0.50"
+
+  - id: "5.5"
+    name: "Investigative why/history pass"
+    kind: persona
+    persona: "personas/political-journalist-investigator.md"
+    job: "For each major donor/PAC dig the DEEPER WHY: who they really are, why they spend in THIS race, the funded candidate's record/likely posture on that donor's industry, the historical pattern. Sourced or framed as an open question, NEVER a fabricated quid-pro-quo. Feeds the storyteller with threads + receipts, not punchlines."
+    inputs: "briefs/<date>-<slug>-story-extraction.md research/<date>-<slug>-sources.md"
+    output: "research/<date>-<slug>-investigation.md"
+    model: claude-opus
+    cost_cap_usd: "0.50"
+
+  - id: "6"
+    name: "Research pack (HARDENED — owns fact accuracy at source)"
+    kind: persona
+    persona: "personas/council/05-fact-check-qc.md"
+    job: "For EVERY politician named in the brief: pull name spelling, role, outcome (won/lost), incumbent/challenger status, vote count, IE spent against, primary-source URL. Every dollar/date/percentage gets an FEC.gov / SOS / court URL + retrieval date. This is NOT a downstream gate — this is the research pack that downstream subagents read. If the pack is incomplete, downstream errors cascade; do it right here, once."
+    inputs: "briefs/<date>-<slug>-story-extraction.md"
+    output: "research/<date>-<slug>-sources.md"
+    model: claude-opus
+    cost_cap_usd: "0.40"
+    blocking: "false"  # advisory — founder reads + decides; no downstream "fact-check-as-gate" loop
+
+  - id: "7"
+    name: "First-draft script"
+    kind: persona
+    persona: "personas/cr-new-news-writer.md"
+    job: "Write FROM story extraction beats. EP voice. AY-pack pronunciation. Receipts named."
+    inputs: "briefs/<date>-<slug>-story-extraction.md research/<date>-<slug>-sources.md"
+    output: "content/scripts/<slug>-v1.md"
+    model: claude-opus
+    cost_cap_usd: "0.40"
+
+  - id: "8"
+    name: "Story structure pass"
+    kind: persona
+    persona: "personas/storyline-editor.md"
+    job: "Structure + receipt-narrative sequence + RECEIPTS header."
+    inputs: "content/scripts/<slug>-v1.md"
+    output: "content/scripts/<slug>-v2-structure.md"
+    tool: "python3 scripts/pipeline/step_qc.py --step storyline-editor --lint-script content/scripts/<slug>-v2-structure.md"
+    model: claude-opus
+    cost_cap_usd: "0.25"
+
+  - id: "9"
+    name: "Documentary narrative pass (NEWS -> PUNCHLINE -> EXPLAIN)"
+    kind: persona
+    persona: "personas/documentarian-narrator.md"
+    job: "Investigative-documentarian arc + flow. Enforce NEWS->PUNCHLINE->EXPLAIN: lead with the finding, land the turn up front, then explain the receipts in plain reported copy. BAN mystery-tease (you-wont-believe / cliffhangers / withholding / breathy fragment chains). Pose-the-why-then-answer-it (founder 'get it?' structure). Replaces the retired JK-Rowling fiction-tease pass (founder 2026-06-01)."
+    inputs: "content/scripts/<slug>-v2-structure.md"
+    output: "content/scripts/<slug>-v3-doc.md"
+    tool: "python3 scripts/pipeline/step_qc.py --step documentarian --lint-script content/scripts/<slug>-v3-doc.md"
+    model: claude-opus
+    cost_cap_usd: "0.25"
+
+  - id: "10"
+    name: "Retention hook pass (HARDENED — Line 1 contract enforced)"
+    kind: persona
+    persona: "personas/viral-panel/06-mrbeast-packaging.md"
+    job: "PROMPT MUST INCLUDE VERBATIM: 'Line 1 of the VO body MUST contain (a) a specific dollar figure AND (b) the outcome/result of the episode. If either is missing, rewrite Line 1 before returning.' (This aligns with the NEWS->PUNCHLINE->EXPLAIN lock: the finding + figure lead.) Then re-hooks every 60-90s via STAKES or NEW INFORMATION (a fresh receipt, a why-reveal answered in-line) — NOT cliffhanger/withholding tease (per documentarian-narrator's banned-voice list; founder 2026-06-01). Keep EP reading level. Last hook fix before TTS spend."
+    inputs: "content/scripts/<slug>-v3-doc.md"
+    output: "content/scripts/<slug>-v4-mrbeast.md"
+    model: claude-opus  # was haiku — hook strength is brand-critical, use opus
+    cost_cap_usd: "0.25"
+
+  - id: "11"
+    name: "Council script review (ADVISORY ONLY)"
+    kind: persona
+    persona: "personas/council"
+    job: "Generate a report the founder can read before approving. NOT a gate. Council REVISE verdict is information, not a block — the specialist subagents at Steps 7-10 are the gates by virtue of doing the job right. Council surfaces anything the specialists missed."
+    inputs: "content/scripts/<slug>-v4-mrbeast.md"
+    tool: "python3 scripts/pipeline/council-review.py --script content/scripts/<slug>-v4-mrbeast.md"
+    output: "reports/council/<slug>-<date>.md"
+    model: claude-opus
+    cost_cap_usd: "0.60"  # was 1.20 — advisory now, can use fewer council members
+    blocking: "false"  # founder lock 2026-05-25: council is advisory, not a re-render trigger
+
+  - id: "12"
+    name: "Empathy flag (FLAG-ONLY)"
+    kind: persona
+    persona: "personas/empathy-editor.md"
+    job: "List missing-empathy at line X with reason. Does NOT edit script."
+    inputs: "content/scripts/<slug>-v4-mrbeast.md"
+    output: "content/scripts/<slug>-v4-empathy-flags.md"
+    model: claude-opus
+    cost_cap_usd: "0.20"
+
+  - id: "12.5"
+    name: "Empathy re-pass"
+    kind: persona
+    persona: "personas/storyline-editor.md"
+    job: "Apply empathy flags by adding humanizing beats. Preserves voice."
+    inputs: "content/scripts/<slug>-v4-mrbeast.md content/scripts/<slug>-v4-empathy-flags.md"
+    output: "content/scripts/<slug>-v6-cadence.md"
+    model: claude-opus
+    cost_cap_usd: "0.25"
+
+  - id: "12.7"
+    name: "Cadence director (pause + slowdown marks — NEW 2026-05-25)"
+    kind: persona
+    persona: "personas/cadence-director.md"
+    job: "Insert [pause:Xms] tokens throughout the locked script: pre-punchline 600ms breath, post-reveal 1s silence, 300ms after each acronym first-mention, 200ms after politician names, 400ms between pattern-build items, 250ms between dollar figures in dense lists, 800ms scene transitions, 1.2s cold-close tail before music fade. Target effective wpm: hook 150-160, context 140-150, reveal setup 130-140, punchline 110-120, verdict 120-130, cold close 110-120. ONLY inserts pause markers — does NOT change any words. 'Slowness IS part of the 3rd-grade contract' (founder lock 2026-05-25 after Rabb PA-3 read at uniform 145wpm with no breath)."
+    inputs: "content/scripts/<slug>-v6-cadence.md eng/storyboards/<slug>-score-plan.json"
+    output: "content/scripts/<slug>-v6-cadence.md"
+    model: claude-opus
+    cost_cap_usd: "0.20"
+
+  - id: "13"
+    name: "TTS readability lint (HARD FAIL)"
+    kind: gate
+    tool: "python3 scripts/pipeline/elevenlabs-tts.py --lint-only --strict-lint content/scripts/<slug>-v6-cadence.md"
+    job: "Lint AY-pack, AIPC, mid-word abbreviations, numbers >999, sentences >30 words."
+    inputs: "content/scripts/<slug>-v6-cadence.md"
+    output: "_review/tts-lint-<slug>.txt"
+    never_overridable: "true"
+
+  - id: "14"
+    name: "Long-form VO (Betsy/Jessica)"
+    kind: tool
+    tool: "python3 scripts/pipeline/elevenlabs-tts.py --voice betsy --chunked content/scripts/<slug>-v6-cadence.md --out _build/<slug>/vo-v2.mp3"
+    job: "Render chunked VO. NEVER runs for shorts (Doctrine line 4)."
+    inputs: "content/scripts/<slug>-v6-cadence.md"
+    output: "_build/<slug>/vo-v2.mp3"
+    only_when: "[{mode: longform}]"
+    cost_cap_usd: "2.50"
+
+  - id: "15"
+    name: "VO pronunciation QC"
+    kind: gate
+    persona: "personas/qc-engineer.md"
+    tool: "python3 scripts/pipeline/qc_spoken.py --episode _build/<slug>/"
+    job: "Cross-ASR: AY-pack heard as 'AY pack', named politicians right, no garble."
+    inputs: "_build/<slug>/vo-v2.mp3"
+    output: "_build/<slug>/vo-audio-qc.json"
+    only_when: "[{mode: longform}]"
+
+  - id: "16"
+    name: "VO WER + garble"
+    kind: gate
+    persona: "personas/qc-engineer.md"
+    tool: "python3 scripts/pipeline/qc_spoken.py --cross-asr --episode _build/<slug>/"
+    job: "Per-chunk WER ≤12%, no garble."
+    inputs: "_build/<slug>/vo-v2.mp3"
+    output: "_build/<slug>/vo-wer-pass.marker"
+    only_when: "[{mode: longform}]"
+
+  - id: "17"
+    name: "Storyboard"
+    kind: persona
+    persona: "personas/video-producer.md"
+    job: "Script → shot list. B-ROLL-FIRST. Tag youtubeBroll > remotion > fal-still. Leave `music_cues: []` and `sfx: []` as empty placeholders — Stage 19.7 score-composer will populate them. Do NOT write placeholder music cues here; that's a different persona's job."
+    inputs: "content/scripts/<slug>-v6-cadence.md"
+    output: "eng/storyboards/<slug>.json"
+    model: claude-opus
+    cost_cap_usd: "0.50"
+
+  - id: "17.5"
+    name: "Per-clip generative prompts"
+    kind: persona
+    persona: "personas/visual-prompt-engineer.md"
+    job: "fal/Kling/Higgsfield prompts per generative shot. Per tool's strengths."
+    inputs: "eng/storyboards/<slug>.json"
+    output: "eng/storyboards/<slug>-prompts.json"
+    model: claude-opus
+    cost_cap_usd: "0.30"
+
+  - id: "18"
+    name: "YouTube b-roll selection"
+    kind: persona
+    persona: "personas/cinematic-broll-director.md"
+    job: "Pick BEST in/out. Fair-use envelope. Verify via yt-dlp probe + frame inspect."
+    inputs: "eng/storyboards/<slug>.json"
+    output: "eng/storyboards/<slug>-broll-selections.json"
+    model: claude-opus
+    cost_cap_usd: "0.40"
+
+  - id: "19"
+    name: "Storyboard validator (HARD FAIL)"
+    kind: gate
+    persona: "personas/qc-engineer.md"
+    tool: "python3 scripts/pipeline/validate-storyboard.py eng/storyboards/<slug>.json"
+    job: "Refuse if any beat unsourced, C-SPAN without cropTopPct, face≠speaker, AI-where-real-exists."
+    inputs: "eng/storyboards/<slug>.json eng/storyboards/<slug>-broll-selections.json"
+    output: "_review/storyboard-validate-<slug>.txt"
+    never_overridable: "true"
+
+  - id: "19.7"
+    name: "Score composer (emotional audio arc — NEW 2026-05-25)"
+    kind: persona
+    persona: "personas/score-composer.md"
+    job: "Design the per-beat music_cues + sfx arrays. Read the locked VO script + storyboard. Identify the punchline sentence (where the reveal lands). Build a 4-6 cue arc: opener tense → establishing → sinister rise (60-90s before punchline) → ta-da release (punchline + 2-3s after) → verdict body → tail. Add 3-6 SFX hits coordinated with sfx-specialist (receipt reveal paper-flip, money-flow pen-on-paper, vote-count chime, verdict-stamp gavel). Founder lock 2026-05-25 after Rabb PA-3 shipped with flat 3-cue bed + zero SFX: 'add ta-da music when you deliver the punchline, add sinister music when you're getting close to punchline. cinematic effect.'"
+    inputs: "content/scripts/<slug>-v6-cadence.md eng/storyboards/<slug>.json"
+    output: "eng/storyboards/<slug>-score-plan.json"
+    model: claude-opus
+    cost_cap_usd: "0.30"
+
+  - id: "19.5"
+    name: "Title + 4 alternates (SEO + MrBeast packaging — HARDENED)"
+    kind: persona
+    persona: "personas/viral-panel/01-title-strategist.md"
+    job: "Write the picked title + 4 alternates. PROMPT MUST EMPHASIZE: every title needs 2+ search keywords (politician name + AIPAC/lobby + district + dollar+verb). Pattern-match prior shipped LFs ($8 MILLION Beat Bush, $35 MILLION Beat Massie) for algorithm cluster cohesion. The PICKED title is what ships unless founder overrides. Output goes into _build/<slug>/youtube-meta.json under `title` and `title_alt`. Also produces the thumb-text companion (3-4 words) used by Stage 20."
+    inputs: "briefs/<date>-<slug>-virality.md briefs/<date>-<slug>-story-extraction.md content/scripts/<slug>-v6-cadence.md"
+    output: "_build/<slug>/youtube-meta.json"
+    model: claude-opus
+    cost_cap_usd: "0.20"
+
+  - id: "19.6"
+    name: "Description + monetization disclosure"
+    kind: persona
+    persona: "personas/viral-panel/07-youtube-monetization.md"
+    job: "Write YouTube description. First 150 chars are SEO-critical — pack with keywords (AIPAC, politician name, district, dollar). Include: 2-line viral hook, chapter markers (from VO timings), full source slate (FEC URLs + news URLs + retrieval dates from research/<slug>-sources.md), AI disclosure line, hashtags. Set ad-friendly call (yellow-expected for AIPAC content). Write to _build/<slug>/description.md AND update youtube-meta.json monetization block."
+    inputs: "content/scripts/<slug>-v6-cadence.md research/<date>-<slug>-sources.md _build/<slug>/youtube-meta.json"
+    output: "_build/<slug>/description.md"
+    model: claude-opus
+    cost_cap_usd: "0.20"
+
+  - id: "20"
+    name: "Thumbnail render"
+    kind: persona
+    persona: "personas/viral-panel/02-thumbnail-designer.md"
+    job: "Pick the LOSER portrait (Bush+Massie+Rabb LF pattern: the money-backed candidate who lost goes on the thumb, the money next to them as receipt). Pick headline/subline/verdict from the title's thumb-text companion (Stage 19.5). Run `node scripts/pipeline/generate-thumbnail.mjs --template <cr-new-news|sealed> --headline X --subline Y --verdict <LOST|RECEIPT|BROKEN> --portrait <path> --out _build/<slug>/thumbnail.jpg`. View the JPG; if it doesn't punch, iterate."
+    inputs: "_build/<slug>/youtube-meta.json public/photos/wikipedia/<loser>.jpg"
+    output: "_build/<slug>/thumbnail.jpg"
+    cost_cap_usd: "0.05"
+
+  - id: "21"
+    name: "Atmosphere generative beats (LF only)"
+    kind: tool
+    tool: "python3 scripts/pipeline/fal-stills-gen.py --prompts eng/storyboards/<slug>-prompts.json --out _build/<slug>/clips/"
+    job: "Non-character atmosphere only. Never faces of real politicians. Higgsfield is preferred when prepaid credits exist and the beat needs polished cinematic atmosphere; fal.ai remains the repeatable CLI fallback/patch layer. Remotion/HTML owns all readable information, claims, numbers, charts, source cards, and CTAs."
+    inputs: "eng/storyboards/<slug>-prompts.json"
+    output: "_build/<slug>/clips/"
+    only_when: "[{mode: longform}]"
+    cost_cap_usd: "3.00"
+
+  - id: "21.5"
+    name: "Pre-render plate gates: missing-plate + freeze-vs-VO (HARD FAIL)"
+    kind: gate
+    tool: "python3 scripts/pipeline/qc-missing-plate.py --storyboard eng/storyboards/<slug>.json && python3 scripts/pipeline/qc-freeze-vs-vo.py --storyboard eng/storyboards/<slug>.json"
+    job: "TWO $0 pre-render guards that would have caught the 2026-06-01 black-/frozen-plate masters BEFORE the splice. (1) missing-plate: every asset a clip references (remotion backgroundVideo + portraits[].src resolved against remotion/public/, plus seed_image/reuse_path/image_path/portrait/audio against CR/) must exist on disk — Remotion silently renders a BLACK background for a missing staticFile, so a missing plate never throws at render. (2) freeze-vs-VO: each remotion backgroundVideo's DECLARED backgroundVideoDurationInFrames must match the REAL probed file (wrong number → wrong loop/hold math → jump), and any clip whose slot is longer than its plate must use a loop-capable composition (TextSlate) or it freezes/blacks under live VO. Run AFTER Stage 21 (plates rendered) and BEFORE Stage 24 (splice). Founder lock 2026-06-01 after the TX-Senate LF shipped black/frozen plates 3x undetected; this gate found a real declared=301/actual=151 mismatch on the closing card at $0."
+    inputs: "eng/storyboards/<slug>.json _build/<slug>/clips/ remotion/public/ai-plates/<slug>/"
+    output: "_review/qc-missing-plate-<slug>.json _review/qc-freeze-vs-vo-<slug>.json"
+    only_when: "[{mode: longform}]"
+    never_overridable: "true"
+
+  - id: "22"
+    name: "Remotion text cards"
+    kind: tool
+    tool: "node scripts/pipeline/render-remotion.mjs --slug <slug> --composition Quote --out _build/<slug>/_rem-quote.mp4"
+    job: "Quotes, citation slates, chapter breaks. Episode-scoped per 2026-05-23 lock."
+    inputs: "eng/storyboards/<slug>.json"
+    output: "_build/<slug>/_rem-quote.mp4"
+    cost_cap_usd: "0.20"
+
+  - id: "23"
+    name: "Music bed"
+    kind: tool
+    tool: "python3 scripts/pipeline/bake-music.py --slug <slug> --out _build/<slug>/music_bed.m4a"
+    job: "Loop-ready instrumental. SEALED tone: parchment + slight unease."
+    inputs: ""
+    output: "_build/<slug>/music_bed.m4a"
+    cost_cap_usd: "0.50"
+
+  - id: "24"
+    name: "Master splice (LF or short branch)"
+    kind: tool
+    tool: "<master-splice-cmd>"
+    job: "LF: produce-from-storyboard.py (VO + b-roll + Remotion). Short: produce-short-generic.mjs (text + music + b-roll, NO VO)."
+    inputs: "_build/<slug>/"
+    output: "<master>"
+    output_lf: "public/longform/<slug>.mp4"
+    output_short: "public/shorts/<slug>.mp4"
+    cost_cap_usd: "0.30"
+
+  - id: "24.5"
+    name: "Dark/blank-frame gate (HARD FAIL)"
+    kind: gate
+    tool: "python3 scripts/pipeline/qc-black-frames.py --master <master>"
+    job: "Deterministic signalstats brightness+spread scan over the WHOLE master (1 frame/2s). FAIL if >10% frames dark/blank OR any contiguous dark run >3s. Catches dark-vignette atmosphere clips that blackdetect + stills-QC miss (2026-05-31 60%-black-master-passed-3x failure). Runs BEFORE /watch so a dark master never reaches a human reviewer."
+    inputs: "<master>"
+    output: "_review/qc-black-<stem>.json"
+    never_overridable: "true"
+
+  - id: "25"
+    name: "Master visual QC — Pass 1 (HARD FAIL)"
+    kind: gate
+    persona: "personas/qc-engineer.md"
+    tool: "python3 scripts/pipeline/qc-visual-master.py --master <master> --slug <slug> --out _review/qc-visual-<slug>-pass1.md"
+    job: "Lips match speaker (LF), images match story, no garble, no broll-content mismatch."
+    inputs: "<master>"
+    output: "_review/qc-visual-<slug>-pass1.md"
+    never_overridable: "true"
+
+  - id: "26"
+    name: "Master visual QC — Pass 2 (independent)"
+    kind: gate
+    persona: "personas/qc-engineer.md"
+    tool: "python3 scripts/pipeline/qc-visual-master.py --master <master> --slug <slug> --pass 2 --out _review/qc-visual-<slug>-pass2.md"
+    job: "Re-verify hot zones: hook, verdict stamp, CTA transitions, b-roll cuts."
+    inputs: "<master>"
+    output: "_review/qc-visual-<slug>-pass2.md"
+    never_overridable: "true"
+
+  - id: "27"
+    name: "Shorts-only no-VO gate (HARD FAIL)"
+    kind: gate
+    persona: "personas/qc-engineer.md"
+    tool: "python3 scripts/pipeline/qc-shorts-no-vo.py --master public/shorts/<slug>.mp4"
+    job: "Fail if VO chunk file referenced OR audio has speech-band content. Doctrine line 4."
+    inputs: "public/shorts/<slug>.mp4"
+    output: "_review/qc-novo-<slug>.txt"
+    only_when: "[{mode: short}]"
+    never_overridable: "true"
+
+  - id: "28"
+    name: "Pre-ship council panel (ADVISORY ONLY)"
+    kind: persona
+    persona: "personas/council"
+    tool: "python3 scripts/pipeline/council-review.py --storyboard eng/storyboards/<slug>.json"
+    job: "Generate a report the founder reads before founder-upload at Stage 29. NOT a gate. REVISE verdict is information, never a re-render trigger. Founder lock 2026-05-25: the qc-engineer at Stages 25+26 already SHIP-OK'd the master; this council pass is a final advisory read."
+    inputs: "<master> eng/storyboards/<slug>.json"
+    output: "reports/council/<slug>-master.md"
+    cost_cap_usd: "0.60"
+    blocking: "false"
+
+  - id: "29"
+    name: "Founder upload (manual)"
+    kind: manual
+    job: "Founder uploads via YouTube Studio Unlisted. NEVER videos.insert from agent."
+    inputs: "<master> _build/<slug>/thumbnail.jpg"
+    output: "_review/upload-confirmed-<slug>.marker"
+    pause_reason: "Waiting for founder to upload via YouTube Studio and paste the new video ID into eng/youtube-meta/studio-uploads-pending.json"
+    never_overridable: "true"
+
+  - id: "30"
+    name: "Post-upload metadata + thumb + playlist"
+    kind: tool
+    tool: "python3 scripts/pipeline/post-studio-upload.py --batch eng/youtube-meta/studio-uploads-pending.json"
+    job: "Batch-apply title/desc/thumb/playlist + delete --replace-id. ~250 quota units/piece."
+    inputs: "_review/upload-confirmed-<slug>.marker _build/<slug>/thumbnail.jpg"
+    output: "_review/post-upload-done-<slug>.marker"
+    cost_cap_usd: "0.05"
+
+  - id: "30.5"
+    name: "Video landing page generator (companion page — NEW 2026-05-26)"
+    kind: persona
+    persona: "personas/video-landing-page-generator.md"
+    job: "Generate app/articles/<slug>/page.tsx — companion landing page for the just-published YouTube video. Embed the final YouTube video, TLDR, clickable receipt tiles, politician links, source receipts, transcript, Schema.org markup, and free newsletter capture. Do not add paid-tier/paywall CTAs before the 10k-subscriber gate or explicit founder override. All copy at 3rd-grade level per personas/web-ux-director.md. Goal: every shipped video gets a Google-indexable page within 24h of going public; converts SEO traffic to the free newsletter."
+    inputs: "_review/post-upload-done-<slug>.marker eng/research/<date>-<slug>-receipts.md eng/scripts/cr-new-news/<slug>-vo.txt eng/storyboards/<slug>-photo-selections.json _build/<slug>/description.md"
+    output: "app/articles/<slug>/page.tsx"
+    model: claude-opus
+    cost_cap_usd: "0.40"
+
+  - id: "30.6"
+    name: "YouTube Community post"
+    kind: persona
+    persona: "personas/viral-panel/01-title-strategist.md"
+    job: "After the companion article or landing page is live, write and publish one YouTube Community post in Studio with a viral headline, 2-4 sentence receipt hook, link to the latest article/page, and free newsletter CTA. YouTube Data API has no communityPosts write resource, so this is a Studio/manual step until a supported API exists. No Facebook or other social syndication until founder opens that channel. No paid-tier/paywall CTA before 10k subscribers."
+    inputs: "live YouTube URL app/articles/<slug> or video_companion article row _build/<slug>/description.md"
+    output: "eng/youtube-posts/<slug>.md + live YouTube Community post"
+    model: claude-opus
+    cost_cap_usd: "0.10"
+
+  - id: "31"
+    name: "72-hour analytics measure"
+    kind: tool
+    tool: "python3 scripts/pipeline/youtube-analytics-snapshot.py --slug <slug>"
+    job: "CTR, retention curve, traffic source → feeds Stage 1 of next piece."
+    inputs: ""
+    output: "reports/episodes/<slug>-72hr.md"
+    blocking: "false"
+    pause_reason: "Wait 72h after Stage 30 before running this stage."

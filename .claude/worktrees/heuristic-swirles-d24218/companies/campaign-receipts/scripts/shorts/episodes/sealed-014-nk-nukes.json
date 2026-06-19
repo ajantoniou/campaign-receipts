@@ -1,0 +1,66 @@
+{
+  "slug": "sealed-014-nk-nukes",
+  "build": "014",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-24 no-VO. Three summits → CSIS+FAS stockpile-up receipt. Treats the diplomatic theater honestly while landing the actual data.",
+  "no_vo": true,
+  "sync_specs": [
+    { "id": "hook",          "duration": 5.0 },
+    { "id": "threeSummits",  "duration": 6.0 },
+    { "id": "fellInLove",    "duration": 5.0 },
+    { "id": "stockpileUp",   "duration": 5.0 },
+    { "id": "broken",        "duration": 5.0 },
+    { "id": "cta",           "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2018 · 2019 · 2019",
+        "quote": "Three summits with Kim Jong Un.",
+        "source": "Stockpile increased."
+      }
+    },
+    "threeSummits": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "THREE SUMMITS",
+        "events": [
+          { "date": "Jun 12 2018", "label": "Singapore",  "outcome": "partial" },
+          { "date": "Feb 27 2019", "label": "Hanoi",      "outcome": "partial" },
+          { "date": "Jun 30 2019", "label": "DMZ handshake", "outcome": "partial" }
+        ]
+      }
+    },
+    "fellInLove": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "September 2018 · rally",
+        "quote": "We fell in love.",
+        "source": "Quote on Kim Jong Un"
+      }
+    },
+    "stockpileUp": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "CSIS Beyond Parallel · FAS · IAEA",
+        "quote": "Warhead count: up, not down.",
+        "source": "More weapons at term end than term start"
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Solve the nuclear threat",
+        "citation": "Stockpile grew during the term"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

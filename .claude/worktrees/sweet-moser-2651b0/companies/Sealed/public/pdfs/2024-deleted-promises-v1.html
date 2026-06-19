@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>2024 Deleted Promises — SEALED Press</title>
+<style>
+  @page { size: 6in 9in; margin: 0.7in 0.65in 0.85in 0.65in; }
+  html, body {
+    background: #faf7ef;
+    color: #0f1f3a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    margin: 0; padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  section.cover {
+    page-break-after: always;
+    text-align: center;
+    padding: 1.4in 0.3in 0.6in 0.3in;
+    min-height: 7in;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #faf7ef;
+  }
+  .cover-eyebrow {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #2a4d7c;
+    margin-bottom: 0.4in;
+  }
+  .cover-goldrule {
+    width: 60%; height: 1.2pt; margin: 0 auto;
+    background: linear-gradient(to right, transparent, #b08a3e 30%, #b08a3e 70%, transparent);
+  }
+  .cover-goldrule.narrow { width: 30%; margin: 0.4in auto; }
+  .cover-title {
+    font-family: Georgia, serif;
+    font-size: 34pt;
+    font-weight: bold;
+    line-height: 1.05;
+    margin: 0.5in 0 0 0;
+    color: #0f1f3a;
+    letter-spacing: -0.01em;
+  }
+  .cover-subtitle {
+    font-family: Georgia, serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: #2a3a5a;
+    max-width: 4in;
+    margin: 0 auto;
+    line-height: 1.4;
+  }
+  .cover-spacer { flex-grow: 1; min-height: 1.5in; }
+  .cover-author {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #b08a3e;
+    margin: 0 0 0.18in 0;
+  }
+  .cover-teaser {
+    font-family: Georgia, serif;
+    font-size: 10pt;
+    font-style: italic;
+    color: #5b6478;
+    margin: 0;
+  }
+
+  section { page-break-before: always; }
+  section.cover { page-break-before: auto; }
+  .section-head { text-align: center; margin: 0.2in 0 0.4in 0; }
+  .goldrule {
+    width: 40%; height: 1pt; margin: 0.15in auto;
+    background: linear-gradient(to right, transparent, #b08a3e 30%, #b08a3e 70%, transparent);
+  }
+  .goldrule.narrow { width: 22%; }
+  .section-eyebrow {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #b08a3e;
+    margin: 0 0 0.08in 0;
+  }
+  .section-title {
+    font-family: Georgia, serif;
+    font-size: 22pt;
+    line-height: 1.2;
+    color: #0f1f3a;
+    margin: 0 0 0.1in 0;
+    font-weight: bold;
+  }
+
+  .section-body h3 {
+    font-family: Georgia, serif;
+    font-size: 14pt;
+    font-style: italic;
+    color: #2a4d7c;
+    margin: 0.2in 0 0.18in 0;
+    text-align: center;
+    font-weight: normal;
+  }
+  .section-body h4 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b08a3e;
+    margin: 0.3in 0 0.1in 0;
+    font-weight: bold;
+  }
+  .section-body p { margin: 0 0 0.13in 0; text-align: justify; hyphens: auto; }
+  .section-body blockquote {
+    margin: 0.18in 0.3in;
+    padding: 0.15in 0.2in;
+    background: #f3eedf;
+    border-left: 3pt solid #b08a3e;
+    font-family: Georgia, serif;
+    font-size: 11.5pt;
+    font-style: italic;
+    color: #2a3a5a;
+    line-height: 1.45;
+  }
+  hr.goldrule {
+    border: 0;
+    width: 30%; height: 1pt;
+    margin: 0.3in auto;
+    background: linear-gradient(to right, transparent, #b08a3e 30%, #b08a3e 70%, transparent);
+  }
+  .section-body code {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 9pt;
+    background: #f3eedf;
+    color: #2a3a5a;
+    padding: 0 3pt;
+    border-radius: 2pt;
+  }
+  pre.receipt-box {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 9pt;
+    line-height: 1.5;
+    background: #f3eedf;
+    color: #0f1f3a;
+    border: 1.5pt solid #a4243b;
+    border-left: 4pt solid #a4243b;
+    padding: 0.14in 0.18in;
+    margin: 0.25in 0;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+  }
+
+  .appendix-intro { margin: 0 0 0.18in 0; font-size: 10pt; color: #2a3a5a; }
+  .appendix-table { width: 100%; border-collapse: collapse; font-size: 8pt; margin-top: 0.1in; }
+  .appendix-table thead th {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #b08a3e;
+    text-align: left;
+    border-bottom: 1pt solid #b08a3e;
+    padding: 4pt 5pt;
+    background: #f3eedf;
+  }
+  .appendix-table tbody td {
+    border-bottom: 0.5pt solid #d8cfb4;
+    padding: 4pt 5pt;
+    vertical-align: top;
+  }
+  .appendix-table td.num { width: 6%; color: #b08a3e; font-weight: bold; }
+  .appendix-table td.quote { width: 50%; font-style: italic; color: #0f1f3a; }
+  .appendix-table td.src {
+    width: 22%;
+    font-family: "SF Mono", monospace;
+    font-size: 7pt;
+    color: #2a3a5a;
+    word-break: break-all;
+  }
+  .appendix-table td.deleted {
+    width: 10%;
+    font-family: "SF Mono", monospace;
+    font-size: 7pt;
+    color: #5b6478;
+  }
+  .appendix-table td.status {
+    width: 12%;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 7pt;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .appendix-table td.status-kept       { color: #1e7e34; }
+  .appendix-table td.status-broken     { color: #a4243b; }
+  .appendix-table td.status-partial    { color: #e65100; }
+  .appendix-table td.status-inprogress { color: #2a4d7c; }
+  .appendix-table td.status-pending    { color: #5b6478; }
+
+  section.chapter .section-body p { margin-bottom: 0.14in; }
+  section.essay .section-body p:first-of-type::first-letter {
+    font-family: Georgia, serif;
+    font-size: 22pt;
+    font-weight: bold;
+    color: #b08a3e;
+    float: left;
+    line-height: 0.85;
+    margin: 4pt 6pt 0 0;
+  }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-eyebrow">SEALED 2016 — companion volume</div>
+  <div class="cover-goldrule"></div>
+  <h1 class="cover-title">2024 DELETED PROMISES</h1>
+  <div class="cover-goldrule narrow"></div>
+  <p class="cover-subtitle">The pages he ran on. Pulled the day he was sworn in.</p>
+  <div class="cover-spacer"></div>
+  <p class="cover-author">SEALED Press · Companion to the 145-promise 2016 audit</p>
+  <p class="cover-teaser">Receipts from a website that no longer exists.</p>
+</section>
+
+
+<section class="essay">
+  <header class="section-head">
+    <div class="goldrule"></div>
+    <p class="section-eyebrow"></p>
+    <h2 class="section-title">INTRO ESSAY</h2>
+    <div class="goldrule narrow"></div>
+  </header>
+  <div class="section-body"><p>You voted on a website.</p>
+<p>Not on a feeling. Not on a vibe. On words. Real words, on a real page, at donaldjtrump.com. You read them. Your cousin read them. Your dad read them. The words said what he would do.</p>
+<p>Then he won. And the words went away.</p>
+<p>On January 20, 2025, donaldjtrump.com stopped being a campaign site. The policy pages came down. The platform pages came down. The "Agenda47" pages came down. What was left was a donation form. One button. Give money.</p>
+<p>This PDF is about the pages that came down.</p>
+<p>We did not invent the words. We did not paraphrase them. We saved them.</p>
+<p>There is a tool called the Wayback Machine. It is run by a nonprofit called the Internet Archive. It takes pictures of websites. It has been doing this since 1996. It is free. Anyone can use it. Reporters use it. Lawyers use it. Historians use it. We used it.</p>
+<p>Every promise in this PDF is preserved at:</p>
+<p><code>https://web.archive.org/web/2025*/donaldjtrump.com/*</code></p>
+<p>You can read the original page yourself, right now, even though his team took it down. That is the whole point of the Wayback Machine. The internet forgets. The archive does not.</p>
+<p>We saved 52 promises. They came from three places. The first place was the "20 Core Promises" page on the campaign site. The second was the deeper "Issues" pages — Trade, Immigration, Energy, the rest. The third was "Agenda47," which was the long-form policy section. We also pulled from the Republican Party Platform, the one the party voted on at the convention on July 15, 2024. That one is still online. The other ones are not.</p>
+<p>This PDF is not the long story. The long story is the 145-promise audit we did for his first term. That book is called <em>SEALED 2016</em>. It took three years to write and was reviewed line by line. This PDF is a short companion. We picked three promises out of the 52. We told the story of each one. We attached the receipt.</p>
+<p>We picked the three on purpose.</p>
+<p>The first is about war. He said he would prevent a third world war. He said he would restore peace in the Middle East. In June 2025 his administration launched a military strike on Iran. Both things are true. Both are on the record. We tell that story.</p>
+<p>The second is also about war. The campaign site said, in plain words, that he would keep America out of unnecessary foreign wars. The Iran strike happened anyway. His team called the strike necessary. The voters who picked him to stay out were not asked what they thought of that word.</p>
+<p>The third is about money. He said he would end inflation and make America affordable again. He said it would happen on day one. Day one came and went. Five months later your grocery bill was still high. We tell that story too.</p>
+<p>That is the PDF.</p>
+<p>We are not here to call him a liar. We are not here to call you stupid for voting for him. You voted for the words on the page. The words on the page were the deal. If the page changes after the vote, that is a thing worth noticing. That is all.</p>
+<p>We have one promise of our own. If we got something wrong, the source URL is right there in the receipt. Check the work. If we made a mistake, write us. We will fix it in the next print. We have done this for 145 promises before. We know how to be wrong in public and fix it.</p>
+<p>A note on tone.</p>
+<p>You may have been told that anyone who writes about Trump promises is out to get him. That is not us. We wrote the same kind of book about Obama's promises. We will write the same kind of book about the next president, whoever that is. The job is the receipts. The job is not the verdict. The verdict is yours.</p>
+<p>So read the three chapters. Read the appendix in the back, which lists all 52 promises with their links. Click the links. Read the original pages on the Wayback Machine. Make up your own mind.</p>
+<p>We will be here when you are done.</p>
+<hr class="goldrule" /></div>
+</section>
+
+
+<section class="chapter">
+  <header class="section-head">
+    <div class="goldrule"></div>
+    <p class="section-eyebrow">Chapter</p>
+    <h2 class="section-title">CHAPTER 1</h2>
+    <div class="goldrule narrow"></div>
+  </header>
+  <div class="section-body"><h3>"Prevent world war three, restore peace in europe and in the middle east"</h3>
+<h4>The promise</h4>
+<p>This is the verbatim quote, lowercase and all, from the campaign's "20 Core Promises to Make America Great Again":</p>
+<blockquote>"Prevent world war three, restore peace in europe and in the middle east, and build a great iron dome missile defense shield over our entire country -- all made in america."</blockquote>
+<p>It was on donaldjtrump.com. It was on the platform snapshot page. The page was preserved by the Internet Archive before the takedown. The source URL is <code>https://campaignreceipts.com/sources/trump-2024-platform-snapshot.html</code>, and the original lives in the Wayback Machine under the donaldjtrump.com address.</p>
+<p>The page came down on or about January 20, 2025. The promise was up for the whole 2024 campaign.</p>
+<h4>What he meant by it</h4>
+<p>A voter reading that line in 2024 did not need a translator. The line said three things.</p>
+<p>He would not start World War Three.</p>
+<p>He would calm down the war in Europe.</p>
+<p>He would calm down the wars in the Middle East.</p>
+<p>A lot of people voted on that line. They were tired. They had watched two wars on the news for years. They wanted them off the screen. They wanted their kids' enlistment papers to mean training, not deployment. They wanted gas prices to drop because no one was bombing a tanker.</p>
+<p>The most generous reading of the line is the simplest one. He was the peace candidate. He said he was. His team said he was. The page said he was. People believed the page.</p>
+<h4>What happened</h4>
+<p>In June 2025, the United States military launched a strike on Iran.</p>
+<p>The administration argued the strike was necessary. The administration argued the strike prevented something worse. Those arguments are on the record. They were made by the President. They were made by the Secretary of Defense. They were made on television.</p>
+<p>But the strike happened.</p>
+<p>A strike on Iran is not peace in the Middle East. It is the opposite of peace in the Middle East. It is a thing the Middle East noticed. It is a thing Iran noticed. It is a thing every government in the region noticed.</p>
+<p>We are being careful here. We are not saying the strike was wrong. We are not saying it was right. We are saying it happened, and we are saying the campaign page promised peace in the Middle East. Both of those things are true at the same time.</p>
+<p>The strike happened on the night of June 21, 2025. The Pentagon called it Operation Midnight Hammer. Seven B-2 stealth bombers flew from Missouri. They dropped fourteen bunker-buster bombs. A submarine fired Tomahawk missiles. The whole strike took about 25 minutes.</p>
+<p>Three sites were hit. Fordow. Natanz. Isfahan. All three are part of Iran's nuclear program. The Pentagon reported no U.S. casualties. Iran did not fire back at the planes. Iran has not released a casualty count for the three sites. The broader 12-day Israel-Iran war that the strike was part of killed at least 1,062 people in Iran, per the Iranian Health Ministry. That number covers all strikes in the war, not just the three U.S. sites.</p>
+<p>The campaign page that promised peace is no longer online at donaldjtrump.com. You can read it in the Wayback Machine. The strike is on the front page of every newspaper from that week. You can read it anywhere.</p>
+<h4>The honest reading</h4>
+<p>A promise is a sentence on a page.</p>
+<p>An action is a thing in the world.</p>
+<p>The sentence said: prevent world war three, restore peace in the middle east.</p>
+<p>The action was a military strike on a Middle East country, five months into the term.</p>
+<p>You can hold both of those facts in your head at once. You should. You voted for the sentence. You are living with the action.</p>
+<p>Maybe you think the strike was the right call. A lot of people do. A lot of people who voted for him think so. That is allowed. You can think the strike was the right call and also notice that the page said the opposite. Both can be true.</p>
+<p>What is not true is that the page said what the action did. The page said peace. The action was a strike. The page is gone. The strike is in the record. That is the receipt.</p>
+<p>We are not asking you to be angry. We are asking you to notice.</p>
+<p>The next time a campaign page says "prevent world war three," you will know what to do. You will save the page. You will not trust that it stays up. You will check the Wayback Machine on inauguration day to see what is still there and what is not.</p>
+<p>That is a small thing. It is a thing you can do. It is one of the few things a voter can do after the vote is counted.</p>
+<h4>Receipt</h4>
+<pre class="receipt-box">VERBATIM:      "Prevent world war three, restore peace in europe and in
+               the middle east..."
+SOURCE:        donaldjtrump.com — "20 Core Promises"
+                (preserved at Wayback Machine, captured Feb 2026)
+DELETED:       On or about January 20, 2025
+WHAT HAPPENED: June 2025 — U.S. military strike on Iran.
+               Administration called it necessary. Strike occurred.
+VERDICT:       READER DECIDES.
+               The page said peace. The action was a strike.
+               Both are documented. You hold the verdict.</pre>
+<hr class="goldrule" /></div>
+</section>
+
+
+<section class="chapter">
+  <header class="section-head">
+    <div class="goldrule"></div>
+    <p class="section-eyebrow">Chapter</p>
+    <h2 class="section-title">CHAPTER 2</h2>
+    <div class="goldrule narrow"></div>
+  </header>
+  <div class="section-body"><h3>"Keep America out of unnecessary foreign wars"</h3>
+<h4>The promise</h4>
+<p>This one is shorter. It is also blunter. It is from the "Renew American Strength and Leadership" section of the donaldjtrump.com Issues page. The verbatim quote:</p>
+<blockquote>"President Trump will defend America against all threats, protect America against all dangers, and keep America out of unnecessary foreign wars."</blockquote>
+<p>That phrase — <em>unnecessary foreign wars</em> — is the load-bearing piece. He did not say <em>no foreign wars ever</em>. He said <em>unnecessary</em> ones. He gave himself a word.</p>
+<p>The page is preserved in the Wayback Machine. It went down on or about January 20, 2025. The captured copy is at <code>https://campaignreceipts.com/sources/trump-2024-issues-immigration-snapshot.html</code>. The live page is gone.</p>
+<h4>What he meant by it</h4>
+<p>The most generous reading is the one his voters actually held in their heads.</p>
+<p>They thought he was the guy who would not start another Iraq. They thought he was the guy who would not start another Afghanistan. They thought he had spent eight years on television saying the Middle East wars were a waste, and they believed him.</p>
+<p>When he wrote "unnecessary foreign wars," they read it as: he will not do another one of those. They read it as: he will have a high bar.</p>
+<p>That was the deal. Not no military. Not no defense. Just: a high bar. A bar so high that a President had to really mean it before American planes flew over a foreign country to drop something.</p>
+<p>That is what the page said.</p>
+<h4>What happened</h4>
+<p>Five months in, planes flew. The target was Iran.</p>
+<p>The administration said the war was necessary.</p>
+<p>Here is the careful question. Who got to decide what <em>necessary</em> meant?</p>
+<p>The voters did not. The voters voted in November 2024. By the time the strike happened in June 2025, the voters were spectators. They watched it on the news. They were told the strike was necessary by the same team that had written the page that said the bar would be high.</p>
+<p>That is not a partisan complaint. It is a structural one. The word <em>unnecessary</em> is a word that lives inside the head of whoever holds the pen. Voters cannot define it. Voters can only trust the person who will define it later.</p>
+<p>His voters trusted him. He defined the word. The plane took off. The page came down.</p>
+<p>President Trump made the case himself. He spoke from the White House at about 10 p.m. on June 21, 2025, right after the bombs fell. He called the strike a "spectacular military success" and said Iran's nuclear sites had been "completely and totally obliterated." Pentagon officials told reporters the operation was "very narrowly tailored" and necessary to "destroy or severely degrade Iran's nuclear program." That was the word. Necessary. The same word the campaign page used. The President's team chose when it applied.</p>
+<h4>The honest reading</h4>
+<p>There is a thing that happens with words like <em>unnecessary</em> and <em>only if needed</em> and <em>as a last resort</em>.</p>
+<p>The thing is that those words sound like rules. They feel like rules when you read them on a campaign site. They feel like a promise that the answer will usually be no.</p>
+<p>But they are not rules. They are doorways. The person who walks through the doorway is the President. And the only person who decides if walking through was <em>necessary</em> is also the President.</p>
+<p>This is not new. Every president has this doorway. Every president walks through it sometimes. What is new in this case is that the page on the campaign site was written like the doorway was nailed shut.</p>
+<p>It was not nailed shut. It was a doorway.</p>
+<p>We are not saying the strike was wrong. We are saying the page made it sound like the doorway would almost never open. Five months in, it opened. The page that said it would stay shut is now gone.</p>
+<p>You voted on the page. The page is gone. The doorway is open. That is the receipt.</p>
+<p>This is the part where a rage book would call him a liar. We are not a rage book. We are a receipt. We are noting the gap between the page and the action, and we are leaving the verdict to you.</p>
+<p>If you read the page in 2024 and you think the strike fits inside the word <em>unnecessary</em> — you can hold that. If you read the page in 2024 and you think the strike does not fit inside that word — you can hold that too. Both readings are honest. Only one of them matches the page as written.</p>
+<h4>Receipt</h4>
+<pre class="receipt-box">VERBATIM:      "...keep America out of unnecessary foreign wars."
+SOURCE:        donaldjtrump.com — "Renew American Strength and Leadership"
+                (preserved at Wayback Machine, captured Feb 2026)
+DELETED:       On or about January 20, 2025
+WHAT HAPPENED: June 2025 — U.S. military strike on Iran.
+               Administration argued the strike was necessary.
+               Voters were not consulted on that definition.
+VERDICT:       READER DECIDES.
+               The page promised a high bar. The bar got crossed.
+               Whether the strike fits inside the word
+               'unnecessary' is yours to call.</pre>
+<hr class="goldrule" /></div>
+</section>
+
+
+<section class="chapter">
+  <header class="section-head">
+    <div class="goldrule"></div>
+    <p class="section-eyebrow">Chapter</p>
+    <h2 class="section-title">CHAPTER 3</h2>
+    <div class="goldrule narrow"></div>
+  </header>
+  <div class="section-body"><h3>"End inflation, and make america affordable again"</h3>
+<h4>The promise</h4>
+<p>This one is six words long, plus the title verb. The verbatim quote, lowercase as written:</p>
+<blockquote>"End inflation, and make america affordable again."</blockquote>
+<p>It was promise number three on the "20 Core Promises" page at donaldjtrump.com. Promise three of twenty. Near the top of the list. Not buried.</p>
+<p>The page was captured by the Wayback Machine. It came down on or about January 20, 2025. The source URL of the preserved copy is <code>https://campaignreceipts.com/sources/trump-2024-platform-snapshot.html</code>.</p>
+<p>He did not just write it on the website. He said it at rallies. He said it on debate stages. He said it in interviews. His team said inflation was the number one reason he won. They said it in November 2024. They said it in December. They said it the week of inauguration.</p>
+<p>Day one. End it on day one. That was the framing.</p>
+<h4>What he meant by it</h4>
+<p>Voters were generous with this one. They had to be, because no President actually ends inflation on day one. Inflation is a measurement of price change. A President is not a price.</p>
+<p>So voters did the generous translation. They heard: <em>prices will start coming down.</em> They heard: <em>my grocery bill will get smaller.</em> They heard: <em>gas at the pump will be cheaper by spring.</em></p>
+<p>That was the promise as a voter heard it. Not a textbook definition of inflation. A grocery bill. A gas pump. A rent check. A heating bill in February.</p>
+<p>He used the word <em>affordable.</em> That is a kitchen-table word. That is a word about a family at a table looking at a receipt and deciding what they cannot buy this week. The page met them at that table.</p>
+<p>The deal was: I will fix that receipt.</p>
+<h4>What happened</h4>
+<p>Day one came. He signed a stack of executive orders. Most of them were about immigration, energy, and government workers. None of them were a magic wand on prices.</p>
+<p>That is fine. Magic wands are not real.</p>
+<p>But the question for the receipt is not whether magic exists. The question is whether the promise was kept on the timeline the promise gave itself. The promise gave itself a fast timeline. <em>End inflation</em> is a fast verb. <em>Day one</em> is a fast date.</p>
+<p>Five months in, here is what the government's own price-takers wrote down.</p>
+<p><strong>Groceries.</strong> The Bureau of Labor Statistics tracks grocery prices in a number called the food-at-home index. In June 2025 that number was 2.4 percent higher than it was a year before. In January 2025, the same index rose 0.5 percent in one month alone. Groceries did not come down. They went up. (Source: bls.gov, June 2025 CPI release, July 15, 2025.)</p>
+<p><strong>Eggs.</strong> The U.S.D.A. writes down the wholesale price of a dozen large white eggs every week. On January 24, 2025, that price was $6.55 a dozen. On June 20, 2025, that price was $2.73 a dozen. Eggs did come down. But they only came down because the bird-flu wave that spiked them in January 2025 ran its course. They did not come down because of a White House order on day one. (Source: U.S.D.A. Agricultural Marketing Service, Egg Markets Overview.)</p>
+<p><strong>Gas.</strong> The Energy Information Administration writes down the price of a gallon of regular gas every Monday. The week of January 20, 2025, the national average was $3.109 a gallon. The week of June 23, 2025, the national average was $3.213 a gallon. Gas went up about ten cents a gallon, not down. (Source: eia.gov, Weekly U.S. Regular Retail Gasoline Prices.)</p>
+<p>Two of three kitchen-table prices went up. The one that fell, fell because a virus stopped killing chickens, not because of a signature. The promise was broken on the timeline.</p>
+<p>What we will say is what every shopper noticed. The receipt at the register in June 2025 did not feel like a receipt from a country that had just <em>ended inflation.</em> It felt like the same receipt as before, with maybe one or two items a little cheaper and one or two items a little more.</p>
+<p>The campaign page that promised the ending is no longer online. The grocery bill is.</p>
+<h4>The honest reading</h4>
+<p>Every politician overpromises on prices. This is not new. Every politician says the magic words about kitchen tables. Most of the time we, the voters, give them a pass, because we know the words are theater.</p>
+<p>This one was different in one way. The framing was hard. <em>End it.</em> <em>Day one.</em> <em>Affordable again.</em> The words did not leave room for "it'll take a few years" or "I'll bend the curve." The page used the verb <em>end.</em></p>
+<p>So when day one passed without the ending, that was the receipt right there.</p>
+<p>Maybe inflation will end before the end of the term. Maybe groceries will be cheaper in 2028 than in 2024. Maybe. We are not predicting. We are noting that the promise gave itself a timeline, and the timeline ran out a long time ago.</p>
+<p>There is a softer way to read it. The softer reading is: he was using sales language. Everyone uses sales language. You should never take a campaign verb literally.</p>
+<p>That is fair. But if that is the reading, then we have to say it out loud. <em>Do not believe campaign verbs.</em> That is a real lesson. That is a thing to teach your kids before the next election. Save the page. Screenshot the promise. Do not trust the timeline. Take the verb with a grain of salt.</p>
+<p>If that is what we learned, that is what we learned. We can move on.</p>
+<p>But we should be honest that we learned it. We should not pretend the page said something gentler than it said. The page said <em>end.</em> The page said <em>affordable.</em> The page is gone. The grocery bill is the same.</p>
+<p>That is the receipt. You hold the verdict.</p>
+<h4>Receipt</h4>
+<pre class="receipt-box">VERBATIM:      "End inflation, and make america affordable again."
+SOURCE:        donaldjtrump.com — "20 Core Promises," #3 of 20
+                (preserved at Wayback Machine, captured Feb 2026)
+DELETED:       On or about January 20, 2025
+WHAT HAPPENED: Day one came and went. Five months in, grocery prices
+               were not meaningfully lower. Bureau of Labor Statistics
+               data at bls.gov.
+VERDICT:       BROKEN ON THE TIMELINE THE PROMISE GAVE ITSELF.
+               'End' is a hard verb. 'Day one' is a hard date.
+               Both were missed.</pre>
+<hr class="goldrule" /></div>
+</section>
+
+
+<section class="chapter">
+  <header class="section-head">
+    <div class="goldrule"></div>
+    <p class="section-eyebrow">Chapter</p>
+    <h2 class="section-title">CHAPTER 4</h2>
+    <div class="goldrule narrow"></div>
+  </header>
+  <div class="section-body"><h3>"End the weaponization of government against the american people"</h3>
+<h4>The promise</h4>
+<p>This one was on the "20 Core Promises to Make America Great Again" page. The verbatim quote, lowercase and all:</p>
+<blockquote>"End the weaponization of government against the american people."</blockquote>
+<p>It was promise #9 on the list. It was on donaldjtrump.com from the start of the 2024 campaign through inauguration day. The page came down on or about January 20, 2025. The capture is preserved in the Wayback Machine at <code>https://campaignreceipts.com/sources/trump-2024-platform-snapshot.html</code>.</p>
+<p>The Republican Party Platform, which is still online, said something close. It promised to "end the Weaponization of the Federal Government, restore Free Speech in America, and stop Government Censorship of American Speech." Same sentence. Same word — <em>weaponization</em>.</p>
+<h4>What he meant by it</h4>
+<p>A voter who read that line in 2024 thought of one thing. They thought of the F.B.I. knocking on doors. They thought of parents at school board meetings being put on watch lists. They thought of social media posts being flagged. They thought of the government making lists of Americans based on what those Americans said.</p>
+<p>The promise was simple. Stop doing that. Stop using the federal apparatus — the Department of Justice, the F.B.I., the I.R.S., the prosecutors — as a tool against ordinary people for what those people said or believed.</p>
+<p>This was a free-speech promise. Read in 2024 by a Republican voter, it meant: the people who got dragged in front of Congress, the parents who got the F.B.I. memo about them, the small-business owner who got audited after a viral tweet — none of that, ever again. The government would let people speak.</p>
+<p>That is what the page said.</p>
+<h4>What happened</h4>
+<p>The page said <em>end the weaponization.</em> The first months of the term ran a different kind of weaponization in plain sight.</p>
+<p>Foreign graduate students at U.S. universities were detained by Immigration and Customs Enforcement after they spoke at protests or wrote opinion pieces about Israel's conduct in Gaza. Some were taken from their apartments. Some were taken from sidewalks. Some were moved to detention facilities a thousand miles from their universities. Their visas were revoked over their speech.</p>
+<p><strong>Mahmoud Khalil</strong> was the first big name. He is a Columbia graduate student. He helped lead the Gaza protests on campus. On March 8, 2025, plainclothes I.C.E. agents took him from his apartment in New York. He was a lawful permanent resident. The agents had no warrant. He was flown to a detention center in Louisiana, a thousand miles from his school and his pregnant wife. He was held for 104 days. A federal judge ordered him released on bail on June 20, 2025. His case is still in court.</p>
+<p><strong>Rumeysa Ozturk</strong> was next. She is a Ph.D. student at Tufts. On March 25, 2025, plainclothes I.C.E. agents took her off the sidewalk in Somerville, Massachusetts. The reason on the record was an op-ed she co-wrote in the Tufts student paper. The op-ed asked the university to listen to its student government on Gaza. She was moved to a detention facility in Louisiana. A federal judge in Vermont ordered her released six weeks later, on May 9, 2025. An immigration judge later ended her removal case entirely.</p>
+<p><strong>Mohsen Mahdawi</strong> was a Columbia student too. He helped organize the same protests as Khalil. He had a green card. On April 14, 2025, he went to his U.S. citizenship interview in Vermont. I.C.E. was waiting in the lobby. They took him into custody at the interview. On April 30, 2025, a federal judge in Vermont ordered him released on bail. The judge wrote that Mahdawi had "made substantial claims that his detention is the result of retaliation for protected speech." His immigration case is still open.</p>
+<p><strong>Badar Khan Suri</strong> was a Georgetown postdoctoral fellow. He taught a class on South Asian minority rights. He is an Indian national on a valid visa. In March 2025, masked federal officers took him from outside his home in Rosslyn, Virginia. The government revoked his visa. He was flown to a detention facility in Texas. He was held there for about two months. On May 14, 2025, a federal judge in Virginia ordered him released. The judge wrote that the detention violated the First Amendment and the Fifth Amendment.</p>
+<p>These are four cases. There are more. They share a pattern. The person was a foreign student or scholar at a major U.S. university. The person had spoken at a protest or written an opinion piece about Gaza. The arrest was sudden and far from home. The detention was long and far from family. The release came only when a federal judge looked at the file and used the words <em>First Amendment</em> in the order.</p>
+<p>The page said the government would not do this. The first months of the term did this.</p>
+<p>Then federal and state officers began showing up at private homes to question Americans about social media posts. The pattern is real. The named cases are fewer. Here is what is on the record.</p>
+<p>In <strong>April 2025</strong>, the F.B.I. and other agencies raided the homes of pro-Palestine student organizers in Ann Arbor, Ypsilanti, and Canton Township, Michigan. Agents seized phones and laptops. Four people were detained that day and released. The official reason given was a vandalism investigation. The Michigan Attorney General later confirmed she had asked the F.B.I. to step in. Critics noted that property-damage cases of this size are not usually a federal matter.</p>
+<p>In <strong>January 2026</strong>, two Miami Beach detectives knocked on the door of <strong>Raquel Pacheco</strong>. She is a U.S. citizen, an Army National Guard veteran, and a former candidate for state office. Days earlier, she had posted a Facebook comment criticizing the city's mayor over his stance on Israel. The officers held up a phone with a screenshot of her post and asked her, on her doorstep, if she had written it. She filmed the encounter. Internal emails later showed the mayor had flagged the post to the police chief himself. The American-Arab Anti-Discrimination Committee filed a federal lawsuit on her behalf.</p>
+<p>The Council on American-Islamic Relations says it has logged a much larger pattern. Since the war began, C.A.I.R. reports it has received many calls from Palestinian, Arab, and Muslim Americans who say federal agents came to the door to ask about social media posts. C.A.I.R. has put out formal statements calling the visits illegal. The full count of door-knocks is not on the public record. The pattern of the calls is.</p>
+<p>That is what is documented. Two named incidents on U.S. citizens. One civil-liberties organization with a public log. A federal lawsuit pending. The page promised this would end. It has not ended.</p>
+<p>That is weaponization. It is the kind of weaponization the page was written to end. The page is gone. The visits are happening.</p>
+<p>We are being careful here. We are not saying every person who was detained was innocent of every immigration question. We are not saying every officer who knocked on a door acted illegally. We are saying the campaign page made a promise about <em>the weaponization of government against the american people</em>, and that promise has a meaning, and the meaning is being violated in front of everyone.</p>
+<p>The voters who voted on that promise did not vote for this. The voters who voted on that promise were promised the opposite.</p>
+<h4>The honest reading</h4>
+<p>There is a way to defend what is happening. The defense goes like this. The students were foreign nationals, not Americans. Free speech protections for non-citizens are weaker. The home visits were about real threats, not speech. The page was about the <em>American people</em>, not about anyone else.</p>
+<p>That defense has problems.</p>
+<p>The first problem is the page itself. The page promised to "restore Free Speech in America." Free Speech in America is a thing that includes people who live in America. A foreign graduate student at Columbia is a person who lives in America. Stripping their visa for what they said at a microphone is a federal action against a person who lives in America for what they said. That is the thing the page said it would stop.</p>
+<p>The second problem is the home visits. American citizens — born here, voting here — are getting knocks at the door over what they posted on Facebook. Whatever the official reason given at the door, the chilling effect is on speech. That is what <em>weaponization</em> means. The page said it would end. The knocks are happening.</p>
+<p>The third problem is the timing. The page came down. The visits started. The students were detained. None of that is on the original donaldjtrump.com page anymore. You cannot click the link and read the part where he explained how this was the policy. You can only read the Wayback Machine version, the one where the promise was the opposite.</p>
+<p>This is not anger. This is just reading.</p>
+<p>You voted on the page. The page promised one thing. The first months of the term are doing the other thing. You can hold both of those facts in your head. You should. You can still support the President. You can still think these specific cases were the right calls. You can do all of that and also notice that the page said <em>end the weaponization</em> and the actions are doing the weaponization.</p>
+<p>That is the receipt. That is the whole thing.</p>
+<h4>Receipt</h4>
+<pre class="receipt-box">VERBATIM:      "End the weaponization of government against
+               the american people."
+SOURCE:        donaldjtrump.com — "20 Core Promises," #9 of 20
+                (preserved at Wayback Machine, captured Feb 2026)
+DELETED:       On or about January 20, 2025
+WHAT HAPPENED: 2025 — Foreign graduate students detained by I.C.E.
+               after pro-Palestine speech; federal/state officers
+               visiting U.S. citizens at home over social-media posts
+               about Israel. Speech-based actions against people
+               living in America.
+VERDICT:       BROKEN BY ACTION.
+               The page promised the end of weaponization.
+               The first months of the term ran weaponization
+               on speech. Both are documented. The page is gone.
+               The visits are not.</pre>
+<hr class="goldrule" /></div>
+</section>
+
+
+<section class="essay">
+  <header class="section-head">
+    <div class="goldrule"></div>
+    <p class="section-eyebrow"></p>
+    <h2 class="section-title">CLOSING ESSAY</h2>
+    <div class="goldrule narrow"></div>
+  </header>
+  <div class="section-body"><p>Four promises. Four chapters. One pattern.</p>
+<p>The pattern is this. A page goes up. Voters read it. Voters vote on it. The election is won. The page comes down. An action happens that the page did not describe. The voters who voted on the page have to figure out, with no help from the page, whether the action fits the words they signed up for.</p>
+<p>That is the pattern.</p>
+<p>It is not a partisan pattern. Pages have come down before. Democrats have done it too. Obama's 2008 site looks different from the policy he ran on. Bush's 2000 site does too. Pages come down because campaigns end and websites get rebuilt. We are not pretending this is a Trump-only sin.</p>
+<p>What is different here is the size of the gap, and the speed of the deletion, and the way the deleted pages contain the loudest promises he made. <em>End inflation.</em> <em>Prevent world war three.</em> <em>Unnecessary foreign wars.</em> <em>End the weaponization of government.</em> These were not small print. They were the front of the page. They were the reason a lot of people voted the way they voted.</p>
+<p>When those words come down, they take something with them. They take the voter's ability to point at a sentence and say, <em>that is what I voted for.</em></p>
+<p>That is the gap this PDF is trying to close. Not by being angry. Not by being clever. Just by saving the sentence.</p>
+<p>We saved 52 sentences. The appendix in the back has all of them. Each one has a Wayback Machine link. Each one has a source page. Each one has a status — kept, in-progress, pending, or broken — which we will update over time at the live site, campaignreceipts.com/trump.</p>
+<p>The four we wrote chapters on were chosen because the receipts are clean. The verbatim quote exists. The deletion is documented. The contradicting action is on the public record. We did not pick them because they hurt the most. We picked them because they could be proved with the fewest steps.</p>
+<p>There are 48 more we did not write chapters on. Some of them are kept. Some of them are in motion. Some of them will be broken later. Some of them will be quietly kept and nobody will notice. We are going to track all of them at the live site. Not because we are out to get him. Because that is what an audit is.</p>
+<p>We have done this before.</p>
+<p>The first SEALED book audited 145 promises from the 2016 cycle. It took three years. It went through every single promise — kept, broken, partial, defied, untraceable. Every line was sourced. Every line was reviewed. The book is at sealed2016.com.</p>
+<p>If you found the four chapters in this PDF useful, you will find the 145 in the SEALED book useful in the same way. Same method. Same standard. Same patience. Same refusal to call him a liar or a hero. Just the receipts.</p>
+<p>We are not asking you to change your mind about anything.</p>
+<p>You may still think he is the best President in your lifetime. You can think that and also notice the page came down. You may think the Iran strike was the right call. You can think that and also notice the campaign page said the opposite. You may think the grocery bill is somebody else's fault. You can think that too and still notice the verb was <em>end.</em></p>
+<p>You are allowed to vote for him again. You are allowed to defend him. You are allowed to be glad he won. None of those positions require pretending the pages did not say what the pages said.</p>
+<p>That is the only thing we are asking. Look at the page. Read what it said. Look at what happened. Make up your own mind.</p>
+<p>We will be here.</p>
+<p>The receipts will be here.</p>
+<p>The Wayback Machine will be here. It is run by a nonprofit. It does not care about elections. It just takes pictures. It took the pictures of these pages before they came down. It is taking pictures right now of every page that is up, including this one.</p>
+<p>Whatever you make of the four chapters in this PDF, you can check the work. You can read the original pages. You can disagree with our reading. You can write us at campaignreceipts.com and tell us where we got it wrong. We will fix it in the next print.</p>
+<p>That is the deal. That has always been the deal. That is what an audit is.</p>
+<p>145 promises · sealed2016.com<br/>52 deleted promises · campaignreceipts.com/trump</p>
+<p>Be well. Be skeptical of pages that come down. Save the screenshots.</p>
+<p>— SEALED Press</p>
+<hr class="goldrule" /></div>
+</section>
+
+
+<section class="appendix">
+  <header class="section-head">
+    <div class="goldrule"></div>
+    <p class="section-eyebrow">Appendix</p>
+    <h2 class="section-title">All 52 deleted promises</h2>
+    <div class="goldrule narrow"></div>
+  </header>
+  <p class="appendix-intro">
+    Every promise preserved from the donaldjtrump.com 2024 platform pages
+    before they were pulled on or about January 20, 2025. Each row links to
+    the source page we captured. Read the originals at
+    <code>web.archive.org/web/2025*/donaldjtrump.com/*</code>.
+  </p>
+  <table class="appendix-table">
+    <thead>
+      <tr><th>#</th><th>Verbatim promise</th><th>Source page</th><th>Deleted</th><th>Status</th></tr>
+    </thead>
+    <tbody><tr>
+        <td class="num">1</td>
+        <td class="quote">"Seal the border and stop the migrant invasion"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">2</td>
+        <td class="quote">"Carry out the largest deportation operation in american history"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">3</td>
+        <td class="quote">"End inflation, and make america affordable again"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">4</td>
+        <td class="quote">"Make america the dominant energy producer in the world, by far!"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">5</td>
+        <td class="quote">"Stop outsourcing, and turn the United States into a manufacturing superpower"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">6</td>
+        <td class="quote">"Large tax cuts for workers, and no tax on tips!"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">7</td>
+        <td class="quote">"Defend our constitution, our bill of rights, and our fundamental freedoms, including freedom of speech, freedom of religion, and the righ…"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">8</td>
+        <td class="quote">"Prevent world war three, restore peace in europe and in the middle east, and build a great iron dome missile defense shield over our enti…"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">9</td>
+        <td class="quote">"End the weaponization of government against the american people"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">10</td>
+        <td class="quote">"Stop the migrant crime epidemic, demolish the foreign drug cartels, crush gang violence, and lock up violent offenders"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">11</td>
+        <td class="quote">"Rebuild our cities, including washington dc, making them safe, clean, and beautiful again."</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">12</td>
+        <td class="quote">"Strengthen and modernize our military, making it, without question, the strongest and most powerful in the world"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">13</td>
+        <td class="quote">"Keep the U.S. dollar as the world's reserve currency"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">14</td>
+        <td class="quote">"Fight for and protect social security and medicare with no cuts, including no changes to the retirement age"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">15</td>
+        <td class="quote">"Cancel the electric vehicle mandate and cut costly and burdensome regulations"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-kept">KEPT</td>
+      </tr>
+<tr>
+        <td class="num">16</td>
+        <td class="quote">"Cut federal funding for any school pushing critical race theory, radical gender ideology, and other inappropriate racial, sexual, or poli…"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">17</td>
+        <td class="quote">"Keep men out of women's sports"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-kept">KEPT</td>
+      </tr>
+<tr>
+        <td class="num">18</td>
+        <td class="quote">"Deport pro-hamas radicals and make our college campuses safe and patriotic again"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">19</td>
+        <td class="quote">"Secure our elections, including same day voting, voter identification, paper ballots, and proof of citizenship"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">20</td>
+        <td class="quote">"Unite our country by bringing it to new and record levels of success"</td>
+        <td class="src">trump-2024-platform-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">21</td>
+        <td class="quote">"President Trump will implement a 4-year national reshoring plan so that the United States no longer needs to rely on China for essential …"</td>
+        <td class="src">trump-2024-issues-trade-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">22</td>
+        <td class="quote">"President Trump will unleash the production of domestic energy resources, reduce the soaring price of gasoline, diesel and natural gas, p…"</td>
+        <td class="src">trump-2024-issues-trade-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">23</td>
+        <td class="quote">"President Trump will shut down the Harris-Biden Administration's border disaster. He will again end catch-and-release, restore Remain in …"</td>
+        <td class="src">trump-2024-issues-immigration-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-kept">KEPT</td>
+      </tr>
+<tr>
+        <td class="num">24</td>
+        <td class="quote">"In cooperative states, President Trump will deputize the National Guard and local law enforcement to assist with rapidly removing illegal…"</td>
+        <td class="src">trump-2024-issues-immigration-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">25</td>
+        <td class="quote">"President Trump will take down the drug cartels just as he took down ISIS. He will impose a total naval embargo on cartels, order the Dep…"</td>
+        <td class="src">trump-2024-issues-immigration-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-kept">KEPT</td>
+      </tr>
+<tr>
+        <td class="num">26</td>
+        <td class="quote">"He will ask Congress to ensure that drug smugglers and traffickers can receive the Death Penalty."</td>
+        <td class="src">trump-2024-issues-immigration-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">27</td>
+        <td class="quote">"He will deliver record funding to hire and retrain police officers, strengthen qualified immunity and other protections for police office…"</td>
+        <td class="src">trump-2024-issues-immigration-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">28</td>
+        <td class="quote">"President Trump will defend America against all threats, protect America against all dangers, and keep America out of unnecessary foreign…"</td>
+        <td class="src">trump-2024-issues-immigration-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">29</td>
+        <td class="quote">"President Trump will cut federal funding for any school or program pushing Critical Race Theory or gender ideology on our children. His a…"</td>
+        <td class="src">trump-2024-issues-immigration-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">30</td>
+        <td class="quote">"President Trump will reward states and school districts that abolish teacher tenure for grades K-12 and adopt Merit Pay, cut the number o…"</td>
+        <td class="src">trump-2024-issues-immigration-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">31</td>
+        <td class="quote">"As part of my plan to secure the border, on Day One of my new term in office, I will sign an executive order making clear to federal agen…"</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">32</td>
+        <td class="quote">"It will be the official policy of the United States to take down the drug cartels just as we took down ISIS."</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-kept">KEPT</td>
+      </tr>
+<tr>
+        <td class="num">33</td>
+        <td class="quote">"President Trump will make it a personal mission to totally eradicate Veterans' homelessness in America."</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">34</td>
+        <td class="quote">"President Trump will end welfare for illegal aliens and defend the wealth of hardworking American families."</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">35</td>
+        <td class="quote">"President Trump announces a plan to revolutionize higher education by shifting excessively large endowments from private universities tow…"</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">36</td>
+        <td class="quote">"America Must Have the #1 Lowest Cost Energy and Electricity on Earth."</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">37</td>
+        <td class="quote">"As part of my plan to obtain total independence from China, we will phase in tariffs and import restrictions to bring back production of …"</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">38</td>
+        <td class="quote">"President Donald J. Trump pledged to end the scourge of human trafficking and defend the dignity of human life."</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">39</td>
+        <td class="quote">"This ridiculous Green New Deal crusade is causing car prices to skyrocket while setting the stage for the destruction of American auto pr…"</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">40</td>
+        <td class="quote">"Under the Trump Reciprocal Trade Act, other countries will have two choices — they'll get rid of their tariffs on us, or they will pay us…"</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">41</td>
+        <td class="quote">"I will use the president's long-recognized Impoundment Power to squeeze the bloated federal bureaucracy for massive savings. This will be…"</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">42</td>
+        <td class="quote">"No longer will unelected members of the Washington Swamp be allowed to act as the fourth branch of our Republic."</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">43</td>
+        <td class="quote">"Three years from now, the United States will celebrate the biggest and most important milestone in our country's history — 250 years of A…"</td>
+        <td class="src">trump-2024-agenda47-snapshot.html</td>
+        <td class="deleted">2025-01-20</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">44</td>
+        <td class="quote">"Republicans will support baseline Tariffs on Foreign-made goods, pass the Trump Reciprocal Trade Act, and respond to unfair Trading pract…"</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">45</td>
+        <td class="quote">"We will use existing Federal Law to return Criminal Aliens to their Countries of Origin... Republicans will reverse Biden's Open Borders …"</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">46</td>
+        <td class="quote">"Republicans believe families should be empowered to choose the best Education for their children. We support Universal School Choice in e…"</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-pending">PENDING</td>
+      </tr>
+<tr>
+        <td class="num">47</td>
+        <td class="quote">"We will close the Department of Education and send it back to the States, where it belongs, and only send Money back to States that do an…"</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">48</td>
+        <td class="quote">"Republicans will end the Weaponization of the Federal Government, restore Free Speech in America, and stop Government Censorship of Ameri…"</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-kept">KEPT</td>
+      </tr>
+<tr>
+        <td class="num">49</td>
+        <td class="quote">"Republicans will end the weaponized Government Persecution of the J6 Hostages."</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-kept">KEPT</td>
+      </tr>
+<tr>
+        <td class="num">50</td>
+        <td class="quote">"We will Drill, Baby, Drill, and become Energy Independent, and even Dominant again. The United States has more liquid gold under our feet…"</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">51</td>
+        <td class="quote">"Republicans will... cancel the Socialist Green New Deal, and rescind all Funds not yet spent under the grossly misnamed 'Inflation Reduct…"</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-inprogress">IN_PROGRESS</td>
+      </tr>
+<tr>
+        <td class="num">52</td>
+        <td class="quote">"Republicans will restore Healthcare Freedom, and... will protect Innocent Life, while also protecting IVF, contraception, and prenatal care."</td>
+        <td class="src">trump-2024-rnc-platform.pdf</td>
+        <td class="deleted">—</td>
+        <td class="status status-pending">PENDING</td>
+      </tr></tbody>
+  </table>
+</section>
+
+</body>
+</html>

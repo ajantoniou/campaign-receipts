@@ -1,0 +1,13 @@
+{
+  "slug": "cr-bell-bush-aipac-primary",
+  "verdict": "SHIP",
+  "approved_for_render": true,
+  "script_path": "eng/scripts/cr-new-news/cr-bell-bush-aipac-primary-vo.txt",
+  "storyline_editor": "eng/qc-reports/cr-bell-bush-aipac-primary/storyline-editor-pass.md",
+  "council_script_report": "eng/qc-reports/cr-bell-bush-aipac-primary/council-script-2026-05-21-v9.md",
+  "viral_script_report": "eng/qc-reports/cr-bell-bush-aipac-primary/viral-script-2026-05-21-v9.md",
+  "panel_runs": 9,
+  "spoken_words": 530,
+  "locked_at": "2026-05-22T00:20:00Z",
+  "note": "v10 VO: 4-min story arc; council v9 + viral member fixes (hook, FEC jargon cut, outside-money frame). Re-render required — do not use SSlygpQQFM0."
+}

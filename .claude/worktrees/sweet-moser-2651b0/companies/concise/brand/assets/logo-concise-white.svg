@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="250" viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Concise Wordmark — White (on dark backgrounds)
+    Typeface: Inter Bold
+    Color: White #ffffff
+    Accent underline: Electric cyan #00d9ff
+    Letter spacing: -0.02em (tight)
+  -->
+
+  <!-- Navy background -->
+  <rect width="1000" height="250" fill="#1a2a4d"/>
+
+  <!-- White text: CONCISE -->
+  <text
+    x="500"
+    y="170"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="160"
+    font-weight="700"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="-3.2"
+    dominant-baseline="middle"
+  >CONCISE</text>
+
+  <!-- Electric cyan accent underline (below final E) -->
+  <line
+    x1="620"
+    y1="195"
+    x2="760"
+    y2="195"
+    stroke="#00d9ff"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+</svg>

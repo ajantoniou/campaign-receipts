@@ -1,0 +1,16 @@
+{
+  "slug": "sealed-011-self-funding",
+  "mode": "short",
+  "piece_id": "sealed-011-self-funding",
+  "privacy": "public",
+  "build_dir": "scripts/shorts/_build/011",
+  "title": "\"I'M SELF-FUNDING\" — THEN HE RAISED $290 MILLION",
+  "title_alt": [
+    "$290M IN 2016 + $1.1B IN 2020 — THE SELF-FUNDING RECEIPT",
+    "THE TRAIL QUOTE VS THE FEC FILINGS — SELF-FUNDING",
+    "BROKEN: Self-Fund the Campaign | SEALED"
+  ],
+  "thumbnail": { "headline": "$290M", "subline": "FROM OUTSIDE DONORS — \"SELF-FUNDED\"", "verdict": "BROKEN" },
+  "tags": ["politics", "campaign finance", "trump 2016", "fec", "self funding", "fact check", "sealed 2016", "shorts"],
+  "description": "The verbatim trail line at every 2016 rally: \"I'm self-funding, I don't need their money.\" The FEC filings tell a different story.\n\nFEC committee C00580100 (2016 general election): roughly $290 million raised from outside donors. FEC committee C00618389 (2020): roughly $1.1 billion. The donors were named on every quarterly filing — the receipts are public record.\n\nFull 145-promise audit: https://sealed2016.com?utm_source=youtube&utm_medium=shorts&utm_campaign=self-funding\n\n#politics #trump #fec #shorts #factcheck"
+}

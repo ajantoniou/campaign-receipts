@@ -1,0 +1,203 @@
+[
+  {
+    "politician": {
+      "slug": "joe-biden",
+      "name": "Joseph Robinette Biden Jr.",
+      "party": "Democratic",
+      "branch": "President",
+      "state": "DE",
+      "gender": "Male",
+      "religion": "Catholic",
+      "minority_status": null,
+      "dob": "1942-11-20",
+      "age": 82,
+      "in_office_since": "2021-01-20",
+      "in_office_to": "2025-01-20",
+      "current_status": "Former president (2025)",
+      "official_url": "https://bidenwhitehouse.archives.gov",
+      "ideology_label": "Center-Left Democrat",
+      "professional_background": "U.S. Senator (DE) 1973-2009; 47th Vice President 2009-2017; 46th President 2021-2025.",
+      "profile_narrative": "Biden's presidency (2021-2025) was the immediate predecessor to Trump's second term. This profile grades his 2020 campaign promises against his single served term, providing the direct A/B comparison readers want when they look at Trump's 2024 live tracker.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Pass a $1.9T COVID-19 relief package.", "category": "Economy", "promise_date": "2020 campaign", "verdict": "KEPT", "verdict_reasoning": "American Rescue Plan Act (Pub.L. 117-2) signed March 11, 2021. $1.9T included $1,400 stimulus checks, expanded UI, expanded CTC, and state/local aid.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 2, "promise_text": "Pass a bipartisan infrastructure package.", "category": "Infrastructure", "promise_date": "2020 campaign", "verdict": "KEPT", "verdict_reasoning": "Infrastructure Investment and Jobs Act (Pub.L. 117-58) signed Nov 15, 2021. $550B in new spending across roads, bridges, broadband, transit, and grid.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 3, "promise_text": "Rejoin the Paris Climate Agreement.", "category": "Climate", "promise_date": "2020 campaign", "verdict": "KEPT", "verdict_reasoning": "Executive Order on day one of presidency (Jan 20, 2021). U.S. formally re-entered Feb 19, 2021.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 4, "promise_text": "Cancel student loan debt.", "category": "Education", "promise_date": "2020 campaign", "verdict": "PARTIAL", "verdict_reasoning": "Broad cancellation ($10k-20k/borrower) struck down by SCOTUS in Biden v. Nebraska (June 30, 2023). Narrower targeted cancellations approved ~$138B across PSLF, IDR fixes, and Borrower Defense.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 5, "promise_text": "Codify Roe v. Wade.", "category": "Reproductive Rights", "promise_date": "2020 campaign", "verdict": "BROKEN", "verdict_reasoning": "Women's Health Protection Act passed House Sep 24, 2021 (218-211). Failed Senate cloture May 11, 2022 (49-51). Dobbs decision overturned Roe June 24, 2022.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 6, "promise_text": "Pass federal gun-violence-prevention legislation.", "category": "Public Safety", "promise_date": "2020 campaign", "verdict": "PARTIAL", "verdict_reasoning": "Bipartisan Safer Communities Act (Pub.L. 117-159) signed June 25, 2022 — first major federal gun-safety law in 30 years. Did not include assault weapons ban or universal background checks.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 7, "promise_text": "Pass the Inflation Reduction Act / climate package.", "category": "Climate", "promise_date": "2021-2022", "verdict": "KEPT", "verdict_reasoning": "IRA (Pub.L. 117-169) signed Aug 16, 2022. $369B in climate spending — largest U.S. climate investment ever. Passed Senate 51-50 (Harris tie-break) and House 220-207.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 8, "promise_text": "Pass the CHIPS and Science Act.", "category": "Economy", "promise_date": "2021-2022", "verdict": "KEPT", "verdict_reasoning": "CHIPS and Science Act (Pub.L. 117-167) signed Aug 9, 2022. $52B for U.S. semiconductor manufacturing, $200B for R&D.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 9, "promise_text": "End the war in Afghanistan.", "category": "Foreign Policy", "promise_date": "2020 campaign", "verdict": "KEPT", "verdict_reasoning": "Withdrawal completed Aug 30, 2021. Execution widely criticized — 13 U.S. servicemembers killed at Kabul airport Aug 26, 2021; Afghan government collapsed in days.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 10, "promise_text": "Confirm Supreme Court justice Ketanji Brown Jackson.", "category": "Judiciary", "promise_date": "2022", "verdict": "KEPT", "verdict_reasoning": "Confirmed April 7, 2022 (53-47). First Black woman on the Supreme Court.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 11, "promise_text": "Defeat Trump in 2024 rematch.", "category": "Personal", "promise_date": "2023-2024", "verdict": "BROKEN", "verdict_reasoning": "Withdrew from 2024 race July 21, 2024 after debate performance. Endorsed Harris, who lost Nov 5, 2024 by 226-312 electoral votes.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 12, "promise_text": "Restore the Joint Comprehensive Plan of Action (Iran deal).", "category": "Foreign Policy", "promise_date": "2020 campaign", "verdict": "BROKEN", "verdict_reasoning": "Talks in Vienna (April 2021 - Sep 2022) failed. JCPOA never restored. Iran nuclear program advanced significantly during the term.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 13, "promise_text": "Raise the federal minimum wage to $15.", "category": "Labor", "promise_date": "2020 campaign", "verdict": "BROKEN", "verdict_reasoning": "Raise the Wage Act provisions stripped from American Rescue Plan on Byrd-rule objection. Federal minimum wage remains $7.25/hr at end of term.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 14, "promise_text": "Pass comprehensive immigration reform.", "category": "Immigration", "promise_date": "2020 campaign", "verdict": "BROKEN", "verdict_reasoning": "U.S. Citizenship Act of 2021 introduced Feb 18, 2021; never reached a floor vote. Lankford-Sinema-Murphy bipartisan border bill collapsed Feb 7, 2024 after Trump pressure on House Republicans.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 },
+      { "promise_number": 15, "promise_text": "Support Ukraine against Russian invasion.", "category": "Foreign Policy", "promise_date": "2022", "verdict": "KEPT", "verdict_reasoning": "Approximately $175B in U.S. aid authorized 2022-2024. Final supplemental signed April 24, 2024 (Pub.L. 118-50) after six-month House Republican delay.", "term_start": "2021-01-20", "term_end": "2025-01-20", "cycle_year": 2020 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "george-w-bush",
+      "name": "George Walker Bush",
+      "party": "Republican",
+      "branch": "President",
+      "state": "TX",
+      "gender": "Male",
+      "religion": "Christian (Methodist)",
+      "minority_status": null,
+      "dob": "1946-07-06",
+      "age": 79,
+      "in_office_since": "2001-01-20",
+      "in_office_to": "2009-01-20",
+      "current_status": "Former president (2009)",
+      "official_url": null,
+      "ideology_label": "Conservative Republican",
+      "professional_background": "43rd President of the United States 2001-2009; former Governor of Texas 1995-2000.",
+      "profile_narrative": "Bush's two-term presidency (2001-2009) is the immediate predecessor pair to Obama. This profile grades his 2000 campaign promises against eight years in office that spanned 9/11, two wars, the 2003 Medicare expansion, and the 2008 financial crisis.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Cut income taxes.", "category": "Taxes", "promise_date": "2000 campaign", "verdict": "KEPT", "verdict_reasoning": "Economic Growth and Tax Relief Reconciliation Act of 2001 (Pub.L. 107-16) signed June 7, 2001; Jobs and Growth Tax Relief Reconciliation Act of 2003 (Pub.L. 108-27) signed May 28, 2003. Cut top rate 39.6% → 35%.", "term_start": "2001-01-20", "term_end": "2009-01-20", "cycle_year": 2000 },
+      { "promise_number": 2, "promise_text": "Pass education reform with accountability standards.", "category": "Education", "promise_date": "2000 campaign", "verdict": "KEPT", "verdict_reasoning": "No Child Left Behind Act (Pub.L. 107-110) signed Jan 8, 2002. Required annual standardized testing in grades 3-8 with consequences for underperforming schools.", "term_start": "2001-01-20", "term_end": "2009-01-20", "cycle_year": 2000 },
+      { "promise_number": 3, "promise_text": "Add prescription drug coverage to Medicare.", "category": "Healthcare", "promise_date": "2000 campaign", "verdict": "KEPT", "verdict_reasoning": "Medicare Prescription Drug, Improvement, and Modernization Act of 2003 (Pub.L. 108-173) signed Dec 8, 2003. Created Medicare Part D.", "term_start": "2001-01-20", "term_end": "2009-01-20", "cycle_year": 2000 },
+      { "promise_number": 4, "promise_text": "Reform Social Security with private accounts.", "category": "Entitlements", "promise_date": "2004 campaign", "verdict": "BROKEN", "verdict_reasoning": "Social Security reform was the centerpiece of Bush's 2005 agenda. No legislation reached the floor. Bush conceded defeat by year-end 2005.", "term_start": "2005-01-20", "term_end": "2009-01-20", "cycle_year": 2004 },
+      { "promise_number": 5, "promise_text": "Win the war in Iraq.", "category": "Foreign Policy", "promise_date": "2003-2004", "verdict": "PARTIAL", "verdict_reasoning": "Iraq invaded March 2003; Saddam Hussein deposed. Insurgency through 2007; 2007 surge stabilized but did not end conflict. U.S. troops still in Iraq at term-end.", "term_start": "2001-01-20", "term_end": "2009-01-20", "cycle_year": 2000 },
+      { "promise_number": 6, "promise_text": "Capture or kill Osama bin Laden.", "category": "National Security", "promise_date": "2001 onward", "verdict": "BROKEN", "verdict_reasoning": "Bin Laden remained at large at the end of Bush's term. Killed under Obama, May 2, 2011.", "term_start": "2001-01-20", "term_end": "2009-01-20", "cycle_year": 2000 },
+      { "promise_number": 7, "promise_text": "Pass comprehensive immigration reform.", "category": "Immigration", "promise_date": "2004 campaign", "verdict": "BROKEN", "verdict_reasoning": "Comprehensive Immigration Reform Act of 2007 (S.1639) failed cloture June 28, 2007 (46-53). Bush's signature second-term domestic priority died.", "term_start": "2005-01-20", "term_end": "2009-01-20", "cycle_year": 2004 },
+      { "promise_number": 8, "promise_text": "Authorize PEPFAR for global HIV/AIDS treatment.", "category": "Foreign Policy", "promise_date": "2003 SOTU", "verdict": "KEPT", "verdict_reasoning": "United States Leadership Against HIV/AIDS, Tuberculosis, and Malaria Act of 2003 (Pub.L. 108-25) signed May 27, 2003. Reauthorized 2008 with $48B over five years. Credited with saving over 25 million lives.", "term_start": "2001-01-20", "term_end": "2009-01-20", "cycle_year": 2000 },
+      { "promise_number": 9, "promise_text": "Confirm conservative Supreme Court justices.", "category": "Judiciary", "promise_date": "2000 campaign", "verdict": "KEPT", "verdict_reasoning": "Chief Justice John Roberts confirmed Sep 29, 2005 (78-22). Justice Samuel Alito confirmed Jan 31, 2006 (58-42). Both shifted SCOTUS rightward.", "term_start": "2001-01-20", "term_end": "2009-01-20", "cycle_year": 2000 },
+      { "promise_number": 10, "promise_text": "Stabilize the financial system after the 2008 crisis.", "category": "Economy", "promise_date": "2008", "verdict": "KEPT", "verdict_reasoning": "Emergency Economic Stabilization Act (TARP, Pub.L. 110-343) signed Oct 3, 2008. $700B authorized; ultimately ~$440B disbursed; final cost to taxpayers approximately net positive.", "term_start": "2005-01-20", "term_end": "2009-01-20", "cycle_year": 2004 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "bill-clinton",
+      "name": "William Jefferson Clinton",
+      "party": "Democratic",
+      "branch": "President",
+      "state": "AR",
+      "gender": "Male",
+      "religion": "Christian (Baptist)",
+      "minority_status": null,
+      "dob": "1946-08-19",
+      "age": 79,
+      "in_office_since": "1993-01-20",
+      "in_office_to": "2001-01-20",
+      "current_status": "Former president (2001)",
+      "official_url": null,
+      "ideology_label": "Center-Left Democrat (New Democrat)",
+      "professional_background": "42nd President of the United States 1993-2001; former Governor of Arkansas.",
+      "profile_narrative": "Clinton's two-term presidency (1993-2001) is the predecessor pair to George W. Bush. This profile grades his 1992 campaign promises against eight years in office that spanned NAFTA, welfare reform, the 1995-96 government shutdowns, impeachment, and the dot-com boom.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Pass universal healthcare.", "category": "Healthcare", "promise_date": "1992 campaign", "verdict": "BROKEN", "verdict_reasoning": "Health Security Act introduced Sep 1993; never reached a floor vote in either chamber. Hillary Clinton-led task force; effort abandoned by Sep 1994. Major factor in 1994 Republican wave.", "term_start": "1993-01-20", "term_end": "2001-01-20", "cycle_year": 1992 },
+      { "promise_number": 2, "promise_text": "Cut middle-class taxes.", "category": "Taxes", "promise_date": "1992 campaign", "verdict": "BROKEN", "verdict_reasoning": "Omnibus Budget Reconciliation Act of 1993 (Pub.L. 103-66, signed Aug 10, 1993) raised top rate to 39.6% rather than cutting middle-class taxes. Clinton publicly acknowledged the broken promise in 1995.", "term_start": "1993-01-20", "term_end": "2001-01-20", "cycle_year": 1992 },
+      { "promise_number": 3, "promise_text": "Pass NAFTA.", "category": "Trade", "promise_date": "1992 campaign", "verdict": "KEPT", "verdict_reasoning": "North American Free Trade Agreement Implementation Act (Pub.L. 103-182) signed Dec 8, 1993. House 234-200, Senate 61-38.", "term_start": "1993-01-20", "term_end": "2001-01-20", "cycle_year": 1992 },
+      { "promise_number": 4, "promise_text": "Reform welfare with work requirements.", "category": "Entitlements", "promise_date": "1992 campaign", "verdict": "KEPT", "verdict_reasoning": "Personal Responsibility and Work Opportunity Act (Pub.L. 104-193) signed Aug 22, 1996. Replaced AFDC with TANF, added work requirements and time limits.", "term_start": "1993-01-20", "term_end": "2001-01-20", "cycle_year": 1992 },
+      { "promise_number": 5, "promise_text": "Pass don't-ask-don't-tell as a compromise on gays in the military.", "category": "Civil Rights", "promise_date": "1993", "verdict": "PARTIAL", "verdict_reasoning": "Don't Ask, Don't Tell signed Nov 30, 1993. Permitted closeted service but did not allow open service. Roughly 13,000 servicemembers discharged under DADT before repeal in 2010.", "term_start": "1993-01-20", "term_end": "2001-01-20", "cycle_year": 1992 },
+      { "promise_number": 6, "promise_text": "Balance the federal budget.", "category": "Economy", "promise_date": "1992-1996", "verdict": "KEPT", "verdict_reasoning": "Federal budget surplus achieved FY1998-FY2001 (first surpluses since 1969). Last Clinton budget projected $5.6T cumulative surplus over the following decade.", "term_start": "1993-01-20", "term_end": "2001-01-20", "cycle_year": 1992 },
+      { "promise_number": 7, "promise_text": "Pass the Brady Bill and federal assault weapons ban.", "category": "Public Safety", "promise_date": "1992 campaign", "verdict": "KEPT", "verdict_reasoning": "Brady Handgun Violence Prevention Act (Pub.L. 103-159) signed Nov 30, 1993. Federal Assault Weapons Ban included in Violent Crime Control Act (Pub.L. 103-322), signed Sep 13, 1994.", "term_start": "1993-01-20", "term_end": "2001-01-20", "cycle_year": 1992 },
+      { "promise_number": 8, "promise_text": "Pass family and medical leave.", "category": "Labor", "promise_date": "1992 campaign", "verdict": "KEPT", "verdict_reasoning": "Family and Medical Leave Act (Pub.L. 103-3) signed Feb 5, 1993 — first major bill of his presidency. Provided 12 weeks unpaid leave for qualifying employees.", "term_start": "1993-01-20", "term_end": "2001-01-20", "cycle_year": 1992 },
+      { "promise_number": 9, "promise_text": "Survive impeachment without resignation.", "category": "Personal", "promise_date": "1998-1999", "verdict": "KEPT", "verdict_reasoning": "Impeached by House Dec 19, 1998 (perjury 228-206, obstruction 221-212). Acquitted by Senate Feb 12, 1999 (perjury 45-55, obstruction 50-50).", "term_start": "1997-01-20", "term_end": "2001-01-20", "cycle_year": 1996 },
+      { "promise_number": 10, "promise_text": "Pass campaign finance reform.", "category": "Governance", "promise_date": "1996 campaign", "verdict": "BROKEN", "verdict_reasoning": "McCain-Feingold did not pass during Clinton's tenure. Eventually signed by Bush as Bipartisan Campaign Reform Act (Pub.L. 107-155, March 27, 2002).", "term_start": "1997-01-20", "term_end": "2001-01-20", "cycle_year": 1996 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "andrew-cuomo",
+      "name": "Andrew Mark Cuomo",
+      "party": "Democratic",
+      "branch": "Governor",
+      "state": "NY",
+      "gender": "Male",
+      "religion": "Catholic",
+      "minority_status": null,
+      "dob": "1957-12-06",
+      "age": 67,
+      "in_office_since": "2011-01-01",
+      "in_office_to": "2021-08-24",
+      "current_status": "Former Governor (resigned 2021); 2025 NYC mayoral candidate",
+      "official_url": null,
+      "ideology_label": "Center-Left Democrat",
+      "professional_background": "Former Governor of New York 2011-2021; resigned August 2021 amid harassment allegations. Son of former Governor Mario Cuomo.",
+      "profile_narrative": "Cuomo's third term ended in resignation August 2021 after the NY AG report on harassment allegations. He is the immediate predecessor to Hochul. This profile grades his 2018 campaign promises against his truncated third term.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Lead New York's COVID-19 response.", "category": "Public Health", "promise_date": "2020", "verdict": "PARTIAL", "verdict_reasoning": "Daily press briefings reached national audience. NY death toll exceeded 35,000 in first wave. Nursing home directive (March 25, 2020) — ordering homes to accept COVID-positive patients — drew sustained criticism; DOH report Jan 2021 revealed undercount of deaths.", "term_start": "2019-01-01", "term_end": "2021-08-24", "cycle_year": 2018 },
+      { "promise_number": 2, "promise_text": "Legalize recreational cannabis.", "category": "Criminal Justice", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "Marijuana Regulation and Taxation Act (S.854A) signed March 31, 2021. Legalized adult use, expunged prior cannabis convictions.", "term_start": "2019-01-01", "term_end": "2021-08-24", "cycle_year": 2018 },
+      { "promise_number": 3, "promise_text": "Pass climate legislation with 100%-clean-energy target.", "category": "Climate", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "Climate Leadership and Community Protection Act (S.6599) signed July 18, 2019. 100% zero-emission electricity by 2040; 70% renewable by 2030.", "term_start": "2019-01-01", "term_end": "2021-08-24", "cycle_year": 2018 },
+      { "promise_number": 4, "promise_text": "Reform NY bail and parole rules.", "category": "Criminal Justice", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "Bail reform passed April 2019, took effect Jan 1, 2020. Eliminated cash bail for most misdemeanors and non-violent felonies. Subsequently revised partially in 2020 and 2022.", "term_start": "2019-01-01", "term_end": "2021-08-24", "cycle_year": 2018 },
+      { "promise_number": 5, "promise_text": "Complete his third term as governor.", "category": "Personal", "promise_date": "2018 campaign", "verdict": "BROKEN", "verdict_reasoning": "Resigned Aug 24, 2021 following NY AG Letitia James's Aug 3, 2021 report finding he sexually harassed 11 women. Did not finish elected term.", "term_start": "2019-01-01", "term_end": "2021-08-24", "cycle_year": 2018 },
+      { "promise_number": 6, "promise_text": "Build a working LaGuardia Airport replacement.", "category": "Infrastructure", "promise_date": "2015 onward", "verdict": "KEPT", "verdict_reasoning": "New LaGuardia Terminal B opened June 2020; Terminal C completed 2022. $8B project largely completed during Cuomo's tenure.", "term_start": "2019-01-01", "term_end": "2021-08-24", "cycle_year": 2018 },
+      { "promise_number": 7, "promise_text": "Pass the Reproductive Health Act.", "category": "Reproductive Rights", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "Reproductive Health Act (S.240) signed Jan 22, 2019. Codified Roe v. Wade in NY state law.", "term_start": "2019-01-01", "term_end": "2021-08-24", "cycle_year": 2018 },
+      { "promise_number": 8, "promise_text": "Pass driver's licenses for undocumented immigrants.", "category": "Immigration", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "Green Light NY law signed June 17, 2019. Took effect Dec 14, 2019.", "term_start": "2019-01-01", "term_end": "2021-08-24", "cycle_year": 2018 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "larry-hogan",
+      "name": "Lawrence Joseph Hogan Jr.",
+      "party": "Republican",
+      "branch": "Governor",
+      "state": "MD",
+      "gender": "Male",
+      "religion": "Catholic",
+      "minority_status": null,
+      "dob": "1956-05-25",
+      "age": 69,
+      "in_office_since": "2015-01-21",
+      "in_office_to": "2023-01-18",
+      "current_status": "Former Governor (term-limited 2023)",
+      "official_url": null,
+      "ideology_label": "Moderate Republican / Trump critic",
+      "professional_background": "Former Governor of Maryland 2015-2023; consistently among most popular governors in country. Predecessor to Wes Moore.",
+      "profile_narrative": "Hogan's two terms (2015-2023) made him one of the more popular Republican governors of the Trump era. The immediate predecessor to Wes Moore. This profile grades his 2018 campaign promises against his second term.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Continue holding the line on taxes.", "category": "Taxes", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "Hogan vetoed multiple Democratic-legislature tax-increase bills; signed targeted retirement-income tax exemptions in 2022. Net MD tax burden flat to slightly down across his tenure.", "term_start": "2019-01-16", "term_end": "2023-01-18", "cycle_year": 2018 },
+      { "promise_number": 2, "promise_text": "Lead Maryland's COVID-19 response.", "category": "Public Health", "promise_date": "2020", "verdict": "PARTIAL", "verdict_reasoning": "Hogan led NGA in 2020. MD per-capita death rate among the lower-third nationally for first wave. Korean-test-procurement debacle (April 2020) — tests largely unusable — became enduring criticism.", "term_start": "2019-01-16", "term_end": "2023-01-18", "cycle_year": 2018 },
+      { "promise_number": 3, "promise_text": "Block Beltway and Capital Beltway expansion.", "category": "Infrastructure", "promise_date": "2018 campaign", "verdict": "BROKEN", "verdict_reasoning": "Reverse — Hogan PUSHED the Beltway expansion. Project shelved June 2022 by his administration after sustained opposition; revived intermittently. Final shelving by Moore in 2023.", "term_start": "2019-01-16", "term_end": "2023-01-18", "cycle_year": 2018 },
+      { "promise_number": 4, "promise_text": "Publicly oppose Trump in 2020 + 2024.", "category": "Governance", "promise_date": "2018 onward", "verdict": "KEPT", "verdict_reasoning": "Wrote in Ronald Reagan in 2020 election. Considered 2024 Republican primary run; chose not to. Endorsed himself rather than Trump in 2024 Senate run.", "term_start": "2019-01-16", "term_end": "2023-01-18", "cycle_year": 2018 },
+      { "promise_number": 5, "promise_text": "Reach bipartisan budget agreements with the Democratic legislature.", "category": "Governance", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "Eight years of budget agreements reached without major government dysfunction. MD bond rating maintained at AAA throughout tenure.", "term_start": "2019-01-16", "term_end": "2023-01-18", "cycle_year": 2018 },
+      { "promise_number": 6, "promise_text": "Fund the Blueprint for Maryland's Future (Kirwan Commission).", "category": "Education", "promise_date": "2018-2020", "verdict": "PARTIAL", "verdict_reasoning": "Hogan initially vetoed Blueprint funding (May 2020) citing cost; legislature overrode. Implementation began 2021 under his administration.", "term_start": "2019-01-16", "term_end": "2023-01-18", "cycle_year": 2018 },
+      { "promise_number": 7, "promise_text": "Win the U.S. Senate seat in 2024.", "category": "Personal", "promise_date": "2023-2024", "verdict": "BROKEN", "verdict_reasoning": "Hogan ran for the open MD Senate seat in 2024 (Cardin retirement). Lost to Angela Alsobrooks Nov 5, 2024 by 10.5 points.", "term_start": "2019-01-16", "term_end": "2023-01-18", "cycle_year": 2018 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "charlie-baker",
+      "name": "Charles Duane Baker Jr.",
+      "party": "Republican",
+      "branch": "Governor",
+      "state": "MA",
+      "gender": "Male",
+      "religion": "Christian",
+      "minority_status": null,
+      "dob": "1956-11-13",
+      "age": 69,
+      "in_office_since": "2015-01-08",
+      "in_office_to": "2023-01-05",
+      "current_status": "Former Governor (chose not to seek 2022 re-election); NCAA President (2023-)",
+      "official_url": null,
+      "ideology_label": "Moderate Republican / Trump critic",
+      "professional_background": "Former Governor of Massachusetts 2015-2023; immediate predecessor to Maura Healey. Became NCAA President March 2023.",
+      "profile_narrative": "Baker's two terms (2015-2023) put him consistently among the most popular U.S. governors. The immediate predecessor to Maura Healey. This profile grades his 2018 campaign promises against his second term.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Continue managing MA budget without tax increases.", "category": "Taxes", "promise_date": "2018 campaign", "verdict": "PARTIAL", "verdict_reasoning": "Vetoed multiple tax bills. Did sign 2022 tax-relief package including child tax credit and reduced short-term capital gains. Fair Share Amendment (millionaires tax) passed by voters Nov 2022 over his opposition.", "term_start": "2019-01-03", "term_end": "2023-01-05", "cycle_year": 2018 },
+      { "promise_number": 2, "promise_text": "Lead Massachusetts's COVID-19 response.", "category": "Public Health", "promise_date": "2020", "verdict": "PARTIAL", "verdict_reasoning": "MA had one of higher early death rates; eventually moved to among lowest per-capita rates by mid-2021. Vaccine rollout initially slow then quickly improved.", "term_start": "2019-01-03", "term_end": "2023-01-05", "cycle_year": 2018 },
+      { "promise_number": 3, "promise_text": "Publicly distance from Trump.", "category": "Governance", "promise_date": "2018 onward", "verdict": "KEPT", "verdict_reasoning": "Did not endorse Trump in 2016, 2020, or 2024. Wrote in Charlie Baker in 2016. Publicly criticized Jan 6, 2021 attack.", "term_start": "2019-01-03", "term_end": "2023-01-05", "cycle_year": 2018 },
+      { "promise_number": 4, "promise_text": "Fund transportation infrastructure.", "category": "Infrastructure", "promise_date": "2018 campaign", "verdict": "PARTIAL", "verdict_reasoning": "MA Bay Transportation Authority funding increased; nonetheless plagued by service degradation and Orange Line shutdown August 2022. Federal Transit Administration safety report issued Aug 2022.", "term_start": "2019-01-03", "term_end": "2023-01-05", "cycle_year": 2018 },
+      { "promise_number": 5, "promise_text": "Pass legislation increasing housing supply.", "category": "Housing", "promise_date": "2018 campaign", "verdict": "PARTIAL", "verdict_reasoning": "Housing Choice Act signed Jan 14, 2021. Lowered local zoning approval threshold to simple majority. MA housing prices nonetheless rose sharply through 2022.", "term_start": "2019-01-03", "term_end": "2023-01-05", "cycle_year": 2018 },
+      { "promise_number": 6, "promise_text": "Maintain MA bond rating.", "category": "Economy", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "MA bond rating remained AA+ through term. Stabilization Fund grew from $1.3B in 2015 to over $7B by 2023.", "term_start": "2019-01-03", "term_end": "2023-01-05", "cycle_year": 2018 },
+      { "promise_number": 7, "promise_text": "Run for a third term.", "category": "Personal", "promise_date": "2021-2022", "verdict": "BROKEN", "verdict_reasoning": "Announced Dec 1, 2021 he would not seek a third term. Cited family and personal reasons; widely reported tension with MA GOP that had moved toward Trump.", "term_start": "2019-01-03", "term_end": "2023-01-05", "cycle_year": 2018 }
+    ]
+  }
+]

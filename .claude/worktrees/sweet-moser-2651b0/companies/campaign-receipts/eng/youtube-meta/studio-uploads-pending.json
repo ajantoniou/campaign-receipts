@@ -1,0 +1,118 @@
+[
+  {
+    "_comment": "Founder upload queue (Stage 29). Upload each file in YouTube Studio (agent never calls videos.insert). After upload, paste each new video ID into 'youtube_id', then run: python3 scripts/pipeline/post-studio-upload.py --batch eng/youtube-meta/studio-uploads-pending.json",
+    "_status": "READY \u2014 2026-05-31: rebuilt on CORRECTED FEC data ($110M total; Texans for a Conservative Majority is pro-Cornyn, spent $39.3M AGAINST Paxton who WON; Talarico beat Crockett; Nau $7.9M; pass-throughs unnameable). NO $90M/$15.6M/Truth-and-Courage/Allred-as-candidate. LF QC pass1+pass2 SHIP-OK; shorts no-VO + visual QC PASS. The prior inverted entries + media were archived to _superseded/cr-tx-senate-inverted-2026-05-31/.",
+    "_post_upload": "Stage 30 metadata push; companion article cr-tx-senate-2026-superpacs (youtube_id auto-embeds on upload); Stage 28.5 end-screen rows in eng/youtube-meta/end-screen-plan-2026-05-31.md."
+  },
+  {
+    "slug": "cr-tx-senate-2026-superpacs",
+    "kind": "longform",
+    "program": "cr-new-news",
+    "youtube_id": null,
+    "replace_id": null,
+    "file": "public/longform/cr-tx-senate-2026-superpacs.mp4",
+    "thumbnail": "public/longform/cr-tx-senate-2026-superpacs-thumb.jpg",
+    "title": "$110 Million Tried to Pick Your Senator. The Biggest Check Lost.",
+    "title_alt": [
+      "$110M of Hidden Money Hit the Texas Senate Race \u2014 and Backfired",
+      "The \"Texans\" Super PAC Spent $39M to Stop Paxton. He Won Anyway.",
+      "Who Really Paid? $110M Outside Money in the Texas Senate Race"
+    ],
+    "description_path": "_build/cr-tx-senate-2026-superpacs/description.md",
+    "tags": [
+      "texas senate 2026",
+      "super pac",
+      "campaign finance",
+      "fec",
+      "dark money",
+      "ken paxton",
+      "james talarico",
+      "john cornyn",
+      "john nau",
+      "outside spending",
+      "fact check",
+      "campaign receipts"
+    ],
+    "playlists": [
+      "CR new-news",
+      "AIPAC & Outside Money"
+    ],
+    "playlist_ids": [
+      "PL9xPOHXdYWw8ZkR8rZldZxDHAaUFPc-Pk",
+      "PL9xPOHXdYWw_p3_Nb-_PwlX871hUsYOL-"
+    ],
+    "companion_article": "https://campaignreceipts.com/articles/cr-tx-senate-2026-superpacs",
+    "_duration": "5:21",
+    "_qc": "Stage 25 + 26 visual QC SHIP-OK (corrected master); Paxton soundbite real 2026-05-27 fair-use; money cards = verified FEC figures"
+  },
+  {
+    "slug": "cr-tx-senate-2026-superpacs-short-a",
+    "kind": "short",
+    "program": "cr-new-news",
+    "youtube_id": "Hm8T4x07E7g",
+    "replace_id": null,
+    "file": "public/shorts/cr-tx-senate-2026-superpacs-short-a.mp4",
+    "thumbnail": "scripts/shorts/_build/cr-tx-superpacs-a/thumbnail.jpg",
+    "title": "They Spent $39 Million to Stop Him. He Won Anyway. #shorts",
+    "description": "An ad said \"Texans for a Conservative Majority.\" The FEC filing said one man \u2014 Houston billionaire John Nau, $7.9M \u2014 bankrolling a pro-Cornyn super PAC that spent $39 million attacking Ken Paxton. Paxton won the May 26 primary anyway, ~64%. The biggest check in the race lost. Full receipt: campaignreceipts.com/articles/cr-tx-senate-2026-superpacs\n\nAI DISCLOSURE: information-design cards + atmosphere visuals are AI-produced; all dollar figures and donor names are from primary FEC filings (committee C00542217).\n\n#TexasSenate #SuperPAC #CampaignFinance #DarkMoney #FEC #Paxton #FactCheck #CampaignReceipts",
+    "tags": [
+      "texas senate 2026",
+      "super pac",
+      "john nau",
+      "ken paxton",
+      "john cornyn",
+      "campaign finance",
+      "dark money",
+      "fec",
+      "shorts",
+      "campaign receipts"
+    ],
+    "playlists": [
+      "CR new-news",
+      "AIPAC & Outside Money"
+    ],
+    "playlist_ids": [
+      "PL9xPOHXdYWw8ZkR8rZldZxDHAaUFPc-Pk",
+      "PL9xPOHXdYWw_p3_Nb-_PwlX871hUsYOL-"
+    ],
+    "_duration": "41.0s",
+    "_authored_not_carved": true,
+    "_punchline": "$39 million tried to stop one man. He won anyway. The biggest check in the race lost.",
+    "_qc": "Stage 27 no-VO HARD gate PASS; Stage 25 visual QC PASS; punchline lands in-short",
+    "_note": "published 2026-05-31, public, metadata+thumb pushed via update-meta"
+  },
+  {
+    "slug": "cr-tx-senate-2026-superpacs-short-b",
+    "kind": "short",
+    "program": "cr-new-news",
+    "youtube_id": "eHj_qK8GQV4",
+    "replace_id": null,
+    "file": "public/shorts/cr-tx-senate-2026-superpacs-short-b.mp4",
+    "thumbnail": "scripts/shorts/_build/cr-tx-superpacs-b/thumbnail.jpg",
+    "title": "$110M Tried to Pick Your Senator. Your One Ballot Beat It. #shorts",
+    "description": "$110 million in outside money \u2014 the most expensive Senate race in the country \u2014 hit one Texas seat. The names sound like home: \"Texans for a Conservative Majority,\" \"Lone Star Rising.\" The checks came from out-of-state billionaires. You get one ballot. Full receipt: campaignreceipts.com/articles/cr-tx-senate-2026-superpacs\n\nAI DISCLOSURE: information-design cards + atmosphere visuals are AI-produced; all dollar figures are from primary FEC filings.\n\n#TexasSenate #SuperPAC #CampaignFinance #DarkMoney #FEC #FactCheck #CampaignReceipts",
+    "tags": [
+      "texas senate 2026",
+      "super pac",
+      "outside money",
+      "campaign finance",
+      "dark money",
+      "fec",
+      "shorts",
+      "campaign receipts"
+    ],
+    "playlists": [
+      "CR new-news",
+      "AIPAC & Outside Money"
+    ],
+    "playlist_ids": [
+      "PL9xPOHXdYWw8ZkR8rZldZxDHAaUFPc-Pk",
+      "PL9xPOHXdYWw_p3_Nb-_PwlX871hUsYOL-"
+    ],
+    "_duration": "41.5s",
+    "_authored_not_carved": true,
+    "_punchline": "$110 million tried to pick your senator. Your one ballot beat it.",
+    "_qc": "Stage 27 no-VO HARD gate PASS; Stage 25 visual QC PASS; punchline lands in-short",
+    "_note": "published 2026-05-31, public, metadata+thumb pushed via update-meta"
+  }
+]

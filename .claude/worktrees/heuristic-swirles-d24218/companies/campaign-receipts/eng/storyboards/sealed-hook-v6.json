@@ -1,0 +1,122 @@
+{
+  "_meta": {
+    "title": "SEALED 2016 — 30-sec hook film v6",
+    "purpose": "Top-of-funnel hook for SEALED book, 16:9 long-form variant. Re-uses existing v5 VO segments — no ElevenLabs re-render needed.",
+    "estimated_cost_usd": 4.29,
+    "driver_computed_total_usd": 2.18,
+    "driver_note": "produce-from-storyboard.py --dry-run output: $2.18 deterministic (6 clips, no VO — reuses v5 segments). _meta total adds ~$2.11 retry buffer.",
+    "cost_breakdown": {
+      "vo_chars": 0,
+      "vo_cost_usd": 0.00,
+      "clips": {
+        "01_sora2_hook_drone_8s": 0.80,
+        "02_kling_i2v_trump_escalator_5s": 0.35,
+        "03_kling_i2v_trump_oval_signing_5s": 0.35,
+        "04_still_verdict_scorecard_4s": 0.04,
+        "05_sora2_documents_dissolving_6s": 0.60,
+        "06_still_end_card_2s": 0.04,
+        "07_sora2_wayback_kenburns_alt_4s": 0.40
+      },
+      "clip_total_usd": 2.58,
+      "music_cost_usd": 0.00,
+      "buffer_for_retries_usd": 2.11,
+      "notes": "20s of Sora 2 + 10s of Kling i2v + 2 stills. Buffer covers ~1 re-render per video-clip."
+    },
+    "voice_segments_source": "companies/concise-sealed/public/movie/_build_v5/vo/"
+  },
+  "slug": "sealed-hook-v6",
+  "total_duration_seconds": 30,
+  "vo_script_path": null,
+  "voice": "sarah",
+  "voice_settings": {"stability": 0.55, "similarity_boost": 0.75, "style": 0.20, "model": "eleven_multilingual_v2"},
+  "clips": [
+    {
+      "clip_id": "01",
+      "start_sec": 0,
+      "end_sec": 8,
+      "duration": 8,
+      "aspect": "16:9",
+      "covers_script_section": "Hook — drone over America at golden hour, parchment seal envelope falling",
+      "vendor": "sora2",
+      "model_args": {},
+      "prompt": "Cinematic ten-thousand-foot drone shot over a generic American landscape at golden hour, slow rotation, soft golden clouds. A single parchment envelope marked with a wax seal falls in slow motion through the clouds. Documentary-film aesthetic, no text on the envelope, no flags, no identifiable buildings.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "02",
+      "start_sec": 8,
+      "end_sec": 13,
+      "duration": 5,
+      "aspect": "16:9",
+      "covers_script_section": "2015 — campaign-era Trump rally beat (i2v on Wikimedia photo)",
+      "vendor": "kling-i2v",
+      "model_args": {"seed_image": "public/photos/wikipedia/donald-trump-2016.jpg"},
+      "prompt": "Subtle motion: Donald Trump at a podium, slight head turn, microphones visible, documentary realism, no crowd movement, no flags swaying, restrained.",
+      "seed_image": "public/photos/wikipedia/donald-trump-2016.jpg",
+      "characters_count": 1,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "03",
+      "start_sec": 13,
+      "end_sec": 18,
+      "duration": 5,
+      "aspect": "16:9",
+      "covers_script_section": "2017 Oval Office signing beat",
+      "vendor": "kling-i2v",
+      "model_args": {"seed_image": "public/photos/wikipedia/donald-trump-2016.jpg"},
+      "prompt": "Subtle motion: Donald Trump at a desk signing a document with a black pen, looks down then up at the camera with measured expression, documentary realism, no additional people enter the frame.",
+      "seed_image": "public/photos/wikipedia/donald-trump-2016.jpg",
+      "characters_count": 1,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "04",
+      "start_sec": 18,
+      "end_sec": 22,
+      "duration": 4,
+      "aspect": "16:9",
+      "covers_script_section": "Verdict scorecard reveal — 46/51/40/8",
+      "vendor": "still",
+      "model_args": {},
+      "prompt": "Newspaper-broadsheet style SVG verdict card on cream paper: large serif headline 'THE 2016 PROMISE AUDIT' with four numbered tiles below — '46 KEPT' (navy), '51 PARTIAL' (slate), '40 BROKEN' (red), '8 READER-DECIDES' (gold). Restrained civic palette, no faces, no flags.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "05",
+      "start_sec": 22,
+      "end_sec": 28,
+      "duration": 6,
+      "aspect": "16:9",
+      "covers_script_section": "2024 platform deletion — cinematic 'documents dissolving'",
+      "vendor": "sora2",
+      "model_args": {},
+      "prompt": "Cinematic close-up of a printed policy document on a wooden desk, slowly dissolving into floating particles of paper that drift upward into darkness. Soft warm desk lamp, documentary realism, no text legible on the page.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "06",
+      "start_sec": 28,
+      "end_sec": 30,
+      "duration": 2,
+      "aspect": "16:9",
+      "covers_script_section": "End card — SEALED2016.COM",
+      "vendor": "still",
+      "model_args": {},
+      "prompt": "End card on cream paper: 'SEALED. The 2016 Promises. Before the Deals.' in classic serif type, with sub-line 'SEALED2016.COM' in small caps. Civic-document aesthetic, no flags, no faces.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    }
+  ],
+  "music_cues": [
+    {"start_sec": 0, "end_sec": 18, "mood": "tense piano, slow build", "cue_id": "intro"},
+    {"start_sec": 18, "end_sec": 30, "mood": "documentary string resolve, restrained", "cue_id": "verdict"}
+  ]
+}

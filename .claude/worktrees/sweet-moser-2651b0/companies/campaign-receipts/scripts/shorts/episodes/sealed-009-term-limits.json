@@ -1,0 +1,66 @@
+{
+  "slug": "sealed-009-term-limits",
+  "build": "009",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-24 no-VO. 6 beats: hook quote, contract-100-day-plan card, congress.gov zero-bills receipt, verdict, CTA.",
+  "no_vo": true,
+  "sync_specs": [
+    { "id": "hook",        "duration": 5.0 },
+    { "id": "contract",    "duration": 5.0 },
+    { "id": "zeroBills",   "duration": 6.0 },
+    { "id": "fourYears",   "duration": 5.0 },
+    { "id": "broken",      "duration": 5.0 },
+    { "id": "cta",         "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "100-Day Plan · 2016",
+        "quote": "Term limits for Congress — promise #1.",
+        "source": "Never introduced as a bill."
+      }
+    },
+    "contract": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Contract with the American Voter",
+        "quote": "Top of the 100-day list.",
+        "source": "Trump campaign · Oct 22 2016"
+      }
+    },
+    "zeroBills": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "FOUR YEARS · ZERO BILLS",
+        "events": [
+          { "date": "Jan 2017",   "label": "Inaugurated · promise active", "outcome": "reader" },
+          { "date": "2017-2020",  "label": "Bills proposed: zero",         "outcome": "broken" },
+          { "date": "Jan 2021",   "label": "Term ends · no action taken",  "outcome": "broken" }
+        ]
+      }
+    },
+    "fourYears": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "congress.gov bill search",
+        "quote": "Zero floor votes asked for.",
+        "source": "The idea never got tried."
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Term limits for Congress",
+        "citation": "0 bills · 0 votes"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

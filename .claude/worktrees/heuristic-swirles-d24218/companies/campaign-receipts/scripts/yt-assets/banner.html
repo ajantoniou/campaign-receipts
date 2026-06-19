@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:2048px;height:1152px;background:#F4EFE6;font-family:"Geist",system-ui,sans-serif;color:#111}
+.canvas{position:relative;width:2048px;height:1152px;display:flex;align-items:center;justify-content:center}
+.corner{position:absolute;font-family:"Geist Mono",ui-monospace,monospace;font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:#4A4A4A}
+.c-tl{top:80px;left:120px}.c-tr{top:80px;right:120px}.c-bl{bottom:80px;left:120px}.c-br{bottom:80px;right:120px}
+/* YouTube safe-zone sizing notes:
+   - Outer canvas: 2048x1152 (full TV view, mostly cropped on desktop+mobile)
+   - Outer safe (TV-safe): 1235x338 centered — what shows on tablet/TV
+   - INNER safe ("all devices" mobile-safe): ~640x195 centered — this is
+     what shows on phones and what the YouTube editor highlights as the
+     "Viewable on all devices" zone. ALL load-bearing type must fit here. */
+.safe{width:640px;height:195px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 8px}
+.kicker{font-family:"Geist Mono",ui-monospace,monospace;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#4A4A4A;margin-bottom:8px}
+.kicker span{color:#E8A33D}
+.wordmark{font-family:"Instrument Serif","Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:400;font-size:88px;line-height:0.92;color:#111;letter-spacing:-0.015em;white-space:nowrap}
+.wordmark .receipts{position:relative;display:inline-block}
+.wordmark .receipts::after{content:"";position:absolute;left:4px;right:4px;bottom:8px;height:3px;border-bottom:3px dotted #E8A33D}
+.rule{width:380px;height:1px;background:#111;margin:10px 0 8px}
+.tag-row{display:flex;align-items:baseline;gap:18px;font-size:14px}
+.tag{font-family:"Instrument Serif","Cormorant Garamond",Georgia,serif;font-style:italic;font-size:18px;color:#2A2A2A}
+.url{font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;letter-spacing:0.1em;color:#111;text-transform:lowercase}
+.dot-sep{color:#D8D2C4}
+.outer-rule{position:absolute;left:120px;right:120px;height:1px;background:#D8D2C4}
+.outer-rule.t{top:170px}.outer-rule.b{bottom:170px}
+</style></head><body><div class="canvas">
+  <div class="outer-rule t"></div>
+  <div class="corner c-tl">EST. MMXXVI</div>
+  <div class="corner c-tr">VOL. I &middot; NO. 20</div>
+  <div class="safe">
+    <div class="kicker">NONPARTISAN &nbsp;&middot;&nbsp; <span>PRIMARY-SOURCE</span> &nbsp;&middot;&nbsp; FEC + CONGRESS.GOV</div>
+    <div class="wordmark">Campaign<span class="receipts">Receipts</span></div>
+    <div class="rule"></div>
+    <div class="tag-row"><span class="tag">Receipts. Not vibes.</span><span class="dot-sep">&middot;</span><span class="url">campaignreceipts.com</span></div>
+  </div>
+  <div class="outer-rule b"></div>
+  <div class="corner c-bl">AUDIT-FIRST</div>
+  <div class="corner c-br">NEW EPISODE FRIDAYS</div>
+</div></body></html>

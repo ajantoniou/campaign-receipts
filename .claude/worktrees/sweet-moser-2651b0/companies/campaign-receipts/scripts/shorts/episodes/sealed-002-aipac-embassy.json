@@ -1,0 +1,167 @@
+{
+  "slug": "sealed-002-aipac-embassy",
+  "build": "002",
+  "verdict": "KEPT",
+  "_notes": "2026-05-23 rebuild: 6 Remotion beats so the back-half VO (May 14 / Gaza same day / KEPT stamp) plays against the right picture instead of a 22s frozen CTA card. No FAL stills \u2014 earlier 'EURAEN' map gibberish came from FLUX on the receipt illustration prompt.",
+  "sync_specs": [
+    {
+      "id": "hook",
+      "endAnchors": [
+        "2018",
+        "fourteenth"
+      ]
+    },
+    {
+      "id": "ribbonDate",
+      "startAnchors": [
+        "may",
+        "ribbon"
+      ],
+      "endAnchors": [
+        "aypac",
+        "aipac",
+        "embassy"
+      ]
+    },
+    {
+      "id": "aipacPriority",
+      "startAnchors": [
+        "aypac",
+        "aipac",
+        "listed"
+      ],
+      "endAnchors": [
+        "book",
+        "records"
+      ]
+    },
+    {
+      "id": "gazaSameDay",
+      "startAnchors": [
+        "book",
+        "records",
+        "voters"
+      ],
+      "endAnchors": [
+        "grades",
+        "kept"
+      ]
+    },
+    {
+      "id": "kept",
+      "startAnchors": [
+        "kept",
+        "grades",
+        "promise"
+      ],
+      "endAnchors": [
+        "145"
+      ]
+    },
+    {
+      "id": "cta",
+      "startAnchors": [
+        "145",
+        "promises",
+        "sealed2016"
+      ],
+      "endAnchors": null
+    }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "JERUSALEM EMBASSY \u2014 23 YEARS",
+        "events": [
+          {
+            "date": "1995",
+            "label": "Embassy Act passed",
+            "outcome": "reader"
+          },
+          {
+            "date": "1995\u20132016",
+            "label": "Waivers signed",
+            "outcome": "broken"
+          },
+          {
+            "date": "Dec 2017",
+            "label": "Recognition announced",
+            "outcome": "partial"
+          },
+          {
+            "date": "May 14 2018",
+            "label": "Ribbon cut",
+            "outcome": "kept"
+          }
+        ]
+      }
+    },
+    "ribbonDate": {
+      "youtubeBroll": {
+        "url": "https://www.youtube.com/watch?v=_WvHk57-B14",
+        "start": "00:04",
+        "end": "00:10",
+        "license": "fair-use",
+        "title": "US embassy in Jerusalem: Ivanka Trump, Steven Mnuchin unveil embassy plaque (FRANCE 24 English)",
+        "year": 2018,
+        "notes": "Ivanka + Mnuchin pulling cloth off the US embassy seal; plaque reveal with Jerusalem ISRAEL banner; audio stripped; VO overlay",
+        "duration": 6,
+        "cropTopPct": 1.0,
+        "_verified": "2026-05-23 \u2014 frame-inspected /tmp/embassy/f10.jpg (Ivanka + Mnuchin mid-pull) + f15.jpg (plaque reveal). FRANCE 24 has no burn-in, no top crop needed. Toronto Star BKqoao7HjxQ rejected: was Trump WH press statement with Star TV/Reuters subtitle burn-in, not ceremony floor."
+      },
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "May 14, 2018",
+        "quote": "U.S. Embassy opens in Jerusalem.",
+        "source": "SEALED 2016 \u00b7 AIPAC priority #2"
+      }
+    },
+    "aipacPriority": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "AIPAC PRIORITY #2 \u2014 CHECKED OFF",
+        "events": [
+          {
+            "date": "Pre-2018",
+            "label": "Priority list item #2",
+            "outcome": "reader"
+          },
+          {
+            "date": "May 14 2018 PM",
+            "label": "Ribbon cut in Jerusalem",
+            "outcome": "kept"
+          }
+        ]
+      }
+    },
+    "gazaSameDay": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Gaza border \u00b7 same afternoon",
+        "quote": "~60 Palestinians killed during embassy ceremony.",
+        "source": "May 14, 2018 \u00b7 UN OHCHR / SEALED 2016"
+      }
+    },
+    "kept": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "KEPT",
+        "promise": "Move embassy to Jerusalem",
+        "citation": "AIPAC priority #2 \u00b7 May 14 2018"
+      }
+    },
+    "cta": {
+      "vendor": "motion-card",
+      "line1": "145 PROMISES",
+      "line2": "SEALED2016.COM"
+    }
+  },
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See SEALED-PRODUCTION-PIPELINE-v3.md \u00a7 Doctrine line 4."
+}

@@ -1,0 +1,54 @@
+{
+  "_doc": "Dev fixture for the canonical Cliros test property. Loaded by seed_fixture_report.ts to create a report at panel_review-complete state, so the persona stages (chain_analysis→lien_analysis→defect_review→aol_lock) can be re-run WITHOUT re-hitting GSCCCA and WITHOUT corrupting live state. Chain is the real surviving artifact from report c53fc39b (persona_passes chain_analysis, 2026-05-30). Liens reconstructed faithfully from the audited 22-row set (the original was lost when an empty persona payload wiped the array — the exact bug the data-loss guard now prevents). This is a DEV fixture, not customer data; the real audit runs a fresh GSCCCA search.",
+  "property": {
+    "full_address": "1394 Peachtree Battle Ave NW, Atlanta, GA 30318",
+    "street": "1394 Peachtree Battle Ave NW",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30318",
+    "county": "Fulton",
+    "parcel_id": "17 019500030386",
+    "legal_description": "Tax Parcel 17 019500030386, Fulton County, Georgia, containing 1.41 acres more or less. Refer to most recent recorded deed for full metes-and-bounds."
+  },
+  "search_start_date": "2001-09-17",
+  "search_end_date": "2024-12-13",
+  "years_searched": 23,
+  "chain_of_title": {
+    "entries": [
+      { "id": "deed-24", "type": "warranty", "grantor": "MARIETTA ROAD III LLC", "grantee": "EIKHOFF, CHAD EDWARD / EIKHOFF (HULL), CHRISTINA", "bookPage": "30998-573", "recordedDate": "2001-09-17", "notes": "2001 vesting deed — co-grantees of record are CHAD EDWARD and CHRISTINA (indexed CHRISTINA HULL). Both took record title as co-tenants. Confirm on image that CHRISTINA HULL = CHRISTINA H EIKHOFF (the 2024 QCD grantor)." },
+      { "id": "deed-14", "type": "warranty", "grantor": "NEWMAN, MERIN DAVID / SULLIVAN, EDWARD J", "grantee": "EIKHOFF, CHAD E", "bookPage": "49942-4", "recordedDate": "2011-03-28", "notes": "Surname mismatch with prior grantee — no bridging instrument 2001→2011; true chain break." },
+      { "id": "deed-13", "type": "warranty", "grantor": "EIKHOFF, CHAD EDWARD", "grantee": "Unknown", "bookPage": "50217-66", "recordedDate": "2011-07-15", "pull_image_required": true, "notes": "OUT-DEED from CHAD EDWARD with grantee indexed 'Unknown'. Unreconciled out-conveyance = open finding (notes, NOT breaks[]). Runs from Chad's interest; the 2024 QCD (from CHRISTINA, the 2001 CO-GRANTEE) conveys HER record co-tenancy interest and does NOT round-trip this out-deed." },
+      { "id": "deed-1", "type": "quit_claim", "grantor": "EIKHOFF, CHRISTINA H", "grantee": "EIKHOFF, CHAD E", "bookPage": "68505-336", "recordedDate": "2024-12-13", "pull_image_required": true, "notes": "Most-recent conveyance; CHRISTINA H (the 2001 co-grantee, indexed CHRISTINA HULL) quitclaims HER record co-tenancy interest to CHAD E — NOT merely a spousal interest. Grantee CHAD E = current owner → vesting deed. Bare QCD; M&B from a full warranty in-deed. Confirm CHRISTINA HULL = CHRISTINA H EIKHOFF on image." }
+    ],
+    "breaks": ["Chain break 2001-09-17 (Bk 30998-573) → 2011-03-28 (Bk 49942-4): grantee EIKHOFF, CHAD EDWARD does not match subsequent grantors NEWMAN/SULLIVAN; no recorded bridging conveyance."],
+    "startDate": "2001-09-17",
+    "endDate": "2024-12-13",
+    "yearsSearched": 23
+  },
+  "liens": [
+    { "id": "sd-lien-25", "type": "mortgage", "status": "active", "creditor": "(lender not in index)", "bookPage": "30998-574", "recordedDate": "2001-09-17", "notes": "2001 SD, borrower EIKHOFF; active of record." },
+    { "id": "sd-lien-23", "type": "mortgage", "status": "active", "creditor": "(lender not in index)", "bookPage": "30998-594", "recordedDate": "2001-09-17", "notes": "2001 SD, borrower EIKHOFF; active of record." },
+    { "id": "sd-lien-22", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, ANNELISE N", "bookPage": "35803-374", "recordedDate": "2003-08-26", "referencedBookPage": null, "notes": "2003 orphan cancellation — no indexed referenced book/page." },
+    { "id": "sd-lien-21", "type": "mortgage", "status": "released", "creditor": "(lender not in index)", "bookPage": "36240-515", "recordedDate": "2003-10-14", "referencedBookPage": null },
+    { "id": "sd-lien-20", "type": "mortgage", "status": "released", "creditor": "(lender not in index)", "bookPage": "36240-495", "recordedDate": "2003-10-14", "referencedBookPage": null },
+    { "id": "sd-lien-19", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD E", "bookPage": "36405-96", "recordedDate": "2003-11-03", "referencedBookPage": null, "notes": "2003 orphan cancellation." },
+    { "id": "sd-lien-18", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD EDWARD", "bookPage": "36463-210", "recordedDate": "2003-11-12", "referencedBookPage": null, "notes": "2003 orphan cancellation." },
+    { "id": "sd-lien-17", "type": "mortgage", "status": "released", "creditor": "(lender not in index)", "bookPage": "45112-557", "recordedDate": "2007-06-04", "referencedBookPage": null },
+    { "id": "sd-lien-16", "type": "mortgage", "status": "released", "creditor": "(lender not in index)", "bookPage": "49942-24", "recordedDate": "2011-03-28", "referencedBookPage": null },
+    { "id": "sd-lien-15", "type": "mortgage", "status": "released", "creditor": "(lender not in index)", "bookPage": "49942-6", "recordedDate": "2011-03-28", "referencedBookPage": null },
+    { "id": "sd-lien-12", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD E", "bookPage": "50244-314", "recordedDate": "2011-07-28", "referencedBookPage": "45112-557" },
+    { "id": "sd-lien-11", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD E", "bookPage": "50248-295", "recordedDate": "2011-07-29", "referencedBookPage": "36240-515" },
+    { "id": "sd-lien-10", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD EDWARD", "bookPage": "50265-217", "recordedDate": "2011-08-03", "referencedBookPage": "36240-495" },
+    { "id": "sd-lien-9", "type": "mortgage", "status": "released", "creditor": "(lender not in index)", "bookPage": "51653-58", "recordedDate": "2012-09-14", "referencedBookPage": null },
+    { "id": "sd-lien-8", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD E", "bookPage": "51748-39", "recordedDate": "2012-10-10", "referencedBookPage": "49942-24" },
+    { "id": "sd-lien-7", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD E", "bookPage": "51893-555", "recordedDate": "2012-11-13", "referencedBookPage": "49942-6" },
+    { "id": "sd-lien-6", "type": "mortgage", "status": "released", "creditor": "(lender not in index)", "bookPage": "61524-695", "recordedDate": "2020-04-29", "referencedBookPage": null },
+    { "id": "sd-lien-5", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD E", "bookPage": "61676-571", "recordedDate": "2020-06-01", "referencedBookPage": "51653-58" },
+    { "id": "sd-lien-4", "type": "mortgage", "status": "released", "creditor": "(lender not in index)", "bookPage": "63490-503", "recordedDate": "2021-04-02", "referencedBookPage": null },
+    { "id": "sd-lien-3", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD E", "bookPage": "63946-110", "recordedDate": "2021-06-14", "referencedBookPage": "61524-695" },
+    { "id": "sd-lien-2", "type": "mortgage", "status": "active", "creditor": "(lender not in index)", "bookPage": "68505-338", "recordedDate": "2024-12-13", "notes": "2024 SD co-recorded with the QCD vesting; current-owner encumbrance." },
+    { "id": "sd-lien-0", "type": "mortgage", "status": "released", "creditor": "EIKHOFF, CHAD E", "bookPage": "68567-84", "recordedDate": "2025-01-03", "referencedBookPage": "63490-503" }
+  ],
+  "easements": [],
+  "defects": []
+}

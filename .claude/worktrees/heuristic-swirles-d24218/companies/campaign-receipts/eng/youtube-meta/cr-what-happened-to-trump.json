@@ -1,0 +1,44 @@
+{
+  "slug": "cr-what-happened-to-trump",
+  "mode": "longform",
+  "program": "cr-new-news",
+  "piece_id": "cr-what-happened-to-trump",
+  "privacy": "public",
+  "video_path": "public/longform/cr-what-happened-to-trump.mp4",
+  "title": "He Promised No More Wars. Then 7 B-2s Flew.",
+  "title_alt": [
+    "Seven B-2s. Three Sites. One Vanished Promise.",
+    "The Live Campaign Page Is Gone. The Receipt Is Not.",
+    "What Happened To Trump's No More Wars Promise?"
+  ],
+  "thumbnail": {
+    "template": "cr-new-news",
+    "headline": "404",
+    "subline": "PAGE GONE",
+    "verdict": "RECEIPT",
+    "portrait": "public/photos/wikipedia/donald-trump-2016.jpg"
+  },
+  "packaging": "eng/qc-reports/cr-what-happened-to-trump/mrbeast-packaging.md",
+  "tags": [
+    "politics",
+    "campaign receipts",
+    "sealed 2016",
+    "trump",
+    "iran",
+    "operation midnight hammer",
+    "b-2 bomber",
+    "campaign promise",
+    "foreign policy",
+    "fact check",
+    "wayback machine",
+    "campaign finance"
+  ],
+  "description": "In 2024, the campaign page promised to keep America out of unnecessary foreign wars. The archived page still exists. The live campaign pages now return 404. Then, five months after inauguration, seven B-2s flew to Iran.\n\nThis is not a rage piece. It is a receipt: the archived campaign page, the live 404, the strike, and the SEALED 2016 grades that already showed the contradiction.\n\nFull receipt hub: https://campaignreceipts.com?utm_source=youtube&utm_medium=longform&utm_campaign=cr-what-happened-to-trump\nSEALED 2016 scorecard: https://sealed2016.com?utm_source=youtube&utm_medium=longform&utm_campaign=cr-what-happened-to-trump\nJoin the free newsletter: https://campaignreceipts.com/weekly?utm_source=youtube&utm_medium=longform&utm_campaign=cr-what-happened-to-trump\n\nChapters\n0:00 Seven planes, one page, one vanished promise\n0:33 The 2024 campaign page promise\n1:26 The live pages now return 404\n2:17 Operation Midnight Hammer\n3:41 SEALED 2016: the Iran-deal promise and the war promise\n5:21 The weaponization promise and the First Amendment cases\n7:46 The receipt, not a command to flip your vote\n8:58 CampaignReceipts.com, Sealed2016.com, and the free newsletter\n\nSources\n- PBS NewsHour, Trump's 2016 RNC acceptance speech: https://www.pbs.org/video/watch-presidential-candidate-donald-trump-s-full-speech-1476405218/\n- TIME transcript of the 2016 RNC speech: https://time.com/4418493/republican-convention-donald-trump-transcript/\n- Wayback capture of donaldjtrump.com/issues, Jan. 23, 2025: https://web.archive.org/web/20250123070840/https://www.donaldjtrump.com/issues\n- Wayback capture of donaldjtrump.com/platform, Jan. 23, 2025: https://web.archive.org/web/20250123073008/https://www.donaldjtrump.com/platform\n- Congressional Research Service IN12571, U.S. Strikes on Nuclear Sites in Iran: https://www.congress.gov/crs_external_products/IN/PDF/IN12571/IN12571.1.pdf\n\nCampaign Receipts is a nonpartisan receipt channel. Same standard whichever side the money or promise comes from.\n\n#politics #trump #iran #factcheck #campaignreceipts #sealed2016",
+  "monetization": {
+    "ai_disclosure_line": "Narration: ElevenLabs Jessica (synthesized voice). Research, scripts, and commentary by Campaign Receipts.",
+    "ad_friendly_call": "yellow-expected",
+    "appeal_after": "7d / 1k views"
+  },
+  "video_id": "IvnGLCWXlus",
+  "url": "https://youtu.be/IvnGLCWXlus"
+}

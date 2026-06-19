@@ -1,0 +1,41 @@
+{
+  "slug": "cr-bell-bush-aipac-primary",
+  "format_version": "v2",
+  "aspect_ratio": "9:16",
+  "notes": "CR new-news offset-driven shorts (start_sec from storyboard beat math). cut-shorts-v2.py with --cuts/--body falls back from anchor to start_sec.",
+  "shorts": [
+    {
+      "id": "cr-bush-short-01-hook",
+      "start_sec": 0,
+      "hook_question": "$8M To Beat ONE Congresswoman?",
+      "punchline_overlays": [
+        { "t": 6.0, "duration": 4.0, "text": "MO-1 Democratic primary · Aug 2024" },
+        { "t": 13.0, "duration": 4.0, "text": "Cori Bush vs Wesley Bell" },
+        { "t": 19.0, "duration": 5.0, "text": "Outside money, on the record." }
+      ],
+      "footer": "Watch full receipt → @CampaignReceipts"
+    },
+    {
+      "id": "cr-bush-short-02-money-flow",
+      "start_sec": 100,
+      "hook_question": "How did $8 million reach St. Louis mailboxes?",
+      "punchline_overlays": [
+        { "t": 4.0, "duration": 5.0, "text": "United Democracy Project · AIPAC's super-PAC" },
+        { "t": 11.0, "duration": 5.0, "text": "FEC Schedule E · oppose Cori Bush" },
+        { "t": 19.0, "duration": 5.0, "text": "Public filings. Look them up." }
+      ],
+      "footer": "Watch full receipt → @CampaignReceipts"
+    },
+    {
+      "id": "cr-bush-short-03-verdict",
+      "start_sec": 195,
+      "hook_question": "$8 million bought how many points?",
+      "punchline_overlays": [
+        { "t": 3.0, "duration": 4.0, "text": "Bell 51% · Bush 46%" },
+        { "t": 10.0, "duration": 5.0, "text": "5 points. A sliver, not a mandate." },
+        { "t": 18.0, "duration": 5.0, "text": "Read the mailer fine print. Then vote." }
+      ],
+      "footer": "Watch full receipt → @CampaignReceipts"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+---
+description: >-
+  Portfolio design & motion stack — when to use Claude Design (Anthropic),
+  Open Design (OSS), and Higgsfield (video); handoff to implementation in
+  companies/* and credential rules.
+globs:
+  - "**/personas/designer/**"
+  - "**/personas/brand-design/**"
+  - "**/personas/brand-manager/**"
+  - "**/personas/book-illustrator/**"
+  - "**/personas/video-producer/**"
+alwaysApply: false
+---
+
+## Portfolio design & video stack (Cursor skills)
+
+Use the matching **Cursor Agent Skill** (`SKILL.md`) for depth; this rule is the **routing layer** when working under **design / brand / illustration / video** personas.
+
+| Tool | Skill name | Role |
+|------|------------|------|
+| **Anthropic Claude Design** | `claude-design` | Hosted design + brand systems + exports; Claude subscription / Team workflows; handoff to Claude Code when applicable. |
+| **Open Design** (nexu-io/open-design) | `open-design` | Local-first OSS alternative; PATH agents (incl. Cursor); BYOK; prototype/deck exports before implementing in repo. |
+| **Higgsfield** | `higgsfield` | AI **video & image** generation; motion/marketing pipelines; pair with Video Producer / compliance gates. |
+
+### Picking a tool
+
+- **Brand-approved comps + Claude org** → **Claude Design** first.
+- **Self-hosted / OSS / CLI parity with Cursor** → **Open Design**.
+- **Generated video or stills for ads, shorts, long-form** → **Higgsfield** (subject to founder spend + TOS).
+
+### Implementation handoff
+
+- Artifacts from any tool are **inputs**: attach exports or links to **issues / PRs**; **re-build** in target stacks (`companies/*` Next.js, Shopify Liquid, etc.).
+- **Never commit** platform API keys or session tokens; follow **credentials-and-push-safety**.

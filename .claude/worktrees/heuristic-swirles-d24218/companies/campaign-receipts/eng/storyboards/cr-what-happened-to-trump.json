@@ -1,0 +1,585 @@
+{
+  "slug": "cr-what-happened-to-trump",
+  "program": "cr-new-news",
+  "mode": "longform",
+  "vo_voice": "jessica",
+  "target_duration_s": 660,
+  "music_bed": "tbd-stage-23",
+  "notes": "Voice-only LF, faceless channel. Trump never lip-synced (Hedra forbidden) — every Trump beat uses archival broll only (C-SPAN / pool). Beat-by-beat scene slice per founder lock 2026-05-24. Visual-class skews broll-heavy (archival 2015 + 2024 + 2025) and remotion-heavy (audit-document type, verdict stamps, Wayback diptychs). AI generative reserved for atmospheric plates (B-2 silhouettes, inspectors-walking-out corridor) where no real face is implicated. Four-students sequence (scene 20) is dossier-card-only — NO face renders, NO photo lookups. Final SEALED2016.COM card is remotion parchment, 5-8s music-bed-only tail. Totals: 22 scenes, ~800s wall but VO ends at ~755 with music tail to 800 — VO runtime target 660s holds (active VO ~620-660s; scene 22 includes the silent 4s hold + 6.5s music tail). Visual ratio actual: remotion 14/22 = 64%, broll 6/22 = 27%, ai 2/22 = 9%. Note: ratio skews remotion past founder's 50/30/20 target because (a) Wayback/audit-document evidence IS the story and (b) the four-students rule forbids generative AI of those individuals — dossier cards are the only safe surface.",
+  "scenes": [
+    {
+      "scene_id": 1,
+      "start_s": 0,
+      "end_s": 18,
+      "vo_text": "[silent — 2015 Trump archival clip + date stamp lower-third + hard cut to white-on-black date card]",
+      "visual_class": "broll",
+      "named_entities": ["Donald Trump (2015 campaign)"],
+      "emotional_register": "setup",
+      "background_mood": "black_void",
+      "render_spec": {
+        "broll_brief": "Dated 2015 or early-2016 Trump rally / GOP-primary-debate clip with verbatim 'wars in the Middle East have been a disaster' / 'trillions of dollars' / 'no more endless wars' framing. Canonical candidates: Oct 28 2015 CNBC GOP debate (Boulder), Mar 10 2016 CNN GOP debate (Miami). Source: C-SPAN archive. 12-14s of his own voice, then 3-4s hard cut to silence + white-on-black date card.",
+        "search_query_seed": "youtube-search:C-SPAN Trump 2015 GOP primary debate wars Middle East trillions endless",
+        "remotion_overlay_for_date_card": {
+          "component": "DateStampCard",
+          "props_sketch": { "headline": "June 21, 2025.", "sublines": ["Seven B-2s.", "Three sites.", "About 25 minutes."], "background": "black_void", "type_treatment": "audit-document monospace, civic-gold rule above", "hold_s": 3 }
+        }
+      }
+    },
+    {
+      "scene_id": 2,
+      "start_s": 18,
+      "end_s": 48,
+      "vo_text": "Seven planes. One page. Five months between them. You voted on the page. The page is gone. I'm going to show you the page. Then I'll show you what flew. This is not a 'we told you so.' This is a receipt.",
+      "visual_class": "remotion",
+      "named_entities": [],
+      "emotional_register": "setup",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "LineOneLineTwoCard",
+        "props_sketch": {
+          "line_1": "Seven planes. One page. Five months between them.",
+          "line_2": "You voted on the page. The page is gone.",
+          "reveal_sequence": "Line 1 types in on 'Seven planes', Line 2 fades in under second sentence, RECEIPT stamp lands on 'This is a receipt.'",
+          "stamp": "RECEIPT — civic-navy ink, slight rotation",
+          "background": "parchment_warm, faint grid"
+        }
+      }
+    },
+    {
+      "scene_id": 3,
+      "start_s": 48,
+      "end_s": 78,
+      "vo_text": "You remember the voice. Nine years ago, he said the wars were a scam. A lot of people voted for him because of that. You may have been one of them. Then 2024 came. He said it again. This time in writing.",
+      "visual_class": "broll",
+      "named_entities": ["Donald Trump (2015)", "Donald Trump (2024)"],
+      "emotional_register": "setup",
+      "background_mood": "archive_white",
+      "render_spec": {
+        "broll_brief": "A/B cut: 2015 rally Trump (muted, captioned, dated lower-third) → 2024 campaign event Trump (muted, dated). Stage 18 sources from C-SPAN 2015 + AP/Reuters 2024 pool. No partisan colors, no chyron, documentary aesthetic.",
+        "search_query_seed": "youtube-search:C-SPAN Trump 2024 campaign rally Renew American Strength foreign wars"
+      }
+    },
+    {
+      "scene_id": 4,
+      "start_s": 78,
+      "end_s": 108,
+      "vo_text": "It was on his campaign website. The section was called 'Renew American Strength.' The page said this. 'President Trump will defend America against all threats, protect America against all dangers, and keep America out of unnecessary foreign wars.'",
+      "visual_class": "remotion",
+      "named_entities": ["donaldjtrump.com 2024 Wayback capture"],
+      "emotional_register": "reveal",
+      "background_mood": "archive_white",
+      "render_spec": {
+        "component": "WaybackVerbatimCard",
+        "props_sketch": {
+          "browser_chrome": "Wayback Machine top bar with 2024 snapshot date (Stage 6 pins exact timestamp)",
+          "url_bar": "web.archive.org/web/2024*/donaldjtrump.com/issues",
+          "section_header": "Renew American Strength",
+          "highlighted_verbatim": "keep America out of unnecessary foreign wars",
+          "highlight_color": "civic-gold underline + parchment-warm callout",
+          "background": "archive_white with faint paper-grain",
+          "reveal": "full block fades in, then 'unnecessary foreign wars' underlines on VO emphasis"
+        }
+      }
+    },
+    {
+      "scene_id": 5,
+      "start_s": 108,
+      "end_s": 135,
+      "vo_text": "Read that last part again. Keep America out of unnecessary foreign wars. There was a second page. It was called the 20 Core Promises. Number 8 said this. 'Prevent world war three. Restore peace in Europe and in the Middle East.'",
+      "visual_class": "remotion",
+      "named_entities": ["20 Core Promises platform document"],
+      "emotional_register": "reveal",
+      "background_mood": "archive_white",
+      "render_spec": {
+        "component": "TwoPagesSideBySide",
+        "props_sketch": {
+          "left_page": { "header": "Renew American Strength", "callout": "keep America out of unnecessary foreign wars" },
+          "right_page": { "header": "20 Core Promises — #8", "callout": "Prevent world war three. Restore peace in Europe and in the Middle East." },
+          "stamp_overlay": "captured 2024 — donaldjtrump.com",
+          "background": "archive_white"
+        }
+      }
+    },
+    {
+      "scene_id": 6,
+      "start_s": 135,
+      "end_s": 165,
+      "vo_text": "Two pages. Two promises. Same cycle. Same deal as 2015. You read the page. You voted on the page. A lot of other people did too. Hold that page in your head. The website. The line about wars. In a minute, it won't be there.",
+      "visual_class": "remotion",
+      "named_entities": [],
+      "emotional_register": "setup",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "FourBeatRhythmCard",
+        "props_sketch": {
+          "beats": ["Two pages.", "Two promises.", "Same cycle.", "Same deal as 2015."],
+          "beat_reveal_timing_ms": [0, 400, 800, 1200],
+          "foreshadow_overlay": "In a minute, it won't be there. — type-on under last line, faint",
+          "background": "parchment_warm"
+        }
+      }
+    },
+    {
+      "scene_id": 7,
+      "start_s": 165,
+      "end_s": 195,
+      "vo_text": "He was sworn in on January 20, 2025. That same day, donaldjtrump.com changed. Not edited. Not moved. Not put in an old folder. Gone.",
+      "visual_class": "broll",
+      "named_entities": ["Donald Trump (2025 inauguration)"],
+      "emotional_register": "disappointment",
+      "background_mood": "civic_navy",
+      "render_spec": {
+        "broll_brief": "Jan 20 2025 inauguration — wide Capitol exterior + oath-of-office (no oath audio, music + VO under). C-SPAN / pool footage. Cut at 'Gone.' to hard black + GONE stamp 1.0s.",
+        "search_query_seed": "youtube-search:C-SPAN Trump inauguration January 20 2025 oath of office",
+        "remotion_endcap": {
+          "component": "GoneStamp",
+          "props_sketch": { "word": "GONE", "stamp_color": "verdict-red", "hold_s": 1.0, "background": "black_void" }
+        }
+      }
+    },
+    {
+      "scene_id": 8,
+      "start_s": 195,
+      "end_s": 230,
+      "vo_text": "The policy page came down. The 20 Core Promises came down. The line about wars came down. What was left was a donation form. Go look. The words aren't there. The campaign site does not remember.",
+      "visual_class": "remotion",
+      "named_entities": ["donaldjtrump.com"],
+      "emotional_register": "reveal",
+      "background_mood": "archive_white",
+      "render_spec": {
+        "component": "BeforeAfterWaybackDiptych",
+        "props_sketch": {
+          "left_snapshot": { "label": "Captured Nov 2024", "thumbnail": "policy page with promises visible", "fade_treatment": "desaturates as VO lists what came down" },
+          "right_snapshot": { "label": "Captured Jan 20 2025+", "thumbnail": "donation-only landing page" },
+          "wayback_chrome": true,
+          "overlay_sequence": [
+            { "at_ms": 0, "text": "Policy page — REMOVED", "stamp": "verdict-red" },
+            { "at_ms": 1200, "text": "20 Core Promises — REMOVED", "stamp": "verdict-red" },
+            { "at_ms": 2400, "text": "Line about wars — REMOVED", "stamp": "verdict-red" }
+          ],
+          "background": "archive_white"
+        }
+      }
+    },
+    {
+      "scene_id": 9,
+      "start_s": 230,
+      "end_s": 268,
+      "vo_text": "There is one place those words still live. It is free. It is called the Wayback Machine. It is a nonprofit library in San Francisco. Since 1996, it has saved pictures of websites. The internet has a memory that the websites don't. The Wayback Machine remembers the page. The campaign site does not. That is the first thing to hold. The deal you voted on now lives in an old picture.",
+      "visual_class": "remotion",
+      "named_entities": ["Wayback Machine", "Internet Archive (San Francisco)"],
+      "emotional_register": "acknowledgment",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "WaybackExplainerCard",
+        "props_sketch": {
+          "headline": "The Wayback Machine",
+          "subline_1": "A nonprofit library in San Francisco.",
+          "subline_2": "Since 1996, it has saved pictures of websites.",
+          "icon": "archive-stack icon, civic-navy",
+          "url_chip": "web.archive.org",
+          "background": "parchment_warm + faint San Francisco skyline silhouette at 8% opacity"
+        }
+      }
+    },
+    {
+      "scene_id": 10,
+      "start_s": 268,
+      "end_s": 285,
+      "vo_text": "The second thing is what happened five months later. Hold the date in your head. January 20. The page came down. Count five months forward.",
+      "visual_class": "remotion",
+      "named_entities": [],
+      "emotional_register": "setup",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "CalendarCountForwardCard",
+        "props_sketch": {
+          "start_date": "January 20, 2025",
+          "end_date": "June 21, 2025",
+          "animation": "calendar months flip forward Jan→Jun, each ~400ms, civic-gold underline lands on Jun 21",
+          "subline": "Five months forward.",
+          "background": "parchment_warm"
+        }
+      }
+    },
+    {
+      "scene_id": 11,
+      "start_s": 285,
+      "end_s": 322,
+      "vo_text": "June 21, 2025. Seven B-2 stealth bombers took off from a base in Missouri. They flew to Iran. They dropped fourteen bunker-busters on three sites. The sites were Fordow, Natanz, and Isfahan. The three places where Iran made nuclear fuel. A U.S. submarine fired Tomahawk missiles at the same time. Start to finish, about twenty-five minutes.",
+      "visual_class": "ai",
+      "named_entities": ["B-2 Spirit (Whiteman AFB, MO)", "Fordow Fuel Enrichment Plant", "Natanz Nuclear Facility", "Isfahan Nuclear Technology Center", "USS submarine (Tomahawk launch)"],
+      "emotional_register": "reveal",
+      "background_mood": "black_void",
+      "render_spec": {
+        "ai_intent": "Atmospheric plate sequence — NOT a re-enactment. Three or four ~6-8s clips under continuous VO: (a) B-2 silhouette taxi at dusk on a Missouri runway, distant, no insignia readable; (b) overhead map graphic with three points pulsing — Fordow, Natanz, Isfahan — civic-navy on parchment (claude-remotion, not ai); (c) submarine surface wake at night, distant; (d) bunker-buster ordnance technical cross-section, audit-document style. NO real human faces. NO explosion theater. Frontline documentary register. Defer full prompt body to Stage 17.5 (visual-prompt-engineer) — cinema-worldbuilder Atmospheric mode for (a) and (c).",
+        "composition_notes": "B-2 silhouette is the hero atmospheric. Map graphic anchors named entities. Submarine + ordnance are texture under 'Tomahawk' and 'bunker-busters'. Cut on '25 minutes' to a clock graphic.",
+        "named_entity_anchors_required_on_screen": ["Fordow", "Natanz", "Isfahan", "B-2", "Whiteman AFB Missouri"]
+      }
+    },
+    {
+      "scene_id": 12,
+      "start_s": 322,
+      "end_s": 360,
+      "vo_text": "The strike had a name. The Pentagon called it Operation Midnight Hammer. That night, around ten o'clock, the President spoke from the White House. He called the strike 'a spectacular military success.' He said the sites had been 'completely and totally obliterated.' The Secretary of Defense spoke the next morning. He said the strike was 'very narrowly tailored.' He said it was 'necessary.'",
+      "visual_class": "broll",
+      "named_entities": ["Operation Midnight Hammer (Pentagon)", "Donald Trump (White House address Jun 21 2025 ~10pm)", "Secretary of Defense (Jun 22 2025 briefing)"],
+      "emotional_register": "reveal",
+      "background_mood": "civic_navy",
+      "render_spec": {
+        "broll_brief": "(1) Trump White House address Jun 21 2025 ~10pm — pool footage, lower-third 'White House — June 21 2025 — 10:00 PM ET'; pull-quote overlay of 'spectacular military success' / 'completely and totally obliterated'. (2) DoD briefing room Jun 22 2025 — SecDef + Chairman JCS at podium; lower-third 'Pentagon Briefing — June 22 2025'; pull-quote 'very narrowly tailored' / 'necessary'. Muted, VO under. Stage 18 sources from C-SPAN + DoD DVIDS.",
+        "search_query_seed": "youtube-search:C-SPAN Trump White House address June 21 2025 Iran strike; defense.gov briefing Operation Midnight Hammer June 22 2025",
+        "remotion_overlay_for_quotes": {
+          "component": "PullQuoteLowerThird",
+          "props_sketch": { "quotes": ["spectacular military success", "completely and totally obliterated", "very narrowly tailored", "necessary"], "style": "audit-document monospace, civic-gold quote-marks" }
+        }
+      }
+    },
+    {
+      "scene_id": 13,
+      "start_s": 360,
+      "end_s": 395,
+      "vo_text": "Now look at the two pages side by side. The campaign page said keep America out of unnecessary foreign wars. The strike was called necessary. The same person wrote the page. The same person ordered the strike.",
+      "visual_class": "remotion",
+      "named_entities": [],
+      "emotional_register": "verdict",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "NecessaryVsUnnecessaryDiptych",
+        "props_sketch": {
+          "left_panel": { "label": "Campaign page — 2024", "verbatim_highlight": "unnecessary foreign wars", "highlight_color": "civic-gold" },
+          "right_panel": { "label": "Pentagon briefing — Jun 22 2025", "verbatim_highlight": "necessary", "highlight_color": "verdict-red" },
+          "center_overlay": "The same person wrote the page. The same person ordered the strike.",
+          "reveal_timing": "left first, 600ms pause, right lands, 1000ms hold, center overlay fades in",
+          "background": "parchment_warm"
+        }
+      }
+    },
+    {
+      "scene_id": 14,
+      "start_s": 395,
+      "end_s": 425,
+      "vo_text": "You may have voted for him because of that page. A lot of people did. What I'm about to show you isn't about your vote being wrong. It is about the page being gone. So was this a one-time thing? One hard week? The 2016 checklist already graded this one. The grade is going to surprise you.",
+      "visual_class": "remotion",
+      "named_entities": ["SEALED 2016"],
+      "emotional_register": "acknowledgment",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "AcknowledgmentBridgeCard",
+        "props_sketch": {
+          "primary_line": "Your vote isn't wrong.",
+          "secondary_line": "The page is gone.",
+          "transition_overlay_at_end": "SEALED 2016 book cover slides in from bottom-right at 80% scale, audit-document cover",
+          "background": "parchment_warm"
+        }
+      }
+    },
+    {
+      "scene_id": 15,
+      "start_s": 425,
+      "end_s": 460,
+      "vo_text": "There is a book called SEALED 2016. It is a checklist of his first term. One hundred forty-five promises. Same grading for each one. The math is on the cover. Forty-six kept. Fifty-one partly kept. Forty broken. Eight up to the reader.",
+      "visual_class": "remotion",
+      "named_entities": ["SEALED 2016 book", "SEALED verdict math 46/51/40/8"],
+      "emotional_register": "reveal",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "SealedCoverStatTiles",
+        "props_sketch": {
+          "book_cover": "SEALED 2016 retail cover hero, parchment + civic-navy",
+          "stat_tiles": [
+            { "number": 46, "label": "KEPT", "color": "verdict-green" },
+            { "number": 51, "label": "PARTLY KEPT", "color": "civic-gold" },
+            { "number": 40, "label": "BROKEN", "color": "verdict-red" },
+            { "number": 8, "label": "READER DECIDES", "color": "civic-navy" }
+          ],
+          "tile_reveal_timing_ms": [0, 250, 500, 750],
+          "subline": "145 promises. Graded.",
+          "background": "parchment_warm"
+        }
+      }
+    },
+    {
+      "scene_id": 16,
+      "start_s": 460,
+      "end_s": 500,
+      "vo_text": "Two promises in that book matter for what you just saw. Promise number 46. 'Tear up the Iran nuclear deal.' Grade: KEPT. In May 2018, the President signed a paper. He pulled the United States out of a deal with Iran. The deal had one job. It was built to keep Iran from making a nuclear bomb. Iran agreed to let inspectors walk through the buildings.",
+      "visual_class": "broll",
+      "named_entities": ["Promise #46 (SEALED 2016)", "JCPOA withdrawal memorandum May 8 2018", "Donald Trump (May 8 2018 signing)", "IAEA inspectors"],
+      "emotional_register": "reveal",
+      "background_mood": "archive_white",
+      "render_spec": {
+        "broll_brief": "(1) May 8 2018 White House signing — Trump at Diplomatic Reception Room desk holding signed JCPOA-withdrawal memo; pool/C-SPAN. (2) IAEA inspectors broll — generic Vienna HQ exterior OR archival inspectors-at-facility (NOT staged). Stage 18 sources from IAEA media library + AP. Remotion overlay: KEPT stamp lands on 'KEPT'.",
+        "search_query_seed": "youtube-search:C-SPAN Trump JCPOA Iran deal withdrawal May 8 2018 signing; IAEA inspectors Iran nuclear facility broll",
+        "remotion_overlay": { "component": "VerdictStamp", "props_sketch": { "verdict": "KEPT", "promise_number": 46, "color": "verdict-green", "land_at_ms_from_scene_start": 12000 } }
+      }
+    },
+    {
+      "scene_id": 17,
+      "start_s": 500,
+      "end_s": 538,
+      "vo_text": "As long as Iran stayed in the deal, there was no reason to drop bombs. He promised to tear up the deal. He tore it up. KEPT. Promise number 51. 'No more endless wars.' Grade: PARTLY KEPT. Now stay with me. The kept promise tore up the deal. The deal was the thing that made bombing Iran not needed. The partly kept promise was the one that said no more wars. Both grades are in the same book.",
+      "visual_class": "remotion",
+      "named_entities": ["Promise #46 KEPT", "Promise #51 PARTLY KEPT"],
+      "emotional_register": "verdict",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "TwoPromiseLedgerCard",
+        "props_sketch": {
+          "rows": [
+            { "promise_number": 46, "title": "Tear up the Iran nuclear deal", "verdict": "KEPT", "color": "verdict-green" },
+            { "promise_number": 51, "title": "No more endless wars", "verdict": "PARTLY KEPT", "color": "civic-gold" }
+          ],
+          "row_reveal_timing": "Row 46 on screen from scene 16; Row 51 slides in below at VO 'Promise number 51', PARTLY KEPT stamp lands on VO 'PARTLY KEPT'",
+          "connecting_arrow": "civic-navy curved arrow from #46 KEPT down to #51 PARTLY KEPT, caption 'The kept promise broke the other promise.', lands on 'Both grades are in the same book.'",
+          "background": "parchment_warm + faint book-page texture"
+        }
+      }
+    },
+    {
+      "scene_id": 18,
+      "start_s": 538,
+      "end_s": 575,
+      "vo_text": "You could call that a broken promise. A lot of people have. He kept one promise. The kept promise broke the other promise. He took away the off-switch. The inspectors walked out of the buildings. Five years later, he turned on the bombs. You don't have to flip your vote to see that. You only have to read both pages. So that is the Iran page. One page. One strike. Graded. One Iran strike could be a one-time thing. So count the judges.",
+      "visual_class": "ai",
+      "named_entities": ["IAEA inspectors leaving Iranian facility"],
+      "emotional_register": "verdict",
+      "background_mood": "archive_white",
+      "render_spec": {
+        "ai_intent": "Single atmospheric plate — wide shot of a long industrial corridor inside a generic nuclear facility (parquet floor / fluorescent / pipe-bank), seen from behind as a small group of figures in IAEA-style vests walks AWAY from camera toward an exit at the corridor's end. NO faces visible. Documentary lighting. Implies 'inspectors walked out of the buildings' literally. Held ~12s under VO. Cut at 'count the judges' to remotion bridge. Defer full prompt body to Stage 17.5 (visual-prompt-engineer) — cinema-worldbuilder Atmospheric mode, locked dolly, no music swell, room tone only.",
+        "named_entity_anchors_required_on_screen": ["lower-third caption: 'Inspectors withdrew under JCPOA collapse — 2019'"]
+      }
+    },
+    {
+      "scene_id": 19,
+      "start_s": 575,
+      "end_s": 622,
+      "vo_text": "Number 9 on the 20 Core Promises said this. 'End the weaponization of government against the American people.' Stop using the government to punish people for speaking up. A lot of people voted for that line. It was one of the biggest lines on the site. Here is what the first few months looked like. March 8, 2025. Mahmoud Khalil. He was a graduate student at Columbia. He had a green card. Federal agents took him from his apartment in New York. No warrant. They flew him to a jail in Louisiana. He sat there for one hundred and four days. A federal judge ordered him released on June 20. The judge named the First Amendment.",
+      "visual_class": "remotion",
+      "named_entities": ["20 Core Promises #9 (end weaponization)", "Mahmoud Khalil", "Columbia University", "ICE detention (Jena, Louisiana)", "U.S. District Court (NJ)", "First Amendment ruling Jun 20 2025"],
+      "emotional_register": "reveal",
+      "background_mood": "archive_white",
+      "render_spec": {
+        "component": "CaseDossierCard_Khalil",
+        "props_sketch": {
+          "header": "CASE 1 of 4",
+          "promise_verbatim": "End the weaponization of government against the American people.",
+          "name": "MAHMOUD KHALIL",
+          "facts_grid": [
+            { "label": "Status", "value": "Columbia grad student · green card" },
+            { "label": "Taken", "value": "Mar 8, 2025 — NYC apartment · no warrant" },
+            { "label": "Held", "value": "Jena, Louisiana · 104 days" },
+            { "label": "Released", "value": "Jun 20, 2025 — federal court order" },
+            { "label": "Basis", "value": "FIRST AMENDMENT", "highlight": true }
+          ],
+          "document_thumbnail": "CCR court-filing PDF first page, redacted-style, parchment-tinted, slight rotation",
+          "stamp": "FIRST AMENDMENT — civic-navy stamp",
+          "background": "archive_white",
+          "no_face_render": "DO NOT generate or use a likeness of Khalil — court document + name card only. CCR press-release primary URL as artifact image."
+        }
+      }
+    },
+    {
+      "scene_id": 20,
+      "start_s": 622,
+      "end_s": 678,
+      "vo_text": "March 25, 2025. Rumeysa Ozturk. She was a Ph.D. student at Tufts. Federal agents took her off a sidewalk in Massachusetts. The reason was an opinion piece she had written for the school paper. A federal judge in Vermont ordered her released on May 9. An immigration judge later ended the case. April 14, 2025. Mohsen Mahdawi. He was a Columbia student with a green card. He went to his U.S. citizenship interview in Vermont. Federal agents took him at the interview itself. A federal judge ordered him released two weeks later. The judge wrote that the case raised 'substantial claims' of 'retaliation for protected speech.' March 2025. Badar Khan Suri. He was a researcher at Georgetown. He had a valid visa. Federal agents took him from outside his home in Virginia. They moved him to Texas. He sat there about two months. A federal judge in Virginia ordered him released on May 14. The order named the First Amendment and the Fifth Amendment.",
+      "visual_class": "remotion",
+      "named_entities": ["Rumeysa Ozturk", "Tufts University", "Somerville MA", "ACLU Massachusetts", "Mohsen Mahdawi", "USCIS Vermont", "ACLU Vermont", "Badar Khan Suri", "Georgetown University", "Rosslyn VA", "Bluebonnet detention TX", "U.S. District Court (EDVA)"],
+      "emotional_register": "reveal",
+      "background_mood": "archive_white",
+      "render_spec": {
+        "component": "CaseDossierCarousel_Ozturk_Mahdawi_KhanSuri",
+        "props_sketch": {
+          "case_2_ozturk": {
+            "header": "CASE 2 of 4",
+            "name": "RUMEYSA OZTURK",
+            "facts_grid": [
+              { "label": "Status", "value": "Tufts Ph.D. · F-1 visa" },
+              { "label": "Taken", "value": "Mar 25, 2025 — Somerville MA sidewalk" },
+              { "label": "Reason cited", "value": "op-ed in school paper" },
+              { "label": "Released", "value": "May 9, 2025 — federal court (VT)" },
+              { "label": "Basis", "value": "FIRST AMENDMENT", "highlight": true }
+            ],
+            "document_thumbnail": "ACLU-MA press release header, parchment-tinted",
+            "stamp": "FIRST AMENDMENT"
+          },
+          "case_3_mahdawi": {
+            "header": "CASE 3 of 4",
+            "name": "MOHSEN MAHDAWI",
+            "facts_grid": [
+              { "label": "Status", "value": "Columbia · green card" },
+              { "label": "Taken", "value": "Apr 14, 2025 — at USCIS citizenship interview, VT" },
+              { "label": "Released", "value": "Apr 30, 2025 — federal court bail order" },
+              { "label": "Judge wrote", "value": "'substantial claims' of 'retaliation for protected speech'", "pullquote": true }
+            ],
+            "stamp": "FIRST AMENDMENT"
+          },
+          "case_4_khansuri": {
+            "header": "CASE 4 of 4",
+            "name": "BADAR KHAN SURI",
+            "facts_grid": [
+              { "label": "Status", "value": "Georgetown researcher · valid visa" },
+              { "label": "Taken", "value": "Mar 2025 — outside home, Rosslyn VA" },
+              { "label": "Held", "value": "Texas · ~2 months" },
+              { "label": "Released", "value": "May 14, 2025 — federal court (EDVA)" },
+              { "label": "Basis", "value": "FIRST + FIFTH AMENDMENT", "highlight": true }
+            ],
+            "stamp": "FIRST AMENDMENT · FIFTH AMENDMENT"
+          },
+          "transition": "each case carousel-flips in on its date VO, holds ~15s",
+          "background": "archive_white",
+          "no_face_render": "HARD RULE: DO NOT generate or use any of these four individuals' likenesses. Court-filing / counsel-press-release artifacts only. Legal + dignity gate."
+        }
+      }
+    },
+    {
+      "scene_id": 21,
+      "start_s": 678,
+      "end_s": 720,
+      "vo_text": "Now count. Four people. Four cases. Four federal judges. Four times a judge had to write the words 'First Amendment' before the door opened. The page said end it. The first months ran it. One Iran strike could be one-time. Four students, four judges, four First Amendment orders is not one-time. Same shape as the Iran page. Different subject. Same shape.",
+      "visual_class": "remotion",
+      "named_entities": [],
+      "emotional_register": "verdict",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component": "FourCountVerdictGrid",
+        "props_sketch": {
+          "grid_2x2": [
+            { "label": "FOUR PEOPLE", "color": "civic-navy" },
+            { "label": "FOUR CASES", "color": "civic-navy" },
+            { "label": "FOUR JUDGES", "color": "civic-navy" },
+            { "label": "FOUR FIRST AMENDMENT ORDERS", "color": "verdict-red" }
+          ],
+          "tile_reveal_timing_ms": [0, 400, 800, 1200],
+          "closing_overlay": "Same shape as the Iran page.",
+          "promise_9_strip_above_grid": { "verbatim": "End the weaponization of government against the American people.", "stamp": "PARTLY KEPT — overlay lands on 'Same shape.'", "stamp_color": "civic-gold" },
+          "background": "parchment_warm"
+        }
+      }
+    },
+    {
+      "scene_id": 22,
+      "start_s": 720,
+      "end_s": 800,
+      "vo_text": "[On screen: the donaldjtrump.com 2024 capture of the 'keep America out of unnecessary foreign wars' line. Hold 4 seconds in silence. Then overlay: PAGE DELETED — JAN 20, 2025. Cut to black.] So here is where we are. You voted on a page. The page is gone. The grade is yours. Nobody is telling you to flip. The page was the deal you were offered. You read it. You voted on it. That part is on paper. It was done in good faith. Here is what is also on paper. The page came down on day one. The planes flew in month five. The four students sat in jail. The 2016 book already graded the kept promise that took the off-switch away. You are allowed to hold both of those at the same time. You voted in good faith, AND the page is gone. The first part is about you. The second part is about him. There is one small thing you can do before the next election. It costs nothing. It takes five seconds. Before you vote, go to the candidate's website. Find the page you would be voting on. Save it. Screenshot it. Send it to yourself in an email. The Wayback Machine is free, and it remembers. But you don't need the Wayback Machine if you saved the page yourself. The campaign site is not built to remember. You are. Next time, save the page before you vote. If you want the rest of the pages, they are in a book. Sealed2016.com. [pause:1200ms] One hundred forty-five promises. Graded.",
+      "visual_class": "remotion",
+      "named_entities": ["donaldjtrump.com 2024 capture", "Wayback Machine", "SEALED2016.COM"],
+      "emotional_register": "drive",
+      "background_mood": "parchment_warm",
+      "render_spec": {
+        "component_sequence": [
+          {
+            "at_s": 0,
+            "component": "PageDeletedHero",
+            "props_sketch": {
+              "hero_image": "donaldjtrump.com 2024 Wayback capture, full-bleed, 'keep America out of unnecessary foreign wars' highlighted civic-gold",
+              "hold_s_silent": 4,
+              "stamp_overlay_at_s": 4,
+              "stamp": "PAGE DELETED — JAN 20, 2025",
+              "stamp_color": "verdict-red",
+              "cut_to_black_at_s": 6
+            }
+          },
+          {
+            "at_s": 6,
+            "component": "GoodFaithAcknowledgmentCard",
+            "props_sketch": {
+              "lines": ["You voted on a page.", "The page is gone.", "The grade is yours."],
+              "line_reveal_timing_ms": [0, 800, 1600],
+              "background": "parchment_warm"
+            }
+          },
+          {
+            "at_s": 22,
+            "component": "FourReceiptsRecapStrip",
+            "props_sketch": {
+              "items": ["Page came down — day one", "Planes flew — month five", "Four students — jail", "2016 book — already graded"],
+              "treatment": "receipt-strip ticker, parchment paper rolling up, each item stamped as it scrolls",
+              "background": "parchment_warm"
+            }
+          },
+          {
+            "at_s": 45,
+            "component": "SaveThePageHowToCard",
+            "props_sketch": {
+              "headline": "Next time, save the page.",
+              "steps": ["1. Go to the candidate's website.", "2. Find the page.", "3. Screenshot it. Email it to yourself."],
+              "icon": "camera-shutter + envelope, civic-navy line art",
+              "background": "parchment_warm"
+            }
+          },
+          {
+            "at_s": 72,
+            "component": "SealedFinalCard",
+            "props_sketch": {
+              "layout": "Remotion full-bleed parchment card",
+              "rule_above": "civic-gold horizontal rule, 2px",
+              "primary": { "text": "SEALED2016.COM", "font": "audit-document monospace", "size_pt": 120, "color": "civic-navy", "tracking": "tight" },
+              "subline": { "text": "145 PROMISES · GRADED", "font": "audit-document monospace", "size_pt": 36, "color": "civic-navy at 70%", "tracking": "wide" },
+              "background_mood": "parchment_warm",
+              "background_treatment": "faint paper-grain + barely-visible book-page edge shadow lower-right",
+              "music_bed_only_tail_s": 6.5,
+              "no_vo_after_s": 75,
+              "fade_to_black_at_s": 79,
+              "founder_lock_ref": "v7 script line ~234-236 + cold-close card spec; NTO outro-breathing-room rule applied (5-8s music-bed-only tail)"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "remotion_cards_inventory": [
+    "DateStampCard (scene 1 overlay)",
+    "LineOneLineTwoCard (scene 2)",
+    "WaybackVerbatimCard (scene 4)",
+    "TwoPagesSideBySide (scene 5)",
+    "FourBeatRhythmCard (scene 6)",
+    "GoneStamp (scene 7 endcap)",
+    "BeforeAfterWaybackDiptych (scene 8)",
+    "WaybackExplainerCard (scene 9)",
+    "CalendarCountForwardCard (scene 10)",
+    "PullQuoteLowerThird (scene 12 overlay)",
+    "NecessaryVsUnnecessaryDiptych (scene 13)",
+    "AcknowledgmentBridgeCard (scene 14)",
+    "SealedCoverStatTiles (scene 15)",
+    "VerdictStamp (scene 16 overlay)",
+    "TwoPromiseLedgerCard (scene 17)",
+    "CaseDossierCard_Khalil (scene 19)",
+    "CaseDossierCarousel_Ozturk_Mahdawi_KhanSuri (scene 20)",
+    "FourCountVerdictGrid (scene 21)",
+    "PageDeletedHero + GoodFaithAcknowledgmentCard + FourReceiptsRecapStrip + SaveThePageHowToCard + SealedFinalCard (scene 22 sequence)"
+  ],
+  "fair_use_envelope_check": {
+    "max_per_source_s": 90,
+    "max_per_clip_s": 30,
+    "max_per_beat_s": 6,
+    "estimated_usage": {
+      "trump_2015_archival_total_s": 14,
+      "trump_2024_campaign_broll_s": 10,
+      "trump_2025_inauguration_broll_s": 12,
+      "trump_white_house_jun21_address_s": 15,
+      "dod_briefing_jun22_s": 12,
+      "may_8_2018_jcpoa_signing_s": 10,
+      "iaea_broll_s": 8,
+      "verdict": "WELL UNDER fair-use envelope on every source. No single archival clip >15s. No single source aggregated >30s."
+    }
+  },
+  "risk_flags": [
+    {
+      "scene_id": 1,
+      "risk": "BEAT 1 cold-open Trump 2015 clip is [GAP] in source pack — Stage 6 must pin C-SPAN URL before this scene can render. Fallback: remotion-only cold open with dated text card + ambient audio.",
+      "severity": "high"
+    },
+    {
+      "scene_id": 8,
+      "risk": "BeforeAfterWaybackDiptych requires the exact Jan 15-Feb 1 2025 Wayback timestamp pair ([GAP] in sources Beat 3). Stage 6 must run CDX query. Fallback: commitments.json methodology assertion + parchment PAGE REMOVED stamp without paired thumbnails.",
+      "severity": "high"
+    },
+    {
+      "scene_id": 20,
+      "risk": "CaseDossierCarousel for four named students — HARD RULE: NO face renders, NO AI likenesses, NO photo lookups. Court-filing thumbnails + counsel press-release headers (CCR, ACLU-MA, ACLU national, WaPo) only. Stage 18 broll director must be briefed: dossier-card-only. Legal + dignity gate.",
+      "severity": "high"
+    }
+  ]
+}

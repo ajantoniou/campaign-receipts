@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "stage": "Stage 18 — cinematic-broll-director real-asset selection",
+    "program": "SEALED",
+    "mode": "longform",
+    "slug": "sealed-aipac-campus-eo",
+    "storyboard": "eng/storyboards/sealed-aipac-campus-eo.json",
+    "photo_library": "companies/campaign-receipts/public/photos/wikipedia/",
+    "generated_by": "cinematic-broll-director.md",
+    "date": "2026-05-29"
+  },
+  "density_note": {
+    "verdict": "ZERO real-asset clips selected. Maximally light by design — and correct for this storyboard.",
+    "clip_breakdown": "31 clips: 23 remotion (cards/timelines/stamps), 4 wan (atmospheric still-lifes), 4 sora2 (unnamed editorial silhouettes). 0 image-kenburns beats.",
+    "rationale": [
+      "No beat renders a real person's face. Trump signing EO 13899 is carried by a Remotion SourceCard (s4-01), not a portrait — the rights-safe, nonpartisan call for a legally/politically sensitive Title VI / IHRA / campus free-speech topic. I respect the author's choice; a donald-trump-2016.jpg portrait is AVAILABLE in the library but is NOT recommended here, because attaching a face to a BROKEN verdict on a free-speech EO invites a partisan read the script's two-ledger framing is built to avoid.",
+      "The 4 sora2 clips are deliberately faceless: the planted freshman (s5-03, s6-02, s9-01) and the anonymous donor/lobbyist (s8-02). HARD RULE — never attach a real student's face to the freshman silhouette, and never attach a real donor's Wikipedia portrait (sheldon-adelson, miriam-adelson are in-library) to the anonymous lobbyist. Faceless silhouette is the editorial and rights-safe choice; these stay generative.",
+      "The 4 wan clips are no-people still-lifes (signed order on a desk, empty lecture hall, IHRA document macro, the order acquiring weight). No real place is named that a stock/archival asset would serve better; generative atmosphere is the right call and needs no real-asset selection.",
+      "The 23 remotion clips (OpeningSlate, TextSlate, SourceCard, OverturnedLaw, Timeline, CountUp, VerdictStamp, ClosingSlate) render document/data/typography. None pulls a portrait — the VerdictStamp (s9-03) is verdict-only (BROKEN), no subject photo, so no VerdictStamp portrait file is needed."
+    ]
+  },
+  "selections": [],
+  "acquire_recommendations": [],
+  "assets_verified_on_disk": "N/A — zero real-asset clips selected; no library file is referenced by this storyboard."
+}

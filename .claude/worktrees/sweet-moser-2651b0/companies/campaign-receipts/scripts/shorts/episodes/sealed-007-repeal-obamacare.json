@@ -1,0 +1,187 @@
+{
+  "slug": "sealed-007-repeal-obamacare",
+  "build": "007",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-23 rebuild: 7 Remotion beats so the McCain pause + 49-51 + no-replacement aftermath each land on their own picture instead of the 26s static CTA freeze. Caveat: no free-license still of the actual Senate roll-call exists; the McCain beat is a SourceCard with text rather than archival photo (brand policy: Remotion for readable content).",
+  "sync_specs": [
+    {
+      "id": "hook",
+      "endAnchors": [
+        "decided",
+        "obamacare"
+      ]
+    },
+    {
+      "id": "voteResult",
+      "startAnchors": [
+        "decided",
+        "obamacare"
+      ],
+      "endAnchors": [
+        "picture",
+        "chamber"
+      ]
+    },
+    {
+      "id": "chamberPicture",
+      "startAnchors": [
+        "picture",
+        "chamber"
+      ],
+      "endAnchors": [
+        "john",
+        "mccain"
+      ]
+    },
+    {
+      "id": "mccainBeat",
+      "startAnchors": [
+        "john",
+        "mccain"
+      ],
+      "endAnchors": [
+        "replacement"
+      ]
+    },
+    {
+      "id": "noReplacement",
+      "startAnchors": [
+        "replacement"
+      ],
+      "endAnchors": [
+        "stamps",
+        "so"
+      ]
+    },
+    {
+      "id": "broken",
+      "startAnchors": [
+        "stamps",
+        "so"
+      ],
+      "endAnchors": [
+        "every"
+      ]
+    },
+    {
+      "id": "cta",
+      "startAnchors": [
+        "every",
+        "sealed2016"
+      ],
+      "endAnchors": null
+    }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2010-2016 \u00b7 7 years on the trail",
+        "quote": "Repeal & replace Obamacare.",
+        "source": "Banner promise \u00b7 GOP campaigns"
+      }
+    },
+    "voteResult": {
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "SKINNY REPEAL \u2014 SENATE VOTE",
+        "yAxisLabel": "Votes",
+        "maxValue": 55,
+        "bars": [
+          {
+            "label": "YES",
+            "value": 49,
+            "color": "#2a4d7c"
+          },
+          {
+            "label": "NO",
+            "value": 51,
+            "color": "#a4243b"
+          }
+        ]
+      }
+    },
+    "chamberPicture": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Jul 28, 2017 \u00b7 Senate floor",
+        "quote": "Skinny repeal on the table \u2014 the clock running out.",
+        "source": "Congressional Record \u00b7 SEALED 2016"
+      }
+    },
+    "mccainBeat": {
+      "youtubeBroll": {
+        "url": "https://www.youtube.com/watch?v=hT2pp_KrJGg",
+        "start": "00:08",
+        "end": "00:14",
+        "license": "public-domain",
+        "title": "Senator John McCain votes NO on \"Skinny Repeal\" (C-SPAN)",
+        "year": 2017,
+        "notes": "C-SPAN floor cam; McCain mid-thumb-down gesture (~10s in source); audio stripped; VO overlay",
+        "duration": 6,
+        "cropTopPct": 0.75,
+        "_locked": "2026-05-23 \u2014 verified via yt-dlp probe + frame inspection at /tmp/mccain-cropped-frames/peak.jpg"
+      },
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "THREE REPUBLICAN NOS",
+        "events": [
+          {
+            "date": "Earlier 7/28",
+            "label": "Collins \u00b7 NO",
+            "outcome": "broken"
+          },
+          {
+            "date": "Earlier 7/28",
+            "label": "Murkowski \u00b7 NO",
+            "outcome": "broken"
+          },
+          {
+            "date": "01:29 AM",
+            "label": "McCain walks in, pauses, NO",
+            "outcome": "broken"
+          }
+        ]
+      }
+    },
+    "noReplacement": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "AFTER THE VOTE",
+        "events": [
+          {
+            "date": "Jul 28 2017",
+            "label": "Skinny repeal fails 49-51",
+            "outcome": "broken"
+          },
+          {
+            "date": "2018-2020",
+            "label": "No replacement clears Senate",
+            "outcome": "broken"
+          }
+        ]
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Repeal & replace Obamacare",
+        "citation": "Skinny repeal failed 49-51"
+      }
+    },
+    "cta": {
+      "vendor": "motion-card",
+      "line1": "145 PROMISES",
+      "line2": "SEALED2016.COM"
+    }
+  },
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See SEALED-PRODUCTION-PIPELINE-v3.md \u00a7 Doctrine line 4."
+}

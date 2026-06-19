@@ -1,0 +1,16 @@
+/.github/workflows/ @ajantoniou
+
+# Shared infrastructure + governance
+/shared/ @ajantoniou
+/infrastructure/ @ajantoniou
+
+# Company perimeters
+/companies/campaign-receipts/ @ajantoniou
+/companies/cliros/ @ajantoniou
+/companies/concise/ @ajantoniou
+/companies/concise-sealed/ @ajantoniou
+/companies/estimateproof/ @ajantoniou
+/companies/healthbrew/ @ajantoniou
+/companies/hyperlocal-matrix/ @ajantoniou
+/companies/nt-ministry/ @ajantoniou
+/companies/plutus-street/ @ajantoniou

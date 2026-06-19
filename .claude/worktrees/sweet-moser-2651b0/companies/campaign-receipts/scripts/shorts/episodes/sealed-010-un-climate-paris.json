@@ -1,0 +1,66 @@
+{
+  "slug": "sealed-010-un-climate-paris",
+  "build": "010",
+  "verdict": "KEPT",
+  "_notes": "2026-05-24 no-VO. Two promises in one short: UN Green Climate Fund payments halted + Paris withdrawal. Both KEPT.",
+  "no_vo": true,
+  "sync_specs": [
+    { "id": "hook",          "duration": 5.0 },
+    { "id": "marchMemo",     "duration": 5.0 },
+    { "id": "roseGarden",    "duration": 6.0 },
+    { "id": "novWithdrawal", "duration": 5.0 },
+    { "id": "kept",          "duration": 5.0 },
+    { "id": "cta",           "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "Two climate promises · one pen",
+        "quote": "Both actually kept.",
+        "source": "March 2017 · June 2017 · Nov 2019"
+      }
+    },
+    "marchMemo": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "March 28, 2017",
+        "quote": "Presidential Memorandum halted UN Green Climate Fund payments.",
+        "source": "White House"
+      }
+    },
+    "roseGarden": {
+      "composition": "Timeline",
+      "props": {
+        "brand": "sealed",
+        "title": "PARIS AGREEMENT — TIMELINE",
+        "events": [
+          { "date": "Jun 1 2017",  "label": "Rose Garden withdrawal announced", "outcome": "kept" },
+          { "date": "Nov 4 2019",  "label": "Formal UN notice filed (first legal day)", "outcome": "kept" },
+          { "date": "Nov 4 2020",  "label": "Withdrawal effective", "outcome": "kept" }
+        ]
+      }
+    },
+    "novWithdrawal": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "UN Secretary-General receipt",
+        "quote": "Withdrawal notice on file.",
+        "source": "Climate voter assumed broken — receipt says KEPT"
+      }
+    },
+    "kept": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "KEPT",
+        "promise": "UN climate payments · Paris exit",
+        "citation": "Two promises · two receipts"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

@@ -1,0 +1,228 @@
+[
+  {
+    "politician": {
+      "slug": "mike-pence-vp",
+      "name": "Michael Richard Pence (Vice Presidency)",
+      "party": "Republican",
+      "branch": "President",
+      "state": "IN",
+      "gender": "Male",
+      "religion": "Christian (Evangelical)",
+      "minority_status": null,
+      "dob": "1959-06-07",
+      "age": 66,
+      "in_office_since": "2017-01-20",
+      "in_office_to": "2021-01-20",
+      "current_status": "Former vice president (2021)",
+      "official_url": null,
+      "ideology_label": "Conservative Republican",
+      "professional_background": "48th Vice President 2017-2021; previously Governor of Indiana 2013-2017; U.S. Representative (IN-2/IN-6) 2001-2013.",
+      "profile_narrative": "Pence's vice presidency (2017-2021) under Trump. Promises here focus on commitments he personally made about his portfolio (judicial nominees, religious liberty, COVID task force chair, Jan 6 certification).",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Confirm conservative Supreme Court justices.", "category": "Judiciary", "promise_date": "2016 campaign", "verdict": "KEPT", "verdict_reasoning": "Three Supreme Court justices confirmed during Pence's VP tenure: Gorsuch (April 7, 2017, 54-45), Kavanaugh (Oct 6, 2018, 50-48), Barrett (Oct 26, 2020, 52-48). Pence cast no tie-breaking votes on these confirmations.", "term_start": "2017-01-20", "term_end": "2021-01-20", "cycle_year": 2016 },
+      { "promise_number": 2, "promise_text": "Lead the White House COVID-19 Task Force.", "category": "Healthcare", "promise_date": "2020", "verdict": "PARTIAL", "verdict_reasoning": "Pence was appointed task-force chair Feb 26, 2020. Operation Warp Speed delivered the first vaccine doses Dec 14, 2020. U.S. COVID death toll exceeded 400,000 by inauguration day; task force testing and PPE coordination drew widespread criticism in 2020.", "term_start": "2017-01-20", "term_end": "2021-01-20", "cycle_year": 2016 },
+      { "promise_number": 3, "promise_text": "Move the U.S. embassy in Israel to Jerusalem.", "category": "Foreign Policy", "promise_date": "2016 campaign", "verdict": "KEPT", "verdict_reasoning": "Pence announced the move at the Knesset on Jan 22, 2018. The U.S. embassy in Jerusalem officially opened May 14, 2018.", "term_start": "2017-01-20", "term_end": "2021-01-20", "cycle_year": 2016 },
+      { "promise_number": 4, "promise_text": "Withdraw from the Paris Climate Agreement.", "category": "Climate", "promise_date": "2016 campaign", "verdict": "KEPT", "verdict_reasoning": "Trump announced withdrawal June 1, 2017. Formal exit took effect Nov 4, 2020.", "term_start": "2017-01-20", "term_end": "2021-01-20", "cycle_year": 2016 },
+      { "promise_number": 5, "promise_text": "Defund Planned Parenthood.", "category": "Healthcare", "promise_date": "2016 campaign", "verdict": "BROKEN", "verdict_reasoning": "The American Health Care Act would have defunded Planned Parenthood for one year but failed in the Senate. No subsequent legislation defunding Planned Parenthood reached final passage during the term.", "term_start": "2017-01-20", "term_end": "2021-01-20", "cycle_year": 2016 },
+      { "promise_number": 6, "promise_text": "Certify the Electoral College results on January 6, 2021.", "category": "Governance", "promise_date": "2020", "verdict": "KEPT", "verdict_reasoning": "Pence presided over the Jan 6, 2021 joint session despite public pressure from Trump to reject electors. After the Capitol attack, he reconvened the session that evening and certified Biden's 306-232 Electoral College win in the early hours of Jan 7.", "term_start": "2017-01-20", "term_end": "2021-01-20", "cycle_year": 2016 },
+      { "promise_number": 7, "promise_text": "Promote religious-liberty executive actions.", "category": "Civil Rights", "promise_date": "2016 campaign", "verdict": "KEPT", "verdict_reasoning": "Executive Order 13798 (May 4, 2017) on Promoting Free Speech and Religious Liberty; Trump administration rescinded the Obama-era Title IX transgender-bathroom guidance Feb 22, 2017.", "term_start": "2017-01-20", "term_end": "2021-01-20", "cycle_year": 2016 },
+      { "promise_number": 8, "promise_text": "Rebuild U.S. military strength.", "category": "Defense", "promise_date": "2016 campaign", "verdict": "KEPT", "verdict_reasoning": "Defense spending rose from $606B (FY2016 enacted) to $738B (FY2020). Three consecutive NDAAs authorized record peacetime increases.", "term_start": "2017-01-20", "term_end": "2021-01-20", "cycle_year": 2016 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "harry-reid",
+      "name": "Harry Mason Reid",
+      "party": "Democratic",
+      "branch": "Senate",
+      "state": "NV",
+      "gender": "Male",
+      "religion": "Latter-day Saint",
+      "minority_status": null,
+      "dob": "1939-12-02",
+      "age": 82,
+      "in_office_since": "1987-01-03",
+      "in_office_to": "2017-01-03",
+      "current_status": "Former senator (2017); deceased 2021",
+      "official_url": null,
+      "ideology_label": "Liberal Democrat / institutionalist",
+      "professional_background": "U.S. Senator (NV) 1987-2017; Senate Majority Leader 2007-2015; Senate Minority Leader 2015-2017.",
+      "profile_narrative": "Reid served 30 years in the Senate, retiring in 2017. This profile grades his final 2010-cycle term (Jan 2011-Jan 2017), the final Reid majority and minority leadership.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Pass the Affordable Care Act.", "category": "Healthcare", "promise_date": "2009-2010", "verdict": "KEPT", "verdict_reasoning": "Reid as Majority Leader shepherded the ACA through the Senate, securing the 60-vote cloture (Dec 24, 2009, 60-39) and final passage (Dec 24, 2009, 60-39). The bill was signed March 23, 2010.", "term_start": "2011-01-03", "term_end": "2017-01-03", "cycle_year": 2010 },
+      { "promise_number": 2, "promise_text": "Eliminate Senate filibuster for executive and judicial nominations below SCOTUS.", "category": "Governance", "promise_date": "2013", "verdict": "KEPT", "verdict_reasoning": "Reid invoked the 'nuclear option' on Nov 21, 2013 (52-48 vote), lowering the cloture threshold for executive-branch and non-SCOTUS judicial nominations from 60 to 51.", "term_start": "2011-01-03", "term_end": "2017-01-03", "cycle_year": 2010 },
+      { "promise_number": 3, "promise_text": "Block Yucca Mountain nuclear waste storage.", "category": "Energy", "promise_date": "1987 onward", "verdict": "KEPT", "verdict_reasoning": "Reid successfully blocked Yucca Mountain funding throughout his career, including in the FY2011 budget where appropriations were terminated. The site remained dormant at end-of-term.", "term_start": "2011-01-03", "term_end": "2017-01-03", "cycle_year": 2010 },
+      { "promise_number": 4, "promise_text": "Pass comprehensive immigration reform.", "category": "Immigration", "promise_date": "2010-2016", "verdict": "PARTIAL", "verdict_reasoning": "Reid passed the Gang of Eight bill through the Senate 68-32 on June 27, 2013. Speaker Boehner refused to bring it to a House floor vote. No comprehensive reform reached the President's desk.", "term_start": "2011-01-03", "term_end": "2017-01-03", "cycle_year": 2010 },
+      { "promise_number": 5, "promise_text": "Block confirmation of Merrick Garland to delay Supreme Court vacancy.", "category": "Judiciary", "promise_date": "2016", "verdict": "BROKEN", "verdict_reasoning": "As Minority Leader, Reid could not force a vote on Garland; McConnell as Majority Leader refused to hold hearings. The vacancy was filled by Trump's Gorsuch in April 2017. (Reid's stated goal of forcing a vote was not achieved.)", "term_start": "2011-01-03", "term_end": "2017-01-03", "cycle_year": 2010 },
+      { "promise_number": 6, "promise_text": "Pass Dodd-Frank financial reform.", "category": "Economy", "promise_date": "2009-2010", "verdict": "KEPT", "verdict_reasoning": "The Dodd-Frank Wall Street Reform and Consumer Protection Act (Pub.L. 111-203) was signed July 21, 2010, passing the Senate 60-39 on July 15, 2010 under Reid's leadership.", "term_start": "2011-01-03", "term_end": "2017-01-03", "cycle_year": 2010 },
+      { "promise_number": 7, "promise_text": "Maintain Senate as filibuster-protected institution for SCOTUS.", "category": "Governance", "promise_date": "2013", "verdict": "KEPT", "verdict_reasoning": "Reid's 2013 nuclear option specifically exempted Supreme Court nominations. The SCOTUS filibuster remained until McConnell extended the nuclear option to it in April 2017.", "term_start": "2011-01-03", "term_end": "2017-01-03", "cycle_year": 2010 },
+      { "promise_number": 8, "promise_text": "Address climate change through legislation.", "category": "Climate", "promise_date": "2010-2014", "verdict": "BROKEN", "verdict_reasoning": "The Waxman-Markey cap-and-trade bill that passed the House in 2009 never reached a Senate floor vote under Reid's majority leadership; he formally abandoned it in July 2010. No major climate bill passed the Senate during his subsequent term.", "term_start": "2011-01-03", "term_end": "2017-01-03", "cycle_year": 2010 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "john-boehner",
+      "name": "John Andrew Boehner",
+      "party": "Republican",
+      "branch": "House",
+      "state": "OH",
+      "district": "OH-8",
+      "gender": "Male",
+      "religion": "Catholic",
+      "minority_status": null,
+      "dob": "1949-11-17",
+      "age": 76,
+      "in_office_since": "1991-01-03",
+      "in_office_to": "2015-10-31",
+      "current_status": "Former representative (2015); former Speaker (2011-2015)",
+      "official_url": null,
+      "ideology_label": "Conservative Republican / establishment",
+      "professional_background": "U.S. Representative (OH-8) 1991-2015; 53rd Speaker of the House (2011-2015); resigned mid-term in October 2015.",
+      "profile_narrative": "Boehner served as Speaker from Jan 2011 to Oct 2015. This profile grades the post-2010-wave Republican-controlled House under his speakership.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Repeal the Affordable Care Act.", "category": "Healthcare", "promise_date": "2010-2014", "verdict": "BROKEN", "verdict_reasoning": "The House voted to repeal or substantially alter the ACA more than 50 times during Boehner's speakership, but none reached the President's desk. The ACA remained in force when Boehner resigned.", "term_start": "2011-01-03", "term_end": "2015-10-31", "cycle_year": 2010 },
+      { "promise_number": 2, "promise_text": "Reduce federal spending.", "category": "Economy", "promise_date": "2010 campaign", "verdict": "PARTIAL", "verdict_reasoning": "The Budget Control Act of 2011 (Pub.L. 112-25) and subsequent sequester reduced discretionary spending growth. The 2013 Bipartisan Budget Act partially rolled back sequester cuts. Total federal spending continued to grow in absolute terms.", "term_start": "2011-01-03", "term_end": "2015-10-31", "cycle_year": 2010 },
+      { "promise_number": 3, "promise_text": "Pass immigration reform.", "category": "Immigration", "promise_date": "2013-2014", "verdict": "BROKEN", "verdict_reasoning": "Boehner declined to bring the Senate's Gang of Eight bill (S.744, passed June 27, 2013) to a House floor vote. The House passed no comprehensive immigration legislation during his speakership.", "term_start": "2011-01-03", "term_end": "2015-10-31", "cycle_year": 2010 },
+      { "promise_number": 4, "promise_text": "Pass appropriations bills on regular order.", "category": "Governance", "promise_date": "2010 campaign", "verdict": "BROKEN", "verdict_reasoning": "Only one of 12 standalone appropriations bills passed both chambers during Boehner's speakership. All other FY budgets relied on continuing resolutions and omnibus packages, the practice he campaigned against.", "term_start": "2011-01-03", "term_end": "2015-10-31", "cycle_year": 2010 },
+      { "promise_number": 5, "promise_text": "Avoid government shutdowns.", "category": "Governance", "promise_date": "2010 campaign", "verdict": "BROKEN", "verdict_reasoning": "The federal government shut down Oct 1-16, 2013 (16 days) over ACA defunding demands led by House Republicans. Boehner publicly opposed the shutdown strategy but allowed it to proceed.", "term_start": "2011-01-03", "term_end": "2015-10-31", "cycle_year": 2010 },
+      { "promise_number": 6, "promise_text": "Pass Trade Promotion Authority (TPA) for the administration.", "category": "Trade", "promise_date": "2015", "verdict": "KEPT", "verdict_reasoning": "Boehner shepherded the Bipartisan Congressional Trade Priorities and Accountability Act (Pub.L. 114-26) to passage; signed June 29, 2015 with majority Republican support and minority Democratic support in the House.", "term_start": "2011-01-03", "term_end": "2015-10-31", "cycle_year": 2010 },
+      { "promise_number": 7, "promise_text": "Pass long-term highway and transportation reauthorization.", "category": "Infrastructure", "promise_date": "2010-2015", "verdict": "PARTIAL", "verdict_reasoning": "Multiple short-term extensions but no long-term reauthorization passed under Boehner. The FAST Act (Pub.L. 114-94, five-year reauthorization) was signed Dec 4, 2015 — five weeks after his resignation.", "term_start": "2011-01-03", "term_end": "2015-10-31", "cycle_year": 2010 },
+      { "promise_number": 8, "promise_text": "Reform entitlements.", "category": "Entitlements", "promise_date": "2010-2014", "verdict": "BROKEN", "verdict_reasoning": "The Ryan Path to Prosperity passed the House annually as a budget resolution but no Medicare/Social Security restructuring legislation reached the floor. No major entitlement-restructuring statute was signed.", "term_start": "2011-01-03", "term_end": "2015-10-31", "cycle_year": 2010 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "kevin-mccarthy-2018",
+      "name": "Kevin Owen McCarthy",
+      "party": "Republican",
+      "branch": "House",
+      "state": "CA",
+      "district": "CA-23",
+      "gender": "Male",
+      "religion": "Christian (Baptist)",
+      "minority_status": null,
+      "dob": "1965-01-26",
+      "age": 60,
+      "in_office_since": "2007-01-03",
+      "in_office_to": "2023-12-31",
+      "current_status": "Former representative (2023); former Speaker; resigned after October 2023 motion to vacate",
+      "official_url": null,
+      "ideology_label": "Establishment Republican",
+      "professional_background": "U.S. Representative (CA-23) 2007-2023; House Majority Leader 2014-2019; House Minority Leader 2019-2023; 55th Speaker of the House (Jan-Oct 2023).",
+      "profile_narrative": "McCarthy's House career ran 2007-2023. This profile grades his 2018-cycle 116th Congress tenure as Minority Leader (Jan 2019-Jan 2021), the post-2018-midterm-shellacking period for House Republicans.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Hold Democrats accountable through aggressive oversight.", "category": "Oversight", "promise_date": "2019", "verdict": "PARTIAL", "verdict_reasoning": "As Minority Leader, McCarthy had no committee subpoena power. He convened a Republican-side review of the Trump-Ukraine matter and led floor opposition to impeachment in December 2019 and January 2020.", "term_start": "2019-01-03", "term_end": "2021-01-03", "cycle_year": 2018 },
+      { "promise_number": 2, "promise_text": "Vote against the two articles of impeachment of Donald Trump (Dec 2019).", "category": "Governance", "promise_date": "2019", "verdict": "KEPT", "verdict_reasoning": "McCarthy voted no on both articles of impeachment (Abuse of Power: 230-197-1; Obstruction of Congress: 229-198-1, Dec 18, 2019). All 197 Republicans present voted no.", "term_start": "2019-01-03", "term_end": "2021-01-03", "cycle_year": 2018 },
+      { "promise_number": 3, "promise_text": "Vote against the second impeachment of Donald Trump (Jan 2021).", "category": "Governance", "promise_date": "2021", "verdict": "KEPT", "verdict_reasoning": "McCarthy voted no on the article of impeachment for Incitement of Insurrection (passed 232-197, Jan 13, 2021). Ten Republicans voted yes; McCarthy was not among them.", "term_start": "2019-01-03", "term_end": "2021-01-03", "cycle_year": 2018 },
+      { "promise_number": 4, "promise_text": "Object to certification of Pennsylvania and Arizona electors.", "category": "Governance", "promise_date": "2021", "verdict": "KEPT", "verdict_reasoning": "On Jan 6, 2021 (after the Capitol attack and that evening's reconvening), McCarthy voted yes on objections to certifying Arizona (failed 121-303) and Pennsylvania (failed 138-282) electors.", "term_start": "2019-01-03", "term_end": "2021-01-03", "cycle_year": 2018 },
+      { "promise_number": 5, "promise_text": "Pass coronavirus relief legislation.", "category": "Economy", "promise_date": "2020", "verdict": "KEPT", "verdict_reasoning": "McCarthy supported CARES Act (Pub.L. 116-136, signed March 27, 2020) and the Consolidated Appropriations Act 2021 (Pub.L. 116-260, $900B relief, signed Dec 27, 2020).", "term_start": "2019-01-03", "term_end": "2021-01-03", "cycle_year": 2018 },
+      { "promise_number": 6, "promise_text": "Support border-wall funding.", "category": "Immigration", "promise_date": "2018 campaign", "verdict": "PARTIAL", "verdict_reasoning": "McCarthy voted yes on the FY2019 Homeland Security funding that included $1.4B in border-fencing money (signed Feb 15, 2019). The bipartisan deal was well below Trump's $5.7B request, leading to the 35-day shutdown.", "term_start": "2019-01-03", "term_end": "2021-01-03", "cycle_year": 2018 },
+      { "promise_number": 7, "promise_text": "Defend Trump-era tax cuts.", "category": "Taxes", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "McCarthy led House Republican opposition to all Democratic efforts to repeal or modify the TCJA during his Minority Leader tenure. The TCJA remained in force throughout the term.", "term_start": "2019-01-03", "term_end": "2021-01-03", "cycle_year": 2018 },
+      { "promise_number": 8, "promise_text": "Pass USMCA replacement for NAFTA.", "category": "Trade", "promise_date": "2019", "verdict": "KEPT", "verdict_reasoning": "McCarthy voted yes on USMCA (passed House 385-41, Dec 19, 2019; signed Jan 29, 2020).", "term_start": "2019-01-03", "term_end": "2021-01-03", "cycle_year": 2018 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "doug-jones",
+      "name": "Gordon Douglas Jones",
+      "party": "Democratic",
+      "branch": "Senate",
+      "state": "AL",
+      "gender": "Male",
+      "religion": "Christian (Methodist)",
+      "minority_status": null,
+      "dob": "1954-05-04",
+      "age": 71,
+      "in_office_since": "2018-01-03",
+      "in_office_to": "2021-01-03",
+      "current_status": "Former senator (2021); defeated 2020 by Tommy Tuberville",
+      "official_url": null,
+      "ideology_label": "Moderate Democrat",
+      "professional_background": "U.S. Senator (AL) 2018-2021; previously U.S. Attorney for the Northern District of Alabama; won special election in Dec 2017 to fill Jeff Sessions's seat.",
+      "profile_narrative": "Jones served the truncated remainder of Jeff Sessions's term (Jan 2018-Jan 2021) after winning a special election in December 2017. He lost re-election to Tommy Tuberville by 20 points in 2020.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Vote based on conscience, not party.", "category": "Governance", "promise_date": "2017 special election", "verdict": "KEPT", "verdict_reasoning": "Jones voted with Trump on 35% of votes per FiveThirtyEight tracker — one of the highest crossover rates among Senate Democrats. He voted yes on Kavanaugh's predecessor and a number of conservative judicial nominees.", "term_start": "2018-01-03", "term_end": "2021-01-03", "cycle_year": 2017 },
+      { "promise_number": 2, "promise_text": "Vote against Brett Kavanaugh's Supreme Court confirmation.", "category": "Judiciary", "promise_date": "2018", "verdict": "KEPT", "verdict_reasoning": "Jones voted no on Kavanaugh (Oct 6, 2018, 50-48). He was the only Democrat from a state Trump won by double-digits to vote no.", "term_start": "2018-01-03", "term_end": "2021-01-03", "cycle_year": 2017 },
+      { "promise_number": 3, "promise_text": "Vote against the TCJA repeal of the ACA mandate penalty.", "category": "Healthcare", "promise_date": "2017", "verdict": "KEPT", "verdict_reasoning": "Jones was sworn in Jan 3, 2018, after the TCJA Senate vote of Dec 20, 2017. He voted yes on subsequent ACA-defense amendments and no on every ACA-rollback amendment that received a vote.", "term_start": "2018-01-03", "term_end": "2021-01-03", "cycle_year": 2017 },
+      { "promise_number": 4, "promise_text": "Vote to convict on impeachment articles.", "category": "Governance", "promise_date": "2020", "verdict": "KEPT", "verdict_reasoning": "Jones voted yes on both articles of Trump's first impeachment (Feb 5, 2020) — Abuse of Power (52-48 acquittal) and Obstruction of Congress (53-47 acquittal). He was one of only three Senate Democrats from Trump-won states to vote yes on both.", "term_start": "2018-01-03", "term_end": "2021-01-03", "cycle_year": 2017 },
+      { "promise_number": 5, "promise_text": "Support criminal-justice reform.", "category": "Criminal Justice", "promise_date": "2017 special election", "verdict": "KEPT", "verdict_reasoning": "Jones voted yes on the First Step Act (Pub.L. 115-391, Senate vote 87-12, Dec 18, 2018).", "term_start": "2018-01-03", "term_end": "2021-01-03", "cycle_year": 2017 },
+      { "promise_number": 6, "promise_text": "Support gun-violence-prevention measures.", "category": "Public Safety", "promise_date": "2017 special election", "verdict": "PARTIAL", "verdict_reasoning": "Jones co-sponsored expanded background-check legislation but no major Senate floor vote occurred during his term. He voted to advance the bipartisan Fix NICS Act, which was included in the FY2018 omnibus.", "term_start": "2018-01-03", "term_end": "2021-01-03", "cycle_year": 2017 },
+      { "promise_number": 7, "promise_text": "Support Alabama military and aerospace contracting interests.", "category": "Defense", "promise_date": "2017 special election", "verdict": "KEPT", "verdict_reasoning": "Jones voted yes on all three NDAA bills during his term (FY2019 117-9, FY2020 86-8, FY2021 84-13), each supporting Huntsville/Redstone Arsenal contract priorities.", "term_start": "2018-01-03", "term_end": "2021-01-03", "cycle_year": 2017 },
+      { "promise_number": 8, "promise_text": "Support COVID relief.", "category": "Economy", "promise_date": "2020", "verdict": "KEPT", "verdict_reasoning": "Jones voted yes on CARES Act (March 25, 2020, 96-0), the Families First Coronavirus Response Act, and the Consolidated Appropriations Act 2021 (Dec 21, 2020).", "term_start": "2018-01-03", "term_end": "2021-01-03", "cycle_year": 2017 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "martha-mcsally",
+      "name": "Martha Elizabeth McSally",
+      "party": "Republican",
+      "branch": "Senate",
+      "state": "AZ",
+      "gender": "Female",
+      "religion": "Catholic",
+      "minority_status": null,
+      "dob": "1966-03-22",
+      "age": 59,
+      "in_office_since": "2019-01-03",
+      "in_office_to": "2020-12-02",
+      "current_status": "Former senator (2020); appointed to Sen. McCain's seat then defeated by Mark Kelly",
+      "official_url": null,
+      "ideology_label": "Conservative Republican",
+      "professional_background": "U.S. Senator (AZ) 2019-2020 (appointed); U.S. Representative (AZ-2) 2015-2019; retired USAF Colonel and first U.S. female fighter pilot in combat.",
+      "profile_narrative": "McSally was appointed Dec 18, 2018 to fill Sen. McCain's seat after losing the 2018 race for Sen. Flake's seat. She lost the 2020 special election to Mark Kelly. This profile grades her appointed Senate term.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Vote against Trump's first impeachment.", "category": "Governance", "promise_date": "2019", "verdict": "KEPT", "verdict_reasoning": "McSally voted no on both articles of impeachment (Feb 5, 2020), aligning with all but one Senate Republican on each.", "term_start": "2019-01-03", "term_end": "2020-12-02", "cycle_year": 2018 },
+      { "promise_number": 2, "promise_text": "Confirm conservative judges.", "category": "Judiciary", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "McSally voted yes on every Trump circuit court nominee that received a Senate vote during her term, plus Amy Coney Barrett's SCOTUS confirmation (Oct 26, 2020, 52-48).", "term_start": "2019-01-03", "term_end": "2020-12-02", "cycle_year": 2018 },
+      { "promise_number": 3, "promise_text": "Pass border-security funding.", "category": "Immigration", "promise_date": "2018 campaign", "verdict": "PARTIAL", "verdict_reasoning": "McSally voted yes on the FY2019 DHS funding bill that included $1.4B in border-fencing money (Feb 14, 2019). The amount was well below Trump's $5.7B request that drove the 35-day shutdown.", "term_start": "2019-01-03", "term_end": "2020-12-02", "cycle_year": 2018 },
+      { "promise_number": 4, "promise_text": "Support COVID-19 relief.", "category": "Economy", "promise_date": "2020", "verdict": "KEPT", "verdict_reasoning": "McSally voted yes on the CARES Act (March 25, 2020, 96-0) and the Paycheck Protection Program and Health Care Enhancement Act (April 21, 2020, voice vote).", "term_start": "2019-01-03", "term_end": "2020-12-02", "cycle_year": 2018 },
+      { "promise_number": 5, "promise_text": "Support veterans' healthcare expansion.", "category": "Veterans", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "McSally voted yes on the Deborah Sampson Act (Pub.L. 116-315), expanding VA care for women veterans, signed Jan 5, 2021 (just after her term ended but legislation she shepherded throughout 2020).", "term_start": "2019-01-03", "term_end": "2020-12-02", "cycle_year": 2018 },
+      { "promise_number": 6, "promise_text": "Oppose Trump-era trade tariffs harming AZ economy.", "category": "Trade", "promise_date": "2018-2020", "verdict": "BROKEN", "verdict_reasoning": "McSally publicly raised concerns about Section 232 tariffs but voted with Trump on trade authority issues. No legislation she introduced to constrain tariff authority advanced.", "term_start": "2019-01-03", "term_end": "2020-12-02", "cycle_year": 2018 },
+      { "promise_number": 7, "promise_text": "Support military readiness through full NDAA funding.", "category": "Defense", "promise_date": "2018 campaign", "verdict": "KEPT", "verdict_reasoning": "McSally voted yes on FY2020 NDAA (Pub.L. 116-92, Dec 17, 2019 senate vote 86-8) and FY2021 NDAA (Pub.L. 116-283, Senate vote 84-13).", "term_start": "2019-01-03", "term_end": "2020-12-02", "cycle_year": 2018 },
+      { "promise_number": 8, "promise_text": "Address pre-existing-condition protections in any ACA replacement.", "category": "Healthcare", "promise_date": "2018 campaign", "verdict": "PARTIAL", "verdict_reasoning": "McSally voted yes on amendments preserving pre-existing-condition coverage in the abstract but supported the underlying ACA-repeal effort. The Texas v. United States lawsuit she joined as Attorney General predecessor's office continued to threaten the entire ACA structure.", "term_start": "2019-01-03", "term_end": "2020-12-02", "cycle_year": 2018 }
+    ]
+  },
+  {
+    "politician": {
+      "slug": "cory-gardner",
+      "name": "Cory Scott Gardner",
+      "party": "Republican",
+      "branch": "Senate",
+      "state": "CO",
+      "gender": "Male",
+      "religion": "Christian (Lutheran)",
+      "minority_status": null,
+      "dob": "1974-08-22",
+      "age": 51,
+      "in_office_since": "2015-01-03",
+      "in_office_to": "2021-01-03",
+      "current_status": "Former senator (2021); defeated 2020 by John Hickenlooper",
+      "official_url": null,
+      "ideology_label": "Conservative Republican",
+      "professional_background": "U.S. Senator (CO) 2015-2021; previously U.S. Representative (CO-4) 2011-2015; lost re-election in 2020 to former Governor John Hickenlooper.",
+      "profile_narrative": "Gardner served one Senate term (2015-2021), losing to Hickenlooper in 2020 by 9 points. This profile grades his single term, including his pivotal role on marijuana banking and outdoor-recreation legislation.",
+      "review_tier": "standard"
+    },
+    "promises": [
+      { "promise_number": 1, "promise_text": "Confirm conservative federal judges.", "category": "Judiciary", "promise_date": "2014 campaign", "verdict": "KEPT", "verdict_reasoning": "Gardner voted yes on Gorsuch (April 7, 2017), Kavanaugh (Oct 6, 2018), and Barrett (Oct 26, 2020).", "term_start": "2015-01-03", "term_end": "2021-01-03", "cycle_year": 2014 },
+      { "promise_number": 2, "promise_text": "Defend Colorado marijuana industry from federal interference.", "category": "Criminal Justice", "promise_date": "2014 campaign", "verdict": "PARTIAL", "verdict_reasoning": "Gardner placed a hold on DOJ nominees in April 2018 after AG Sessions rescinded the Cole Memo; he reached a public commitment from Trump in April 2018 that Colorado's industry would not be targeted. The SAFE Banking Act passed the House but never reached a Senate floor vote during his term.", "term_start": "2015-01-03", "term_end": "2021-01-03", "cycle_year": 2014 },
+      { "promise_number": 3, "promise_text": "Pass permanent funding for the Land and Water Conservation Fund.", "category": "Public Lands", "promise_date": "2014-2020", "verdict": "KEPT", "verdict_reasoning": "Gardner co-authored the Great American Outdoors Act (Pub.L. 116-152), signed Aug 4, 2020. It permanently funded LWCF at $900M/year and provided $1.9B/year for national park maintenance.", "term_start": "2015-01-03", "term_end": "2021-01-03", "cycle_year": 2014 },
+      { "promise_number": 4, "promise_text": "Repeal the Affordable Care Act.", "category": "Healthcare", "promise_date": "2014 campaign", "verdict": "BROKEN", "verdict_reasoning": "Gardner voted yes on the skinny repeal (failed 49-51, July 28, 2017). The ACA remained in force at end-of-term.", "term_start": "2015-01-03", "term_end": "2021-01-03", "cycle_year": 2014 },
+      { "promise_number": 5, "promise_text": "Confirm Amy Coney Barrett.", "category": "Judiciary", "promise_date": "2020", "verdict": "KEPT", "verdict_reasoning": "Gardner voted yes on Barrett's confirmation Oct 26, 2020 (52-48). He had publicly committed to filling the Ginsburg vacancy when it opened.", "term_start": "2015-01-03", "term_end": "2021-01-03", "cycle_year": 2014 },
+      { "promise_number": 6, "promise_text": "Move the U.S. Space Command headquarters to Colorado Springs.", "category": "Defense", "promise_date": "2018-2020", "verdict": "BROKEN", "verdict_reasoning": "The Air Force announced on Jan 13, 2021 that Huntsville, Alabama would host U.S. Space Command headquarters, not Colorado. The decision was later reviewed and reversed under the Biden administration in 2023, but during Gardner's term the decision went against him.", "term_start": "2015-01-03", "term_end": "2021-01-03", "cycle_year": 2014 },
+      { "promise_number": 7, "promise_text": "Vote against the TCJA tax bill — initial concerns.", "category": "Taxes", "promise_date": "2017", "verdict": "BROKEN", "verdict_reasoning": "Gardner ultimately voted yes on TCJA (Dec 20, 2017, 51-48) despite earlier expressed concerns about state-and-local-tax deduction caps affecting Colorado homeowners.", "term_start": "2015-01-03", "term_end": "2021-01-03", "cycle_year": 2014 },
+      { "promise_number": 8, "promise_text": "Support COVID relief.", "category": "Economy", "promise_date": "2020", "verdict": "KEPT", "verdict_reasoning": "Gardner voted yes on CARES Act (96-0, March 25, 2020), PPP Health Care Enhancement Act (April 21, 2020), and Consolidated Appropriations Act 2021 (Dec 21, 2020).", "term_start": "2015-01-03", "term_end": "2021-01-03", "cycle_year": 2014 }
+    ]
+  }
+]

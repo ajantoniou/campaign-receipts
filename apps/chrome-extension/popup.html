@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CR Edge</title>
+  <style>
+    body {
+      width: 280px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0D1117;
+      color: #C9D1D9;
+      margin: 0;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 16px;
+      color: #58A6FF;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      background: #010409;
+      border: 1px solid #30363D;
+      color: #C9D1D9;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #238636;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #2ea043;
+    }
+    #status {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #8B949E;
+    }
+  </style>
+</head>
+<body>
+  <h2>Campaign Receipts Edge</h2>
+  <p style="font-size: 13px;">Authenticate your $500/mo Terminal Access subscription.</p>
+  <input type="text" id="tokenInput" placeholder="Enter API Token (ext_...)" />
+  <button id="saveBtn">Save Token</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

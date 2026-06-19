@@ -1,0 +1,67 @@
+{
+  "slug": "sealed-011-self-funding",
+  "build": "011",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-24 no-VO. ChartBar shows $290M vs $1.1B raised across the two cycles vs the verbatim trail quote. Mixed Remotion: quote-card, chart, FEC-citation card.",
+  "no_vo": true,
+  "sync_specs": [
+    { "id": "hook",        "duration": 5.0 },
+    { "id": "trailQuote",  "duration": 5.0 },
+    { "id": "fecChart",    "duration": 6.0 },
+    { "id": "donorsNamed", "duration": 5.0 },
+    { "id": "broken",      "duration": 5.0 },
+    { "id": "cta",         "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2016 trail · every rally",
+        "quote": "I'm self-funding. I don't need their money.",
+        "source": "Then he raised $290M."
+      }
+    },
+    "trailQuote": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "FEC committee C00580100",
+        "quote": "2016 general election — outside donors.",
+        "source": "$290 million raised"
+      }
+    },
+    "fecChart": {
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "OUTSIDE DONOR MONEY",
+        "yAxisLabel": "Millions USD",
+        "maxValue": 1200,
+        "bars": [
+          { "label": "2016 GE", "value": 290,  "prefix": "$", "suffix": "M", "color": "#2a4d7c" },
+          { "label": "2020",    "value": 1100, "prefix": "$", "suffix": "M", "color": "#a4243b" }
+        ]
+      }
+    },
+    "donorsNamed": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "FEC quarterly filings · public record",
+        "quote": "The donors were named on every report.",
+        "source": "Self-funding was the trail line, not the receipt"
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Self-fund the campaign",
+        "citation": "$290M + $1.1B from outside donors"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

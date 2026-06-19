@@ -1,0 +1,131 @@
+{
+  "snapshot_at": "2026-05-25T14:20:00Z",
+  "hours_since_upload": 10,
+  "totals": {
+    "views": 823,
+    "likes": 16,
+    "comments": 2
+  },
+  "rows": [
+    {
+      "slug": "sealed-017-birthright",
+      "vid": "Lrh_sYXGC4Q",
+      "verdict": "BROKEN",
+      "views": 77,
+      "likes": 1,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-003-aipac-campus",
+      "vid": "CNmFoUgK4ls",
+      "verdict": "PARTIAL",
+      "views": 63,
+      "likes": 2,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-004-drain-the-swamp",
+      "vid": "C7lQWPUz1mA",
+      "verdict": "BROKEN",
+      "views": 150,
+      "likes": 3,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-005-china-tariffs",
+      "vid": "cO1Xvv6Q8Uk",
+      "verdict": "KEPT",
+      "views": 67,
+      "likes": 2,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-007-repeal-obamacare",
+      "vid": "o1hCqWh1Mxc",
+      "verdict": "BROKEN",
+      "views": 63,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-008-tax-returns",
+      "vid": "Ujc-mVy_Xvo",
+      "verdict": "BROKEN",
+      "views": 299,
+      "likes": 4,
+      "comments": 2
+    },
+    {
+      "slug": "sealed-009-term-limits",
+      "vid": "55GIMuAmGsM",
+      "verdict": "BROKEN",
+      "views": 103,
+      "likes": 4,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-010-un-climate-paris",
+      "vid": "Fh8AqMkwrbg",
+      "verdict": "KEPT",
+      "views": 1,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-011-self-funding",
+      "vid": "pk4ohXWHmx0",
+      "verdict": "BROKEN",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-012-lock-her-up",
+      "vid": "tWDuu13k8Iw",
+      "verdict": "BROKEN",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-013-coal",
+      "vid": "ZWVoSVvpro4",
+      "verdict": "BROKEN",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-014-nk-nukes",
+      "vid": "mQNleERflSU",
+      "verdict": "BROKEN",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-015-scotus-roe",
+      "vid": "MPBhXUEYCS4",
+      "verdict": "KEPT",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-016-deportation-shortfall",
+      "vid": "jvHFneIz48k",
+      "verdict": "BROKEN",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "slug": "sealed-002-aipac-embassy",
+      "vid": "rT3G1VSV46g",
+      "verdict": "KEPT",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "slug": "cr-tx-senate-2026-superpacs",
+  "_meta": {
+    "stage": "Stage 19.7 — score-composer emotional audio arc",
+    "generated_by": "personas/score-composer.md",
+    "date": "2026-05-31",
+    "punchline_clip": "verdict-01-costume-card",
+    "punchline_sec": 262,
+    "arc": "cold-question -> investigative establishing -> sinister rise (Receipt 3 + why-it-matters) -> ta-da release on 'the friendly name is the costume' -> verdict body under the stamp -> warm cold-close tail"
+  },
+  "music_cues": [
+    {
+      "cue_id": "cold-open-question",
+      "start_sec": 0,
+      "end_sec": 32,
+      "covers_clip_ids": ["hook-01-couch-atmosphere", "hook-02-countup", "hook-03-whopaid"],
+      "covers_beat": "Hook — couch, the $88.6M count-up, WHO PAID?",
+      "mood": "single unresolved felt-piano figure, one held minor note, a question hanging",
+      "instrumentation": "solo felt piano, no pad, no drums",
+      "intensity": 2,
+      "transition_in": "cold",
+      "transition_out": "crossfade",
+      "level_db": -20,
+      "prompt": "Solo felt piano, slow 58 bpm, a single unresolved minor figure repeating sparsely with long silence between phrases. Documentary cold open, a question left hanging in the air. No drums, no pad, no swell. Frontline first-20-seconds restraint.",
+      "purpose": "The unresolved note IS the 'who actually paid for that ad?' open loop."
+    },
+    {
+      "cue_id": "investigative-establishing",
+      "start_sec": 32,
+      "end_sec": 130,
+      "covers_clip_ids": ["context-01-stakes", "context-02-superpac-explainer", "context-03-capitol-atmosphere", "receipt1-01-name-card", "receipt1-02-nau-caricature", "receipt1-03-schwarzman-caricature", "receipt1-04-moneyflow", "receipt1-05-paxton-caricature"],
+      "covers_beat": "What a super-PAC is + Receipt 1 (Texans for a Conservative Majority -> Nau/Schwarzman -> against Paxton)",
+      "mood": "steady investigative pulse, low cello + muted upright bass, patient forward motion",
+      "instrumentation": "felt piano, low cello, soft muted upright bass, light pizzicato accents",
+      "intensity": 3,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "level_db": -21,
+      "prompt": "Patient investigative documentary underscore, 70 bpm, felt piano with low cello and a soft muted upright bass walking quietly underneath, occasional pizzicato accent as each fact lands. Restrained, archival, building trust. No drums, no big swell, no tension yet.",
+      "purpose": "Carries the methodical first reveal — pulling the first thread."
+    },
+    {
+      "cue_id": "sinister-rise",
+      "start_sec": 130,
+      "end_sec": 262,
+      "covers_clip_ids": ["receipt2-01-yass-caricature", "receipt2-02-moneyflow", "receipt2-03-allred-caricature", "receipt3-01-hoffman-caricature", "receipt3-02-moneyflow", "receipt3-03-crockett-caricature", "matters-01-stakes", "matters-02-comparison", "matters-03-bigwords", "hidden-01-chartbar", "hidden-02-honest-card"],
+      "covers_beat": "Pattern repeats (Receipt 2, Receipt 3 both sides) + why it matters + the hidden ones — tension builds toward the turn",
+      "mood": "slow sinister rise, low drone swelling under the pattern, dissonant cello, ticking unease",
+      "instrumentation": "low synth drone, dissonant cello, sparse ticking percussion, piano lower register",
+      "intensity": 4,
+      "transition_in": "crossfade",
+      "transition_out": "cut",
+      "level_db": -20,
+      "prompt": "Slowly rising sinister documentary tension, 72 bpm, a low drone swelling underneath a dissonant cello line, a sparse ticking pulse like a clock, piano playing in its lower register. The unease grows steadily as the same trick repeats across both parties. No release yet — hold the tension. No melody resolves.",
+      "purpose": "Sinister rise as the disguise pattern repeats and crosses parties; ends on a hard CUT right before the punchline for maximum ta-da contrast."
+    },
+    {
+      "cue_id": "tada-release",
+      "start_sec": 262,
+      "end_sec": 273,
+      "covers_clip_ids": ["verdict-01-costume-card"],
+      "covers_beat": "PUNCHLINE — 'the friendly names are a costume; the real face is in the public filing'",
+      "mood": "the tension resolves — a single clarifying major chord opens up, light breaks through",
+      "instrumentation": "warm piano major resolution, a single sustained string swell up, soft bell shimmer",
+      "intensity": 5,
+      "transition_in": "cut",
+      "transition_out": "crossfade",
+      "level_db": -18,
+      "prompt": "The held tension finally resolves — a warm major piano chord opens up with a single sustained string swell rising into clarity and a soft bell shimmer on top. Cinematic ta-da release, the moment the disguise comes off and the truth is plain. 70 bpm, hopeful and clean. No drums.",
+      "purpose": "The ta-da release exactly on the costume punchline — the cut from sinister to clarity sells the reveal."
+    },
+    {
+      "cue_id": "verdict-body",
+      "start_sec": 273,
+      "end_sec": 285,
+      "covers_clip_ids": ["verdict-02-stamp"],
+      "covers_beat": "Verdict stamp — THE WARM NAME IS THE DISGUISE",
+      "mood": "resolved, grounded, certain — the verdict settles",
+      "instrumentation": "warm piano, sustained low strings, steady and final",
+      "intensity": 4,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "level_db": -19,
+      "prompt": "Grounded, certain documentary resolution, 68 bpm, warm piano over sustained low strings, steady and final, the verdict settling into place. Confident but not triumphant. No drums.",
+      "purpose": "Holds gravitas under the RECEIPT verdict stamp."
+    },
+    {
+      "cue_id": "warm-cold-close-tail",
+      "start_sec": 285,
+      "end_sec": 300,
+      "covers_clip_ids": ["close-01-outro"],
+      "covers_beat": "Cold close — it is one filing, it is free, it is already yours + newsletter CTA",
+      "mood": "warm, dignified, leaves the viewer with agency",
+      "instrumentation": "solo felt piano returns, one gentle resolved figure, soft string bed underneath",
+      "intensity": 2,
+      "transition_in": "crossfade",
+      "transition_out": "fade",
+      "level_db": -20,
+      "prompt": "Warm, dignified close, 60 bpm, solo felt piano playing one gentle resolved figure over a soft low string bed, leaving the viewer with quiet agency — the receipt is already yours. Mirrors the cold-open piano but now resolved. Fade to silence on a 1.2s tail. No drums.",
+      "purpose": "Callback to the cold-open piano, now resolved — gives the 'it is already yours' dignity beat its breathing room."
+    }
+  ],
+  "sfx": [
+    { "sfx_id": "countup-tick", "at_sec": 4, "covers_clip_id": "hook-02-countup", "cue": "soft mechanical odometer ticking that accelerates and lands on a low thud as the $88.6M number settles", "level_db": -22 },
+    { "sfx_id": "receipt1-paper-flip", "at_sec": 80, "covers_clip_id": "receipt1-01-name-card", "cue": "single crisp paper-flip / filing page turn as the FEC filing is pulled", "level_db": -20 },
+    { "sfx_id": "moneyflow-pen", "at_sec": 118, "covers_clip_id": "receipt1-04-moneyflow", "cue": "soft pen-on-paper scratch as each donor line is written into the money-flow", "level_db": -23 },
+    { "sfx_id": "receipt2-paper-flip", "at_sec": 130, "covers_clip_id": "receipt2-01-yass-caricature", "cue": "second crisp paper-flip — pulling the next thread", "level_db": -20 },
+    { "sfx_id": "receipt3-paper-flip", "at_sec": 160, "covers_clip_id": "receipt3-01-hoffman-caricature", "cue": "third paper-flip — and it happens again", "level_db": -20 },
+    { "sfx_id": "tada-swell-hit", "at_sec": 262, "covers_clip_id": "verdict-01-costume-card", "cue": "soft cinematic riser resolving into a single warm bell hit exactly as the costume punchline lands", "level_db": -17 },
+    { "sfx_id": "verdict-stamp", "at_sec": 274, "covers_clip_id": "verdict-02-stamp", "cue": "firm ink-stamp / gavel thud as the RECEIPT verdict stamp lands", "level_db": -16 }
+  ],
+  "scoring_notes": [
+    "Hard CUT (not crossfade) from sinister-rise into tada-release at 262s — the silence-then-resolution is what makes the reveal hit.",
+    "Music ducks under VO throughout (-18 to -23 dB); SFX sit just above the bed on their accent frames only.",
+    "Cold-open and cold-close share the same solo felt-piano voice — unresolved at open, resolved at close — to bookend the 'who paid?' question with 'it is already yours.'",
+    "No drums anywhere; no triumphant brass. CR tone is investigative restraint, not cable-news urgency."
+  ]
+}

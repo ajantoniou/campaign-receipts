@@ -1,0 +1,182 @@
+{
+  "cr-bell-bush-aipac-primary": [
+    "CountUp",
+    "ChartBar",
+    "MoneyFlow",
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "cr-massie-gallrein-primary": [
+    "CountUp",
+    "ChartBar",
+    "MoneyFlow",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-aipac-iran-deal-v7": [
+    "PoliticalMap",
+    "ChartBar",
+    "SourceCard",
+    "MoneyFlow",
+    "Timeline",
+    "CountUp",
+    "DonorComparison",
+    "VerdictStamp"
+  ],
+  "sealed-drain-the-swamp-v1": [
+    "VerdictStamp",
+    "SourceCard",
+    "MoneyFlow",
+    "ChartBar"
+  ],
+  "sealed-aipac-embassy-v1": [
+    "VerdictStamp"
+  ],
+  "sealed-002-aipac-embassy": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-003-aipac-campus": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-004-drain-the-swamp": [
+    "ChartBar",
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-005-china-tariffs": [
+    "ChartBar",
+    "CountUp",
+    "SourceCard",
+    "VerdictStamp"
+  ],
+  "sealed-007-repeal-obamacare": [
+    "ChartBar",
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-008-tax-returns": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-015-scotus-roe": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-016-deportation-shortfall": [
+    "SourceCard",
+    "ChartBar",
+    "VerdictStamp"
+  ],
+  "sealed-009-term-limits": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-010-un-climate-paris": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-011-self-funding": [
+    "SourceCard",
+    "ChartBar",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-012-lock-her-up": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-013-coal": [
+    "SourceCard",
+    "ChartBar",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-014-nk-nukes": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-017-birthright": [
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "cr-rabb-pa3-aipac-defeat": [
+    "CountUp",
+    "ChartBar",
+    "MoneyFlow",
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "cr-what-happened-to-trump": [
+    "CountUp",
+    "ChartBar",
+    "MoneyFlow",
+    "SourceCard",
+    "Timeline",
+    "VerdictStamp"
+  ],
+  "sealed-aipac-embassy-v2": [
+    "OpeningSlate",
+    "TextSlate",
+    "Timeline",
+    "SourceCard",
+    "PoliticalMap",
+    "ChartBar",
+    "VerdictStamp",
+    "ClosingSlate"
+  ],
+  "sealed-aipac-campus-eo": [
+    "OpeningSlate",
+    "TextSlate",
+    "SourceCard",
+    "OverturnedLaw",
+    "Timeline",
+    "CountUp",
+    "VerdictStamp",
+    "ClosingSlate"
+  ],
+  "cr-tx-senate-2026-superpacs": [
+    "CountUp",
+    "TextSlate",
+    "MoneyFlow",
+    "SourceCard",
+    "DonorComparison",
+    "ChartBar",
+    "VerdictStamp",
+    "LongformSubscribeOutro"
+  ],
+  "cr-tx-senate-2026-superpacs-short-a": [
+    "CountUp",
+    "TextSlate",
+    "MoneyFlow",
+    "SourceCard",
+    "DonorComparison",
+    "ChartBar",
+    "VerdictStamp",
+    "LongformSubscribeOutro"
+  ],
+  "cr-tx-senate-2026-superpacs-short-b": [
+    "CountUp",
+    "TextSlate",
+    "MoneyFlow",
+    "SourceCard",
+    "DonorComparison",
+    "ChartBar",
+    "VerdictStamp",
+    "LongformSubscribeOutro"
+  ]
+}

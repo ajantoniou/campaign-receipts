@@ -1,0 +1,245 @@
+{
+  "_meta": {
+    "title": "CR new-news — $8M+ outside spend vs Cori Bush (MO-1 primary)",
+    "purpose": "v3: news B-roll + portraits + shorter Remotion beats with plain-language labels (not static charts alone).",
+    "pillar": "donors_races",
+    "estimated_cost_usd": 0.5,
+    "canonical_script": "eng/scripts/cr-new-news/cr-bell-bush-aipac-primary.md",
+    "deep_link": "https://campaignreceipts.com/politician/cori-bush"
+  },
+  "slug": "cr-bell-bush-aipac-primary",
+  "program": "cr-new-news",
+  "remotion_episode": "cr-bell-bush-aipac-primary",
+  "total_duration_seconds": 237,
+  "vo_script_path": "eng/scripts/cr-new-news/cr-bell-bush-aipac-primary-vo.txt",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "thumbnail": {
+    "headline": "$8M+",
+    "subline": "BEAT CORI BUSH",
+    "verdict": "RECEIPT",
+    "bg": "navy"
+  },
+  "beats": [
+    { "beat_id": "hook", "label": "Hook", "start_sec": 0, "end_sec": 20 },
+    { "beat_id": "cast", "label": "Who ran", "start_sec": 20, "end_sec": 50 },
+    { "beat_id": "receipt", "label": "Receipt", "start_sec": 50, "end_sec": 130 },
+    { "beat_id": "trail", "label": "Trail + news", "start_sec": 130, "end_sec": 200 },
+    { "beat_id": "verdict", "label": "Verdict", "start_sec": 200, "end_sec": 235 }
+  ],
+  "clips": [
+    {
+      "clip_id": "hook-01-countup",
+      "beat_id": "hook",
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "HOOK — $8M outside spend",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "$",
+        "to": 8000000,
+        "suffix": "+",
+        "label": "Outside spend in one House primary",
+        "caption": "Not the candidates' campaigns — independent committees"
+      }
+    },
+    {
+      "clip_id": "hook-02-headline",
+      "beat_id": "hook",
+      "duration": 5,
+      "aspect": "16:9",
+      "covers_script_section": "Stakes — MO-1 result",
+      "vendor": "text-card",
+      "text_card_id": "hook-02-headline"
+    },
+    {
+      "clip_id": "context-outside-money",
+      "beat_id": "hook",
+      "duration": 8,
+      "aspect": "16:9",
+      "covers_script_section": "Define outside money",
+      "vendor": "text-card",
+      "text_card_id": "context-outside-money"
+    },
+    {
+      "clip_id": "cast-cori-bush",
+      "beat_id": "cast",
+      "duration": 10,
+      "aspect": "16:9",
+      "covers_script_section": "Incumbent — Cori Bush",
+      "vendor": "politician-caricature",
+      "caricature_slug": "cori-bush",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "cast-wesley-bell",
+      "beat_id": "cast",
+      "duration": 10,
+      "aspect": "16:9",
+      "covers_script_section": "Challenger — Wesley Bell",
+      "vendor": "politician-caricature",
+      "caricature_slug": "wesley-bell",
+      "framing": "contain"
+    },
+    {
+      "clip_id": "chart-spending-scale",
+      "beat_id": "cast",
+      "duration": 30,
+      "aspect": "16:9",
+      "covers_script_section": "Normal primary vs this race",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "How much outside money in MO-1?",
+        "yAxisLabel": "Millions of dollars (approx.)",
+        "maxValue": 8,
+        "bars": [
+          { "label": "Typical MO-1 primary", "value": 1, "suffix": "M", "color": "#5b6478" },
+          { "label": "Anti-Bush independent spend", "value": 8, "suffix": "M", "color": "#a4243b" },
+          { "label": "UDP reported vs Bush", "value": 6, "suffix": "M", "color": "#0a1f3d" }
+        ]
+      },
+      "expected_on_screen_text": ["Typical", "Anti-Bush", "UDP"]
+    },
+    {
+      "clip_id": "explain-mail-udp",
+      "beat_id": "receipt",
+      "duration": 10,
+      "aspect": "16:9",
+      "covers_script_section": "Mailer fine print — UDP",
+      "vendor": "text-card",
+      "text_card_id": "explain-mail-udp"
+    },
+    {
+      "clip_id": "news-results",
+      "beat_id": "receipt",
+      "duration": 25,
+      "aspect": "16:9",
+      "covers_script_section": "Election night news — Bell wins primary",
+      "vendor": "reuse",
+      "reuse_path": "_build/cr-bell-bush-aipac-primary/fair-use-clips/clip-news-results.mp4",
+      "fair_use_sidecar": "_build/cr-bell-bush-aipac-primary/fair-use-clips/clip-news-results.json"
+    },
+    {
+      "clip_id": "receipt-moneyflow",
+      "beat_id": "receipt",
+      "duration": 30,
+      "aspect": "16:9",
+      "covers_script_section": "Money trail — UDP to ads to margin",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "How the outside money moved",
+        "source": {
+          "name": "United Democracy Project",
+          "amount": 6000000,
+          "sublabel": "FEC independent expenditures vs Cori Bush"
+        },
+        "destinations": [
+          { "label": "TV, mail, digital ads", "outcome": "Anti-Bush message" },
+          { "label": "MO-1 Democratic primary", "outcome": "Aug 6, 2024" },
+          { "label": "Certified result", "outcome": "Bell 51% · Bush 46%" }
+        ]
+      }
+    },
+    {
+      "clip_id": "receipt-fec-card",
+      "beat_id": "receipt",
+      "duration": 14,
+      "aspect": "16:9",
+      "covers_script_section": "FEC filing line",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "FEC.gov · Schedule E · Independent expenditure",
+        "quote": "United Democracy Project · Oppose Cori Bush · ~$6.0M reported (2023–24)"
+      }
+    },
+    {
+      "clip_id": "news-concession",
+      "beat_id": "trail",
+      "duration": 20,
+      "aspect": "16:9",
+      "covers_script_section": "Bush concession — news footage",
+      "vendor": "reuse",
+      "reuse_path": "_build/cr-bell-bush-aipac-primary/fair-use-clips/clip-news-concession.mp4",
+      "fair_use_sidecar": "_build/cr-bell-bush-aipac-primary/fair-use-clips/clip-news-concession.json"
+    },
+    {
+      "clip_id": "trail-timeline",
+      "beat_id": "trail",
+      "duration": 28,
+      "aspect": "16:9",
+      "covers_script_section": "Primary calendar",
+      "vendor": "remotion",
+      "composition": "Timeline",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Primary timeline",
+        "candidates": [
+          { "name": "Cori Bush", "caricature_slug": "cori-bush", "role": "Incumbent" },
+          { "name": "Wesley Bell", "caricature_slug": "wesley-bell", "role": "Challenger" }
+        ],
+        "events": [
+          { "date": "Spring 2024", "label": "UDP + allies ramp TV and mail" },
+          { "date": "July 2024", "label": "Mailers hit St. Louis — fine print names UDP" },
+          { "date": "Aug 6, 2024", "label": "Bell wins primary · Bush concedes" }
+        ]
+      }
+    },
+    {
+      "clip_id": "overlay-election-margin",
+      "beat_id": "trail",
+      "duration": 8,
+      "aspect": "16:9",
+      "covers_script_section": "Five-point margin on screen",
+      "vendor": "text-card",
+      "text_card_id": "overlay-election-margin"
+    },
+    {
+      "clip_id": "verdict-01-stamp",
+      "beat_id": "verdict",
+      "duration": 14,
+      "aspect": "16:9",
+      "covers_script_section": "Receipt stamp",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "campaign-receipts",
+        "verdict": "RECEIPT",
+        "promise": "$8M outside spend — Bell 51%, Bush 46%",
+        "citation": "MO-1 Democratic primary · Aug 6, 2024 · FEC.gov",
+        "candidates": [
+          { "name": "Cori Bush", "caricature_slug": "cori-bush" },
+          { "name": "Wesley Bell", "caricature_slug": "wesley-bell" }
+        ]
+      },
+      "sfx": [{ "at_sec": 0, "cue": "verdict-stamp-hit" }]
+    },
+    {
+      "clip_id": "verdict-02-cta",
+      "beat_id": "verdict",
+      "duration": 8,
+      "aspect": "16:9",
+      "covers_script_section": "CTA",
+      "vendor": "text-card",
+      "text_card_id": "verdict-02-cta"
+    }
+  ],
+  "music_cues": [
+    { "start_sec": 0, "end_sec": 90, "mood": "tense piano, slow build", "cue_id": "intro" },
+    { "start_sec": 90, "end_sec": 180, "mood": "investigative strings", "cue_id": "trail" },
+    { "start_sec": 185, "end_sec": 235, "mood": "resolve", "cue_id": "outro" }
+  ],
+  "sfx": []
+}

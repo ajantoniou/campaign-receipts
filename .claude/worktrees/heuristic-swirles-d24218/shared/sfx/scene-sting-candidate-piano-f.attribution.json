@@ -1,0 +1,11 @@
+{
+  "asset": "scene-sting-candidate-piano-f.mp3",
+  "title": "Piano F.wav",
+  "author": "pinkyfinger",
+  "source_url": "https://freesound.org/people/pinkyfinger/sounds/68446/",
+  "preview_url": "https://cdn.freesound.org/previews/68/68446_871124-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "modifications": "CANDIDATE ONLY — see MISSING.md. Single F natural piano note (F natural, not F minor chord). The persona explicitly says 'NOT a piano stab', so this is a fallback if no synth/string F sting can be sourced. If used, layer with the Jofae impact at low gain to weight it down so it reads as cinematic sting rather than recital. Trim to 250ms and normalize to -22 dB."
+}

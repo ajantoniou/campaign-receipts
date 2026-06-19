@@ -1,0 +1,241 @@
+# Secrets — never commit
+.env
+.env.*
+# Allow specific committed examples (no real secrets)
+!companies/concise/.env.local.example
+*.pem
+*.key
+secrets/
+**/credentials.json
+**/service-account*.json
+
+# Architecture note (2026-05-02):
+# This is the local monorepo. ALL files here are tracked in the
+# local git repo (no GitHub remote yet — defer until traction).
+# CHIEF_OF_STAFF.md, PORTFOLIO_BRIEF.md, briefings/, and shared/ ARE
+# committed locally for full version history.
+#
+# CoS rolling *-cos.md snapshots churn every few minutes; ignore untracked
+# copies to keep `git status` usable. Force-add when auditing a specific tick.
+briefings/*-cos.md
+# When a company hits traction and gets extracted to its own GitHub
+# repo, that EXTRACTED repo will NOT include these monorepo-level
+# files (they stay only in the local parent monorepo). The extraction
+# script (when written) will handle this filtering.
+# Paperclip — entire upstream repo is gitignored from our parent repo.
+# It has its own .git directory pointing to github.com/paperclipai/paperclip.
+# We don't track its source in our repo because it's a third-party dep.
+# Anyone setting up AgentCompanies on a fresh machine runs:
+#   cd infrastructure && git clone https://github.com/paperclipai/paperclip.git
+#   cd paperclip && pnpm install && pnpm dev
+infrastructure/paperclip/
+# Per-company runtime artifacts (operational logs, transient data)
+companies/*/runtime/
+companies/*/logs/
+companies/*/.cache/
+companies/*/site/data/
+# Generated content drafts (kept in Supabase Storage, not git)
+companies/nt-ministry/content/drafts/
+companies/nt-ministry/content/generated/
+companies/concise/content/drafts/
+# Note: standups/, plans/, deploys/ folders ARE committed
+# (they're agent output history, valuable for audit trail)
+# Compliance review artifacts ARE committed (audit trail valuable)
+# OS
+.DS_Store
+Thumbs.db
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+# Node
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+# Python (if any tools use it)
+__pycache__/
+*.pyc
+.venv/
+venv/
+# Symlinked book content (private, not for git)
+companies/concise/books-source/
+# Playwright MCP session artifacts (debug logs + page snapshots from agent browser sessions)
+**/.playwright-mcp/
+# Runtime logs from infrastructure/scripts/ (cost tracking, idempotency markers, purchase history)
+infrastructure/scripts/.image-gen-costs.jsonl
+infrastructure/scripts/.domain-purchases.jsonl
+infrastructure/scripts/.watchdog-log.jsonl
+infrastructure/scripts/.token-log.jsonl
+infrastructure/scripts/.*-log.jsonl
+# Next.js build output (should never be committed)
+companies/*/.next/
+companies/*/node_modules/
+**/.next/
+**/node_modules/
+# Accidental root-level asset copies (2026-05-07: bad drag/drop from NT Ministry eval)
+/content/
+/…/
+*.tsbuildinfo
+
+# OAuth client secrets
+client_secret.json
+client_secret*.json
+# YouTube OAuth refresh token (never commit)
+.youtube-token.json
+**/.youtube-token.json
+companies/estimateproof/site/public/video-build/
+companies/estimateproof/site/public/videos/estimateproof-intro.mp4
+
+# NT Ministry — large mp4 outputs (exceed GitHub 100MB limit; YouTube upload is the canonical version)
+companies/nt-ministry/content/videos/2026-05-16-god-jesus-never-defended/body-v2.mp4
+companies/nt-ministry/content/videos/2026-05-16-god-jesus-never-defended/body-with-music.mp4
+companies/nt-ministry/content/videos/2026-05-16-god-jesus-never-defended/master-v4.mp4
+
+# CampaignReceipts long-form mp4 outputs (likely >100MB at 4-5 min 1080p; YouTube is the canonical version)
+companies/campaign-receipts/public/longform/*.mp4
+# Build intermediates from the shorts + longform pipelines
+companies/campaign-receipts/scripts/shorts/_build/
+companies/campaign-receipts/scripts/longform/_build/
+# CR per-video build dir (clips, normalized clips, audio intermediates, QC frames — all regenerable)
+companies/campaign-receipts/_build/
+# Concise-sealed movie build artifacts (regenerable from scripts)
+companies/concise-sealed/public/movie/_build_v4/
+# Agent worktrees (managed by harness, never committed)
+.claude/worktrees/
+**/.claude/worktrees/
+# Third-party clones
+open-design/
+companies/nt-ministry/content/videos/2026-05-16-god-jesus-never-defended/master-v5.mp4
+companies/nt-ministry/content/videos/2026-05-16-god-jesus-never-defended/master-v6.mp4
+companies/nt-ministry/content/videos/2026-05-16-god-jesus-never-defended/master-v7.mp4
+companies/nt-ministry/content/videos/2026-05-16-god-jesus-never-defended/master-v7-1440p.mp4
+companies/nt-ministry/content/videos/2026-05-16-god-jesus-never-defended/_splice-v7-work/
+
+# HealthBrew — large binary assets (stills, clips, music, masters — all regenerable from scripts + storybooks)
+companies/healthbrew/content/episodes/*/_stills/
+companies/healthbrew/content/episodes/*/_clips/
+companies/healthbrew/content/episodes/*/_music/
+companies/healthbrew/content/episodes/*/_voiceover/
+companies/healthbrew/content/episodes/*/_remotion/
+companies/healthbrew/content/episodes/*/_final/
+companies/healthbrew/content/episodes/*/_review/
+companies/healthbrew/content/episodes/*/_splice-work*/
+companies/healthbrew/content/episodes/*/master-*.mp4
+# YouTube Shorts — splice work dirs (intermediate overlay PNGs, concat files)
+companies/healthbrew/content/episodes/youtube-shorts-success-stories/short-*/_splice-work*/
+# YouTube Shorts — same pattern one level deeper
+companies/healthbrew/content/episodes/youtube-shorts-success-stories/short-*/_stills/
+companies/healthbrew/content/episodes/youtube-shorts-success-stories/short-*/_clips/
+companies/healthbrew/content/episodes/youtube-shorts-success-stories/short-*/_music/
+companies/healthbrew/content/episodes/youtube-shorts-success-stories/short-*/master-*.mp4
+# Shared music cues for shorts (regenerable)
+companies/healthbrew/content/episodes/youtube-shorts-success-stories/_shared-music/
+
+# NTO — large generated video/audio artifacts (canonical source is scripts, storybooks, manifests, and YouTube/Spotify uploads)
+companies/NTO/content/videos/**/_archive/
+companies/NTO/content/videos/**/_dialogue-chunks/
+companies/NTO/content/videos/**/_review/
+companies/NTO/content/videos/**/_splice-*-work/
+companies/NTO/content/videos/**/_splice-work*/
+companies/NTO/content/videos/**/_rerender-*-work*/
+companies/NTO/content/videos/**/_concat*.txt
+companies/NTO/content/videos/**/audio-qa/
+companies/NTO/content/videos/**/_spotcheck*/
+companies/NTO/content/videos/**/*.prev
+companies/NTO/content/videos/**/clips-broll-yt/
+companies/NTO/content/videos/**/clips-ai-v*/
+companies/NTO/content/videos/**/clips-generated*/
+companies/NTO/content/videos/**/clips-remotion*/
+companies/NTO/content/videos/**/clips-v*-broll/
+companies/NTO/content/videos/**/clips-v*-visuals/
+companies/NTO/content/videos/**/clips-v*-assets/
+companies/NTO/content/videos/**/shorts-v*/
+companies/NTO/content/videos/**/stills/
+companies/NTO/content/videos/**/youtube-broll/
+companies/NTO/content/videos/**/*.mp4
+companies/NTO/content/videos/**/*.mp3
+companies/NTO/content/videos/**/*.m4a
+companies/NTO/content/videos/**/*.wav
+companies/NTO/content/videos/**/_review/**/*.jpg
+companies/NTO/content/videos/**/_review/**/*.jpeg
+companies/NTO/content/videos/**/_review/**/*.png
+companies/NTO/content/podcast/audio/**/*.mp3
+companies/NTO/web/nt-content/public/podcast/audio/**/*.mp3
+
+# ============================================================
+# HARDENING APPENDIX (added 2026-06-02) — secrets, media, build
+# GLOBAL rules: a new companies/<x>/ folder is protected by default.
+# Philosophy preserved: scripts, storybooks, manifests, JSON, and
+# markdown audit trails stay COMMITTED. Only heavy binaries ignored.
+# ============================================================
+
+# --- Secret hygiene (defensive, anywhere in tree) ------------
+# Existing `client_secret*.json` misses e.g. healthbrew_client_secret.json.
+**/*client_secret*.json
+**/*client-secret*.json
+**/*-client-secret*.json
+**/*service-account*.json
+**/*service_account*.json
+**/application_default_credentials.json
+# OAuth token caches (NARROW — bare *token*.json would eat data files)
+**/*.oauth-token.json
+**/*-token.json
+**/*_token.json
+**/token.json
+**/.token.json
+# Cloud + vendor key files
+**/*.gcp.json
+**/gcp-key*.json
+**/aws-credentials*.json
+**/.aws/credentials
+# Key material (supplements existing *.pem / *.key)
+**/*.p12
+**/*.pfx
+**/*.keystore
+**/*.jks
+# Vendor key dumps (Stripe / fal / ElevenLabs / Supabase)
+**/stripe-keys*.json
+**/*secret_key*.json
+**/*-secrets.json
+**/*.secrets.json
+# Local env variants
+**/.env.local
+**/.env.*.local
+**/*.envrc
+# Re-assert example/doc whitelist so the patterns above never eat them
+!**/.env.local.example
+!**/.env.example
+!shared/portfolio-hub/environment-and-secrets.md
+
+# --- Generated/binary media — GLOBAL per-company -------------
+companies/*/content/**/*.mp4
+companies/*/content/**/*.mov
+companies/*/content/**/*.webm
+companies/*/content/**/*.mp3
+companies/*/content/**/*.wav
+companies/*/content/**/*.m4a
+companies/*/content/**/*.aac
+companies/*/content/**/*.flac
+# Heavy still-image SOURCE sheets (Soul/Banana build sources)
+companies/*/content/**/_shared/cast/**/*.png
+companies/*/content/**/_shared/cast/**/*.psd
+companies/*/content/**/_shared/cast/**/*.tiff
+# Keep the small functional render refs COMMITTED (negation wins)
+!companies/*/content/**/_shared/cast/**/_o1-refs/**/*.jpg
+!companies/*/content/**/_shared/cast/**/_o1-refs/**/*.jpeg
+# Generic build/scratch dirs anywhere
+**/_build/
+**/_splice-work*/
+**/clips-*/
+**/_stills/
+**/_stills_*/
+**/_renders/
+**/_tmp-render*/
+# Stray large archives
+*.zip
+*.tar.gz
+*.7z
+# Stray root marketing PDF (explicit, NOT a global *.pdf ignore —
+# the founder commits PDF deliverables/audit artifacts elsewhere)
+/MRBEAST-HOW-TO-GO-VIRAL.pdf

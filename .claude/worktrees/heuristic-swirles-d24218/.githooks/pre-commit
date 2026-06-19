@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# AgentCompanies pre-commit guard: blocks secrets + oversized files.
+# Versioned hook — enable once per clone with:
+#     git config core.hooksPath .githooks
+# Override intentionally (rare) with:  git commit --no-verify
+set -euo pipefail
+
+MAX_BYTES=$((25 * 1024 * 1024))   # 25 MB
+fail=0
+
+# Files staged for commit (added/copied/modified), NUL-safe
+while IFS= read -r -d '' f; do
+  [ -f "$f" ] || continue
+
+  # 1. Secret filename patterns
+  case "$f" in
+    *client_secret*.json|*client-secret*.json|*service-account*.json|\
+    *service_account*.json|*.pem|*.p12|*.pfx|*.keystore|*.jks|\
+    .env|.env.*|*-token.json|*_token.json|*.oauth-token.json|*-secrets.json)
+      case "$f" in
+        *.example|*environment-and-secrets.md) : ;;   # allow docs/examples
+        *) echo "BLOCKED (secret pattern): $f"; fail=1 ;;
+      esac
+      ;;
+  esac
+
+  # 2. Oversized files
+  sz=$(wc -c < "$f")
+  if [ "$sz" -gt "$MAX_BYTES" ]; then
+    echo "BLOCKED (>$((MAX_BYTES/1024/1024))MB, $((sz/1024/1024))MB): $f"
+    fail=1
+  fi
+done < <(git diff --cached --name-only -z --diff-filter=ACM)
+
+if [ "$fail" -ne 0 ]; then
+  echo ""
+  echo "Commit blocked. Move secrets out of the tree (~/.agentcompanies-secrets);"
+  echo "use git-lfs or .gitignore for large files."
+  echo "To override intentionally (rare): git commit --no-verify"
+  exit 1
+fi
+exit 0

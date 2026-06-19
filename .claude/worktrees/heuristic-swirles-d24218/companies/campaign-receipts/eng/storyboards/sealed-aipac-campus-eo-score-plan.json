@@ -1,0 +1,130 @@
+{
+  "slug": "sealed-aipac-campus-eo",
+  "total_duration_seconds": 269,
+  "arc_note": "A cold, institutional 'watch the mechanism' arc — the menace lives in restraint, never in volume. Six cues. A single repeated piano figure opens under the hook; a dry, bureaucratic-cool establishing bed carries the promise + the harmless guide; the turn is NOT a swell but a darkening — when the guide becomes a Title VI lever (s5-02, ~103s) the warmth drains out and a low cello drone enters under the same tempo, so the room cools without the viewer noticing why; that quiet menace holds and tightens across the two-ledger build through the AIPAC reveal; the BROKEN VerdictStamp gets the one moment of air — not triumph, a held minor-key string opening, the documentary 'daylight' beat; then a single piano note tails out under the comment-trigger and CTA so the viewer sits with the weight. No cue runs past ~75s. Music recedes hardest at the two pause-heavy reveal moments (the 'Done.' 1s pause at ~205s and the 600ms before BROKEN at ~245s) where it drops to a near-silent sustain so the VO and the stamp land bare.",
+  "music_cues": [
+    {
+      "cue_id": "cold-open-piano",
+      "start_sec": 0,
+      "end_sec": 18,
+      "mood": "single repeated piano figure, cold and unresolved",
+      "intensity": 2,
+      "transition_in": "cold",
+      "transition_out": "crossfade",
+      "prompt": "Solo grand piano, a single unresolved three-note figure repeating slowly at ~62 bpm, lots of space between phrases, faint room tone, no strings yet. Cold investigative open, Frontline / Retro Report. The figure never resolves — it asks a question. Minor key, restrained, no melody hook, no swell.",
+      "level_db": -19,
+      "beats_covered": ["s1-01", "s1-02", "s1-03"],
+      "purpose": "Sets the master 'two ledgers' question under the hook. Unresolved figure = the open loop. Holds through 'Watch the order do both at once.'"
+    },
+    {
+      "cue_id": "institutional-cool",
+      "start_sec": 18,
+      "end_sec": 95,
+      "mood": "dry bureaucratic strings + sparse low piano, procedural and neutral",
+      "intensity": 2,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "prompt": "Spare investigative bed: sustained mid strings held very flat and unemotional, occasional low piano notes marking the beats, a faint clock-like pulse felt more than heard. Institutional, archival, cool — the sound of a records room. ~64 bpm. No emotional lift, no warmth payoff; this is the procedural establishing bed under the promise, the IHRA guide, and the signing of the order. It should feel like reading a document, not watching a drama.",
+      "level_db": -20,
+      "beats_covered": ["s2-01", "s2-02", "s2-03", "s3-01", "s3-02", "s3-03", "s4-01", "s4-02", "s4-03"],
+      "purpose": "Carries the promise (Scene 2), the harmless guide kept deliberately neutral (Scene 3, 'just words on a page'), and the signing of EO 13899 (Scene 4). Stays flat on purpose — the guide must sound harmless here so the turn lands."
+    },
+    {
+      "cue_id": "the-guide-becomes-a-lever",
+      "start_sec": 95,
+      "end_sec": 151,
+      "mood": "low cello drone enters under same tempo, warmth draining, quiet menace",
+      "intensity": 3,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "prompt": "The same procedural tempo (~64 bpm) but a low cello / contrabass drone slides in underneath and the mid strings lose their last bit of air. No new melody, no stinger — just a darkening of the existing bed, like a cloud crossing the room. A faint detuned undertone builds tension by subtraction. Restrained, cold, the menace is in what's missing. Peaks very slightly under 'And nobody voted on that.' then holds taut through the freshman re-anchor.",
+      "level_db": -20,
+      "beats_covered": ["s5-01", "s5-02", "s5-03", "s5-04", "s6-01", "s6-02", "s6-03"],
+      "purpose": "THE THESIS-FLIP CUE. Starts at Title VI (s5-01, 95s); the actual darkening lands ON the OverturnedLaw turn (s5-02, JUST A GUIDE → A TITLE VI LEVER, ~103-112s). The viewer feels the room cool exactly when the guide gets teeth, without a cheap stinger. Holds through the freshman empathy beat — the menace is now personal."
+    },
+    {
+      "cue_id": "two-ledger-tighten",
+      "start_sec": 151,
+      "end_sec": 205,
+      "mood": "taut low strings, pulse tightening, dread held under restraint",
+      "intensity": 4,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "prompt": "Tension tightens: the low drone gains a slow, barely-audible heartbeat pulse, a single high string note enters and is held thin and cold above it (the 'we are approaching the reveal' signal). Tempo unchanged but the air is compressed. This is the 'watch the same machine run today' build and the walk into the AIPAC reveal. NO swell, NO release yet — the dread is held under a lid. As it nears 205s the bed thins toward near-silence to clear the 'Done.' pause.",
+      "level_db": -20,
+      "beats_covered": ["s7-01", "s7-02", "s7-03", "s8-01", "s8-02", "s8-03"],
+      "purpose": "Carries the present-day timeline (Scene 7) and the two-ledger reveal walk (Scene 8) up to the donor-ledger 'Priority #3 / Done.' source card. The lone held high string is the classic 'reveal is coming' instrument. Recedes to bare sustain into the 1s pause after 'Done.'"
+    },
+    {
+      "cue_id": "verdict-daylight",
+      "start_sec": 205,
+      "end_sec": 254,
+      "mood": "held minor-key string opening — documentary daylight, not triumph",
+      "intensity": 4,
+      "transition_in": "crossfade",
+      "transition_out": "crossfade",
+      "prompt": "The lid lifts — NOT a triumphant swell. A warm-but-grave minor-key string chord opens up and is sustained, the compression of the prior cue releasing into air. This is the Frontline 'daylight' moment: the verdict landing, the weight made plain. It breathes under 'One act. Two ledgers.' and the BROKEN stamp. Around the 600ms pause before 'BROKEN' (~245s) the bed drops to a single sustained note so the stamp lands bare, then the chord re-opens for one held breath after BROKEN. Solemn, honest, never celebratory.",
+      "level_db": -18,
+      "beats_covered": ["s8-04", "s9-01", "s9-02", "s9-03", "s9-04"],
+      "purpose": "THE CUE I'M PROUDEST OF. The release is sized to a verdict, not a win — minor-key, grave. It opens on 'One act. Two ledgers.', breathes under the freshman's last appearance, recedes to a bare note for the 600ms pre-BROKEN pause so the VerdictStamp lands in near-silence, then re-opens for one held breath. The comment-trigger 'WOULD YOU COUNT IT?' rides the open chord."
+    },
+    {
+      "cue_id": "closing-tail",
+      "start_sec": 254,
+      "end_sec": 269,
+      "mood": "single sustained piano note, slow fade, sitting with the weight",
+      "intensity": 1,
+      "transition_in": "crossfade",
+      "transition_out": "tail",
+      "prompt": "Return to the solo piano of the cold open — one low, sustained note (or the unresolved opening figure played once, very slow), decaying naturally under the CTA card and then fading out over the final ~6 seconds past the last spoken word. No resolution to major; it stays open, leaving the question hanging. Room tone only at the very end.",
+      "level_db": -20,
+      "beats_covered": ["s9-05"],
+      "purpose": "Tail. Echoes the cold-open piano to close the frame. Holds ~6s of music-bed-alone past the last VO word ('linked below') and the 1200ms closing pause, then fades — no abrupt cut. Stays unresolved so the viewer is left with the open question, not a tidy bow."
+    }
+  ],
+  "sfx": [
+    {
+      "sfx_id": "paper-settle",
+      "at_sec": 12,
+      "library_path": "brand/sfx/paper-settle.wav",
+      "level_db": -22,
+      "purpose": "Soft paper settle as 'ONE PAPER. TWO LEDGERS.' lands (s1-02→s1-03) — the document framing of the master loop. Barely there."
+    },
+    {
+      "sfx_id": "page-flip-guide",
+      "at_sec": 45,
+      "library_path": "brand/sfx/page-flip.wav",
+      "level_db": -22,
+      "purpose": "Single quiet page-flip as the IHRA guide source card appears (s3-01) — 'meet a definition.' Marks the tracked object without drama."
+    },
+    {
+      "sfx_id": "pen-sign-order",
+      "at_sec": 68,
+      "library_path": "brand/sfx/pen-on-paper.wav",
+      "level_db": -20,
+      "purpose": "Soft fountain-pen-on-paper as EO 13899 source card lands (s4-01) — the signing. Procedural, not a flourish."
+    },
+    {
+      "sfx_id": "lock-engage",
+      "at_sec": 103,
+      "library_path": "brand/sfx/latch-click.wav",
+      "level_db": -20,
+      "purpose": "THE TURN SFX. A single low mechanical latch/lock-engage exactly on the OverturnedLaw flip (s5-02, JUST A GUIDE → A TITLE VI LEVER). The guide getting teeth, heard as a dry click — pairs with the cello drop. Subtle, mechanical, cold."
+    },
+    {
+      "sfx_id": "ledger-close",
+      "at_sec": 197,
+      "library_path": "brand/sfx/ledger-close.wav",
+      "level_db": -21,
+      "purpose": "Soft leather-bound ledger closing as the donor-silhouette closes the book (s8-02→s8-03), into the 'Priority #3 / Done.' card. Ordinary bookkeeping made audible."
+    },
+    {
+      "sfx_id": "verdict-stamp",
+      "at_sec": 245,
+      "library_path": "brand/sfx/ballot-stamp.wav",
+      "level_db": -14,
+      "purpose": "The only 'loud' SFX of the episode. Ballot/ink stamp landing ON 'BROKEN' (s9-03 VerdictStamp), placed in the near-silence created by the 600ms pre-BROKEN pause and the receded bed. CR's own-audit verdict striking the page."
+    }
+  ],
+  "scoring_notes": "Cold, institutional, watch-the-mechanism — the menace is in restraint, never volume. Six cues. The structural choice that makes this piece work: the turn is NOT a swell, it is a DARKENING. The establishing bed (cue 2, institutional-cool) is kept deliberately flat and harmless so the guide sounds like nothing — because the script's whole thesis is that the guide is harmless until EO 13899 gives it teeth. The score earns the flip by withholding emotion through Scene 4, then draining the warmth out at the OverturnedLaw beat (s5-02, ~103s) as a low cello drone slides in under the unchanged tempo — paired with a dry latch-click SFX. The viewer feels the room cool without knowing why. From there the dread is held under a lid (cue 4, a lone cold high string = the 'reveal is coming' signal) all the way through the AIPAC reveal, and only the BROKEN verdict gets air — a grave minor-key string opening (cue 5, verdict-daylight), sized to a verdict and not a victory. Two deliberate near-silences: the bed thins to bare sustain into the 1s pause after 'Done.' (~205s) and drops to a single note for the 600ms before 'BROKEN' (~245s) so the stamp lands in near-silence at -14 dB — the one loud moment. The tail (cue 6) returns to the cold-open piano, unresolved, holding ~6s past the last VO word so the open question — 'would you count it?' — is what the viewer is left sitting with. The beat that hits hardest is the latch-click + cello drop on the guide-becomes-a-lever turn: it is the entire argument made audible in one dry mechanical sound."
+}

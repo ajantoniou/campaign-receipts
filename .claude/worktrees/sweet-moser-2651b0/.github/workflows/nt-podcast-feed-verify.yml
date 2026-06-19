@@ -1,0 +1,38 @@
+# NTM-33 — Prod RSS reachable + committed feed XML well-formed (default mode).
+# Does not set STRICT_ENCLOSURES until pilot MP3s ship on nt-content.
+
+name: NT Ministry podcast RSS verify
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'companies/nt-ministry/scripts/verify-nt-podcast-publish.sh'
+      - 'companies/nt-ministry/scripts/generate-podcast-feed.py'
+      - 'companies/nt-ministry/content/podcast/**'
+      - 'companies/nt-ministry/web/nt-content/public/podcast/**'
+      - '.github/workflows/nt-podcast-feed-verify.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'companies/nt-ministry/scripts/verify-nt-podcast-publish.sh'
+      - 'companies/nt-ministry/scripts/generate-podcast-feed.py'
+      - 'companies/nt-ministry/content/podcast/**'
+      - 'companies/nt-ministry/web/nt-content/public/podcast/**'
+      - '.github/workflows/nt-podcast-feed-verify.yml'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install xmllint
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
+      - name: Prod feed + local XML smoke
+        run: |
+          set -euo pipefail
+          chmod +x companies/nt-ministry/scripts/verify-nt-podcast-publish.sh
+          companies/nt-ministry/scripts/verify-nt-podcast-publish.sh

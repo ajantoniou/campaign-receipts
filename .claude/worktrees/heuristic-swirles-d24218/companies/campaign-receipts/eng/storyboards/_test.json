@@ -1,0 +1,52 @@
+{
+  "slug": "_test",
+  "total_duration_seconds": 14,
+  "vo_script_path": null,
+  "voice": "sarah",
+  "voice_settings": {"stability": 0.55, "similarity_boost": 0.75, "style": 0.20, "model": "eleven_multilingual_v2"},
+  "clips": [
+    {
+      "clip_id": "01",
+      "start_sec": 0,
+      "end_sec": 5,
+      "duration": 5,
+      "aspect": "16:9",
+      "covers_script_section": "TEST clip 1 — anonymous diplomats",
+      "vendor": "sora2",
+      "model_args": {},
+      "prompt": "Cinematic establishing shot of anonymous diplomats around a conference table at night, slow zoom in, documentary realism. No identifiable faces, no flags.",
+      "seed_image": null,
+      "characters_count": 6,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "02",
+      "start_sec": 5,
+      "end_sec": 10,
+      "duration": 5,
+      "aspect": "16:9",
+      "covers_script_section": "TEST clip 2 — Obama i2v seeded",
+      "vendor": "kling-i2v",
+      "model_args": {"seed_image": "public/photos/wikipedia/barack-obama-2015.jpg"},
+      "prompt": "Subtle motion: Barack Obama looks down then up at camera, measured expression, documentary realism.",
+      "seed_image": "public/photos/wikipedia/barack-obama-2015.jpg",
+      "characters_count": 1,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "03",
+      "start_sec": 10,
+      "end_sec": 14,
+      "duration": 4,
+      "aspect": "16:9",
+      "covers_script_section": "TEST clip 3 — still card",
+      "vendor": "still",
+      "model_args": {},
+      "prompt": "Plain white card with the word TEST in serif type, documentary print aesthetic.",
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    }
+  ],
+  "music_cues": []
+}

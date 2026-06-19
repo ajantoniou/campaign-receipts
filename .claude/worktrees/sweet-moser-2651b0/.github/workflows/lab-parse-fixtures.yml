@@ -1,0 +1,38 @@
+name: Lab Parse Fixtures
+
+on:
+  pull_request:
+    paths:
+      - 'companies/healthbrew/web/lib/lab-parse/**'
+      - 'companies/healthbrew/web/lib/lab-parse/fixtures/**'
+      - 'companies/healthbrew/web/package.json'
+      - 'companies/healthbrew/web/package-lock.json'
+  push:
+    branches:
+      - main
+    paths:
+      - 'companies/healthbrew/web/lib/lab-parse/**'
+      - 'companies/healthbrew/web/lib/lab-parse/fixtures/**'
+      - 'companies/healthbrew/web/package.json'
+      - 'companies/healthbrew/web/package-lock.json'
+
+jobs:
+  test-fixtures:
+    runs-on: ubuntu-latest
+    name: Run lab parse fixture tests
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: companies/healthbrew/web
+        run: npm ci
+
+      - name: Run stub parser tests
+        working-directory: companies/healthbrew/web
+        run: npm run test

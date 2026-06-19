@@ -1,0 +1,19 @@
+{
+  "name": "sealed-watermark-webhook",
+  "version": "1.0.0",
+  "description": "Streams per-buyer watermarked SEALED PDFs in response to Lemon Squeezy order webhooks. Never persists PII at rest.",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.17",
+    "express": "^4.19.2",
+    "pdf-lib": "^1.17.1",
+    "resend": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

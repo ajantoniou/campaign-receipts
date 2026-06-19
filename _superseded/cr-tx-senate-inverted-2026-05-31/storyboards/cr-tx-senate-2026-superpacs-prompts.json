@@ -1,0 +1,26 @@
+[
+  {
+    "clip_id": "hook-01-couch-atmosphere",
+    "tool": "higgsfield",
+    "fallback_tool": "fal-stills",
+    "cinema_mode": "atmospheric_empty",
+    "lens_mm": 35,
+    "duration_s": 7,
+    "prompt": "Slow locked-off push-in over seven seconds across a quiet suburban Texas living room at dusk. An empty cloth couch sits in the foreground, a single warm table lamp glowing to one side. Across the room an old television throws a soft, out-of-focus blue-white flicker over the wall and the back of the couch, the moving light implying an ad playing but no readable image. Documentary realism, muted earth tones, fine film grain, gentle handheld settle. Frontline / Retro Report archival texture. Absolutely no people, no faces, no text, no logos, no on-screen graphics, no channel chyron, no partisan colors or flags.",
+    "negative": "people, faces, hands, readable text, logos, captions, chyron, news ticker, flags, money rain, cartoon, oversaturated",
+    "covers": "Hook — picture yourself on the couch, an ad comes on",
+    "source_citation": "Atmosphere only — no claim on screen"
+  },
+  {
+    "clip_id": "context-03-capitol-atmosphere",
+    "tool": "higgsfield",
+    "fallback_tool": "fal-stills",
+    "cinema_mode": "atmospheric_empty",
+    "lens_mm": 85,
+    "duration_s": 6,
+    "prompt": "Slow documentary push-in over six seconds on the Texas State Capitol dome at golden hour, warm low Hill Country light raking across the pink-granite stone, a clear pale sky behind it, faint heat-haze shimmer at the horizon. Restrained, archival establishing-shot tone, soft film grain, steady locked frame. No people, no faces, no text, no banners, no flags, no protest crowd, no news graphics, no partisan color treatment.",
+    "negative": "people, faces, crowd, protesters, banners, flags, readable text, logos, chyron, money rain, oversaturated, neon",
+    "covers": "Stakes — the race for one Texas U.S. Senate seat",
+    "source_citation": "Atmosphere only — establishing shot"
+  }
+]

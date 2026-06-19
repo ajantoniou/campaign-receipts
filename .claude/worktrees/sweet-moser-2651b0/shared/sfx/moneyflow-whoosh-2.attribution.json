@@ -1,0 +1,11 @@
+{
+  "asset": "moneyflow-whoosh-2.mp3",
+  "title": "Whoosh #1",
+  "author": "Kinoton",
+  "source_url": "https://freesound.org/people/Kinoton/sounds/427823/",
+  "preview_url": "https://cdn.freesound.org/previews/427/427823_2247456-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Bamboo stick swung through air — slightly woodier timbre than the tea-strainer take, useful as variation so arrows don't all sound identical. Single-direction (no return-trip swoosh). Normalize to -26 dB."
+}

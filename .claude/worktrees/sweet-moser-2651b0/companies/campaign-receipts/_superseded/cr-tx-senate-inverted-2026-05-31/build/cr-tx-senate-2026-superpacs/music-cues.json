@@ -1,0 +1,68 @@
+[
+  {
+    "id": "cold-open-question",
+    "start_s": 0,
+    "end_s": 32,
+    "mood": "single unresolved felt-piano figure, one held minor note, a question hanging",
+    "instrumentation": "solo felt piano, no pad, no drums",
+    "prompt": "Solo felt piano, slow 58 bpm, a single unresolved minor figure repeating sparsely with long silence between phrases. Documentary cold open, a question left hanging in the air. No drums, no pad, no swell. Frontline first-20-seconds restraint.",
+    "level_db": -20,
+    "fade_in_s": 0.8,
+    "fade_out_s": 1.0
+  },
+  {
+    "id": "investigative-establishing",
+    "start_s": 32,
+    "end_s": 130,
+    "mood": "steady investigative pulse, low cello + muted upright bass, patient forward motion",
+    "instrumentation": "felt piano, low cello, soft muted upright bass, light pizzicato accents",
+    "prompt": "Patient investigative documentary underscore, 70 bpm, felt piano with low cello and a soft muted upright bass walking quietly underneath, occasional pizzicato accent as each fact lands. Restrained, archival, building trust. No drums, no big swell, no tension yet.",
+    "level_db": -21,
+    "fade_in_s": 0.8,
+    "fade_out_s": 1.0
+  },
+  {
+    "id": "sinister-rise",
+    "start_s": 130,
+    "end_s": 262,
+    "mood": "slow sinister rise, low drone swelling under the pattern, dissonant cello, ticking unease",
+    "instrumentation": "low synth drone, dissonant cello, sparse ticking percussion, piano lower register",
+    "prompt": "Slowly rising sinister documentary tension, 72 bpm, a low drone swelling underneath a dissonant cello line, a sparse ticking pulse like a clock, piano playing in its lower register. The unease grows steadily as the same trick repeats across both parties. No release yet \u2014 hold the tension. No melody resolves.",
+    "level_db": -20,
+    "fade_in_s": 0.8,
+    "fade_out_s": 1.0
+  },
+  {
+    "id": "tada-release",
+    "start_s": 262,
+    "end_s": 273,
+    "mood": "the tension resolves \u2014 a single clarifying major chord opens up, light breaks through",
+    "instrumentation": "warm piano major resolution, a single sustained string swell up, soft bell shimmer",
+    "prompt": "The held tension finally resolves \u2014 a warm major piano chord opens up with a single sustained string swell rising into clarity and a soft bell shimmer on top. Cinematic ta-da release, the moment the disguise comes off and the truth is plain. 70 bpm, hopeful and clean. No drums.",
+    "level_db": -18,
+    "fade_in_s": 0.8,
+    "fade_out_s": 1.0
+  },
+  {
+    "id": "verdict-body",
+    "start_s": 273,
+    "end_s": 285,
+    "mood": "resolved, grounded, certain \u2014 the verdict settles",
+    "instrumentation": "warm piano, sustained low strings, steady and final",
+    "prompt": "Grounded, certain documentary resolution, 68 bpm, warm piano over sustained low strings, steady and final, the verdict settling into place. Confident but not triumphant. No drums.",
+    "level_db": -19,
+    "fade_in_s": 0.8,
+    "fade_out_s": 1.0
+  },
+  {
+    "id": "warm-cold-close-tail",
+    "start_s": 285,
+    "end_s": 300,
+    "mood": "warm, dignified, leaves the viewer with agency",
+    "instrumentation": "solo felt piano returns, one gentle resolved figure, soft string bed underneath",
+    "prompt": "Warm, dignified close, 60 bpm, solo felt piano playing one gentle resolved figure over a soft low string bed, leaving the viewer with quiet agency \u2014 the receipt is already yours. Mirrors the cold-open piano but now resolved. Fade to silence on a 1.2s tail. No drums.",
+    "level_db": -20,
+    "fade_in_s": 0.8,
+    "fade_out_s": 1.0
+  }
+]

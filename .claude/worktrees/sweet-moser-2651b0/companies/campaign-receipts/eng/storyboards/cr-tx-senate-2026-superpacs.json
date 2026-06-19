@@ -1,0 +1,437 @@
+{
+  "_meta": {
+    "title": "CR new-news — $110M Tried to Pick Your Texas Senator (and lost)",
+    "purpose": "FEC-verified dissection of the 2026 TX U.S. Senate super-PAC money, v9 TIGHT cut (3:05). Documentary structure: NEWS -> PUNCHLINE -> EXPLAIN, no mystery-tease. The biggest checks lost (Paxton won ~64% despite $39.3M against him; both winners beat the money that backed them), and the pass-through disguise is the back half. Remotion explainers + 7 reused AI plates (looped) on narrative beats.",
+    "pillar": "donors_races",
+    "estimated_cost_usd": 0.0,
+    "canonical_script": "content/scripts/cr-tx-senate-2026-superpacs-v9-tight.md",
+    "vo_audio": "_build/cr-tx-senate-2026-superpacs/vo-v2.mp3",
+    "vo_duration_seconds": 185.28,
+    "deep_link": "https://campaignreceipts.com/race/tx-senate-2026-general",
+    "render_doctrine": "VO-ANCHORED. Every beat's duration = (next beat's VO start) - (this beat's VO start), summing to 185.28s (= VO length per vo-word-timings.json). News+punchline live in the opening ~30s (Paxton's 64% win lands at 24.70s). The 7 reused AI plates confirmed present in remotion/public/ai-plates/cr-tx-senate/ go on TextSlate narrative beats with backgroundVideo + scrimOpacity 0.55 + backgroundVideoDurationInFrames 301 so they LOOP (no freeze). Remotion CountUp/MoneyFlow/Timeline for info beats; static CountUp number (no roll). ONE caricature per beat, on the beat that names that figure. Newsletter NOT called free; outro campaignreceipts.com.",
+    "timing_source": "_build/cr-tx-senate-2026-superpacs/vo-word-timings.json",
+    "available_ai_plates": [
+      "hook-01-open",
+      "stakes-02-the-flood",
+      "r1-02-cornyn-nau",
+      "r2-01-walk-across",
+      "r3-01-whos-behind",
+      "why-01-real-question",
+      "verdict-02-costume"
+    ],
+    "overlap_fix": "Every CountUp uses a short (<=3 word) label above the big number; the descriptive sentence lives in the caption below. No two text layers share vertical space. One face per beat."
+  },
+  "slug": "cr-tx-senate-2026-superpacs",
+  "program": "cr-new-news",
+  "remotion_episode": "cr-tx-senate-2026-superpacs",
+  "total_duration_seconds": 185.28,
+  "vo_script_path": "eng/scripts/cr-new-news/cr-tx-senate-2026-superpacs-vo.txt",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.15,
+    "model": "eleven_multilingual_v2"
+  },
+  "thumbnail": {
+    "template": "cr-new-news",
+    "headline": "$110M",
+    "subline": "TRIED TO PICK YOUR SENATOR",
+    "verdict": "RECEIPT",
+    "portrait": "public/photos/wikipedia/ken-paxton.jpg"
+  },
+  "beats": [
+    { "beat_id": "news", "label": "Scene 1 — The news + the punchline", "start_sec": 0, "end_sec": 38.94 },
+    { "beat_id": "nau", "label": "Scene 2 — John Nau: the $39.3M bet that lost", "start_sec": 38.94, "end_sec": 80.96 },
+    { "beat_id": "hoffman", "label": "Scene 3 — Reid Hoffman: a California check in a Texas race", "start_sec": 80.96, "end_sec": 133.36 },
+    { "beat_id": "passthrough", "label": "Scene 4 — The disguised money", "start_sec": 133.36, "end_sec": 161.48 },
+    { "beat_id": "close", "label": "Scene 5 — What it means + where to read it", "start_sec": 161.48, "end_sec": 185.28 }
+  ],
+  "clips": [
+    {
+      "clip_id": "s1-01-open",
+      "beat_id": "news",
+      "duration": 9.34,
+      "aspect": "16:9",
+      "covers_script_section": "S1 open — most expensive Senate race in the country; $110M outside money into one Texas seat",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "TEXAS · 2026",
+        "title": "The most expensive Senate race",
+        "body": "This was the most expensive Senate race in the country this year. One hundred ten million dollars in outside money poured into one Texas seat.",
+        "backgroundVideo": "ai-plates/cr-tx-senate/hook-01-open.mp4",
+        "scrimOpacity": 0.55,
+        "backgroundVideoDurationInFrames": 301
+      }
+    },
+    {
+      "clip_id": "s1-02-110m",
+      "beat_id": "news",
+      "duration": 4.26,
+      "aspect": "16:9",
+      "covers_script_section": "S1 'Most of it came from two billionaires.'",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "$",
+        "to": 110000000,
+        "suffix": "",
+        "label": "Outside money",
+        "caption": "Most of it came from two billionaires."
+      }
+    },
+    {
+      "clip_id": "s1-03-superpac-39m",
+      "beat_id": "news",
+      "duration": 11.1,
+      "aspect": "16:9",
+      "covers_script_section": "S1 'The biggest checks lost. One super PAC — a group that can spend unlimited money on ads — spent $39.3M to beat a Republican named Ken Paxton.'",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "$",
+        "to": 39300000,
+        "suffix": "",
+        "label": "Against Paxton",
+        "caption": "The biggest checks lost. One super PAC — a group that can spend unlimited money on ads — spent this much to beat a Republican named Ken Paxton."
+      }
+    },
+    {
+      "clip_id": "s1-04-paxton-won",
+      "beat_id": "news",
+      "duration": 5.6,
+      "aspect": "16:9",
+      "covers_script_section": "S1 PUNCHLINE (front-loaded) — 'Paxton won anyway, with about sixty-four percent of the vote.'",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "",
+        "to": 64,
+        "suffix": "%",
+        "label": "Paxton won",
+        "caption": "Paxton won anyway — with about sixty-four percent of the vote.",
+        "portraits": [
+          { "src": "cr-portraits/ken-paxton.png", "corner": "br", "heightPct": 30 }
+        ]
+      }
+    },
+    {
+      "clip_id": "s1-05-money-lost",
+      "beat_id": "news",
+      "duration": 8.64,
+      "aspect": "16:9",
+      "covers_script_section": "S1 close — 'So the money lost. Let us walk the receipts. They are public, and they show who paid and why.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "SO FAR",
+        "title": "The money lost",
+        "body": "Let us walk the receipts. They are public, and they show who paid and why."
+      }
+    },
+    {
+      "clip_id": "s2-01-nau-intro",
+      "beat_id": "nau",
+      "duration": 8.06,
+      "aspect": "16:9",
+      "covers_script_section": "S2 'Start with the biggest check on the Republican side. His name is John Nau. He is a Houston beer billionaire.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "THE BIGGEST CHECK · GOP SIDE",
+        "title": "John Nau, of Houston",
+        "body": "Start with the biggest check on the Republican side. John Nau is a Houston beer billionaire.",
+        "backgroundVideo": "ai-plates/cr-tx-senate/r1-02-cornyn-nau.mp4",
+        "scrimOpacity": 0.55,
+        "portraits": [
+          { "src": "cr-portraits/john-nau.png", "corner": "bl", "heightPct": 32 }
+        ],
+        "backgroundVideoDurationInFrames": 301
+      }
+    },
+    {
+      "clip_id": "s2-02-nau-79m",
+      "beat_id": "nau",
+      "duration": 10.8,
+      "aspect": "16:9",
+      "covers_script_section": "S2 'FEC filings show he gave $7.9M to a super PAC that backed Senator John Cornyn, the Republican who already held the seat.'",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "$",
+        "to": 7900000,
+        "suffix": "",
+        "label": "John Nau gave",
+        "caption": "To a super PAC that backed Senator John Cornyn — the Republican who already held the seat.",
+        "portraits": [
+          { "src": "cr-portraits/john-cornyn.png", "corner": "br", "heightPct": 30 }
+        ]
+      }
+    },
+    {
+      "clip_id": "s2-03-why-nau",
+      "beat_id": "nau",
+      "duration": 6.7,
+      "aspect": "16:9",
+      "covers_script_section": "S2 WHY — 'Why would Nau care this much? Nau was Cornyn's finance chairman — the man who raised money for him for years.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "WHY HE CARED",
+        "title": "He was Cornyn’s money man",
+        "body": "Nau was Cornyn’s finance chairman — the man who raised money for him for years.",
+        "backgroundVideo": "ai-plates/cr-tx-senate/stakes-02-the-flood.mp4",
+        "scrimOpacity": 0.55,
+        "backgroundVideoDurationInFrames": 301
+      }
+    },
+    {
+      "clip_id": "s2-04-39m-against",
+      "beat_id": "nau",
+      "duration": 8.18,
+      "aspect": "16:9",
+      "covers_script_section": "S2 'So his PAC spent $39.3M against Cornyn's biggest rival, Ken Paxton.'",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "The pro-Cornyn super PAC",
+        "abbreviate": true,
+        "source": {
+          "name": "John Nau",
+          "amount": 7900000,
+          "sublabel": "Cornyn’s former finance chairman",
+          "portraitSlug": "john-nau"
+        },
+        "destinations": [
+          { "label": "Against Ken Paxton", "amount": 39300000 }
+        ]
+      }
+    },
+    {
+      "clip_id": "s2-05-did-not-work",
+      "beat_id": "nau",
+      "duration": 8.28,
+      "aspect": "16:9",
+      "covers_script_section": "S2 PUNCHLINE — 'It did not work. The largest wall of money in the race was built to stop one man, and that man won anyway.'",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "",
+        "to": 64,
+        "suffix": "%",
+        "label": "It did not work",
+        "caption": "The largest wall of money in the race was built to stop one man — and that man won anyway.",
+        "portraits": [
+          { "src": "cr-portraits/ken-paxton.png", "corner": "br", "heightPct": 30 }
+        ]
+      }
+    },
+    {
+      "clip_id": "s3-01-hoffman-intro",
+      "beat_id": "hoffman",
+      "duration": 11.54,
+      "aspect": "16:9",
+      "covers_script_section": "S3 'Now cross to the Democratic side. One donor is Reid Hoffman. He co-founded LinkedIn, and he is a tech billionaire who lives in California — not Texas.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "THE OTHER SIDE · SAME PATTERN",
+        "title": "Reid Hoffman, of California",
+        "body": "Now cross to the Democratic side. Reid Hoffman co-founded LinkedIn. He is a tech billionaire who lives in California — not Texas.",
+        "backgroundVideo": "ai-plates/cr-tx-senate/r2-01-walk-across.mp4",
+        "scrimOpacity": 0.55,
+        "portraits": [
+          { "src": "cr-portraits/reid-hoffman.png", "corner": "bl", "heightPct": 32 }
+        ],
+        "backgroundVideoDurationInFrames": 301
+      }
+    },
+    {
+      "clip_id": "s3-02-hoffman-flow",
+      "beat_id": "hoffman",
+      "duration": 15.02,
+      "aspect": "16:9",
+      "covers_script_section": "S3 'FEC filings show he gave $1.5M to a super PAC called Lone Star Rising. That group backed James Talarico, and it spent $8.95M against his rival, Jasmine Crockett.'",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Lone Star Rising PAC",
+        "abbreviate": true,
+        "source": {
+          "name": "Reid Hoffman",
+          "amount": 1500000,
+          "sublabel": "Co-founded LinkedIn · lives in California, not Texas",
+          "portraitSlug": "reid-hoffman"
+        },
+        "destinations": [
+          { "label": "Against Jasmine Crockett", "amount": 8950000, "portraitSlug": "jasmine-crockett" },
+          { "label": "For James Talarico", "amount": 7960000 }
+        ]
+      }
+    },
+    {
+      "clip_id": "s3-03-why-hoffman",
+      "beat_id": "hoffman",
+      "duration": 17.82,
+      "aspect": "16:9",
+      "covers_script_section": "S3 WHY — 'Why would a California tech billionaire spend on a Texas seat? As a state lawmaker, Talarico wrote bills to put rules on social media and on fake A-I videos — rules that reach Silicon Valley.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "WHY HE CARED",
+        "title": "Rules that reach Silicon Valley",
+        "body": "As a state lawmaker, Talarico wrote bills to put rules on social media and on fake A-I videos — rules that reach Silicon Valley. A tech billionaire’s interest in that race is no surprise.",
+        "backgroundVideo": "ai-plates/cr-tx-senate/why-01-real-question.mp4",
+        "scrimOpacity": 0.55,
+        "backgroundVideoDurationInFrames": 301
+      }
+    },
+    {
+      "clip_id": "s3-04-open-question",
+      "beat_id": "hoffman",
+      "duration": 8.02,
+      "aspect": "16:9",
+      "covers_script_section": "S3 HONEST COMPLICATION — 'But Talarico has never cast a Senate vote, so what Hoffman gets back is still an open question.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "THE OPEN QUESTION",
+        "title": "No one knows yet how he would vote",
+        "body": "Talarico has never cast a single Senate vote. We know Hoffman is paying. What he gets back is still an open question.",
+        "portraits": [
+          { "src": "cr-portraits/james-talarico.png", "corner": "br", "heightPct": 32 }
+        ]
+      }
+    },
+    {
+      "clip_id": "s4-01-disguised",
+      "beat_id": "passthrough",
+      "duration": 5.5,
+      "aspect": "16:9",
+      "covers_script_section": "S4 'Some of this money is hidden on purpose.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "THE DISGUISED MONEY",
+        "title": "Some of this money is hidden on purpose",
+        "body": "Shell groups stand between the donor and the PAC — so the original name never appears.",
+        "backgroundVideo": "ai-plates/cr-tx-senate/r3-01-whos-behind.mp4",
+        "scrimOpacity": 0.55,
+        "backgroundVideoDurationInFrames": 301
+      }
+    },
+    {
+      "clip_id": "s4-02-passthrough-flow",
+      "beat_id": "passthrough",
+      "duration": 14.62,
+      "aspect": "16:9",
+      "covers_script_section": "S4 'Five and a half million dollars reached the pro-Cornyn PAC through a shell group called Ohio Works. Three and three-quarter million dollars reached the pro-Talarico PAC through Government That Works.'",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "The money came through a middle name",
+        "abbreviate": true,
+        "source": {
+          "name": "Donors the law lets stay secret",
+          "amount": 0,
+          "sublabel": "Original donors not itemized"
+        },
+        "destinations": [
+          { "label": "“Ohio Works” → Cornyn side", "amount": 5500000 },
+          { "label": "“Government That Works” → Talarico side", "amount": 3750000 }
+        ]
+      }
+    },
+    {
+      "clip_id": "s4-03-secret",
+      "beat_id": "passthrough",
+      "duration": 8.0,
+      "aspect": "16:9",
+      "covers_script_section": "S4 PUNCHLINE — 'The original donors paid through middle groups so their names never appear. The law lets them stay secret. Both sides did it. The receipt shows the middle group, never the person who actually wrote the check.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "BOTH SIDES DID IT",
+        "title": "The receipt names the messenger, not the sender",
+        "body": "The law lets the original donors stay secret. The receipt shows the middle group — never the person who actually wrote the check."
+      }
+    },
+    {
+      "clip_id": "s5-01-close",
+      "beat_id": "close",
+      "duration": 6.44,
+      "aspect": "16:9",
+      "covers_script_section": "S5 'So here is what this race shows. The money was louder than ever, and the group names were friendlier than ever.'",
+      "vendor": "remotion",
+      "composition": "TextSlate",
+      "props": {
+        "brand": "campaign-receipts",
+        "kicker": "WHAT THE RACE SHOWS",
+        "title": "Louder money, friendlier names",
+        "body": "The money was louder than ever, and the group names were friendlier than ever.",
+        "backgroundVideo": "ai-plates/cr-tx-senate/verdict-02-costume.mp4",
+        "scrimOpacity": 0.55,
+        "backgroundVideoDurationInFrames": 151
+      }
+    },
+    {
+      "clip_id": "s5-02-one-vote",
+      "beat_id": "close",
+      "duration": 13.14,
+      "aspect": "16:9",
+      "covers_script_section": "S5 'But both winners beat the money that backed them. A billionaire can spend until the ads never stop, but he still gets only one vote. This year, the votes beat the checkbook on both sides.'",
+      "vendor": "remotion",
+      "composition": "DonorComparison",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "One vote each",
+        "subtitle": "TX U.S. Senate 2026 · FEC-verified",
+        "rows": [
+          { "name": "You", "amount": "1 vote", "cycle": "Election day", "policy": "One ballot, then it stops." },
+          { "name": "A billionaire", "amount": "1 vote", "cycle": "The whole race", "policy": "Can spend until the ads never stop — still gets just one vote.", "highlight": true }
+        ],
+        "footer": "Both winners beat the money that backed them. This year, the votes beat the checkbook on both sides."
+      }
+    },
+    {
+      "clip_id": "s5-03-cta",
+      "beat_id": "close",
+      "duration": 4.22,
+      "aspect": "16:9",
+      "covers_script_section": "S5 close — 'You can read the full receipt and get the newsletter at campaignreceipts.com.'",
+      "vendor": "remotion",
+      "composition": "LongformSubscribeOutro",
+      "props": {
+        "brand": "campaign-receipts",
+        "handle": "@campaignreceipts",
+        "cta": "Read the full receipt and get the newsletter.",
+        "buttonLabel": "Subscribe",
+        "newsletterUrl": "campaignreceipts.com"
+      }
+    }
+  ],
+  "music_cues": [
+    { "start_sec": 0, "end_sec": 38.94, "mood": "tense piano, slow investigative build", "cue_id": "intro" },
+    { "start_sec": 38.94, "end_sec": 161.48, "mood": "investigative strings, steady pulse", "cue_id": "trail" },
+    { "start_sec": 161.48, "end_sec": 185.28, "mood": "resolve, quiet civic", "cue_id": "outro" }
+  ],
+  "sfx": []
+}

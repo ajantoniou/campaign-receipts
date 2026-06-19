@@ -1,0 +1,288 @@
+{
+  "_meta": {
+    "title": "CR new-news — TEMPLATE (copy per episode)",
+    "purpose": "3–6 min current-events explainer. Voice: jessica (Sarah). Lay audience 18–80 — topic context before receipts; no telegraph bullets (see personas/storyline-editor.md). Visuals: Remotion + text-cards + politician-caricature with framing contain + fair-use news clips. Post-assemble: watch-master-qc.py. NO hedra, NO kling-i2v.",
+    "pillar": "donors_races",
+    "estimated_cost_usd": 8.0,
+    "canonical_script": "eng/scripts/cr-new-news/<slug>.md",
+    "deep_link": "https://campaignreceipts.com/politician/<slug>"
+  },
+  "slug": "cr-REPLACE-ME",
+  "program": "cr-new-news",
+  "remotion_episode": "cr-REPLACE-ME",
+  "total_duration_seconds": 240,
+  "vo_script_path": "eng/scripts/cr-new-news/cr-REPLACE-ME.md",
+  "voice": "jessica",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.82,
+    "style": 0.20,
+    "model": "eleven_multilingual_v2"
+  },
+  "thumbnail": {
+    "headline": "$0",
+    "subline": "REPLACE subline",
+    "verdict": "RECEIPT",
+    "bg": "navy"
+  },
+  "beats": [
+    {
+      "beat_id": "hook",
+      "label": "Hook (0:00–0:15)",
+      "start_sec": 0,
+      "end_sec": 15
+    },
+    {
+      "beat_id": "receipt",
+      "label": "The receipt (0:15–1:30)",
+      "start_sec": 15,
+      "end_sec": 90
+    },
+    {
+      "beat_id": "trail",
+      "label": "Money trail (1:30–3:00)",
+      "start_sec": 90,
+      "end_sec": 180
+    },
+    {
+      "beat_id": "clip",
+      "label": "Fair-use clip + overlay (3:00–4:00)",
+      "start_sec": 180,
+      "end_sec": 240,
+      "optional": true
+    },
+    {
+      "beat_id": "verdict",
+      "label": "Verdict + CTA (4:00–end)",
+      "start_sec": 240,
+      "end_sec": 270
+    }
+  ],
+  "clips": [
+    {
+      "clip_id": "hook-01-countup",
+      "beat_id": "hook",
+      "start_sec": 0,
+      "end_sec": 8,
+      "duration": 8,
+      "aspect": "16:9",
+      "covers_script_section": "Hook — giant number on screen",
+      "vendor": "remotion",
+      "composition": "CountUp",
+      "props": {
+        "brand": "campaign-receipts",
+        "prefix": "$",
+        "to": 0,
+        "suffix": "",
+        "label": "REPLACE — e.g. spent against incumbent"
+      },
+      "model_args": {},
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "hook-02-source",
+      "beat_id": "hook",
+      "start_sec": 8,
+      "end_sec": 15,
+      "duration": 7,
+      "aspect": "16:9",
+      "covers_script_section": "Hook — race headline text-card",
+      "vendor": "text-card",
+      "model_args": {
+        "template": "headline",
+        "lines": ["REPLACE headline", "FEC filing · REPLACE date"]
+      },
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "receipt-01-fec",
+      "beat_id": "receipt",
+      "start_sec": 15,
+      "end_sec": 45,
+      "duration": 30,
+      "aspect": "16:9",
+      "covers_script_section": "Receipt — donor table / FEC line items",
+      "vendor": "remotion",
+      "composition": "ChartBar",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Who spent in this primary",
+        "bars": [
+          { "label": "REPLACE A", "value": 0, "color": "#a4243b" },
+          { "label": "REPLACE B", "value": 0, "color": "#0a1f3d" }
+        ]
+      },
+      "model_args": {},
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false,
+      "cited_figures": [
+        {
+          "figure": "$0",
+          "vo_form": "zero dollars",
+          "source": "FEC.gov — REPLACE committee ID",
+          "note": "Independent expenditure total, REPLACE cycle"
+        }
+      ]
+    },
+    {
+      "clip_id": "receipt-02-sourcecard",
+      "beat_id": "receipt",
+      "start_sec": 45,
+      "end_sec": 90,
+      "duration": 45,
+      "aspect": "16:9",
+      "covers_script_section": "Receipt — source citation",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "FEC.gov · REPLACE filing",
+        "quote": "REPLACE one-line pull from filing summary"
+      },
+      "model_args": {},
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "trail-01-moneyflow",
+      "beat_id": "trail",
+      "start_sec": 90,
+      "end_sec": 120,
+      "duration": 30,
+      "aspect": "16:9",
+      "covers_script_section": "Trail — PAC to race outcome",
+      "vendor": "remotion",
+      "composition": "MoneyFlow",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Where the money went",
+        "source": {
+          "name": "REPLACE donor/PAC",
+          "amount": 0,
+          "sublabel": "Independent expenditures, REPLACE cycle"
+        },
+        "destinations": [
+          { "label": "REPLACE outcome 1", "outcome": "REPLACE date" }
+        ]
+      },
+      "model_args": {},
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "trail-02-timeline",
+      "beat_id": "trail",
+      "start_sec": 120,
+      "end_sec": 180,
+      "duration": 60,
+      "aspect": "16:9",
+      "covers_script_section": "Trail — primary timeline",
+      "vendor": "remotion",
+      "composition": "Timeline",
+      "props": {
+        "brand": "campaign-receipts",
+        "title": "Primary timeline",
+        "events": [
+          { "date": "REPLACE", "label": "Spending ramps" },
+          { "date": "REPLACE", "label": "Election day" }
+        ]
+      },
+      "model_args": {},
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    },
+    {
+      "clip_id": "clip-01-reuse",
+      "beat_id": "clip",
+      "start_sec": 180,
+      "end_sec": 210,
+      "duration": 30,
+      "aspect": "16:9",
+      "covers_script_section": "Optional fair-use clip — sidecar required",
+      "vendor": "reuse",
+      "model_args": {
+        "path": "_build/cr-REPLACE-ME/fair-use-clips/clip-01.mp4",
+        "sidecar": "_build/cr-REPLACE-ME/fair-use-clips/clip-01.json"
+      },
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false,
+      "optional": true
+    },
+    {
+      "clip_id": "clip-02-overlay",
+      "beat_id": "clip",
+      "start_sec": 210,
+      "end_sec": 240,
+      "duration": 30,
+      "aspect": "16:9",
+      "covers_script_section": "Remotion overlay on clip beat",
+      "vendor": "remotion",
+      "composition": "SourceCard",
+      "props": {
+        "brand": "campaign-receipts",
+        "citation": "REPLACE — C-SPAN / committee",
+        "quote": "REPLACE pull-quote (≤15 words)"
+      },
+      "model_args": {},
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false,
+      "optional": true
+    },
+    {
+      "clip_id": "verdict-01-stamp",
+      "beat_id": "verdict",
+      "start_sec": 240,
+      "end_sec": 255,
+      "duration": 15,
+      "aspect": "16:9",
+      "covers_script_section": "Verdict stamp",
+      "vendor": "remotion",
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "campaign-receipts",
+        "verdict": "RECEIPT"
+      },
+      "model_args": {},
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false,
+      "sfx": [{ "at_sec": 0, "cue": "verdict-stamp-hit" }]
+    },
+    {
+      "clip_id": "verdict-02-cta",
+      "beat_id": "verdict",
+      "start_sec": 255,
+      "end_sec": 270,
+      "duration": 15,
+      "aspect": "16:9",
+      "covers_script_section": "CTA — deep link",
+      "vendor": "text-card",
+      "model_args": {
+        "template": "end-card",
+        "lines": [
+          "Full receipt",
+          "campaignreceipts.com/politician/REPLACE"
+        ]
+      },
+      "seed_image": null,
+      "characters_count": 0,
+      "has_dialogue": false
+    }
+  ],
+  "music_cues": [
+    { "start_sec": 0, "end_sec": 90, "mood": "tense piano, slow build", "cue_id": "intro" },
+    { "start_sec": 90, "end_sec": 240, "mood": "investigative strings, low tension", "cue_id": "trail" },
+    { "start_sec": 240, "end_sec": 270, "mood": "resolve, light lift", "cue_id": "outro" }
+  ],
+  "sfx": []
+}

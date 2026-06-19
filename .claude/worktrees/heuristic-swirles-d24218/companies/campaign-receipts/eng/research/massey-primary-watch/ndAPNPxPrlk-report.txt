@@ -1,0 +1,205 @@
+[watch] working dir: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk
+[watch] downloading via yt-dlp…
+[youtube] Extracting URL: https://www.youtube.com/watch?v=ndAPNPxPrlk
+[youtube] ndAPNPxPrlk: Downloading webpage
+[youtube] ndAPNPxPrlk: Downloading android vr player API JSON
+[youtube] ndAPNPxPrlk: Downloading player c2f7551f-main
+[youtube] [jsc:deno] Solving JS challenges using deno
+[youtube] ndAPNPxPrlk: Downloading m3u8 information
+[info] ndAPNPxPrlk: Downloading subtitles: en, en-orig
+[info] ndAPNPxPrlk: Downloading 1 format(s): 398+251
+[info] Writing video subtitles to: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.en.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.en.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at  Unknown B/s (00:00:00)[download]   15.00KiB at  Unknown B/s (00:00:00)[download]   31.00KiB at   26.46MiB/s (00:00:00)[download]   63.00KiB at   44.94MiB/s (00:00:00)[download]   75.34KiB at   46.54MiB/s (00:00:00)[download] 100% of   75.34KiB in 00:00:00 at 789.93KiB/s
+[info] Writing video subtitles to: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.en-orig.vtt
+WARNING: The extractor specified to use impersonation for this download, but no impersonate target is available. If you encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required dependencies
+[download] Destination: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.en-orig.vtt
+[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at  Unknown B/s (00:00:00)[download]   15.00KiB at  Unknown B/s (00:00:00)[download]   31.00KiB at   18.01MiB/s (00:00:00)[download]   63.00KiB at   26.08MiB/s (00:00:00)[download]   75.34KiB at   28.93MiB/s (00:00:00)[download] 100% of   75.34KiB in 00:00:00 at 1.18MiB/s
+[info] Writing video metadata as JSON to: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.info.json
+[SubtitlesConvertor] Converting subtitles
+[SubtitlesConvertor] Subtitle file for vtt is already in the requested format
+[SubtitlesConvertor] Subtitle file for vtt is already in the requested format
+[download] Destination: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.f398.mp4
+[download]   0.0% of   22.50MiB at  Unknown B/s ETA Unknown[download]   0.0% of   22.50MiB at  Unknown B/s ETA Unknown[download]   0.0% of   22.50MiB at  Unknown B/s ETA Unknown[download]   0.1% of   22.50MiB at  Unknown B/s ETA Unknown[download]   0.1% of   22.50MiB at  Unknown B/s ETA Unknown[download]   0.3% of   22.50MiB at    6.40MiB/s ETA 00:03  [download]   0.6% of   22.50MiB at    4.95MiB/s ETA 00:04[download]   1.1% of   22.50MiB at    5.90MiB/s ETA 00:03[download]   2.2% of   22.50MiB at    6.65MiB/s ETA 00:03[download]   4.4% of   22.50MiB at    8.91MiB/s ETA 00:02[download]   8.9% of   22.50MiB at   10.93MiB/s ETA 00:01[download]  17.8% of   22.50MiB at   11.99MiB/s ETA 00:01[download]  35.6% of   22.50MiB at   14.96MiB/s ETA 00:00[download]  42.3% of   22.50MiB at   15.35MiB/s ETA 00:00[download]  42.3% of   22.50MiB at  Unknown B/s ETA Unknown[download]  42.3% of   22.50MiB at    2.55MiB/s ETA 00:05  [download]  42.3% of   22.50MiB at    5.33MiB/s ETA 00:02[download]  42.3% of   22.50MiB at   10.45MiB/s ETA 00:01[download]  42.4% of   22.50MiB at  793.63KiB/s ETA 00:16[download]  42.5% of   22.50MiB at    1.11MiB/s ETA 00:11[download]  42.8% of   22.50MiB at    2.16MiB/s ETA 00:05[download]  43.4% of   22.50MiB at    4.29MiB/s ETA 00:02[download]  44.5% of   22.50MiB at    8.25MiB/s ETA 00:01[download]  46.7% of   22.50MiB at    5.62MiB/s ETA 00:02[download]  51.2% of   22.50MiB at    8.38MiB/s ETA 00:01[download]  60.0% of   22.50MiB at    9.68MiB/s ETA 00:00[download]  77.8% of   22.50MiB at    9.94MiB/s ETA 00:00[download]  86.5% of   22.50MiB at   11.21MiB/s ETA 00:00[download]  86.5% of   22.50MiB at  Unknown B/s ETA Unknown[download]  86.5% of   22.50MiB at  Unknown B/s ETA Unknown[download]  86.5% of   22.50MiB at  Unknown B/s ETA Unknown[download]  86.6% of   22.50MiB at  Unknown B/s ETA Unknown[download]  86.6% of   22.50MiB at  Unknown B/s ETA Unknown[download]  86.8% of   22.50MiB at   10.89MiB/s ETA 00:00  [download]  87.0% of   22.50MiB at   20.24MiB/s ETA 00:00[download]  87.6% of   22.50MiB at   21.38MiB/s ETA 00:00[download]  88.7% of   22.50MiB at   20.78MiB/s ETA 00:00[download]  90.9% of   22.50MiB at   18.09MiB/s ETA 00:00[download]  95.4% of   22.50MiB at   15.17MiB/s ETA 00:00[download] 100.0% of   22.50MiB at   16.27MiB/s ETA 00:00[download] 100% of   22.50MiB in 00:00:01 at 11.61MiB/s  
+[download] Destination: /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.f251.webm
+[download]   0.0% of    7.56MiB at  Unknown B/s ETA Unknown[download]   0.0% of    7.56MiB at  Unknown B/s ETA Unknown[download]   0.1% of    7.56MiB at  Unknown B/s ETA Unknown[download]   0.2% of    7.56MiB at  Unknown B/s ETA Unknown[download]   0.4% of    7.56MiB at  Unknown B/s ETA Unknown[download]   0.8% of    7.56MiB at  Unknown B/s ETA Unknown[download]   1.6% of    7.56MiB at  Unknown B/s ETA Unknown[download]   3.3% of    7.56MiB at  218.46MiB/s ETA 00:00  [download]   6.6% of    7.56MiB at   14.93MiB/s ETA 00:00[download]  13.2% of    7.56MiB at    9.49MiB/s ETA 00:00[download]  26.4% of    7.56MiB at    9.88MiB/s ETA 00:00[download]  52.9% of    7.56MiB at   10.53MiB/s ETA 00:00[download] 100.0% of    7.56MiB at   10.80MiB/s ETA 00:00[download] 100% of    7.56MiB in 00:00:00 at 9.05MiB/s   
+[Merger] Merging formats into "/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.mp4"
+Deleting original file /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.f398.mp4 (pass -k to keep)
+Deleting original file /Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/download/video.f251.webm (pass -k to keep)
+[watch] extracting ~30 frames at 0.111 fps over 00:00-04:30 (270.0s)…
+
+# watch: video report
+
+- **Source:** https://www.youtube.com/watch?v=ndAPNPxPrlk
+- **Title:** MAGA: Trump RIGGED Thomas Massie's Election...
+- **Uploader:** Really American
+- **Duration:** 08:41 (520.9s)
+- **Focus range:** 00:00 → 04:30 (270.0s)
+- **Resolution:** 1280x720 (av1)
+- **Frames:** 30 @ 0.111 fps, focused mode (budget 30, max 30)
+- **Frame size:** 512px wide
+- **Transcript:** 116 segments in range (via captions)
+
+## Frames
+
+Frames live at: `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames`
+
+**Read each frame path below with the Read tool to view the image.** Frames are in chronological order; `t=MM:SS` is the absolute timestamp in the source video.
+
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0001.jpg` (t=00:00)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0002.jpg` (t=00:09)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0003.jpg` (t=00:18)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0004.jpg` (t=00:27)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0005.jpg` (t=00:36)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0006.jpg` (t=00:45)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0007.jpg` (t=00:54)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0008.jpg` (t=01:03)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0009.jpg` (t=01:12)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0010.jpg` (t=01:21)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0011.jpg` (t=01:30)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0012.jpg` (t=01:39)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0013.jpg` (t=01:48)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0014.jpg` (t=01:57)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0015.jpg` (t=02:06)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0016.jpg` (t=02:15)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0017.jpg` (t=02:24)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0018.jpg` (t=02:33)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0019.jpg` (t=02:42)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0020.jpg` (t=02:51)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0021.jpg` (t=03:00)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0022.jpg` (t=03:09)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0023.jpg` (t=03:18)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0024.jpg` (t=03:27)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0025.jpg` (t=03:36)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0026.jpg` (t=03:45)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0027.jpg` (t=03:54)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0028.jpg` (t=04:03)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0029.jpg` (t=04:12)
+- `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk/frames/frame_0030.jpg` (t=04:21)
+
+## Transcript
+
+_Source: captions. Filtered to 00:00 → 04:30:_
+
+```
+[00:04] MAGA is now claiming that Donald Trump rigged the election.
+[00:05] rigged the election. &gt;&gt; Magically, he only gets 45.2% of the
+[00:07] &gt;&gt; Magically, he only gets 45.2% of the vote and loses for the first time since
+[00:09] vote and loses for the first time since he's pretty much ran for office. He
+[00:10] he's pretty much ran for office. He magically loses now to Ed Gilra, Gizra,
+[00:13] magically loses now to Ed Gilra, Gizra, Jizlane.
+[00:14] Jizlane. &gt;&gt; And no, I'm not talking about the 2020
+[00:16] &gt;&gt; And no, I'm not talking about the 2020 election. I'm talking about the Kentucky
+[00:19] election. I'm talking about the Kentucky primary GOP election between Thomas
+[00:22] primary GOP election between Thomas Massie and Ed Galain.
+[00:43] So, so this is so dangerous and so wrong. And that's why when I saw that, I
+[00:46] wrong. And that's why when I saw that, I said that's it. Whatever they got to do,
+[00:48] said that's it. Whatever they got to do, he's not winning tonight in in my view,
+[00:50] he's not winning tonight in in my view, barring a miracle. Or if he does win,
+[00:52] barring a miracle. Or if he does win, they're going to kill him. And trust me
+[00:53] they're going to kill him. And trust me y'all, I am not usually one to give any
+[00:56] y'all, I am not usually one to give any kind of credence to MAGA backed claims
+[00:59] kind of credence to MAGA backed claims of election fraud. But I will say, and
+[01:01] of election fraud. But I will say, and granted without factchecking, a lot of
+[01:03] granted without factchecking, a lot of the claims, and there's a lot of them
+[01:05] the claims, and there's a lot of them that are being made online right now,
+[01:07] that are being made online right now, raise very very concerning questions
+[01:09] raise very very concerning questions about this election. And they are all
+[01:11] about this election. And they are all coming from like the rightwing, like big
+[01:14] coming from like the rightwing, like big names and even bigger pieces of [&nbsp;__&nbsp;]
+[01:16] names and even bigger pieces of [&nbsp;__&nbsp;] like Alex Jones. There are major
+[01:19] like Alex Jones. There are major anomalies
+[01:21] anomalies that are just astronomical for this to
+[01:26] that are just astronomical for this to be organic. One of the articles that
+[01:28] be organic. One of the articles that gets into some of this is up on
+[01:30] gets into some of this is up on alshive.com. Nobody's buying Massiey's
+[01:32] alshive.com. Nobody's buying Massiey's election loss. Apac funded opponent
+[01:35] election loss. Apac funded opponent increased voter turnout by 357% compared
+[01:38] increased voter turnout by 357% compared to any other Kentucky Republican primary
+[01:40] to any other Kentucky Republican primary ever.
+[01:41] ever. &gt;&gt; Yeah, folks, that is insane. And not
+[01:43] &gt;&gt; Yeah, folks, that is insane. And not just because it's coming from human
+[01:46] just because it's coming from human thumb Alex Jones's mouth
+[01:48] thumb Alex Jones's mouth &gt;&gt; gone around and campaigned. We we elect
+[01:51] &gt;&gt; gone around and campaigned. We we elect people. They fund the military. The
+[01:53] people. They fund the military. The military follows the president's order.
+[01:55] military follows the president's order. You don't run around as Secretary of
+[01:56] You don't run around as Secretary of Defense speaking out against elected
+[01:58] Defense speaking out against elected representatives and campaigning against
+[02:00] representatives and campaigning against them. And look, I hate to agree with the
+[02:02] them. And look, I hate to agree with the man, but [&nbsp;__&nbsp;] a broken clock is right
+[02:04] man, but [&nbsp;__&nbsp;] a broken clock is right twice a day. He's right. Why was Pete
+[02:06] twice a day. He's right. Why was Pete Hegsth out campaigning against Thomas
+[02:09] Hegsth out campaigning against Thomas Massie? They sent the Secretary of War
+[02:11] Massie? They sent the Secretary of War to my district today to campaign against
+[02:14] to my district today to campaign against me. I don't think that's ever been done.
+[02:16] me. I don't think that's ever been done. And whether, you know, these end up
+[02:19] And whether, you know, these end up being completely true or not, there is
+[02:21] being completely true or not, there is definitely something shady going on
+[02:23] definitely something shady going on here. And even if it does end up that,
+[02:25] here. And even if it does end up that, you know, these guys online are fudging
+[02:28] you know, these guys online are fudging the numbers or whatever, just the fact
+[02:30] the numbers or whatever, just the fact that this is coming from within the MAGA
+[02:33] that this is coming from within the MAGA base itself is astounding and should be
+[02:37] base itself is astounding and should be deeply concerning for Donald Trump. Take
+[02:39] deeply concerning for Donald Trump. Take a look at some of this.
+[02:40] a look at some of this. &gt;&gt; America, let's talk about some of these
+[02:41] &gt;&gt; America, let's talk about some of these anomalies, right? These some of these
+[02:43] anomalies, right? These some of these anomalies that took place in this
+[02:44] anomalies that took place in this election. You know, the Edgar Rain
+[02:46] election. You know, the Edgar Rain Thomas Massie election. President Trump
+[02:47] Thomas Massie election. President Trump didn't even know his name, but he's
+[02:49] didn't even know his name, but he's telling you the low IQ idiots in
+[02:50] telling you the low IQ idiots in Kentucky to go out and vote for him.
+[02:52] Kentucky to go out and vote for him. Okay. Not him calling people in Kentucky
+[02:56] Okay. Not him calling people in Kentucky low. That's so funny. Oh, okay. I was
+[02:59] low. That's so funny. Oh, okay. I was recording that. That's
+[03:00] recording that. That's &gt;&gt; Check this out. Let me show you some
+[03:01] &gt;&gt; Check this out. Let me show you some [&nbsp;__&nbsp;] right? So, first, I think it's
+[03:03] [&nbsp;__&nbsp;] right? So, first, I think it's just smart. We just got to talk about
+[03:04] just smart. We just got to talk about the overall results. So Ed won receiving
+[03:07] the overall results. So Ed won receiving 57,000 roughly votes, 54% of the vote,
+[03:09] 57,000 roughly votes, 54% of the vote, 55% of the vote. Massie received only
+[03:11] 55% of the vote. Massie received only 47,000 votes, which was 45% of the vote.
+[03:14] 47,000 votes, which was 45% of the vote. So had Massie got roughly like 10,200
+[03:16] So had Massie got roughly like 10,200 more votes, I believe he would have won
+[03:17] more votes, I believe he would have won the election. I think that was the
+[03:18] the election. I think that was the overall results. Okay? And I just want
+[03:20] overall results. Okay? And I just want to tell you nothing to see here. You
+[03:21] to tell you nothing to see here. You could completely ignore the fact that
+[03:22] could completely ignore the fact that Thomas Massie lost this election by
+[03:24] Thomas Massie lost this election by 10,280 votes. And Ed Gellraine last
+[03:27] 10,280 votes. And Ed Gellraine last night just happened to receive 10,854
+[03:30] night just happened to receive 10,854 mailin ballots. Don't even look at this
+[03:33] mailin ballots. Don't even look at this data. This is completely irrelevant. I
+[03:34] data. This is completely irrelevant. I promise you,
+[03:35] promise you, &gt;&gt; just just in case you didn't read that
+[03:37] &gt;&gt; just just in case you didn't read that there, this is this manga conspiracy
+[03:39] there, this is this manga conspiracy guys version of satire, you very much
+[03:42] guys version of satire, you very much should be considering those numbers. But
+[03:45] should be considering those numbers. But he goes on,
+[03:46] he goes on, &gt;&gt; promise you. So, we're going to save
+[03:47] &gt;&gt; promise you. So, we're going to save this anomaly of 356% and 248%. We're
+[03:51] this anomaly of 356% and 248%. We're going to do that last. So, that's going
+[03:52] going to do that last. So, that's going to blow your mind. But we need to start
+[03:54] to blow your mind. But we need to start with the
+[03:55] with the &gt;&gt; Okay, we we'll come back to him because
+[03:57] &gt;&gt; Okay, we we'll come back to him because he does make some good points. But to
+[03:58] he does make some good points. But to speed things up and and get away from
+[04:00] speed things up and and get away from that just a little bit conspiratorial
+[04:03] that just a little bit conspiratorial tone there, uh Ed Galain, according to
+[04:06] tone there, uh Ed Galain, according to this guy's post and according to as you
+[04:07] this guy's post and according to as you heard from Alex Jones, increased the
+[04:10] heard from Alex Jones, increased the voter turnout in his race against the
+[04:13] voter turnout in his race against the incumbent Thomas Massie by 356%.
+[04:18] incumbent Thomas Massie by 356%. But it is kind of jarring when you put
+[04:20] But it is kind of jarring when you put it up against the data from other years
+[04:22] it up against the data from other years like he did in this video. So let me
+[04:24] like he did in this video. So let me show you what happened. From 2022 to
+[04:26] show you what happened. From 2022 to 2024, the actual voter turnout dropped
+[04:27] 2024, the actual voter turnout dropped by 21%. So they were afraid it was going
+```
+
+---
+_Work dir: `/Applications/DrAntoniou Projects/AgentCompanies/companies/campaign-receipts/eng/research/massey-primary-watch/ndAPNPxPrlk` — delete when done._

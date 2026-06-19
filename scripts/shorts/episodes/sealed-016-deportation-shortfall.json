@@ -1,0 +1,72 @@
+{
+  "slug": "sealed-016-deportation-shortfall",
+  "build": "016",
+  "verdict": "BROKEN",
+  "_notes": "2026-05-24 no-VO build per founder lock. 6 Remotion beats: 11M-vs-1.5M hook, ICE annual chart, Obama-first-term comparison chart, the why card, verdict, CTA. ChartBar twice for the visceral number-vs-number shock.",
+  "no_vo": true,
+  "_no_vo_note": "2026-05-24 founder lock: shorts use text + music + b-roll only. No VO. See SEALED-PRODUCTION-PIPELINE-v3.md § Doctrine line 4.",
+  "sync_specs": [
+    { "id": "hook",            "duration": 5.0 },
+    { "id": "trumpVsTarget",   "duration": 6.0 },
+    { "id": "vsObama",         "duration": 6.0 },
+    { "id": "whyNotPossible",  "duration": 5.0 },
+    { "id": "broken",          "duration": 5.0 },
+    { "id": "cta",             "duration": 4.0 }
+  ],
+  "segments": {
+    "hook": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "2016 trail target",
+        "quote": "Deport all eleven million.",
+        "source": "Actual deliverable: 1.5 million."
+      }
+    },
+    "trumpVsTarget": {
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "ICE REMOVALS — TRUMP TERM",
+        "yAxisLabel": "Millions",
+        "maxValue": 12,
+        "bars": [
+          { "label": "PROMISED", "value": 11,  "suffix": "M",  "color": "#a4243b" },
+          { "label": "DELIVERED", "value": 1.5, "suffix": "M", "color": "#2a4d7c" }
+        ]
+      }
+    },
+    "vsObama": {
+      "composition": "ChartBar",
+      "props": {
+        "brand": "sealed",
+        "title": "VS OBAMA'S FIRST TERM",
+        "yAxisLabel": "Millions",
+        "maxValue": 3,
+        "bars": [
+          { "label": "TRUMP (4 yr)",  "value": 1.5, "suffix": "M", "color": "#2a4d7c" },
+          { "label": "OBAMA (4 yr)",  "value": 2.5, "suffix": "M", "color": "#a4243b" }
+        ]
+      }
+    },
+    "whyNotPossible": {
+      "composition": "SourceCard",
+      "props": {
+        "brand": "sealed",
+        "citation": "ICE ERO annual reports · FY2017-2020",
+        "quote": "Eleven million was never operationally possible.",
+        "source": "DHS Office of Immigration Statistics"
+      }
+    },
+    "broken": {
+      "composition": "VerdictStamp",
+      "props": {
+        "brand": "sealed",
+        "verdict": "BROKEN",
+        "promise": "Deport eleven million",
+        "citation": "1.5M delivered · math, not intent"
+      }
+    },
+    "cta": { "vendor": "motion-card", "line1": "145 PROMISES", "line2": "SEALED2016.COM" }
+  }
+}

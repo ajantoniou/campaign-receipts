@@ -1,0 +1,12 @@
+{
+  "asset": "verdict-stamp-hit.mp3",
+  "title": "traditional stamp.wav",
+  "author": "I.fekry",
+  "source_url": "https://freesound.org/people/I.fekry/sounds/470710/",
+  "preview_url": "https://cdn.freesound.org/previews/470/470710_9906084-hq.mp3",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fetched_at": "2026-05-21",
+  "duration_s": 1.59,
+  "modifications": "Fetched the public hq.mp3 preview from the Freesound CDN. Founder should grab the WAV master from the source page if they want the lossless original. Trim to ~120ms and normalize to -22 dB peak inside apply-sfx.mjs at runtime."
+}
