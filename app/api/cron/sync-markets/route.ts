@@ -7,8 +7,8 @@ import path from 'path'
 // Trigger via: GET /api/cron/sync-markets?secret=YOUR_CRON_SECRET
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  // Simple protection against random triggers
-  if (searchParams.get('secret') !== process.env.CRON_SECRET && process.env.NODE_ENV !== 'development') {
+  // Simple protection against random triggers if configured
+  if (process.env.CRON_SECRET && searchParams.get('secret') !== process.env.CRON_SECRET) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
@@ -45,7 +45,7 @@ export async function GET(request: Request) {
       if (fs.existsSync(jsonPath)) {
         const stat = fs.statSync(jsonPath)
         const ageHours = (Date.now() - stat.mtimeMs) / (1000 * 60 * 60)
-        // Only update if older than 12 hours to save OpenAI costs
+        // Only update if older than 12 hours to save Anthropic/LLM costs
         if (ageHours < 12) {
           needsUpdate = false
         }

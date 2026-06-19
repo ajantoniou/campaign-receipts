@@ -1,767 +1,91 @@
-/* ============================================================
-   CampaignReceipts — globals.css
-
-   Aligned to claude-design/modes/agent-companies benchmark.
-   Audit-document aesthetic: paper-warm surface, Instrument Serif
-   display + Geist body + Geist Mono micro-caps, perforated Receipts,
-   tilted verdict stamps, dotted leaders, dashed dividers.
-
-   Layers:
-     base       — reset + body + a11y defaults + scrollbars
-     components — benchmark primitives (.wordmark, .stamp, .receipt,
-                  .receipt-row, .stat-tile, .board-row, etc) +
-                  deprecated legacy aliases (kept while we migrate)
-     utilities  — helpers (.tnum .text-balance .dotted-grid-bg etc)
-   ============================================================ */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ------------------------------------------------------------
-   BASE
-   ------------------------------------------------------------ */
 @layer base {
   :root {
-    color-scheme: light;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
+    --font-inter: 'Inter', sans-serif;
+    --font-outfit: 'Outfit', sans-serif;
+    --font-jetbrains: 'JetBrains Mono', monospace;
   }
 
   body {
-    background: #FAF6EF;          /* paper */
-    color: #1A1815;               /* ink */
+    background-color: theme('colors.background');
+    color: theme('colors.text.main');
+    font-family: var(--font-inter);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    font-feature-settings: "ss01", "cv11";
-    line-height: 1.5;
   }
 
-  /* Visible focus rings, 3:1 contrast against paper. Universal a11y. */
-  :focus-visible {
-    outline: 2px solid #1A1815;
-    outline-offset: 2px;
+  /* Custom Scrollbar for sleek aesthetic */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.surfaceHover');
     border-radius: 4px;
   }
-
-  ::selection {
-    background: #F1DDB3;          /* partial-bg (amber highlight) */
-    color: #1A1815;
-  }
-
-  /* Paper-tinted scrollbar — subtler than the dark default */
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb {
-    background: #E0D8C3;          /* line */
-    border-radius: 9999px;
-    border: 2px solid #FAF6EF;
-  }
-  ::-webkit-scrollbar-thumb:hover { background: #6E665C; }
-
-  /* Reduced-motion respect — pulse-dot, scorecard fill, fade-in */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.primary.DEFAULT');
   }
 }
 
-/* ------------------------------------------------------------
-   COMPONENTS — benchmark primitives
-   ------------------------------------------------------------ */
 @layer components {
-
-  /* ===== Section shell ===== */
-  .section-shell {
-    @apply mx-auto max-w-[1344px] px-5 sm:px-8 lg:px-12;
+  .glass-panel {
+    @apply bg-surface/40 backdrop-blur-xl border border-white/5 rounded-2xl shadow-glass;
   }
-  .section-y {
-    @apply py-16 sm:py-24;
-  }
-  .section-eyebrow {
-    @apply inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] font-mono text-ink-3;
-  }
-  .section-eyebrow::before {
-    content: "";
-    @apply inline-block w-6 h-px bg-ink-3;
+  
+  .glass-card {
+    @apply bg-surface/60 backdrop-blur-md border border-white/10 rounded-xl transition-all duration-300 hover:border-white/20 hover:shadow-glow;
   }
 
-  /* ===== Wordmark — Campaign·Receipts with 7px ink dot ===== */
-  .wordmark {
-    @apply inline-flex items-baseline gap-1.5 font-display text-[22px] tracking-[-0.015em] text-ink;
-  }
-  .wordmark .dot {
-    @apply inline-block w-[7px] h-[7px] rounded-full bg-ink;
-    transform: translateY(-4px);
-  }
-  .wordmark .mono-tag {
-    @apply font-mono text-[10px] uppercase tracking-[0.16em] text-ink-3 ml-2 px-1.5 py-0.5 rounded-[3px] border border-line bg-paper;
-    transform: translateY(-2px);
-  }
-
-  /* ===== Buttons — pill shape, benchmark anatomy ===== */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink hover:bg-ink-2 text-paper font-sans text-sm font-medium px-5 py-3 transition-colors duration-200 border border-ink;
+    @apply relative overflow-hidden bg-primary px-6 py-3 rounded-lg font-display font-medium tracking-wide text-white transition-all duration-300 hover:bg-primary-hover hover:shadow-glow hover:shadow-primary-glow active:scale-95;
   }
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-transparent text-ink hover:bg-paper-2 font-sans text-sm font-medium px-5 py-3 transition-colors duration-200 border border-line hover:border-ink;
+    @apply relative overflow-hidden bg-surfaceHover border border-white/10 px-6 py-3 rounded-lg font-display font-medium tracking-wide text-white transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95;
   }
 
-  /* Legacy button aliases — point at benchmark equivalents so existing
-     pages don't break during migration. DEPRECATED — delete after
-     migration. */
-  .btn-accent   { @apply btn-primary; }
-  .btn-ghost    { @apply btn-secondary; }
-  .btn-authority { @apply btn-primary; }
-  .btn-authority-ghost { @apply btn-secondary; }
-
-  /* ===== Verdict Stamp ===== */
-  .stamp {
-    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] font-semibold px-3 py-2 rounded-[4px];
-    border: 1.5px solid currentColor;
-    position: relative;
+  /* Data Table / Ranking Grid */
+  .market-row {
+    @apply grid grid-cols-12 items-center gap-4 py-4 px-6 border-b border-white/5 transition-colors hover:bg-white/5;
   }
-  .stamp::before {
-    content: "";
-    @apply inline-block w-[7px] h-[7px] rounded-full;
-    background: currentColor;
+  
+  .market-header {
+    @apply grid grid-cols-12 items-center gap-4 py-3 px-6 border-b border-white/10 text-xs font-mono uppercase tracking-widest text-text-muted;
   }
-  .stamp.kept    { color: #4F7A4B; background: #EEF3E2; }
-  .stamp.partial { color: #A37222; background: #F6EAC9; }
-  .stamp.broken  { color: #A8423E; background: #F4DDDA; }
-  .stamp.pending { color: #4F6480; background: #E1E7EE; }
-  .stamp.decide  { color: #5C5246; background: #E8E0CC; }
-
-  .stamp-lg {
-    @apply text-sm px-4 py-2.5 tracking-[0.18em];
+  
+  .odds-badge {
+    @apply inline-flex items-center justify-center px-3 py-1 rounded-md font-mono font-bold;
   }
-  /* The signature variant — tilted double-border rubber-stamp */
-  .stamp-tilted {
-    transform: rotate(-3deg);
-    box-shadow: 0 0 0 2px #FAF6EF, 0 0 0 3.5px currentColor;
-    border-style: double;
-    border-width: 3px;
-    padding: 12px 18px;
+  
+  .odds-badge.high {
+    @apply bg-success-bg text-success shadow-glow shadow-success-glow border border-success/30;
   }
-
-  /* ===== Tag (mono micro-pill) ===== */
-  .tag {
-    @apply inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] px-2 py-1 rounded-[3px] border border-line text-ink-3 bg-paper;
-  }
-  .tag.party-d { color: #4F6480; background: #E1E7EE; border-color: #D2DBE6; }
-  .tag.party-r { color: #A8423E; background: #F4DDDA; border-color: #F1CFCC; }
-  .tag.party-i { color: #5C5246; background: #E8E0CC; border-color: #DCD3BF; }
-
-  /* ===== Receipt — the hero share asset ===== */
-  /* Card container */
-  .receipt {
-    background: #FAF6EF;
-    border: 1px solid #E0D8C3;
-    border-radius: 14px;
-    position: relative;
-    box-shadow: 0 1px 0 rgba(26,24,21,0.04), 0 12px 28px -18px rgba(26,24,21,0.18);
-    font-family: var(--font-geist-mono), 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
-    color: #1A1815;
-    overflow: hidden;
-  }
-  /* Perforated top + bottom edges */
-  .receipt::before, .receipt::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0;
-    height: 12px;
-    background-image: radial-gradient(circle at 6px 6px, #FAF6EF 6px, transparent 6px);
-    background-size: 14px 12px;
-    background-repeat: repeat-x;
-  }
-  .receipt::before { top: -6px; }
-  .receipt::after  { bottom: -6px; }
-
-  .receipt-head {
-    @apply px-6 pt-6 pb-3.5 flex justify-between items-start;
-    border-bottom: 1.5px dashed #E0D8C3;
-  }
-  .receipt-head .receipt-id {
-    @apply font-mono text-[10px] uppercase tracking-[0.16em] text-ink-3;
-  }
-  .receipt-head .receipt-title {
-    @apply font-display text-[26px] leading-[1.15] tracking-[-0.01em] text-ink mt-1.5;
-    max-width: 80%;
-  }
-
-  .receipt-body { @apply px-6 pt-4 pb-3.5; }
-
-  /* Receipt row = key / dotted leader / value */
-  .receipt-row {
-    @apply flex items-baseline py-1.5 text-xs;
-  }
-  .receipt-row .k {
-    @apply font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3 flex-shrink-0;
-  }
-  .receipt-row .leader {
-    flex: 1;
-    margin: 0 8px;
-    border-bottom: 1.5px dotted #E0D8C3;
-    transform: translateY(-3px);
-  }
-  .receipt-row .v {
-    @apply font-mono text-xs font-medium text-ink;
-    text-align: right;
-  }
-  .receipt-row .v.sans { font-family: var(--font-geist-sans), 'Geist', sans-serif; }
-
-  .receipt-divider {
-    border: 0;
-    border-top: 1.5px dashed #E0D8C3;
-    margin: 6px 0;
-  }
-
-  .receipt-verdict {
-    @apply px-6 pt-4 pb-5 flex items-center gap-4;
-    background: #F4EEDF;
-    border-top: 1.5px dashed #E0D8C3;
-  }
-  .receipt-verdict .v-copy {
-    @apply font-sans text-sm text-ink-2 leading-relaxed flex-1;
-  }
-
-  .receipt-foot {
-    @apply px-6 pt-3 pb-4 flex justify-between items-center font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3;
-  }
-
-  /* ===== StatTile ===== */
-  .stat-tile {
-    @apply rounded-r-lg p-7 relative overflow-hidden;
-    background: #FAF6EF;
-    border: 1px solid #E0D8C3;
-  }
-  .stat-tile .meta {
-    @apply font-mono text-[10px] uppercase tracking-[0.16em] text-ink-3 inline-flex items-center gap-2;
-  }
-  .stat-tile .meta::before {
-    content: "";
-    @apply inline-block w-1.5 h-1.5 rounded-full bg-ink-3;
-  }
-  .stat-tile .num {
-    @apply font-display text-stat text-ink mt-4 mb-2;
-  }
-  .stat-tile .num small {
-    @apply text-[28px] text-ink-3;
-    letter-spacing: 0;
-  }
-  .stat-tile .lbl {
-    @apply font-sans text-sm text-ink-2 leading-relaxed max-w-[280px];
-  }
-  .stat-tile.fill-kept    { background: #EEF3E2; }
-  .stat-tile.fill-partial { background: #F6EAC9; }
-  .stat-tile.fill-broken  { background: #F4DDDA; }
-  .stat-tile.fill-pending { background: #E1E7EE; }
-
-  /* Top-right corner micro-chip */
-  .stat-tile .corner-mark {
-    @apply absolute top-4 right-4 font-mono text-[9px] uppercase tracking-[0.14em] text-ink-3 px-1.5 py-1 rounded-[3px];
-    border: 1px solid #E0D8C3;
-  }
-
-  /* ===== Leaderboard row ===== */
-  .board {
-    @apply overflow-hidden rounded-r-lg;
-    background: #FAF6EF;
-    border: 1px solid #E0D8C3;
-  }
-  .board-head {
-    display: grid;
-    grid-template-columns: 40px 1fr 100px 100px 100px 110px;
-    @apply px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3;
-    background: #F4EEDF;
-    border-bottom: 1px solid #E0D8C3;
-  }
-  .board-row {
-    display: grid;
-    grid-template-columns: 40px 1fr 100px 100px 100px 110px;
-    @apply px-6 py-4 text-sm items-center;
-    border-bottom: 1px solid #ECE5D2;
-  }
-  .board-row:last-child { border-bottom: 0; }
-  .board-row:hover { background: #F4EEDF; }
-  .board-row .rank { @apply font-mono text-[13px] text-ink-3 font-medium; }
-  .board-row .name {
-    @apply font-display text-xl tracking-[-0.01em] text-ink inline-flex items-center gap-3;
-  }
-  .board-row .ava {
-    @apply inline-flex items-center justify-center w-8 h-8 rounded-full font-mono text-[11px] text-ink-2;
-    background: #EBE3D0;
-    border: 1px solid #E0D8C3;
-  }
-  .board-row .sub {
-    @apply block font-sans text-[11px] text-ink-3 uppercase tracking-[0.1em] mt-0.5;
-  }
-  .board-row .count {
-    @apply font-mono text-sm font-medium;
-  }
-  .board-row .count.kept    { color: #4F7A4B; }
-  .board-row .count.partial { color: #A37222; }
-  .board-row .count.broken  { color: #A8423E; }
-
-  /* Distribution bar (stacked horizontal segments) */
-  .bar {
-    @apply h-1.5 rounded-full overflow-hidden flex w-full;
-    background: #EBE3D0;
-  }
-  .bar .seg.kept    { background: #4F7A4B; }
-  .bar .seg.partial { background: #A37222; }
-  .bar .seg.broken  { background: #A8423E; }
-  .bar .seg.pending { background: #4F6480; }
-
-  /* ===== MethodCard ===== */
-  .method-card {
-    @apply rounded-r-lg p-7;
-    background: #FAF6EF;
-    border: 1px solid #E0D8C3;
-  }
-  .method-card .num-mark {
-    @apply font-mono text-[11px] tracking-[0.14em] text-ink-3 mb-7;
-  }
-  .method-card h3 {
-    @apply font-display text-[28px] leading-[1.1] tracking-[-0.01em] text-ink mb-3;
-    font-weight: 400;
-  }
-  .method-card p {
-    @apply font-sans text-sm text-ink-2 leading-relaxed m-0;
-  }
-
-  /* ===== QuoteTile ===== */
-  .quote-tile {
-    @apply rounded-r-lg p-8 pb-6 relative;
-    background: #FAF6EF;
-    border: 1px solid #E0D8C3;
-    box-shadow: 0 1px 0 rgba(26,24,21,0.04), 0 12px 28px -18px rgba(26,24,21,0.18);
-  }
-  .quote-tile .qmark {
-    @apply font-display absolute;
-    font-size: 80px;
-    line-height: 0.5;
-    color: #A37222;
-    top: 36px; left: 28px;
-    opacity: 0.4;
-  }
-  .quote-tile blockquote {
-    @apply font-display text-quote text-ink mt-3 mb-5;
-    padding-left: 22px;
-  }
-  .quote-tile .qsrc {
-    @apply font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3 flex gap-2.5 pt-3.5;
-    border-top: 1.5px dashed #E0D8C3;
-  }
-
-  /* ===== Eyebrow (legacy alias, used heavily across the app) ===== */
-  .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3;
-  }
-
-  /* ===== Hero pulse-dot — live tracking indicator ===== */
-  .pulse-dot {
-    @apply relative inline-block w-[7px] h-[7px] rounded-full;
-    background: #4F7A4B;
-  }
-  .pulse-dot::after {
-    content: "";
-    @apply absolute -inset-1 rounded-full;
-    border: 1.5px solid #4F7A4B;
-    opacity: 0.4;
-    animation: pulseDot 2s infinite;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .pulse-dot::after { animation: none; opacity: 0.4; }
-  }
-
-  /* ===== Source list (for /sources, /methodology references) ===== */
-  .source-list {
-    @apply list-none p-0 m-0;
-  }
-  .source-list li {
-    @apply py-2.5 flex items-baseline gap-3.5 text-xs text-ink-2 font-mono;
-    border-bottom: 1px dotted #E0D8C3;
-  }
-  .source-list li:last-child { border-bottom: 0; }
-  .source-list .src-tag {
-    @apply text-[10px] uppercase tracking-[0.14em] text-ink-3 px-1.5 py-0.5 rounded-[3px] flex-shrink-0;
-    border: 1px solid #E0D8C3;
-  }
-  .source-list .src-date {
-    @apply ml-auto text-[10px] text-ink-3;
-    letter-spacing: 0.06em;
-  }
-
-  /* ===== Press strip ===== */
-  .press {
-    @apply px-section-x py-9 flex items-center gap-14;
-    background: #F4EEDF;
-    border-bottom: 1px solid #E0D8C3;
-  }
-  .press .label {
-    @apply font-mono text-[10px] uppercase tracking-[0.18em] text-ink-3 flex-shrink-0;
-  }
-
-  /* ===== Dotted divider (between sections inside a card) ===== */
-  .dotted-divider {
-    border-top: 1.5px dashed #E0D8C3;
-    margin: 0;
+  
+  .odds-badge.low {
+    @apply bg-danger-bg text-danger border border-danger/30;
   }
 }
 
-/* ------------------------------------------------------------
-   UTILITIES
-   ------------------------------------------------------------ */
 @layer utilities {
-  .text-balance { text-wrap: balance; }
-  .text-pretty  { text-wrap: pretty; }
-
-  .serif { font-family: var(--font-instrument-serif), 'Source Serif Pro', 'Iowan Old Style', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
-  .mono  { font-family: var(--font-geist-mono), 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace; font-feature-settings: "tnum"; }
-  .tnum  { font-variant-numeric: tabular-nums; }
-  .kern  { letter-spacing: -0.02em; }
-
-  /* Dotted-grid hero background, masked top-to-bottom */
-  .bg-dotted-grid {
-    background-image: radial-gradient(circle at 1px 1px, rgba(26,24,21,0.07) 1px, transparent 0);
-    background-size: 28px 28px;
-    opacity: 0.35;
-    mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+  .text-glow-primary {
+    text-shadow: 0 0 20px theme('colors.primary.glow');
   }
-
-  /* Hero highlight underline — paints amber-bg behind the last 38%
-     of the text's height. Per design-lead panel: the original
-     ::after with negative z-index was getting hidden by section bg
-     in some stacking contexts. background-image gradient paints
-     reliably on the span itself. */
-  .underline-amber {
-    background-image: linear-gradient(
-      to top,
-      transparent 0%,
-      transparent 6%,
-      #F1DDB3 6%,
-      #F1DDB3 32%,
-      transparent 32%,
-      transparent 100%
-    );
-    padding: 0 0.04em;
+  
+  .text-glow-accent {
+    text-shadow: 0 0 20px theme('colors.accent.glow');
   }
-
-  /* Legacy utilities (kept while migrating) */
-  .bg-hero-grid {
-    background-image:
-      linear-gradient(to right, rgba(26,24,21,0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(26,24,21,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
-  .bg-hero-glow { background: transparent; } /* neutralized — no glow on paper */
-
-  /* ───── REV-7 LEGACY-CLASS PAPER OVERRIDES ───────────────────
-     The legacy ink-scale remap (zinc → paper-warm values) means
-     bg-ink-900/40 and similar arbitrary-alpha utility classes
-     render as faded paper-on-paper, producing muddy gray cards
-     (leaderboard, FeaturedGrid, RankingCards).
-     These overrides force every legacy alpha-multiplied card to
-     render as an opaque paper-2 card with a line border, matching
-     the benchmark.
-  */
-  .bg-ink-900\/40,
-  .bg-ink-900\/30,
-  .bg-ink-900\/60,
-  .bg-ink-900\/70 {
-    background-color: #F4EEDF !important; /* paper-2 */
-  }
-  .bg-ink-800\/60,
-  .bg-ink-800\/80 {
-    background-color: #EBE3D0 !important; /* paper-3 */
-  }
-  .bg-ink-950 {
-    background-color: #FAF6EF !important; /* paper */
-  }
-  /* Rings (border-equivalent on cards) — make them visible line color */
-  .ring-ink-700,
-  .ring-ink-800,
-  .ring-ink-800\/60,
-  .ring-ink-800\/80 {
-    --tw-ring-color: #E0D8C3 !important; /* line */
-  }
-  /* Common hover-darker variants */
-  .hover\:bg-ink-900\/60:hover,
-  .hover\:bg-ink-900\/70:hover {
-    background-color: #EBE3D0 !important; /* paper-3 */
-  }
-  .hover\:ring-ink-700:hover,
-  .hover\:ring-ink-600:hover {
-    --tw-ring-color: #6E665C !important; /* ink-3 */
-  }
-
-  /* Legacy amber/emerald/rose accent text now renders as benchmark
-     verdict colors so the verdict palette stays coherent. */
-  .text-amber-300, .text-amber-400, .text-amber-500 { color: #A37222 !important; } /* partial */
-  .text-emerald-300, .text-emerald-400, .text-emerald-500 { color: #4F7A4B !important; } /* kept */
-  .text-rose-300, .text-rose-400, .text-rose-500 { color: #A8423E !important; } /* broken */
-  .text-sky-300, .text-sky-400, .text-sky-500 { color: #4F6480 !important; } /* pending */
-
-  /* Legacy bg-amber-500/15 (badge tint) → partial-bg (amber tint) */
-  .bg-amber-500\/10, .bg-amber-500\/15, .bg-amber-500\/20 { background-color: #F6EAC9 !important; }
-  .bg-emerald-500\/10, .bg-emerald-500\/15 { background-color: #EEF3E2 !important; }
-  .bg-rose-500\/10, .bg-rose-500\/15 { background-color: #F0D5D3 !important; }
-  .bg-sky-500\/10, .bg-sky-500\/15 { background-color: #E2E6ED !important; }
-
-  /* Legacy ring-amber-500/30 etc → border tone */
-  .ring-amber-500\/30, .ring-amber-500\/40 { --tw-ring-color: #A37222 !important; }
-  .ring-emerald-500\/30, .ring-emerald-500\/40 { --tw-ring-color: #4F7A4B !important; }
-  .ring-rose-500\/30, .ring-rose-500\/40 { --tw-ring-color: #A8423E !important; }
-  .ring-sky-500\/30, .ring-sky-500\/40 { --tw-ring-color: #4F6480 !important; }
-}
-
-/* ── Article body — long-form markdown rendered through marked ── */
-/* Per founder rev-7 batch C+: typography for /articles/[slug]. */
-.article-body {
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui;
-  color: var(--ink-2, #3D3833);
-  font-size: 17px;
-  line-height: 1.65;
-}
-.article-body > * + * { margin-top: 1.1em; }
-.article-body h2 {
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: 32px;
-  line-height: 1.15;
-  letter-spacing: -0.005em;
-  color: var(--ink, #1A1815);
-  margin-top: 2em;
-  margin-bottom: 0.4em;
-  font-weight: 400;
-}
-.article-body h3 {
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: 24px;
-  line-height: 1.2;
-  letter-spacing: -0.005em;
-  color: var(--ink, #1A1815);
-  margin-top: 1.6em;
-  margin-bottom: 0.3em;
-  font-weight: 400;
-}
-.article-body p { margin: 0; color: var(--ink-2, #3D3833); }
-.article-body strong { color: var(--ink, #1A1815); font-weight: 500; }
-.article-body em { font-style: italic; }
-.article-body a {
-  color: var(--ink, #1A1815);
-  text-decoration: underline;
-  text-decoration-color: var(--line, #E0D8C3);
-  text-underline-offset: 4px;
-}
-.article-body a:hover { text-decoration-color: var(--ink, #1A1815); }
-.article-body ul, .article-body ol {
-  margin: 1.1em 0;
-  padding-left: 1.4em;
-  color: var(--ink-2, #3D3833);
-}
-.article-body li + li { margin-top: 0.4em; }
-.article-body blockquote {
-  border-left: 3px solid var(--broken, #A8423E);
-  padding-left: 1em;
-  margin: 1.4em 0;
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  font-style: italic;
-  font-size: 22px;
-  line-height: 1.35;
-  color: var(--ink, #1A1815);
-}
-.article-body code {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 0.9em;
-  background: var(--paper-3, #EBE3D0);
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
-}
-.article-body hr {
-  border: none;
-  border-top: 1px dashed var(--line, #E0D8C3);
-  margin: 2em 0;
-}
-
-/* ── CharacterCard tokens (rev-7 panel, 2026-05-19) ─────────────────
-   Per the viral-design + marketing + influencer-strategy panel:
-   "NBA 2K player card" metaphor — authoritative stats about a real
-   person. Bone bg, ink, sodium-amber accent (no red/blue — TikTok
-   algorithm punishes political-coded colors). Perforated receipt
-   edges top + bottom = CR's signature visual element (Sludge owns
-   the dollar sign, OpenSecrets owns the pie chart, CR owns the tear
-   line). */
-:root {
-  --bone: #F4EFE6;            /* card background, slightly warmer than paper-2 */
-  --amber-stat: #E8A33D;      /* sodium-lamp amber — bar fill, decorative use */
-  --amber-stat-dim: rgba(232, 163, 61, 0.22);
-  /* Design-pass 2026-05-19: amber-stat at #E8A33D against bone is
-     only ~3.1:1, which fails WCAG AA for normal text (needs 4.5:1).
-     amber-text is a darker amber used for $ amounts and any other
-     text that needs to pass AA on bone or paper. */
-  --amber-text: #B8821C;
-}
-
-/* Sodium-amber utility classes (Tailwind-side won't pick these up
-   from arbitrary tokens; using utility classes keeps tailwindcss
-   stable while still letting CharacterCard reference the tokens.) */
-.bg-bone { background-color: var(--bone); }
-.text-amber-stat { color: var(--amber-stat); }
-.text-amber-text { color: var(--amber-text); }
-.bg-amber-stat { background-color: var(--amber-stat); }
-.bg-amber-stat-dim { background-color: var(--amber-stat-dim); }
-.border-amber-stat { border-color: var(--amber-stat); }
-
-/* Perforated receipt edge — CR signature element. Applied to
-   .receipt-edge-top / .receipt-edge-bottom on the CharacterCard
-   container. The dots are positioned absolutely so the card height
-   stays predictable for the 1080x1350 PNG export. */
-.receipt-edge-top,
-.receipt-edge-bottom {
-  position: relative;
-}
-.receipt-edge-top::before,
-.receipt-edge-bottom::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 12px;
-  /* Design-pass 2026-05-19: center the dot pattern so half-dots render
-     evenly at both edges regardless of card width. Previously the dots
-     were left-anchored and clipped randomly on the right at narrow
-     widths (≤380px). */
-  background-image: radial-gradient(circle at 8px 6px, var(--bone) 5px, transparent 5.5px);
-  background-size: 16px 12px;
-  background-repeat: repeat-x;
-  background-position: center;
-  background-color: transparent;
-  pointer-events: none;
-}
-.receipt-edge-top::before { top: -6px; }
-.receipt-edge-bottom::after { bottom: -6px; }
-
-/* When the perforated edge sits on a paper / paper-2 / paper-3 ground,
-   the "punched" dots must show the surrounding color through them,
-   not bone. Apply the matching utility class alongside the edge class. */
-.receipt-edge-on-paper.receipt-edge-top::before,
-.receipt-edge-on-paper.receipt-edge-bottom::after {
-  background-image: radial-gradient(circle at 8px 6px, var(--paper, #FAF6EF) 5px, transparent 5.5px);
-}
-.receipt-edge-on-paper-2.receipt-edge-top::before,
-.receipt-edge-on-paper-2.receipt-edge-bottom::after {
-  background-image: radial-gradient(circle at 8px 6px, var(--paper-2, #F4EEDF) 5px, transparent 5.5px);
-}
-.receipt-edge-on-paper-3.receipt-edge-top::before,
-.receipt-edge-on-paper-3.receipt-edge-bottom::after {
-  background-image: radial-gradient(circle at 8px 6px, var(--paper-3, #EBE3D0) 5px, transparent 5.5px);
-}
-
-/* ── LiveActivityStrip — Bloomberg-terminal ticker ──────────────────
-   Per founder rev-7 (2026-05-19): "live operating system for tracking
-   political incentives" repositioning. CSS-only marquee animation
-   keeps the ticker subtle (no JS jank, no flashy colors). The
-   duplicate-content trick gives a seamless loop. */
-@keyframes live-marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-/* Mobile hamburger panel slide-down. */
-@keyframes slideDown {
-  0%   { opacity: 0; transform: translateY(-8px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .animate-\[slideDown_0\.18s_ease-out\] { animation: none; }
-}
-.live-activity-marquee {
-  animation: live-marquee 90s linear infinite;
-  will-change: transform;
-}
-/* Mobile (<768px): no hover, so users can't pause to read. Slow the
-   marquee so items are legible without an interaction primitive. */
-@media (max-width: 767px) {
-  .live-activity-marquee {
-    animation-duration: 140s;
-  }
-}
-.live-activity-marquee:hover {
-  animation-play-state: paused; /* pause on hover so users can click an item */
-}
-/* Pause when a child link receives keyboard focus too — design-pass
-   2026-05-19. Otherwise users tabbing through the strip can't read
-   the item they've landed on. */
-.live-activity-marquee:focus-within {
-  animation-play-state: paused;
-}
-/* Respect reduced-motion: stop the animation and instead snap to the
-   first item — the strip becomes a static "latest activity" list. */
-@media (prefers-reduced-motion: reduce) {
-  .live-activity-marquee {
-    animation: none;
-  }
-}
-/* Soft fade on BOTH edges of the inner ticker rail (not the outer
-   section) so items don't appear to slice when they hit the box edge.
-   Design-pass 2026-05-19: previous fade was on the outer section and
-   the inner overflow:hidden box was clipping items hard. */
-.live-activity-rail {
-  position: relative;
-}
-.live-activity-rail::before,
-.live-activity-rail::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 32px;
-  pointer-events: none;
-  z-index: 1;
-}
-.live-activity-rail::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--paper, #FAF6EF), rgba(250, 246, 239, 0));
-}
-.live-activity-rail::after {
-  right: 0;
-  background: linear-gradient(90deg, rgba(250, 246, 239, 0), var(--paper, #FAF6EF));
-}
-
-/* ===== Dossier prose (Opus-written connection dossier on /investigate) ===== */
-.dossier-prose h2 {
-  font-family: var(--font-display, serif);
-  font-size: 18px;
-  color: #1A1815;
-  margin: 1.25rem 0 0.5rem;
-  letter-spacing: -0.005em;
-}
-.dossier-prose p { margin: 0 0 0.75rem; }
-.dossier-prose ul { margin: 0 0 0.75rem; padding-left: 1.1rem; }
-.dossier-prose li { margin-bottom: 0.35rem; }
-.dossier-prose strong { color: #1A1815; }
-.dossier-prose a { color: #A8423E; text-underline-offset: 3px; }
-/* Donor / bill highlights in backfilled tenure summaries. */
-.dossier-prose u { color: #1A1815; text-decoration-color: #A8423E; text-underline-offset: 3px; font-weight: 500; }
-
-/* ===== State baseline prose (dark-theme state pages) ===== */
-.state-baseline-prose p { margin: 0 0 0.75rem; }
-.state-baseline-prose p:last-child { margin-bottom: 0; }
-.state-baseline-prose strong { color: #fafaf9; font-weight: 600; }
-.state-baseline-prose u { color: #fafaf9; text-decoration-color: #fbbf24; text-underline-offset: 3px; font-weight: 500; }
-
-/* Living hero video — respect reduced-motion: freeze on the poster frame. */
-@media (prefers-reduced-motion: reduce) {
-  .hero-video {
-    /* Hide the moving video; the poster image remains as the static frame. */
-    animation: none !important;
+  
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }

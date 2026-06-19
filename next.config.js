@@ -20,11 +20,11 @@ const crSecurityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://plausible.io",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https:",
       "font-src 'self' data:",
-      "connect-src 'self' https://*.supabase.co https://api.lemonsqueezy.com https://api.resend.com https://cloudflareinsights.com https://static.cloudflareinsights.com",
+      "connect-src 'self' https://*.supabase.co https://api.lemonsqueezy.com https://api.resend.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://plausible.io",
       // Allow YouTube embeds in video_companion articles. Without an
       // explicit frame-src, frames fall back to default-src 'self' and
       // the YouTube iframe is blocked (stuck grey box with a spinner).

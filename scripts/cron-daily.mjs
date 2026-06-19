@@ -53,19 +53,6 @@ function runStep(name, args) {
   return true
 }
 
-// ── Python video companion step ──
-function runCompanionArticleRefresh() {
-  const name = 'refresh-video-companion-articles'
-  console.log(`\n── ${name} ${'─'.repeat(Math.max(0, 60 - name.length))}`)
-  const probe = spawnSync('python3', ['--version'], { stdio: 'ignore' })
-  if (probe.status !== 0) {
-    console.warn('  (skipped — python3 not available)')
-    return true
-  }
-  const result = spawnSync('python3', ['scripts/backfill-video-companion-articles.py'], { stdio: 'inherit', cwd: process.cwd(), env: process.env })
-  return result.status === 0
-}
-
 // ── DB Maintenance ──
 async function archivePastRaces() {
   console.log(`\n── archive-past-races ${'─'.repeat(45)}`)
@@ -101,6 +88,7 @@ const results = {}
 
 // Hourly jobs
 results.newsletterSend = runStep('weekly-newsletter-send', ['scripts/weekly-newsletter-send.mjs'])
+results.syncMarkets = runStep('sync-markets', ['scripts/sync-markets.mjs'])
 
 if (isOrchestrator) {
   console.log(`\n=== Running Master Orchestrator (UTC Day: ${day}, Hour: ${hour}) ===`)
@@ -114,30 +102,17 @@ if (isOrchestrator) {
     results.alignment = runStep('compute-alignment', ['scripts/compute-alignment.mjs'])
     results.billMoney = runStep('compute-bill-money-trail', ['scripts/compute-bill-money-trail.mjs'])
   }
-  // 09:00 UTC 1st of Month
-  if (date === 1 && hour === 9) results.spotAudit = runStep('run-spot-audit', ['scripts/run-spot-audit.mjs'])
-  // 11:00 UTC Monday
-  if (day === 1 && hour === 11) results.weeklyPick = runStep('pick-weekly', ['scripts/pick-weekly.mjs'])
 
   // 13:00 UTC (9am ET)
   if (hour === 13) {
     results.archive = await archivePastRaces()
     results.races = runStep('populate-active-races', ['scripts/populate-active-races.mjs'])
-    results.pulse = runStep('snapshot-homepage-pulse', ['scripts/snapshot-homepage-pulse.mjs'])
-    results.weekly = runStep('snapshot-weekly', ['scripts/snapshot-weekly.mjs'])
-    results.leaderboard = runStep('snapshot-leaderboard-history', ['scripts/snapshot-leaderboard-history.mjs'])
-    results.companion = runCompanionArticleRefresh()
     results.purgeAuth = await purgeExpiredAuth()
-
-    // Outreach
-    const outreachMap = { 1: 1, 2: 2, 3: 3, 6: 6, 0: 7 }
-    if (outreachMap[day]) results.outreach = runStep(`outreach-d${outreachMap[day]}`, ['scripts/run-outreach.mjs', `--day=${outreachMap[day]}`])
   }
 
-  // 22:00 UTC
-  if (hour === 22) {
-    results.dailyDigest = runStep('send-daily-digest', ['scripts/send-daily-digest.mjs'])
-    if (day === 4) results.contentBuild = runStep('weekly-content-build', ['scripts/weekly-content-build.mjs'])
+  // 22:00 UTC Thursday (Weekly content generation)
+  if (hour === 22 && day === 4) {
+    results.contentBuild = runStep('weekly-content-build', ['scripts/weekly-content-build.mjs'])
   }
 } else {
   // Manual trigger via npm script or console (runs the daily 13:00 payload)
@@ -145,10 +120,6 @@ if (isOrchestrator) {
   results.races = runStep('populate-active-races', ['scripts/populate-active-races.mjs'])
   results.alignment = runStep('compute-alignment', ['scripts/compute-alignment.mjs'])
   results.billMoney = runStep('compute-bill-money-trail', ['scripts/compute-bill-money-trail.mjs'])
-  results.pulse = runStep('snapshot-homepage-pulse', ['scripts/snapshot-homepage-pulse.mjs'])
-  results.weekly = runStep('snapshot-weekly', ['scripts/snapshot-weekly.mjs'])
-  results.leaderboard = runStep('snapshot-leaderboard-history', ['scripts/snapshot-leaderboard-history.mjs'])
-  results.companion = runCompanionArticleRefresh()
   results.purgeAuth = await purgeExpiredAuth()
 }
 
