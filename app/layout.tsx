@@ -22,8 +22,8 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'AlphaPredict | Political Intelligence & Prediction Markets',
-  description: 'AI-driven political prediction markets using real-time FEC data and knowledge graphs.',
+  title: 'Campaign Receipts | Political Intelligence & Prediction Markets',
+  description: 'AI-driven political prediction markets data intelligence using real-time FEC filings, PAC spend, and knowledge graphs.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -33,35 +33,62 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="sticky top-0 z-50 glass-panel border-b-0 rounded-none border-b border-white/5 bg-background/50">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-glow shadow-primary-glow/50 group-hover:scale-105 transition-transform">
-                <span className="font-display font-bold text-white text-lg">α</span>
+              <div className="w-8 h-8 rounded flex items-center justify-center text-xl">
+                💰
               </div>
               <span className="font-display text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
-                AlphaPredict
+                Campaign Receipts
               </span>
             </Link>
             <nav className="hidden md:flex items-center gap-8">
-              <Link href="/markets" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Markets</Link>
-              <Link href="/intel" className="text-sm font-medium text-text-muted hover:text-white transition-colors flex items-center gap-2">
-                Intel <span className="flex h-2 w-2 rounded-full bg-success shadow-glow shadow-success-glow animate-pulse-glow"></span>
+              <Link href="/" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Markets</Link>
+              <Link href="#newsletter" className="text-sm font-medium text-text-muted hover:text-white transition-colors flex items-center gap-2">
+                Newsletter <span className="flex h-2 w-2 rounded-full bg-success shadow-glow shadow-success-glow animate-pulse-glow"></span>
               </Link>
-              <Link href="/portfolio" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Portfolio</Link>
-              <button className="btn-primary text-sm py-2 px-5">Connect Wallet</button>
+              <Link href="/pricing" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Alpha Terminal</Link>
             </nav>
           </div>
         </header>
 
-        <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-12">
+        <main className="flex-1 w-full flex flex-col">
           {children}
         </main>
 
-        <footer className="border-t border-white/5 mt-auto py-8">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-text-muted font-mono">
-              © 2026 AlphaPredict. Trading involves risk.
+        <footer className="border-t border-white/5 mt-auto py-12 bg-background/80">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-8">
+            <div className="flex flex-col gap-2">
+              <Link href="/" className="flex items-center gap-2 group">
+                <span className="text-xl">💰</span>
+                <span className="font-display font-bold text-white">Campaign Receipts</span>
+              </Link>
+              <div className="text-sm text-text-muted mt-2 max-w-sm">
+                The Bloomberg Terminal for prediction markets. Find the edge with institutional-grade data.
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-12">
+              <div className="flex flex-col gap-3">
+                <h4 className="font-bold text-white text-sm">Product</h4>
+                <Link href="/pricing" className="text-sm text-text-muted hover:text-white transition-colors">Alpha Terminal</Link>
+                <Link href="#newsletter" className="text-sm text-text-muted hover:text-white transition-colors">Weekly Newsletter</Link>
+                <Link href="/" className="text-sm text-text-muted hover:text-white transition-colors">Live Markets</Link>
+              </div>
+              <div className="flex flex-col gap-3">
+                <h4 className="font-bold text-white text-sm">Company</h4>
+                <Link href="/about" className="text-sm text-text-muted hover:text-white transition-colors">About Us</Link>
+                <Link href="/contact" className="text-sm text-text-muted hover:text-white transition-colors">Contact</Link>
+                <Link href="/terms" className="text-sm text-text-muted hover:text-white transition-colors">Terms of Service</Link>
+                <Link href="/privacy" className="text-sm text-text-muted hover:text-white transition-colors">Privacy Policy</Link>
+              </div>
+            </div>
+          </div>
+          
+          <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-xs text-text-muted font-mono">
+              © {new Date().getFullYear()} Campaign Receipts. Trading involves risk.
             </div>
             <div className="flex gap-4">
-              <span className="text-xs font-mono text-text-muted/50">Powered by Fable AI</span>
+              <span className="text-xs font-mono text-text-muted/50">Data intelligence answers for AEO</span>
               <span className="text-xs font-mono text-text-muted/50">FEC Data Sync: Live</span>
             </div>
           </div>

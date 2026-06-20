@@ -4,8 +4,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { CheckoutModal } from '../../../components/CheckoutModal';
 
-export function MarketClientPage({ market }: { market: any }) {
+export function MarketClientPage({ dbMarket }: { dbMarket: any }) {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+
+  const impliedOdds = dbMarket.outcomes && dbMarket.outcomes.length > 0 
+    ? (dbMarket.outcomes[0].price * 100) 
+    : 50;
+
+  const isActive = new Date(dbMarket.end_date) > new Date() || !dbMarket.end_date;
 
   return (
     <div className="w-full">
@@ -16,9 +22,9 @@ export function MarketClientPage({ market }: { market: any }) {
         </Link>
         <div className="flex items-center gap-2 mb-2">
           <span className="px-2 py-0.5 rounded text-xs font-mono bg-white/10 text-white/70">
-            {market.category}
+            {dbMarket.group_name || 'POLITICS'}
           </span>
-          {market.status === 'OPEN' ? (
+          {isActive ? (
             <span className="px-2 py-0.5 rounded text-xs font-mono bg-success-bg text-success border border-success/20">
               ● LIVE
             </span>
@@ -29,18 +35,30 @@ export function MarketClientPage({ market }: { market: any }) {
           )}
         </div>
         <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 leading-tight">
-          {market.title}
+          {dbMarket.question}
         </h1>
-        <div className="flex gap-6 text-sm text-text-muted">
+        <div className="flex gap-6 text-sm text-text-muted mb-6">
           <div className="flex flex-col">
             <span className="text-xs uppercase tracking-wider">Volume</span>
-            <span className="font-mono text-white text-lg">${market.volume.toLocaleString()}</span>
+            <span className="font-mono text-white text-lg">${dbMarket.volume_usd?.toLocaleString() || '0'}</span>
           </div>
           <div className="flex flex-col">
             <span className="text-xs uppercase tracking-wider">Implied Probability</span>
-            <span className="font-mono text-white text-lg">{(market.impliedProbability * 100).toFixed(0)}%</span>
+            <span className="font-mono text-white text-lg">{impliedOdds.toFixed(0)}%</span>
           </div>
         </div>
+
+        {/* Outbound link to Polymarket */}
+        {dbMarket.source_url && (
+          <a 
+            href={dbMarket.source_url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-primary/20 hover:bg-primary/30 text-primary border border-primary/50 font-bold py-2 px-6 rounded transition-colors"
+          >
+            Trade on Polymarket ↗
+          </a>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -49,7 +67,7 @@ export function MarketClientPage({ market }: { market: any }) {
           <div className="glass-panel p-6">
             <h2 className="text-lg font-bold mb-4 font-display">Current Odds</h2>
             <div className="flex flex-col gap-3">
-              {market.options.map((opt: any, i: number) => (
+              {(dbMarket.outcomes || []).map((opt: any, i: number) => (
                 <div key={i} className="flex items-center justify-between p-4 rounded bg-surface border border-white/5">
                   <span className="font-medium">{opt.name}</span>
                   <span className="font-mono text-xl">{Math.round(opt.price * 100)}¢</span>
@@ -83,17 +101,17 @@ export function MarketClientPage({ market }: { market: any }) {
               
               {/* Blurred content simulating real data */}
               <div className="mt-4 space-y-4 blur-sm select-none opacity-50">
-                <div className="h-4 bg-white/20 rounded w-3/4"></div>
+                <div className="text-sm font-bold text-white">HEADLINE: {dbMarket.edge_headline || "FEC DATA DETECTED"}</div>
                 <div className="h-4 bg-white/20 rounded w-full"></div>
                 <div className="h-4 bg-white/20 rounded w-5/6"></div>
                 
                 <div className="pt-4 border-t border-white/10 flex justify-between">
                   <div>
-                    <div className="h-3 bg-white/20 rounded w-16 mb-1"></div>
+                    <div className="h-3 bg-white/20 rounded w-16 mb-1">True Odds</div>
                     <div className="h-5 bg-white/20 rounded w-24"></div>
                   </div>
                   <div>
-                    <div className="h-3 bg-white/20 rounded w-16 mb-1"></div>
+                    <div className="h-3 bg-white/20 rounded w-16 mb-1">Lobby Pct</div>
                     <div className="h-5 bg-white/20 rounded w-24"></div>
                   </div>
                 </div>
@@ -127,7 +145,7 @@ export function MarketClientPage({ market }: { market: any }) {
           <div className="border border-white/10 rounded-xl p-6 bg-gradient-to-br from-surface to-background text-center">
             <h4 className="font-bold mb-2">Want full access?</h4>
             <p className="text-sm text-text-muted mb-4">
-              Get real-time API access and donor intelligence for every active market on AlphaPredict.
+              Get real-time API access and donor intelligence for every active market on Campaign Receipts.
             </p>
             <Link href="/pricing" className="text-sm text-primary hover:text-primary-hover font-medium underline underline-offset-4">
               View Alpha Terminal Pricing →
@@ -140,8 +158,8 @@ export function MarketClientPage({ market }: { market: any }) {
       <CheckoutModal 
         isOpen={isCheckoutOpen} 
         onClose={() => setIsCheckoutOpen(false)} 
-        marketId={market.id}
-        title={`Alpha Intel: ${market.title}`}
+        marketId={dbMarket.id}
+        title={`Alpha Intel: ${dbMarket.question}`}
         price="$49.00"
       />
     </div>

@@ -89,6 +89,8 @@ const results = {}
 // Hourly jobs
 results.newsletterSend = runStep('weekly-newsletter-send', ['scripts/weekly-newsletter-send.mjs'])
 results.syncMarkets = runStep('sync-markets', ['scripts/sync-markets.mjs'])
+results.syncPolymarket = runStep('sync-polymarket', ['scripts/sync-polymarket.mjs'])
+results.marketAlertNotify = runStep('market-alert-notify', ['scripts/market-alert-notify.mjs'])
 
 if (isOrchestrator) {
   console.log(`\n=== Running Master Orchestrator (UTC Day: ${day}, Hour: ${hour}) ===`)

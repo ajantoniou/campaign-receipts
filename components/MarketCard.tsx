@@ -1,76 +1,80 @@
 'use client';
 
-import { PredictionMarket } from '../lib/mockData';
-import { TrendingUp, Clock, ShieldAlert } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { TrendingUp, Clock, ShieldAlert } from 'lucide-react';
+import Link from 'next/link';
 
-interface MarketCardProps {
-  market: PredictionMarket;
-}
+export function MarketCard({ dbMarket }: { dbMarket: any }) {
+  // DB schema:
+  // slug, question, group_name, volume_usd, end_date, outcomes (jsonb: [{name, price}]), edge_true_odds, edge_headline
 
-export function MarketCard({ market }: MarketCardProps) {
-  const isHighOdds = market.impliedProbability > 0.6;
-  const isLowOdds = market.impliedProbability < 0.3;
+  const impliedOdds = dbMarket.outcomes && dbMarket.outcomes.length > 0 
+    ? (dbMarket.outcomes[0].price * 100) 
+    : 50;
+    
+  const isHighOdds = impliedOdds > 60;
+  const isLowOdds = impliedOdds < 30;
+  const hasEdge = !!dbMarket.edge_headline;
+
+  const volumeStr = dbMarket.volume_usd 
+    ? `$${(dbMarket.volume_usd / 1000).toFixed(1)}k`
+    : 'N/A';
+
+  const expiresStr = dbMarket.end_date
+    ? new Date(dbMarket.end_date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+    : 'Open';
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="glass-card p-6"
-    >
-      <div className="flex justify-between items-start mb-4">
-        <span className={`text-xs font-mono font-semibold px-2 py-1 rounded border ${
-          market.category === 'DONOR_INTEL' 
-            ? 'text-accent border-accent/30 bg-accent/10' 
-            : 'text-primary border-primary/30 bg-primary/10'
-        }`}>
-          {market.category}
-        </span>
-        {market.fecEdgeAvailable && (
-          <div className="flex items-center gap-1 text-xs text-accent font-medium bg-accent/10 px-2 py-1 rounded">
-            <ShieldAlert size={14} />
-            <span>FEC Edge</span>
-          </div>
-        )}
-      </div>
-
-      <h3 className="font-display text-lg font-semibold text-white mb-6 leading-tight">
-        {market.title}
-      </h3>
-
-      <div className="grid grid-cols-3 gap-4 mb-6">
+    <Link href={`/markets/${dbMarket.slug}`} className="block">
+      <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.02 }}
+        className="glass-card p-6 h-full flex flex-col justify-between cursor-pointer border border-white/5 hover:border-white/20 transition-colors"
+      >
         <div>
-          <div className="text-xs text-text-muted mb-1 font-mono uppercase">Implied Odds</div>
-          <div className={`text-2xl font-display font-bold ${
-            isHighOdds ? 'text-success text-glow-success' : isLowOdds ? 'text-danger' : 'text-white'
-          }`}>
-            {(market.impliedProbability * 100).toFixed(0)}%
+          <div className="flex justify-between items-start mb-4">
+            <span className="text-xs font-mono font-semibold px-2 py-1 rounded border text-primary border-primary/30 bg-primary/10">
+              {dbMarket.group_name || 'POLITICS'}
+            </span>
+            {hasEdge && (
+              <div className="flex items-center gap-1 text-xs text-accent font-medium bg-accent/10 px-2 py-1 rounded">
+                <ShieldAlert size={14} />
+                <span>Alpha Edge</span>
+              </div>
+            )}
+          </div>
+
+          <h3 className="font-display text-lg font-semibold text-white mb-6 leading-tight line-clamp-3">
+            {dbMarket.question}
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 mt-auto">
+          <div>
+            <div className="text-[10px] sm:text-xs text-text-muted mb-1 font-mono uppercase">Implied Odds</div>
+            <div className={`text-xl sm:text-2xl font-display font-bold ${
+              isHighOdds ? 'text-success' : isLowOdds ? 'text-danger' : 'text-white'
+            }`}>
+              {impliedOdds.toFixed(0)}%
+            </div>
+          </div>
+          <div>
+            <div className="text-[10px] sm:text-xs text-text-muted mb-1 font-mono uppercase">Volume</div>
+            <div className="text-sm sm:text-base font-mono font-medium text-white flex items-center gap-1">
+              <TrendingUp size={14} className="text-primary hidden sm:block" />
+              {volumeStr}
+            </div>
+          </div>
+          <div>
+            <div className="text-[10px] sm:text-xs text-text-muted mb-1 font-mono uppercase">Expires</div>
+            <div className="text-sm font-mono font-medium text-white flex items-center gap-1">
+              <Clock size={14} className="text-text-muted hidden sm:block" />
+              {expiresStr}
+            </div>
           </div>
         </div>
-        <div>
-          <div className="text-xs text-text-muted mb-1 font-mono uppercase">Volume</div>
-          <div className="text-lg font-mono font-medium text-white flex items-center gap-1">
-            <TrendingUp size={16} className="text-primary" />
-            ${(market.volume / 1000).toFixed(1)}k
-          </div>
-        </div>
-        <div>
-          <div className="text-xs text-text-muted mb-1 font-mono uppercase">Expires</div>
-          <div className="text-sm font-mono font-medium text-white flex items-center gap-1">
-            <Clock size={16} className="text-text-muted" />
-            {new Date(market.expirationDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
-          </div>
-        </div>
-      </div>
-
-      <div className="flex gap-3">
-        <button className="flex-1 bg-success/10 hover:bg-success/20 text-success border border-success/30 py-2 rounded font-medium transition-colors">
-          Buy Yes {(market.impliedProbability).toFixed(2)}
-        </button>
-        <button className="flex-1 bg-danger/10 hover:bg-danger/20 text-danger border border-danger/30 py-2 rounded font-medium transition-colors">
-          Buy No {(1 - market.impliedProbability).toFixed(2)}
-        </button>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 }

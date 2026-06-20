@@ -1,48 +1,48 @@
-import fs from 'fs';
-import path from 'path';
 import { Metadata } from 'next';
+import { supabaseRead } from '../../../lib/supabase';
 import { MarketClientPage } from './MarketClientPage';
 
-export const dynamicParams = false; // Ensures only the generated markets are valid
-
-// Read market data
-function getMarket(slug: string) {
-  const filePath = path.join(process.cwd(), 'data', 'markets', `${slug}.json`);
-  if (!fs.existsSync(filePath)) return null;
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-}
+export const dynamicParams = true; 
+export const revalidate = 60; // Revalidate every minute
 
 export async function generateStaticParams() {
-  const dataDir = path.join(process.cwd(), 'data', 'markets');
-  if (!fs.existsSync(dataDir)) return [];
-  const files = fs.readdirSync(dataDir).filter(f => f.endsWith('.json'));
-  return files.map(file => ({
-    slug: file.replace('.json', '')
+  const { data } = await supabaseRead.from('cr_prediction_markets').select('slug').limit(200);
+  return (data || []).map(market => ({
+    slug: market.slug
   }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const market = getMarket(params.slug);
+  const { data: market } = await supabaseRead
+    .from('cr_prediction_markets')
+    .select('*')
+    .eq('slug', params.slug)
+    .single();
+
   if (!market) return { title: 'Market Not Found' };
 
   return {
-    title: `${market.title} | AlphaPredict Prediction Markets`,
-    description: `Trade on ${market.title}. Current implied probability: ${(market.impliedProbability * 100).toFixed(0)}%. Access live FEC donor intelligence to gain an edge.`,
+    title: `${market.question} | Campaign Receipts Prediction Markets`,
+    description: `Trade on ${market.question}. Volume: $${market.volume_usd?.toLocaleString()}. Access live FEC donor intelligence to gain an edge.`,
     openGraph: {
-      title: `${market.title} - AlphaPredict`,
-      description: `Current implied probability: ${(market.impliedProbability * 100).toFixed(0)}%. Volume: $${market.volume.toLocaleString()}`,
+      title: `${market.question} - Campaign Receipts`,
+      description: `Volume: $${market.volume_usd?.toLocaleString()}. Live prediction market data and Alpha edge insights.`,
     }
   };
 }
 
-export default function MarketPage({ params }: { params: { slug: string } }) {
-  const market = getMarket(params.slug);
+export default async function MarketPage({ params }: { params: { slug: string } }) {
+  const { data: market } = await supabaseRead
+    .from('cr_prediction_markets')
+    .select('*')
+    .eq('slug', params.slug)
+    .single();
 
   if (!market) {
     return <div className="text-center py-20 text-white">Market not found.</div>;
   }
 
   return (
-    <MarketClientPage market={market} />
+    <MarketClientPage dbMarket={market} />
   );
 }

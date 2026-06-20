@@ -1,4 +1,4 @@
-export type MarketStatus = 'OPEN' | 'CLOSED' | 'RESOLVED';
+export type MarketStatus = 'OPEN' | 'CLOSED' | 'RESOLVED' | 'PENDING';
 
 export interface PredictionMarket {
   id: string;
@@ -13,6 +13,20 @@ export interface PredictionMarket {
 }
 
 export const mockMarkets: PredictionMarket[] = [
+  {
+    id: 'il_02_2026',
+    title: 'IL-02 U.S. House 2026 General Election Winner',
+    category: 'FEDERAL',
+    impliedProbability: 0.99, // Alpha prediction
+    volume: 0,
+    expirationDate: '2026-11-03T23:59:59Z',
+    status: 'PENDING',
+    fecEdgeAvailable: true,
+    options: [
+      { name: 'Donna Miller (D)', price: 0.99 },
+      { name: 'Jesse L. JR Jackson (D)', price: 0.01 },
+    ],
+  },
   {
     id: 'mkt_1',
     title: 'Will Senator X win re-election in 2026?',
