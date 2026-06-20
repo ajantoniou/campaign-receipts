@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        serif: ['var(--font-instrument)', 'ui-serif', 'Georgia', 'serif'],
         display: ['var(--font-bricolage)', 'Bricolage Grotesque', 'sans-serif'],
         mono: ['var(--font-plex-mono)', 'IBM Plex Mono', 'monospace'],
       },

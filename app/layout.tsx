@@ -1,7 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Bricolage_Grotesque, IBM_Plex_Mono } from 'next/font/google'
+import { Inter, Bricolage_Grotesque, IBM_Plex_Mono, Instrument_Serif } from 'next/font/google'
 import Link from 'next/link'
+import SmoothScroll from '../components/SmoothScroll'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -12,6 +13,13 @@ const inter = Inter({
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-bricolage',
+  display: 'swap',
+})
+
+const instrument = Instrument_Serif({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-instrument',
   display: 'swap',
 })
 
@@ -29,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${bricolage.variable} ${plexMono.variable} dark`}>
+    <html lang="en" className={`${inter.variable} ${bricolage.variable} ${plexMono.variable} ${instrument.variable} dark`}>
       <body className="bg-background text-text-main font-sans min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
         <header className="sticky top-0 z-50 glass-panel border-b-0 rounded-none border-b border-white/5 bg-background/50">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -51,9 +59,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
 
-        <main className="flex-1 w-full flex flex-col">
-          {children}
-        </main>
+        <SmoothScroll>
+          <main className="flex-1 w-full flex flex-col">
+            {children}
+          </main>
+        </SmoothScroll>
 
         <footer className="border-t border-white/5 mt-auto py-12 bg-background/80">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-8">
