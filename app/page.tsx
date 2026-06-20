@@ -37,7 +37,7 @@ export default async function Home() {
           <h2 className="text-2xl font-display font-bold text-primary tracking-tight">Live Political Markets</h2>
           <div className="text-[11px] font-mono tracking-[0.1em] uppercase text-text-muted flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-success animate-pulse-glow"></span>
-            Syncing live from Polymarket
+            Syncing live from Polymarket, PredictIt, Kalshi
           </div>
         </div>
 
