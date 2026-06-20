@@ -233,8 +233,8 @@ export default async function DashboardPage() {
                   </ul>
                 </div>
                 <div className="receipt-foot">
-                  <Link href="/api/checkout?product=software" className="btn-accent text-sm">
-                    Get Donor Intelligence — $45/mo
+                  <Link href="/investigate" className="btn-accent text-sm">
+                    Open Donor Intelligence — free
                   </Link>
                 </div>
               </div>

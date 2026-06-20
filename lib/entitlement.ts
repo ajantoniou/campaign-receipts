@@ -77,17 +77,25 @@ export function isRowActive(sub: SubRow): boolean {
   )
 }
 
+// MODEL CHANGE (founder 2026-06-20): all donor-influence DATA is now FREE. The
+// only paid product is the newsletter. Every data paywall in the app gates on
+// `ent.tier === 'pro'` / `hasSoftware`, so we make those universally true here —
+// one chokepoint instead of editing 30+ call sites. `hasNewsletter` is still
+// computed from real subscriptions (the newsletter remains paid), and the raw
+// `rows` are still returned so /dashboard can manage real subscriptions.
+const FREE_DATA_FOR_ALL = true
+
 export async function getEntitlement(): Promise<Entitlement> {
   const user = await getSessionUser()
   if (!user) {
     return {
-      tier: 'free',
+      tier: FREE_DATA_FOR_ALL ? 'pro' : 'free',
       user: null,
       status: 'anonymous',
       source: null,
       commercialLicense: false,
       expiresAt: null,
-      hasSoftware: false,
+      hasSoftware: FREE_DATA_FOR_ALL,
       hasNewsletter: false,
       rows: [],
     }
@@ -108,13 +116,13 @@ export async function getEntitlement(): Promise<Entitlement> {
   if (error) {
     console.error('getEntitlement: cr_subscribers query failed, degrading to free:', error.message)
     return {
-      tier: 'free',
+      tier: FREE_DATA_FOR_ALL ? 'pro' : 'free',
       user,
       status: 'free',
       source: null,
       commercialLicense: false,
       expiresAt: null,
-      hasSoftware: false,
+      hasSoftware: FREE_DATA_FOR_ALL,
       hasNewsletter: false,
       rows: [],
     }
@@ -124,18 +132,19 @@ export async function getEntitlement(): Promise<Entitlement> {
   const software = rows.find((r) => r.product === 'software') ?? null
   const newsletter = rows.find((r) => r.product === 'newsletter') ?? null
 
-  const hasSoftware = software ? isRowActive(software) : false
+  // Donor data is free for all → hasSoftware is always true. Newsletter stays paid.
+  const hasSoftware = FREE_DATA_FOR_ALL ? true : (software ? isRowActive(software) : false)
   const hasNewsletter = newsletter ? isRowActive(newsletter) : false
 
   if (rows.length === 0) {
     return {
-      tier: 'free',
+      tier: FREE_DATA_FOR_ALL ? 'pro' : 'free',
       user,
       status: 'free',
       source: null,
       commercialLicense: false,
       expiresAt: null,
-      hasSoftware: false,
+      hasSoftware: FREE_DATA_FOR_ALL,
       hasNewsletter: false,
       rows,
     }

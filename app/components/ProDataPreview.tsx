@@ -149,7 +149,7 @@ export default async function ProDataPreview({ politician, tier }: Props) {
           body={`Email when ${last} votes against their top donor industry, when a new verdict lands on their scorecard, or when their donor profile shifts.`}
           freeLabel="—"
           proLabel="All alerts active"
-          href="/pricing"
+          href="/#newsletter"
           isPro={isPro}
         />
       </div>

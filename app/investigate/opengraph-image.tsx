@@ -36,7 +36,7 @@ export default function Image() {
           ))}
         </div>
         <div style={{ display: 'flex', fontSize: 18, color: NAVY, marginTop: 4 }}>
-          See who funds whom — sourced from FEC and Congress data. $45/mo.
+          See who funds whom — sourced from FEC and Congress data. Free.
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 15, color: NAVY, marginTop: 22 }}>
           <div style={{ display: 'flex' }}>A citation on every line</div>

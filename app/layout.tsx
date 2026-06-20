@@ -31,8 +31,8 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Campaign Receipts | Political Intelligence & Prediction Markets',
-  description: 'AI-driven political prediction markets data intelligence using real-time FEC filings, PAC spend, and knowledge graphs.',
+  title: 'Campaign Receipts | Follow the Money Behind Every Vote',
+  description: 'Donor-influence intelligence using real-time FEC filings, Super PAC spending, and lobbying records. See who funds your politicians and how the money tracks their votes.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -50,11 +50,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </span>
             </Link>
             <nav className="hidden md:flex items-center gap-8">
-              <Link href="/" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Markets</Link>
+              <Link href="/leaderboard" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Leaderboard</Link>
+              <Link href="/big-donor-map" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Donor Map</Link>
+              <Link href="/bills" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Bills</Link>
               <Link href="#newsletter" className="text-sm font-medium text-text-muted hover:text-white transition-colors flex items-center gap-2">
                 Newsletter <span className="flex h-2 w-2 rounded-full bg-success shadow-glow shadow-success-glow animate-pulse-glow"></span>
               </Link>
-              <Link href="/pricing" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Alpha Terminal</Link>
             </nav>
           </div>
         </header>
@@ -73,34 +74,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <span className="font-display font-bold text-white">Campaign Receipts</span>
               </Link>
               <div className="text-sm text-text-muted mt-2 max-w-sm">
-                The Bloomberg Terminal for prediction markets. Find the edge with institutional-grade data.
+                Follow the money behind every vote. Donor-influence intelligence from the public FEC record.
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-12">
               <div className="flex flex-col gap-3">
-                <h4 className="font-bold text-white text-sm">Product</h4>
-                <Link href="/pricing" className="text-sm text-text-muted hover:text-white transition-colors">Alpha Terminal</Link>
-                <Link href="#newsletter" className="text-sm text-text-muted hover:text-white transition-colors">Weekly Alpha Newsletter</Link>
-                <Link href="/" className="text-sm text-text-muted hover:text-white transition-colors">Live Prediction Markets</Link>
-                <Link href="/api/docs" className="text-sm text-text-muted hover:text-white transition-colors">Data API</Link>
+                <h4 className="font-bold text-white text-sm">Explore</h4>
+                <Link href="/leaderboard" className="text-sm text-text-muted hover:text-white transition-colors">Donor Leaderboard</Link>
+                <Link href="/big-donor-map" className="text-sm text-text-muted hover:text-white transition-colors">Big Donor Map</Link>
+                <Link href="/bills" className="text-sm text-text-muted hover:text-white transition-colors">Bill Money Trails</Link>
+                <Link href="#newsletter" className="text-sm text-text-muted hover:text-white transition-colors">The Weekly Receipt</Link>
               </div>
               <div className="flex flex-col gap-3">
-                <h4 className="font-bold text-white text-sm">Intelligence</h4>
-                <Link href="/methodology" className="text-sm text-text-muted hover:text-white transition-colors">Alpha Engine Methodology</Link>
-                <Link href="/sources" className="text-sm text-text-muted hover:text-white transition-colors">Knowledge Graph Sources</Link>
-                <Link href="/about" className="text-sm text-text-muted hover:text-white transition-colors">About the Team</Link>
-                <Link href="/contact" className="text-sm text-text-muted hover:text-white transition-colors">Institutional Contact</Link>
+                <h4 className="font-bold text-white text-sm">About</h4>
+                <Link href="/methodology" className="text-sm text-text-muted hover:text-white transition-colors">Methodology</Link>
+                <Link href="/sources" className="text-sm text-text-muted hover:text-white transition-colors">Data Sources</Link>
+                <Link href="/for-journalists" className="text-sm text-text-muted hover:text-white transition-colors">For Journalists</Link>
+                <Link href="/about" className="text-sm text-text-muted hover:text-white transition-colors">About</Link>
               </div>
             </div>
           </div>
           
           <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-xs text-text-muted font-mono">
-              © {new Date().getFullYear()} Campaign Receipts. Trading involves risk.
+              © {new Date().getFullYear()} Campaign Receipts. Sourced from public FEC filings.
             </div>
             <div className="flex gap-4">
-              <span className="text-xs font-mono text-text-muted/50">Data intelligence answers for AEO</span>
+              <Link href="/disclaimer" className="text-xs font-mono text-text-muted/50 hover:text-text-muted">Disclaimer</Link>
               <span className="text-xs font-mono text-text-muted/50">FEC Data Sync: Live</span>
             </div>
           </div>

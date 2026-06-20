@@ -461,7 +461,7 @@ export default async function PreviewV2Page() {
               </p>
             </div>
             <div className="flex gap-3 shrink-0">
-              <Button href="/pricing">Bundle waitlist →</Button>
+              <Button href="/#newsletter">Bundle waitlist →</Button>
               <Button
                 href="mailto:alex@campaignreceipts.com?subject=CR%20comp%20request%20—%20[your%20outlet]"
                 variant="secondary"

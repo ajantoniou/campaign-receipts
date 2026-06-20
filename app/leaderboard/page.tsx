@@ -1168,11 +1168,11 @@ function CsvCta({ ent, view, tab }: { ent: { tier: string }; view: View; tab?: P
         </a>
       ) : (
         <Link
-          href="/pricing"
+          href="/#newsletter"
           className="text-[11px] font-mono uppercase tracking-wider text-ink-500 hover:text-broken inline-flex items-center gap-1"
         >
           <Lock className="size-3" />
-CSV + alerts with Donor Intelligence
+          Get the weekly receipt
         </Link>
       )}
     </div>
