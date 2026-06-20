@@ -9,42 +9,43 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
-        display: ['var(--font-outfit)', 'Outfit', 'sans-serif'],
-        mono: ['var(--font-jetbrains)', 'JetBrains Mono', 'monospace'],
+        display: ['var(--font-bricolage)', 'Bricolage Grotesque', 'sans-serif'],
+        mono: ['var(--font-plex-mono)', 'IBM Plex Mono', 'monospace'],
       },
       colors: {
-        background: '#0B0F19',
-        surface: '#111827',
-        surfaceHover: '#1F2937',
+        background: '#0B0A09', // Near black
+        surface: '#11010A', // Near black with slight warm/pink tint
+        surfaceHover: '#1A020F',
         border: 'rgba(255, 255, 255, 0.1)',
         primary: {
-          DEFAULT: '#3B82F6', // Vibrant Blue
-          hover: '#2563EB',
-          glow: 'rgba(59, 130, 246, 0.5)',
+          DEFAULT: '#F9FAFB', // Near white
+          hover: '#E5E7EB',
+          glow: 'rgba(255, 255, 255, 0.2)',
         },
         accent: {
-          DEFAULT: '#8B5CF6', // Vibrant Purple
-          hover: '#7C3AED',
-          glow: 'rgba(139, 92, 246, 0.5)',
+          DEFAULT: '#FF005E', // Neon Pink
+          hover: '#E60055',
+          glow: 'rgba(255, 0, 94, 0.5)',
         },
         success: {
-          DEFAULT: '#10B981', // Neon Green
-          glow: 'rgba(16, 185, 129, 0.4)',
-          bg: 'rgba(16, 185, 129, 0.1)',
+          DEFAULT: '#00FF66', // Neon Green
+          glow: 'rgba(0, 255, 102, 0.4)',
+          bg: 'rgba(0, 255, 102, 0.1)',
         },
         danger: {
-          DEFAULT: '#EF4444', // Neon Red
-          glow: 'rgba(239, 68, 68, 0.4)',
-          bg: 'rgba(239, 68, 68, 0.1)',
+          DEFAULT: '#FF005E', // Use accent pink for danger
+          glow: 'rgba(255, 0, 94, 0.4)',
+          bg: 'rgba(255, 0, 94, 0.1)',
         },
         text: {
           main: '#F9FAFB',
-          muted: '#9CA3AF',
+          muted: '#8A8A8A',
         }
       },
       boxShadow: {
         glow: '0 0 20px -5px var(--tw-shadow-color)',
         glass: '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+        card: '0 24px 48px -12px rgba(0, 0, 0, 0.8)', // soft large blur, negative spread
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

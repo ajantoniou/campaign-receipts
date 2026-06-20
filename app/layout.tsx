@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Outfit, JetBrains_Mono } from 'next/font/google'
+import { Inter, Bricolage_Grotesque, IBM_Plex_Mono } from 'next/font/google'
 import Link from 'next/link'
 
 const inter = Inter({
@@ -9,15 +9,16 @@ const inter = Inter({
   display: 'swap',
 })
 
-const outfit = Outfit({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--font-outfit',
+  variable: '--font-bricolage',
   display: 'swap',
 })
 
-const jetbrains = JetBrains_Mono({
+const plexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  variable: '--font-jetbrains',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plex-mono',
   display: 'swap',
 })
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable} ${jetbrains.variable} dark`}>
+    <html lang="en" className={`${inter.variable} ${bricolage.variable} ${plexMono.variable} dark`}>
       <body className="bg-background text-text-main font-sans min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
         <header className="sticky top-0 z-50 glass-panel border-b-0 rounded-none border-b border-white/5 bg-background/50">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">

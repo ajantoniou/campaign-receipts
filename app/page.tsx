@@ -15,23 +15,27 @@ export default async function Home() {
     .limit(100);
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center gap-32 pb-32">
       
       {/* 1. HERO SECTION */}
-      <section className="w-full max-w-5xl py-20 px-4 text-center">
-        <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6">
-          The Bloomberg Terminal for <span className="text-accent">Prediction Markets</span>
+      <section className="w-full max-w-5xl pt-32 px-6 text-center flex flex-col items-center gap-8">
+        <h1 className="text-5xl md:text-7xl font-display font-[800] tracking-[-0.04em] text-primary leading-[1.05]">
+          The Bloomberg Terminal <br /> for <span className="iridescent-text">Prediction Markets</span>
         </h1>
-        <p className="text-lg md:text-xl text-text-muted max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
           Access institutional-grade data intelligence. We ingest FEC data, Super PAC filings, and knowledge graphs to give you the ultimate edge in political betting.
         </p>
+        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+          <Link href="/pricing" className="btn-primary">Apply for Access</Link>
+          <Link href="#newsletter" className="btn-secondary">Free Weekly Pulse</Link>
+        </div>
       </section>
 
       {/* 2. MARKETS LIST */}
-      <section className="w-full max-w-6xl px-4 pb-20">
-        <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
-          <h2 className="text-3xl font-display font-bold text-white">Live Political Markets</h2>
-          <div className="text-sm font-mono text-text-muted flex items-center gap-2">
+      <section className="w-full max-w-[1200px] px-6 flex flex-col gap-8">
+        <div className="flex justify-between items-baseline border-b border-white/10 pb-4">
+          <h2 className="text-2xl font-display font-bold text-primary tracking-tight">Live Political Markets</h2>
+          <div className="text-[11px] font-mono tracking-[0.1em] uppercase text-text-muted flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-success animate-pulse-glow"></span>
             Syncing live from Polymarket
           </div>
@@ -45,65 +49,63 @@ export default async function Home() {
       </section>
 
       {/* 3. HOW IT WORKS */}
-      <section className="w-full bg-surface border-y border-white/5 py-24 px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-display font-bold text-white text-center mb-16">How Alpha Engine Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto bg-primary/10 border border-primary/30 rounded-full flex items-center justify-center text-primary text-2xl font-bold mb-6">1</div>
-              <h3 className="text-xl font-bold text-white mb-3">Live Ingestion</h3>
-              <p className="text-text-muted">We continuously pull real-time odds from prediction markets and cross-reference them with live events.</p>
+      <section className="w-full max-w-[1200px] px-6">
+        <div className="glass-panel p-12 md:p-16 flex flex-col gap-16 border-none bg-surface/50">
+          <h2 className="text-2xl font-display font-bold text-primary tracking-tight text-center">How Alpha Engine Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            <div className="flex flex-col items-center text-center gap-4">
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary text-lg font-mono font-bold">1</div>
+              <h3 className="text-xl font-display font-bold text-primary">Live Ingestion</h3>
+              <p className="text-sm text-text-muted leading-relaxed">We continuously pull real-time odds from prediction markets and cross-reference them with live events.</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto bg-accent/10 border border-accent/30 rounded-full flex items-center justify-center text-accent text-2xl font-bold mb-6">2</div>
-              <h3 className="text-xl font-bold text-white mb-3">Deep Data Mining</h3>
-              <p className="text-text-muted">Our models analyze FEC filings, Super PAC burn rates, and K-Street lobbying disclosures to find the hidden money trails.</p>
+            <div className="flex flex-col items-center text-center gap-4">
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary text-lg font-mono font-bold">2</div>
+              <h3 className="text-xl font-display font-bold text-primary">Deep Data Mining</h3>
+              <p className="text-sm text-text-muted leading-relaxed">Our models analyze FEC filings, Super PAC burn rates, and K-Street lobbying disclosures to find the hidden money trails.</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto bg-success/10 border border-success/30 rounded-full flex items-center justify-center text-success text-2xl font-bold mb-6">3</div>
-              <h3 className="text-xl font-bold text-white mb-3">The Alpha Edge</h3>
-              <p className="text-text-muted">We expose true probabilities, uncovering arbitrage opportunities where the market consensus is demonstrably wrong.</p>
+            <div className="flex flex-col items-center text-center gap-4">
+              <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary text-lg font-mono font-bold">3</div>
+              <h3 className="text-xl font-display font-bold text-primary">The Alpha Edge</h3>
+              <p className="text-sm text-text-muted leading-relaxed">We expose true probabilities, uncovering arbitrage opportunities where the market consensus is demonstrably wrong.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 4. NEWSLETTER & TERMINAL CTAs */}
-      <section className="w-full max-w-5xl px-4 py-24">
+      <section id="newsletter" className="w-full max-w-[1200px] px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Free Newsletter CTA */}
-          <div className="glass-panel p-8 md:p-10 text-center flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-mono text-primary mb-2">FREE TIER</div>
-              <h3 className="text-3xl font-display font-bold text-white mb-4">Weekly Market Pulse</h3>
-              <p className="text-text-muted mb-8">
+          <div className="glass-panel p-10 flex flex-col justify-between gap-8">
+            <div className="flex flex-col gap-4">
+              <div className="text-[11px] font-mono tracking-[0.1em] text-text-muted uppercase">Free Tier</div>
+              <h3 className="text-3xl font-display font-bold text-primary tracking-tight">Weekly Market Pulse</h3>
+              <p className="text-text-muted leading-relaxed">
                 Get a weekly digest of the biggest political prediction markets, major odds shifts, and free insights delivered straight to your inbox.
               </p>
             </div>
-            <div>
-              <form className="flex flex-col sm:flex-row gap-2" action="https://formspree.io/f/placeholder" method="POST">
-                <input type="email" placeholder="Your best email..." className="flex-1 bg-surface border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-primary" required />
-                <button type="submit" className="btn-primary py-3 px-6">Subscribe Free</button>
-              </form>
-            </div>
+            <form className="flex flex-col sm:flex-row gap-3" action="https://formspree.io/f/placeholder" method="POST">
+              <input type="email" placeholder="Your best email..." className="flex-1 bg-background border border-white/10 rounded-full px-6 py-3 text-primary text-sm focus:outline-none focus:border-white/30 transition-colors" required />
+              <button type="submit" className="btn-secondary">Subscribe</button>
+            </form>
           </div>
 
           {/* Premium Terminal CTA */}
-          <div className="glass-panel p-8 md:p-10 border border-accent/30 bg-accent/5 text-center flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+          <div className="glass-panel p-10 border border-accent/20 bg-accent/5 flex flex-col justify-between gap-8 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-accent text-background text-[10px] font-mono font-bold px-4 py-1.5 tracking-wider rounded-bl-lg">
               100 SEATS ONLY
             </div>
-            <div>
-              <div className="text-sm font-mono text-accent mb-2">ALPHA TERMINAL</div>
-              <h3 className="text-3xl font-display font-bold text-white mb-4">Full Data Intelligence</h3>
-              <p className="text-text-muted mb-8">
+            <div className="flex flex-col gap-4">
+              <div className="text-[11px] font-mono tracking-[0.1em] text-accent uppercase">Alpha Terminal</div>
+              <h3 className="text-3xl font-display font-bold text-primary tracking-tight">Full Data Intelligence</h3>
+              <p className="text-text-muted leading-relaxed">
                 Unrestricted access to the Alpha Engine. Live FEC insights, real-time alerts, and proprietary true-odds modeling to preserve your betting edge.
               </p>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-white mb-6">$2,500<span className="text-lg text-text-muted font-normal"> / month</span></div>
-              <button className="w-full btn-secondary bg-accent hover:bg-accent/90 text-white border-none py-3 text-lg font-bold">Apply for Access</button>
+            <div className="flex flex-col gap-4">
+              <div className="text-4xl font-display font-bold text-primary">$2,500<span className="text-lg text-text-muted font-sans font-normal"> / month</span></div>
+              <button className="w-full btn-primary bg-accent hover:bg-accent/90 border-none">Apply for Access</button>
             </div>
           </div>
 

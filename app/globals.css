@@ -6,8 +6,8 @@
   :root {
     color-scheme: dark;
     --font-inter: 'Inter', sans-serif;
-    --font-outfit: 'Outfit', sans-serif;
-    --font-jetbrains: 'JetBrains Mono', monospace;
+    --font-bricolage: 'Bricolage Grotesque', sans-serif;
+    --font-plex-mono: 'IBM Plex Mono', monospace;
   }
 
   body {
@@ -31,25 +31,25 @@
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: theme('colors.primary.DEFAULT');
+    background: theme('colors.border');
   }
 }
 
 @layer components {
   .glass-panel {
-    @apply bg-surface/40 backdrop-blur-xl border border-white/5 rounded-2xl shadow-glass;
+    @apply bg-surface/40 backdrop-blur-xl border border-white/5 rounded-[12px] shadow-glass;
   }
   
   .glass-card {
-    @apply bg-surface/60 backdrop-blur-md border border-white/10 rounded-xl transition-all duration-300 hover:border-white/20 hover:shadow-glow;
+    @apply bg-surface/90 backdrop-blur-md border border-white/10 rounded-[10px] transition-all duration-300 hover:border-white/20 hover:shadow-card shadow-glass;
   }
 
   .btn-primary {
-    @apply relative overflow-hidden bg-primary px-6 py-3 rounded-lg font-display font-medium tracking-wide text-white transition-all duration-300 hover:bg-primary-hover hover:shadow-glow hover:shadow-primary-glow active:scale-95;
+    @apply relative overflow-hidden bg-primary px-8 py-3 rounded-full font-sans font-medium text-background transition-all duration-300 hover:bg-primary-hover hover:shadow-glow hover:shadow-primary-glow active:scale-95;
   }
 
   .btn-secondary {
-    @apply relative overflow-hidden bg-surfaceHover border border-white/10 px-6 py-3 rounded-lg font-display font-medium tracking-wide text-white transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95;
+    @apply relative overflow-hidden bg-surfaceHover border border-white/10 px-8 py-3 rounded-full font-sans font-medium text-primary transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95;
   }
 
   /* Data Table / Ranking Grid */
@@ -58,11 +58,11 @@
   }
   
   .market-header {
-    @apply grid grid-cols-12 items-center gap-4 py-3 px-6 border-b border-white/10 text-xs font-mono uppercase tracking-widest text-text-muted;
+    @apply grid grid-cols-12 items-center gap-4 py-3 px-6 border-b border-white/10 text-[10px] font-mono uppercase tracking-[0.12em] text-text-muted;
   }
   
   .odds-badge {
-    @apply inline-flex items-center justify-center px-3 py-1 rounded-md font-mono font-bold;
+    @apply inline-flex items-center justify-center px-3 py-1 rounded-[6px] font-mono font-bold;
   }
   
   .odds-badge.high {
@@ -81,6 +81,13 @@
   
   .text-glow-accent {
     text-shadow: 0 0 20px theme('colors.accent.glow');
+  }
+
+  .iridescent-text {
+    background: linear-gradient(135deg, #F9FAFB 0%, #FF005E 40%, #00FF66 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   .bg-grid-pattern {
