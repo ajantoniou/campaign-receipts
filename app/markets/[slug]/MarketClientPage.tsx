@@ -132,14 +132,18 @@ export function MarketClientPage({ dbMarket }: { dbMarket: any }) {
                 <div className="h-4 bg-white/20 rounded w-full"></div>
                 <div className="h-4 bg-white/20 rounded w-5/6"></div>
                 
-                <div className="pt-6 border-t border-white/10 flex justify-between">
+                <div className="pt-6 border-t border-white/10 grid grid-cols-3 gap-4">
                   <div className="flex flex-col gap-1.5">
                     <div className="text-[10px] uppercase tracking-[0.12em] font-mono text-text-muted">True Odds</div>
-                    <div className="h-6 bg-white/20 rounded w-20"></div>
+                    <div className="h-6 bg-white/20 rounded w-16"></div>
                   </div>
-                  <div className="flex flex-col gap-1.5">
-                    <div className="text-[10px] uppercase tracking-[0.12em] font-mono text-text-muted">Lobby Pct</div>
-                    <div className="h-6 bg-white/20 rounded w-20"></div>
+                  <div className="flex flex-col gap-1.5 text-center">
+                    <div className="text-[10px] uppercase tracking-[0.12em] font-mono text-text-muted">The Edge</div>
+                    <div className="h-6 bg-white/20 rounded w-16 mx-auto"></div>
+                  </div>
+                  <div className="flex flex-col gap-1.5 text-right items-end">
+                    <div className="text-[10px] uppercase tracking-[0.12em] font-mono text-text-muted">Est. ROI</div>
+                    <div className="h-6 bg-white/20 rounded w-16"></div>
                   </div>
                 </div>
               </div>

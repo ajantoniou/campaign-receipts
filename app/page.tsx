@@ -1,5 +1,6 @@
 import { supabaseRead } from '../lib/supabase';
-import { MarketCard } from '../components/MarketCard';
+import { MarketCard } from '@/components/MarketCard';
+import { SimulatedLandingPageCard } from '@/components/SimulatedLandingPageCard';
 import Link from 'next/link';
 
 // The new flow:
@@ -122,7 +123,7 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
       {/* 3. HOW IT WORKS */}
       <section className="w-full max-w-[1200px] px-6">
         <div className="glass-panel p-12 md:p-16 flex flex-col gap-16 border-none bg-surface/50">
-          <h2 className="text-2xl font-display font-bold text-primary tracking-tight text-center">How Alpha Engine Works</h2>
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-primary tracking-tight text-center">How Alpha Engine Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             <div className="flex flex-col items-center text-center gap-4">
               <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary text-lg font-mono font-bold">1</div>
@@ -138,6 +139,40 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
               <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary text-lg font-mono font-bold">3</div>
               <h3 className="text-xl font-display font-bold text-primary">The Alpha Edge</h3>
               <p className="text-sm text-text-muted leading-relaxed">We expose true probabilities, uncovering arbitrage opportunities where the market consensus is demonstrably wrong.</p>
+            </div>
+          </div>
+          
+          <div className="flex flex-col gap-8 pt-12 border-t border-white/5 mt-4">
+            <div className="text-center">
+              <h3 className="text-xl font-display font-bold text-primary mb-2">Simulated Live Arbitrage Scenarios</h3>
+              <p className="text-sm text-text-muted">Here is what the $49/mo Paywalled Intel Box reveals when our engine finds an inefficiency.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <SimulatedLandingPageCard market={{
+                source: "PREDICTIT",
+                question: "Will Tulsi Gabbard leave office in 2026?",
+                implied: 5,
+                alpha: 90
+              }} />
+              <SimulatedLandingPageCard market={{
+                source: "PREDICTIT",
+                question: "Who will place first in round one of the 2026 Colombian presidential election?",
+                implied: 99,
+                alpha: 5
+              }} />
+              <SimulatedLandingPageCard market={{
+                source: "POLYMARKET",
+                question: "Which party will win the Senate in 2026?",
+                implied: 43,
+                alpha: 58.5
+              }} />
+              <SimulatedLandingPageCard market={{
+                source: "POLYMARKET",
+                question: "Will any presidential candidate win outright in the first round of the Brazil election?",
+                implied: 20,
+                alpha: 38
+              }} />
             </div>
           </div>
         </div>
