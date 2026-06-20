@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import { createClient } from '@supabase/supabase-js'
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -50,9 +52,12 @@ async function run() {
     if (!res.ok) throw new Error(`Polymarket API responded with status: ${res.status}`)
     const data = await res.json()
 
-    const politicalEvents = data.filter(d => 
-      d.tags && d.tags.some(t => t.id === "1" || t.label.toLowerCase().includes("politic") || t.label.toLowerCase().includes("election"))
-    );
+    const politicalEvents = data.filter(d => {
+      if (!d.tags) return false;
+      const lowerTags = d.tags.map(t => t.label?.toLowerCase() || "");
+      // Strictly require political tags
+      return lowerTags.some(t => t.includes("politic") || t.includes("election") || t.includes("president") || t.includes("senate") || t.includes("house") || t.includes("trump") || t.includes("biden"));
+    });
 
     console.log(`[sync-polymarket] Found ${politicalEvents.length} active political events.`)
 
