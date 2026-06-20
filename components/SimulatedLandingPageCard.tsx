@@ -42,7 +42,7 @@ export function SimulatedLandingPageCard({ market }: { market: any }) {
       </div>
 
       {/* Paywalled Intel Box Area */}
-      <div className="relative bg-background p-6 flex flex-col min-h-[220px]">
+      <div className="relative bg-background p-6 flex flex-col min-h-[300px] flex-1">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-50" />
         
         <h4 className="font-display text-sm font-bold text-primary mb-2 flex items-center gap-2 relative z-10 tracking-tight">
@@ -74,21 +74,21 @@ export function SimulatedLandingPageCard({ market }: { market: any }) {
         
         {/* Paywall Overlay CTA */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 bg-background/80 backdrop-blur-[6px] text-center">
-          <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-4">
+          <div className="shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-4">
             <span className="text-xl">🔒</span>
           </div>
-          <h5 className="font-display font-bold text-xl mb-3 text-primary tracking-tight">Alpha Detected</h5>
+          <h5 className="shrink-0 font-display font-bold text-xl mb-3 text-primary tracking-tight">Alpha Detected</h5>
           {isExtreme ? (
-             <div className="bg-danger/20 text-danger border border-danger/30 px-3 py-1.5 rounded-[6px] text-[10px] font-mono font-bold tracking-[0.1em] mb-6 animate-pulse shadow-glow shadow-danger/20">
+             <div className="shrink-0 bg-danger/20 text-danger border border-danger/30 px-3 py-1.5 rounded-[6px] text-[10px] font-mono font-bold tracking-[0.1em] mb-6 animate-pulse shadow-glow shadow-danger/20">
                EXTREME EDGE DETECTED
              </div>
           ) : (
-             <div className="bg-accent/20 text-accent border border-accent/30 px-3 py-1.5 rounded-[6px] text-[10px] font-mono font-bold tracking-[0.1em] mb-6 shadow-glow shadow-accent/20">
+             <div className="shrink-0 bg-accent/20 text-accent border border-accent/30 px-3 py-1.5 rounded-[6px] text-[10px] font-mono font-bold tracking-[0.1em] mb-6 shadow-glow shadow-accent/20">
                MODERATE EDGE DETECTED
              </div>
           )}
           
-          <div className="w-full btn-primary bg-accent hover:bg-accent/90 border-none py-2 text-sm shadow-glow shadow-accent/30">
+          <div className="shrink-0 w-full btn-primary bg-accent hover:bg-accent/90 border-none py-2 text-sm shadow-glow shadow-accent/30 flex items-center justify-center">
             Unlock Market Data
           </div>
         </div>

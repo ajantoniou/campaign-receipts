@@ -117,10 +117,10 @@ export function MarketClientPage({ dbMarket }: { dbMarket: any }) {
         <div className="lg:col-span-1 space-y-6">
           
           {/* Paywalled Intel Box */}
-          <div className="glass-panel p-1 relative overflow-hidden group">
+          <div className="glass-panel p-1 relative overflow-hidden group min-h-[420px] flex flex-col">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-50" />
             
-            <div className="relative bg-background p-8 h-full flex flex-col rounded-[10px]">
+            <div className="relative bg-background p-8 h-full flex flex-col rounded-[10px] flex-1">
               <h3 className="font-display text-lg font-bold text-primary mb-2 flex items-center gap-2 tracking-tight">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow"></span>
                 Donor Intelligence
@@ -150,17 +150,17 @@ export function MarketClientPage({ dbMarket }: { dbMarket: any }) {
 
               {/* Paywall Overlay CTA */}
               <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-8 bg-background/80 backdrop-blur-md text-center rounded-[10px]">
-                <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mb-6">
+                <div className="shrink-0 w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mb-6">
                   <span className="text-2xl">🔒</span>
                 </div>
-                <h4 className="font-display font-bold text-2xl mb-3 text-primary tracking-tight">Alpha Detected</h4>
-                <p className="text-sm text-text-muted mb-8 leading-relaxed">
+                <h4 className="shrink-0 font-display font-bold text-2xl mb-3 text-primary tracking-tight">Alpha Detected</h4>
+                <p className="shrink-0 text-sm text-text-muted mb-8 leading-relaxed">
                   Our model has identified active FEC filings and Super PAC spending affecting this market.
                 </p>
                 
                 <button 
                   onClick={() => setIsCheckoutOpen(true)}
-                  className="w-full btn-primary bg-accent hover:bg-accent/90 shadow-glow shadow-accent/30 mb-4 border-none"
+                  className="shrink-0 w-full btn-primary bg-accent hover:bg-accent/90 shadow-glow shadow-accent/30 mb-4 border-none"
                 >
                   Unlock Market Data — $49
                 </button>
