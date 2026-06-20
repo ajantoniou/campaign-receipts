@@ -7,15 +7,59 @@ import Link from 'next/link';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export default async function Home() {
-  const { data: markets } = await supabaseRead
+export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  const filter = searchParams.filter as string || 'volume';
+
+  const { data: allMarkets } = await supabaseRead
     .from('cr_prediction_markets')
-    .select('*')
-    .order('volume_usd', { ascending: false })
-    .limit(100);
+    .select('*');
+
+  let markets = allMarkets || [];
+
+  // Post-process
+  markets = markets.map(m => {
+    let implied = 50;
+    if (m.outcomes && m.outcomes.length > 0) {
+      implied = m.outcomes[0].price * (m.outcomes[0].price <= 1 ? 100 : 1);
+    }
+    return { ...m, _implied: implied };
+  });
+
+  const now = new Date();
+
+  if (filter === 'expiring-3m') {
+    const limit = new Date(); limit.setMonth(now.getMonth() + 3);
+    markets = markets.filter(m => m.end_date && new Date(m.end_date) <= limit && new Date(m.end_date) >= now);
+    markets.sort((a, b) => new Date(a.end_date as string).getTime() - new Date(b.end_date as string).getTime());
+  } else if (filter === 'expiring-6m') {
+    const limit = new Date(); limit.setMonth(now.getMonth() + 6);
+    markets = markets.filter(m => m.end_date && new Date(m.end_date) <= limit && new Date(m.end_date) >= now);
+    markets.sort((a, b) => new Date(a.end_date as string).getTime() - new Date(b.end_date as string).getTime());
+  } else if (filter === 'expiring-2y') {
+    const limit = new Date(); limit.setFullYear(now.getFullYear() + 2);
+    markets = markets.filter(m => m.end_date && new Date(m.end_date) <= limit && new Date(m.end_date) >= now);
+    markets.sort((a, b) => new Date(a.end_date as string).getTime() - new Date(b.end_date as string).getTime());
+  } else if (filter === 'implied-asc') {
+    markets.sort((a, b) => a._implied - b._implied);
+  } else if (filter === 'implied-desc') {
+    markets.sort((a, b) => b._implied - a._implied);
+  } else {
+    markets.sort((a, b) => (b.volume_usd || 0) - (a.volume_usd || 0));
+  }
+
+  markets = markets.slice(0, 50);
+
+  const pills = [
+    { id: 'volume', label: '🔥 Largest Volume' },
+    { id: 'expiring-3m', label: '⏳ < 3 Months' },
+    { id: 'expiring-6m', label: '⏳ < 6 Months' },
+    { id: 'expiring-2y', label: '⏳ < 2 Years' },
+    { id: 'implied-asc', label: '📉 Lowest Implied Odds' },
+    { id: 'implied-desc', label: '📈 Highest Implied Odds' },
+  ];
 
   return (
-    <div className="w-full flex flex-col items-center gap-32 pb-32">
+    <div className="w-full flex flex-col items-center gap-32 pb-32 overflow-hidden">
       
       {/* 1. HERO SECTION */}
       <section className="w-full max-w-5xl pt-32 px-6 text-center flex flex-col items-center gap-8">
@@ -32,19 +76,46 @@ export default async function Home() {
       </section>
 
       {/* 2. MARKETS LIST */}
-      <section className="w-full max-w-[1200px] px-6 flex flex-col gap-8">
-        <div className="flex justify-between items-baseline border-b border-white/10 pb-4">
-          <h2 className="text-2xl font-display font-bold text-primary tracking-tight">Live Political Markets</h2>
-          <div className="text-[11px] font-mono tracking-[0.1em] uppercase text-text-muted flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-success animate-pulse-glow"></span>
-            Syncing live from Polymarket, PredictIt, Kalshi
+      <section className="w-full max-w-[1200px] px-6 flex flex-col gap-6">
+        <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
+          <div className="flex justify-between items-baseline">
+            <h2 className="text-2xl font-display font-bold text-primary tracking-tight">Live Political Markets</h2>
+            <div className="text-[11px] font-mono tracking-[0.1em] uppercase text-text-muted flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-success animate-pulse-glow"></span>
+              Syncing live from Polymarket, PredictIt, Kalshi
+            </div>
+          </div>
+          
+          {/* Toggles / Pills */}
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
+            {pills.map(p => (
+              <Link 
+                key={p.id} 
+                href={`/?filter=${p.id}`}
+                className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold font-mono transition-colors border ${
+                  filter === p.id 
+                    ? 'bg-primary text-background border-primary' 
+                    : 'bg-white/5 text-text-muted border-white/10 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {p.label}
+              </Link>
+            ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(markets || []).map((market) => (
-            <MarketCard key={market.slug} dbMarket={market} />
+        {/* Carousel on Mobile / Grid on Desktop */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 pb-6 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
+          {markets.map((market) => (
+            <div key={market.slug} className="min-w-[85vw] sm:min-w-[400px] md:min-w-0 snap-center">
+              <MarketCard dbMarket={market} />
+            </div>
           ))}
+          {markets.length === 0 && (
+            <div className="col-span-full py-12 text-center text-text-muted font-mono">
+              No active markets match this filter.
+            </div>
+          )}
         </div>
       </section>
 

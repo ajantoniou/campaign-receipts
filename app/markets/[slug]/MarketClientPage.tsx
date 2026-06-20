@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { CheckoutModal } from '../../../components/CheckoutModal';
 
 export function MarketClientPage({ dbMarket }: { dbMarket: any }) {
@@ -10,6 +11,11 @@ export function MarketClientPage({ dbMarket }: { dbMarket: any }) {
   const impliedOdds = dbMarket.outcomes && dbMarket.outcomes.length > 0 
     ? (dbMarket.outcomes[0].price * 100) 
     : 50;
+
+  const chartData = (dbMarket.outcomes || []).map((opt: any) => ({
+    name: opt.name,
+    prob: Math.round(opt.price * 100),
+  }));
 
   const isActive = new Date(dbMarket.end_date) > new Date() || !dbMarket.end_date;
 
@@ -54,9 +60,9 @@ export function MarketClientPage({ dbMarket }: { dbMarket: any }) {
             href={dbMarket.source_url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block bg-primary/20 hover:bg-primary/30 text-primary border border-primary/50 font-bold py-2 px-6 rounded transition-colors"
+            className="inline-block bg-primary/20 hover:bg-primary/30 text-primary border border-primary/50 font-bold py-2 px-6 rounded transition-colors uppercase"
           >
-            Trade on Polymarket ↗
+            Trade on {dbMarket.group_name || 'Market'} ↗
           </a>
         )}
       </div>
@@ -76,13 +82,28 @@ export function MarketClientPage({ dbMarket }: { dbMarket: any }) {
             </div>
           </div>
           
-          {/* Simulated Chart Area */}
-          <div className="glass-panel p-6 h-[300px] flex items-center justify-center relative overflow-hidden">
-             <div className="absolute inset-0 opacity-20" style={{
-               backgroundImage: 'linear-gradient(to right, #3B82F6 2px, transparent 2px), linear-gradient(to bottom, #3B82F6 2px, transparent 2px)',
-               backgroundSize: '40px 40px'
-             }}></div>
-             <span className="text-text-muted font-mono relative z-10">[ Interactive Chart View ]</span>
+          {/* Interactive Chart Area */}
+          <div className="glass-panel p-6 h-[350px] flex flex-col relative overflow-hidden">
+            <h3 className="font-display font-bold text-white mb-4">Probability Distribution</h3>
+            <div className="flex-1 w-full relative z-10">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData} margin={{ top: 0, right: 30, left: 0, bottom: 0 }} layout="vertical">
+                  <XAxis type="number" domain={[0, 100]} stroke="#ffffff40" tickFormatter={(v) => `${v}%`} />
+                  <YAxis dataKey="name" type="category" width={140} stroke="#ffffff40" tick={{ fill: '#ffffff80', fontSize: 12 }} />
+                  <Tooltip 
+                    cursor={{ fill: '#ffffff10' }}
+                    contentStyle={{ backgroundColor: '#0a0a0a', border: '1px solid #333', borderRadius: '8px' }}
+                    itemStyle={{ color: '#fff', fontWeight: 'bold' }}
+                    formatter={(value: any) => [`${value}%`, 'Implied Probability']}
+                  />
+                  <Bar dataKey="prob" radius={[0, 4, 4, 0]} barSize={32}>
+                    {chartData.map((entry: any, index: number) => (
+                      <Cell key={`cell-${index}`} fill={index === 0 ? '#3B82F6' : '#60A5FA'} fillOpacity={0.8} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
 
