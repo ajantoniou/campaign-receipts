@@ -844,7 +844,7 @@ function renderStripPng(strip: StripData) {
                   padding: '10px 0',
                   borderBottom:
                     i < strip.facts.length - 1
-                      ? '1px dotted rgba(17,17,17,0.20)'
+                      ? '1px dashed rgba(17,17,17,0.20)'
                       : 'none',
                 }}
               >
@@ -972,7 +972,7 @@ function renderVerticalStripPng(strip: StripData) {
           <div
             style={{
               marginTop: 14,
-              borderBottom: '2px dotted rgba(17,17,17,0.20)',
+              borderBottom: '2px dashed rgba(17,17,17,0.20)',
               height: 1,
             }}
           />
@@ -1119,7 +1119,7 @@ function renderVerticalStripPng(strip: StripData) {
                     padding: '12px 0',
                     borderBottom:
                       i < strip.facts.length - 1
-                        ? '1px dotted rgba(17,17,17,0.20)'
+                        ? '1px dashed rgba(17,17,17,0.20)'
                         : 'none',
                   }}
                 >
