@@ -71,15 +71,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="flex flex-col gap-3">
                 <h4 className="font-bold text-white text-sm">Product</h4>
                 <Link href="/pricing" className="text-sm text-text-muted hover:text-white transition-colors">Alpha Terminal</Link>
-                <Link href="#newsletter" className="text-sm text-text-muted hover:text-white transition-colors">Weekly Newsletter</Link>
-                <Link href="/" className="text-sm text-text-muted hover:text-white transition-colors">Live Markets</Link>
+                <Link href="#newsletter" className="text-sm text-text-muted hover:text-white transition-colors">Weekly Alpha Newsletter</Link>
+                <Link href="/" className="text-sm text-text-muted hover:text-white transition-colors">Live Prediction Markets</Link>
+                <Link href="/api/docs" className="text-sm text-text-muted hover:text-white transition-colors">Data API</Link>
               </div>
               <div className="flex flex-col gap-3">
-                <h4 className="font-bold text-white text-sm">Company</h4>
-                <Link href="/about" className="text-sm text-text-muted hover:text-white transition-colors">About Us</Link>
-                <Link href="/contact" className="text-sm text-text-muted hover:text-white transition-colors">Contact</Link>
-                <Link href="/terms" className="text-sm text-text-muted hover:text-white transition-colors">Terms of Service</Link>
-                <Link href="/privacy" className="text-sm text-text-muted hover:text-white transition-colors">Privacy Policy</Link>
+                <h4 className="font-bold text-white text-sm">Intelligence</h4>
+                <Link href="/methodology" className="text-sm text-text-muted hover:text-white transition-colors">Alpha Engine Methodology</Link>
+                <Link href="/sources" className="text-sm text-text-muted hover:text-white transition-colors">Knowledge Graph Sources</Link>
+                <Link href="/about" className="text-sm text-text-muted hover:text-white transition-colors">About the Team</Link>
+                <Link href="/contact" className="text-sm text-text-muted hover:text-white transition-colors">Institutional Contact</Link>
               </div>
             </div>
           </div>

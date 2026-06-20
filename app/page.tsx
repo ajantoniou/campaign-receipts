@@ -23,7 +23,7 @@ export default async function Home() {
           The Bloomberg Terminal <br /> for <span className="iridescent-text">Prediction Markets</span>
         </h1>
         <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
-          Access institutional-grade data intelligence. We ingest FEC data, Super PAC filings, and knowledge graphs to give you the ultimate edge in political betting.
+          We've built a massive knowledge graph of government data over the last decade. We ingest real-time FEC data, Super PAC filings, and K-Street lobbying records to give you the ultimate edge in political betting. Sell the narrative, buy the outcome.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
           <Link href="/pricing" className="btn-primary">Apply for Access</Link>
