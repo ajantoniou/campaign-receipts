@@ -22,7 +22,7 @@ const PRODUCT_LABEL: Record<string, string> = {
 }
 const PRODUCT_PRICE: Record<string, string> = {
   software: '$45/mo',
-  newsletter: '$12/mo',
+  newsletter: '$9/mo',
 }
 // Ledger-style code for the receipt-id line (on-brand for a "receipts" product).
 const PRODUCT_CODE: Record<string, string> = {
@@ -248,7 +248,7 @@ export default async function DashboardPage() {
                     <div className="receipt-id">{PRODUCT_CODE.newsletter}</div>
                     <div className="receipt-title">{PRODUCT_LABEL.newsletter}</div>
                   </div>
-                  <span className="stamp partial">$12/mo</span>
+                  <span className="stamp partial">$9/mo</span>
                 </div>
                 <div className="receipt-body">
                   <p className="text-sm text-ink-2 leading-relaxed">
@@ -262,8 +262,8 @@ export default async function DashboardPage() {
                   </ul>
                 </div>
                 <div className="receipt-foot">
-                  <CheckoutButton plan="newsletter" className="btn-secondary text-sm">
-                    Get it weekly — $12/mo
+                  <CheckoutButton className="btn-secondary text-sm">
+                    Get it weekly — $9/mo
                   </CheckoutButton>
                 </div>
               </div>

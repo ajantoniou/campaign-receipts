@@ -5,7 +5,7 @@
 //   - hasSoftware : the $45/mo /investigate donor-intelligence dossiers
 //                   (and every other "Pro data" surface: full bill sponsors,
 //                   leaderboard evidence, correlations, politician pro data).
-//   - hasNewsletter : the $12/mo weekly money-trail email.
+//   - hasNewsletter : the $9/mo weekly money-trail email.
 // A user may hold one, the other, or both.
 //
 // A product entitlement is live if the user has a cr_subscribers row for that

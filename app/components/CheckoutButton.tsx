@@ -15,14 +15,10 @@ declare global {
   }
 }
 
-type Plan = 'newsletter' | 'newsletter-annual' | 'newsletter-founding'
-
 export default function CheckoutButton({
-  plan,
   className,
   children,
 }: {
-  plan: Plan
   className?: string
   children: React.ReactNode
 }) {
@@ -32,7 +28,7 @@ export default function CheckoutButton({
     if (loading) return
     setLoading(true)
     try {
-      const resp = await fetch(`/api/checkout?plan=${plan}&format=json`, {
+      const resp = await fetch(`/api/checkout?product=newsletter&format=json`, {
         headers: { accept: 'application/json' },
       })
       const data = await resp.json().catch(() => null)
@@ -53,7 +49,7 @@ export default function CheckoutButton({
       }
     } catch {
       // Network/unknown error → fall back to the redirect endpoint.
-      window.location.href = `/api/checkout?plan=${plan}`
+      window.location.href = `/api/checkout?product=newsletter`
     } finally {
       setLoading(false)
     }

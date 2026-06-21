@@ -23,7 +23,7 @@ export default function MemberAlertCTA({ subject }: { subject?: string }) {
         </h3>
         <p className="text-sm text-ink-2 leading-relaxed mt-1 mb-4 sm:mb-0">
           The data is free. Members get the one money trail that matters each Friday — explained, with
-          a tap straight into the map. Founding members lock in $79/yr.
+          a tap straight into the map. $9/mo, cancel anytime.
         </p>
       </div>
       <Link

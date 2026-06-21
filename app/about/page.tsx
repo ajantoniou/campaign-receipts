@@ -153,7 +153,7 @@ export default function AboutPage() {
             <li>
               <strong className="font-medium text-ink">Free facts.</strong> The directory, the donor
               maps, the search, and all verdicts are free — no gate on the underlying data. The only
-              paid product is the weekly newsletter ($12/mo), a convenience that summarizes the week’s
+              paid product is the weekly newsletter ($9/mo), a convenience that summarizes the week’s
               money trails and links you into the free maps.
             </li>
             <li>

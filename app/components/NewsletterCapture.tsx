@@ -123,8 +123,8 @@ export default function NewsletterCapture({
         </div>
         <p className="font-sans text-[14px] text-ink-2 leading-relaxed m-0">
           {confirmationSent
-            ? 'Check your inbox to confirm. We send occasional free updates — for the weekly money trail, see the $12 newsletter.'
-            : "You'll get occasional free updates. Want the weekly money trail? That's the $12 newsletter. One-click unsubscribe."}
+            ? 'Check your inbox to confirm. The free list gets the weekly headline — for the full money trail, see the $9 newsletter.'
+            : "Free list: the weekly headline trail. Want the full money trail + the map link? That's the $9 newsletter. One-click unsubscribe."}
         </p>
       </div>
     )

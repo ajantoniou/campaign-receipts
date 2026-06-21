@@ -136,11 +136,11 @@ export function newsletterConfirmationEmail(confirmUrl: string) {
 <a href="${confirmUrl}" style="display:inline-block;background:#241f1a;color:#faf6ef;text-decoration:none;font-weight:600;font-size:14px;padding:12px 18px;border-radius:999px">Confirm my email</a>
 <div style="margin:26px 0 0;padding:16px 18px;background:#f3ecdf;border:1px solid #ded3c2;border-radius:8px">
 <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#9a8f00;font-weight:700;margin-bottom:6px">What members get</div>
-<p style="margin:0 0 10px;color:#51483e;font-size:13px;line-height:1.6">You’re on the free list — you’ll get the <strong>headline</strong> trail each week. Members get the <strong>full receipt</strong>: the explained money trail, the workings, and a one-tap link into the donor map. Founding members lock in <strong>$79/yr forever</strong> (first 1,000).</p>
+<p style="margin:0 0 10px;color:#51483e;font-size:13px;line-height:1.6">You’re on the free list — you’ll get the <strong>headline</strong> trail each week. Members get the <strong>full receipt</strong>: the explained money trail, the workings, and a one-tap link into the donor map — <strong>$9/mo</strong>, cancel anytime.</p>
 <a href="${new URL('/pricing', confirmUrl).origin}/pricing" style="display:inline-block;background:#fffaf2;color:#241f1a;border:1px solid #241f1a;text-decoration:none;font-weight:600;font-size:13px;padding:9px 14px;border-radius:999px">See what members get →</a>
 </div>
 <p style="margin:22px 0 0;color:#756a5d;font-size:12px;line-height:1.6">If the button does not work, paste this into your browser:<br><span style="word-break:break-all">${confirmUrl}</span></p>
 </div></body></html>`,
-    text: `Confirm The Friday Receipt\n\nOne email Friday: new donors, donor-moved votes, and donor-moved bills.\n\n${confirmUrl}\n\n— What members get —\nYou're on the free list (the weekly headline trail). Members get the full receipt: the explained money trail and a one-tap link into the donor map. Founding members lock in $79/yr forever (first 1,000): ${new URL('/pricing', confirmUrl).origin}/pricing`,
+    text: `Confirm The Friday Receipt\n\nOne email Friday: new donors, donor-moved votes, and donor-moved bills.\n\n${confirmUrl}\n\n— What members get —\nYou're on the free list (the weekly headline trail). Members get the full receipt: the explained money trail and a one-tap link into the donor map — $9/mo, cancel anytime: ${new URL('/pricing', confirmUrl).origin}/pricing`,
   }
 }

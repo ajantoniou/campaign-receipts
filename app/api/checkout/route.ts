@@ -1,41 +1,34 @@
-// GET /api/checkout?plan=newsletter|newsletter-annual|newsletter-founding
+// GET /api/checkout?product=newsletter
 //
-// Redirects the user to a Lemon Squeezy checkout URL prefilled with their
-// email + user_id (so the webhook can match the subscription back to a
-// cr_users row). Requires the user to be signed in — if they're not we bounce
-// through magic-link sign-in and come back.
+// Resolves a Lemon Squeezy checkout URL prefilled with the signed-in user's
+// email + user_id (so the webhook can match the subscription back to a cr_users
+// row). Requires sign-in — if absent we bounce through magic-link sign-in.
 //
-// Model (founder 2026-06-20): the only paid product is the weekly newsletter,
-// in three plans (monthly $12 / annual $96 / founding $79). All grant the
-// 'newsletter' entitlement. Back-compat: ?product=newsletter still works and
-// maps to the monthly plan.
+// Model (founder 2026-06-20): the only paid product is the weekly newsletter
+// ($9/mo). No annual / founding tiers.
+//
+// ?format=json → return { ok, url | redirect } instead of a 302, so the client
+// CheckoutButton can open the URL in the LemonSqueezy overlay (modal). Default
+// (no format) keeps the server-redirect behavior for plain links + SEO.
 
 import { NextResponse } from 'next/server'
 import { getSessionUser } from '@/lib/auth'
-import { buildCheckoutUrl, type CrPlan, isCheckoutConfigured } from '@/lib/lemonsqueezy'
+import { buildCheckoutUrl, type CrProduct, isCheckoutConfigured } from '@/lib/lemonsqueezy'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://campaignreceipts.com'
 
-const VALID_PLANS: CrPlan[] = ['newsletter', 'newsletter-annual', 'newsletter-founding']
-
-function resolvePlan(url: URL): CrPlan {
-  const planParam = url.searchParams.get('plan')
-  if (planParam && VALID_PLANS.includes(planParam as CrPlan)) return planParam as CrPlan
-  // Back-compat: legacy ?product=newsletter (or anything else) → monthly newsletter.
-  return 'newsletter'
+function resolveProduct(url: URL): CrProduct {
+  // Only the newsletter is sold; anything else (legacy 'software') falls back to it.
+  return url.searchParams.get('product') === 'software' ? 'software' : 'newsletter'
 }
 
 export async function GET(req: Request) {
   const url = new URL(req.url)
-  const plan = resolvePlan(url)
-  // ?format=json → return the resolved URL/sign-in target instead of redirecting,
-  // so the client CheckoutButton can open it in the LemonSqueezy overlay (modal).
-  // Default (no format) keeps the server-redirect behavior for plain links + SEO.
+  const product = resolveProduct(url)
   const asJson = url.searchParams.get('format') === 'json'
+  const signinNext = `/api/checkout?product=${product}`
 
-  const signinNext = `/api/checkout?plan=${plan}`
-
-  if (!isCheckoutConfigured(plan)) {
+  if (!isCheckoutConfigured(product)) {
     const to = new URL('/pricing?error=checkout_not_configured', SITE)
     return asJson
       ? NextResponse.json({ ok: false, reason: 'not_configured', redirect: to.toString() })
@@ -51,7 +44,7 @@ export async function GET(req: Request) {
   }
 
   const checkoutUrl = buildCheckoutUrl({
-    plan,
+    product,
     userId: user.id,
     email: user.email,
   })

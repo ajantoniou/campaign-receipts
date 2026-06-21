@@ -1,7 +1,7 @@
 // Lemon Squeezy webhook for CampaignReceipts paid subscriptions.
 //
-// TWO independently-purchasable products (founder lock 2026-05-30): the
-// 'newsletter' ($12/mo) and the 'software' ($45/mo donor-intelligence) subs.
+// The only sold product is the 'newsletter' ($9/mo); the legacy 'software'
+// product is retired but still resolvable for any pre-existing subs.
 // The product is keyed off the LS variant_id in the payload (see
 // productForVariantId). One row per (user_id, product) in cr_subscribers, so a
 // user can hold one, the other, or both.

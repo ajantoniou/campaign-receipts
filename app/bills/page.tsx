@@ -1,17 +1,15 @@
 // /bills — the PAID NEWSLETTER landing.
 //
-// Founder pricing lock 2026-05-30: the Bill Donor Influence newsletter is
-// $12/mo FLAT for everything — ALL federal AND state bills, one price.
-// The old geography tiers ($25 federal / $10 per 5 states / $50 all-50)
-// and the price-discovery survey are RETIRED. The CTA goes straight to the
-// real checkout: /api/checkout?product=newsletter ($12/mo, LemonSqueezy).
+// Pricing (founder 2026-06-20): the weekly newsletter is $9/mo FLAT — all
+// federal AND state bills, one price. The CTA goes to the real checkout:
+// /api/checkout?product=newsletter ($9/mo, LemonSqueezy overlay).
 //
 // Each bill comes with four things: who sponsored it, who paid them to
 // sponsor it, who's voting, and who paid them to vote that way. We already
 // traced the money — subscribers just read who paid for it.
 //
-// Free taste: the announcement list (NewsletterCapture, surface='bill') for
-// occasional free updates. The headline is always the $12 paid weekly.
+// Free taste: the announcement list (NewsletterCapture, surface='bill') gets
+// the weekly headline. The full trail is the $9 paid weekly.
 
 import { Receipt, Tag } from '@/app/components/cr'
 import NewsletterCapture from '@/app/components/NewsletterCapture'
@@ -21,7 +19,7 @@ import BillsSearch from '@/app/components/BillsSearch'
 export const metadata = {
   title: 'Friday Receipts — the weekly money trail | CampaignReceipts',
   description:
-    "The week's money trail in your inbox, every Friday. Who paid for the bill, and who voted their way. Sourced to the filing. $12/mo.",
+    "The week's money trail in your inbox, every Friday. Who paid for the bill, and who voted their way. Sourced to the filing. $9/mo.",
   alternates: { canonical: '/bills' },
 }
 
@@ -49,7 +47,7 @@ export default function NewBillsPage() {
             </p>
             <p className="mt-3 font-sans text-[15px] text-ink-3 leading-relaxed max-w-2xl">
               No spin. No jargon. Every number traces back to a filing. All
-              bills, federal and state. From $8/mo billed yearly. Cancel anytime.
+              bills, federal and state. $9/mo. Cancel anytime.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <a
@@ -150,7 +148,7 @@ export default function NewBillsPage() {
         </div>
       </section>
 
-      {/* PRICE — FLAT $12 */}
+      {/* PRICE — FLAT $9 */}
       <section id="price" className="section-shell py-12 sm:py-16 bg-paper-2 scroll-mt-20">
         <div className="max-w-[760px] mx-auto text-center">
           <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2 mb-3">
@@ -160,7 +158,7 @@ export default function NewBillsPage() {
             One price. Every bill.
           </h2>
           <p className="mt-4 font-sans text-[17px] text-ink-2 leading-relaxed">
-            From $8/mo billed yearly. All federal bills. All 50 states. Cancel anytime.
+            $9/mo. All federal bills. All 50 states. Cancel anytime.
           </p>
           <div className="mt-7">
             <a
@@ -188,7 +186,7 @@ export default function NewBillsPage() {
             variant="inline-receipt"
             surface="bill"
             heading="Not ready to pay? Get free updates."
-            body="We send occasional free updates. Want a bill every Friday with the money behind it? That is the $12 newsletter above."
+            body="The free list gets the weekly headline. Want a bill every Friday with the full money trail behind it? That is the $9 newsletter above."
             buttonLabel="Get free updates"
           />
         </div>

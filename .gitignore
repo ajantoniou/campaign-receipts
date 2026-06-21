@@ -18,3 +18,7 @@ public/shorts-upload-*/
 public/thumbnails-*/
 public/shorts/_normalize-backup/
 eng/qc-reports/**/frames/
+
+# local env backups (contain secrets — never commit)
+.env.bak*
+.env.bak.*

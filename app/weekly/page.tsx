@@ -98,7 +98,7 @@ export default async function WeeklyPage({
           <div className="section-shell py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-sm text-ink m-0">
               <strong>You’re on the free list.</strong> You’ll get the weekly headline trail.
-              Members get the full receipt + the donor-map link — founding members lock in $79/yr forever.
+              Members get the full receipt + the donor-map link — $9/mo, cancel anytime.
             </p>
             <a
               href="/pricing"
