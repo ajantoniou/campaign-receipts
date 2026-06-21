@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import CheckoutButton from '@/app/components/CheckoutButton';
 
 // Pricing / subscribe page. MODEL (founder 2026-06-20): all donor-influence data
 // is FREE. The only paid product is the weekly newsletter — a convenience layer
@@ -74,9 +75,9 @@ export default function PricingPage({ searchParams }: { searchParams: { error?: 
             <li>✓ Fund an independent follow-the-money watchdog</li>
             <li>✓ Cancel anytime · 7-day money-back</li>
           </ul>
-          <Link href="/api/checkout?plan=newsletter-annual" className="btn-primary bg-accent hover:bg-accent/90 border-none mt-auto text-center">
+          <CheckoutButton plan="newsletter-annual" className="btn-primary bg-accent hover:bg-accent/90 border-none mt-auto text-center w-full">
             Join — $96/yr
-          </Link>
+          </CheckoutButton>
         </div>
 
         {/* MONTHLY */}
@@ -94,9 +95,9 @@ export default function PricingPage({ searchParams }: { searchParams: { error?: 
             <li>✓ Be first to know when money moves a vote</li>
             <li>✓ Cancel anytime · 7-day money-back</li>
           </ul>
-          <Link href="/api/checkout?plan=newsletter" className="btn-secondary mt-auto text-center">
+          <CheckoutButton plan="newsletter" className="btn-secondary mt-auto text-center w-full">
             Subscribe — $12/mo
-          </Link>
+          </CheckoutButton>
         </div>
       </div>
 
@@ -106,9 +107,9 @@ export default function PricingPage({ searchParams }: { searchParams: { error?: 
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent">Founding member · first 1,000</div>
           <div className="text-sm text-text-muted">Lock in <span className="text-primary font-bold">$79/yr forever</span> — the price never goes up while you stay a member.</div>
         </div>
-        <Link href="/api/checkout?plan=newsletter-founding" className="btn-primary text-sm whitespace-nowrap">
+        <CheckoutButton plan="newsletter-founding" className="btn-primary text-sm whitespace-nowrap">
           Become a founding member
-        </Link>
+        </CheckoutButton>
       </div>
 
       <p className="text-sm text-text-muted text-center max-w-lg">

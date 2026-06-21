@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Bricolage_Grotesque, IBM_Plex_Mono, Instrument_Serif } from 'next/font/google'
 import Link from 'next/link'
+import Script from 'next/script'
 import SmoothScroll from '../components/SmoothScroll'
 
 const inter = Inter({
@@ -39,6 +40,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${bricolage.variable} ${plexMono.variable} ${instrument.variable} dark`}>
       <body className="bg-background text-text-main font-sans min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
+        {/* LemonSqueezy on-domain checkout overlay (modal), same pattern as
+            uploadcheck.app. CheckoutButton calls window.LemonSqueezy.Url.Open(). */}
+        <Script src="https://assets.lemonsqueezy.com/lemon.js" strategy="afterInteractive" />
         <header className="sticky top-0 z-50 glass-panel border-b-0 rounded-none border-b border-white/5 bg-background/50">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 group">

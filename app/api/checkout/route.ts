@@ -28,21 +28,26 @@ function resolvePlan(url: URL): CrPlan {
 export async function GET(req: Request) {
   const url = new URL(req.url)
   const plan = resolvePlan(url)
+  // ?format=json → return the resolved URL/sign-in target instead of redirecting,
+  // so the client CheckoutButton can open it in the LemonSqueezy overlay (modal).
+  // Default (no format) keeps the server-redirect behavior for plain links + SEO.
+  const asJson = url.searchParams.get('format') === 'json'
+
+  const signinNext = `/api/checkout?plan=${plan}`
 
   if (!isCheckoutConfigured(plan)) {
-    return NextResponse.redirect(
-      new URL('/pricing?error=checkout_not_configured', SITE),
-      302,
-    )
+    const to = new URL('/pricing?error=checkout_not_configured', SITE)
+    return asJson
+      ? NextResponse.json({ ok: false, reason: 'not_configured', redirect: to.toString() })
+      : NextResponse.redirect(to, 302)
   }
 
   const user = await getSessionUser()
   if (!user) {
-    const next = `/api/checkout?plan=${plan}`
-    return NextResponse.redirect(
-      new URL(`/auth/signin?next=${encodeURIComponent(next)}`, SITE),
-      302,
-    )
+    const to = new URL(`/auth/signin?next=${encodeURIComponent(signinNext)}`, SITE)
+    return asJson
+      ? NextResponse.json({ ok: false, reason: 'signin_required', redirect: to.toString() })
+      : NextResponse.redirect(to, 302)
   }
 
   const checkoutUrl = buildCheckoutUrl({
@@ -50,5 +55,7 @@ export async function GET(req: Request) {
     userId: user.id,
     email: user.email,
   })
-  return NextResponse.redirect(checkoutUrl, 302)
+  return asJson
+    ? NextResponse.json({ ok: true, url: checkoutUrl })
+    : NextResponse.redirect(checkoutUrl, 302)
 }

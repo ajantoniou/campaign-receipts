@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation'
 import { getEntitlement, isRowActive, isCompRow } from '@/lib/entitlement'
 import { getCreditState } from '@/lib/search-credits'
 import CancelButton from './CancelButton'
+import CheckoutButton from '@/app/components/CheckoutButton'
 
 export const dynamic = 'force-dynamic'
 
@@ -261,9 +262,9 @@ export default async function DashboardPage() {
                   </ul>
                 </div>
                 <div className="receipt-foot">
-                  <Link href="/api/checkout?product=newsletter" className="btn-secondary text-sm">
+                  <CheckoutButton plan="newsletter" className="btn-secondary text-sm">
                     Get it weekly — $12/mo
-                  </Link>
+                  </CheckoutButton>
                 </div>
               </div>
             )}
