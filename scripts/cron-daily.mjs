@@ -92,7 +92,10 @@ const results = {}
 
 // Hourly jobs
 results.newsletterSend = runStep('weekly-newsletter-send', ['scripts/weekly-newsletter-send.mjs'])
-// Prediction-market sync/alert jobs removed — project reverted to donor-influence focus.
+// Schedule E (independent expenditures) — pull newly-disclosed outside money every
+// hour via the cr_ingest_runs cursor, so the 48/24hr IE notices land same-day and
+// "a super PAC just dropped $X" is genuinely live for the weekly story detection.
+results.scheduleE = runStep('sync-schedule-e', ['scripts/sync-schedule-e.mjs'])
 
 if (isOrchestrator) {
   console.log(`\n=== Running Master Orchestrator (UTC Day: ${day}, Hour: ${hour}) ===`)
