@@ -32,9 +32,13 @@ import { appendFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
-const GENERATOR_VERSION = 'opus-weekly-story-v1'
-const OPUS_MODEL = 'claude-opus-4-8'        // adjust if Anthropic model id changes
-const DEK_MODEL = 'claude-haiku-4-5'        // cheap dek
+// Switched Opus→Haiku (founder 2026-06-21): the job is constrained summarization of
+// STRUCTURED, pre-verified facts (not open reasoning), so Haiku is the right tool —
+// ~12x cheaper for 6+ articles/week, and the deterministic facts + checklist do the
+// heavy lifting on accuracy. The prompt forbids inventing any number.
+const GENERATOR_VERSION = 'haiku-weekly-story-v2'
+const STORY_MODEL = 'claude-haiku-4-5'      // adjust if Anthropic model id changes
+const DEK_MODEL = 'claude-haiku-4-5'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const COST_LOG = join(__dirname, '.external-costs.jsonl')
@@ -68,7 +72,7 @@ const fmtMoney = (n) => {
   return `$${num.toLocaleString()}`
 }
 function logCost(note, usd = 0) {
-  try { appendFileSync(COST_LOG, JSON.stringify({ ts: new Date().toISOString(), issueId: 'generate-weekly-stories', vendor: 'anthropic/opus', cost_usd: usd, note }) + '\n') } catch {}
+  try { appendFileSync(COST_LOG, JSON.stringify({ ts: new Date().toISOString(), issueId: 'generate-weekly-stories', vendor: 'anthropic/haiku', cost_usd: usd, note }) + '\n') } catch {}
 }
 
 // Pull fresh sourced figures for a candidate at generation time (so the article
@@ -96,6 +100,30 @@ async function enrich(cand) {
       .order('alignment_score', { ascending: false })
       .limit(5)
     out.alignments = align || []
+
+    // Committee seats + role (the "gatekeeper of jurisdiction" archetype). Needs
+    // the politician's bioguide.
+    const { data: pol } = await supabase
+      .from('cr_politicians').select('bioguide').eq('id', ref.politician_id).maybeSingle()
+    if (pol?.bioguide) {
+      const { data: seats } = await supabase
+        .from('cr_committee_assignments')
+        .select('thomas_id, role, party')
+        .eq('bioguide', pol.bioguide)
+      const codes = (seats || []).map((s) => s.thomas_id)
+      const nameByCode = {}
+      if (codes.length) {
+        const { data: cs } = await supabase.from('cr_congress_committees').select('thomas_id, name, chamber').in('thomas_id', codes)
+        for (const c of cs || []) nameByCode[c.thomas_id] = { name: c.name, chamber: c.chamber }
+      }
+      // Only surface full (non-subcommittee) committees + any leadership role — that's
+      // the newsworthy "gatekeeper" signal, not every minor subcommittee seat.
+      out.committee_seats = (seats || [])
+        .map((s) => ({ committee: nameByCode[s.thomas_id]?.name || s.thomas_id, chamber: nameByCode[s.thomas_id]?.chamber, role: s.role }))
+        .filter((s) => s.role !== 'member' || !/:/.test(s.committee)) // keep full committees + any leadership
+        .slice(0, 8)
+      out.chair_or_ranking = out.committee_seats.filter((s) => /Chair|Ranking|Vice/.test(s.role))
+    }
   }
   if (ref.bill_id) {
     const { data: bill } = await supabase.from('cr_bills')
@@ -111,40 +139,59 @@ async function enrich(cand) {
 
 function buildPrompt(data) {
   const subject = data.politician_name || (data.bill ? `${(data.bill.bill_type||'').toUpperCase()} ${data.bill.bill_number}` : 'this money trail')
-  return `You are an editor at CampaignReceipts, a nonpartisan U.S. campaign-finance accountability site. Write a 500-800 word money-trail article.
+  return `You are an editor at CampaignReceipts, a nonpartisan U.S. campaign-finance accountability site. Write a 450-750 word money-trail article from the structured DATA below. Your job is faithful SUMMARY of facts that are already verified — add nothing.
 
 HARD RULES (violating any invalidates the article):
-1. ONLY use figures, names, donors, and votes present in the DATA below. NEVER invent or estimate a number, donor, or date. If a figure isn't in the data, don't state it.
-2. NO PREDICTIONS. Never say who "will" win or lose.
-3. NO CLAIMS OF INTENT. You may report a contribution and a vote and their dates as facts. You may NOT assert one caused the other, or use words like "bribe," "in exchange for," "bought." Let the reader draw conclusions. State the timeline; never the motive.
-4. NONPARTISAN. Same scrutiny regardless of party. Report, don't moralize.
-5. PAPER-WARM TONE. Plain English, short sentences, active verbs. A receipt, not a rant. No "shocking," "fiery," "bombshell."
-6. STRUCTURE (plain markdown, no frontmatter/HTML):
-   - Open with the headline figure and why this connection is notable.
-   - "## Who's paying" — the donors/PACs and amounts, largest first.
-   - "## The record" — relevant votes / donor-vote alignment IF present in data; otherwise a neutral note on what the money funds.
-   - "## What we don't know yet" — one short paragraph of open questions.
-7. End with: "All figures are from public FEC filings. Timing does not prove causation."
+1. ONLY use figures, names, donors, committees, and votes present in the DATA. NEVER invent, estimate, round differently, or infer a number/donor/date. If it's not in the DATA, it does not appear in the article.
+2. NO PREDICTIONS, NO MOTIVE, NO CAUSATION. Report the relationship and (if present) the timeline as FACTS. You may NOT assert money caused a vote or seat. BANNED words/phrases: "bought," "paid for," "bribe," "kickback," "in exchange for," "quid pro quo," "corrupt," "in the pocket of," "puppet," "voted because of," "rewarded donors," "sold out." Let the juxtaposition speak.
+3. THE GATEKEEPER FRAME (use only if committee_seats present): it is fully factual to state "X sponsored this bill AND sits on / chairs [Committee], which has jurisdiction" and "X received \$Y from [industry] PACs." State both facts; never assert one explains the other.
+4. INNOCENT EXPLANATIONS REQUIRED: include that contributions are legal and disclosed, and that donors often back lawmakers already aligned with them (money follows alignment). Note the member was not reached for comment (this is an automated brief).
+5. NONPARTISAN. Identical scrutiny regardless of party.
+6. PAPER-WARM TONE. Plain English, short sentences, active verbs. A receipt, not a rant. No "shocking," "fiery," "bombshell."
+7. STRUCTURE (plain markdown, no frontmatter/HTML, no title line):
+   - Lead: the single most concrete verifiable fact (a dollar figure + the role/seat or the ranking).
+   - "## Who's paying" — donors/PACs and amounts, largest first. If an industry label is "?" or missing, say "industry not classified" rather than guessing.
+   - "## The committee" — ONLY if committee_seats present: the seat(s)/role and that it's the relevant chamber. Skip this section entirely if absent.
+   - "## The record" — votes / donor-vote alignment IF present; else a neutral line on what the money funds.
+   - "## What we don't know" — REQUIRED: name the data's limits (e.g. no contribution dates, no bill-benefit linkage, individual-donor identity not verified), and the innocent explanations from rule 4.
+8. End EXACTLY with: "Campaign contributions are legal and disclosed. Correlation between donations and legislative action does not establish that one caused the other. Figures are from public FEC filings and official congressional records."
 
 DATA (subject: ${subject}; branch: ${data.branch}):
 ${JSON.stringify(data, null, 2)}
 
-Write the article now. Start directly with the opening paragraph — no preamble, no title line.`
+Write the article now. Start directly with the lead paragraph.`
+}
+
+// Deterministic post-check: reject a draft that smuggled in a banned causation
+// phrase despite the prompt. Cheap libel firewall independent of the model.
+const BANNED = [
+  /\bbought\b/i, /\bpaid for\b/i, /\bbrib/i, /\bkickback/i, /in exchange for/i,
+  /quid pro quo/i, /\bcorrupt/i, /in the pocket of/i, /\bpuppet\b/i,
+  /voted because of/i, /rewarded (his|her|their) donors/i, /\bsold out\b/i,
+]
+function bannedPhraseIn(text) {
+  for (const re of BANNED) if (re.test(text)) return re.source
+  return null
 }
 
 async function generateBody(data) {
-  if (DRY) return `[DRY RUN] Opus article for ${data.politician_name || data.headline}. donors:${(data.top_donors||[]).length} alignments:${(data.alignments||[]).length}`
+  if (DRY) return `[DRY RUN] article for ${data.politician_name || data.headline}. donors:${(data.top_donors||[]).length} seats:${(data.committee_seats||[]).length} chair/ranking:${(data.chair_or_ranking||[]).length}`
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const resp = await anthropic.messages.create({ model: OPUS_MODEL, max_tokens: 1800, messages: [{ role: 'user', content: buildPrompt(data) }] })
+      const resp = await anthropic.messages.create({ model: STORY_MODEL, max_tokens: 1800, messages: [{ role: 'user', content: buildPrompt(data) }] })
       const text = resp.content[0]?.type === 'text' ? resp.content[0].text.trim() : ''
-      if (text) { logCost(`article:${data.politician_slug || data.headline}`); return text }
+      if (!text) continue
+      // Deterministic libel firewall: reject + retry if a banned phrase slipped in.
+      const bad = bannedPhraseIn(text)
+      if (bad) { console.log(`    (retry: banned phrase /${bad}/)`); continue }
+      logCost(`article:${data.politician_slug || data.headline}`)
+      return text
     } catch (e) {
       if (attempt === 2) throw e
       await sleep(2000 * (attempt + 1))
     }
   }
-  throw new Error('empty/failed Opus response')
+  throw new Error('empty/failed/banned response after retries')
 }
 
 async function generateDek(title, body) {
@@ -201,7 +248,7 @@ async function main() {
         related_weekly_id: null,
         status: 'published',
         published_at: new Date().toISOString(),
-        generator: 'opus-weekly-story',
+        generator: 'haiku-weekly-story',
         generator_version: GENERATOR_VERSION,
         last_regenerated_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
