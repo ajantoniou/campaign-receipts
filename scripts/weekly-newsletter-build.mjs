@@ -1,196 +1,259 @@
 #!/usr/bin/env node
 //
-// scripts/weekly-newsletter-build.mjs  —  PHASE 1 of the weekly newsletter.
+// scripts/weekly-newsletter-build.mjs  —  Stage F: build "Friday Receipts".
 //
-// Builds the donor-influence weekly issue and writes it to cr_newsletter_issues
-// (status='built'). Phase 2 (weekly-newsletter-send.mjs) then sends that issue to
-// paid newsletter subscribers at their local Friday 05:00.
+// Builds the weekly newsletter issue (cr_newsletter_issues, status='built') from
+// this week's published weekly_story articles, ORGANIZED BY BRANCH OF GOVERNMENT.
+// Stage G (weekly-newsletter-send.mjs) then sends it Friday morning, timezone-aware.
 //
-// MODEL (founder 2026-06-20): the donor-influence DATA is 100% FREE on the site.
-// The PAID newsletter is a CONVENIENCE layer — it ALERTS subscribers each week and
-// gives them one-click links into the free donor-map / connections landing pages.
-// So this builder's job is: pick the week's most notable money-trail stories and
-// format an email that is mostly "here's what's new — tap to see the map."
+// Structure (per the viral-newsletter spec):
+//   - Receipt of the Week (the top-ranked story) — lead, above the fold.
+//   - The Ledger, grouped by branch: Executive / House / Senate / States.
+//     Each story = headline + summary (dek) + a CLICK-TRACKED "Read the receipt" link.
+//   - Click links go through /c/[token] so the Saturday digest can rank by clicks.
 //
-// Content source: cr_weekly (the existing donor/promise "Receipt of the Week"
-// engine populated by pick-weekly.mjs / snapshot-weekly.mjs). We take the most
-// recent picks and link each to its public landing page.
+// Free vs paid: this builder produces ONE issue body. The free/paid split is a
+// future refinement at send time; for now every subscriber gets the full Ledger
+// (we have a tiny list). The architecture (cr_newsletter_links) is in place to
+// gate later.
 //
-// Idempotent: upserts on week_of. Re-running rebuilds this week's issue. Will not
-// overwrite an issue already marked 'sent' (so a rebuild can't double-send).
+// Fallback: if NO weekly_story articles exist for the week, fall back to the
+// legacy cr_weekly recent-picks so subscribers still get something; if that's also
+// empty, mark the issue 'skipped' (send script exits cleanly on 'skipped').
+//
+// Idempotent: upsert on week_of; never clobbers a 'sent' issue. Rewrites
+// cr_newsletter_links for the issue on each build.
 //
 // Usage:
-//   node scripts/weekly-newsletter-build.mjs              # build + upsert
-//   node scripts/weekly-newsletter-build.mjs --dry-run    # print, no write
-//   node scripts/weekly-newsletter-build.mjs --week-of=YYYY-MM-DD
-//
-// Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY. SITE optional (default prod).
+//   node scripts/weekly-newsletter-build.mjs [--dry-run] [--week-of=YYYY-MM-DD]
 
 import { createClient } from '@supabase/supabase-js'
+import { nanoid } from 'nanoid'
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
-const SITE = (process.env.SITE || 'https://campaignreceipts.com').replace(/\/$/, '')
-
-if (!SUPABASE_URL || !SUPABASE_KEY) {
-  console.error('FATAL: SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY missing')
-  process.exit(1)
-}
+const SITE = (process.env.SITE || process.env.NEXT_PUBLIC_SITE_URL || 'https://campaignreceipts.com').replace(/\/$/, '')
+if (!SUPABASE_URL || !SUPABASE_KEY) { console.error('Missing Supabase env'); process.exit(1) }
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: false } })
 
 const args = process.argv.slice(2)
 const DRY = args.includes('--dry-run')
 const weekArg = args.find((a) => a.startsWith('--week-of='))?.split('=')[1]
 
-// ── Time helpers ────────────────────────────────────────────
-/** Monday (UTC) of the ISO week containing `d`. Matches send script's isoMonday. */
 function isoMonday(d = new Date()) {
   const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()))
   const dow = (x.getUTCDay() + 6) % 7
   x.setUTCDate(x.getUTCDate() - dow)
   return x.toISOString().slice(0, 10)
 }
+const WEEK_OF = weekArg || isoMonday()
 function fmtWeek(iso) {
-  const d = new Date(iso + 'T00:00:00Z')
-  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+  return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
 }
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
 
-// ── Content selection ───────────────────────────────────────
-// Pull the most recent donor/promise picks. cr_weekly is the canonical "Receipt of
-// the Week" table (headline, blurb, politician_id). Each story links to that
-// politician's FREE donor page — the donor-influence map the newsletter alerts you to.
-async function recentStories(limit = 4) {
-  const { data, error } = await supabase
-    .from('cr_weekly')
-    .select('headline, blurb, share_image_url, picked_at, politician_id')
-    .order('picked_at', { ascending: false })
-    .limit(limit)
-  if (error) { console.error('cr_weekly read error:', error.message); return [] }
-  const rows = data || []
+const BRANCH_ORDER = ['Executive', 'House', 'Senate', 'States']
+const BRANCH_LABEL = { Executive: 'The Executive', House: 'The House', Senate: 'The Senate', States: 'The States' }
 
-  // Resolve politician slugs in one query for the click-through links.
+// ── Content selection: this week's published weekly_story articles ──
+async function weeklyArticles() {
+  const { data, error } = await supabase
+    .from('cr_articles')
+    .select('slug, title, dek, source_refs, published_at')
+    .eq('kind', 'weekly_story')
+    .like('slug', `friday-receipts-${WEEK_OF}-%`)
+    .eq('status', 'published')
+    .order('published_at', { ascending: false })
+  if (error) { console.error('articles read error:', error.message); return [] }
+  return (data || []).map((a) => {
+    const ref = Array.isArray(a.source_refs) && a.source_refs[0] ? a.source_refs[0] : {}
+    return { slug: a.slug, title: a.title, dek: a.dek, branch: ref.branch || 'States', amount: ref.amount || 0 }
+  })
+}
+
+// Legacy fallback: recent cr_weekly picks linked to politician pages.
+async function legacyStories() {
+  const { data } = await supabase
+    .from('cr_weekly').select('headline, blurb, politician_id')
+    .order('picked_at', { ascending: false }).limit(4)
+  const rows = data || []
   const ids = [...new Set(rows.map((r) => r.politician_id).filter(Boolean))]
   const slugById = {}
   if (ids.length) {
-    const { data: pols } = await supabase
-      .from('cr_politicians')
-      .select('id, slug')
-      .in('id', ids)
+    const { data: pols } = await supabase.from('cr_politicians').select('id, slug').in('id', ids)
     for (const p of pols || []) slugById[p.id] = p.slug
   }
-  return rows.map((r) => ({ ...r, _slug: slugById[r.politician_id] || null }))
+  return rows.map((r) => ({
+    slug: null, title: r.headline, dek: r.blurb, branch: 'States', amount: 0,
+    _legacyUrl: slugById[r.politician_id] ? `${SITE}/politician/${slugById[r.politician_id]}` : `${SITE}/leaderboard`,
+  }))
 }
 
-// Landing-page URL: the politician's free donor page (the influence map). Falls
-// back to /leaderboard if the slug is missing.
-function storyUrl(s) {
-  if (s._slug) return `${SITE}/politician/${encodeURIComponent(s._slug)}`
-  return `${SITE}/leaderboard`
+// Create a tracked /c/[token] link row for an article and return the token URL.
+async function trackedLink(issueId, story, links) {
+  const token = nanoid(10)
+  const target = story.slug ? `${SITE}/articles/${encodeURIComponent(story.slug)}` : (story._legacyUrl || `${SITE}/leaderboard`)
+  // Matches the existing cr_newsletter_links schema:
+  //   token, issue_id, week_of, article_slug, destination
+  links.push({ token, issue_id: issueId, week_of: WEEK_OF, article_slug: story.slug || `legacy-${token}`, destination: target })
+  return `${SITE}/c/${token}`
 }
 
-// ── Email rendering ─────────────────────────────────────────
-function buildHtml(weekOf, stories) {
+// ── Email rendering ──
+function renderHtml(weekOf, lead, byBranch, linkFor) {
   const C = { ink: '#1a1a1a', muted: '#666', line: '#e5e5e5', accent: '#0b5', paper: '#faf8f4' }
-  const storyBlocks = stories.map((s) => `
-    <div style="border:1px solid ${C.line};border-radius:10px;padding:20px;margin:0 0 16px 0;background:#fff">
-      <div style="font:600 11px monospace;color:${C.accent};text-transform:uppercase;letter-spacing:1px;margin:0 0 8px 0">Money Trail</div>
-      <div style="font:700 19px Helvetica,Arial,sans-serif;color:${C.ink};margin:0 0 8px 0;line-height:1.25">${esc(s.headline || 'New donor-influence finding')}</div>
-      ${s.blurb ? `<div style="font:400 14px Helvetica,Arial,sans-serif;color:${C.muted};margin:0 0 14px 0;line-height:1.5">${esc(s.blurb)}</div>` : ''}
-      <a href="${storyUrl(s)}" style="display:inline-block;font:700 13px Helvetica,Arial,sans-serif;color:#fff;background:${C.ink};text-decoration:none;padding:9px 16px;border-radius:999px">See the donor map →</a>
+  const card = (s) => `
+    <div style="border:1px solid ${C.line};border-radius:10px;padding:18px;margin:0 0 14px 0;background:#fff">
+      <div style="font:700 17px Helvetica,Arial,sans-serif;color:${C.ink};margin:0 0 6px 0;line-height:1.25">${esc(s.title)}</div>
+      ${s.dek ? `<div style="font:400 14px Helvetica,Arial,sans-serif;color:${C.muted};margin:0 0 12px 0;line-height:1.5">${esc(s.dek)}</div>` : ''}
+      <a href="${linkFor(s)}" style="display:inline-block;font:700 13px Helvetica,Arial,sans-serif;color:#fff;background:${C.ink};text-decoration:none;padding:9px 16px;border-radius:999px">Read the receipt →</a>
+    </div>`
+
+  const ledger = BRANCH_ORDER.filter((b) => byBranch[b]?.length).map((b) => `
+    <div style="margin:26px 0 0 0">
+      <div style="font:700 13px monospace;color:${C.accent};text-transform:uppercase;letter-spacing:1.5px;border-bottom:2px solid ${C.line};padding-bottom:6px;margin-bottom:14px">${esc(BRANCH_LABEL[b])}</div>
+      ${byBranch[b].map(card).join('')}
     </div>`).join('')
 
   return `<!doctype html><html><body style="margin:0;padding:0;background:${C.paper}">
   <div style="max-width:600px;margin:0 auto;padding:32px 20px;font-family:Helvetica,Arial,sans-serif">
     <div style="text-align:center;margin:0 0 8px 0">
-      <div style="font:800 24px Helvetica,Arial,sans-serif;color:${C.ink};letter-spacing:-.5px">💰 Campaign Receipts</div>
-      <div style="font:600 12px monospace;color:${C.muted};text-transform:uppercase;letter-spacing:1px;margin-top:4px">The Weekly Receipt · ${esc(fmtWeek(weekOf))}</div>
+      <div style="font:800 24px Helvetica,Arial,sans-serif;color:${C.ink};letter-spacing:-.5px">💰 Friday Receipts</div>
+      <div style="font:600 12px monospace;color:${C.muted};text-transform:uppercase;letter-spacing:1px;margin-top:4px">Campaign Receipts · ${esc(fmtWeek(weekOf))}</div>
     </div>
-    <p style="font:400 15px Helvetica,Arial,sans-serif;color:${C.ink};line-height:1.55;margin:24px 0">
-      This week's money trails — who funded whom, and the votes that followed. Tap any story to open its donor-influence map (always free to view).
-    </p>
-    ${storyBlocks || `<p style="color:${C.muted}">No new money-trail stories this week. The full database is always live at <a href="${SITE}/leaderboard">${SITE}/leaderboard</a>.</p>`}
-    <div style="border-top:1px solid ${C.line};margin-top:24px;padding-top:20px;text-align:center">
-      <a href="${SITE}/leaderboard" style="font:700 14px Helvetica,Arial,sans-serif;color:${C.ink}">Explore the full donor leaderboard →</a>
+    ${lead ? `
+    <div style="margin:24px 0 8px 0;padding:20px;background:#fff;border:2px solid ${C.ink};border-radius:12px">
+      <div style="font:700 11px monospace;color:${C.accent};text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px">Receipt of the Week</div>
+      <div style="font:800 21px Helvetica,Arial,sans-serif;color:${C.ink};line-height:1.2;margin-bottom:8px">${esc(lead.title)}</div>
+      ${lead.dek ? `<div style="font:400 15px Helvetica,Arial,sans-serif;color:${C.muted};line-height:1.5;margin-bottom:14px">${esc(lead.dek)}</div>` : ''}
+      <a href="${linkFor(lead)}" style="display:inline-block;font:700 14px Helvetica,Arial,sans-serif;color:#fff;background:${C.accent};text-decoration:none;padding:11px 20px;border-radius:999px">See the full receipt →</a>
+    </div>` : ''}
+    <p style="font:400 14px Helvetica,Arial,sans-serif;color:${C.muted};line-height:1.55;margin:22px 0 0">The Ledger — new money connections this week, by branch of government. Every figure is from public FEC filings.</p>
+    ${ledger}
+    <div style="border-top:1px solid ${C.line};margin-top:28px;padding-top:20px;text-align:center">
+      <a href="${SITE}/leaderboard" style="font:700 14px Helvetica,Arial,sans-serif;color:${C.ink}">Explore the full donor database →</a>
       <p style="font:400 12px Helvetica,Arial,sans-serif;color:${C.muted};line-height:1.5;margin:20px 0 0 0">
-        You get this because you subscribed to the Campaign Receipts weekly newsletter.<br/>
-        All donor data is sourced from public FEC filings. <a href="${SITE}/dashboard" style="color:${C.muted}">Manage subscription</a>.
+        You get Friday Receipts because you subscribed at campaignreceipts.com.<br/>
+        All data is from public FEC filings. Timing does not prove causation. <a href="${SITE}/dashboard" style="color:${C.muted}">Manage</a>.
       </p>
     </div>
   </div></body></html>`
 }
 
-function buildText(weekOf, stories) {
-  const lines = [
-    `CAMPAIGN RECEIPTS — The Weekly Receipt — ${fmtWeek(weekOf)}`,
-    ``,
-    `This week's money trails. Tap any link to open its donor-influence map (free).`,
-    ``,
-  ]
-  if (stories.length === 0) {
-    lines.push(`No new money-trail stories this week. Full database: ${SITE}/leaderboard`)
-  } else {
-    for (const s of stories) {
-      lines.push(`• ${s.headline || 'New donor-influence finding'}`)
-      if (s.blurb) lines.push(`  ${s.blurb}`)
-      lines.push(`  See the map: ${storyUrl(s)}`)
-      lines.push(``)
+function renderText(weekOf, lead, byBranch, linkFor) {
+  const L = [`FRIDAY RECEIPTS — ${fmtWeek(weekOf)}`, ``]
+  if (lead) {
+    L.push(`** RECEIPT OF THE WEEK **`, lead.title)
+    if (lead.dek) L.push(lead.dek)
+    L.push(`→ ${linkFor(lead)}`, ``)
+  }
+  L.push(`THE LEDGER — new money connections by branch:`, ``)
+  for (const b of BRANCH_ORDER) {
+    if (!byBranch[b]?.length) continue
+    L.push(`— ${BRANCH_LABEL[b].toUpperCase()} —`)
+    for (const s of byBranch[b]) {
+      L.push(`• ${s.title}`)
+      if (s.dek) L.push(`  ${s.dek}`)
+      L.push(`  → ${linkFor(s)}`, ``)
     }
   }
-  lines.push(`Explore the full leaderboard: ${SITE}/leaderboard`)
-  lines.push(``)
-  lines.push(`You subscribed to the Campaign Receipts weekly newsletter. Manage: ${SITE}/dashboard`)
-  return lines.join('\n')
+  L.push(`Explore the full database: ${SITE}/leaderboard`)
+  L.push(``, `Manage your subscription: ${SITE}/dashboard · All data from public FEC filings.`)
+  return L.join('\n')
 }
 
 async function main() {
-  const weekOf = weekArg || isoMonday()
-  console.log(`Building Weekly Receipt for week_of=${weekOf}${DRY ? ' (DRY RUN)' : ''}`)
+  console.log(`Building Friday Receipts for week_of=${WEEK_OF}${DRY ? ' (DRY RUN)' : ''}`)
 
-  const stories = await recentStories(4)
-  console.log(`Selected ${stories.length} donor-influence stories.`)
+  // Don't clobber a sent issue.
+  const { data: existing } = await supabase
+    .from('cr_newsletter_issues').select('id, status').eq('week_of', WEEK_OF).maybeSingle()
+  if (existing && existing.status === 'sent') {
+    console.log(`Issue for ${WEEK_OF} already 'sent' — not rebuilding.`); return
+  }
 
-  const subject = stories[0]?.headline
-    ? `💰 ${stories[0].headline}`
-    : `💰 The Weekly Receipt — ${fmtWeek(weekOf)}`
-  const html = buildHtml(weekOf, stories)
-  const text = buildText(weekOf, stories)
-  const slugs = stories.map((s) => s._slug).filter(Boolean)
+  let stories = await weeklyArticles()
+  let usingFallback = false
+  if (stories.length === 0) {
+    console.log('No weekly_story articles for this week — falling back to legacy cr_weekly picks.')
+    stories = await legacyStories()
+    usingFallback = true
+  }
+  console.log(`Stories: ${stories.length}${usingFallback ? ' (legacy fallback)' : ''}`)
+
+  if (stories.length === 0) {
+    console.log('Nothing to build. Marking issue skipped.')
+    if (!DRY) await supabase.from('cr_newsletter_issues').upsert(
+      { week_of: WEEK_OF, subject: `Friday Receipts — ${fmtWeek(WEEK_OF)}`, html: '', text_body: '', status: 'skipped', receipts_count: 0, updated_at: new Date().toISOString() },
+      { onConflict: 'week_of' })
+    return
+  }
+
+  // Sort: highest amount leads. Group the rest by branch.
+  stories.sort((a, b) => Number(b.amount) - Number(a.amount))
+  const lead = stories[0]
+  const rest = stories.slice(1)
+  const byBranch = {}
+  for (const s of rest) (byBranch[s.branch] = byBranch[s.branch] || []).push(s)
+
+  const branchStorySlugs = {}
+  for (const s of stories) (branchStorySlugs[s.branch] = branchStorySlugs[s.branch] || []).push(s.slug || null)
+
+  // We need the issue id to attach click links. Upsert a shell first to get the id
+  // (skip in dry-run; use a placeholder so link URLs render).
+  let issueId = existing?.id || null
+  const links = []
+  if (!DRY && !issueId) {
+    const { data: shell, error: shellErr } = await supabase.from('cr_newsletter_issues')
+      .upsert({ week_of: WEEK_OF, subject: 'building…', html: '', text_body: '', status: 'building', updated_at: new Date().toISOString() }, { onConflict: 'week_of' })
+      .select('id').single()
+    if (shellErr) { console.error('shell upsert error:', shellErr.message); process.exit(1) }
+    issueId = shell.id
+  }
+
+  // Build a per-story tracked link map.
+  const linkMap = new Map()
+  for (const s of stories) {
+    if (DRY) { linkMap.set(s, `${SITE}/c/<token>`); continue }
+    linkMap.set(s, await trackedLink(issueId, s, links))
+  }
+  const linkFor = (s) => linkMap.get(s) || `${SITE}/leaderboard`
+
+  const subject = `💰 ${lead.title}`
+  const html = renderHtml(WEEK_OF, lead, byBranch, linkFor)
+  const text = renderText(WEEK_OF, lead, byBranch, linkFor)
 
   if (DRY) {
     console.log(`\nSubject: ${subject}`)
-    console.log(`Stories: ${slugs.join(', ') || '(none)'}`)
-    console.log(`\n--- TEXT BODY ---\n${text}\n`)
+    console.log(`Lead: ${lead.title} (${lead.branch})`)
+    console.log(`Branches: ${Object.entries(byBranch).map(([b, a]) => `${b}:${a.length}`).join(' ')}`)
+    console.log(`\n--- TEXT ---\n${text}\n`)
     console.log('DRY RUN — nothing written.')
     return
   }
 
-  // Don't clobber an already-sent issue (prevents accidental double-send).
-  const { data: existing } = await supabase
-    .from('cr_newsletter_issues')
-    .select('status')
-    .eq('week_of', weekOf)
-    .maybeSingle()
-  if (existing && existing.status === 'sent') {
-    console.log(`Issue for ${weekOf} is already 'sent' — not rebuilding. Done.`)
-    return
+  // Replace this issue's link rows, then finalize the issue.
+  await supabase.from('cr_newsletter_links').delete().eq('issue_id', issueId)
+  if (links.length) {
+    const { error: linkErr } = await supabase.from('cr_newsletter_links').insert(links)
+    if (linkErr) console.error('link insert error:', linkErr.message)
   }
 
-  const { error } = await supabase
-    .from('cr_newsletter_issues')
-    .upsert({
-      week_of: weekOf,
-      subject,
-      html,
-      text_body: text,
-      top_story_slugs: slugs,
-      receipts_count: stories.length,
-      status: 'built',
-      updated_at: new Date().toISOString(),
-    }, { onConflict: 'week_of' })
-
+  const { error } = await supabase.from('cr_newsletter_issues').upsert({
+    week_of: WEEK_OF, subject, html, text_body: text,
+    top_story_slugs: stories.map((s) => s.slug).filter(Boolean),
+    branch_story_slugs: branchStorySlugs,
+    receipts_count: stories.length,
+    status: 'built',
+    updated_at: new Date().toISOString(),
+  }, { onConflict: 'week_of' })
   if (error) { console.error('upsert error:', error.message); process.exit(1) }
-  console.log(`Built issue for ${weekOf} (${stories.length} stories). Ready for Phase 2 send.`)
+
+  await supabase.from('cr_weekly_runs').upsert(
+    { week_of: WEEK_OF, stage_build: { issue_id: issueId, stories: stories.length, fallback: usingFallback, links: links.length }, updated_at: new Date().toISOString() },
+    { onConflict: 'week_of' })
+
+  console.log(`Built Friday Receipts for ${WEEK_OF}: ${stories.length} stories, ${links.length} tracked links. Ready to send.`)
 }
 
 main().catch((e) => { console.error('FATAL:', e.message); process.exit(1) })

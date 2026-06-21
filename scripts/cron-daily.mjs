@@ -97,17 +97,27 @@ if (isOrchestrator) {
   if (day === 0 && hour === 4) results.fecWeekly = runStep('fec-sync-weekly', ['scripts/fec-sync.mjs', '--all-federal', '--cycle=2024'])
   // 06:00 UTC Monday
   if (day === 1 && hour === 6) results.billsWeekly = runStep('seed-bills', ['scripts/seed-bills.mjs', '--congress=119'])
-  // 12:00 UTC Thursday — build the donor-influence Weekly Receipt issue, so it
-  // exists before the Friday-05:00-local sends begin (Phase 1 -> Phase 2).
-  if (day === 4 && hour === 12) {
-    results.weeklyPick = runStep('pick-weekly', ['scripts/pick-weekly.mjs'])
-    results.newsletterBuild = runStep('weekly-newsletter-build', ['scripts/weekly-newsletter-build.mjs'])
-  }
+
   // 08:00 UTC Daily (Compute Nightly)
   if (hour === 8) {
     results.alignment = runStep('compute-alignment', ['scripts/compute-alignment.mjs'])
     results.billMoney = runStep('compute-bill-money-trail', ['scripts/compute-bill-money-trail.mjs'])
+    // A′: journal the freshly-computed money state into the append-only ledger so
+    // detection can find "what's new this week" (live FEC tables overwrite).
+    results.journalEvents = runStep('record-finance-events', ['scripts/record-finance-events.mjs'])
   }
+
+  // ── Friday Receipts chain (Thursday UTC, finishing before the earliest
+  //    local-Friday-05:00 send at Thu 15:00 UTC for UTC+14). ──
+  // 10:00 Thu — detect new money connections, rank, write story candidates.
+  if (day === 4 && hour === 10) results.detect = runStep('detect-new-connections', ['scripts/detect-new-connections.mjs'])
+  // 11:00 Thu — generate the 6 branch articles with Opus.
+  if (day === 4 && hour === 11) results.stories = runStep('generate-weekly-stories', ['scripts/generate-weekly-stories.mjs'])
+  // 12:00 Thu — build the branch-grouped Friday Receipts issue (Phase 1 -> Phase 2).
+  if (day === 4 && hour === 12) results.newsletterBuild = runStep('weekly-newsletter-build', ['scripts/weekly-newsletter-build.mjs'])
+
+  // 13:00 UTC Saturday — viral digest: email founder the most-clicked title.
+  if (day === 6 && hour === 13) results.viralDigest = runStep('weekly-viral-digest', ['scripts/weekly-viral-digest.mjs'])
 
   // 13:00 UTC (9am ET)
   if (hour === 13) {
