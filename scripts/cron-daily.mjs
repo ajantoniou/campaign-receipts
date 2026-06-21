@@ -101,6 +101,12 @@ if (isOrchestrator) {
   if (day === 0 && hour === 4) results.fecWeekly = runStep('fec-sync-weekly', ['scripts/fec-sync.mjs', '--all-federal', '--cycle=2024'])
   // 06:00 UTC Monday
   if (day === 1 && hour === 6) results.billsWeekly = runStep('seed-bills', ['scripts/seed-bills.mjs', '--congress=119'])
+  // 07:00 UTC Monday — bill→committee referral (new bills) + recent Senate votes,
+  // so the gatekeeper chain + the Senate side of "the record" stay current.
+  if (day === 1 && hour === 7) {
+    results.billCommittees = runStep('sync-bill-committees', ['scripts/sync-bill-committees.mjs', '--limit=200'])
+    results.senateVotes = runStep('sync-senate-rollcalls', ['scripts/sync-senate-rollcalls.mjs', '--recent=40'])
+  }
 
   // 08:00 UTC Daily (Compute Nightly)
   if (hour === 8) {
