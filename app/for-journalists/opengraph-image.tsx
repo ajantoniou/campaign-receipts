@@ -37,7 +37,7 @@ export default function Image() {
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 15, color: NAVY, marginTop: 20 }}>
-          <div style={{ display: 'flex' }}>A citation that survives an editor · $45/mo</div>
+          <div style={{ display: 'flex' }}>A citation that survives an editor · free</div>
           <div style={{ display: 'flex', fontWeight: 700 }}>campaignreceipts.com/for-journalists</div>
         </div>
       </div>

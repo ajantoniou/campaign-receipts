@@ -88,10 +88,7 @@ const results = {}
 
 // Hourly jobs
 results.newsletterSend = runStep('weekly-newsletter-send', ['scripts/weekly-newsletter-send.mjs'])
-results.syncMarkets = runStep('sync-markets', ['scripts/sync-markets.mjs'])
-results.syncAllMarkets = runStep('sync-all-markets', ['scripts/sync-all-markets.mjs'])
-results.marketAlertNotify = runStep('market-alert-notify', ['scripts/market-alert-notify.mjs'])
-results.marketAlerts = runStep('market-alerts', ['scripts/cron-market-alerts.mjs'])
+// Prediction-market sync/alert jobs removed — project reverted to donor-influence focus.
 
 if (isOrchestrator) {
   console.log(`\n=== Running Master Orchestrator (UTC Day: ${day}, Hour: ${hour}) ===`)
@@ -100,6 +97,12 @@ if (isOrchestrator) {
   if (day === 0 && hour === 4) results.fecWeekly = runStep('fec-sync-weekly', ['scripts/fec-sync.mjs', '--all-federal', '--cycle=2024'])
   // 06:00 UTC Monday
   if (day === 1 && hour === 6) results.billsWeekly = runStep('seed-bills', ['scripts/seed-bills.mjs', '--congress=119'])
+  // 12:00 UTC Thursday — build the donor-influence Weekly Receipt issue, so it
+  // exists before the Friday-05:00-local sends begin (Phase 1 -> Phase 2).
+  if (day === 4 && hour === 12) {
+    results.weeklyPick = runStep('pick-weekly', ['scripts/pick-weekly.mjs'])
+    results.newsletterBuild = runStep('weekly-newsletter-build', ['scripts/weekly-newsletter-build.mjs'])
+  }
   // 08:00 UTC Daily (Compute Nightly)
   if (hour === 8) {
     results.alignment = runStep('compute-alignment', ['scripts/compute-alignment.mjs'])
@@ -113,10 +116,6 @@ if (isOrchestrator) {
     results.purgeAuth = await purgeExpiredAuth()
   }
 
-  // 22:00 UTC Thursday (Weekly content generation)
-  if (hour === 22 && day === 4) {
-    results.contentBuild = runStep('weekly-content-build', ['scripts/weekly-content-build.mjs'])
-  }
 } else {
   // Manual trigger via npm script or console (runs the daily 13:00 payload)
   results.archive = await archivePastRaces()

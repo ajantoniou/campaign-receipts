@@ -151,15 +151,14 @@ export default function AboutPage() {
               pledge — not whether we approve of the politician.
             </li>
             <li>
-              <strong className="font-medium text-ink">Paywalled facts.</strong> The directory and
-              all verdicts are free. The Bundle ($45/mo) is the commercial-use license that
-              journalists and content creators need to publish work built on this data — not a
-              gate on the underlying facts.
+              <strong className="font-medium text-ink">Free facts.</strong> The directory, the donor
+              maps, the search, and all verdicts are free — no gate on the underlying data. The only
+              paid product is the weekly newsletter ($12/mo), a convenience that summarizes the week’s
+              money trails and links you into the free maps.
             </li>
             <li>
-              <strong className="font-medium text-ink">Politician donations.</strong> No advertising,
-              no politician donations accepted. Revenue: SEALED Press book sales + Bundle newsroom
-              licenses. That's it.
+              <strong className="font-medium text-ink">Politician donations.</strong> No
+              politician donations accepted. Revenue: the weekly newsletter + YouTube. That's it.
             </li>
           </ul>
         </div>

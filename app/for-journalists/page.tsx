@@ -15,7 +15,7 @@ import HowItWorksFlow from '@/app/components/HowItWorksFlow'
 export const metadata = {
   title: 'The donor database for reporters | CampaignReceipts',
   description:
-    'Search any bill, politician, donor, or vote. See who paid them. Cross-linked, updated daily, sourced. $45 a month. Built for newsrooms.',
+    'Search any bill, politician, donor, or vote. See who paid them. Cross-linked, updated daily, sourced. Free. Built for newsrooms.',
 }
 
 export default function ForJournalistsPage() {
@@ -37,15 +37,15 @@ export default function ForJournalistsPage() {
               the cross-linking. You just search.
             </p>
             <p className="mt-3 font-sans text-[15px] text-ink-3 leading-relaxed max-w-2xl">
-              Sourced to FEC and Congress.gov. Updated every day. $45 a month.
+              Sourced to FEC and Congress.gov. Updated every day. Free to search.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a
-                href="/api/checkout?product=software"
+              <Link
+                href="/investigate"
                 className="inline-flex items-center gap-2 rounded-full bg-ink text-paper hover:bg-ink-2 font-sans text-[15px] font-medium px-6 py-3 transition-colors border border-ink"
               >
-                Start for $45/mo →
-              </a>
+                Start searching — free →
+              </Link>
               <Link
                 href="/leaderboard"
                 className="inline-flex items-center gap-2 rounded-full bg-paper text-ink hover:bg-paper-2 font-sans text-[15px] font-medium px-6 py-3 transition-colors border border-line"
@@ -130,7 +130,7 @@ export default function ForJournalistsPage() {
             ]}
             verdict="pending"
             stampLabel="In the data"
-            footLeft="★ One row from the search — $45/mo"
+            footLeft="★ One row from the search — free"
             footRight="campaignreceipts.com/investigate"
           />
           <p className="mt-4 font-sans text-[13px] text-ink-3 leading-relaxed">
@@ -163,7 +163,7 @@ export default function ForJournalistsPage() {
         </div>
       </section>
 
-      {/* SIGN-UP — FLAT $45 */}
+      {/* SIGN-UP — FREE DATA */}
       <section id="access" className="section-shell py-12 sm:py-16 scroll-mt-20">
         <div className="max-w-[760px] mx-auto">
           <div className="rounded-2xl border border-line bg-paper-2 p-8 sm:p-10">
@@ -171,20 +171,20 @@ export default function ForJournalistsPage() {
               For reporters and watchdogs
             </div>
             <h2 className="font-display text-[30px] sm:text-[38px] leading-[1.05] tracking-[-0.005em] text-ink m-0">
-              $45 a month. Cancel anytime.
+              Free for everyone. No account needed.
             </h2>
             <p className="mt-4 font-sans text-[16px] text-ink-2 leading-relaxed max-w-xl">
               Search any bill, politician, donor, or vote. Every claim is
-              sourced. Updated daily. One flat price for everyone — a big
-              newsroom or a one-person watchdog.
+              sourced. Updated daily. Free for everyone — a big newsroom or a
+              one-person watchdog.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a
-                href="/api/checkout?product=software"
+              <Link
+                href="/investigate"
                 className="inline-flex items-center gap-2 rounded-full bg-ink text-paper hover:bg-ink-2 font-sans text-[15px] font-medium px-6 py-3 transition-colors border border-ink"
               >
-                Start for $45/mo →
-              </a>
+                Start searching — free →
+              </Link>
               <Link
                 href="/leaderboard"
                 className="inline-flex items-center gap-2 rounded-full bg-paper text-ink hover:bg-paper-2 font-sans text-[15px] font-medium px-6 py-3 transition-colors border border-line"
@@ -192,10 +192,10 @@ export default function ForJournalistsPage() {
                 See the free leaderboard
               </Link>
               <Link
-                href="/pricing"
+                href="/#newsletter"
                 className="font-sans text-[14px] text-ink underline underline-offset-4 decoration-line hover:decoration-ink"
               >
-                See all plans
+                Get the weekly receipt
               </Link>
             </div>
             <p className="mt-6 font-sans text-[13px] text-ink-3 leading-relaxed">

@@ -1,31 +1,33 @@
 import Link from 'next/link'
-import { TrendingUp, TerminalSquare } from 'lucide-react'
+import { Search, ArrowRight } from 'lucide-react'
 
+// Donor-influence CTA shown on bill / detail pages. (Formerly an "Alpha Terminal"
+// prediction-market CTA — reverted to the donor-influence model 2026-06-20: all
+// data is free; this nudges readers into the free money-trail tools.)
 export default function TerminalCTA({ title }: { title?: string }) {
+  const subject = title ? `this ${title}` : 'this'
   return (
-    <div className="my-12 relative overflow-hidden rounded-lg border border-[#333] bg-[#0a0a0a] p-8 text-center sm:text-left sm:flex sm:items-center sm:justify-between shadow-2xl">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#00FF00]/5 to-transparent pointer-events-none" />
-      
+    <div className="my-12 relative overflow-hidden rounded-lg border border-line bg-paper-2 p-8 text-center sm:text-left sm:flex sm:items-center sm:justify-between">
       <div className="relative z-10 sm:max-w-xl">
-        <div className="flex items-center justify-center sm:justify-start gap-2 text-[#58A6FF] mb-3">
-          <TerminalSquare className="w-5 h-5" />
-          <span className="font-mono text-xs uppercase tracking-widest font-bold">Alpha Terminal</span>
+        <div className="flex items-center justify-center sm:justify-start gap-2 text-ink-2 mb-3">
+          <Search className="w-5 h-5" />
+          <span className="font-mono text-xs uppercase tracking-widest font-bold">Follow the money</span>
         </div>
-        <h3 className="text-2xl font-display font-bold text-white mb-2 leading-tight">
-          Trade the outcome of {title ? `this ${title}` : 'this legislation'}.
+        <h3 className="text-2xl font-display font-bold text-ink mb-2 leading-tight">
+          See who funded {subject}.
         </h3>
-        <p className="text-[#888] text-sm leading-relaxed mb-6 sm:mb-0">
-          Get institutional-grade predictions, calculated arbitrage gaps, and real-time PAC money flows on political betting markets. 
+        <p className="text-ink-2 text-sm leading-relaxed mb-6 sm:mb-0">
+          Trace the donors, PACs, and industries behind it — cross-linked to votes and sourced to public FEC filings. Always free.
         </p>
       </div>
 
       <div className="relative z-10 sm:ml-6 shrink-0">
-        <Link 
-          href="/betting"
-          className="inline-flex items-center justify-center gap-2 bg-[#00FF00] text-black font-mono font-bold text-sm px-6 py-3 rounded hover:bg-[#00cc00] transition-colors whitespace-nowrap"
+        <Link
+          href="/investigate"
+          className="inline-flex items-center justify-center gap-2 bg-ink text-paper font-mono font-bold text-sm px-6 py-3 rounded hover:bg-ink-2 transition-colors whitespace-nowrap"
         >
-          <TrendingUp className="w-4 h-4" />
-          OPEN TERMINAL
+          OPEN THE MONEY TRAIL
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>

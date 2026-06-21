@@ -1,124 +1,84 @@
 import { supabaseRead } from '../lib/supabase';
-import { MarketCard } from '@/components/MarketCard';
-import { SimulatedLandingPageCard } from '@/components/SimulatedLandingPageCard';
 import Link from 'next/link';
 import ClientPageGSAPWrapper from '@/components/ClientPageGSAPWrapper';
 
-// The new flow:
-// HERO-->Super well organized Political prediction markets list-->How it Works-->Newsleter Signup -->Footer. done.
+// Campaign Receipts homepage — showcase DONOR INFLUENCE.
+// Flow: HERO --> What we track --> Explore (links to the real donor pages)
+//       --> Newsletter --> Footer.
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 300; // Revalidate every 5 minutes
 
-export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
-  const filter = searchParams.filter as string || 'volume';
-
-  const { data: allMarkets } = await supabaseRead
-    .from('cr_prediction_markets')
-    .select('*');
-
-  let markets = allMarkets || [];
-
-  // Post-process
-  markets = markets.map(m => {
-    let implied = 50;
-    if (m.outcomes && m.outcomes.length > 0) {
-      implied = m.outcomes[0].price * (m.outcomes[0].price <= 1 ? 100 : 1);
-    }
-    return { ...m, _implied: implied };
-  });
-
-  const now = new Date();
-
-  if (filter === 'expiring-3m') {
-    const limit = new Date(); limit.setMonth(now.getMonth() + 3);
-    markets = markets.filter(m => m.end_date && new Date(m.end_date) <= limit && new Date(m.end_date) >= now);
-    markets.sort((a, b) => new Date(a.end_date as string).getTime() - new Date(b.end_date as string).getTime());
-  } else if (filter === 'expiring-6m') {
-    const limit = new Date(); limit.setMonth(now.getMonth() + 6);
-    markets = markets.filter(m => m.end_date && new Date(m.end_date) <= limit && new Date(m.end_date) >= now);
-    markets.sort((a, b) => new Date(a.end_date as string).getTime() - new Date(b.end_date as string).getTime());
-  } else if (filter === 'expiring-2y') {
-    const limit = new Date(); limit.setFullYear(now.getFullYear() + 2);
-    markets = markets.filter(m => m.end_date && new Date(m.end_date) <= limit && new Date(m.end_date) >= now);
-    markets.sort((a, b) => new Date(a.end_date as string).getTime() - new Date(b.end_date as string).getTime());
-  } else if (filter === 'implied-asc') {
-    markets.sort((a, b) => a._implied - b._implied);
-  } else if (filter === 'implied-desc') {
-    markets.sort((a, b) => b._implied - a._implied);
-  } else {
-    markets.sort((a, b) => (b.volume_usd || 0) - (a.volume_usd || 0));
+export default async function Home() {
+  // Light, defensive headline stats from the donor-influence core. Each is wrapped
+  // so a missing table never breaks the homepage.
+  let politicianCount = 0;
+  let raceCount = 0;
+  try {
+    const { count: pc } = await supabaseRead
+      .from('cr_politicians')
+      .select('*', { count: 'exact', head: true });
+    politicianCount = pc || 0;
+    const { count: rc } = await supabaseRead
+      .from('cr_races')
+      .select('*', { count: 'exact', head: true });
+    raceCount = rc || 0;
+  } catch {
+    // stats are decorative; ignore failures
   }
 
-  markets = markets.slice(0, 50);
-
-  const pills = [
-    { id: 'volume', label: '🔥 Largest Volume' },
-    { id: 'expiring-3m', label: '⏳ < 3 Months' },
-    { id: 'expiring-6m', label: '⏳ < 6 Months' },
-    { id: 'expiring-2y', label: '⏳ < 2 Years' },
-    { id: 'implied-asc', label: '📉 Lowest Implied Odds' },
-    { id: 'implied-desc', label: '📈 Highest Implied Odds' },
+  const explore = [
+    { href: '/leaderboard', emoji: '🏆', title: 'Donor Leaderboard', desc: 'Who funds whom — the biggest PACs and company money flowing to the politicians we track.' },
+    { href: '/big-donor-map', emoji: '🗺️', title: 'Big Donor Map', desc: 'Follow the money from donor to race to outcome, mapped end-to-end.' },
+    { href: '/foreign-donors', emoji: '🌐', title: 'Foreign Donor Records', desc: 'Where foreign-linked money shows up in U.S. political finance.' },
+    { href: '/bills', emoji: '📜', title: 'Bill Money Trails', desc: 'Which industries funded the sponsors behind the bills that matter.' },
+    { href: '/race', emoji: '🗳️', title: 'Races', desc: 'Campaign-finance breakdowns for individual races and candidates.' },
+    { href: '/investigate', emoji: '🔍', title: 'Investigate', desc: 'Search politicians, donors, and committees across the full dataset.' },
   ];
 
   return (
     <ClientPageGSAPWrapper>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent/20 rounded-full blur-[120px] pointer-events-none -z-10 mix-blend-screen opacity-30" />
-      
-      {/* 1. HERO SECTION */}
+
+      {/* 1. HERO */}
       <section className="reveal w-full max-w-5xl pt-32 px-6 text-center flex flex-col items-center gap-8">
         <h1 className="text-5xl md:text-7xl font-display font-[800] tracking-[-0.04em] text-primary leading-[1.05]">
-          Think donor influence data can improve your <span className="font-serif italic font-normal text-white">odds?</span> <span className="text-accent">*</span>
+          Follow the money behind <span className="font-serif italic font-normal text-white">every vote.</span>
         </h1>
         <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
-          We ingest real-time FEC data, Super PAC filings, and K-Street lobbying records to give you the ultimate edge in political prediction markets. Stop guessing.
+          Campaign Receipts ingests real-time FEC filings, Super PAC spending, and lobbying records to show
+          you exactly who funds your politicians — and how that money tracks their votes.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Link href="/pricing" className="btn-primary">Apply for Access</Link>
-          <Link href="#newsletter" className="btn-secondary">Free Weekly Pulse</Link>
+          <Link href="/leaderboard" className="btn-primary">Explore the Leaderboard</Link>
+          <Link href="#newsletter" className="btn-secondary">Free Weekly Receipt</Link>
         </div>
+        {(politicianCount > 0 || raceCount > 0) && (
+          <div className="flex gap-8 mt-6 font-mono text-xs tracking-[0.1em] uppercase text-text-muted">
+            {politicianCount > 0 && <span><span className="text-primary font-bold">{politicianCount.toLocaleString()}</span> politicians tracked</span>}
+            {raceCount > 0 && <span><span className="text-primary font-bold">{raceCount.toLocaleString()}</span> races mapped</span>}
+            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success animate-pulse-glow"></span> FEC data: live</span>
+          </div>
+        )}
       </section>
 
-      {/* 2. MARKETS LIST */}
+      {/* 2. EXPLORE THE DONOR-INFLUENCE DATA */}
       <section className="reveal w-full max-w-[1200px] px-6 flex flex-col gap-6">
-        <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
-          <div className="flex justify-between items-baseline">
-            <h2 className="text-2xl font-display font-bold text-primary tracking-tight">Live Political Markets</h2>
-            <div className="text-[11px] font-mono tracking-[0.1em] uppercase text-text-muted flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-success animate-pulse-glow"></span>
-              Syncing live from Polymarket, PredictIt, Kalshi
-            </div>
-          </div>
-          
-          {/* Toggles / Pills */}
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
-            {pills.map(p => (
-              <Link 
-                key={p.id} 
-                href={`/?filter=${p.id}`}
-                className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold font-mono transition-colors border ${
-                  filter === p.id 
-                    ? 'bg-primary text-background border-primary' 
-                    : 'bg-white/5 text-text-muted border-white/10 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                {p.label}
-              </Link>
-            ))}
-          </div>
+        <div className="flex flex-col gap-2 border-b border-white/10 pb-4">
+          <h2 className="text-2xl font-display font-bold text-primary tracking-tight">Explore the money trail</h2>
+          <p className="text-sm text-text-muted">Every figure below is sourced from public FEC filings and roll-call records.</p>
         </div>
-
-        {/* Carousel on Mobile / Grid on Desktop */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 pb-6 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
-          {markets.map((market) => (
-            <div key={market.slug} className="min-w-[85vw] sm:min-w-[400px] md:min-w-0 snap-center">
-              <MarketCard dbMarket={market} />
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {explore.map((c) => (
+            <Link
+              key={c.href}
+              href={c.href}
+              className="glass-panel p-8 flex flex-col gap-3 border border-white/5 hover:border-white/20 transition-colors group"
+            >
+              <div className="text-3xl">{c.emoji}</div>
+              <h3 className="text-xl font-display font-bold text-primary group-hover:text-white transition-colors">{c.title}</h3>
+              <p className="text-sm text-text-muted leading-relaxed">{c.desc}</p>
+            </Link>
           ))}
-          {markets.length === 0 && (
-            <div className="col-span-full py-12 text-center text-text-muted font-mono">
-              No active markets match this filter.
-            </div>
-          )}
         </div>
       </section>
 
@@ -126,98 +86,41 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
       <section className="reveal w-full max-w-[1200px] px-6 relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10 opacity-50" />
         <div className="glass-panel p-12 md:p-16 flex flex-col gap-16 border-none bg-surface/50">
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-primary tracking-tight text-center">How Alpha Engine Works</h2>
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-primary tracking-tight text-center">How Campaign Receipts works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             <div className="flex flex-col items-center text-center gap-4">
               <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary text-lg font-mono font-bold">1</div>
-              <h3 className="text-xl font-display font-bold text-primary">Live Ingestion</h3>
-              <p className="text-sm text-text-muted leading-relaxed">We continuously pull real-time odds from prediction markets and cross-reference them with live events.</p>
+              <h3 className="text-xl font-display font-bold text-primary">Ingest the filings</h3>
+              <p className="text-sm text-text-muted leading-relaxed">We continuously pull FEC receipts, independent expenditures, and PAC contributions from the public record.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-4">
               <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary text-lg font-mono font-bold">2</div>
-              <h3 className="text-xl font-display font-bold text-primary">Deep Data Mining</h3>
-              <p className="text-sm text-text-muted leading-relaxed">Our models analyze FEC filings, Super PAC burn rates, and K-Street lobbying disclosures to find the hidden money trails.</p>
+              <h3 className="text-xl font-display font-bold text-primary">Trace the money</h3>
+              <p className="text-sm text-text-muted leading-relaxed">We connect donors and industries to the politicians, races, and bills they fund — building the money trail.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-4">
               <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary text-lg font-mono font-bold">3</div>
-              <h3 className="text-xl font-display font-bold text-primary">The Alpha Edge</h3>
-              <p className="text-sm text-text-muted leading-relaxed">We expose true probabilities, uncovering arbitrage opportunities where the market consensus is demonstrably wrong.</p>
-            </div>
-          </div>
-          
-          <div className="flex flex-col gap-8 pt-12 border-t border-white/5 mt-4">
-            <div className="text-center">
-              <h3 className="text-xl font-display font-bold text-primary mb-2">Simulated Live Arbitrage Scenarios</h3>
-              <p className="text-sm text-text-muted">Here is what the $49/mo Paywalled Intel Box reveals when our engine finds an inefficiency.</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <SimulatedLandingPageCard market={{
-                source: "PREDICTIT",
-                question: "Will Tulsi Gabbard leave office in 2026?",
-                implied: 5,
-                alpha: 90
-              }} />
-              <SimulatedLandingPageCard market={{
-                source: "PREDICTIT",
-                question: "Who will place first in round one of the 2026 Colombian presidential election?",
-                implied: 99,
-                alpha: 5
-              }} />
-              <SimulatedLandingPageCard market={{
-                source: "POLYMARKET",
-                question: "Which party will win the Senate in 2026?",
-                implied: 43,
-                alpha: 58.5
-              }} />
-              <SimulatedLandingPageCard market={{
-                source: "POLYMARKET",
-                question: "Will any presidential candidate win outright in the first round of the Brazil election?",
-                implied: 20,
-                alpha: 38
-              }} />
+              <h3 className="text-xl font-display font-bold text-primary">Show the influence</h3>
+              <p className="text-sm text-text-muted leading-relaxed">We surface how donor money lines up with roll-call votes, so you can judge the influence for yourself.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. NEWSLETTER & TERMINAL CTAs */}
+      {/* 4. NEWSLETTER */}
       <section id="newsletter" className="reveal w-full max-w-[1200px] px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {/* Free Newsletter CTA */}
-          <div className="glass-panel p-10 flex flex-col justify-between gap-8">
-            <div className="flex flex-col gap-4">
-              <div className="text-[11px] font-mono tracking-[0.1em] text-text-muted uppercase">Free Tier</div>
-              <h3 className="text-3xl font-display font-bold text-primary tracking-tight">Weekly Market Pulse</h3>
-              <p className="text-text-muted leading-relaxed">
-                Get a weekly digest of the biggest political prediction markets, major odds shifts, and free insights delivered straight to your inbox.
-              </p>
-            </div>
-            <form className="flex flex-col sm:flex-row gap-3" action="https://formspree.io/f/placeholder" method="POST">
-              <input type="email" placeholder="Your best email..." className="flex-1 bg-background border border-white/10 rounded-full px-6 py-3 text-primary text-sm focus:outline-none focus:border-white/30 transition-colors" required />
-              <button type="submit" className="btn-secondary">Subscribe</button>
-            </form>
+        <div className="glass-panel p-10 md:p-12 flex flex-col gap-8 max-w-2xl mx-auto text-center items-center">
+          <div className="flex flex-col gap-4">
+            <div className="text-[11px] font-mono tracking-[0.1em] text-text-muted uppercase">Free Weekly</div>
+            <h3 className="text-3xl font-display font-bold text-primary tracking-tight">The Weekly Receipt</h3>
+            <p className="text-text-muted leading-relaxed">
+              A weekly digest of the most revealing money trails — big donors, industry spending, and the votes that followed.
+            </p>
           </div>
-
-          {/* Premium Terminal CTA */}
-          <div className="glass-panel p-10 border border-accent/20 bg-accent/5 flex flex-col justify-between gap-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-accent text-background text-[10px] font-mono font-bold px-4 py-1.5 tracking-wider rounded-bl-lg">
-              100 SEATS ONLY
-            </div>
-            <div className="flex flex-col gap-4">
-              <div className="text-[11px] font-mono tracking-[0.1em] text-accent uppercase">Trader Edge Tier</div>
-              <h3 className="text-3xl font-display font-bold text-primary tracking-tight">Full Data Intelligence</h3>
-              <p className="text-text-muted leading-relaxed">
-                Unrestricted access to the Alpha Engine. Live FEC insights, real-time alerts, and proprietary true-odds modeling to preserve your betting edge.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4">
-              <div className="text-4xl font-display font-bold text-primary">$499<span className="text-lg text-text-muted font-sans font-normal"> / month</span></div>
-              <button className="w-full btn-primary bg-accent hover:bg-accent/90 border-none shadow-glow shadow-accent/30">Apply for Access</button>
-            </div>
-          </div>
-
+          <form className="flex flex-col sm:flex-row gap-3 w-full max-w-md" action="/api/newsletter-signup" method="POST">
+            <input type="email" name="email" placeholder="Your best email..." className="flex-1 bg-background border border-white/10 rounded-full px-6 py-3 text-primary text-sm focus:outline-none focus:border-white/30 transition-colors" required />
+            <button type="submit" className="btn-primary">Subscribe</button>
+          </form>
         </div>
       </section>
     </ClientPageGSAPWrapper>

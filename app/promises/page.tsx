@@ -270,7 +270,7 @@ export default async function PromisesIndexPage({
               See who paid for the vote →
             </Link>
             <span className="text-ink-3">or</span>
-            <Link href="/pricing" className="text-authority-700 underline-offset-4 hover:underline font-sans text-[14px]">
+            <Link href="/#newsletter" className="text-authority-700 underline-offset-4 hover:underline font-sans text-[14px]">
               Get the weekly bill email →
             </Link>
           </div>

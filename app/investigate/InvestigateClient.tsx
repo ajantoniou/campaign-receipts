@@ -185,13 +185,13 @@ export default function InvestigateClient({
           Congress records. If it&apos;s not in the data, we say so.
         </p>
         <p className="mt-2 font-sans text-[14px] text-ink-3 leading-[1.5]">
-          $45/mo. 100 searches a month. Each search opens a chat you can keep digging in for free.
+          Free to use. Each search opens a chat you can keep digging in.
         </p>
         <Link
-          href="/api/checkout?product=software"
+          href="/investigate"
           className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-ink hover:bg-ink-2 text-paper font-sans text-[14px] font-medium px-5 py-2.5 no-underline transition-colors"
         >
-          Get Donor Intelligence — $45/mo →
+          Start searching — free →
         </Link>
       </div>
     )
