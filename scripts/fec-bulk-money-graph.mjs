@@ -28,12 +28,14 @@
 //   node scripts/fec-bulk-money-graph.mjs --cycles=2020,2022,2024,2026
 
 import { createClient } from '@supabase/supabase-js'
-import { createWriteStream, createReadStream, mkdtempSync, rmSync } from 'node:fs'
+import { createWriteStream, mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { createInterface } from 'node:readline'
-import { execFileSync } from 'node:child_process'
 import { pipeline } from 'node:stream/promises'
+import yauzl from 'yauzl'
+// NOTE: uses the yauzl Node library (already a dependency) to read the .zip — NO
+// `unzip` CLI, which is not present on Render. Streams the single .txt entry.
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -54,8 +56,28 @@ async function download(url, dest) {
   await pipeline(r.body, createWriteStream(dest))
 }
 
-function unzip(zipPath, outDir) {
-  execFileSync('unzip', ['-o', '-q', zipPath, '-d', outDir])
+// Open the (single) entry inside a FEC .zip and yield a readline interface over it.
+// Pure Node via yauzl — no `unzip` CLI (absent on Render). Calls onLine per row,
+// resolves when done. lazyEntries keeps memory flat on the 120MB+ files.
+function streamZipLines(zipPath, onLine) {
+  return new Promise((resolve, reject) => {
+    yauzl.open(zipPath, { lazyEntries: true }, (err, zip) => {
+      if (err) return reject(err)
+      let count = 0
+      zip.on('entry', (entry) => {
+        if (/\/$/.test(entry.fileName)) { zip.readEntry(); return } // skip dirs
+        zip.openReadStream(entry, (e, rs) => {
+          if (e) return reject(e)
+          const rl = createInterface({ input: rs, crlfDelay: Infinity })
+          rl.on('line', (line) => { if (line) { onLine(line); count++ } })
+          rl.on('close', () => zip.readEntry())
+        })
+      })
+      zip.on('end', () => resolve(count))
+      zip.on('error', reject)
+      zip.readEntry()
+    })
+  })
 }
 
 const fecDate = (s) => {
@@ -64,21 +86,19 @@ const fecDate = (s) => {
   return `${s.slice(4, 8)}-${s.slice(0, 2)}-${s.slice(2, 4)}`
 }
 
-async function loadCandidateMaster(txtPath, cycle) {
-  // cn.txt layout: 0 CAND_ID | 1 CAND_NAME | 2 CAND_PTY_AFFILIATION | 3 ... |
-  //   actual: CAND_ID,CAND_NAME,CAND_PTY_AFFILIATION,CAND_ELECTION_YR,CAND_OFFICE_ST,
-  //   CAND_OFFICE,CAND_OFFICE_DISTRICT,...  (office at idx 5, st idx 4, district idx 6)
+async function loadCandidateMaster(zipPath, cycle) {
+  // cn.txt layout (pipe): CAND_ID, CAND_NAME, CAND_PTY_AFFILIATION, CAND_ELECTION_YR,
+  //   CAND_OFFICE_ST(4), CAND_OFFICE(5), CAND_OFFICE_DISTRICT(6), ...
   const rows = new Map()
-  const rl = createInterface({ input: createReadStream(txtPath), crlfDelay: Infinity })
-  for await (const line of rl) {
+  await streamZipLines(zipPath, (line) => {
     const f = line.split('|')
-    if (!f[0]) continue
+    if (!f[0]) return
     rows.set(f[0], {
       candidate_id: f[0], name: f[1] || null, party: f[2] || null,
       state: f[4] || null, office: f[5] || null, district: f[6] || null,
       updated_at: new Date().toISOString(),
     })
-  }
+  })
   const arr = [...rows.values()]
   if (DRY) { console.log(`  cn${cycle}: ${arr.length} candidates (dry)`); return arr.length }
   for (let i = 0; i < arr.length; i += 500) {
@@ -88,20 +108,19 @@ async function loadCandidateMaster(txtPath, cycle) {
   return arr.length
 }
 
-async function loadPas2(txtPath, cycle) {
-  // Aggregate committee→candidate edges in-memory keyed by other_id|cand_id.
+async function loadPas2(zipPath, cycle) {
+  // Aggregate committee→candidate edges in-memory keyed by giver|candidate.
   const edges = new Map()
   let parsed = 0
-  const rl = createInterface({ input: createReadStream(txtPath), crlfDelay: Infinity })
-  for await (const line of rl) {
+  await streamZipLines(zipPath, (line) => {
     const f = line.split('|')
     const giver = f[0]    // CMTE_ID = the GIVING committee (filer)
     const cand = f[16]    // CAND_ID = recipient candidate
     const amt = Number(f[14] || 0)
-    if (!giver || !cand || !amt) continue
+    if (!giver || !cand || !amt) return
     // Drop committee-gives-to-its-own-candidate self-loops (PCC internal / JFC pass-
     // through to the candidate's own committee) — not a third-party money connection.
-    if (giver === f[15]) continue
+    if (giver === f[15]) return
     parsed++
     const k = `${giver}|${cand}`
     const e = edges.get(k)
@@ -109,7 +128,7 @@ async function loadPas2(txtPath, cycle) {
     // Net negatives (refunds) into the total; count only positive contributions.
     if (e) { e.total += amt; if (amt > 0) e.count++; if (d && amt > 0 && (!e.last_date || d > e.last_date)) e.last_date = d }
     else edges.set(k, { committee_id: giver, candidate_id: cand, cycle, total: amt, count: amt > 0 ? 1 : 0, last_date: amt > 0 ? d : null })
-  }
+  })
   // Keep only edges with a positive net total (a real, non-refunded contribution).
   const arr = [...edges.values()]
     .filter((e) => e.total > 0)
@@ -135,12 +154,12 @@ async function main() {
       console.log(`\nCycle ${cycle}:`)
       // candidate master
       const cnZip = join(dir, 'cn.zip')
-      await download(BULK(cycle, 'cn'), cnZip); unzip(cnZip, dir)
-      await loadCandidateMaster(join(dir, 'cn.txt'), cycle)
+      await download(BULK(cycle, 'cn'), cnZip)
+      await loadCandidateMaster(cnZip, cycle)   // yauzl reads the .txt inside the .zip
       // pas2 edges
       const pasZip = join(dir, 'pas2.zip')
-      await download(BULK(cycle, 'pas2'), pasZip); unzip(pasZip, dir)
-      await loadPas2(join(dir, 'itpas2.txt'), cycle)
+      await download(BULK(cycle, 'pas2'), pasZip)
+      await loadPas2(pasZip, cycle)
     } catch (e) {
       console.error(`  cycle ${cycle} FAILED: ${e.message}`)
     } finally {
