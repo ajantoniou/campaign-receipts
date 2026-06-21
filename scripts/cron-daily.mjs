@@ -107,6 +107,14 @@ if (isOrchestrator) {
     results.journalEvents = runStep('record-finance-events', ['scripts/record-finance-events.mjs'])
   }
 
+  // 06:00 UTC Sunday — rebuild the FEC money graph (bulk pas2) + classify new
+  // committee industries. Weekly is plenty (FEC bulk refreshes weekly).
+  if (day === 0 && hour === 6) {
+    results.moneyGraph = runStep('fec-bulk-money-graph', ['scripts/fec-bulk-money-graph.mjs', '--cycles=2024,2026'])
+    results.classifyIndustry = runStep('classify-committee-industry', ['scripts/classify-committee-industry.mjs'])
+    results.committees = runStep('sync-congress-committees', ['scripts/sync-congress-committees.mjs'])
+  }
+
   // ── Friday Receipts chain (Thursday UTC, finishing before the earliest
   //    local-Friday-05:00 send at Thu 15:00 UTC for UTC+14). ──
   // 10:00 Thu — detect new money connections, rank, write story candidates.
