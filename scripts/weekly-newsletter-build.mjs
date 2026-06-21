@@ -65,10 +65,25 @@ async function weeklyArticles() {
     .eq('status', 'published')
     .order('published_at', { ascending: false })
   if (error) { console.error('articles read error:', error.message); return [] }
-  return (data || []).map((a) => {
+  const articles = (data || []).map((a) => {
     const ref = Array.isArray(a.source_refs) && a.source_refs[0] ? a.source_refs[0] : {}
     return { slug: a.slug, title: a.title, dek: a.dek, branch: ref.branch || 'States', amount: ref.amount || 0 }
   })
+
+  // Attach any related live Kalshi market (set by match-kalshi-markets.mjs) by
+  // joining on the candidate's article_slug. Only stories with a real match get one.
+  const { data: cands } = await supabase
+    .from('cr_story_candidates')
+    .select('article_slug, kalshi_match')
+    .eq('week_of', WEEK_OF)
+  // Only attach matches whose YES price ROUNDS to >=1¢. A "YES 0¢" line reads as
+  // broken (a 0.4¢ longshot rounds to 0¢), so require >=0.5% to display.
+  const matchBySlug = new Map(
+    (cands || [])
+      .filter((c) => c.article_slug && c.kalshi_match && Math.round(Number(c.kalshi_match.yes_bid) * 100) >= 1)
+      .map((c) => [c.article_slug, c.kalshi_match]))
+  for (const a of articles) a.kalshi = matchBySlug.get(a.slug) || null
+  return articles
 }
 
 // Legacy fallback: recent cr_weekly picks linked to politician pages.
@@ -102,11 +117,17 @@ async function trackedLink(issueId, story, links) {
 // ── Email rendering ──
 function renderHtml(weekOf, lead, byBranch, linkFor) {
   const C = { ink: '#1a1a1a', muted: '#666', line: '#e5e5e5', accent: '#0b5', paper: '#faf8f4' }
+  const kalshiLine = (s) => s.kalshi ? `
+      <div style="margin:12px 0 0 0;padding:10px 12px;background:${C.paper};border-radius:8px;font:400 13px Helvetica,Arial,sans-serif;color:${C.muted}">
+        📊 Related market: <a href="${esc(s.kalshi.url)}" style="color:${C.ink};font-weight:700;text-decoration:none">${esc(s.kalshi.event_title)}</a>
+        — Kalshi has YES at <strong>${Math.round(Number(s.kalshi.yes_bid) * 100)}¢</strong>.
+      </div>` : ''
   const card = (s) => `
     <div style="border:1px solid ${C.line};border-radius:10px;padding:18px;margin:0 0 14px 0;background:#fff">
       <div style="font:700 17px Helvetica,Arial,sans-serif;color:${C.ink};margin:0 0 6px 0;line-height:1.25">${esc(s.title)}</div>
       ${s.dek ? `<div style="font:400 14px Helvetica,Arial,sans-serif;color:${C.muted};margin:0 0 12px 0;line-height:1.5">${esc(s.dek)}</div>` : ''}
       <a href="${linkFor(s)}" style="display:inline-block;font:700 13px Helvetica,Arial,sans-serif;color:#fff;background:${C.ink};text-decoration:none;padding:9px 16px;border-radius:999px">Read the receipt →</a>
+      ${kalshiLine(s)}
     </div>`
 
   const ledger = BRANCH_ORDER.filter((b) => byBranch[b]?.length).map((b) => `
@@ -127,6 +148,7 @@ function renderHtml(weekOf, lead, byBranch, linkFor) {
       <div style="font:800 21px Helvetica,Arial,sans-serif;color:${C.ink};line-height:1.2;margin-bottom:8px">${esc(lead.title)}</div>
       ${lead.dek ? `<div style="font:400 15px Helvetica,Arial,sans-serif;color:${C.muted};line-height:1.5;margin-bottom:14px">${esc(lead.dek)}</div>` : ''}
       <a href="${linkFor(lead)}" style="display:inline-block;font:700 14px Helvetica,Arial,sans-serif;color:#fff;background:${C.accent};text-decoration:none;padding:11px 20px;border-radius:999px">See the full receipt →</a>
+      ${kalshiLine(lead)}
     </div>` : ''}
     <p style="font:400 14px Helvetica,Arial,sans-serif;color:${C.muted};line-height:1.55;margin:22px 0 0">The Ledger — new money connections this week, by branch of government. Every figure is from public FEC filings.</p>
     ${ledger}
@@ -142,10 +164,13 @@ function renderHtml(weekOf, lead, byBranch, linkFor) {
 
 function renderText(weekOf, lead, byBranch, linkFor) {
   const L = [`FRIDAY RECEIPTS — ${fmtWeek(weekOf)}`, ``]
+  const kTxt = (s) => s.kalshi ? `  📊 Related market: ${s.kalshi.event_title} — Kalshi YES ${Math.round(Number(s.kalshi.yes_bid) * 100)}¢ · ${s.kalshi.url}` : null
   if (lead) {
     L.push(`** RECEIPT OF THE WEEK **`, lead.title)
     if (lead.dek) L.push(lead.dek)
-    L.push(`→ ${linkFor(lead)}`, ``)
+    L.push(`→ ${linkFor(lead)}`)
+    const k = kTxt(lead); if (k) L.push(k)
+    L.push(``)
   }
   L.push(`THE LEDGER — new money connections by branch:`, ``)
   for (const b of BRANCH_ORDER) {
@@ -154,7 +179,9 @@ function renderText(weekOf, lead, byBranch, linkFor) {
     for (const s of byBranch[b]) {
       L.push(`• ${s.title}`)
       if (s.dek) L.push(`  ${s.dek}`)
-      L.push(`  → ${linkFor(s)}`, ``)
+      L.push(`  → ${linkFor(s)}`)
+      const k = kTxt(s); if (k) L.push(k)
+      L.push(``)
     }
   }
   L.push(`Explore the full database: ${SITE}/leaderboard`)

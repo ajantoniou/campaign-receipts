@@ -55,6 +55,7 @@ create table if not exists cr_story_candidates (
   score numeric not null default 0,
   article_slug text,                         -- filled by Stage E once generated
   article_status text,                       -- mirrors cr_articles.status
+  kalshi_match jsonb,                         -- related live Kalshi market (Stage E.5), or null
   created_at timestamptz not null default now(),
   unique (week_of, dedupe_hash)
 );

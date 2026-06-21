@@ -111,8 +111,12 @@ if (isOrchestrator) {
   //    local-Friday-05:00 send at Thu 15:00 UTC for UTC+14). ──
   // 10:00 Thu — detect new money connections, rank, write story candidates.
   if (day === 4 && hour === 10) results.detect = runStep('detect-new-connections', ['scripts/detect-new-connections.mjs'])
-  // 11:00 Thu — generate the 6 branch articles with Opus.
-  if (day === 4 && hour === 11) results.stories = runStep('generate-weekly-stories', ['scripts/generate-weekly-stories.mjs'])
+  // 11:00 Thu — generate the 6 branch articles with Opus, then attach any related
+  //   live Kalshi market to each story (content only; renders only on real match).
+  if (day === 4 && hour === 11) {
+    results.stories = runStep('generate-weekly-stories', ['scripts/generate-weekly-stories.mjs'])
+    results.kalshiMatch = runStep('match-kalshi-markets', ['scripts/match-kalshi-markets.mjs'])
+  }
   // 12:00 Thu — build the branch-grouped Friday Receipts issue (Phase 1 -> Phase 2).
   if (day === 4 && hour === 12) results.newsletterBuild = runStep('weekly-newsletter-build', ['scripts/weekly-newsletter-build.mjs'])
 
