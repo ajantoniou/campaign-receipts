@@ -49,11 +49,11 @@ export default function NewBillsPage() {
             </p>
             <p className="mt-3 font-sans text-[15px] text-ink-3 leading-relaxed max-w-2xl">
               No spin. No jargon. Every number traces back to a filing. All
-              bills, federal and state. $12 a month. Cancel anytime.
+              bills, federal and state. From $8/mo billed yearly. Cancel anytime.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <a
-                href="/api/checkout?product=newsletter"
+                href="/pricing"
                 className="inline-flex items-center gap-2 rounded-full bg-ink text-paper hover:bg-ink-2 font-sans text-[15px] font-medium px-6 py-3 transition-colors border border-ink"
               >
                 Get Friday Receipts →
@@ -160,11 +160,11 @@ export default function NewBillsPage() {
             One price. Every bill.
           </h2>
           <p className="mt-4 font-sans text-[17px] text-ink-2 leading-relaxed">
-            $12 a month. All federal bills. All 50 states. Cancel anytime.
+            From $8/mo billed yearly. All federal bills. All 50 states. Cancel anytime.
           </p>
           <div className="mt-7">
             <a
-              href="/api/checkout?product=newsletter"
+              href="/pricing"
               className="inline-flex items-center gap-2 rounded-full bg-ink text-paper hover:bg-ink-2 font-sans text-[15px] font-medium px-7 py-3.5 transition-colors border border-ink"
             >
               Get Friday Receipts →
