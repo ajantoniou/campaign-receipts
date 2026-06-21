@@ -17,6 +17,7 @@ import ProGate from '@/app/components/ProGate'
 import GraphWatermark from '@/app/components/GraphWatermark'
 import CausalTimeline, { type TimelineNode } from '@/app/components/CausalTimeline'
 import NewsletterCapture from '@/app/components/NewsletterCapture'
+import MemberAlertCTA from '@/app/components/MemberAlertCTA'
 import TerminalCTA from '@/app/components/TerminalCTA'
 
 export const dynamic = 'force-dynamic'
@@ -394,6 +395,7 @@ export default async function BillPage({ params }: { params: { congress: string;
 
             <div className="section-shell pt-8 pb-4">
               <TerminalCTA title="bill" />
+              <MemberAlertCTA subject={`${bill.bill_type.toUpperCase()} ${bill.bill_number}`} />
             </div>
 
             <NewsletterCapture

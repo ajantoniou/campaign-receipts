@@ -23,6 +23,7 @@ import * as apCitation from '@/lib/ap-citation'
 import CausalTimeline, { type TimelineNode } from '@/app/components/CausalTimeline'
 import NewsletterCapture from '@/app/components/NewsletterCapture'
 import PoliticianNotifyForm from '@/app/components/PoliticianNotifyForm'
+import MemberAlertCTA from '@/app/components/MemberAlertCTA'
 import TrackVisit from '@/app/components/TrackVisit'
 // InfluenceMap import retained as comment for the queued ReceiptStrip
 // follow-up. Don't re-import without rerunning the panel.
@@ -570,6 +571,10 @@ export default async function PoliticianPage({ params }: { params: { slug: strin
               title={`${cleanName} — ${termLabel(politician)} scorecard`}
               url={`/politician/${politician.slug}#scorecard`}
             />
+          </div>
+
+          <div className="mt-6">
+            <MemberAlertCTA subject={cleanName} />
           </div>
 
           <div className="mt-6">

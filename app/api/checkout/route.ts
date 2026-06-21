@@ -1,26 +1,35 @@
-// GET /api/checkout?product=newsletter|software
+// GET /api/checkout?plan=newsletter|newsletter-annual|newsletter-founding
 //
 // Redirects the user to a Lemon Squeezy checkout URL prefilled with their
 // email + user_id (so the webhook can match the subscription back to a
 // cr_users row). Requires the user to be signed in — if they're not we bounce
 // through magic-link sign-in and come back.
 //
-// Two independently-purchasable products (founder lock 2026-05-30):
-//   newsletter — $12/mo weekly money-trail email
-//   software   — $45/mo /investigate donor-intelligence dossiers
+// Model (founder 2026-06-20): the only paid product is the weekly newsletter,
+// in three plans (monthly $12 / annual $96 / founding $79). All grant the
+// 'newsletter' entitlement. Back-compat: ?product=newsletter still works and
+// maps to the monthly plan.
 
 import { NextResponse } from 'next/server'
 import { getSessionUser } from '@/lib/auth'
-import { buildCheckoutUrl, type CrProduct, isCheckoutConfigured } from '@/lib/lemonsqueezy'
+import { buildCheckoutUrl, type CrPlan, isCheckoutConfigured } from '@/lib/lemonsqueezy'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://campaignreceipts.com'
 
+const VALID_PLANS: CrPlan[] = ['newsletter', 'newsletter-annual', 'newsletter-founding']
+
+function resolvePlan(url: URL): CrPlan {
+  const planParam = url.searchParams.get('plan')
+  if (planParam && VALID_PLANS.includes(planParam as CrPlan)) return planParam as CrPlan
+  // Back-compat: legacy ?product=newsletter (or anything else) → monthly newsletter.
+  return 'newsletter'
+}
+
 export async function GET(req: Request) {
   const url = new URL(req.url)
-  const product: CrProduct =
-    url.searchParams.get('product') === 'newsletter' ? 'newsletter' : 'software'
+  const plan = resolvePlan(url)
 
-  if (!isCheckoutConfigured(product)) {
+  if (!isCheckoutConfigured(plan)) {
     return NextResponse.redirect(
       new URL('/pricing?error=checkout_not_configured', SITE),
       302,
@@ -29,7 +38,7 @@ export async function GET(req: Request) {
 
   const user = await getSessionUser()
   if (!user) {
-    const next = `/api/checkout?product=${product}`
+    const next = `/api/checkout?plan=${plan}`
     return NextResponse.redirect(
       new URL(`/auth/signin?next=${encodeURIComponent(next)}`, SITE),
       302,
@@ -37,7 +46,7 @@ export async function GET(req: Request) {
   }
 
   const checkoutUrl = buildCheckoutUrl({
-    product,
+    plan,
     userId: user.id,
     email: user.email,
   })

@@ -81,12 +81,35 @@ function fmtWeek(r: WeeklyRow) {
   return monday.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
-export default async function WeeklyPage() {
+export default async function WeeklyPage({
+  searchParams,
+}: {
+  searchParams?: { newsletter?: string }
+}) {
   const { row, politician } = await getLatest()
   const archive = await getArchive()
+  const justConfirmed = searchParams?.newsletter === 'confirmed'
 
   return (
     <>
+      {/* Free-list confirm → peak-intent upsell to the paid membership. */}
+      {justConfirmed && (
+        <section className="bg-accent/10 border-b border-accent/30">
+          <div className="section-shell py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-sm text-ink m-0">
+              <strong>You’re on the free list.</strong> You’ll get the weekly headline trail.
+              Members get the full receipt + the donor-map link — founding members lock in $79/yr forever.
+            </p>
+            <a
+              href="/pricing"
+              className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-ink text-paper font-sans text-sm font-medium px-5 py-2.5 no-underline hover:bg-ink-2 transition-colors"
+            >
+              See what members get →
+            </a>
+          </div>
+        </section>
+      )}
+
       {/* ───── MASTHEAD (paper-2 band) ────────────────────── */}
       <section className="bg-paper-2 border-b border-line">
         <div className="section-shell pt-12 pb-10 sm:pt-16 sm:pb-12">
@@ -239,8 +262,8 @@ export default async function WeeklyPage() {
           <NewsletterCapture
             variant="inline-wide"
             surface="weekly-page"
-            heading="Want the weekly money trail?"
-            body="Join the free list for occasional updates — or get the $12 weekly newsletter that names the donors behind every bill. See pricing."
+            heading="Get the trail of the week"
+            body="Free list: the headline money trail every Friday. Members get the full receipt — the explained trail and a one-tap link into the donor map. We read the filings so you never miss the one that matters."
             buttonLabel="Join the free list"
           />
         </div>
