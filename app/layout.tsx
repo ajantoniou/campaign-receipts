@@ -57,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/leaderboard" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Leaderboard</Link>
               <Link href="/big-donor-map" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Donor Map</Link>
               <Link href="/bills" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Bills</Link>
+              <Link href="/pro-israel-money" className="text-sm font-medium text-text-muted hover:text-white transition-colors">Pro-Israel $</Link>
               <Link href="#newsletter" className="text-sm font-medium text-text-muted hover:text-white transition-colors flex items-center gap-2">
                 Newsletter <span className="flex h-2 w-2 rounded-full bg-success shadow-glow shadow-success-glow animate-pulse-glow"></span>
               </Link>
