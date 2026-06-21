@@ -31,12 +31,20 @@ const DRY = args.includes('--dry-run')
 const CYCLE = Number(args.find((a) => a.startsWith('--cycle='))?.split('=')[1] ?? 2026)
 const sinceArg = args.find((a) => a.startsWith('--since='))?.split('=')[1]
 const MAX_PAGES = Number(args.find((a) => a.startsWith('--max-pages='))?.split('=')[1] ?? 10)
+// Optional: restrict to specific spender committee_ids (e.g. the pro-Israel PACs)
+// to fully backfill one group's support+oppose history without paging all IEs.
+const committeeArg = args.find((a) => a.startsWith('--committees='))?.split('=')[1]
+const COMMITTEE_IDS = committeeArg ? committeeArg.split(',') : null
 const JOB = `schedule-e-${CYCLE}`
 const BASE = 'https://api.open.fec.gov/v1'
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
 async function fecGet(params) {
-  const qs = new URLSearchParams({ api_key: FEC_KEY, ...params })
+  const qs = new URLSearchParams({ api_key: FEC_KEY })
+  for (const [k, v] of Object.entries(params)) {
+    if (Array.isArray(v)) v.forEach((x) => qs.append(k, x))
+    else qs.append(k, v)
+  }
   const url = `${BASE}/schedules/schedule_e/?${qs}`
   for (let attempt = 0; attempt < 4; attempt++) {
     const r = await fetch(url, { headers: { accept: 'application/json' } })
@@ -62,8 +70,11 @@ async function main() {
   do {
     const params = {
       cycle: String(CYCLE), per_page: '100', sort: '-expenditure_date',
-      min_load_date: since,
     }
+    // Committee-filtered backfill (e.g. the pro-Israel PACs): pull ALL their rows,
+    // ignore the load-date cursor. Otherwise: incremental by min_load_date.
+    if (COMMITTEE_IDS) params.committee_id = COMMITTEE_IDS // array → repeated param
+    else params.min_load_date = since
     if (lastIndex) { params.last_index = lastIndex; params.last_expenditure_date = lastDate }
     const d = await fecGet(params)
     await sleep(600)

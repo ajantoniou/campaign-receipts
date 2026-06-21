@@ -126,6 +126,12 @@ if (isOrchestrator) {
     results.moneyGraph = runStep('fec-bulk-money-graph', ['scripts/fec-bulk-money-graph.mjs', '--cycles=2024,2026'])
     results.classifyIndustry = runStep('classify-committee-industry', ['scripts/classify-committee-industry.mjs'])
     results.committees = runStep('sync-congress-committees', ['scripts/sync-congress-committees.mjs'])
+    // Pro-Israel money tracker: refresh the pro-Israel committees' full Schedule E
+    // (support+oppose) then recompute the per-politician summary.
+    const PRO_ISRAEL = 'C00799031,C00797670,C00710848,C00127811,C00441949'
+    results.proIsraelSE24 = runStep('schedule-e-proisrael-2024', ['scripts/sync-schedule-e.mjs', '--cycle=2024', `--committees=${PRO_ISRAEL}`, '--max-pages=20'])
+    results.proIsraelSE26 = runStep('schedule-e-proisrael-2026', ['scripts/sync-schedule-e.mjs', '--cycle=2026', `--committees=${PRO_ISRAEL}`, '--max-pages=20'])
+    results.proIsraelCompute = runStep('compute-pro-israel-money', ['scripts/compute-pro-israel-money.mjs'])
   }
 
   // ── Friday Receipts chain (Thursday UTC, finishing before the earliest
