@@ -127,6 +127,39 @@ async function main() {
     : []
   const foreignSet = new Set(foreign.map((f) => f.politician_id))
 
+  // GATEKEEPER signal (journalist archetype #1): the politician (a) sponsors a bill
+  // AND (b) holds a committee seat — strongest when they CHAIR / are Ranking Member.
+  // This is the highest-value story signal, so it gets the biggest boost.
+  const polRows = polIds.length
+    ? await selectAll('cr_politicians', 'id, bioguide', (q) => q.in('id', polIds))
+    : []
+  const bioById = new Map(polRows.map((p) => [p.id, p.bioguide]).filter(([, b]) => b))
+  const bios = [...bioById.values()]
+  // committee roles for these members
+  const assigns = bios.length
+    ? await selectAll('cr_committee_assignments', 'bioguide, role', (q) => q.in('bioguide', bios))
+    : []
+  const roleByBio = new Map() // bioguide -> 'chair' | 'ranking' | 'member'
+  for (const a of assigns) {
+    const cur = roleByBio.get(a.bioguide)
+    const rank = /Chair/i.test(a.role) ? 3 : /Ranking|Vice/i.test(a.role) ? 2 : 1
+    const curRank = cur === 'chair' ? 3 : cur === 'ranking' ? 2 : cur === 'member' ? 1 : 0
+    if (rank > curRank) roleByBio.set(a.bioguide, rank === 3 ? 'chair' : rank === 2 ? 'ranking' : 'member')
+  }
+  // which of these members are bill sponsors (gatekeeper needs sponsorship)
+  const sponsorBios = new Set()
+  if (bios.length) {
+    const billRows = await selectAll('cr_bills', 'sponsor_bioguide', (q) => q.in('sponsor_bioguide', bios))
+    for (const b of billRows) if (b.sponsor_bioguide) sponsorBios.add(b.sponsor_bioguide)
+  }
+  function gatekeeperFor(polId) {
+    const bio = bioById.get(polId)
+    if (!bio || !sponsorBios.has(bio)) return null // must be a sponsor
+    const role = roleByBio.get(bio)
+    if (!role) return null // must sit on a committee
+    return role // 'chair' | 'ranking' | 'member'
+  }
+
   // 3) Score.
   const scored = fresh.map((e) => {
     const isNew = e.first_seen_week === WEEK_OF
@@ -134,16 +167,23 @@ async function main() {
     const delta = Number(e.delta_amount) || 0
     const alignEx = e.politician_id ? (alignByPol.get(e.politician_id) || 0) : 0
     const isForeign = e.politician_id ? foreignSet.has(e.politician_id) : false
+    const gatekeeper = e.politician_id ? gatekeeperFor(e.politician_id) : null // chair|ranking|member|null
+    // Gatekeeper only counts as a STORY when there's also meaningful money (the
+    // journalist's "outlier concentration" bar) — a committee seat + $10k isn't news.
+    const gatekeeperQualifies = gatekeeper && amt >= 100000
+    const gatekeeperBoost = !gatekeeperQualifies ? 0
+      : gatekeeper === 'chair' ? 400 : gatekeeper === 'ranking' ? 250 : 120
     const score =
       Math.log10(amt + 1) * 40 +
       (isNew ? 300 : 0) +
       Math.min(delta / 10000, 200) +
       (isForeign ? 250 : 0) +
       alignEx * 150 +
-      (e.entity_type === 'pac_to_bill' ? 120 : 0)
+      (e.entity_type === 'pac_to_bill' ? 120 : 0) +
+      gatekeeperBoost                                    // archetype #1: gatekeeper of jurisdiction
     const pol = e.politician_id ? polById.get(e.politician_id) : null
     const branch = pol ? mapBranch(pol.branch) : 'States'
-    return { e, pol, branch, amt, delta, isNew, isForeign, alignEx, score }
+    return { e, pol, branch, amt, delta, isNew, isForeign, alignEx, gatekeeper, score }
   })
 
   // 4) Dedupe vs articles written in the last 60 days (entity_key stamped in source_refs).
@@ -154,9 +194,20 @@ async function main() {
     const refs = Array.isArray(a.source_refs) ? a.source_refs : []
     for (const r of refs) { if (r && r.entity_key) coveredKeys.add(r.entity_key) }
   }
-  const candidates = scored
+  const candidatesAll = scored
     .filter((c) => !coveredKeys.has(c.e.entity_key))
     .sort((a, b) => b.score - a.score)
+
+  // Dedupe to ONE story per politician (keep their highest-scoring event) so the
+  // slate isn't three rows of the same member's different donor edges. Bill events
+  // (no politician) pass through untouched.
+  const seenPol = new Set()
+  const candidates = candidatesAll.filter((c) => {
+    if (!c.pol) return true
+    if (seenPol.has(c.pol.id)) return false
+    seenPol.add(c.pol.id)
+    return true
+  })
 
   // 5) Compose the slate. Favor NAMED-POLITICIAN stories (concrete, nameable) and
   //    cap bill-industry aggregates so they don't flood the slate with near-dupes.
@@ -203,7 +254,9 @@ async function main() {
     event_id: c.e.id,
     dedupe_hash: sha1(c.e.entity_key),
     headline: c.pol
-      ? `${c.pol.name}: ${usd(c.amt)} ${c.e.entity_type === 'pac_to_politician' ? 'in PAC money' : 'in new donor money'}`
+      ? (c.gatekeeper === 'chair'
+          ? `${c.pol.name} chairs the committee — and took ${usd(c.amt)}`
+          : `${c.pol.name}: ${usd(c.amt)} ${c.e.entity_type === 'pac_to_politician' ? 'in PAC money' : 'in new donor money'}`)
       : c.e.label,
     source_refs: [{
       entity_key: c.e.entity_key,
@@ -218,6 +271,7 @@ async function main() {
       bill_id: c.e.bill_id,
       is_new: c.isNew,
       is_foreign: c.isForeign,
+      gatekeeper: c.gatekeeper,   // chair | ranking | member | null (archetype #1)
     }],
     score: Math.round(c.score),
   }))
