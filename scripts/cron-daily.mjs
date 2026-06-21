@@ -35,7 +35,11 @@
 import { spawnSync } from 'node:child_process'
 import { createClient } from '@supabase/supabase-js'
 
-const isOrchestrator = process.argv.includes('--orchestrate')
+// Orchestrate by DEFAULT. The whole pipeline is day/hour-gated and only fires in
+// the orchestrator branch, so a deployed start command that forgets --orchestrate
+// would silently disable Friday Receipts (which is exactly what happened on Render).
+// Make it the default; require an explicit --manual to run the old one-shot path.
+const isOrchestrator = !process.argv.includes('--manual')
 const now = new Date()
 const hour = now.getUTCHours()
 const day = now.getUTCDay()
