@@ -35,6 +35,11 @@ const STATIC: MetadataRoute.Sitemap = [
   { url: `${BASE}/corrections`, changeFrequency: 'monthly', priority: 0.5 },
   { url: `${BASE}/compare`, changeFrequency: 'monthly', priority: 0.5 },
   { url: `${BASE}/leaderboard`, changeFrequency: 'daily', priority: 0.8 },
+  // High-intent cold-traffic targets.
+  { url: `${BASE}/pro-israel-money`, changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${BASE}/investigate`, changeFrequency: 'weekly', priority: 0.7 },
+  { url: `${BASE}/for-journalists`, changeFrequency: 'monthly', priority: 0.6 },
+  { url: `${BASE}/foreign-donors`, changeFrequency: 'weekly', priority: 0.6 },
   { url: `${BASE}/privacy`, changeFrequency: 'yearly', priority: 0.2 },
   { url: `${BASE}/terms`, changeFrequency: 'yearly', priority: 0.2 },
   { url: `${BASE}/disclaimer`, changeFrequency: 'yearly', priority: 0.2 },
