@@ -122,6 +122,49 @@ function subscribeBellSvg() {
 </svg>`
 }
 
+// ── open captions: a lower-third caption strip PNG per scene (this ffmpeg has no
+// drawtext/libass, so captions are rendered as SVG→PNG and overlaid, same as cards).
+// Word-wrap the VO to ~46 chars/line, max 3 lines (clamp), sit above the bottom bar.
+function wrapLines(text, perLine = 46, maxLines = 3) {
+  const words = String(text).split(/\s+/); const lines = []; let cur = ''
+  for (const w of words) { if ((cur + ' ' + w).trim().length > perLine) { lines.push(cur.trim()); cur = w } else cur += ' ' + w }
+  if (cur.trim()) lines.push(cur.trim())
+  if (lines.length > maxLines) { lines.length = maxLines; lines[maxLines - 1] = lines[maxLines - 1].replace(/\W*$/, '') + '…' }
+  return lines
+}
+function captionPngSvg(text) {
+  const lines = wrapLines(text)
+  const lh = 56, boxH = lines.length * lh + 44, boxY = H - 100 - boxH - 18 // above the persistent bar
+  const tspans = lines.map((ln, i) => `<text x="${W / 2}" y="${boxY + 56 + i * lh}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42" fill="#ffffff">${xml(ln)}</text>`).join('')
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <rect x="${W / 2 - 880}" y="${boxY}" width="1760" height="${boxH}" rx="14" fill="#0a0a0a" opacity="0.62"/>
+  ${tspans}
+</svg>`
+}
+
+// ── outro scene: full-screen SUBSCRIBE + LIKE + newsletter CTA card ─────────
+function outroSvg() {
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <rect width="${W}" height="${H}" fill="${C.ink}"/>
+  <rect x="0" y="0" width="${W}" height="10" fill="${C.red}"/>
+  <text x="${W / 2}" y="280" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="900" font-size="110" fill="#fff" letter-spacing="2">FOLLOW THE MONEY</text>
+  <text x="${W / 2}" y="380" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="44" fill="${C.gold}">new receipts every Friday</text>
+  <g transform="translate(${W / 2 - 360}, 520)">
+    <rect x="0" y="0" width="320" height="120" rx="60" fill="${C.red}"/>
+    <text x="160" y="78" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="900" font-size="46" fill="#fff" letter-spacing="2">SUBSCRIBE</text>
+  </g>
+  <g transform="translate(${W / 2 + 40}, 520)">
+    <rect x="0" y="0" width="320" height="120" rx="60" fill="none" stroke="${C.gold}" stroke-width="4"/>
+    <text x="160" y="78" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="900" font-size="46" fill="${C.gold}" letter-spacing="3">👍 LIKE</text>
+  </g>
+  <text x="${W / 2}" y="800" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="800" font-size="52" fill="#fff">Get the $9 weekly newsletter</text>
+  <text x="${W / 2}" y="870" text-anchor="middle" font-family="Menlo, monospace" font-weight="700" font-size="60" fill="${C.gold}" letter-spacing="4">CAMPAIGNRECEIPTS.COM</text>
+  <text x="${W / 2}" y="980" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="30" fill="${C.muted}">Sourced to public FEC filings. Timing does not prove causation.</text>
+</svg>`
+}
+
 // ── data-driven scene card (replaces hand-coded svgScene1..10) ──────────────
 function sceneCardSvg(scene, idx, total) {
   const eyebrow = clamp((scene.label || 'Receipt').toUpperCase(), 38)
@@ -177,32 +220,44 @@ async function main() {
   const persistPng = path.join(cardsDir, 'bar.png'); svgToPng(persistentBarSvg(), persistPng, W, H)
   const bellPng = path.join(cardsDir, 'bell.png'); svgToPng(subscribeBellSvg(), bellPng, 620, 120)
   const cardPng = (i) => path.join(cardsDir, `scene-${String(i + 1).padStart(2, '0')}.png`)
-  for (let i = 0; i < N; i++) svgToPng(sceneCardSvg(scenes[i], i, N), cardPng(i), W, H)
+  const capPng = (i) => path.join(cardsDir, `cap-${String(i + 1).padStart(2, '0')}.png`)
+  for (let i = 0; i < N; i++) {
+    svgToPng(sceneCardSvg(scenes[i], i, N), cardPng(i), W, H)
+    svgToPng(captionPngSvg(scenes[i].vo), capPng(i), W, H) // open captions (burned-in)
+  }
+  const outroPng = path.join(cardsDir, 'outro.png'); svgToPng(outroSvg(), outroPng, W, H)
+  const OUTRO_DUR = 5
 
   // 4) Per-scene motion clip (ken-burns on card, or Veo hero scaled + card lower-third bar)
   const clipsDir = path.join(BUILD, 'clips'); fs.mkdirSync(clipsDir, { recursive: true })
   const clip = (i) => path.join(clipsDir, `scene-${String(i + 1).padStart(2, '0')}.mp4`)
   for (let i = 0; i < N; i++) {
     const dur = holds[i], frames = Math.max(2, Math.round(dur * FPS)), perFrame = 0.08 / frames
+    // 3 inputs: base (hero or card), persistent bar, caption strip. Overlay bar then caption.
     if (heroClip[i]) {
-      // Hero: loop/trim the Veo clip to scene length, scale to canvas, burn persistent bar.
-      sh('ffmpeg', ['-y', '-stream_loop', '-1', '-i', heroClip[i], '-loop', '1', '-t', String(dur), '-i', persistPng,
-        '-filter_complex', `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},trim=duration=${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];[bg][1:v]overlay=0:0:format=auto[vout]`,
+      sh('ffmpeg', ['-y', '-stream_loop', '-1', '-i', heroClip[i], '-loop', '1', '-t', String(dur), '-i', persistPng, '-loop', '1', '-t', String(dur), '-i', capPng(i),
+        '-filter_complex', `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},trim=duration=${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];[bg][1:v]overlay=0:0[b];[b][2:v]overlay=0:0:format=auto[vout]`,
         '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', '-t', String(dur), clip(i)])
     } else {
       const z = (i % 2 === 0)
         ? `zoompan=z='1.0+on*${perFrame.toFixed(6)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${W}x${H}:fps=${FPS}`
         : `zoompan=z='1.08-on*${perFrame.toFixed(6)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${W}x${H}:fps=${FPS}`
-      sh('ffmpeg', ['-y', '-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng,
-        '-filter_complex', `[0:v]scale=${W * 2}:${H * 2}:force_original_aspect_ratio=increase,crop=${W * 2}:${H * 2},${z},trim=duration=${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];[bg][1:v]overlay=0:0:format=auto[vout]`,
+      sh('ffmpeg', ['-y', '-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng, '-loop', '1', '-t', String(dur), '-i', capPng(i),
+        '-filter_complex', `[0:v]scale=${W * 2}:${H * 2}:force_original_aspect_ratio=increase,crop=${W * 2}:${H * 2},${z},trim=duration=${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];[bg][1:v]overlay=0:0[b];[b][2:v]overlay=0:0:format=auto[vout]`,
         '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', clip(i)])
     }
-    console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${heroClip[i] ? ' (veo)' : ''}`)
+    console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${heroClip[i] ? ' (veo)' : ''} +caption`)
   }
 
-  // 5) Concat
+  // 4b) Outro clip (static subscribe/like/newsletter card, OUTRO_DUR seconds).
+  const outroClip = path.join(clipsDir, 'outro.mp4')
+  sh('ffmpeg', ['-y', '-framerate', String(FPS), '-loop', '1', '-t', String(OUTRO_DUR), '-i', outroPng,
+    '-filter_complex', `[0:v]scale=${W}:${H},format=yuv420p[vout]`,
+    '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', outroClip])
+
+  // 5) Concat (scenes + outro)
   const concatList = path.join(BUILD, 'concat.txt')
-  fs.writeFileSync(concatList, scenes.map((_, i) => `file '${clip(i)}'`).join('\n') + '\n')
+  fs.writeFileSync(concatList, scenes.map((_, i) => `file '${clip(i)}'`).join('\n') + `\nfile '${outroClip}'\n`)
   const concatPath = path.join(BUILD, 'visual-concat.mp4')
   sh('ffmpeg', ['-y', '-f', 'concat', '-safe', '0', '-i', concatList, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-r', String(FPS), '-an', concatPath])
 
@@ -236,9 +291,14 @@ async function main() {
     sh('ffmpeg', ['-y', '-i', voFull, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=7', '-c:a', 'aac', '-b:a', '192k', mixPath])
   }
 
-  // 9) Mux → master
+  // 8b) Pad the audio with OUTRO_DUR of silence so it spans the outro scene.
+  const mixPadded = path.join(BUILD, 'mix-padded.m4a')
+  sh('ffmpeg', ['-y', '-i', mixPath, '-af', `apad=pad_dur=${OUTRO_DUR}`, '-t', String(voFullDur + OUTRO_DUR), '-c:a', 'aac', '-b:a', '192k', mixPadded])
+  const finalDur = voFullDur + OUTRO_DUR
+
+  // 9) Mux → master (length = scenes + outro)
   const masterPath = path.join(BUILD, 'master.mp4')
-  sh('ffmpeg', ['-y', '-i', visualPath, '-i', mixPath, '-t', String(voFullDur), '-c:v', 'copy', '-c:a', 'copy', '-shortest', masterPath])
+  sh('ffmpeg', ['-y', '-i', visualPath, '-i', mixPadded, '-t', String(finalDur), '-c:v', 'copy', '-c:a', 'copy', '-shortest', masterPath])
 
   // 10) Verify
   const info = JSON.parse(shCap('ffprobe', ['-v', 'error', '-show_format', '-show_streams', '-of', 'json', masterPath]).stdout)
