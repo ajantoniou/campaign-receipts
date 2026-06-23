@@ -19,9 +19,21 @@ import urllib.error
 import subprocess
 from pathlib import Path
 
-REPO = Path("/Applications/DrAntoniou Projects/AgentCompanies")
-ENV = REPO / ".env"
-CR_DIR = REPO / "companies/campaign-receipts"
+# Look for .env at the repo root relative to this file (../../.env from scripts/
+# pipeline/), then the legacy monorepo path. Also fall back to os.environ so a
+# caller (e.g. build-audio-briefing.mjs) can pass keys via the environment — needed
+# on Render and in the standalone campaign-receipts checkout.
+_HERE = Path(__file__).resolve()
+_CANDIDATE_ENVS = [
+    _HERE.parent.parent.parent / ".env",        # repo root (standalone)
+    Path("/Applications/DrAntoniou Projects/AgentCompanies") / ".env",  # legacy monorepo
+]
+ENV = next((p for p in _CANDIDATE_ENVS if p.exists()), _CANDIDATE_ENVS[0])
+# Repo root = two levels up from scripts/pipeline/. In the standalone checkout the
+# root IS campaign-receipts; the legacy monorepo had it under companies/.
+CR_DIR = _HERE.parent.parent.parent
+if (CR_DIR / "companies/campaign-receipts").exists():
+    CR_DIR = CR_DIR / "companies/campaign-receipts"
 COST_LOG = CR_DIR / "scripts/.external-costs.jsonl"
 
 # Recommended voices for Campaign Receipts (faceless, calm, investigative-archive)
@@ -66,12 +78,15 @@ def resolve_shorts_voice(env):
 PRICE_PER_1K_CHARS = 0.22  # rough cost amortization
 
 def load_env():
-    env = {}
+    # os.environ first (so a caller can inject keys), then .env file fills gaps.
+    env = dict(os.environ)
     if ENV.exists():
         for line in ENV.read_text().splitlines():
             if "=" in line and not line.startswith("#"):
                 k, _, v = line.partition("=")
-                env[k.strip()] = v.strip().strip('"')
+                k = k.strip()
+                if k not in env or not env[k]:
+                    env[k] = v.strip().strip('"')
     return env
 
 def get_api_key():

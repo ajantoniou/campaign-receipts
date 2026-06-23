@@ -22,3 +22,7 @@ eng/qc-reports/**/frames/
 # local env backups (contain secrets — never commit)
 .env.bak*
 .env.bak.*
+
+# generated audio briefings (large MP3s live in Supabase Storage)
+content/audio/
+scripts/.external-costs.jsonl

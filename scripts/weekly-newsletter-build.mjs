@@ -115,7 +115,7 @@ async function trackedLink(issueId, story, links) {
 }
 
 // ── Email rendering ──
-function renderHtml(weekOf, lead, byBranch, linkFor) {
+function renderHtml(weekOf, lead, byBranch, linkFor, audioUrl) {
   const C = { ink: '#1a1a1a', muted: '#666', line: '#e5e5e5', accent: '#0b5', paper: '#faf8f4' }
   const kalshiLine = (s) => s.kalshi ? `
       <div style="margin:12px 0 0 0;padding:10px 12px;background:${C.paper};border-radius:8px;font:400 13px Helvetica,Arial,sans-serif;color:${C.muted}">
@@ -142,6 +142,10 @@ function renderHtml(weekOf, lead, byBranch, linkFor) {
       <div style="font:800 24px Helvetica,Arial,sans-serif;color:${C.ink};letter-spacing:-.5px">💰 Friday Receipts</div>
       <div style="font:600 12px monospace;color:${C.muted};text-transform:uppercase;letter-spacing:1px;margin-top:4px">Campaign Receipts · ${esc(fmtWeek(weekOf))}</div>
     </div>
+    ${audioUrl ? `
+    <div style="margin:16px 0 0 0;text-align:center">
+      <a href="${esc(audioUrl)}" style="display:inline-block;font:700 14px Helvetica,Arial,sans-serif;color:${C.ink};background:#fff;border:1px solid ${C.line};text-decoration:none;padding:10px 18px;border-radius:999px">🎧 Listen to this week's 5-minute briefing</a>
+    </div>` : ''}
     ${lead ? `
     <div style="margin:24px 0 8px 0;padding:20px;background:#fff;border:2px solid ${C.ink};border-radius:12px">
       <div style="font:700 11px monospace;color:${C.accent};text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px">Receipt of the Week</div>
@@ -162,8 +166,9 @@ function renderHtml(weekOf, lead, byBranch, linkFor) {
   </div></body></html>`
 }
 
-function renderText(weekOf, lead, byBranch, linkFor) {
+function renderText(weekOf, lead, byBranch, linkFor, audioUrl) {
   const L = [`FRIDAY RECEIPTS — ${fmtWeek(weekOf)}`, ``]
+  if (audioUrl) L.push(`🎧 Listen to this week's 5-minute briefing: ${audioUrl}`, ``)
   const kTxt = (s) => s.kalshi ? `  📊 Related market: ${s.kalshi.event_title} — Kalshi YES ${Math.round(Number(s.kalshi.yes_bid) * 100)}¢ · ${s.kalshi.url}` : null
   if (lead) {
     L.push(`** RECEIPT OF THE WEEK **`, lead.title)
@@ -246,9 +251,20 @@ async function main() {
   }
   const linkFor = (s) => linkMap.get(s) || `${SITE}/leaderboard`
 
+  // Audio briefing (built just before this step). The public URL is deterministic;
+  // include the "Listen" block only if the object actually exists (HEAD 200).
+  let audioUrl = null
+  try {
+    const { data: pub } = supabase.storage.from('cr-audio').getPublicUrl(`audio-briefings/${WEEK_OF}.mp3`)
+    if (pub?.publicUrl) {
+      const head = await fetch(pub.publicUrl, { method: 'HEAD' })
+      if (head.ok) audioUrl = pub.publicUrl
+    }
+  } catch { /* no audio this week — ship without it */ }
+
   const subject = `💰 ${lead.title}`
-  const html = renderHtml(WEEK_OF, lead, byBranch, linkFor)
-  const text = renderText(WEEK_OF, lead, byBranch, linkFor)
+  const html = renderHtml(WEEK_OF, lead, byBranch, linkFor, audioUrl)
+  const text = renderText(WEEK_OF, lead, byBranch, linkFor, audioUrl)
 
   if (DRY) {
     console.log(`\nSubject: ${subject}`)

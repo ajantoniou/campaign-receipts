@@ -144,8 +144,14 @@ if (isOrchestrator) {
     results.stories = runStep('generate-weekly-stories', ['scripts/generate-weekly-stories.mjs'])
     results.kalshiMatch = runStep('match-kalshi-markets', ['scripts/match-kalshi-markets.mjs'])
   }
-  // 12:00 Thu — build the branch-grouped Friday Receipts issue (Phase 1 -> Phase 2).
-  if (day === 4 && hour === 12) results.newsletterBuild = runStep('weekly-newsletter-build', ['scripts/weekly-newsletter-build.mjs'])
+  // 12:00 Thu — first make the ~5-min audio briefing (TTS) and record its public URL
+  //   on the issue, THEN build the issue HTML so it can embed the "Listen" link.
+  //   (Audio requires python3 + ELEVENLABS_API_KEY on the worker; build runs even if
+  //   audio fails — the issue just ships without an audio link.)
+  if (day === 4 && hour === 12) {
+    results.audioBriefing = runStep('build-audio-briefing', ['scripts/build-audio-briefing.mjs'])
+    results.newsletterBuild = runStep('weekly-newsletter-build', ['scripts/weekly-newsletter-build.mjs'])
+  }
 
   // 13:00 UTC Saturday — viral digest: email founder the most-clicked title.
   if (day === 6 && hour === 13) results.viralDigest = runStep('weekly-viral-digest', ['scripts/weekly-viral-digest.mjs'])
