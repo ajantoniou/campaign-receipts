@@ -173,20 +173,24 @@ function outroSvg() {
 }
 
 // ── data-driven scene card (replaces hand-coded svgScene1..10) ──────────────
-function sceneCardSvg(scene, idx, total) {
-  const eyebrow = clamp((scene.label || 'Receipt').toUpperCase(), 38)
+// hasPortrait: reserve the right ~560px for the portrait overlay → shrink the big
+// figure + headline width so text never runs under the photo (fixes overlap).
+function sceneCardSvg(scene, idx, total, hasPortrait) {
+  const eyebrow = clamp((scene.label || 'Receipt').toUpperCase(), hasPortrait ? 28 : 38)
   const fig = scene.figure
-  const headline = clamp(scene.headline || scene.label || 'Follow the money', 64)
+  const headline = clamp(scene.headline || scene.label || 'Follow the money', hasPortrait ? 44 : 64)
+  const figSize = hasPortrait ? 150 : 200
+  const headSize = headline.length > 40 ? (hasPortrait ? 46 : 58) : (hasPortrait ? 56 : 70)
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="${C.paper}"/>
   <rect x="0" y="0" width="${W}" height="8" fill="${C.red}"/>
   <text x="120" y="180" font-family="Menlo, Monaco, monospace" font-weight="700" font-size="34" fill="${C.red}" letter-spacing="8">${xml(eyebrow)}</text>
-  <text x="120" y="200" font-family="Menlo, monospace" font-size="22" fill="${C.muted}" letter-spacing="2">CAMPAIGN RECEIPTS · ${xml(String(idx + 1))} of ${xml(String(total))}</text>
-  ${fig ? `<text x="120" y="520" font-family="Helvetica, sans-serif" font-weight="900" font-size="200" fill="${C.ink}" letter-spacing="-2">${xml(fig)}</text>` : ''}
-  <text x="120" y="${fig ? 680 : 480}" font-family="Georgia, serif" font-size="${headline.length > 40 ? 58 : 70}" fill="${C.ink}">${xml(headline)}</text>
-  <rect x="120" y="${H - 220}" width="${W - 240}" height="2" fill="${C.paper2}"/>
-  <text x="120" y="${H - 170}" font-family="Georgia, serif" font-style="italic" font-size="32" fill="${C.muted}">Campaign contributions are legal and disclosed. Timing does not prove causation.</text>
+  <text x="120" y="220" font-family="Menlo, monospace" font-size="22" fill="${C.muted}" letter-spacing="2">CAMPAIGN RECEIPTS · ${xml(String(idx + 1))} of ${xml(String(total))}</text>
+  ${fig ? `<text x="120" y="500" font-family="Helvetica, sans-serif" font-weight="900" font-size="${figSize}" fill="${C.ink}" letter-spacing="-2">${xml(fig)}</text>` : ''}
+  <text x="120" y="${fig ? 650 : 470}" font-family="Georgia, serif" font-size="${headSize}" fill="${C.ink}">${xml(headline)}</text>
+  <rect x="120" y="${H - 220}" width="${(hasPortrait ? 1150 : W - 120) - 120}" height="2" fill="${C.paper2}"/>
+  <text x="120" y="${H - 170}" font-family="Georgia, serif" font-style="italic" font-size="28" fill="${C.muted}">Campaign contributions are legal and disclosed.</text>
 </svg>`
 }
 
@@ -198,6 +202,56 @@ async function main() {
   scenes.forEach((s) => { s.figure = pullFigure(s.caption || s.vo); s.headline = s.label })
   const N = scenes.length
   console.log(`[script] ${N} scenes from ${path.relative(ROOT, SCRIPT_MD)}`)
+
+  // Politician portraits (scene-aligned sidecar from build-audio-briefing.mjs).
+  // Download each official bioguide photo to a framed PNG; overlaid on the card.
+  const portDir = path.join(BUILD, 'portraits'); fs.mkdirSync(portDir, { recursive: true })
+  const portraitsPath = path.join(ROOT, 'content', 'audio', WEEK, 'portraits.json')
+  let portraitList = []
+  if (fs.existsSync(portraitsPath)) { try { portraitList = JSON.parse(fs.readFileSync(portraitsPath, 'utf8')).filter(Boolean) } catch { portraitList = [] } }
+  // The storyteller reorders scenes freely, so align portraits to scenes BY NAME
+  // (last name appearing in the scene label/caption), not by index.
+  const lastName = (full) => String(full || '').trim().split(/\s+/).pop().toLowerCase().replace(/[^a-z]/g, '')
+  const matchPortrait = (scene) => {
+    const hay = `${scene.label} ${scene.caption || ''} ${scene.vo || ''}`.toLowerCase()
+    return portraitList.find((p) => p.name && hay.includes(lastName(p.name))) || null
+  }
+  const portraits = scenes.map(matchPortrait)
+  // Download → must be a real image. bioguide.congress.gov blocks direct fetches
+  // (returns HTML), so fall back to Wikipedia's page image by politician name.
+  async function fetchImage(url, dest) {
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': 'CampaignReceipts/1.0 (contact@campaignreceipts.com)' } })
+      if (!res.ok) return false
+      if (!/^image\//.test(res.headers.get('content-type') || '')) return false
+      const buf = Buffer.from(await res.arrayBuffer())
+      if (buf.length < 3000) return false
+      fs.writeFileSync(dest, buf); return true
+    } catch { return false }
+  }
+  async function wikipediaImage(name) {
+    try {
+      const u = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${encodeURIComponent(name)}&redirects=1`
+      const r = await fetch(u, { headers: { 'User-Agent': 'CampaignReceipts/1.0 (contact@campaignreceipts.com)' } })
+      const j = await r.json()
+      const pages = j?.query?.pages || {}
+      for (const k of Object.keys(pages)) { const src = pages[k]?.original?.source; if (src) return src }
+    } catch { /* none */ }
+    return null
+  }
+  const portraitPng = {}
+  for (let i = 0; i < N; i++) {
+    const p = portraits[i]
+    if (!p?.photo_url && !p?.name) continue
+    const raw = path.join(portDir, `p-${i + 1}.jpg`)
+    let got = p.photo_url ? await fetchImage(p.photo_url, raw) : false
+    if (!got && p.name) { const wiki = await wikipediaImage(p.name); if (wiki) got = await fetchImage(wiki, raw) }
+    if (!got) { console.log(`[portrait] scene ${i + 1}: no usable image for ${p.name || '?'}`); continue }
+    // Frame it: 520x650 cover, navy border + civic-red top rule.
+    const framed = path.join(portDir, `p-${i + 1}.png`)
+    sh('ffmpeg', ['-y', '-i', raw, '-vf', `scale=520:650:force_original_aspect_ratio=increase,crop=520:650,pad=540:678:10:22:color=0x16263D,drawbox=x=0:y=0:w=540:h=10:color=0xB23A3A:t=fill`, '-frames:v', '1', framed])
+    if (fs.existsSync(framed)) { portraitPng[i] = framed; console.log(`[portrait] scene ${i + 1}: ${p.name}`) }
+  }
 
   // 1) Per-scene TTS
   const voDir = path.join(BUILD, 'vo'); fs.mkdirSync(voDir, { recursive: true })
@@ -229,7 +283,7 @@ async function main() {
   const cardPng = (i) => path.join(cardsDir, `scene-${String(i + 1).padStart(2, '0')}.png`)
   const capPng = (i) => path.join(cardsDir, `cap-${String(i + 1).padStart(2, '0')}.png`)
   for (let i = 0; i < N; i++) {
-    svgToPng(sceneCardSvg(scenes[i], i, N), cardPng(i), W, H)
+    svgToPng(sceneCardSvg(scenes[i], i, N, !!portraitPng[i]), cardPng(i), W, H)
     svgToPng(captionPngSvg(scenes[i].caption || scenes[i].vo), capPng(i), W, H) // tight caption (burned-in, short → no overlap)
   }
   const outroPng = path.join(cardsDir, 'outro.png'); svgToPng(outroSvg(), outroPng, W, H)
@@ -249,11 +303,19 @@ async function main() {
       const z = (i % 2 === 0)
         ? `zoompan=z='1.0+on*${perFrame.toFixed(6)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${W}x${H}:fps=${FPS}`
         : `zoompan=z='1.08-on*${perFrame.toFixed(6)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${W}x${H}:fps=${FPS}`
-      sh('ffmpeg', ['-y', '-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng, '-loop', '1', '-t', String(dur), '-i', capPng(i),
-        '-filter_complex', `[0:v]scale=${W * 2}:${H * 2}:force_original_aspect_ratio=increase,crop=${W * 2}:${H * 2},${z},trim=duration=${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];[bg][1:v]overlay=0:0[b];[b][2:v]overlay=0:0:format=auto[vout]`,
+      const inputs = ['-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng, '-loop', '1', '-t', String(dur), '-i', capPng(i)]
+      // base card → ken-burns; overlay persistent bar [1], caption [2], and (if present) the portrait [3] at top-right.
+      let fc = `[0:v]scale=${W * 2}:${H * 2}:force_original_aspect_ratio=increase,crop=${W * 2}:${H * 2},${z},trim=duration=${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];[bg][1:v]overlay=0:0[b];[b][2:v]overlay=0:0:format=auto`
+      if (portraitPng[i]) {
+        inputs.push('-loop', '1', '-t', String(dur), '-i', portraitPng[i])
+        fc += `[c];[c][3:v]overlay=${W - 600}:200:format=auto[vout]`
+      } else {
+        fc += `[vout]`
+      }
+      sh('ffmpeg', ['-y', ...inputs, '-filter_complex', fc,
         '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', clip(i)])
     }
-    console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${heroClip[i] ? ' (veo)' : ''} +caption`)
+    console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${heroClip[i] ? ' (veo)' : portraitPng[i] ? ' +portrait' : ''} +caption`)
   }
 
   // 4b) Outro clip (static subscribe/like/newsletter card, OUTRO_DUR seconds).

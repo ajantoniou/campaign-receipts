@@ -63,8 +63,27 @@ async function weekArticles() {
     .order('published_at', { ascending: false })
   return (data || []).map((a) => {
     const ref = Array.isArray(a.source_refs) && a.source_refs[0] ? a.source_refs[0] : {}
-    return { title: a.title, dek: a.dek, branch: ref.branch || 'States', body: (a.body_md || '').slice(0, 1500) }
+    return {
+      title: a.title, dek: a.dek, branch: ref.branch || 'States', body: (a.body_md || '').slice(0, 1500),
+      politician_slug: ref.politician_slug || null, politician_name: ref.politician_name || null,
+    }
   })
+}
+
+// Resolve official bioguide portrait URLs for the week's politicians (CR DB already
+// stores cr_politicians.photo_url — public-domain congressional photos). Writes a
+// portraits.json sidecar the video renderer composites onto each story card.
+async function writePortraitsSidecar(stories, outDir) {
+  const slugs = [...new Set(stories.map((s) => s.politician_slug).filter(Boolean))]
+  const bySlug = {}
+  if (slugs.length) {
+    const { data } = await supabase.from('cr_politicians').select('slug, name, photo_url').in('slug', slugs)
+    for (const p of data || []) if (p.photo_url) bySlug[p.slug] = { name: p.name, photo_url: p.photo_url }
+  }
+  // Scene order in the script == story order here; index 0 is the cold-open (no politician).
+  const portraits = stories.map((s) => (s.politician_slug && bySlug[s.politician_slug]) ? { slug: s.politician_slug, ...bySlug[s.politician_slug] } : null)
+  writeFileSync(join(outDir, 'portraits.json'), JSON.stringify(portraits, null, 2))
+  console.log(`Portraits resolved: ${portraits.filter(Boolean).length}/${stories.length} stories`)
 }
 
 function buildPrompt(stories, weekLabel) {
@@ -142,6 +161,8 @@ async function main() {
   if (stories.length === 0) { console.log('No articles — skipping audio briefing.'); return }
 
   mkdirSync(OUT_DIR, { recursive: true })
+  // Resolve politician portraits for the video renderer (sidecar, scene-aligned).
+  await writePortraitsSidecar(stories, OUT_DIR)
 
   // 1) Script (skip LLM if already present unless --force).
   let script
