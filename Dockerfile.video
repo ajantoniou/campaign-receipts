@@ -1,0 +1,36 @@
+# Dockerfile.video — the CR weekly video render worker.
+#
+# A Node service with the system binaries the video machine needs (which the
+# default Render node runtime lacks): ffmpeg, rsvg-convert (librsvg2-bin), python3.
+# Exposes POST /produce-weekly (token-auth) which runs scripts/produce-weekly-video.mjs.
+#
+# Build/deploy via render-video-worker.yaml (autoDeploy off; founder approves).
+
+FROM node:22-bookworm-slim
+
+# System binaries: ffmpeg (encode/mux), librsvg2-bin (rsvg-convert), python3 +
+# google-auth libs for the YouTube uploader, fonts for any text rendering.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      ffmpeg \
+      librsvg2-bin \
+      python3 python3-pip \
+      fonts-dejavu-core fonts-liberation \
+      ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python deps for youtube-upload.py (google-api OAuth). It otherwise uses stdlib.
+RUN pip3 install --no-cache-dir --break-system-packages \
+      google-auth google-auth-oauthlib google-api-python-client requests || true
+
+WORKDIR /app
+
+# Install only what the worker needs (full repo is mounted at deploy via Render git).
+COPY package*.json ./
+RUN npm install --omit=dev
+
+COPY . .
+
+ENV PORT=10000
+EXPOSE 10000
+
+CMD ["node", "scripts/video-worker-server.mjs"]

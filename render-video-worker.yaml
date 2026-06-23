@@ -1,0 +1,54 @@
+# render-video-worker.yaml — the CR weekly video render worker (Docker).
+#
+# Separate from the node cron because video rendering needs ffmpeg + rsvg-convert +
+# python3, which the default node runtime lacks. The hourly cron POSTs to this
+# service's /produce-weekly each Thursday; this service does the render + YouTube upload.
+#
+# Deploy: import this file in the Render dashboard (or merge into render.yaml).
+# autoDeploy:false + founder approval — this service costs money + publishes to YouTube.
+#
+# After deploy, set on BOTH this service and the cron:
+#   VIDEO_WORKER_URL   = https://cr-video-worker.onrender.com   (this service's URL)
+#   VIDEO_WORKER_TOKEN = <a long random secret>                 (shared auth token)
+
+services:
+  - type: web
+    name: cr-video-worker
+    runtime: docker
+    dockerfilePath: ./Dockerfile.video
+    rootDir: .
+    plan: starter            # 0.5 CPU / 512MB is tight for ffmpeg; bump to standard if OOM
+    region: oregon
+    autoDeploy: false
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: VIDEO_WORKER_TOKEN
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: CR_VIDEO_PRIVACY
+        value: unlisted        # SAFE default; flip to "public" once quality is proven
+      - key: CR_YOUTUBE_OAUTH_CLIENT_ID
+        sync: false
+      - key: CR_YOUTUBE_OAUTH_CLIENT_SECRET
+        sync: false
+      - key: CR_YOUTUBE_REFRESH_TOKEN
+        sync: false
+      - key: CR_YOUTUBE_CHANNEL_ID
+        sync: false
+      - key: CR_YOUTUBE_PLAYLIST_CR_NEW_NEWS
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://campaignreceipts.com

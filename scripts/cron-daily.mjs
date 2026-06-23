@@ -57,6 +57,21 @@ function runStep(name, args) {
   return true
 }
 
+// ── Trigger the Docker video render worker (separate service with ffmpeg/rsvg) ──
+async function triggerVideoWorker() {
+  const url = process.env.VIDEO_WORKER_URL
+  const token = process.env.VIDEO_WORKER_TOKEN
+  if (!url || !token) { console.log('video worker: VIDEO_WORKER_URL/TOKEN not set — skipping video trigger'); return false }
+  console.log(`\n── trigger video worker ${'─'.repeat(40)}`)
+  try {
+    const r = await fetch(`${url.replace(/\/$/, '')}/produce-weekly`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'x-cr-token': token }, body: '{}',
+    })
+    console.log(`video worker responded ${r.status}: ${(await r.text()).slice(0, 200)}`)
+    return r.ok
+  } catch (e) { console.error(`! video worker trigger failed: ${e.message}`); return false }
+}
+
 // ── DB Maintenance ──
 async function archivePastRaces() {
   console.log(`\n── archive-past-races ${'─'.repeat(45)}`)
@@ -152,6 +167,12 @@ if (isOrchestrator) {
     results.audioBriefing = runStep('build-audio-briefing', ['scripts/build-audio-briefing.mjs'])
     results.newsletterBuild = runStep('weekly-newsletter-build', ['scripts/weekly-newsletter-build.mjs'])
   }
+
+  // 14:00 Thu — trigger the YouTube video machine on the Docker render worker.
+  //   The cron (node runtime) has no ffmpeg/rsvg; the worker does the render +
+  //   upload (long-form + 2 shorts, PUBLIC, every description driving the $9
+  //   newsletter). Fire-and-log; no-op if the worker URL/token aren't configured.
+  if (day === 4 && hour === 14) results.videoTrigger = await triggerVideoWorker()
 
   // 13:00 UTC Saturday — viral digest: email founder the most-clicked title.
   if (day === 6 && hour === 13) results.viralDigest = runStep('weekly-viral-digest', ['scripts/weekly-viral-digest.mjs'])
