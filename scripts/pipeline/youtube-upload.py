@@ -50,9 +50,16 @@ import http.server
 import webbrowser
 from pathlib import Path
 
-REPO = Path("/Applications/DrAntoniou Projects/AgentCompanies")
-ENV = REPO / ".env"
-CR_DIR = REPO / "companies/campaign-receipts"
+# Resolve the repo root relative to this file (../../ from scripts/pipeline/) so this
+# runs in the standalone campaign-receipts checkout AND on the Render worker, not just
+# the legacy AgentCompanies monorepo. REPO is the project root; CR_DIR == REPO here.
+_HERE = Path(__file__).resolve()
+CR_DIR = _HERE.parent.parent
+if (CR_DIR / "companies/campaign-receipts").exists():  # legacy monorepo layout
+    CR_DIR = CR_DIR / "companies/campaign-receipts"
+REPO = CR_DIR
+_LEGACY_ENV = Path("/Applications/DrAntoniou Projects/AgentCompanies/.env")
+ENV = (CR_DIR / ".env") if (CR_DIR / ".env").exists() else _LEGACY_ENV
 COST_LOG = CR_DIR / "scripts/.external-costs.jsonl"
 TOKEN_STORE = CR_DIR / "scripts/.youtube-token.json"
 
@@ -86,21 +93,29 @@ def require_growth_triad(description):
         sys.exit(1)
 
 def load_env():
-    env = {}
+    # os.environ first (Render worker injects keys), then .env file fills gaps.
+    env = dict(os.environ)
     if ENV.exists():
         for line in ENV.read_text().splitlines():
             if "=" in line and not line.startswith("#"):
                 k, _, v = line.partition("=")
-                env[k.strip()] = v.strip().strip('"')
+                k = k.strip()
+                if k not in env or not env[k]:
+                    env[k] = v.strip().strip('"')
     return env
 
 def load_client_secret():
     env = load_env()
+    # Prefer env vars (set on the Render worker) — client_secret.json isn't shipped there.
+    cid = env.get("CR_YOUTUBE_OAUTH_CLIENT_ID")
+    csec = env.get("CR_YOUTUBE_OAUTH_CLIENT_SECRET")
+    if cid and csec:
+        return cid, csec
     path = env.get("CR_YOUTUBE_CLIENT_SECRET_PATH", "client_secret.json")
     full = REPO / path if not Path(path).is_absolute() else Path(path)
     if not full.exists():
-        print(f"ERR: client_secret.json not found at {full}", file=sys.stderr)
-        print("Download from console.cloud.google.com → APIs → Credentials", file=sys.stderr)
+        print(f"ERR: no CR_YOUTUBE_OAUTH_CLIENT_ID/SECRET env and client_secret.json not at {full}", file=sys.stderr)
+        print("Set CR_YOUTUBE_OAUTH_CLIENT_ID + CR_YOUTUBE_OAUTH_CLIENT_SECRET, or add client_secret.json", file=sys.stderr)
         sys.exit(1)
     data = json.loads(full.read_text())
     inst = data.get("installed") or data.get("web")
