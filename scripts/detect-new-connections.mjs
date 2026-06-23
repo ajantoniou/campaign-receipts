@@ -331,7 +331,51 @@ async function main() {
     return out
   }
   const exposes = await computeExposes()
-  console.log(`Exposé matches (sponsor's bill benefits an industry that funds them): ${exposes.length}`)
+  console.log(`Sponsor exposés (sponsor's bill benefits an industry that funds them): ${exposes.length}`)
+
+  // ── VOTE EXPOSÉ (founder 2026-06-23: "same with the VOTES") — the strongest archetype,
+  //    because a vote is an ACTION taken: a member voted YES (non-procedural) on a bill
+  //    that (per its full text) benefits industry Y, AND took money from named Y donors.
+  //    e.g. "Ro Khanna voted for a Big Tech bill — and took $205k from Google, Meta,
+  //    Microsoft." Correlation only; the disclaimer rides in the VO.
+  async function computeVoteExposes() {
+    const { data: eff } = await supabase.from('cr_bill_effect').select('bill_id, beneficiary_industry, plain_effect, mechanism, confidence').not('beneficiary_industry', 'is', null)
+    if (!eff?.length) return []
+    const indByBill = new Map(eff.map((e) => [e.bill_id, e]))
+    const billIds = eff.map((e) => e.bill_id)
+    const billRows = await selectAll('cr_bills', 'id, title, short_title, bill_type, bill_number, congress', (q) => q.in('id', billIds))
+    const billById = new Map(billRows.map((b) => [b.id, b]))
+    const diRows = await selectAll('cr_donor_industry', 'donor_key, industry')
+    const indByDonor = new Map(diRows.map((d) => [d.donor_key, d.industry]))
+    // YES, non-procedural votes on industry-favoring bills.
+    const votes = await selectAll('cr_roll_calls', 'bill_id, politician_id, vote, is_procedural', (q) => q.in('bill_id', billIds))
+    const yesVotes = votes.filter((v) => v.politician_id && !v.is_procedural && /^(yea|yes|aye)$/i.test(String(v.vote || '').trim()))
+    const polIds = [...new Set(yesVotes.map((v) => v.politician_id))]
+    const pols = polIds.length ? await selectAll('cr_politicians', 'id, name, slug, party, state, branch', (q) => q.in('id', polIds)) : []
+    const polById = new Map(pols.map((p) => [p.id, p]))
+    // donor match per (politician) — cache donors once per pol
+    const donorCache = new Map()
+    async function donorsFor(polId) {
+      if (!donorCache.has(polId)) donorCache.set(polId, await selectAll('cr_money_events', 'entity_key, amount', (q) => q.eq('politician_id', polId).eq('entity_type', 'donor_to_politician')))
+      return donorCache.get(polId)
+    }
+    const best = new Map() // pol|industry → strongest match
+    for (const v of yesVotes) {
+      const e = indByBill.get(v.bill_id); const pol = polById.get(v.politician_id); const bill = billById.get(v.bill_id)
+      if (!e || !pol || !bill) continue
+      const don = await donorsFor(v.politician_id)
+      const matched = don.map((d) => { const m = String(d.entity_key).match(/donor:([^|]+)/); return { name: m ? m[1] : '', amt: Number(d.amount) || 0 } })
+        .filter((d) => indByDonor.get(d.name) === e.beneficiary_industry).sort((a, b2) => b2.amt - a.amt)
+      if (!matched.length) continue
+      const total = matched.reduce((s, d) => s + d.amt, 0)
+      const k = `${pol.id}|${e.beneficiary_industry}`
+      const cand = { pol, branch: mapBranch(pol.branch), industry: e.beneficiary_industry, bill, effect: e.plain_effect, mechanism: e.mechanism, confidence: e.confidence, donors: matched, total, isVote: true }
+      if (!best.has(k) || best.get(k).total < total) best.set(k, cand)
+    }
+    return [...best.values()].sort((a, b) => b.total - a.total)
+  }
+  const voteExposes = await computeVoteExposes()
+  console.log(`Vote exposés (voted YES on an industry bill + took that industry's money): ${voteExposes.length}`)
 
   // 5) Compose the slate. Exposés lead (the real "why" story). Then industry→committee
   //    jurisdiction stories, then named gatekeepers, for breadth.
@@ -342,13 +386,28 @@ async function main() {
   const seenIndustry = new Set()
   const seenBill = new Set()
 
-  // (a0) EXPOSÉS LEAD — one per politician (their strongest industry match).
   const seenExposePol = new Set()
+  const seenExposeBill = new Set()
+  // (a0) VOTE EXPOSÉS LEAD — a vote is an action taken; strongest archetype. Collapse
+  //      same-BILL votes into ONE bloc story (founder's Blackstone/Apollo insight: a
+  //      whole bloc voted for the bill widening their customer base, and the industry
+  //      funded all of them) — far stronger than N near-identical member cards. Lead
+  //      member = biggest matched donor total; bloc = everyone who voted YES + took the money.
+  const voteByBill = new Map()
+  for (const x of voteExposes) { if (!voteByBill.has(x.bill.id)) voteByBill.set(x.bill.id, []); voteByBill.get(x.bill.id).push(x) }
+  const voteLeads = [...voteByBill.values()].map((list) => { list.sort((a, b) => b.total - a.total); const lead = list[0]; lead.bloc = list; return lead }).sort((a, b) => b.total - a.total)
+  for (const x of voteLeads) {
+    if (picked.length >= TARGET) break
+    if (seenExposeBill.has(x.bill.id)) continue
+    seenExposeBill.add(x.bill.id); seenExposePol.add(x.pol.id)
+    picked.push({ isExpose: true, exposeKind: 'vote', expose: x, branch: x.branch, amt: x.total, score: 1200 + Math.log10(x.total + 1) * 40, pol: x.pol, e: { id: null, entity_key: `vote:${x.bill.id}`, entity_type: 'vote_expose' } })
+  }
+  // (a1) SPONSOR EXPOSÉS next — one per politician (skip if already shown via a vote).
   for (const x of exposes) {
     if (picked.length >= TARGET) break
     if (seenExposePol.has(x.pol.id)) continue
     seenExposePol.add(x.pol.id)
-    picked.push({ isExpose: true, expose: x, branch: x.branch, amt: x.total, score: 1000 + Math.log10(x.total + 1) * 40, pol: x.pol, e: { id: null, entity_key: `expose:${x.pol.id}:${x.bill.id}`, entity_type: 'expose' } })
+    picked.push({ isExpose: true, exposeKind: 'sponsor', expose: x, branch: x.branch, amt: x.total, score: 1000 + Math.log10(x.total + 1) * 40, pol: x.pol, e: { id: null, entity_key: `expose:${x.pol.id}:${x.bill.id}`, entity_type: 'expose' } })
   }
   // (a) named-gatekeeper stories next (strongest event archetype), 1 per branch.
   for (const br of ['Executive', 'House', 'Senate', 'States']) {
@@ -403,14 +462,27 @@ async function main() {
     //    lives in the article/VO, not here.
     if (c.isExpose) {
       const x = c.expose
+      const isVote = c.exposeKind === 'vote'
       const billName = x.bill.short_title || x.bill.title || `${(x.bill.bill_type || '').toUpperCase()} ${x.bill.bill_number}`
-      const donorNames = x.donors.slice(0, 3).map((d) => titleCase(d.name)).join(', ')
+      const bloc = isVote && Array.isArray(x.bloc) ? x.bloc : null
+      const blocSize = bloc ? bloc.length : 1
+      const blocTotal = bloc ? bloc.reduce((s, m) => s + m.total, 0) : x.total
+      // Top named donors across the whole bloc (the recurring industry backers).
+      const blocDonorTotals = {}
+      if (bloc) for (const m of bloc) for (const d of m.donors) blocDonorTotals[titleCase(d.name)] = (blocDonorTotals[titleCase(d.name)] || 0) + d.amt
+      const topBlocDonors = Object.entries(blocDonorTotals).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([n]) => n)
+      const headline = isVote
+        ? (blocSize > 1
+            ? `${blocSize} lawmakers voted for a ${x.industry} bill — after ${topBlocDonors.slice(0, 2).join(' and ') || `${x.industry} donors`} funded them`
+            : `${x.pol.name} voted for a ${x.industry} bill — and took ${usdFull(x.total)} from ${x.industry} donors`)
+        : `${x.pol.name} sponsored a ${x.industry} bill — and took ${usdFull(x.total)} from ${x.industry} donors`
       return {
         week_of: WEEK_OF, rank: i + 1, branch: c.branch, event_id: null,
         dedupe_hash: sha1(c.e.entity_key),
-        headline: `${x.pol.name} sponsored a ${x.industry} bill — and took ${usdFull(x.total)} from ${x.industry} donors`,
+        headline,
         source_refs: [{
-          entity_key: c.e.entity_key, entity_type: 'expose', story_type: 'expose',
+          entity_key: c.e.entity_key, entity_type: isVote ? 'vote_expose' : 'expose', story_type: isVote ? 'vote_expose' : 'expose',
+          action: isVote ? 'voted_yes' : 'sponsored',
           politician_id: x.pol.id, politician_name: x.pol.name, politician_slug: x.pol.slug,
           party: x.pol.party, state: x.pol.state,
           industry: x.industry,
@@ -419,6 +491,10 @@ async function main() {
           bill_effect: x.effect, bill_mechanism: x.mechanism, effect_confidence: x.confidence,
           matched_donors: x.donors.slice(0, 6).map((d) => ({ name: titleCase(d.name), amount: Math.round(d.amt) })),
           matched_donor_total: Math.round(x.total),
+          bloc_size: blocSize,
+          bloc_total: Math.round(blocTotal),
+          bloc_top_donors: topBlocDonors,
+          bloc_members: bloc ? bloc.slice(0, 12).map((m) => ({ name: m.pol.name, party: m.pol.party, amount: Math.round(m.total) })) : null,
         }],
         score: Math.round(c.score),
       }

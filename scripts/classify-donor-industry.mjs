@@ -22,7 +22,9 @@ const DRY = process.argv.includes('--dry-run')
 const RULES = [
   // Transportation FIRST so "Union Pacific" (railroad) isn't caught by "union".
   ['Transportation', /\b(airlines?|aviation|american airlines|delta air|united airlines|southwest airlines|union pacific|norfolk southern|csx|burlington northern|railroad|fedex|ups inc|trucking|maritime)\b/i],
-  ['Labor unions', /\b(labor union|afl-cio|afscme|teamster|unite here|seiu|uaw|ibew|laborers|carpenters|machinists|firefighters|nea |aft |communication workers|longshore|pipefitters|plumbers|steelworkers|\bunion\b)\b/i],
+  // Real labor orgs only — NOT "Union Square Ventures/Hospitality" (VC/restaurants) or
+  // "X Credit Union" (a bank). Drop the bare \bunion\b catch; require a union signature.
+  ['Labor unions', /\b(labor union|trade union|workers union|afl-cio|afscme|teamster|unite here|\bseiu\b|\buaw\b|\bibew\b|laborers'? international|carpenters union|machinists union|firefighters association|national education association|\baft\b|communication workers|longshore|pipefitters|plumbers union|steelworkers|local \d+)\b/i],
   ['Finance', /\b(bank|bancorp|financial|capital|securities|investment|asset manag|private equity|hedge|insur|visa|mastercard|goldman|morgan|citigroup|wells fargo|blackstone|apollo|blackrock|kkr|carlyle|credit union|mortgage)\b/i],
   ['Oil & Gas', /\b(oil|gas|petroleum|exxon|chevron|conocophillips|marathon|pipeline|drilling|fossil|coal|refin|diamondback|halliburton)\b/i],
   ['Big Tech', /\b(google|alphabet|meta|facebook|amazon|microsoft|apple inc|oracle|nvidia|qualcomm|semiconductor|software|internet|silicon|cloud computing|salesforce|palantir|tiktok|bytedance)\b/i],

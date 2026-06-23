@@ -43,6 +43,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* LemonSqueezy on-domain checkout overlay (modal), same pattern as
             uploadcheck.app. CheckoutButton calls window.LemonSqueezy.Url.Open(). */}
         <Script src="https://assets.lemonsqueezy.com/lemon.js" strategy="afterInteractive" />
+        {/* Privacy-friendly analytics by Plausible */}
+        <Script
+          src="https://plausible.io/js/pa-w_m45ycr1vDQxW_ZKXMdn.js"
+          strategy="afterInteractive"
+          async
+        />
+        <Script
+          id="plausible-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()`,
+          }}
+        />
         <header className="sticky top-0 z-50 glass-panel border-b-0 rounded-none border-b border-white/5 bg-background/50">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 group">
