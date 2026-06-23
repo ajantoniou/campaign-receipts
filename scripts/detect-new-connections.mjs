@@ -299,11 +299,42 @@ async function main() {
     return true
   })
 
-  // 5) Compose the slate. With the real-connection gate, the genuine stories are
-  //    industry→bill threads. Spread across DISTINCT (industry, bill) so the show
-  //    has variety (finance bill, big-tech bill, crypto bill…) instead of three
-  //    near-identical finance rows. Named-politician gatekeeper stories (rare —
-  //    needs a named ≥$100k donor) lead when they exist.
+  // ── EXPOSÉ (the NYT story, founder 2026-06-23): a tracked politician SPONSORS a bill
+  //    that benefits industry Y (cr_bill_effect.beneficiary_industry), AND that same
+  //    politician's NAMED donors include industry-Y companies (cr_donor_industry). The
+  //    headline names the bill, what it does, and the donors. Correlation, never causation.
+  async function computeExposes() {
+    const { data: eff } = await supabase.from('cr_bill_effect').select('bill_id, beneficiary_industry, plain_effect, mechanism, confidence').not('beneficiary_industry', 'is', null)
+    if (!eff?.length) return []
+    const billIds = eff.map((e) => e.bill_id)
+    const billRows = await selectAll('cr_bills', 'id, title, short_title, bill_type, bill_number, congress, sponsor_bioguide', (q) => q.in('id', billIds))
+    const billById = new Map(billRows.map((b) => [b.id, b]))
+    const sponsorBios = [...new Set(billRows.map((b) => b.sponsor_bioguide).filter(Boolean))]
+    const sponsorPols = sponsorBios.length ? await selectAll('cr_politicians', 'id, name, slug, party, state, branch, bioguide', (q) => q.in('bioguide', sponsorBios)) : []
+    const polByBio = new Map(sponsorPols.map((p) => [p.bioguide, p]))
+    const diRows = await selectAll('cr_donor_industry', 'donor_key, industry')
+    const indByDonor = new Map(diRows.map((d) => [d.donor_key, d.industry]))
+    const out = []
+    for (const e of eff) {
+      const b = billById.get(e.bill_id); if (!b?.sponsor_bioguide) continue
+      const pol = polByBio.get(b.sponsor_bioguide); if (!pol) continue
+      const don = await selectAll('cr_money_events', 'entity_key, amount', (q) => q.eq('politician_id', pol.id).eq('entity_type', 'donor_to_politician'))
+      const matched = don.map((d) => { const m = String(d.entity_key).match(/donor:([^|]+)/); return { name: m ? m[1] : '', amt: Number(d.amount) || 0 } })
+        .filter((d) => indByDonor.get(d.name) === e.beneficiary_industry)
+        .sort((a, b2) => b2.amt - a.amt)
+      if (!matched.length) continue
+      const total = matched.reduce((s, d) => s + d.amt, 0)
+      out.push({ pol, branch: mapBranch(pol.branch), industry: e.beneficiary_industry, bill: b, effect: e.plain_effect, mechanism: e.mechanism, confidence: e.confidence, donors: matched, total, isExpose: true })
+    }
+    // strongest = most donor money in the matched industry
+    out.sort((a, b) => b.total - a.total)
+    return out
+  }
+  const exposes = await computeExposes()
+  console.log(`Exposé matches (sponsor's bill benefits an industry that funds them): ${exposes.length}`)
+
+  // 5) Compose the slate. Exposés lead (the real "why" story). Then industry→committee
+  //    jurisdiction stories, then named gatekeepers, for breadth.
   const polCands = candidates.filter((c) => c.pol)
   const billCands = candidates.filter((c) => !c.pol)          // pac_to_bill, industry-classified
   const picked = []
@@ -311,10 +342,18 @@ async function main() {
   const seenIndustry = new Set()
   const seenBill = new Set()
 
-  // (a) named-gatekeeper stories first (strongest archetype), 1 per branch.
+  // (a0) EXPOSÉS LEAD — one per politician (their strongest industry match).
+  const seenExposePol = new Set()
+  for (const x of exposes) {
+    if (picked.length >= TARGET) break
+    if (seenExposePol.has(x.pol.id)) continue
+    seenExposePol.add(x.pol.id)
+    picked.push({ isExpose: true, expose: x, branch: x.branch, amt: x.total, score: 1000 + Math.log10(x.total + 1) * 40, pol: x.pol, e: { id: null, entity_key: `expose:${x.pol.id}:${x.bill.id}`, entity_type: 'expose' } })
+  }
+  // (a) named-gatekeeper stories next (strongest event archetype), 1 per branch.
   for (const br of ['Executive', 'House', 'Senate', 'States']) {
-    const top = polCands.find((c) => c.branch === br && !seenKey.has(c.e.entity_key))
-    if (top) { picked.push(top); seenKey.add(top.e.entity_key) }
+    const top = polCands.find((c) => c.branch === br && !seenKey.has(c.e.entity_key) && !seenExposePol.has(c.pol?.id))
+    if (top && picked.length < TARGET) { picked.push(top); seenKey.add(top.e.entity_key) }
   }
   // (b) ONE story per (regulating COMMITTEE, industry). The real unit is "industry
   //     money → the committee that regulates it" (e.g. finance → Financial Services,
@@ -348,7 +387,8 @@ async function main() {
   for (const c of picked) byBranch[c.branch] = (byBranch[c.branch] || 0) + 1
   console.log(`Picked ${picked.length} candidates — by branch: ${JSON.stringify(byBranch)}`)
   for (const c of picked.slice(0, TARGET)) {
-    console.log(`  [${c.branch}] score ${Math.round(c.score)} | ${usd(c.amt)} | ${c.pol ? c.pol.name : c.e.label}${c.isForeign ? ' [foreign]' : ''}${c.isNew ? ' [new]' : ' [grown]'}`)
+    const what = c.isExpose ? `EXPOSÉ ${c.expose.pol.name} ← ${c.expose.industry}` : (c.pol ? c.pol.name : (c.jurisdiction ? `${c.jurisdiction.industry}→${c.jurisdiction.committee_name}` : c.e.entity_key))
+    console.log(`  [${c.branch}] score ${Math.round(c.score)} | ${usd(c.amt)} | ${what}`)
   }
 
   if (DRY) { console.log('DRY RUN — no candidates written.'); return }
@@ -356,7 +396,33 @@ async function main() {
   // 6) Write cr_story_candidates (clear this week first for idempotency).
   await supabase.from('cr_story_candidates').delete().eq('week_of', WEEK_OF)
   const titleCase = (s) => String(s || '').replace(/\b([a-z])/g, (m) => m.toUpperCase())
+  const usdFull = (n) => `$${Math.round(Number(n) || 0).toLocaleString()}`
   const rows = picked.map((c, i) => {
+    // ── EXPOSÉ row: the NYT story. "X sponsored [bill that does Y] — and took $Z from
+    //    [named industry-Y donors]." Correlation; the disclaimer ("timing ≠ causation")
+    //    lives in the article/VO, not here.
+    if (c.isExpose) {
+      const x = c.expose
+      const billName = x.bill.short_title || x.bill.title || `${(x.bill.bill_type || '').toUpperCase()} ${x.bill.bill_number}`
+      const donorNames = x.donors.slice(0, 3).map((d) => titleCase(d.name)).join(', ')
+      return {
+        week_of: WEEK_OF, rank: i + 1, branch: c.branch, event_id: null,
+        dedupe_hash: sha1(c.e.entity_key),
+        headline: `${x.pol.name} sponsored a ${x.industry} bill — and took ${usdFull(x.total)} from ${x.industry} donors`,
+        source_refs: [{
+          entity_key: c.e.entity_key, entity_type: 'expose', story_type: 'expose',
+          politician_id: x.pol.id, politician_name: x.pol.name, politician_slug: x.pol.slug,
+          party: x.pol.party, state: x.pol.state,
+          industry: x.industry,
+          bill_id: x.bill.id, bill_name: billName, bill_label: `${(x.bill.bill_type || '').toUpperCase()} ${x.bill.bill_number}`,
+          bill_congress: x.bill.congress,
+          bill_effect: x.effect, bill_mechanism: x.mechanism, effect_confidence: x.confidence,
+          matched_donors: x.donors.slice(0, 6).map((d) => ({ name: titleCase(d.name), amount: Math.round(d.amt) })),
+          matched_donor_total: Math.round(x.total),
+        }],
+        score: Math.round(c.score),
+      }
+    }
     const bill = !c.pol && c.e.bill_id ? billById.get(c.e.bill_id) : null
     const industry = !c.pol ? titleCase(labelOf(c.e.entity_key) || '') : null
     const billName = bill ? (bill.short_title || bill.title || `${(bill.bill_type || '').toUpperCase()} ${bill.bill_number}`) : null

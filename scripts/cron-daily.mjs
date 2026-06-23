@@ -124,6 +124,9 @@ if (isOrchestrator) {
   if (day === 1 && hour === 7) {
     results.billCommittees = runStep('sync-bill-committees', ['scripts/sync-bill-committees.mjs', '--limit=200'])
     results.senateVotes = runStep('sync-senate-rollcalls', ['scripts/sync-senate-rollcalls.mjs', '--recent=40'])
+    // Bill-effect classifier (what each bill does + who benefits) — needs bills synced
+    // above; feeds the exposé match in detect-new-connections.
+    results.billEffect = runStep('classify-bill-effect', ['scripts/classify-bill-effect.mjs'])
   }
 
   // 08:00 UTC Daily (Compute Nightly)
@@ -141,6 +144,9 @@ if (isOrchestrator) {
     results.moneyGraph = runStep('fec-bulk-money-graph', ['scripts/fec-bulk-money-graph.mjs', '--cycles=2024,2026'])
     results.classifyIndustry = runStep('classify-committee-industry', ['scripts/classify-committee-industry.mjs'])
     results.committees = runStep('sync-congress-committees', ['scripts/sync-congress-committees.mjs'])
+    // Exposé-engine inputs: committee→industry jurisdiction map + named-donor→industry tags.
+    results.committeeJurisdiction = runStep('sync-committee-jurisdiction', ['scripts/sync-committee-jurisdiction.mjs'])
+    results.donorIndustry = runStep('classify-donor-industry', ['scripts/classify-donor-industry.mjs'])
     // Pro-Israel money tracker: refresh the pro-Israel committees' full Schedule E
     // (support+oppose) then recompute the per-politician summary.
     const PRO_ISRAEL = 'C00799031,C00797670,C00710848,C00127811,C00441949'
