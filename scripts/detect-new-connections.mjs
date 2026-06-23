@@ -36,20 +36,39 @@ const DRY = args.includes('--dry-run')
 const weekArg = args.find((a) => a.startsWith('--week-of='))?.split('=')[1]
 
 const GROWTH_FLOOR = Number(process.env.DETECT_GROWTH_FLOOR ?? 250000) // $ delta to count "notable growth"
+const BILL_AMOUNT_FLOOR = Number(process.env.DETECT_BILL_FLOOR ?? 250000) // min industry→bill $ to be a real story
 const TARGET = Number(process.env.DETECT_TARGET ?? 8)                  // candidates to emit
 
-// Generic catch-all buckets that aren't a money-influence STORY (e.g. "Individual
-// / Retired" is $5.8B of aggregate small-dollar giving, not a connection). A
-// pac_to_bill event whose industry is one of these is dropped; donor_to_politician
-// with a generic donor name is also dropped.
+// Generic / occupation-code buckets that are NOT a money-influence STORY. These
+// dominate FEC data and produce hollow "stories" with no punchline:
+//   - "Individual / Retired" is $Bs of aggregate small-dollar giving, not a connection.
+//   - "self-employed", "homemaker", "entrepreneur" etc. are how INDIVIDUALS self-report
+//     occupation — there's no donor, no industry, no influence thread. (Founder
+//     2026-06-23: "Cruz $22M from retirees — what? what's the punchline?" Exactly —
+//     there isn't one. Drop them.)
+// A pac_to_bill whose industry is generic is dropped; a donor_to_politician whose
+// donor name is an occupation code is dropped.
 const GENERIC_LABELS = new Set([
   'individual / retired', 'individual', 'retired', 'uncategorized', 'unknown',
   'other', 'n/a', 'misc', 'unitemized',
+  'self', 'self employed', 'self-employed', 'selfemployed', 'homemaker', 'home maker',
+  'entrepreneur', 'none', 'not employed', 'unemployed', 'ceo', 'president', 'owner',
+  'investor', 'attorney', 'consultant', 'physician', 'business owner', 'executive',
+  'information requested', 'information requested per best efforts', 'requested',
+  'best efforts', 'na', 'not applicable', 'refused',
 ])
+function labelOf(key) {
+  const m = String(key).match(/(?:ind|donor):(.+?)(?:\|cyc:|$)/)
+  return m ? m[1].trim().toLowerCase() : null
+}
 function isGeneric(key) {
-  // entity_key for bills ends in "ind:{label}"; for donors "donor:{name}".
-  const m = key.match(/(?:ind|donor):(.+?)(?:\|cyc:|$)/)
-  return m ? GENERIC_LABELS.has(m[1]) : false
+  const l = labelOf(key)
+  if (!l) return false
+  if (GENERIC_LABELS.has(l)) return true
+  // occupation-ish phrases that aren't a named company/industry
+  if (/^information requested/.test(l)) return true
+  if (/\b(self[ -]?employed|homemaker|retired|unemployed|not employed)\b/.test(l)) return true
+  return false
 }
 
 function isoMonday(d = new Date()) {
@@ -183,7 +202,23 @@ async function main() {
       gatekeeperBoost                                    // archetype #1: gatekeeper of jurisdiction
     const pol = e.politician_id ? polById.get(e.politician_id) : null
     const branch = pol ? mapBranch(pol.branch) : 'States'
-    return { e, pol, branch, amt, delta, isNew, isForeign, alignEx, gatekeeper, score }
+    // REAL-CONNECTION GATE (founder 2026-06-23: "only run stories with a real
+    // connection"). A story must have a genuine influence thread, not occupation
+    // noise or a generic fundraising total:
+    //   (a) industry-classified PAC money → a bill's sponsors (ind:<industry>), OR
+    //   (b) a committee GATEKEEPER (chair/ranking/member) receiving ≥$100k from a
+    //       NAMED entity (PAC/company), never an occupation code.
+    // Everything else (donor:self-employed/homemaker/retired, local-business totals)
+    // is dropped — the data doesn't support a punchline, so we don't air one.
+    // A bill→industry thread is only a real STORY above a money floor — below ~$250k
+    // the "industry funding this bill" is a coincidental tail (PACs that gave to a
+    // sponsor who also happens to sponsor an unrelated bill), not a connection.
+    // (Founder 2026-06-23: a "$0.14M crypto → China-prisoners resolution" segment has
+    // no real thread — don't air it.)
+    const isIndustryBill = e.entity_type === 'pac_to_bill' && amt >= BILL_AMOUNT_FLOOR
+    const isNamedGatekeeper = gatekeeperQualifies && e.entity_type !== 'donor_to_politician'
+    const realConnection = isIndustryBill || isNamedGatekeeper
+    return { e, pol, branch, amt, delta, isNew, isForeign, alignEx, gatekeeper, score, realConnection }
   })
 
   // 4) Dedupe vs articles written in the last 60 days (entity_key stamped in source_refs).
@@ -195,8 +230,10 @@ async function main() {
     for (const r of refs) { if (r && r.entity_key) coveredKeys.add(r.entity_key) }
   }
   const candidatesAll = scored
+    .filter((c) => c.realConnection)                       // ← only real influence threads
     .filter((c) => !coveredKeys.has(c.e.entity_key))
     .sort((a, b) => b.score - a.score)
+  console.log(`Real-connection candidates (after gate): ${candidatesAll.length} of ${scored.length} scored`)
 
   // Dedupe to ONE story per politician (keep their highest-scoring event) so the
   // slate isn't three rows of the same member's different donor edges. Bill events
@@ -209,32 +246,52 @@ async function main() {
     return true
   })
 
-  // 5) Compose the slate. Favor NAMED-POLITICIAN stories (concrete, nameable) and
-  //    cap bill-industry aggregates so they don't flood the slate with near-dupes.
-  //    Dedupe bill events by (bill_id, industry) and keep only the strongest few.
-  const MAX_BILL_EVENTS = Number(process.env.DETECT_MAX_BILL ?? 2)
-  const polCands = candidates.filter((c) => c.pol)            // donor/pac → named politician
-  const billCands = candidates.filter((c) => !c.pol)          // pac_to_bill aggregates
+  // 5) Compose the slate. With the real-connection gate, the genuine stories are
+  //    industry→bill threads. Spread across DISTINCT (industry, bill) so the show
+  //    has variety (finance bill, big-tech bill, crypto bill…) instead of three
+  //    near-identical finance rows. Named-politician gatekeeper stories (rare —
+  //    needs a named ≥$100k donor) lead when they exist.
+  const polCands = candidates.filter((c) => c.pol)
+  const billCands = candidates.filter((c) => !c.pol)          // pac_to_bill, industry-classified
   const picked = []
   const seenKey = new Set()
+  const seenIndustry = new Set()
+  const seenBill = new Set()
 
-  // (a) >=1 named-politician story per branch where one exists.
+  // (a) named-gatekeeper stories first (strongest archetype), 1 per branch.
   for (const br of ['Executive', 'House', 'Senate', 'States']) {
     const top = polCands.find((c) => c.branch === br && !seenKey.has(c.e.entity_key))
     if (top) { picked.push(top); seenKey.add(top.e.entity_key) }
   }
-  // (b) up to MAX_BILL_EVENTS strongest distinct bill-industry stories.
-  let billUsed = 0
+  // (b) ONE story per industry. The honest finding (founder 2026-06-23): an industry's
+  //     PAC money is one pool blanketing a whole sponsor bloc — finance ~$1.1M appears
+  //     behind 180+ bills, big-tech behind 130+. It is NOT "industry X bought bill Y."
+  //     So each industry collapses to a SINGLE segment: the strongest bill stands in,
+  //     and breadth (how many bills its sponsors carry) is counted as context. We do
+  //     NOT manufacture N per-bill "stories" from one pool. Count → source_refs.bill_count.
+  const billsByIndustry = new Map()
   for (const c of billCands) {
-    if (billUsed >= MAX_BILL_EVENTS) break
-    if (!seenKey.has(c.e.entity_key)) { picked.push(c); seenKey.add(c.e.entity_key); billUsed++ }
+    const ind = labelOf(c.e.entity_key)
+    if (!billsByIndustry.has(ind)) billsByIndustry.set(ind, [])
+    billsByIndustry.get(ind).push(c)
   }
-  // (c) fill remaining slots with the next-best named-politician stories.
-  for (const c of polCands) {
+  for (const [, list] of billsByIndustry) {
     if (picked.length >= TARGET) break
-    if (!seenKey.has(c.e.entity_key)) { picked.push(c); seenKey.add(c.e.entity_key) }
+    list.sort((a, b) => b.amt - a.amt)
+    const lead = list[0]
+    lead.bill_count = list.length // how many bills this industry's sponsors carry (breadth)
+    picked.push(lead); seenKey.add(lead.e.entity_key)
   }
   picked.sort((a, b) => b.score - a.score)
+
+  // Enrich bill candidates with the actual bill identity (name + what it does) so the
+  // story has a real subject, not "Finance money → bill".
+  const billIds = [...new Set(picked.filter((c) => !c.pol && c.e.bill_id).map((c) => c.e.bill_id))]
+  const billById = new Map()
+  if (billIds.length) {
+    const { data: bills } = await supabase.from('cr_bills').select('id, bill_type, bill_number, congress, title, short_title').in('id', billIds)
+    for (const b of bills || []) billById.set(b.id, b)
+  }
 
   const byBranch = {}
   for (const c of picked) byBranch[c.branch] = (byBranch[c.branch] || 0) + 1
@@ -247,34 +304,51 @@ async function main() {
 
   // 6) Write cr_story_candidates (clear this week first for idempotency).
   await supabase.from('cr_story_candidates').delete().eq('week_of', WEEK_OF)
-  const rows = picked.map((c, i) => ({
-    week_of: WEEK_OF,
-    rank: i + 1,
-    branch: c.branch,
-    event_id: c.e.id,
-    dedupe_hash: sha1(c.e.entity_key),
-    headline: c.pol
+  const titleCase = (s) => String(s || '').replace(/\b([a-z])/g, (m) => m.toUpperCase())
+  const rows = picked.map((c, i) => {
+    const bill = !c.pol && c.e.bill_id ? billById.get(c.e.bill_id) : null
+    const industry = !c.pol ? titleCase(labelOf(c.e.entity_key) || '') : null
+    const billName = bill ? (bill.short_title || bill.title || `${(bill.bill_type || '').toUpperCase()} ${bill.bill_number}`) : null
+    const billLabel = bill ? `${(bill.bill_type || '').toUpperCase()} ${bill.bill_number}` : null
+    const headline = c.pol
       ? (c.gatekeeper === 'chair'
           ? `${c.pol.name} chairs the committee — and took ${usd(c.amt)}`
           : `${c.pol.name}: ${usd(c.amt)} ${c.e.entity_type === 'pac_to_politician' ? 'in PAC money' : 'in new donor money'}`)
-      : c.e.label,
-    source_refs: [{
-      entity_key: c.e.entity_key,
-      entity_type: c.e.entity_type,
-      amount: c.amt,
-      politician_id: c.e.politician_id,
-      politician_name: c.pol?.name || null,
-      politician_slug: c.pol?.slug || null,
-      party: c.pol?.party || null,
-      state: c.pol?.state || null,
-      committee_id: c.e.committee_id,
-      bill_id: c.e.bill_id,
-      is_new: c.isNew,
-      is_foreign: c.isForeign,
-      gatekeeper: c.gatekeeper,   // chair | ranking | member | null (archetype #1)
-    }],
-    score: Math.round(c.score),
-  }))
+      : (c.bill_count > 1
+          ? `${industry} PACs are behind the sponsors of ${c.bill_count} bills — ${usd(c.amt)} on the biggest`
+          : (billName ? `${industry} PACs put ${usd(c.amt)} behind ${billName}` : `${industry} money → a bill`))
+    return {
+      week_of: WEEK_OF,
+      rank: i + 1,
+      branch: c.branch,
+      event_id: c.e.id,
+      dedupe_hash: sha1(c.e.entity_key),
+      headline,
+      source_refs: [{
+        entity_key: c.e.entity_key,
+        entity_type: c.e.entity_type,
+        amount: c.amt,
+        politician_id: c.e.politician_id,
+        politician_name: c.pol?.name || null,
+        politician_slug: c.pol?.slug || null,
+        party: c.pol?.party || null,
+        state: c.pol?.state || null,
+        committee_id: c.e.committee_id,
+        bill_id: c.e.bill_id,
+        // bill identity + industry for the storyteller (the real subject of the story)
+        industry: industry || null,
+        bill_name: billName,
+        bill_label: billLabel,
+        bill_title: bill?.title || null,
+        bill_congress: bill?.congress || null,
+        bill_count: c.bill_count || 1,   // # of bills this industry's sponsor bloc carries (breadth, not per-bill earmark)
+        is_new: c.isNew,
+        is_foreign: c.isForeign,
+        gatekeeper: c.gatekeeper,
+      }],
+      score: Math.round(c.score),
+    }
+  })
   const { error } = await supabase.from('cr_story_candidates').insert(rows)
   if (error) { console.error('insert error:', error.message); process.exit(1) }
 
