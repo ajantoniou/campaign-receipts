@@ -68,16 +68,23 @@ function svgToPng(svg, png, w, h) { const p = png.replace(/\.png$/, '.svg'); fs.
 const C = { paper: 'rgb(244,239,230)', paper2: 'rgb(235,227,208)', ink: '#16263D', muted: '#6E7891', red: '#B23A3A', green: '#2E7D55', gold: '#C8861D' }
 
 // ── VO + scene parsing from briefing.md ─────────────────────────────────────
-// Our briefing format: "## Scene N — <label>" then "**VO:** <text>" (no timestamps,
-// no wrapping quotes — unlike the SEALED script). One scene per VO line.
+// Storyteller format: "## Scene N — <label>" then "**VO:** <tight>" and
+// "**VO_LONG:** <fuller>". The VIDEO narration uses VO_LONG (1-2 min/story); the
+// burned CAPTION uses the tight VO (keeps captions short → no overlap). The audio
+// briefing (build-audio-briefing.mjs) separately reads only **VO:** for its <3-min cut.
+const unquote = (s) => { let v = s.trim(); if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1).trim(); return v }
 function parseScenes(md) {
-  const lines = md.split('\n'); const scenes = []; let header = null
+  const lines = md.split('\n'); const scenes = []; let header = null; let cur = null
+  const flush = () => { if (cur && (cur.long || cur.short)) scenes.push({ label: cur.label, vo: cur.long || cur.short, caption: cur.short || cur.long }); cur = null }
   for (const ln of lines) {
     const hm = ln.match(/^##\s+Scene\s+\d+\s*[—–-]\s*(.+?)\s*$/i)
-    if (hm) { header = hm[1].trim(); continue }
+    if (hm) { flush(); header = hm[1].trim(); cur = { label: header, short: '', long: '' }; continue }
+    const lm = ln.match(/^\*\*VO_LONG:\*\*\s*(.+)$/i)
+    if (lm) { if (!cur) cur = { label: header || 'Receipt', short: '', long: '' }; cur.long = unquote(lm[1]); continue }
     const vm = ln.match(/^\*\*VO:\*\*\s*(.+)$/)
-    if (vm) { let v = vm[1].trim(); if ((v.startsWith('"') && v.endsWith('"'))) v = v.slice(1, -1).trim(); scenes.push({ label: header || 'Receipt', vo: v }); header = null }
+    if (vm) { if (!cur) cur = { label: header || 'Receipt', short: '', long: '' }; cur.short = unquote(vm[1]); continue }
   }
+  flush()
   return scenes
 }
 
@@ -188,7 +195,7 @@ async function main() {
   fs.mkdirSync(BUILD, { recursive: true })
   const scenes = parseScenes(fs.readFileSync(SCRIPT_MD, 'utf8'))
   if (scenes.length < 3) { console.error(`Only ${scenes.length} scenes parsed — need ≥3.`); process.exit(1) }
-  scenes.forEach((s) => { s.figure = pullFigure(s.vo); s.headline = s.label })
+  scenes.forEach((s) => { s.figure = pullFigure(s.caption || s.vo); s.headline = s.label })
   const N = scenes.length
   console.log(`[script] ${N} scenes from ${path.relative(ROOT, SCRIPT_MD)}`)
 
@@ -223,7 +230,7 @@ async function main() {
   const capPng = (i) => path.join(cardsDir, `cap-${String(i + 1).padStart(2, '0')}.png`)
   for (let i = 0; i < N; i++) {
     svgToPng(sceneCardSvg(scenes[i], i, N), cardPng(i), W, H)
-    svgToPng(captionPngSvg(scenes[i].vo), capPng(i), W, H) // open captions (burned-in)
+    svgToPng(captionPngSvg(scenes[i].caption || scenes[i].vo), capPng(i), W, H) // tight caption (burned-in, short → no overlap)
   }
   const outroPng = path.join(cardsDir, 'outro.png'); svgToPng(outroSvg(), outroPng, W, H)
   const OUTRO_DUR = 5

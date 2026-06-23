@@ -68,33 +68,70 @@ async function weekArticles() {
 }
 
 function buildPrompt(stories, weekLabel) {
-  return `You are the writer for the "Friday Receipts" audio briefing from CampaignReceipts, a nonpartisan campaign-finance accountability site. Write a ~5-minute (700-850 word) spoken radio briefing covering this week's ${stories.length} money-trail stories.
+  // Storyteller persona — CRAFT copied from personas/jk-rowling-storyteller.md
+  // (Stage 9 CR handoff): deliver PUNCHLINES + the deeper WHY, not a receipt list;
+  // dramatize the correlation the data shows but keep open questions as QUESTIONS
+  // (never assert a deal); 3rd-grade reading level; a scene turn every beat.
+  return `You are the STORYTELLER for the "Friday Receipts" weekly show from CampaignReceipts, a nonpartisan campaign-finance accountability site. You write one script that becomes BOTH a short audio briefing and a YouTube video. Make it impossible to stop listening — wonder, suspense, a clear picture, one idea at a time — INSIDE a story, never a lecture or a list.
 
-OUTPUT FORMAT (critical — the TTS reads ONLY **VO:** lines):
-- Markdown. One scene per story plus a cold-open and a close.
-- Each scene: a "## Scene N — <label>" header, then a "**VO:**" line with the spoken text.
-- ONLY the text after **VO:** is spoken. Headers/notes are ignored.
+THE ARC (this is the whole point — connect the stories, don't list them):
+- Open like a host: an energetic cold-open that sets up the week. e.g. "Exciting week this week in following the money — here's what we found."
+- "First up, ..." — lead with the single most interesting money trail (biggest figure or juiciest connection). Tell it as a mini-story: picture → the money → the twist → why it matters.
+- Then connective tissue between every story: "In other news, we also learned that ...", "But the one that stopped us cold — ...", "And you won't believe it — another story of possible influence, a wire transfer of ...".
+- Close like a host: invite them back + the disclaimer.
 
-HARD RULES (same discipline as our articles):
-1. ONLY use facts present in the STORIES data. Never invent a number, name, date, or vote.
-2. NO causation / motive / quid-pro-quo. State the money and the role/vote as facts; let the listener judge. BANNED: "bought," "bribe," "in exchange for," "because of," "corrupt."
-3. Nonpartisan — same scrutiny regardless of party.
-4. Spoken style: short sentences, plain English (3rd-5th grade), active voice. Spell out figures the way they're said ("two point three million dollars"). No headers/markdown read aloud. No "shocking/bombshell."
-5. Cold open = one-sentence hook with the week's biggest figure. Close = "The receipts are at campaignreceipts.com. New ones every Friday." and the standing line: "Campaign contributions are legal and disclosed. Timing does not prove causation."
+STORYTELLING CRAFT (do this, it's the difference between boring and bingeable):
+- PUNCHLINE, not receipt. A receipt is "X received nine hundred thousand dollars." A story is "Here's a senator who writes the rules for an industry — and that same industry is his single biggest backer. He says it's a coincidence. You decide."
+- One picture per beat. Short sentences. Common words (3rd-5th grade). If you use a term like "PAC" or "committee chair," unpack it in the same breath ("a PAC — a group that pools money to back candidates").
+- A turn every story: a question, a reversal, a reveal. Keep the listener leaning in.
+- Make the NUMBERS land. Say the big figure out loud and let it breathe.
 
-STORIES (${weekLabel}):
+HARD RULES (non-negotiable — same discipline as our articles):
+1. ONLY use facts in the STORIES data. Never invent a number, name, date, vote, or YEAR. If a year/date is not in the data, DO NOT state one. (Today is ${weekLabel}.)
+1b. The dollar figures come from FEC filing cycles that may be a year or two old. DO NOT say "in 2024" or name the cycle year as if it were news — it sounds stale. Instead say "in her most recent filings", "across her last fundraising cycle", or "the latest disclosures show". The NEWS is the pattern we surfaced THIS week; the money is the on-the-record backdrop.
+2. NO causation / motive / quid-pro-quo. Dramatize the correlation, but an open question STAYS a question ("will he? we're watching"), never an asserted deal. BANNED: bought, bribe, in exchange for, because of, corrupt, payoff.
+3. Nonpartisan — identical scrutiny regardless of party.
+4. Spell out figures the way they're SAID ("nine hundred thousand dollars", "two point three million dollars"). No "shocking/bombshell."
+
+OUTPUT FORMAT (critical — parsers read specific markers):
+- Markdown. "## Scene 1 — Cold open", then one "## Scene N — <short label>" per story, then "## Scene N — Close".
+- Each scene has TWO lines:
+    **VO:** <the TIGHT version — one or two punchy sentences, for a ~3-minute audio briefing. This is what gets spoken in audio.>
+    **VO_LONG:** <the FULLER version of the SAME beat — 1 to 2 minutes of narration when read aloud (roughly 150-300 words), with the picture + twist + why. This is the video narration.>
+- The **VO:** line must be a true shorter cut of the **VO_LONG:** beat — same facts, same order, fewer words.
+- Cold open & Close: short, host energy, in BOTH lines. Close ends with: "The receipts — and the links — are waiting at campaignreceipts.com. New ones every Friday." then "Campaign contributions are legal and disclosed. Timing does not prove causation."
+
+STORIES (most interesting first is your call):
 ${JSON.stringify(stories, null, 2)}
 
 Write the full script now, starting with "## Scene 1 — Cold open".`
 }
 
+// Deterministic guard: the model keeps anchoring on the FEC cycle year ("in the
+// 2024 cycle"), which sounds stale read in 2026. The figures ARE real cycle data,
+// so we don't drop them — we reframe the YEAR as "most recent filing cycle".
+// (Same approach as the story generator's deterministic banned-phrase pass.)
+function destaleCycleYear(text) {
+  // Any spoken/written form of a recent cycle year: "2024", "twenty twenty-four",
+  // "two thousand twenty-four", "twenty twenty-three", etc.
+  const YEAR = '(?:20\\d\\d|(?:two thousand |twenty[ -])twenty[ -](?:two|three|four|five|six)|twenty[ -]twenty[ -]?(?:two|three|four|five|six))'
+  return text
+    // "(during|in) [the] <YEAR> [election|fundraising] cycle" → reframe
+    .replace(new RegExp(`\\b(?:during|in|for) (?:the )?${YEAR}(?:\\s+(?:election|fundraising))? cycle\\b`, 'gi'), 'in the most recent filing cycle')
+    // bare "the <YEAR> cycle"
+    .replace(new RegExp(`\\bthe ${YEAR} cycle\\b`, 'gi'), 'the most recent filing cycle')
+    // "(during|in) <YEAR>," not followed by "cycle/dollars" → "in recent filings"
+    .replace(new RegExp(`\\b(?:during|in) ${YEAR}\\b(?!\\s*(?:cycle|dollars))`, 'gi'), 'in recent filings')
+}
+
 async function generateScript(stories) {
   const resp = await anthropic.messages.create({
-    model: STORY_MODEL, max_tokens: 2500,
+    model: STORY_MODEL, max_tokens: 4500,
     messages: [{ role: 'user', content: buildPrompt(stories, WEEK_OF) }],
   })
-  const t = resp.content[0]?.type === 'text' ? resp.content[0].text.trim() : ''
+  let t = resp.content[0]?.type === 'text' ? resp.content[0].text.trim() : ''
   if (!t || !/\*\*VO:\*\*/.test(t)) throw new Error('script missing **VO:** blocks')
+  t = destaleCycleYear(t)
   return t
 }
 
