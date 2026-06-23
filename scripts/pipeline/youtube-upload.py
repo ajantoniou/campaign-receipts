@@ -50,11 +50,12 @@ import http.server
 import webbrowser
 from pathlib import Path
 
-# Resolve the repo root relative to this file (../../ from scripts/pipeline/) so this
-# runs in the standalone campaign-receipts checkout AND on the Render worker, not just
-# the legacy AgentCompanies monorepo. REPO is the project root; CR_DIR == REPO here.
+# Resolve the repo root relative to this file: scripts/pipeline/youtube-upload.py
+# → three .parent hops (file → pipeline → scripts → repo root). Works in the
+# standalone checkout AND on the Render worker, not just the legacy monorepo.
+# REPO is the project root; CR_DIR == REPO here (paths below add scripts/… etc).
 _HERE = Path(__file__).resolve()
-CR_DIR = _HERE.parent.parent
+CR_DIR = _HERE.parent.parent.parent
 if (CR_DIR / "companies/campaign-receipts").exists():  # legacy monorepo layout
     CR_DIR = CR_DIR / "companies/campaign-receipts"
 REPO = CR_DIR
@@ -69,11 +70,11 @@ SCOPES = (
     "https://www.googleapis.com/auth/youtube"
 )
 # Founder 2026-06-01: the newsletter is NOT free, and the outro/CTA is the bare
-# campaignreceipts.com (no /weekly). Dropped the required /weekly link from the
-# growth gate so descriptions are not forced to carry a link/claim we removed.
+# campaignreceipts.com (no /weekly). Dropped the required /weekly link.
+# 2026-06-22: dropped SEALED2016.com — that's a different project; CR videos drive
+# only the $9 CampaignReceipts newsletter. The gate now just ensures the CR link.
 GROWTH_TRIAD = (
     ("CampaignReceipts.com", "campaignreceipts.com"),
-    ("SEALED2016.com", "sealed2016.com"),
 )
 
 
