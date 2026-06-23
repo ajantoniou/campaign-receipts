@@ -97,7 +97,7 @@ OUTPUT FORMAT (critical — parsers read specific markers):
 - Markdown. "## Scene 1 — Cold open", then one "## Scene N — <short label>" per story, then "## Scene N — Close".
 - Each scene has TWO lines:
     **VO:** <the TIGHT version — one or two punchy sentences, for a ~3-minute audio briefing. This is what gets spoken in audio.>
-    **VO_LONG:** <the FULLER version of the SAME beat — 1 to 2 minutes of narration when read aloud (roughly 150-300 words), with the picture + twist + why. This is the video narration.>
+    **VO_LONG:** <the FULLER version of the SAME beat — about 30 to 40 seconds of narration when read aloud (roughly 75-110 words), with the picture + twist + why. Punchy, not padded. This is the video narration; the whole video should land around 4 minutes.>
 - The **VO:** line must be a true shorter cut of the **VO_LONG:** beat — same facts, same order, fewer words.
 - Cold open & Close: short, host energy, in BOTH lines. Close ends with: "The receipts — and the links — are waiting at campaignreceipts.com. New ones every Friday." then "Campaign contributions are legal and disclosed. Timing does not prove causation."
 

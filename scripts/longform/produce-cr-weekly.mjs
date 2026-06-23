@@ -69,7 +69,7 @@ const C = { paper: 'rgb(244,239,230)', paper2: 'rgb(235,227,208)', ink: '#16263D
 
 // ── VO + scene parsing from briefing.md ─────────────────────────────────────
 // Storyteller format: "## Scene N — <label>" then "**VO:** <tight>" and
-// "**VO_LONG:** <fuller>". The VIDEO narration uses VO_LONG (1-2 min/story); the
+// "**VO_LONG:** <fuller>". The VIDEO narration uses VO_LONG (~30-40s/story, ~4-min video); the
 // burned CAPTION uses the tight VO (keeps captions short → no overlap). The audio
 // briefing (build-audio-briefing.mjs) separately reads only **VO:** for its <3-min cut.
 const unquote = (s) => { let v = s.trim(); if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1).trim(); return v }
