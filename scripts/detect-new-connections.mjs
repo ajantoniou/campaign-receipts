@@ -146,6 +146,49 @@ async function main() {
     : []
   const foreignSet = new Set(foreign.map((f) => f.politician_id))
 
+  // ── JURISDICTION MATCH (the NYT "why"): a bill→industry money flow is a STORY when
+  //    the bill is referred to a committee that REGULATES that industry, chaired by a
+  //    named member. "Finance money behind a bill headed to the Financial Services
+  //    Committee — chaired by X." That's the mechanism, not "finance touches 180 bills".
+  const billEventIds = [...new Set(fresh.filter((e) => e.entity_type === 'pac_to_bill' && e.bill_id).map((e) => e.bill_id))]
+  const jurRows = await selectAll('cr_committee_jurisdiction', 'thomas_id, committee_name, chamber, industries')
+  const indByCommittee = new Map(jurRows.map((j) => [j.thomas_id, (j.industries || []).map((s) => String(s).toLowerCase())]))
+  const nameByCommittee = new Map(jurRows.map((j) => [j.thomas_id, { name: j.committee_name, chamber: j.chamber }]))
+  const billCommittees = new Map() // bill_id → [thomas_id(parent)]
+  if (billEventIds.length) {
+    const bc = await selectAll('cr_bill_committees', 'bill_id, thomas_id', (q) => q.in('bill_id', billEventIds))
+    for (const r of bc) {
+      if (!r.thomas_id) continue
+      const t = r.thomas_id.slice(0, 4)
+      if (!indByCommittee.has(t)) continue
+      if (!billCommittees.has(r.bill_id)) billCommittees.set(r.bill_id, new Set())
+      billCommittees.get(r.bill_id).add(t)
+    }
+  }
+  // committee chairs (parent committees), name-resolved.
+  const allChairs = await selectAll('cr_committee_assignments', 'thomas_id, bioguide, role', (q) => q.eq('role', 'Chair'))
+  const chairBioByCommittee = new Map()
+  for (const a of allChairs) { const t = (a.thomas_id || '').slice(0, 4); if (nameByCommittee.has(t) && !chairBioByCommittee.has(t)) chairBioByCommittee.set(t, a.bioguide) }
+  const chairBios = [...new Set(chairBioByCommittee.values())]
+  const chairPols = chairBios.length ? await selectAll('cr_politicians', 'name, slug, bioguide', (q) => q.in('bioguide', chairBios)) : []
+  const chairByBio = new Map(chairPols.map((p) => [p.bioguide, p]))
+  // For a pac_to_bill event, find the matching regulating committee (+ its chair).
+  function jurisdictionMatch(e) {
+    if (e.entity_type !== 'pac_to_bill' || !e.bill_id) return null
+    const ind = labelOf(e.entity_key)
+    const coms = billCommittees.get(e.bill_id)
+    if (!ind || !coms) return null
+    for (const t of coms) {
+      if (indByCommittee.get(t).includes(ind)) {
+        const meta = nameByCommittee.get(t)
+        const chairBio = chairBioByCommittee.get(t)
+        const chair = chairBio ? chairByBio.get(chairBio) : null
+        return { thomas_id: t, committee_name: meta.name, chamber: meta.chamber, industry: ind, chair_name: chair?.name || null, chair_slug: chair?.slug || null }
+      }
+    }
+    return null
+  }
+
   // GATEKEEPER signal (journalist archetype #1): the politician (a) sponsors a bill
   // AND (b) holds a committee seat — strongest when they CHAIR / are Ranking Member.
   // This is the highest-value story signal, so it gets the biggest boost.
@@ -192,6 +235,10 @@ async function main() {
     const gatekeeperQualifies = gatekeeper && amt >= 100000
     const gatekeeperBoost = !gatekeeperQualifies ? 0
       : gatekeeper === 'chair' ? 400 : gatekeeper === 'ranking' ? 250 : 120
+    // The jurisdiction match is the strongest signal: industry money → a bill headed
+    // to the committee that REGULATES that industry. This is the NYT "why".
+    const jurisdiction = jurisdictionMatch(e)
+    const jurisdictionBoost = jurisdiction ? (jurisdiction.chair_name ? 600 : 450) : 0
     const score =
       Math.log10(amt + 1) * 40 +
       (isNew ? 300 : 0) +
@@ -199,7 +246,8 @@ async function main() {
       (isForeign ? 250 : 0) +
       alignEx * 150 +
       (e.entity_type === 'pac_to_bill' ? 120 : 0) +
-      gatekeeperBoost                                    // archetype #1: gatekeeper of jurisdiction
+      gatekeeperBoost +                                  // archetype #1: gatekeeper (sponsor + seat)
+      jurisdictionBoost                                  // archetype #1b: industry money → its regulating committee
     const pol = e.politician_id ? polById.get(e.politician_id) : null
     const branch = pol ? mapBranch(pol.branch) : 'States'
     // REAL-CONNECTION GATE (founder 2026-06-23: "only run stories with a real
@@ -215,10 +263,15 @@ async function main() {
     // sponsor who also happens to sponsor an unrelated bill), not a connection.
     // (Founder 2026-06-23: a "$0.14M crypto → China-prisoners resolution" segment has
     // no real thread — don't air it.)
-    const isIndustryBill = e.entity_type === 'pac_to_bill' && amt >= BILL_AMOUNT_FLOOR
+    // A bill→industry thread is a real STORY only when the money goes to a bill headed
+    // to the committee that REGULATES that industry (jurisdiction match = the "why"),
+    // above the money floor. A bloc total with no regulating-committee match is NOT a
+    // story (that was the hollow "finance touches 180 bills"). Named-entity gatekeepers
+    // (sponsor + seat + ≥$100k from a real PAC/company) also qualify.
+    const isJurisdictionBill = !!jurisdiction && amt >= BILL_AMOUNT_FLOOR
     const isNamedGatekeeper = gatekeeperQualifies && e.entity_type !== 'donor_to_politician'
-    const realConnection = isIndustryBill || isNamedGatekeeper
-    return { e, pol, branch, amt, delta, isNew, isForeign, alignEx, gatekeeper, score, realConnection }
+    const realConnection = isJurisdictionBill || isNamedGatekeeper
+    return { e, pol, branch, amt, delta, isNew, isForeign, alignEx, gatekeeper, jurisdiction, score, realConnection }
   })
 
   // 4) Dedupe vs articles written in the last 60 days (entity_key stamped in source_refs).
@@ -263,23 +316,21 @@ async function main() {
     const top = polCands.find((c) => c.branch === br && !seenKey.has(c.e.entity_key))
     if (top) { picked.push(top); seenKey.add(top.e.entity_key) }
   }
-  // (b) ONE story per industry. The honest finding (founder 2026-06-23): an industry's
-  //     PAC money is one pool blanketing a whole sponsor bloc — finance ~$1.1M appears
-  //     behind 180+ bills, big-tech behind 130+. It is NOT "industry X bought bill Y."
-  //     So each industry collapses to a SINGLE segment: the strongest bill stands in,
-  //     and breadth (how many bills its sponsors carry) is counted as context. We do
-  //     NOT manufacture N per-bill "stories" from one pool. Count → source_refs.bill_count.
-  const billsByIndustry = new Map()
+  // (b) ONE story per (regulating COMMITTEE, industry). The real unit is "industry
+  //     money → the committee that regulates it" (e.g. finance → Financial Services,
+  //     chaired by X). Multiple bills headed to the same committee = the same story;
+  //     the strongest bill stands in and bill_count carries the breadth.
+  const byCommittee = new Map()
   for (const c of billCands) {
-    const ind = labelOf(c.e.entity_key)
-    if (!billsByIndustry.has(ind)) billsByIndustry.set(ind, [])
-    billsByIndustry.get(ind).push(c)
+    const j = c.jurisdiction
+    const key = `${j.thomas_id}|${j.industry}`
+    if (!byCommittee.has(key)) byCommittee.set(key, [])
+    byCommittee.get(key).push(c)
   }
-  for (const [, list] of billsByIndustry) {
+  const groups = [...byCommittee.values()].map((list) => { list.sort((a, b) => b.amt - a.amt); list[0].bill_count = list.length; return list[0] })
+  groups.sort((a, b) => b.score - a.score)
+  for (const lead of groups) {
     if (picked.length >= TARGET) break
-    list.sort((a, b) => b.amt - a.amt)
-    const lead = list[0]
-    lead.bill_count = list.length // how many bills this industry's sponsors carry (breadth)
     picked.push(lead); seenKey.add(lead.e.entity_key)
   }
   picked.sort((a, b) => b.score - a.score)
@@ -310,12 +361,17 @@ async function main() {
     const industry = !c.pol ? titleCase(labelOf(c.e.entity_key) || '') : null
     const billName = bill ? (bill.short_title || bill.title || `${(bill.bill_type || '').toUpperCase()} ${bill.bill_number}`) : null
     const billLabel = bill ? `${(bill.bill_type || '').toUpperCase()} ${bill.bill_number}` : null
+    const j = c.jurisdiction
+    // The NYT headline: industry money → the bill headed to the committee that
+    // REGULATES that industry, named by its chair. That's the mechanism (the "why").
     const headline = c.pol
       ? (c.gatekeeper === 'chair'
           ? `${c.pol.name} chairs the committee — and took ${usd(c.amt)}`
           : `${c.pol.name}: ${usd(c.amt)} ${c.e.entity_type === 'pac_to_politician' ? 'in PAC money' : 'in new donor money'}`)
-      : (c.bill_count > 1
-          ? `${industry} PACs are behind the sponsors of ${c.bill_count} bills — ${usd(c.amt)} on the biggest`
+      : (j
+          ? (j.chair_name
+              ? `${industry} put ${usd(c.amt)} behind bills headed to ${j.chamber} ${j.committee_name} — the panel ${j.chair_name} chairs that writes ${industry}'s rules`
+              : `${industry} put ${usd(c.amt)} behind bills headed to the ${j.chamber} committee that writes ${industry}'s rules`)
           : (billName ? `${industry} PACs put ${usd(c.amt)} behind ${billName}` : `${industry} money → a bill`))
     return {
       week_of: WEEK_OF,
@@ -341,7 +397,12 @@ async function main() {
         bill_label: billLabel,
         bill_title: bill?.title || null,
         bill_congress: bill?.congress || null,
-        bill_count: c.bill_count || 1,   // # of bills this industry's sponsor bloc carries (breadth, not per-bill earmark)
+        bill_count: c.bill_count || 1,   // # of bills headed to this committee that this industry's money sits behind
+        // jurisdiction chain (the NYT "why"): committee that regulates the industry + its chair
+        committee_name: j?.committee_name || null,
+        committee_chamber: j?.chamber || null,
+        committee_chair: j?.chair_name || null,
+        committee_chair_slug: j?.chair_slug || null,
         is_new: c.isNew,
         is_foreign: c.isForeign,
         gatekeeper: c.gatekeeper,
