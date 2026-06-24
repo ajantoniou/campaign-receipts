@@ -1,6 +1,7 @@
 import { supabaseRead } from '../lib/supabase';
 import Link from 'next/link';
 import ClientPageGSAPWrapper from '@/components/ClientPageGSAPWrapper';
+import CheckoutButton from '@/app/components/CheckoutButton';
 
 // Campaign Receipts homepage — showcase DONOR INFLUENCE.
 // Flow: HERO --> What we track --> Explore (links to the real donor pages)
@@ -45,12 +46,13 @@ export default async function Home() {
           Follow the money behind <span className="font-serif italic font-normal text-white">every vote.</span>
         </h1>
         <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
-          Campaign Receipts ingests real-time FEC filings, Super PAC spending, and lobbying records to show
-          you exactly who funds your politicians — and how that money tracks their votes.
+          We read the bills and the roll calls so you don&apos;t have to — then show you exactly who funded
+          the lawmakers who voted for them. The data is free. <span className="text-white font-medium">Friday Receipts</span>,
+          our weekly money-trail briefing, is <span className="text-white font-medium">$9/month</span>.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Link href="/leaderboard" className="btn-primary">Explore the Leaderboard</Link>
-          <Link href="#newsletter" className="btn-secondary">Free Weekly Receipt</Link>
+          <CheckoutButton className="btn-primary">Get Friday Receipts — $9/mo</CheckoutButton>
+          <Link href="/leaderboard" className="btn-secondary">Explore the free data</Link>
         </div>
         {(politicianCount > 0 || raceCount > 0) && (
           <div className="flex gap-8 mt-6 font-mono text-xs tracking-[0.1em] uppercase text-text-muted">
@@ -111,16 +113,20 @@ export default async function Home() {
       <section id="newsletter" className="reveal w-full max-w-[1200px] px-6">
         <div className="glass-panel p-10 md:p-12 flex flex-col gap-8 max-w-2xl mx-auto text-center items-center">
           <div className="flex flex-col gap-4">
-            <div className="text-[11px] font-mono tracking-[0.1em] text-text-muted uppercase">Free Weekly</div>
-            <h3 className="text-3xl font-display font-bold text-primary tracking-tight">The Weekly Receipt</h3>
+            <div className="text-[11px] font-mono tracking-[0.1em] text-text-muted uppercase">Friday Receipts · $9/month</div>
+            <h3 className="text-3xl font-display font-bold text-primary tracking-tight">The weekly money-trail briefing</h3>
             <p className="text-text-muted leading-relaxed">
-              A weekly digest of the most revealing money trails — big donors, industry spending, and the votes that followed.
+              Every Friday: the week&apos;s most revealing money trails — who voted for which industry&apos;s bill,
+              and which donors funded them — plus a 5-minute audio briefing. We read the bills so you don&apos;t have to.
             </p>
           </div>
-          <form className="flex flex-col sm:flex-row gap-3 w-full max-w-md" action="/api/newsletter-signup" method="POST">
-            <input type="email" name="email" placeholder="Your best email..." className="flex-1 bg-background border border-white/10 rounded-full px-6 py-3 text-primary text-sm focus:outline-none focus:border-white/30 transition-colors" required />
-            <button type="submit" className="btn-primary">Subscribe</button>
-          </form>
+          <ul className="flex flex-col gap-2 text-sm text-text-muted text-left max-w-md w-full">
+            <li className="flex items-center gap-2"><span className="text-success">✓</span> The vote-and-money exposés, before anyone else covers them</li>
+            <li className="flex items-center gap-2"><span className="text-success">✓</span> Listen or read — 5-min audio briefing included</li>
+            <li className="flex items-center gap-2"><span className="text-success">✓</span> Every figure sourced to public FEC filings &amp; roll-call records</li>
+          </ul>
+          <CheckoutButton className="btn-primary text-base px-8 py-3">Subscribe — $9/month</CheckoutButton>
+          <p className="text-xs text-text-muted">The donor data is always free. <Link href="/leaderboard" className="underline hover:text-primary">Explore it →</Link></p>
         </div>
       </section>
     </ClientPageGSAPWrapper>
