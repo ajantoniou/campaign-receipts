@@ -51,7 +51,7 @@ export default async function Home() {
           Sourced to public FEC filings and official roll-call records.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <CheckoutButton className="btn-primary">Get the Receipts</CheckoutButton>
+          <CheckoutButton className="btn-primary">Sign up today</CheckoutButton>
           <Link href="/leaderboard" className="btn-secondary">Explore the free data</Link>
         </div>
         {(politicianCount > 0 || raceCount > 0) && (
@@ -125,7 +125,7 @@ export default async function Home() {
             <li className="flex items-center gap-2"><span className="text-success">✓</span> Listen or read — 5-min audio briefing included</li>
             <li className="flex items-center gap-2"><span className="text-success">✓</span> Every figure sourced to public FEC filings &amp; roll-call records</li>
           </ul>
-          <CheckoutButton className="btn-primary text-base px-8 py-3">Subscribe — $9/month</CheckoutButton>
+          <CheckoutButton className="btn-primary text-base px-8 py-3">Sign up today</CheckoutButton>
           <p className="text-xs text-text-muted">The donor data is always free. <Link href="/leaderboard" className="underline hover:text-primary">Explore it →</Link></p>
         </div>
       </section>

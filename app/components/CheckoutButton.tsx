@@ -2,12 +2,12 @@
 
 import { useState } from 'react'
 
-// Opens the LemonSqueezy checkout in the on-domain OVERLAY (modal) — same pattern
-// as uploadcheck.app (lemon.js loaded in the root layout). Instead of a full-page
-// redirect, we ask /api/checkout?format=json for the server-built, email-prefilled
-// checkout URL (auth + user_id stay server-side), then open it with
-// window.LemonSqueezy.Url.Open(). Falls back to a plain navigation if lemon.js
-// hasn't loaded, and to sign-in / pricing when the server says so.
+// "Sign up today" → email-first checkout (founder 2026-06-23).
+// Click the CTA → an inline email field appears → on submit we open the LemonSqueezy
+// overlay (modal) PREFILLED with that email, waiting for payment. No sign-in wall.
+// The /api/checkout?email=... endpoint builds the prefilled URL; the webhook
+// reconciles the subscription by customer email. Falls back to a plain navigation
+// if lemon.js (loaded in the root layout) hasn't initialized.
 
 declare global {
   interface Window {
@@ -22,42 +22,66 @@ export default function CheckoutButton({
   className?: string
   children: React.ReactNode
 }) {
+  const [open, setOpen] = useState(false) // email field revealed?
+  const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  async function handleClick() {
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+
+  async function startCheckout(e?: React.FormEvent) {
+    e?.preventDefault()
     if (loading) return
+    if (!emailValid) { setError('Enter a valid email'); return }
+    setError('')
     setLoading(true)
     try {
-      const resp = await fetch(`/api/checkout?product=newsletter&format=json`, {
+      const resp = await fetch(`/api/checkout?product=newsletter&format=json&email=${encodeURIComponent(email.trim())}`, {
         headers: { accept: 'application/json' },
       })
       const data = await resp.json().catch(() => null)
-
-      // Sign-in required or checkout not configured → server tells us where to go.
       if (!data?.ok) {
         if (data?.redirect) window.location.href = data.redirect
+        else setError('Checkout unavailable — try again')
         return
       }
-
       const url: string = data.url
       const ls = typeof window !== 'undefined' ? window.LemonSqueezy : undefined
-      if (ls?.Url?.Open) {
-        ls.Url.Open(url) // on-domain overlay modal
-      } else {
-        // lemon.js not ready — open the hosted checkout directly instead of failing.
-        window.location.href = url
-      }
+      if (ls?.Url?.Open) ls.Url.Open(url) // on-domain overlay modal, email prefilled
+      else window.location.href = url
     } catch {
-      // Network/unknown error → fall back to the redirect endpoint.
-      window.location.href = `/api/checkout?product=newsletter`
+      window.location.href = `/api/checkout?product=newsletter&email=${encodeURIComponent(email.trim())}`
     } finally {
       setLoading(false)
     }
   }
 
+  // Step 1: the "Sign up today" button.
+  if (!open) {
+    return (
+      <button type="button" onClick={() => setOpen(true)} className={className}>
+        {children}
+      </button>
+    )
+  }
+
+  // Step 2: inline email capture → opens the prefilled payment modal.
   return (
-    <button type="button" onClick={handleClick} className={className} aria-busy={loading}>
-      {children}
-    </button>
+    <form onSubmit={startCheckout} className="flex flex-col sm:flex-row gap-2 items-stretch w-full max-w-md">
+      <input
+        type="email"
+        autoFocus
+        required
+        value={email}
+        onChange={(e) => { setEmail(e.target.value); if (error) setError('') }}
+        placeholder="Your email…"
+        className="flex-1 bg-background border border-white/10 rounded-full px-5 py-3 text-primary text-sm focus:outline-none focus:border-white/30 transition-colors"
+        aria-label="Email for newsletter signup"
+      />
+      <button type="submit" className={className} aria-busy={loading} disabled={loading}>
+        {loading ? 'Opening…' : 'Continue'}
+      </button>
+      {error && <span className="text-xs text-accent self-center sm:absolute sm:mt-14">{error}</span>}
+    </form>
   )
 }

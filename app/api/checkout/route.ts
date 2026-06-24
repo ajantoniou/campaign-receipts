@@ -35,18 +35,28 @@ export async function GET(req: Request) {
       : NextResponse.redirect(to, 302)
   }
 
+  // Two paths:
+  //  (a) ANONYMOUS email-first (founder 2026-06-23): visitor types email in the CTA →
+  //      we open the prefilled payment modal directly, NO sign-in wall. The webhook
+  //      reconciles by customer email (LS returns it on subscription_created).
+  //  (b) Signed-in: use the session user's id+email (best — gives a clean user_id match).
+  const emailParam = (url.searchParams.get('email') || '').trim().toLowerCase()
+  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailParam)
   const user = await getSessionUser()
-  if (!user) {
+
+  if (!user && !validEmail) {
+    // No session and no email supplied → ask for an email (client shows the field),
+    // or fall back to sign-in for plain links.
     const to = new URL(`/auth/signin?next=${encodeURIComponent(signinNext)}`, SITE)
     return asJson
-      ? NextResponse.json({ ok: false, reason: 'signin_required', redirect: to.toString() })
+      ? NextResponse.json({ ok: false, reason: 'email_required', redirect: to.toString() })
       : NextResponse.redirect(to, 302)
   }
 
   const checkoutUrl = buildCheckoutUrl({
     product,
-    userId: user.id,
-    email: user.email,
+    userId: user?.id || 'anon',
+    email: user?.email || emailParam,
   })
   return asJson
     ? NextResponse.json({ ok: true, url: checkoutUrl })

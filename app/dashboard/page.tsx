@@ -263,7 +263,7 @@ export default async function DashboardPage() {
                 </div>
                 <div className="receipt-foot">
                   <CheckoutButton className="btn-secondary text-sm">
-                    Get it weekly — $9/mo
+                    Sign up today
                   </CheckoutButton>
                 </div>
               </div>

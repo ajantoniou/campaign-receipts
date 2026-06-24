@@ -75,7 +75,7 @@ export default function PricingPage({ searchParams }: { searchParams: { error?: 
             <li>✓ Cancel anytime · 7-day money-back</li>
           </ul>
           <CheckoutButton className="btn-primary bg-accent hover:bg-accent/90 border-none mt-auto text-center w-full">
-            Become a member — $9/mo
+            Sign up today
           </CheckoutButton>
         </div>
       </div>
