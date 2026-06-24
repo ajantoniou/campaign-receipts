@@ -46,12 +46,12 @@ export default async function Home() {
           Follow the money behind <span className="font-serif italic font-normal text-white">every vote.</span>
         </h1>
         <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
-          We read the bills and the roll calls so you don&apos;t have to — then show you exactly who funded
-          the lawmakers who voted for them. The data is free. <span className="text-white font-medium">Friday Receipts</span>,
-          our weekly money-trail briefing, is <span className="text-white font-medium">$9/month</span>.
+          For <span className="text-white font-medium">less than $2.50 a week</span>, follow the web of connections that tie
+          donations to political influence — across the bills they sponsor, the votes they cast, and the elections they win.
+          Sourced to public FEC filings and official roll-call records.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <CheckoutButton className="btn-primary">Get Friday Receipts — $9/mo</CheckoutButton>
+          <CheckoutButton className="btn-primary">Get the Receipts</CheckoutButton>
           <Link href="/leaderboard" className="btn-secondary">Explore the free data</Link>
         </div>
         {(politicianCount > 0 || raceCount > 0) && (
