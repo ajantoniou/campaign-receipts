@@ -184,14 +184,16 @@ def auth_flow():
     print(f"   You can now upload videos. No further auth needed.")
 
 def get_access_token():
-    """Use refresh token to get a fresh access token."""
-    if not TOKEN_STORE.exists():
-        print(f"ERR: No token store. Run: python3 {sys.argv[0]} --auth", file=sys.stderr)
-        sys.exit(1)
-    tokens = json.loads(TOKEN_STORE.read_text())
-    refresh = tokens.get("refresh_token")
+    """Use refresh token to get a fresh access token. Prefer the
+    CR_YOUTUBE_REFRESH_TOKEN env var (set on the Render worker, kept current) over the
+    committed token-store file (which can go stale in git — and shouldn't hold a live
+    secret anyway). Falls back to the file for local --auth flows."""
+    env = load_env()
+    refresh = env.get("CR_YOUTUBE_REFRESH_TOKEN")
+    if not refresh and TOKEN_STORE.exists():
+        refresh = json.loads(TOKEN_STORE.read_text()).get("refresh_token")
     if not refresh:
-        print("ERR: No refresh_token in token store. Re-run --auth", file=sys.stderr)
+        print("ERR: no CR_YOUTUBE_REFRESH_TOKEN env and no token store. Run --auth.", file=sys.stderr)
         sys.exit(1)
     client_id, client_secret = load_client_secret()
     req = urllib.request.Request(
