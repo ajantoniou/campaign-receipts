@@ -70,15 +70,24 @@ async function uploadOne({ video, metaFile, thumb, slug, piece }) {
 async function main() {
   console.log(`[${new Date().toISOString()}] CR weekly video machine — week ${WEEK} (privacy=${PRIVACY}${NO_UPLOAD ? ', NO-UPLOAD' : ''})`)
 
-  // ── Preflight: fail-CLOSED. Missing anything → skip, do NOT publish. ──
+  // ── Preflight: fail-CLOSED on env/binaries. (briefing.md is generated below, not
+  //    required up front — the worker is self-contained and builds it fresh.) ──
   const missing = []
   for (const b of [['node'], ['python3'], ['ffmpeg', '-version'], ['ffprobe', '-version'], ['rsvg-convert', '--version']]) if (!have(b[0], b[1])) missing.push(b[0])
   if (!process.env.ELEVENLABS_API_KEY && !process.env.CR_ELEVENLABS_API_KEY) missing.push('ELEVENLABS_API_KEY')
   if (!process.env.ANTHROPIC_API_KEY) missing.push('ANTHROPIC_API_KEY')
-  if (!fs.existsSync(SCRIPT_MD)) missing.push(`briefing.md(${WEEK})`)
   if (missing.length) { console.log(`SKIP weekly video — missing: ${missing.join(', ')}.`); return }
 
   try {
+    // 0) Generate the storyteller briefing script (+ portraits sidecar) if not already
+    //    present in this container. On the worker it never is — we build it fresh from
+    //    the week's published articles. If there are no articles, this exits and the
+    //    next check skips cleanly (no articles → no video, by design).
+    if (!fs.existsSync(SCRIPT_MD)) {
+      run('build briefing script', 'node', [path.join(ROOT, 'scripts', 'build-audio-briefing.mjs'), `--week-of=${WEEK}`, '--dry-run', '--force'])
+    }
+    if (!fs.existsSync(SCRIPT_MD)) { console.log(`SKIP weekly video — no articles for ${WEEK} (briefing not generated).`); return }
+
     // 1) Long-form render (Veo heroes if GEMINI_API_KEY present; else motion-graphic only).
     const veoFlag = process.env.GEMINI_API_KEY ? [] : ['--no-veo']
     run('render long-form', 'node', [path.join(ROOT, 'scripts', 'longform', 'produce-cr-weekly.mjs'), `--week-of=${WEEK}`, '--max-veo=2', ...veoFlag])
