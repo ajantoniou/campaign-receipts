@@ -74,11 +74,22 @@ RULES:
 STORIES:
 ${JSON.stringify(stories.slice(0, 6), null, 2)}`
 
-  const resp = await anthropic.messages.create({ model: MODEL, max_tokens: 800, messages: [{ role: 'user', content: prompt }] })
-  let txt = resp.content[0]?.type === 'text' ? resp.content[0].text.trim() : ''
-  txt = txt.replace(/^```json\s*/i, '').replace(/```$/i, '').trim()
-  let meta
-  try { meta = JSON.parse(txt) } catch { console.error('Model did not return JSON:', txt.slice(0, 200)); process.exit(1) }
+  // Retry: a single non-JSON / transient model response shouldn't fail the whole
+  // publish (founder 2026-06-23: the orchestrator died here on one bad response).
+  let meta = null
+  for (let attempt = 1; attempt <= 3 && !meta; attempt++) {
+    try {
+      const resp = await anthropic.messages.create({ model: MODEL, max_tokens: 800, messages: [{ role: 'user', content: prompt }] })
+      let txt = resp.content[0]?.type === 'text' ? resp.content[0].text.trim() : ''
+      txt = txt.replace(/^```json\s*/i, '').replace(/```$/i, '').trim()
+      meta = JSON.parse(txt)
+    } catch (e) {
+      console.error(`meta attempt ${attempt}/3 failed: ${e.message}`)
+      if (attempt < 3) await new Promise((r) => setTimeout(r, 1500 * attempt))
+    }
+  }
+  // Last-resort fallback so the publish never dies here — generic but valid metadata.
+  if (!meta) { console.error('meta: all attempts failed; using safe fallback'); meta = { title: "Follow the Money — This Week's Receipts", tags: ['campaign finance', 'money in politics', 'fec', 'congress'], description: 'This week’s money trails: who voted for which industry’s bill, and which donors funded them. Every figure sourced to public FEC filings and roll-call records.' } }
 
   const title = String(meta.title || 'Follow the money — this week in campaign finance').slice(0, 100)
   const tags = Array.isArray(meta.tags) ? meta.tags.slice(0, 12).map(String) : ['campaign finance', 'politics', 'fec']
