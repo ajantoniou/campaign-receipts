@@ -11,6 +11,7 @@ import { supabaseService } from '@/lib/supabase'
 import ShareButtons from '@/app/components/ShareButtons'
 import SealedBookBand from '@/app/components/SealedBookBand'
 import NewsletterCapture from '@/app/components/NewsletterCapture'
+import DonorLogos from '@/app/components/DonorLogos'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -129,6 +130,21 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
   const race = await getRaceLink(a.related_race_id)
   const politicianChips = await getPoliticianChips(a.politician_ids)
 
+  // "The players" block (founder 2026-06-25): rep PHOTO + the money + donor LOGOS,
+  // built from the story's source_refs[0]. Photo pulled from cr_politicians by slug.
+  const ref0 = (a.source_refs && (a.source_refs as Record<string, unknown>[])[0]) || {}
+  const playerSlug = (ref0 as Record<string, unknown>).politician_slug as string | undefined
+  const playerName = (ref0 as Record<string, unknown>).politician_name as string | undefined
+  const playerMoney = ((ref0 as Record<string, unknown>).bloc_total ?? (ref0 as Record<string, unknown>).matched_donor_total) as number | undefined
+  const playerIndustry = (ref0 as Record<string, unknown>).industry as string | undefined
+  const playerDonors = (((ref0 as Record<string, unknown>).matched_donors as { name: string; amount?: number }[]) ||
+    (((ref0 as Record<string, unknown>).bloc_top_donors as string[]) || []).map((n) => ({ name: n }))) as { name: string; amount?: number }[]
+  let playerPhoto: string | null = null
+  if (playerSlug) {
+    const { data: pol } = await supabaseService.from('cr_politicians').select('photo_url').eq('slug', playerSlug).maybeSingle()
+    playerPhoto = (pol?.photo_url as string) || null
+  }
+
   // Render markdown server-side. `marked` is synchronous and safe for
   // our own LLM-generated copy (no user input); we don't need DOMPurify
   // because the source is curated.
@@ -245,6 +261,31 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
                 >
                   open in new tab
                 </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ───── THE PLAYERS: rep photo + money + donor logos ─── */}
+      {(playerPhoto || playerMoney || (playerDonors && playerDonors.length > 0)) && (
+        <section className="bg-paper-2 border-b border-line">
+          <div className="section-shell py-10">
+            <div className="max-w-[720px] mx-auto flex flex-col sm:flex-row gap-6 items-start">
+              {playerPhoto && (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={playerPhoto} alt={playerName || ''} width={120} height={150}
+                  className="w-[120px] h-[150px] object-cover rounded-lg border border-line shadow-sm shrink-0" />
+              )}
+              <div className="flex flex-col gap-3">
+                {playerName && <div className="font-display text-[22px] font-bold text-ink leading-tight">{playerName}</div>}
+                {playerMoney != null && (
+                  <div className="font-mono text-[13px] uppercase tracking-[0.1em] text-ink-2">
+                    <span className="text-[26px] font-bold text-accent">${Math.round(playerMoney).toLocaleString()}</span>
+                    {playerIndustry ? ` from ${playerIndustry} donors` : ''}
+                  </div>
+                )}
+                {playerDonors && playerDonors.length > 0 && <DonorLogos donors={playerDonors} />}
               </div>
             </div>
           </div>
