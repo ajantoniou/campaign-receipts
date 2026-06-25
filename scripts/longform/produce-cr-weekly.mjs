@@ -202,9 +202,11 @@ function sceneCardSvg(scene, idx, total, hasPortrait) {
   <!-- the action + bill/vote -->
   ${action ? `<text x="120" y="400" font-family="Menlo, monospace" font-weight="700" font-size="30" fill="${C.muted}" letter-spacing="3">${xml(action)}</text>` : ''}
   ${wrapSvgText(billLine, colChars, 120, 470, 56, `font-family="Georgia, serif" font-size="48" fill="${C.ink}"`)}
-  <!-- the money, big -->
-  ${money ? `<text x="120" y="${H - 230}" font-family="Menlo, monospace" font-weight="700" font-size="28" fill="${C.muted}" letter-spacing="4">FROM ${xml((scene.industry || '').toUpperCase())} DONORS</text>` : ''}
-  ${money ? `<text x="120" y="${H - 130}" font-family="Helvetica, sans-serif" font-weight="900" font-size="150" fill="${C.red}" letter-spacing="-3">${xml(money)}</text>` : ''}
+  <!-- the money: label ABOVE, big figure BELOW with clear separation (no overlap).
+       Figure is 120px; its baseline at H-90 puts its cap-top near H-210, comfortably
+       below the label baseline at H-250. -->
+  ${money ? `<text x="120" y="${H - 300}" font-family="Menlo, monospace" font-weight="700" font-size="26" fill="${C.muted}" letter-spacing="4">FROM ${xml((scene.industry || '').toUpperCase())} DONORS</text>` : ''}
+  ${money ? `<text x="120" y="${H - 160}" font-family="Helvetica, sans-serif" font-weight="900" font-size="120" fill="${C.red}" letter-spacing="-3">${xml(money)}</text>` : ''}
 </svg>`
 }
 
