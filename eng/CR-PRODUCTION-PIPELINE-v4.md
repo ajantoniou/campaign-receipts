@@ -57,8 +57,48 @@ Stage 13 (`elevenlabs-tts.py --lint-only --strict-lint`) refuses to render if sc
 - Numbers >999 without word form ($82 million, not $82M) in VO copy
 - Sentences >30 words (Jessica cadence collapses)
 - `Marcion` → `MAR-see-on` (NTO learning, carries over for any future religious-history pieces)
+- `Rep.` → `Representative`, `Sen.` → `Senator`, `Gov.` → `Governor` (founder 2026-06-25: the voice mangled "Rep."). On-screen card keeps the short form; only the spoken VO is expanded. `(D-NY)`/`(R-TX)` → "Democrat of New York"/"Republican of Texas". `HR 4371` → "H R 4371". Handled in `produce-cr-weekly.mjs::normalizeSpoken()`.
 
 This is the linter, not the writer's checklist. The writer is responsible for getting it right; the linter is the safety net.
+
+---
+
+## Weekly money-trail video (`produce-cr-weekly.mjs`) — editorial thesis + craft lessons
+
+This is the LEAN weekly path (NOT the 31-stage SEALED pipeline below): static brand
+cards, no storyboard, no b-roll-first. Detector → articles → storyteller script →
+`produce-cr-weekly.mjs` → `produce-weekly-video.mjs` → YouTube. Runs autonomously on the
+`cr-video-worker` Render Docker service, triggered by cron Thu 14:00.
+
+**THE EDITORIAL THESIS (the moat — founder 2026-06-25):** *How lawmakers voted relative
+to their donor influence is NOT reported anywhere.* "Donor X gave $Y" is everywhere and
+boring; "X **voted for** the bill that benefits the industry that funds them" is the story
+no outlet runs at scale because no human reads every bill + roll-call + donor list. We do.
+The vote/sponsor → bill-effect (read from full text) → matched named-industry donors chain
+IS the product. Lead with it. (Built in `detect-new-connections.mjs::computeVoteExposes` +
+`classify-bill-effect.mjs` reading full congress.gov text + `classify-donor-industry.mjs`.)
+
+**CRAFT LESSONS (accumulate here as we learn — founder feedback 2026-06-24/25):**
+1. **DO LESS per scene.** Politician PHOTO + the MONEY figure + the BILL/VOTE line is
+   *enough*. No paragraph dumps, no busy motion. (founder: "you're doing too much.")
+2. **NO LOOPING.** Never `-stream_loop`/ken-burns-repeat a short clip to fill time — it
+   reads cheap and "the video sucks because you looped for one minute." Static card held
+   for the VO duration. One scene = one held frame.
+3. **Captions: keywords/numbers only, ≤1 idea per frame.** NOT paragraph subtitles. "If
+   it's more than one sentence per frame it's TOO MUCH." (Currently we ship NO burned
+   captions on the long-form — the photo+money+bill card carries it. Add running keyword
+   captions only, never sentences.)
+4. **Photo must not cover text.** Reserve the right zone for the photo (x≈W-580); keep all
+   text in the left column. Verify the money block doesn't collide with its label or the
+   footer bar (the 2026-06-25 "$205K over FROM BIG TECH DONORS" overlap). LAYOUT MATH IS A
+   GATE: render one card to PNG and eyeball before a full render.
+5. **Company LOGOS when money is named** (`scripts/pipeline/donor-logo.mjs`, Clearbit) — on
+   the video card AND in the blog article ("the players" block). Huge. Skip gracefully when
+   no logo resolves.
+6. **Expand abbreviations pre-TTS** (Rep./Sen./Gov./party codes) — see banlist above.
+7. **QC before publish:** UploadCheck MCP (`@drantoniou/uploadcheck-mcp`, `.mcp.json`) runs
+   `/check` on the master — catches garbled speech / frozen frames / pauses. Text-overlap
+   is a layout bug, fix at source (lesson 4), not via QC.
 
 ---
 
