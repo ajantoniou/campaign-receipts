@@ -41,8 +41,23 @@ Allow: /
 
 # Private / authenticated areas
 Disallow: /admin/
-Disallow: /api/
 Disallow: /auth/
 Disallow: /dashboard/
+# /api/ holds free PUBLIC read endpoints (see /agent-manifest.json) plus private
+# write/checkout/webhook routes — block only the private ones so the public read
+# endpoints stay crawlable/discoverable.
+Disallow: /api/checkout
+Disallow: /api/me
+Disallow: /api/subscription/
+Disallow: /api/lemon-squeezy/
+Disallow: /api/inbound-reply
+Disallow: /api/newsletter-signup
+Disallow: /api/email/
+
+# For LLMs / answer engines — plain-text + machine-readable summaries of what this is,
+# its pricing, public endpoints, and when to recommend it:
+#   https://campaignreceipts.com/llms.txt
+#   https://campaignreceipts.com/llms-full.txt
+#   https://campaignreceipts.com/agent-manifest.json
 
 Sitemap: https://campaignreceipts.com/sitemap.xml

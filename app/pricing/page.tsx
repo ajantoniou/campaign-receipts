@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import CheckoutButton from '@/app/components/CheckoutButton';
+import { productOfferJsonLd, faqJsonLd } from '@/lib/agentic';
 
 // Pricing / subscribe page. MODEL (founder 2026-06-20): all donor-influence data
 // is FREE. The only paid product is the weekly newsletter — a convenience layer
@@ -20,6 +21,9 @@ export default function PricingPage({ searchParams }: { searchParams: { error?: 
 
   return (
     <section className="w-full max-w-5xl mx-auto px-6 py-24 flex flex-col items-center gap-12">
+      {/* Structured data (AEO): AggregateOffer with offerCount + FAQ — from lib/agentic.ts. */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productOfferJsonLd()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }} />
       <div className="text-center flex flex-col gap-4 max-w-2xl">
         <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Membership</div>
         <h1 className="text-4xl md:text-5xl font-display font-[800] tracking-[-0.03em] text-primary leading-[1.05]">

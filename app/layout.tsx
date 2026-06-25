@@ -4,6 +4,7 @@ import { Inter, Bricolage_Grotesque, IBM_Plex_Mono, Instrument_Serif } from 'nex
 import Link from 'next/link'
 import Script from 'next/script'
 import SmoothScroll from '../components/SmoothScroll'
+import { organizationJsonLd } from '@/lib/agentic'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -40,6 +41,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${bricolage.variable} ${plexMono.variable} ${instrument.variable} dark`}>
       <body className="bg-background text-text-main font-sans min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
+        {/* Organization structured data (AEO) — sourced from lib/agentic.ts. */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }} />
         {/* LemonSqueezy on-domain checkout overlay (modal), same pattern as
             uploadcheck.app. CheckoutButton calls window.LemonSqueezy.Url.Open(). */}
         <Script src="https://assets.lemonsqueezy.com/lemon.js" strategy="afterInteractive" />

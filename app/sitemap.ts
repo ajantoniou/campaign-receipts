@@ -31,7 +31,7 @@ const STATIC: MetadataRoute.Sitemap = [
   { url: `${BASE}/race`, changeFrequency: 'daily', priority: 0.7 },
   { url: `${BASE}/bills`, changeFrequency: 'weekly', priority: 0.7 },
   { url: `${BASE}/about`, changeFrequency: 'monthly', priority: 0.5 },
-  { url: `${BASE}/pricing`, changeFrequency: 'monthly', priority: 0.5 },
+  { url: `${BASE}/pricing`, changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE}/corrections`, changeFrequency: 'monthly', priority: 0.5 },
   { url: `${BASE}/compare`, changeFrequency: 'monthly', priority: 0.5 },
   { url: `${BASE}/leaderboard`, changeFrequency: 'daily', priority: 0.8 },
