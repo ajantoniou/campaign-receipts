@@ -23,6 +23,7 @@ import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { createClient } from '@supabase/supabase-js'
+import { fetchLogo } from '../pipeline/donor-logo.mjs'
 
 const supabase = createClient(process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } })
 
@@ -99,11 +100,27 @@ function pullFigure(vo) {
 // Shorten a label/headline to fit the card.
 const clamp = (s, n) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s)
 
+// Expand abbreviations the TTS voice mispronounces (founder 2026-06-25: "Rep." came
+// out wrong). Spoken text only — the on-screen card keeps the short forms.
+function normalizeSpoken(t) {
+  return String(t)
+    .replace(/\bRep\.\s+/g, 'Representative ')
+    .replace(/\bReps\.\s+/g, 'Representatives ')
+    .replace(/\bSen\.\s+/g, 'Senator ')
+    .replace(/\bSens\.\s+/g, 'Senators ')
+    .replace(/\bGov\.\s+/g, 'Governor ')
+    .replace(/\bD-([A-Z]{2})\b/g, 'Democrat of $1')   // "(D-NY)" → spoken
+    .replace(/\bR-([A-Z]{2})\b/g, 'Republican of $1')
+    .replace(/\bHR\s?(\d+)/g, 'H R $1')               // bill numbers spelled
+    .replace(/\bU\.S\./g, 'U S')
+}
+
 // ── TTS (reuse SEALED Sarah cadence; CR voice override via env) ─────────────
 async function synthesizeVo(voText, outPath) {
   const apiKey = env.ELEVENLABS_API_KEY || env.CR_ELEVENLABS_API_KEY || env.NT_ELEVENLABS_API_KEY
   if (!apiKey) { console.error('No ELEVENLABS_API_KEY'); process.exit(1) }
   const voiceId = env.CR_LONGFORM_VOICE_ID || env.CR_ELEVENLABS_SARAH_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL'
+  voText = normalizeSpoken(voText)
   const body = { text: voText, model_id: 'eleven_multilingual_v2', voice_settings: { stability: 0.55, similarity_boost: 0.75, style: 0.20, use_speaker_boost: true } }
   const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, { method: 'POST', headers: { 'xi-api-key': apiKey, 'Content-Type': 'application/json', Accept: 'audio/mpeg' }, body: JSON.stringify(body) })
   if (!r.ok) { console.error(`ElevenLabs HTTP ${r.status}: ${(await r.text()).slice(0, 300)}`); process.exit(1) }
@@ -219,6 +236,8 @@ async function main() {
     s.actionLabel = r.action === 'voted_yes' ? 'VOTED FOR' : r.action === 'sponsored' ? 'SPONSORED' : ''
     s.billLine = r.bill_name || r.bill_label || s.label
     s.headline = s.label
+    // top donor company names (for logos): bloc_top_donors (vote bloc) or matched_donors
+    s.donorNames = (r.bloc_top_donors && r.bloc_top_donors.length ? r.bloc_top_donors : (r.matched_donors || []).map((d) => d.name)).slice(0, 3)
   })
 
   // Politician portraits (scene-aligned sidecar from build-audio-briefing.mjs).
@@ -271,6 +290,39 @@ async function main() {
     if (fs.existsSync(framed)) { portraitPng[i] = framed; console.log(`[portrait] scene ${i + 1}: ${p.name}`) }
   }
 
+  // Donor company LOGOS (founder 2026-06-25): fetch each scene's top donor logos, lay
+  // them out as a single row on a white chip → one PNG per scene, overlaid lower-left
+  // by the money figure (in the text zone, away from the photo). Skips gracefully when
+  // a donor has no resolvable logo.
+  const logoDir = path.join(BUILD, 'logos'); fs.mkdirSync(logoDir, { recursive: true })
+  const logoRowPng = {}
+  for (let i = 0; i < N; i++) {
+    const names = scenes[i].donorNames || []
+    const got = []
+    for (let j = 0; j < names.length && got.length < 3; j++) {
+      const dest = path.join(logoDir, `s${i + 1}-${j}.png`)
+      if (await fetchLogo(names[j], dest)) got.push(dest)
+    }
+    if (!got.length) continue
+    // Lay logos in a row: each on a 200x110 white rounded chip, 16px gap.
+    const CHIP_W = 200, CHIP_H = 110, GAP = 16
+    const rowW = got.length * CHIP_W + (got.length - 1) * GAP
+    const rowPng = path.join(logoDir, `row-${i + 1}.png`)
+    // build via ffmpeg: white rounded chips with each logo fit inside, hstacked
+    const chipPngs = got.map((g, k) => {
+      const chip = path.join(logoDir, `chip-${i + 1}-${k}.png`)
+      sh('ffmpeg', ['-y', '-i', g, '-vf', `scale=${CHIP_W - 24}:${CHIP_H - 24}:force_original_aspect_ratio=decrease,pad=${CHIP_W}:${CHIP_H}:(ow-iw)/2:(oh-ih)/2:color=white`, '-frames:v', '1', chip])
+      return chip
+    })
+    if (chipPngs.length === 1) { fs.copyFileSync(chipPngs[0], rowPng) }
+    else {
+      const inputs = chipPngs.flatMap((c) => ['-i', c])
+      const fc = chipPngs.map((_, k) => `[${k}:v]`).join('') + `hstack=inputs=${chipPngs.length}[out]`
+      sh('ffmpeg', ['-y', ...inputs, '-filter_complex', fc, '-map', '[out]', '-frames:v', '1', rowPng])
+    }
+    if (fs.existsSync(rowPng)) { logoRowPng[i] = rowPng; console.log(`[logos] scene ${i + 1}: ${got.length} (${names.slice(0, got.length).join(', ')})`) }
+  }
+
   // 1) Per-scene TTS
   const voDir = path.join(BUILD, 'vo'); fs.mkdirSync(voDir, { recursive: true })
   const scenePaths = scenes.map((_, i) => path.join(voDir, `scene-${String(i + 1).padStart(2, '0')}.mp3`))
@@ -302,16 +354,23 @@ async function main() {
   for (let i = 0; i < N; i++) {
     const dur = holds[i]
     const inputs = ['-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng]
-    let fc = `[0:v]scale=${W}:${H},format=yuv420p[bg];[bg][1:v]overlay=0:0:format=auto`
+    let idx = 2
+    let fc = `[0:v]scale=${W}:${H},format=yuv420p[bg];[bg][1:v]overlay=0:0:format=auto[v1]`
+    let last = '[v1]'
     if (portraitPng[i]) {
       inputs.push('-loop', '1', '-t', String(dur), '-i', portraitPng[i])
-      fc += `[b];[b][2:v]overlay=${W - 580}:300:format=auto[vout]` // photo in the reserved right zone
-    } else {
-      fc += `[vout]`
+      fc += `;${last}[${idx}:v]overlay=${W - 580}:300:format=auto[v2]`; last = '[v2]'; idx++
     }
+    if (logoRowPng[i]) {
+      inputs.push('-loop', '1', '-t', String(dur), '-i', logoRowPng[i])
+      // donor logos: in the mid gap, above the "FROM <industry> DONORS" line (which is
+      // at y≈H-230). Clears a 3-line bill (ends ~y=582) and stays left of the photo.
+      fc += `;${last}[${idx}:v]overlay=120:${H - 430}:format=auto[vL]`; last = '[vL]'; idx++
+    }
+    fc += `;${last}null[vout]`
     sh('ffmpeg', ['-y', ...inputs, '-filter_complex', fc,
       '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', '-t', String(dur), clip(i)])
-    console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${portraitPng[i] ? ' +photo' : ''}`)
+    console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${portraitPng[i] ? ' +photo' : ''}${logoRowPng[i] ? ' +logos' : ''}`)
   }
 
   // 4b) Outro clip (static subscribe/like/newsletter card, OUTRO_DUR seconds).
