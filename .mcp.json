@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "uploadcheck": {
+      "command": "npx",
+      "args": ["-y", "@drantoniou/uploadcheck-mcp"],
+      "env": {
+        "UPLOADCHECK_API_KEY": "${UPLOADCHECK_API_KEY}",
+        "UPLOADCHECK_API_BASE_URL": "https://api.uploadcheck.app"
+      }
+    }
+  }
+}
