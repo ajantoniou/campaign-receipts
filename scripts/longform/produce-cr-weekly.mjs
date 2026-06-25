@@ -22,6 +22,9 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..', '..')           // repo root (standalone checkout)
@@ -129,26 +132,8 @@ function subscribeBellSvg() {
 </svg>`
 }
 
-// ── open captions: a lower-third caption strip PNG per scene (this ffmpeg has no
-// drawtext/libass, so captions are rendered as SVG→PNG and overlaid, same as cards).
-// Word-wrap the VO to ~46 chars/line, max 3 lines (clamp), sit above the bottom bar.
-function wrapLines(text, perLine = 46, maxLines = 3) {
-  const words = String(text).split(/\s+/); const lines = []; let cur = ''
-  for (const w of words) { if ((cur + ' ' + w).trim().length > perLine) { lines.push(cur.trim()); cur = w } else cur += ' ' + w }
-  if (cur.trim()) lines.push(cur.trim())
-  if (lines.length > maxLines) { lines.length = maxLines; lines[maxLines - 1] = lines[maxLines - 1].replace(/\W*$/, '') + '…' }
-  return lines
-}
-function captionPngSvg(text) {
-  const lines = wrapLines(text)
-  const lh = 56, boxH = lines.length * lh + 44, boxY = H - 100 - boxH - 18 // above the persistent bar
-  const tspans = lines.map((ln, i) => `<text x="${W / 2}" y="${boxY + 56 + i * lh}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="42" fill="#ffffff">${xml(ln)}</text>`).join('')
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <rect x="${W / 2 - 880}" y="${boxY}" width="1760" height="${boxH}" rx="14" fill="#0a0a0a" opacity="0.62"/>
-  ${tspans}
-</svg>`
-}
+// (Captions removed in the redesign — the scene card itself carries the few facts
+// that matter: photo + money + bill/vote. No paragraph dumps. Per founder 2026-06-25.)
 
 // ── outro scene: full-screen SUBSCRIBE + LIKE + newsletter CTA card ─────────
 function outroSvg() {
@@ -172,25 +157,37 @@ function outroSvg() {
 </svg>`
 }
 
-// ── data-driven scene card (replaces hand-coded svgScene1..10) ──────────────
-// hasPortrait: reserve the right ~560px for the portrait overlay → shrink the big
-// figure + headline width so text never runs under the photo (fixes overlap).
+// ── scene card — "do less" redesign (founder 2026-06-25): just the few facts that
+// matter. LEFT column = name → big MONEY figure → the BILL/VOTE line. RIGHT zone
+// (x≥1280) is reserved blank for the politician photo, composited by ffmpeg — the
+// text never enters that zone, so they CANNOT overlap. No captions, no Veo, no loop.
+// hasPortrait shrinks the left column to the reserved width; without a photo the text
+// uses the full width.
+function wrapSvgText(text, perLine, x, yStart, lh, attrs) {
+  const words = String(text).split(/\s+/); const lines = []; let cur = ''
+  for (const w of words) { if ((cur + ' ' + w).trim().length > perLine) { lines.push(cur.trim()); cur = w } else cur += ' ' + w }
+  if (cur.trim()) lines.push(cur.trim())
+  return lines.slice(0, 3).map((ln, i) => `<text x="${x}" y="${yStart + i * lh}" ${attrs}>${xml(ln)}</text>`).join('')
+}
 function sceneCardSvg(scene, idx, total, hasPortrait) {
-  const eyebrow = clamp((scene.label || 'Receipt').toUpperCase(), hasPortrait ? 28 : 38)
-  const fig = scene.figure
-  const headline = clamp(scene.headline || scene.label || 'Follow the money', hasPortrait ? 44 : 64)
-  const figSize = hasPortrait ? 150 : 200
-  const headSize = headline.length > 40 ? (hasPortrait ? 46 : 58) : (hasPortrait ? 56 : 70)
+  const colChars = hasPortrait ? 26 : 40          // left text-column width (chars)
+  const name = clamp(scene.person || scene.label || '', colChars + 4)
+  const money = scene.money || scene.figure || '' // the big number
+  const action = scene.actionLabel || ''          // "VOTED FOR" / "SPONSORED"
+  const billLine = scene.billLine || scene.label || '' // the bill / vote
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="${C.paper}"/>
   <rect x="0" y="0" width="${W}" height="8" fill="${C.red}"/>
-  <text x="120" y="180" font-family="Menlo, Monaco, monospace" font-weight="700" font-size="34" fill="${C.red}" letter-spacing="8">${xml(eyebrow)}</text>
-  <text x="120" y="220" font-family="Menlo, monospace" font-size="22" fill="${C.muted}" letter-spacing="2">CAMPAIGN RECEIPTS · ${xml(String(idx + 1))} of ${xml(String(total))}</text>
-  ${fig ? `<text x="120" y="500" font-family="Helvetica, sans-serif" font-weight="900" font-size="${figSize}" fill="${C.ink}" letter-spacing="-2">${xml(fig)}</text>` : ''}
-  <text x="120" y="${fig ? 650 : 470}" font-family="Georgia, serif" font-size="${headSize}" fill="${C.ink}">${xml(headline)}</text>
-  <rect x="120" y="${H - 220}" width="${(hasPortrait ? 1150 : W - 120) - 120}" height="2" fill="${C.paper2}"/>
-  <text x="120" y="${H - 170}" font-family="Georgia, serif" font-style="italic" font-size="28" fill="${C.muted}">Campaign contributions are legal and disclosed.</text>
+  <text x="120" y="170" font-family="Menlo, Monaco, monospace" font-weight="700" font-size="30" fill="${C.red}" letter-spacing="6">CAMPAIGN RECEIPTS · ${xml(String(idx + 1))} OF ${xml(String(total))}</text>
+  <!-- politician name -->
+  <text x="120" y="320" font-family="Helvetica, sans-serif" font-weight="800" font-size="${name.length > 22 ? 56 : 68}" fill="${C.ink}">${xml(name)}</text>
+  <!-- the action + bill/vote -->
+  ${action ? `<text x="120" y="400" font-family="Menlo, monospace" font-weight="700" font-size="30" fill="${C.muted}" letter-spacing="3">${xml(action)}</text>` : ''}
+  ${wrapSvgText(billLine, colChars, 120, 470, 56, `font-family="Georgia, serif" font-size="48" fill="${C.ink}"`)}
+  <!-- the money, big -->
+  ${money ? `<text x="120" y="${H - 230}" font-family="Menlo, monospace" font-weight="700" font-size="28" fill="${C.muted}" letter-spacing="4">FROM ${xml((scene.industry || '').toUpperCase())} DONORS</text>` : ''}
+  ${money ? `<text x="120" y="${H - 130}" font-family="Helvetica, sans-serif" font-weight="900" font-size="150" fill="${C.red}" letter-spacing="-3">${xml(money)}</text>` : ''}
 </svg>`
 }
 
@@ -199,9 +196,30 @@ async function main() {
   fs.mkdirSync(BUILD, { recursive: true })
   const scenes = parseScenes(fs.readFileSync(SCRIPT_MD, 'utf8'))
   if (scenes.length < 3) { console.error(`Only ${scenes.length} scenes parsed — need ≥3.`); process.exit(1) }
-  scenes.forEach((s) => { s.figure = pullFigure(s.caption || s.vo); s.headline = s.label })
   const N = scenes.length
   console.log(`[script] ${N} scenes from ${path.relative(ROOT, SCRIPT_MD)}`)
+
+  // Pull the structured story facts (person/money/bill/industry) from the week's
+  // cr_story_candidates — the card shows ONLY these (founder "do less"). The briefing
+  // VO still drives narration; we match candidates to scenes by politician last name.
+  const usdShort = (n) => { const x = Number(n) || 0; return x >= 1e6 ? `$${(x / 1e6).toFixed(1)}M` : x >= 1e3 ? `$${Math.round(x / 1e3)}K` : `$${Math.round(x)}` }
+  let cands = []
+  try {
+    const { data } = await supabase.from('cr_story_candidates').select('headline, source_refs').eq('week_of', WEEK)
+    cands = data || []
+  } catch { /* card falls back to label-only */ }
+  const candLast = (c) => { const n = c.source_refs?.[0]?.politician_name || ''; return n.trim().split(/\s+/).pop().toLowerCase().replace(/[^a-z]/g, '') }
+  scenes.forEach((s) => {
+    const hay = `${s.label} ${s.vo || ''}`.toLowerCase()
+    const c = cands.find((x) => { const l = candLast(x); return l && hay.includes(l) })
+    const r = c?.source_refs?.[0] || {}
+    s.person = r.politician_name || s.label
+    s.money = r.matched_donor_total || r.bloc_total ? usdShort(r.matched_donor_total || r.bloc_total) : pullFigure(s.vo)
+    s.industry = r.industry || ''
+    s.actionLabel = r.action === 'voted_yes' ? 'VOTED FOR' : r.action === 'sponsored' ? 'SPONSORED' : ''
+    s.billLine = r.bill_name || r.bill_label || s.label
+    s.headline = s.label
+  })
 
   // Politician portraits (scene-aligned sidecar from build-audio-briefing.mjs).
   // Download each official bioguide photo to a framed PNG; overlaid on the card.
@@ -265,57 +283,35 @@ async function main() {
   const totalDur = holds.reduce((a, b) => a + b, 0)
   console.log(`[plan] runtime ≈ ${totalDur.toFixed(1)}s across ${N} scenes`)
 
-  // 2) Optional Veo hero clips for the first MAX_VEO scenes (cold-open + one mid).
-  const heroIdx = NO_VEO ? [] : [0, Math.floor(N / 2)].slice(0, MAX_VEO).filter((v, i, a) => a.indexOf(v) === i)
-  const heroClip = {}
-  for (const i of heroIdx) {
-    const out = path.join(BUILD, `hero-${i + 1}.mp4`)
-    const prompt = `Cinematic documentary b-roll, no text no people: ${scenes[i].label}. US Capitol / government archive aesthetic, warm film grain, slow camera move.`
-    const r = spawnSync('node', [path.join(ROOT, 'scripts', 'pipeline', 'veo-generate.mjs'), '--prompt', prompt, '--out', out, '--aspect', '16:9'], { stdio: 'inherit', env: process.env })
-    if (r.status === 0 && fs.existsSync(out)) { heroClip[i] = out; logCost('veo', 0.40, `hero scene ${i + 1}`); console.log(`[veo] hero ${i + 1} ok`) }
-    else console.log(`[veo] hero ${i + 1} failed — falling back to motion-graphic card`)
-  }
+  // (No Veo — founder 2026-06-25: the looping 8s clip looked cheap. Static cards only.)
 
-  // 3) Cards + overlays → PNG
+  // 3) Cards + overlays → PNG. Each scene = static card (name/money/bill) + the photo
+  //    composited into the RESERVED right zone (x=1300) so it never covers the text.
   const cardsDir = path.join(BUILD, 'cards'); fs.mkdirSync(cardsDir, { recursive: true })
   const persistPng = path.join(cardsDir, 'bar.png'); svgToPng(persistentBarSvg(), persistPng, W, H)
-  const bellPng = path.join(cardsDir, 'bell.png'); svgToPng(subscribeBellSvg(), bellPng, 620, 120)
   const cardPng = (i) => path.join(cardsDir, `scene-${String(i + 1).padStart(2, '0')}.png`)
-  const capPng = (i) => path.join(cardsDir, `cap-${String(i + 1).padStart(2, '0')}.png`)
-  for (let i = 0; i < N; i++) {
-    svgToPng(sceneCardSvg(scenes[i], i, N, !!portraitPng[i]), cardPng(i), W, H)
-    svgToPng(captionPngSvg(scenes[i].caption || scenes[i].vo), capPng(i), W, H) // tight caption (burned-in, short → no overlap)
-  }
+  for (let i = 0; i < N; i++) svgToPng(sceneCardSvg(scenes[i], i, N, !!portraitPng[i]), cardPng(i), W, H)
   const outroPng = path.join(cardsDir, 'outro.png'); svgToPng(outroSvg(), outroPng, W, H)
   const OUTRO_DUR = 5
 
-  // 4) Per-scene motion clip (ken-burns on card, or Veo hero scaled + card lower-third bar)
+  // 4) Per-scene clip: STATIC card (no ken-burns, no loop) for the scene's duration,
+  //    persistent bar overlaid, and the framed photo overlaid top-right in its reserved
+  //    zone (x = W-580 ≈ 1340). Clean and calm — nothing repeats.
   const clipsDir = path.join(BUILD, 'clips'); fs.mkdirSync(clipsDir, { recursive: true })
   const clip = (i) => path.join(clipsDir, `scene-${String(i + 1).padStart(2, '0')}.mp4`)
   for (let i = 0; i < N; i++) {
-    const dur = holds[i], frames = Math.max(2, Math.round(dur * FPS)), perFrame = 0.08 / frames
-    // 3 inputs: base (hero or card), persistent bar, caption strip. Overlay bar then caption.
-    if (heroClip[i]) {
-      sh('ffmpeg', ['-y', '-stream_loop', '-1', '-i', heroClip[i], '-loop', '1', '-t', String(dur), '-i', persistPng, '-loop', '1', '-t', String(dur), '-i', capPng(i),
-        '-filter_complex', `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},trim=duration=${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];[bg][1:v]overlay=0:0[b];[b][2:v]overlay=0:0:format=auto[vout]`,
-        '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', '-t', String(dur), clip(i)])
+    const dur = holds[i]
+    const inputs = ['-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng]
+    let fc = `[0:v]scale=${W}:${H},format=yuv420p[bg];[bg][1:v]overlay=0:0:format=auto`
+    if (portraitPng[i]) {
+      inputs.push('-loop', '1', '-t', String(dur), '-i', portraitPng[i])
+      fc += `[b];[b][2:v]overlay=${W - 580}:300:format=auto[vout]` // photo in the reserved right zone
     } else {
-      const z = (i % 2 === 0)
-        ? `zoompan=z='1.0+on*${perFrame.toFixed(6)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${W}x${H}:fps=${FPS}`
-        : `zoompan=z='1.08-on*${perFrame.toFixed(6)}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${W}x${H}:fps=${FPS}`
-      const inputs = ['-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng, '-loop', '1', '-t', String(dur), '-i', capPng(i)]
-      // base card → ken-burns; overlay persistent bar [1], caption [2], and (if present) the portrait [3] at top-right.
-      let fc = `[0:v]scale=${W * 2}:${H * 2}:force_original_aspect_ratio=increase,crop=${W * 2}:${H * 2},${z},trim=duration=${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];[bg][1:v]overlay=0:0[b];[b][2:v]overlay=0:0:format=auto`
-      if (portraitPng[i]) {
-        inputs.push('-loop', '1', '-t', String(dur), '-i', portraitPng[i])
-        fc += `[c];[c][3:v]overlay=${W - 600}:200:format=auto[vout]`
-      } else {
-        fc += `[vout]`
-      }
-      sh('ffmpeg', ['-y', ...inputs, '-filter_complex', fc,
-        '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', clip(i)])
+      fc += `[vout]`
     }
-    console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${heroClip[i] ? ' (veo)' : portraitPng[i] ? ' +portrait' : ''} +caption`)
+    sh('ffmpeg', ['-y', ...inputs, '-filter_complex', fc,
+      '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', '-t', String(dur), clip(i)])
+    console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${portraitPng[i] ? ' +photo' : ''}`)
   }
 
   // 4b) Outro clip (static subscribe/like/newsletter card, OUTRO_DUR seconds).
@@ -324,18 +320,12 @@ async function main() {
     '-filter_complex', `[0:v]scale=${W}:${H},format=yuv420p[vout]`,
     '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', outroClip])
 
-  // 5) Concat (scenes + outro)
+  // 5) Concat (scenes + outro) → the visual track. (No mid-video bell overlay — the
+  //    outro card carries subscribe/like; keeps it clean.)
   const concatList = path.join(BUILD, 'concat.txt')
   fs.writeFileSync(concatList, scenes.map((_, i) => `file '${clip(i)}'`).join('\n') + `\nfile '${outroClip}'\n`)
-  const concatPath = path.join(BUILD, 'visual-concat.mp4')
-  sh('ffmpeg', ['-y', '-f', 'concat', '-safe', '0', '-i', concatList, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-r', String(FPS), '-an', concatPath])
-
-  // 6) Subscribe-bell overlay at ~30% mark for 6s (or 8s in if short)
-  const bellAt = Math.min(30, totalDur * 0.3)
   const visualPath = path.join(BUILD, 'visual.mp4')
-  sh('ffmpeg', ['-y', '-i', concatPath, '-i', bellPng,
-    '-filter_complex', `[0:v][1:v]overlay=${W - 660}:60:enable='between(t,${bellAt.toFixed(1)},${(bellAt + 6).toFixed(1)})'[vout]`,
-    '-map', '[vout]', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-r', String(FPS), visualPath])
+  sh('ffmpeg', ['-y', '-f', 'concat', '-safe', '0', '-i', concatList, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-r', String(FPS), '-an', visualPath])
 
   // 7) VO track (per-scene apad → concat)
   const voPadDir = path.join(BUILD, 'vo-padded'); fs.mkdirSync(voPadDir, { recursive: true })
@@ -385,7 +375,7 @@ async function main() {
   const thumb = path.join(BUILD, 'thumb.jpg')
   sh('ffmpeg', ['-y', '-ss', tc.toFixed(2), '-i', masterPath, '-frames:v', '1', '-q:v', '2', thumb])
 
-  const summary = { week: WEEK, master: masterPath, thumb, duration_s: +dur.toFixed(2), width: v.width, height: v.height, scenes: N, veo_heroes: Object.keys(heroClip).length, music: !!MUSIC, size_mb: +(sizeBytes / 1e6).toFixed(2) }
+  const summary = { week: WEEK, master: masterPath, thumb, duration_s: +dur.toFixed(2), width: v.width, height: v.height, scenes: N, veo_heroes: 0, music: !!MUSIC, size_mb: +(sizeBytes / 1e6).toFixed(2) }
   fs.writeFileSync(path.join(BUILD, 'summary.json'), JSON.stringify(summary, null, 2))
   console.log('\n─── SUMMARY ───\n' + JSON.stringify(summary, null, 2))
   console.log(`\nDONE: ${masterPath}`)
