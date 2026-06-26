@@ -369,7 +369,12 @@ async function main() {
       // at y≈H-230). Clears a 3-line bill (ends ~y=582) and stays left of the photo.
       fc += `;${last}[${idx}:v]overlay=120:${H - 430}:format=auto[vL]`; last = '[vL]'; idx++
     }
-    fc += `;${last}null[vout]`
+    // CINEMATIC (founder 2026-06-25): a very slow eased push-in on the finished
+    // composite (NOT a loop — one continuous 3% zoom over the whole hold) + faint film
+    // grain + a 0.4s fade-in. Calm, produced, never repeats.
+    const frames = Math.max(2, Math.round(dur * FPS))
+    const zoom = `zoompan=z='min(zoom+0.00035,1.03)':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS}`
+    fc += `;${last}${zoom},noise=alls=6:allf=t,fade=t=in:st=0:d=0.4,format=yuv420p[vout]`
     sh('ffmpeg', ['-y', ...inputs, '-filter_complex', fc,
       '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', '-t', String(dur), clip(i)])
     console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${portraitPng[i] ? ' +photo' : ''}${logoRowPng[i] ? ' +logos' : ''}`)
