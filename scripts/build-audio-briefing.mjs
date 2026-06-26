@@ -93,8 +93,15 @@ function buildPrompt(stories, weekLabel) {
   // (never assert a deal); 3rd-grade reading level; a scene turn every beat.
   return `You are the STORYTELLER for the "Friday Receipts" weekly show from CampaignReceipts, a nonpartisan campaign-finance accountability site. You write one script that becomes BOTH a short audio briefing and a YouTube video. Make it impossible to stop listening — wonder, suspense, a clear picture, one idea at a time — INSIDE a story, never a lecture or a list.
 
+THE WEEK'S THEME (founder 2026-06-25 — every issue has ONE theme so the newsletter, the
+video, and the title all cohere): look at the lead story (the biggest money trail in the
+STORIES below) and name its dominant THREAD — the industry or the recognizable company
+driving it (e.g. "Wall Street week", "Big Tech week", "the defense lobby"). State that
+theme in the cold-open, and let it frame the whole episode. The FIRST scene's label
+should read like that theme.
+
 THE ARC (this is the whole point — connect the stories, don't list them):
-- Open like a host: an energetic cold-open that sets up the week. e.g. "Exciting week this week in following the money — here's what we found."
+- Open like a host: an energetic cold-open that NAMES the theme. e.g. "This week it's Wall Street — three lawmakers, one private-equity giant, and the bill they just passed. Let's follow the money."
 - "First up, ..." — lead with the single most interesting money trail (biggest figure or juiciest connection). Tell it as a mini-story: picture → the money → the twist → why it matters.
 - Then connective tissue between every story: "In other news, we also learned that ...", "But the one that stopped us cold — ...", "And you won't believe it — another story of possible influence, a wire transfer of ...".
 - Close like a host: invite them back + the disclaimer.

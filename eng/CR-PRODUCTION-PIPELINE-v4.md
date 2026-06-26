@@ -99,6 +99,27 @@ IS the product. Lead with it. (Built in `detect-new-connections.mjs::computeVote
 7. **QC before publish:** UploadCheck MCP (`@drantoniou/uploadcheck-mcp`, `.mcp.json`) runs
    `/check` on the master — catches garbled speech / frozen frames / pauses. Text-overlap
    is a layout bug, fix at source (lesson 4), not via QC.
+8. **CINEMATIC, never cheap:** Veo cold-open + outro (hybrid); story cards get ONE slow
+   eased push-in (≤3% over the hold) + faint film grain + a fade-in. No looping, no busy
+   motion. Add a music bed via `CR_MUSIC_PATH` when one exists.
+9. **EVERY ISSUE HAS A THEME** (founder 2026-06-25): the lead story's dominant industry/
+   company is the week's theme. The cold-open names it ("This week it's Wall Street…"); the
+   newsletter subject and the video title both cohere to it. One theme = one clean hook.
+
+**VIRAL PACKAGING (auto-filled every week — copywriter system 2026-06-25):**
+- **TITLE FORMULA** (`generate-youtube-meta.mjs`, rotates by ISO-week so the feed varies):
+  1. `{COMPANY} Gave {$AMOUNT}. Then {N} Lawmakers Passed Their Bill.`
+  2. `{N} Lawmakers Took {COMPANY} Money. All Voted for the Bill.`
+  3. `{$AMOUNT} From {COMPANY}, One Bill, {N} Yes Votes`
+  4. `{N} Lawmakers, {COMPANY}'s Bill, {$AMOUNT} in Donations — Coincidence?`
+  `{COMPANY}` = most recognizable named donor (Blackstone), NOT the industry. ≤100 chars.
+  **Compliance firewall:** reject any title containing bought/bribe/in exchange/paid for/
+  purchased/because/in return → fall back to the question form (#4). Asserts nothing.
+- **THUMBNAIL** (`generate-thumbnail.mjs` variant `cr-vote-vs-donor`, TODO): navy canvas,
+  3 politician FACES fanned on the right + a "+{N−3}" gold badge, the company LOGO knockout
+  top-left, the `{$AMOUNT}` huge in cream, a ≤6-word overlay (`{COMPANY} PAID / THEY VOTED
+  YES`), civic-red RECEIPT stamp. Faces + logo are the click drivers. Founder: show the
+  politician faces + the recognizable company.
 
 ---
 

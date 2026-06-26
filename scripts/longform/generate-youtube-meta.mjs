@@ -62,14 +62,34 @@ async function main() {
   const stories = (arts || []).map((a) => ({ title: a.title, dek: a.dek }))
   if (!stories.length) { console.error(`No articles for week ${WEEK}`); process.exit(1) }
 
+  // Lead story facts for the viral TITLE FORMULA (copywriter 2026-06-25): the most
+  // recognizable named donor + the $ + lawmaker count, from the top candidate's refs.
+  const { data: cand } = await supabase.from('cr_story_candidates').select('headline, source_refs').eq('week_of', WEEK).order('rank').limit(1).maybeSingle()
+  const ref = (cand?.source_refs && cand.source_refs[0]) || {}
+  const topCompany = (ref.bloc_top_donors && ref.bloc_top_donors[0]) || (ref.matched_donors && ref.matched_donors[0]?.name) || ref.industry || ''
+  const amount = ref.bloc_total || ref.matched_donor_total || 0
+  const usdShort = (n) => n >= 1e6 ? `$${(n / 1e6).toFixed(n >= 1e7 ? 0 : 1)}M` : n >= 1e3 ? `$${Math.round(n / 1e3)}K` : `$${Math.round(n)}`
+  const nLawmakers = ref.bloc_size || 1
+  // Rotate the title angle by ISO-week so the feed doesn't read identically.
+  const wk = Number(WEEK.slice(8, 10)) || 1
+  const ANGLES = [
+    `${topCompany} Gave ${usdShort(amount)}. Then ${nLawmakers} Lawmakers Passed Their Bill.`,
+    `${nLawmakers} Lawmakers Took ${topCompany} Money. All Voted for the Bill.`,
+    `${usdShort(amount)} From ${topCompany}, One Bill, ${nLawmakers} Yes Votes`,
+    `${nLawmakers} Lawmakers, ${topCompany}'s Bill, ${usdShort(amount)} in Donations — Coincidence?`,
+  ]
+  const suggestedTitle = ANGLES[wk % ANGLES.length]
+
   const prompt = `You write YouTube metadata for "Campaign Receipts," a nonpartisan money-in-politics channel. This ${KIND === 'short' ? 'YouTube SHORT (vertical, ~45s)' : 'long-form video (~6 min)'} covers this week's money-trail stories.
 
 Return STRICT JSON: {"title": "...", "tags": ["...", ...], "description": "..."}.
 
 RULES:
-- title: ≤100 chars, curiosity-driven but FACTUAL (a real figure or name from the stories). No clickbait lies, no "SHOCKING"/"BOMBSHELL". ${KIND === 'short' ? 'Punchy, ≤60 chars ideal.' : ''}
+- title: use this SUGGESTED title (the proven viral formula) unless it's clearly broken/empty — names the recognizable company first, then the money, then the vote, as a NON-CAUSAL timeline:
+    SUGGESTED: "${suggestedTitle}"
+  Keep ≤100 chars. ${KIND === 'short' ? 'For the short, tighten to ≤60 chars if needed.' : ''} It must NOT contain: bought, bribe, in exchange, paid for, purchased, because, in return (assert nothing — juxtapose).
 - tags: 8-12 lowercase tags (politics, campaign finance, fec, the relevant names/topics).
-- description: 2-4 sentences summarizing the video's money trail, nonpartisan, NO causation/quid-pro-quo (banned: bought, bribe, in exchange for). Do NOT add CTAs or links — those are appended automatically.
+- description: 2-4 sentences summarizing the video's money trail, nonpartisan, NO causation. Do NOT add CTAs or links — appended automatically.
 
 STORIES:
 ${JSON.stringify(stories.slice(0, 6), null, 2)}`
@@ -91,7 +111,14 @@ ${JSON.stringify(stories.slice(0, 6), null, 2)}`
   // Last-resort fallback so the publish never dies here — generic but valid metadata.
   if (!meta) { console.error('meta: all attempts failed; using safe fallback'); meta = { title: "Follow the Money — This Week's Receipts", tags: ['campaign finance', 'money in politics', 'fec', 'congress'], description: 'This week’s money trails: who voted for which industry’s bill, and which donors funded them. Every figure sourced to public FEC filings and roll-call records.' } }
 
-  const title = String(meta.title || 'Follow the money — this week in campaign finance').slice(0, 100)
+  let title = String(meta.title || suggestedTitle || 'Follow the money — this week in campaign finance').slice(0, 100)
+  // Compliance firewall (copywriter 2026-06-25): no causal claim in the title. If a
+  // banned word slipped in, fall back to the question form (asserts nothing).
+  const CAUSAL = /\b(bought|bribe|in exchange|paid for|purchased|because|in return|quid pro quo)\b/i
+  if (CAUSAL.test(title)) {
+    console.error(`title had a causal word — falling back to question form`)
+    title = (topCompany ? `${nLawmakers} Lawmakers, ${topCompany}'s Bill, ${usdShort(amount)} in Donations — Coincidence?` : title.replace(CAUSAL, '').replace(/\s+/g, ' ').trim()).slice(0, 100)
+  }
   const tags = Array.isArray(meta.tags) ? meta.tags.slice(0, 12).map(String) : ['campaign finance', 'politics', 'fec']
   const description = `${String(meta.description || '').trim()}\n${growthBlock()}`
 
