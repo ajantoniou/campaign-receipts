@@ -455,6 +455,16 @@ async function main() {
     sh('ffmpeg', ['-y', '-ss', String(Math.min(60, totalDur / 2)), '-i', masterPath, '-frames:v', '1', '-q:v', '2', thumb])
   }
 
+  // Persist per-scene content + timing so the shorts cutter can render NATIVE 9:16
+  // cards (not crop the wide master — that cut off text/faces). Includes the local
+  // portrait/logo paths it already fetched.
+  fs.writeFileSync(path.join(BUILD, 'scenes.json'), JSON.stringify(scenes.map((s, i) => ({
+    idx: i, person: s.person, actionLabel: s.actionLabel, billLine: s.billLine,
+    money: s.money, industry: s.industry, donorNames: s.donorNames || [],
+    hold: holds[i], start: holds.slice(0, i).reduce((a, b) => a + b, 0),
+    portrait: portraitPng[i] || null, logoRow: logoRowPng[i] || null,
+  })), null, 2))
+
   const summary = { week: WEEK, master: masterPath, thumb, duration_s: +dur.toFixed(2), width: v.width, height: v.height, scenes: N, veo_heroes: 0, music: !!MUSIC, size_mb: +(sizeBytes / 1e6).toFixed(2) }
   fs.writeFileSync(path.join(BUILD, 'summary.json'), JSON.stringify(summary, null, 2))
   console.log('\n─── SUMMARY ───\n' + JSON.stringify(summary, null, 2))

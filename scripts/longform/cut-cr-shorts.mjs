@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 //
-// scripts/longform/cut-cr-shorts.mjs — cut N vertical (9:16, 1080x1920) YouTube
-// Shorts from the weekly CR long-form master, at the scene boundaries the renderer
-// already recorded (summary.json), reframing 16:9 → 9:16 and burning a "$9
-// newsletter — link in description" CTA strip. No transcript dependency.
+// scripts/longform/cut-cr-shorts.mjs — NATIVE 9:16 (1080x1920) YouTube Shorts.
 //
-// We pick the punchiest scenes: the cold-open (scene 1) and the scene with the
-// biggest dollar figure. Each short is clamped to 15-58s (Shorts max 60s).
+// Founder 2026-06-26: the old cutter CROPPED the 16:9 master → left-column text + the
+// right-side face fell outside the crop and got cut off on mobile. FIX: render a NATIVE
+// vertical card per scene (re-laid-out for 9:16 — stacked, centered), and only pull the
+// AUDIO for that scene's span from the master. Nothing is cropped; text + face are
+// composed for portrait from the start.
 //
-// Input:  scripts/longform/_build/<WEEK>/master.mp4 + summary.json + the renderer's
-//         per-scene VO durations (recomputed here from the vo/ mp3s for exact spans).
+// Reads scenes.json (written by produce-cr-weekly.mjs) for content + the local portrait/
+// logo paths it already fetched. SVG+rsvg+ffmpeg only (worker-compatible).
+//
 // Output: scripts/longform/_build/<WEEK>/short-01.mp4, short-02.mp4
-//
 // Usage: node scripts/longform/cut-cr-shorts.mjs --week-of=YYYY-MM-DD [--count=2]
-// Binaries: ffmpeg, ffprobe.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -22,7 +21,8 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..', '..')
-const PAD = 0.35
+const SW = 1080, SH = 1920, FPS = 30
+const NAVY = '#16263D', PAPER = 'rgb(244,239,230)', MUTED = '#6E7891', RED = '#B23A3A', GOLD = '#C8861D'
 
 const args = process.argv.slice(2)
 const getArg = (k, d = null) => args.find((a) => a.startsWith(`--${k}=`))?.split('=')[1] ?? d
@@ -32,64 +32,77 @@ const WEEK = getArg('week-of', isoMonday())
 const BUILD = path.join(ROOT, 'scripts', 'longform', '_build', WEEK)
 const MASTER = path.join(BUILD, 'master.mp4')
 
-function sh(cmd, a) { const r = spawnSync(cmd, a, { stdio: 'inherit' }); if (r.status !== 0) { console.error(`FAIL: ${cmd}`); process.exit(r.status || 1) } }
-function shCap(cmd, a) { const r = spawnSync(cmd, a, { encoding: 'utf8' }); return (r.stdout || '').trim() }
-function probeDur(f) { return parseFloat(shCap('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', f])) }
+function sh(cmd, a) { const r = spawnSync(cmd, a, { stdio: 'pipe' }); if (r.status !== 0) { console.error(`FAIL ${cmd}: ${(r.stderr || '').toString().slice(0, 200)}`); process.exit(r.status || 1) } }
+function probeDur(f) { const r = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', f], { encoding: 'utf8' }); return parseFloat((r.stdout || '').trim()) }
+const xml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+const clamp = (s, n) => (String(s).length > n ? String(s).slice(0, n - 1).trimEnd() + '…' : String(s))
+function wrap(text, per) { const w = String(text).split(/\s+/); const out = []; let cur = ''; for (const x of w) { if ((cur + ' ' + x).trim().length > per) { out.push(cur.trim()); cur = x } else cur += ' ' + x } if (cur.trim()) out.push(cur.trim()); return out }
+function svgToPng(svg, png) { const p = png.replace(/\.png$/, '.svg'); fs.writeFileSync(p, svg); sh('rsvg-convert', ['-w', String(SW), '-h', String(SH), p, '-o', png]) }
 
-// This ffmpeg may lack the drawtext filter (no libfreetype), so the CTA is an
-// SVG→PNG strip overlaid with ffmpeg's overlay filter (rsvg-convert, same as the
-// long-form renderer). Returns the PNG path for a 1080x1920 transparent overlay.
-function buildCtaPng() {
-  const png = path.join(BUILD, 'short-cta.png')
-  if (fs.existsSync(png)) return png
-  const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
-  <rect x="0" y="1560" width="1080" height="360" fill="#0a0a0a" opacity="0.6"/>
-  <rect x="0" y="1560" width="1080" height="6" fill="#B23A3A"/>
-  <text x="540" y="1690" text-anchor="middle" font-family="Menlo, Monaco, monospace" font-weight="700" font-size="56" fill="#ffffff" letter-spacing="3">CAMPAIGNRECEIPTS.COM</text>
-  <text x="540" y="1770" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="700" font-size="44" fill="#C8861D">$9 weekly newsletter — link in description</text>
+// NATIVE vertical card: eyebrow → NAME → VOTED FOR → bill (wrapped) → [photo] → money → CTA.
+function verticalCardSvg(s, partsDir, i) {
+  const billLines = wrap(s.billLine || '', 22).slice(0, 3)
+  const billSvg = billLines.map((ln, k) => `<text x="${SW / 2}" y="${560 + k * 64}" text-anchor="middle" font-family="Georgia, serif" font-size="54" fill="${NAVY}">${xml(ln)}</text>`).join('')
+  return `<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${SW}" height="${SH}" viewBox="0 0 ${SW} ${SH}">
+  <rect width="${SW}" height="${SH}" fill="${PAPER}"/>
+  <rect x="0" y="0" width="${SW}" height="10" fill="${RED}"/>
+  <text x="${SW / 2}" y="200" text-anchor="middle" font-family="Menlo, monospace" font-weight="700" font-size="32" fill="${RED}" letter-spacing="6">CAMPAIGN RECEIPTS</text>
+  <text x="${SW / 2}" y="330" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="900" font-size="${(s.person || '').length > 18 ? 64 : 84}" fill="${NAVY}">${xml(clamp(s.person || '', 26))}</text>
+  <text x="${SW / 2}" y="430" text-anchor="middle" font-family="Menlo, monospace" font-weight="700" font-size="34" fill="${MUTED}" letter-spacing="5">${xml(s.actionLabel || 'FOLLOW THE MONEY')}</text>
+  ${billSvg}
+  <!-- photo zone is composited by ffmpeg at y≈830 (centered) -->
+  <text x="${SW / 2}" y="${SH - 360}" text-anchor="middle" font-family="Menlo, monospace" font-weight="700" font-size="30" fill="${MUTED}" letter-spacing="4">FROM ${xml((s.industry || '').toUpperCase())} DONORS</text>
+  <text x="${SW / 2}" y="${SH - 220}" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="900" font-size="150" fill="${RED}" letter-spacing="-3">${xml(s.money || '')}</text>
+  <rect x="0" y="${SH - 120}" width="${SW}" height="120" fill="${NAVY}"/>
+  <text x="${SW / 2}" y="${SH - 68}" text-anchor="middle" font-family="Menlo, monospace" font-weight="700" font-size="34" fill="#fff" letter-spacing="3">CAMPAIGNRECEIPTS.COM</text>
+  <text x="${SW / 2}" y="${SH - 28}" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="600" font-size="26" fill="${GOLD}">$9 weekly newsletter · link in description</text>
 </svg>`
-  const svgP = png.replace(/\.png$/, '.svg'); fs.writeFileSync(svgP, svg)
-  sh('rsvg-convert', ['-w', '1080', '-h', '1920', svgP, '-o', png])
-  return png
 }
 
 function main() {
   if (!fs.existsSync(MASTER)) { console.error(`No master: ${MASTER}`); process.exit(1) }
-
-  // Recompute per-scene spans from the renderer's vo mp3s (authoritative timing).
-  const voDir = path.join(BUILD, 'vo')
-  const voFiles = fs.existsSync(voDir) ? fs.readdirSync(voDir).filter((f) => f.endsWith('.mp3')).sort() : []
-  if (!voFiles.length) { console.error('No vo/ mp3s to derive spans'); process.exit(1) }
-  const holds = voFiles.map((f) => probeDur(path.join(voDir, f)) + PAD)
-  const starts = holds.map((_, i) => holds.slice(0, i).reduce((a, b) => a + b, 0))
+  const scenesPath = path.join(BUILD, 'scenes.json')
+  if (!fs.existsSync(scenesPath)) { console.error('No scenes.json — re-render long-form first.'); process.exit(1) }
+  const scenes = JSON.parse(fs.readFileSync(scenesPath, 'utf8'))
   const masterDur = probeDur(MASTER)
+  const partsDir = path.join(BUILD, 'short-parts'); fs.mkdirSync(partsDir, { recursive: true })
 
-  // Choose scenes: scene 1 (hook) + the longest non-first scene (proxy for "meatiest").
-  const order = holds.map((d, i) => ({ i, d })).sort((a, b) => b.d - a.d).map((x) => x.i)
-  const picks = [0, ...order.filter((i) => i !== 0)].filter((v, i, a) => a.indexOf(v) === i).slice(0, COUNT)
+  // Pick the meatiest scenes (biggest money), always include scene index that has a person.
+  const withMoney = scenes.filter((s) => s.person && s.money)
+  const picks = (withMoney.length ? withMoney : scenes).slice().sort((a, b) => (b.hold || 0) - (a.hold || 0)).slice(0, COUNT)
 
-  const ctaPng = buildCtaPng()
   const out = []
-  picks.forEach((sceneIdx, n) => {
-    // Clamp the span to a Shorts-friendly 15-58s; if a scene is longer, take its first 55s.
-    const start = Math.max(0, starts[sceneIdx])
-    let dur = Math.min(holds[sceneIdx], 55)
-    if (dur < 15) dur = Math.min(15, masterDur - start) // pad short scenes by spilling into the next
+  picks.forEach((s, n) => {
+    const start = Math.max(0, s.start || 0)
+    let dur = Math.min(s.hold || 20, 55); if (dur < 12) dur = Math.min(15, masterDur - start)
     if (start + dur > masterDur) dur = masterDur - start
+
+    // 1) native vertical card
+    const cardPng = path.join(partsDir, `card-${n + 1}.png`); svgToPng(verticalCardSvg(s, partsDir, n), cardPng)
+    // 2) composite the framed photo centered (if present), via ffmpeg
+    let composed = cardPng
+    if (s.portrait && fs.existsSync(s.portrait)) {
+      const ph = path.join(partsDir, `ph-${n + 1}.png`)
+      sh('ffmpeg', ['-y', '-i', s.portrait, '-vf', `scale=560:700:force_original_aspect_ratio=increase,crop=560:700,pad=580:728:10:14:color=0x16263D`, '-frames:v', '1', ph])
+      const c2 = path.join(partsDir, `card-ph-${n + 1}.png`)
+      sh('ffmpeg', ['-y', '-i', cardPng, '-i', ph, '-filter_complex', `[0:v][1:v]overlay=(W-580)/2:840[o]`, '-map', '[o]', '-frames:v', '1', c2])
+      composed = c2
+    }
+    // 3) still card + the master's AUDIO for this span → 9:16 short (gentle push-in, no crop)
+    const frames = Math.max(2, Math.round(dur * FPS))
     const outPath = path.join(BUILD, `short-${String(n + 1).padStart(2, '0')}.mp4`)
-    // 16:9 → 9:16: crop center, scale to 1080x1920, then overlay the CTA strip PNG.
-    sh('ffmpeg', ['-y', '-ss', start.toFixed(2), '-t', dur.toFixed(2), '-i', MASTER, '-i', ctaPng,
-      '-filter_complex', `[0:v]crop=ih*9/16:ih,scale=1080:1920,setsar=1[v];[v][1:v]overlay=0:0:format=auto[vout]`,
-      '-map', '[vout]', '-map', '0:a',
-      '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20',
-      '-c:a', 'aac', '-b:a', '192k', outPath])
-    out.push({ short: n + 1, scene: sceneIdx + 1, start: +start.toFixed(2), dur: +dur.toFixed(2), file: outPath })
-    console.log(`[short ${n + 1}] scene ${sceneIdx + 1} @ ${start.toFixed(1)}s for ${dur.toFixed(1)}s → ${path.basename(outPath)}`)
+    sh('ffmpeg', ['-y',
+      '-framerate', String(FPS), '-loop', '1', '-t', dur.toFixed(2), '-i', composed,
+      '-ss', start.toFixed(2), '-t', dur.toFixed(2), '-i', MASTER,
+      '-filter_complex', `[0:v]scale=${SW}:${SH},zoompan=z='min(zoom+0.0004,1.04)':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${SW}x${SH}:fps=${FPS},format=yuv420p[v]`,
+      '-map', '[v]', '-map', '1:a',
+      '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-c:a', 'aac', '-b:a', '192k', '-t', dur.toFixed(2), outPath])
+    out.push({ short: n + 1, scene: s.idx + 1, start: +start.toFixed(2), dur: +dur.toFixed(2), file: outPath })
+    console.log(`[short ${n + 1}] native 9:16 · scene ${s.idx + 1} · ${dur.toFixed(1)}s${s.portrait ? ' +photo' : ''}`)
   })
 
   fs.writeFileSync(path.join(BUILD, 'shorts.json'), JSON.stringify(out, null, 2))
-  console.log(`Wrote ${out.length} shorts.`)
+  console.log(`Wrote ${out.length} native vertical shorts.`)
 }
-
 main()
