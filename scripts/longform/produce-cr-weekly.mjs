@@ -233,7 +233,9 @@ async function main() {
     const c = cands.find((x) => { const l = candLast(x); return l && hay.includes(l) })
     const r = c?.source_refs?.[0] || {}
     s.person = r.politician_name || s.label
-    s.money = r.matched_donor_total || r.bloc_total ? usdShort(r.matched_donor_total || r.bloc_total) : pullFigure(s.vo)
+    s.moneyVal = r.matched_donor_total || r.bloc_total || 0
+    s.money = s.moneyVal ? usdShort(s.moneyVal) : pullFigure(s.vo)
+    s.blocSize = r.bloc_size || 1
     s.industry = r.industry || ''
     s.actionLabel = r.action === 'voted_yes' ? 'VOTED FOR' : r.action === 'sponsored' ? 'SPONSORED' : ''
     s.billLine = r.bill_name || r.bill_label || s.label
@@ -435,11 +437,23 @@ async function main() {
   if (dur < 60 || dur > 900) { console.error(`DURATION FAIL ${dur}s`); process.exit(1) }
   if (sizeBytes > 200 * 1024 * 1024) { console.error('SIZE FAIL >200MB'); process.exit(1) }
 
-  // 11) Thumbnail: frame from the scene with the biggest figure (most marketable)
-  const thumbIdx = scenes.reduce((best, s, i) => (s.figure && (!scenes[best].figure || s.figure.length > scenes[best].figure.length) ? i : best), 0)
-  let tc = 0; for (let i = 0; i < thumbIdx; i++) tc += holds[i]; tc += holds[thumbIdx] / 2
+  // 11) Thumbnail: the viral vote-vs-donor card (faces + logo + money). Lead = the
+  //     scene with the biggest money figure. Faces = that scene's photo + the next two
+  //     story photos (a fan); logo = that scene's first donor logo; +N = bloc minus 3.
   const thumb = path.join(BUILD, 'thumb.jpg')
-  sh('ffmpeg', ['-y', '-ss', tc.toFixed(2), '-i', masterPath, '-frames:v', '1', '-q:v', '2', thumb])
+  try {
+    const leadIdx = scenes.reduce((best, s, i) => ((s.moneyVal || 0) > (scenes[best].moneyVal || 0) ? i : best), 1)
+    const faceList = [portraitPng[leadIdx], ...Object.entries(portraitPng).filter(([k]) => +k !== leadIdx).map(([, v]) => v)].filter(Boolean).slice(0, 3)
+    const leadLogo = (logoDir && fs.existsSync(path.join(logoDir, `s${leadIdx + 1}-0.png`))) ? path.join(logoDir, `s${leadIdx + 1}-0.png`) : null
+    const more = Math.max(0, (scenes[leadIdx].blocSize || 0) - 3)
+    const { makeVoteThumbnail } = await import('./make-vote-thumbnail.mjs')
+    makeVoteThumbnail({ outPath: thumb, buildDir: BUILD, faces: faceList, logoPng: leadLogo, money: scenes[leadIdx].money || scenes[leadIdx].figure || '', company: (scenes[leadIdx].donorNames || [])[0] || scenes[leadIdx].industry || '', moreCount: more })
+    console.log(`[thumb] vote thumbnail: ${faceList.length} faces${leadLogo ? ' +logo' : ''}${more ? ` +${more}` : ''}`)
+  } catch (e) {
+    // Fail-soft: fall back to a frame grab so a thumbnail always exists.
+    console.log(`[thumb] vote thumbnail failed (${e.message}) — frame-grab fallback`)
+    sh('ffmpeg', ['-y', '-ss', String(Math.min(60, totalDur / 2)), '-i', masterPath, '-frames:v', '1', '-q:v', '2', thumb])
+  }
 
   const summary = { week: WEEK, master: masterPath, thumb, duration_s: +dur.toFixed(2), width: v.width, height: v.height, scenes: N, veo_heroes: 0, music: !!MUSIC, size_mb: +(sizeBytes / 1e6).toFixed(2) }
   fs.writeFileSync(path.join(BUILD, 'summary.json'), JSON.stringify(summary, null, 2))
