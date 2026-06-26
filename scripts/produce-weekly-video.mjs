@@ -94,6 +94,11 @@ async function main() {
     const master = path.join(BUILD, 'master.mp4'), thumb = path.join(BUILD, 'thumb.jpg')
     if (!fs.existsSync(master)) throw new Error('master.mp4 not produced')
 
+    // 1b) QC GATES (borrowed from the SEALED pipeline — pure ffmpeg, worker-safe).
+    //     Fail-CLOSED: a dark/blank or silent/clipped master never reaches YouTube.
+    run('qc black/blank frames', 'python3', [path.join(ROOT, 'scripts', 'pipeline', 'qc-black-frames.py'), '--master', master, '--ignore-tail', '6'])
+    run('qc audio (volume/stream)', 'python3', [path.join(ROOT, 'scripts', 'pipeline', 'audio-qc.py'), '--master', master, '--piece', `cr-weekly-${WEEK}`, '--skip-pitch'])
+
     // 2) Shorts
     run('cut shorts', 'node', [path.join(ROOT, 'scripts', 'longform', 'cut-cr-shorts.mjs'), `--week-of=${WEEK}`, '--count=2'])
 

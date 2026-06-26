@@ -133,6 +133,9 @@ def main() -> int:
     ap.add_argument("--master", required=True, type=Path)
     ap.add_argument("--interval", type=float, default=SAMPLE_INTERVAL_S)
     ap.add_argument("--json-out", type=Path)
+    # Exempt the last N seconds from the dark check — the CR lean video ends on an
+    # INTENTIONAL navy outro card (YAVG~54). Default 0 = unchanged for other callers.
+    ap.add_argument("--ignore-tail", type=float, default=0.0)
     args = ap.parse_args()
 
     if not args.master.exists():
@@ -155,6 +158,11 @@ def main() -> int:
     if not frames:
         print("ERR: no frames sampled", file=sys.stderr)
         return 3
+
+    # Drop the intentional outro window from the dark check (--ignore-tail).
+    if args.ignore_tail > 0:
+        cutoff = dur - args.ignore_tail
+        frames = [f for f in frames if f["t"] <= cutoff] or frames
 
     flags: list[tuple[float, bool]] = []
     bad_frames: list[dict] = []
