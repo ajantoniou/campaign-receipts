@@ -16,7 +16,9 @@
 // Env: GEMINI_API_KEY (or GOOGLE_API_KEY).
 // Exit 0 on a downloaded mp4; non-zero on any failure (caller treats as "no hero clip").
 
-import { writeFileSync, existsSync, statSync } from 'node:fs'
+import { writeFileSync, existsSync, statSync, readFileSync, appendFileSync, mkdirSync } from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const args = process.argv.slice(2)
 const getArg = (k, d = null) => { const i = args.indexOf(`--${k}`); return i >= 0 && args[i + 1] ? args[i + 1] : d }
@@ -27,8 +29,33 @@ const MODEL = getArg('model', 'veo-3.1-fast-generate-preview')
 const MAX_POLL_MS = Number(getArg('timeout-ms', 240000)) // 4 min
 const KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY
 
+// ── COST GUARD (added after a Gemini runaway burned $20 in 5 min — Antigravity, not us,
+//    but never again from OUR code). A persistent daily ledger caps Veo spend regardless
+//    of who calls this helper or how many times. Veo fast ≈ $0.40/clip; override via env.
+const CLIP_USD = Number(process.env.CR_VEO_CLIP_USD || 0.40)
+const DAILY_CAP_USD = Number(process.env.CR_VEO_DAILY_CAP_USD || 5.0) // ~12 clips/day max
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const LEDGER = path.join(__dirname, '..', '.veo-spend.jsonl')
+function today() { return new Date().toISOString().slice(0, 10) } // UTC day bucket
+function spentToday() {
+  if (!existsSync(LEDGER)) return 0
+  let sum = 0
+  for (const ln of readFileSync(LEDGER, 'utf8').split('\n')) {
+    if (!ln.trim()) continue
+    try { const r = JSON.parse(ln); if (r.day === today()) sum += Number(r.usd) || 0 } catch { /* skip */ }
+  }
+  return sum
+}
+function recordSpend(usd) { mkdirSync(path.dirname(LEDGER), { recursive: true }); appendFileSync(LEDGER, JSON.stringify({ day: today(), ts: new Date().toISOString(), usd, model: MODEL }) + '\n') }
+
 if (!PROMPT || !OUT) { console.error('usage: --prompt "..." --out clip.mp4'); process.exit(2) }
 if (!KEY) { console.error('Missing GEMINI_API_KEY'); process.exit(2) }
+
+const already = spentToday()
+if (already + CLIP_USD > DAILY_CAP_USD) {
+  console.error(`COST GUARD: Veo daily cap reached ($${already.toFixed(2)} spent today, cap $${DAILY_CAP_USD}). Refusing this clip. Raise CR_VEO_DAILY_CAP_USD to override.`)
+  process.exit(3) // distinct code; caller treats as "no hero clip" (fail-soft)
+}
 
 const BASE = 'https://generativelanguage.googleapis.com/v1beta'
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
@@ -68,7 +95,8 @@ async function main() {
   const buf = Buffer.from(await dl.arrayBuffer())
   writeFileSync(OUT, buf)
   if (!existsSync(OUT) || statSync(OUT).size < 10000) { console.error('Veo mp4 too small'); process.exit(1) }
-  console.log(`Veo clip saved: ${OUT} (${Math.round(statSync(OUT).size / 1024)} KB)`)
+  recordSpend(CLIP_USD) // only count clips that actually downloaded
+  console.log(`Veo clip saved: ${OUT} (${Math.round(statSync(OUT).size / 1024)} KB) · today's Veo spend ~$${(spentToday()).toFixed(2)}/${DAILY_CAP_USD}`)
 }
 
 main().catch((e) => { console.error('Veo FATAL:', e.message); process.exit(1) })

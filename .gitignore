@@ -26,3 +26,4 @@ eng/qc-reports/**/frames/
 # generated audio briefings (large MP3s live in Supabase Storage)
 content/audio/
 scripts/.external-costs.jsonl
+scripts/.veo-spend.jsonl
