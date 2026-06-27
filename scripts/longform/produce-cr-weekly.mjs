@@ -115,17 +115,49 @@ function normalizeSpoken(t) {
     .replace(/\bU\.S\./g, 'U S')
 }
 
-// ── TTS (reuse SEALED Sarah cadence; CR voice override via env) ─────────────
-async function synthesizeVo(voText, outPath) {
+// ── TTS: ElevenLabs PRIMARY (best voice), Gemini TTS FALLBACK (founder 2026-06-26:
+//    never fail a run on an ElevenLabs error/rate-limit). Both write an mp3 to outPath.
+async function elevenLabsVo(voText, outPath) {
   const apiKey = env.ELEVENLABS_API_KEY || env.CR_ELEVENLABS_API_KEY || env.NT_ELEVENLABS_API_KEY
-  if (!apiKey) { console.error('No ELEVENLABS_API_KEY'); process.exit(1) }
+  if (!apiKey) return false
   const voiceId = env.CR_LONGFORM_VOICE_ID || env.CR_ELEVENLABS_SARAH_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL'
-  voText = normalizeSpoken(voText)
   const body = { text: voText, model_id: 'eleven_multilingual_v2', voice_settings: { stability: 0.55, similarity_boost: 0.75, style: 0.20, use_speaker_boost: true } }
-  const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, { method: 'POST', headers: { 'xi-api-key': apiKey, 'Content-Type': 'application/json', Accept: 'audio/mpeg' }, body: JSON.stringify(body) })
-  if (!r.ok) { console.error(`ElevenLabs HTTP ${r.status}: ${(await r.text()).slice(0, 300)}`); process.exit(1) }
-  fs.writeFileSync(outPath, Buffer.from(await r.arrayBuffer()))
-  logCost('elevenlabs', voText.length / 1000 * 0.30, `chars=${voText.length}`)
+  try {
+    const r = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, { method: 'POST', headers: { 'xi-api-key': apiKey, 'Content-Type': 'application/json', Accept: 'audio/mpeg' }, body: JSON.stringify(body) })
+    if (!r.ok) { console.error(`ElevenLabs HTTP ${r.status}: ${(await r.text()).slice(0, 200)}`); return false }
+    fs.writeFileSync(outPath, Buffer.from(await r.arrayBuffer()))
+    logCost('elevenlabs', voText.length / 1000 * 0.30, `chars=${voText.length}`)
+    return true
+  } catch (e) { console.error(`ElevenLabs error: ${e.message}`); return false }
+}
+// Gemini TTS returns raw 24kHz signed-16 PCM (base64) — wrap to mp3 via ffmpeg.
+async function geminiVo(voText, outPath) {
+  const key = env.GEMINI_API_KEY || env.GOOGLE_API_KEY
+  if (!key) return false
+  const voice = env.CR_GEMINI_VOICE || 'Kore' // calm, neutral; other options: Aoede, Puck, Charon
+  const model = env.CR_GEMINI_TTS_MODEL || 'gemini-2.5-flash-preview-tts'
+  try {
+    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ text: voText }] }], generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } } } } }),
+    })
+    if (!r.ok) { console.error(`Gemini TTS HTTP ${r.status}: ${(await r.text()).slice(0, 200)}`); return false }
+    const j = await r.json()
+    const b64 = j?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data
+    if (!b64) { console.error('Gemini TTS: no audio in response'); return false }
+    const pcm = outPath.replace(/\.mp3$/, '.pcm'); fs.writeFileSync(pcm, Buffer.from(b64, 'base64'))
+    sh('ffmpeg', ['-y', '-f', 's16le', '-ar', '24000', '-ac', '1', '-i', pcm, '-c:a', 'libmp3lame', '-b:a', '192k', outPath])
+    fs.rmSync(pcm, { force: true })
+    logCost('gemini-tts', voText.length / 1000 * 0.02, `chars=${voText.length} (fallback)`)
+    return true
+  } catch (e) { console.error(`Gemini TTS error: ${e.message}`); return false }
+}
+async function synthesizeVo(voText, outPath) {
+  voText = normalizeSpoken(voText)
+  if (await elevenLabsVo(voText, outPath)) return
+  console.log('  ↳ ElevenLabs unavailable — falling back to Gemini TTS')
+  if (await geminiVo(voText, outPath)) return
+  console.error('Both TTS providers failed'); process.exit(1)
 }
 
 // ── overlays ────────────────────────────────────────────────────────────────
