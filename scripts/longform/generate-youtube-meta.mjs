@@ -48,6 +48,11 @@ function growthBlock() {
     `Like, subscribe, and share — it’s how independent money-in-politics reporting survives. More at ${SITE}`,
     '',
     'All figures sourced to public FEC filings. Campaign contributions are legal and disclosed. Timing does not prove causation.',
+    '',
+    // Geo signal (founder 2026-06-26): naming American / U.S. / Congress tells the algo
+    // this is U.S.-audience content → served mainly to American viewers → higher CPM.
+    'American politics · U.S. Congress · campaign finance accountability for American voters. 🇺🇸',
+    '#AmericanPolitics #USPolitics #Congress #CampaignFinance #FollowTheMoney',
   ].join('\n')
 }
 
@@ -88,7 +93,7 @@ RULES:
 - title: use this SUGGESTED title (the proven viral formula) unless it's clearly broken/empty — names the recognizable company first, then the money, then the vote, as a NON-CAUSAL timeline:
     SUGGESTED: "${suggestedTitle}"
   Keep ≤100 chars. ${KIND === 'short' ? 'For the short, tighten to ≤60 chars if needed.' : ''} It must NOT contain: bought, bribe, in exchange, paid for, purchased, because, in return (assert nothing — juxtapose).
-- tags: 8-12 lowercase tags (politics, campaign finance, fec, the relevant names/topics).
+- tags: 8-12 lowercase tags. ALWAYS include "american politics", "us politics", "us congress" (geo signal → US audience → higher CPM), plus campaign finance, fec, and the relevant names/topics.
 - description: 2-4 sentences summarizing the video's money trail, nonpartisan, NO causation. Do NOT add CTAs or links — appended automatically.
 
 STORIES:
@@ -119,7 +124,7 @@ ${JSON.stringify(stories.slice(0, 6), null, 2)}`
     console.error(`title had a causal word — falling back to question form`)
     title = (topCompany ? `${nLawmakers} Lawmakers, ${topCompany}'s Bill, ${usdShort(amount)} in Donations — Coincidence?` : title.replace(CAUSAL, '').replace(/\s+/g, ' ').trim()).slice(0, 100)
   }
-  const tags = Array.isArray(meta.tags) ? meta.tags.slice(0, 12).map(String) : ['campaign finance', 'politics', 'fec']
+  const tags = Array.isArray(meta.tags) ? meta.tags.slice(0, 12).map(String) : ['american politics', 'us politics', 'us congress', 'campaign finance', 'fec']
   const description = `${String(meta.description || '').trim()}\n${growthBlock()}`
 
   // Guard: the upload gate requires this string.
