@@ -20,9 +20,15 @@ const xml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 function svgToPng(svg, png) { const p = png.replace(/\.png$/, '.svg'); fs.writeFileSync(p, svg); sh('rsvg-convert', ['-w', String(W), '-h', String(H), p, '-o', png]) }
 
-// Crop a portrait to a navy-bordered card (faces fan); returns the framed PNG path.
+// Crop a portrait to a cream-bordered card (faces fan). A thick cream frame + a 1px dark
+// inner keyline make EACH card read as a distinct layer against the navy — otherwise dark
+// official photos blur into the background and the "stack of 3" looks like one face.
 function frameFace(src, dest, w, h) {
-  sh('ffmpeg', ['-y', '-i', src, '-vf', `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h}:(iw-${w})/2:(ih-${h})/3,pad=${w + 10}:${h + 10}:5:5:color=0xf5ecd7`, '-frames:v', '1', dest])
+  sh('ffmpeg', ['-y', '-i', src, '-vf',
+    `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h}:(iw-${w})/2:(ih-${h})/3,` +
+    `pad=${w + 8}:${h + 8}:4:4:color=0x0a1f3d,` +          // 4px navy keyline (separates from cream)
+    `pad=${w + 24}:${h + 24}:8:8:color=0xf5ecd7`,           // 8px cream frame (pops off navy canvas)
+    '-frames:v', '1', dest])
   return dest
 }
 
@@ -51,11 +57,13 @@ export function makeVoteThumbnail({ outPath, buildDir, faces = [], logoPng = nul
   // 2) composite: base ← faces (fanned right) ← logo (top-left) ← "+N" badge.
   let cur = basePng
   const FW = 300, FH = 380
-  faces.slice(0, 3).forEach((f, i) => {
+  // Draw BACK-to-FRONT: i=0 is drawn last (front-most) so it sits ON TOP and rightmost.
+  const picks = faces.slice(0, 3)
+  picks.map((f, i) => ({ f, i })).reverse().forEach(({ f, i }) => {
     if (!f || !fs.existsSync(f)) return
     const framed = frameFace(f, path.join(tdir, `face-${i}.png`), FW, FH)
-    const x = W - 380 - i * 90        // fan: front-most rightmost
-    const y = 180 + i * 18
+    const x = W - 372 - i * 104       // fan: front-most (i=0) rightmost; backs recede left
+    const y = 168 + i * 26
     const out = path.join(tdir, `comp-f${i}.png`)
     sh('ffmpeg', ['-y', '-i', cur, '-i', framed, '-filter_complex', `[0:v][1:v]overlay=${x}:${y}[o]`, '-map', '[o]', '-frames:v', '1', out])
     cur = out
