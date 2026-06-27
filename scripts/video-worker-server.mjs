@@ -35,7 +35,20 @@ function runProducer(weekOf, privacy) {
   if (privacy) a.push(`--privacy=${privacy}`)
   console.log(`[worker] spawning producer: ${a.join(' ')}`)
   const child = spawn('node', a, { stdio: 'inherit', env: process.env })
-  child.on('exit', (code) => { running = false; console.log(`[worker] producer exited ${code}`) })
+  child.on('exit', async (code) => {
+    running = false
+    console.log(`[worker] producer exited ${code}`)
+    // Scale-to-zero: suspend self after the run so we don't bill while idle. The cron
+    // resumes us next Thursday. Needs RENDER_API_KEY + RENDER_SERVICE_ID (own id).
+    const key = process.env.RENDER_API_KEY, svc = process.env.RENDER_SERVICE_ID
+    if (key && svc && process.env.WORKER_SELF_SUSPEND !== 'off') {
+      try {
+        await new Promise((r) => setTimeout(r, 5000)) // let logs flush
+        await fetch(`https://api.render.com/v1/services/${svc}/suspend`, { method: 'POST', headers: { Authorization: `Bearer ${key}` } })
+        console.log('[worker] self-suspended (scale to zero)')
+      } catch (e) { console.error(`[worker] self-suspend failed: ${e.message}`) }
+    }
+  })
 }
 
 const server = http.createServer((req, res) => {

@@ -58,11 +58,36 @@ function runStep(name, args) {
 }
 
 // ── Trigger the Docker video render worker (separate service with ffmpeg/rsvg) ──
+// The worker is SUSPENDED between runs (scale-to-zero, ~$0 idle). We RESUME it via the
+// Render API, wait for /health, then POST. After it finishes it stays up briefly; a
+// separate weekly suspend (Fri) puts it back to sleep — or leave it (it idles cheap on
+// starter). Resume needs RENDER_API_KEY + VIDEO_WORKER_SERVICE_ID in the cron env.
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+async function resumeVideoWorker() {
+  const key = process.env.RENDER_API_KEY
+  const svc = process.env.VIDEO_WORKER_SERVICE_ID
+  if (!key || !svc) { console.log('  (no RENDER_API_KEY/VIDEO_WORKER_SERVICE_ID — assuming worker already up)'); return }
+  try {
+    await fetch(`https://api.render.com/v1/services/${svc}/resume`, { method: 'POST', headers: { Authorization: `Bearer ${key}` } })
+    console.log('  resume requested — waiting for /health…')
+  } catch (e) { console.error(`  resume call failed: ${e.message}`) }
+}
+async function waitForHealth(url, maxMs = 180000) {
+  const started = Date.now()
+  while (Date.now() - started < maxMs) {
+    try { const r = await fetch(`${url.replace(/\/$/, '')}/health`, { signal: AbortSignal.timeout(8000) }); if (r.ok) return true } catch { /* not up yet */ }
+    await sleep(10000)
+  }
+  return false
+}
 async function triggerVideoWorker() {
   const url = process.env.VIDEO_WORKER_URL
   const token = process.env.VIDEO_WORKER_TOKEN
   if (!url || !token) { console.log('video worker: VIDEO_WORKER_URL/TOKEN not set — skipping video trigger'); return false }
   console.log(`\n── trigger video worker ${'─'.repeat(40)}`)
+  await resumeVideoWorker()
+  const healthy = await waitForHealth(url)
+  if (!healthy) { console.error('! video worker did not become healthy in time — skipping'); return false }
   try {
     const r = await fetch(`${url.replace(/\/$/, '')}/produce-weekly`, {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'x-cr-token': token }, body: '{}',
