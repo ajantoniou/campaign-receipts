@@ -27,7 +27,11 @@ const OUT = getArg('out')
 const ASPECT = getArg('aspect', '16:9')
 const MODEL = getArg('model', 'veo-3.1-fast-generate-preview')
 const MAX_POLL_MS = Number(getArg('timeout-ms', 240000)) // 4 min
-const KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY
+// Prefer an ISOLATED test key (GEMINI_TEST_KEY) when present — a standalone AIza… key in
+// its OWN Google Cloud project with its own spend cap, so a Veo test can NEVER touch the
+// AI-Studio/Antigravity shared wallet (which burned $100/day on 2026-06-27). Falls back to
+// the normal key only if no test key is set.
+const KEY = process.env.GEMINI_TEST_KEY || process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY
 
 // ── COST GUARD (added after a Gemini runaway burned $20 in 5 min — Antigravity, not us,
 //    but never again from OUR code). A persistent daily ledger caps Veo spend regardless
