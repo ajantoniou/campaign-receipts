@@ -46,8 +46,9 @@ export default async function Home() {
           Follow the money behind <span className="font-serif italic font-normal text-white">every vote.</span>
         </h1>
         <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
-          For <span className="text-white font-medium">less than $2.50 a week</span>, follow the web of connections that tie
-          donations to political influence — across the bills they sponsor, the votes they cast, and the elections they win.
+          <span className="text-white font-medium">47,000 donations are filed every week.</span> We find the ones
+          potentially influencing a vote, a bill, or a race that affects your life, your business, and your
+          community — for <span className="text-white font-medium">less than $2.50 a week</span>.
           Sourced to public FEC filings and official roll-call records.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">

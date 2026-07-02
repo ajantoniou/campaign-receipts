@@ -27,3 +27,4 @@ eng/qc-reports/**/frames/
 content/audio/
 scripts/.external-costs.jsonl
 scripts/.veo-spend.jsonl
+scripts/.youtube-token.json

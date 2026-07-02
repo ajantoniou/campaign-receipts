@@ -36,6 +36,18 @@ type Article = {
   hero_image_url: string | null
 }
 
+// Latest issue that actually shipped media — powers the Watch/Listen band (audit
+// 2026-07-02: the weekly video + audio existed but the archive never surfaced them).
+async function getLatestMedia(): Promise<{ week_of: string; video_url: string | null; audio_url: string | null } | null> {
+  const { data } = await supabaseService
+    .from('cr_newsletter_issues')
+    .select('week_of, video_url, audio_url')
+    .or('video_url.not.is.null,audio_url.not.is.null')
+    .order('week_of', { ascending: false })
+    .limit(1)
+  return data?.[0] || null
+}
+
 async function getArticles(filter?: string): Promise<Article[]> {
   let q = supabaseService
     .from('cr_articles')
@@ -77,7 +89,7 @@ export default async function ArticlesIndexPage({
   searchParams: { kind?: string }
 }) {
   const kind = searchParams.kind || 'all'
-  const articles = await getArticles(kind)
+  const [articles, media] = await Promise.all([getArticles(kind), getLatestMedia()])
 
   return (
     <>
@@ -123,6 +135,40 @@ export default async function ArticlesIndexPage({
           </div>
         </div>
       </section>
+
+      {/* ───── WATCH / LISTEN — this week's briefing in video + audio ───── */}
+      {media && (media.video_url || media.audio_url) && (
+        <section className="bg-paper border-b border-line">
+          <div className="section-shell py-6">
+            <div className="max-w-[860px] mx-auto flex flex-wrap items-center gap-x-6 gap-y-3">
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">
+                This week&rsquo;s briefing
+              </span>
+              {media.video_url && (
+                <a
+                  href={media.video_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-ink hover:text-broken transition-colors"
+                >
+                  ▶ Watch on YouTube
+                </a>
+              )}
+              {media.audio_url && (
+                <a
+                  href={media.audio_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-ink hover:text-broken transition-colors"
+                >
+                  🎧 Listen (5 min)
+                </a>
+              )}
+              <span className="font-mono text-[11px] text-ink-3">week of {media.week_of}</span>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ───── ARTICLE LIST ──────────────────────────────────── */}
       <section className="bg-paper border-b border-line">

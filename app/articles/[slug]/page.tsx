@@ -12,6 +12,7 @@ import ShareButtons from '@/app/components/ShareButtons'
 import SealedBookBand from '@/app/components/SealedBookBand'
 import NewsletterCapture from '@/app/components/NewsletterCapture'
 import DonorLogos from '@/app/components/DonorLogos'
+import MoneyFlowDiagram from '@/app/components/MoneyFlowDiagram'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -163,7 +164,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
       '@type': 'WebPage',
       '@id': `https://campaignreceipts.com/articles/${a.slug}`,
     },
-    author: { '@type': 'Organization', name: 'CampaignReceipts' },
+    author: { '@type': 'Person', name: 'AI Investigative Journalist', worksFor: { '@type': 'Organization', name: 'CampaignReceipts' } },
     publisher: {
       '@type': 'Organization',
       name: 'CampaignReceipts',
@@ -205,6 +206,16 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
           {a.dek && (
             <p className="mt-5 font-sans text-[18px] sm:text-[20px] text-ink-2 leading-[1.5] max-w-2xl">
               {a.dek}
+            </p>
+          )}
+          {/* Byline (founder 2026-07-02): the engine IS the journalist — say so with pride,
+              plus one line of method transparency. */}
+          {(a.kind === 'weekly_story' || a.kind === 'race_funding') && (
+            <p className="mt-4 font-mono text-[12px] uppercase tracking-[0.14em] text-ink-2 m-0">
+              Written by: AI Investigative Journalist
+              <span className="normal-case tracking-normal text-ink-3 font-sans text-[12px]">
+                {' '}· assembled from FEC filings and roll-call records
+              </span>
             </p>
           )}
           {race && (
@@ -288,6 +299,23 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
                 {playerDonors && playerDonors.length > 0 && <DonorLogos donors={playerDonors} />}
               </div>
             </div>
+            {/* The receipts as a picture — donors → $ → lawmaker → act → bill, from the
+                same source_refs as the prose. */}
+            {(() => {
+              const r = ref0 as Record<string, unknown>
+              const donorObjs = (r.matched_donors as { name: string; amount?: number }[] | undefined)
+                || ((r.bloc_top_donors as string[] | undefined) || []).map((n) => ({ name: n }))
+              const blocSize = Number(r.bloc_size) || 1
+              const actor = blocSize > 1 ? `${blocSize} lawmakers` : (r.politician_name as string) || ''
+              const action = (r.action === 'voted_yes' ? 'Voted for' : r.action === 'sponsored' ? 'Sponsored' : 'Backed')
+              const bill = (r.bill_name as string) || (r.bill_label as string) || ''
+              if (!donorObjs?.length || !actor || !bill) return null
+              return (
+                <div className="max-w-[720px] mx-auto mt-8">
+                  <MoneyFlowDiagram donors={donorObjs} totalUsd={playerMoney ?? null} actor={actor} action={action} bill={bill} />
+                </div>
+              )
+            })()}
           </div>
         </section>
       )}

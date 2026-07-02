@@ -180,6 +180,17 @@ if (isOrchestrator) {
     results.proIsraelCompute = runStep('compute-pro-israel-money', ['scripts/compute-pro-israel-money.mjs'])
   }
 
+  // ── AI INVESTIGATIVE JOURNALIST — daily pass (founder 2026-07-02: 47,000 filings/wk
+  //    is too many stories for one weekly pass). Mon/Tue/Wed/Fri/Sat/Sun 10:00: find the
+  //    single deepest fresh MATERIAL story (≥$100K guardrail, cross-week + same-week
+  //    dedup) and publish it. Slug-idempotent; Thursday's weekly pass tops the slate to
+  //    8 and bundles everything into Friday Receipts. Rulebook:
+  //    eng/AI-INVESTIGATIVE-JOURNALIST.md. Disable with CR_DAILY_STORY=off.
+  if (day !== 4 && hour === 10 && process.env.CR_DAILY_STORY !== 'off') {
+    results.dailyDetect = runStep('detect-daily-story', ['scripts/detect-new-connections.mjs', '--daily'])
+    results.dailyStory = runStep('generate-daily-story', ['scripts/generate-weekly-stories.mjs'])
+  }
+
   // ── Friday Receipts chain (Thursday UTC, finishing before the earliest
   //    local-Friday-05:00 send at Thu 15:00 UTC for UTC+14). ──
   // 10:00 Thu — detect new money connections, rank, write story candidates.

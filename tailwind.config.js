@@ -13,10 +13,14 @@ module.exports = {
         display: ['var(--font-bricolage)', 'Bricolage Grotesque', 'sans-serif'],
         mono: ['var(--font-plex-mono)', 'IBM Plex Mono', 'monospace'],
       },
+      // CR brand (audit-document / paper-receipt family) on a dark device canvas.
+      // The neon trading-era palette (#FF005E pink / #00FF66 green) is DEAD — audit
+      // 2026-07-02. Accent = civic red, lifted to #D45B54 for dark-bg text (measured
+      // 5.11:1 on #0B0A09, AA; raw #B23A3A is 3.35:1 and reserved for paper surfaces).
       colors: {
-        background: '#0B0A09', // Near black
-        surface: '#11010A', // Near black with slight warm/pink tint
-        surfaceHover: '#1A020F',
+        background: '#0B0A09', // near-black warm canvas
+        surface: '#14110E', // warm near-black (was pink-tinted #11010A)
+        surfaceHover: '#1C1814',
         border: 'rgba(255, 255, 255, 0.1)',
         primary: {
           DEFAULT: '#F9FAFB', // Near white
@@ -24,23 +28,32 @@ module.exports = {
           glow: 'rgba(255, 255, 255, 0.2)',
         },
         accent: {
-          DEFAULT: '#FF005E', // Neon Pink
-          hover: '#E60055',
-          glow: 'rgba(255, 0, 94, 0.5)',
+          DEFAULT: '#D45B54', // civic red, dark-bg text-safe (5.11:1)
+          hover: '#C94F4F',
+          glow: 'rgba(212, 91, 84, 0.45)',
         },
         success: {
-          DEFAULT: '#00FF66', // Neon Green
-          glow: 'rgba(0, 255, 102, 0.4)',
-          bg: 'rgba(0, 255, 102, 0.1)',
+          DEFAULT: '#3FA46A', // calm green (6.34:1) — was neon #00FF66
+          glow: 'rgba(63, 164, 106, 0.35)',
+          bg: 'rgba(63, 164, 106, 0.10)',
         },
         danger: {
-          DEFAULT: '#FF005E', // Use accent pink for danger
-          glow: 'rgba(255, 0, 94, 0.4)',
-          bg: 'rgba(255, 0, 94, 0.1)',
+          DEFAULT: '#D45B54',
+          glow: 'rgba(212, 91, 84, 0.4)',
+          bg: 'rgba(212, 91, 84, 0.10)',
         },
+        warning: {
+          DEFAULT: '#E8A33D', // gold (9.17:1) — was UNDEFINED (border-warning silently no-op'd)
+          bg: 'rgba(232, 163, 61, 0.10)',
+        },
+        // First-class brand tokens — migrate components off hard-coded hexes onto these.
+        paper: { DEFAULT: '#F4EFE6', bright: '#FAF6EF', edge: '#EBE3D0' },
+        navy: { DEFAULT: '#16263D', ink: '#1A1815' },
+        civic: { DEFAULT: '#B23A3A', deep: '#A8423E' },
+        gold: { DEFAULT: '#C8861D', bright: '#E8A33D' },
         text: {
           main: '#F9FAFB',
-          muted: '#8A8A8A',
+          muted: '#9A948C', // warmed + lifted from #8A8A8A
         }
       },
       boxShadow: {

@@ -33,11 +33,18 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSessi
 
 const args = process.argv.slice(2)
 const DRY = args.includes('--dry-run')
+// DAILY mode (founder 2026-07-02: 47,000 filings/week is too many stories for one weekly
+// pass — run the journalist DAILY, one deepest story per day). Daily mode APPENDS to the
+// week's slate instead of clearing it, targets CR_DAILY_TARGET (default 1), and dedups
+// against EVERY prior pick including earlier this week.
+const DAILY = args.includes('--daily')
 const weekArg = args.find((a) => a.startsWith('--week-of='))?.split('=')[1]
 
 const GROWTH_FLOOR = Number(process.env.DETECT_GROWTH_FLOOR ?? 250000) // $ delta to count "notable growth"
 const BILL_AMOUNT_FLOOR = Number(process.env.DETECT_BILL_FLOOR ?? 250000) // min industry→bill $ to be a real story
-const TARGET = Number(process.env.DETECT_TARGET ?? 8)                  // candidates to emit
+const TARGET = args.includes('--daily')
+  ? Number(process.env.CR_DAILY_TARGET ?? 1)                           // daily: one deep story
+  : Number(process.env.DETECT_TARGET ?? 8)                             // weekly slate
 
 // Generic / occupation-code buckets that are NOT a money-influence STORY. These
 // dominate FEC data and produce hollow "stories" with no punchline:
@@ -386,9 +393,11 @@ async function main() {
   const COOLDOWN_WEEKS = 8
   const priorHashes = new Map() // dedupe_hash -> most recent week_of it was published
   {
-    const { data: prior } = await supabase
-      .from('cr_story_candidates').select('dedupe_hash, week_of, source_refs')
-      .lt('week_of', WEEK_OF)
+    // Weekly mode clears+rewrites this week, so dedup only against PRIOR weeks. Daily
+    // mode APPENDS, so dedup against everything — including this week's earlier picks.
+    let q = supabase.from('cr_story_candidates').select('dedupe_hash, week_of, source_refs')
+    if (!DAILY) q = q.lt('week_of', WEEK_OF)
+    const { data: prior } = await q
     for (const r of prior || []) {
       if (!r.dedupe_hash) continue
       const cur = priorHashes.get(r.dedupe_hash)
@@ -493,8 +502,15 @@ async function main() {
 
   if (DRY) { console.log('DRY RUN — no candidates written.'); return }
 
-  // 6) Write cr_story_candidates (clear this week first for idempotency).
-  await supabase.from('cr_story_candidates').delete().eq('week_of', WEEK_OF)
+  // 6) Write cr_story_candidates. Weekly: clear this week first (idempotent rewrite).
+  //    Daily: APPEND after the week's existing picks (dedup above prevents repeats).
+  let rankOffset = 0
+  if (DAILY) {
+    const { data: existing } = await supabase.from('cr_story_candidates').select('rank').eq('week_of', WEEK_OF).order('rank', { ascending: false }).limit(1)
+    rankOffset = existing?.[0]?.rank || 0
+  } else {
+    await supabase.from('cr_story_candidates').delete().eq('week_of', WEEK_OF)
+  }
   const titleCase = (s) => String(s || '').replace(/\b([a-z])/g, (m) => m.toUpperCase())
   const usdFull = (n) => `$${Math.round(Number(n) || 0).toLocaleString()}`
   const rows = picked.map((c, i) => {
@@ -518,7 +534,7 @@ async function main() {
             : `${x.pol.name} voted for a ${x.industry} bill — and took ${usdFull(x.total)} from ${x.industry} donors`)
         : `${x.pol.name} sponsored a ${x.industry} bill — and took ${usdFull(x.total)} from ${x.industry} donors`
       return {
-        week_of: WEEK_OF, rank: i + 1, branch: c.branch, event_id: null,
+        week_of: WEEK_OF, rank: rankOffset + i + 1, branch: c.branch, event_id: null,
         dedupe_hash: sha1(c.e.entity_key),
         headline,
         source_refs: [{
@@ -558,7 +574,7 @@ async function main() {
           : (billName ? `${industry} PACs put ${usd(c.amt)} behind ${billName}` : `${industry} money → a bill`))
     return {
       week_of: WEEK_OF,
-      rank: i + 1,
+      rank: rankOffset + i + 1,
       branch: c.branch,
       event_id: c.e.id,
       dedupe_hash: sha1(c.e.entity_key),

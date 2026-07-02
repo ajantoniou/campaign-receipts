@@ -27,12 +27,13 @@ export default function PricingPage({ searchParams }: { searchParams: { error?: 
       <div className="text-center flex flex-col gap-4 max-w-2xl">
         <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Membership</div>
         <h1 className="text-4xl md:text-5xl font-display font-[800] tracking-[-0.03em] text-primary leading-[1.05]">
-          47,000 filings hit the FEC every week. <span className="font-serif italic font-normal text-white">We catch the one that matters.</span>
+          47,000 donations are filed every week. <span className="font-serif italic font-normal text-white">We find the ones that could be shaping policy.</span>
         </h1>
         <p className="text-lg text-text-muted leading-relaxed">
-          Every donor map and money trail on Campaign Receipts is free. Members fund the watchdog that
-          reads the filings, finds the one trail behind this week’s vote, and sends it to you Friday —
-          with a one-tap link straight into the map. You’re not buying an email. You’re funding the receipts.
+          We find the donations potentially influencing a vote, a bill, or a race — the ones that
+          affect your life, your business, and your community. Every donor map and money trail is
+          free. Members fund the watchdog that reads the filings and sends you the story every
+          Friday. You’re not buying an email. You’re funding the receipts.
         </p>
       </div>
 
