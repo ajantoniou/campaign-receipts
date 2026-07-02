@@ -27,6 +27,9 @@ const OUT = getArg('out')
 const ASPECT = getArg('aspect', '16:9')
 const MODEL = getArg('model', 'veo-3.1-fast-generate-preview')
 const MAX_POLL_MS = Number(getArg('timeout-ms', 240000)) // 4 min
+// Engine: 'veo' (Google, default) or 'fal' (Kling via fal.ai). Founder 2026-07-01 chose
+// fal for Friday (NTO/HealthBrew production paused → fal wallet effectively CR-only, +$20).
+const ENGINE = (getArg('engine', process.env.CR_VIDEO_ENGINE || 'veo')).toLowerCase()
 // Prefer an ISOLATED test key (GEMINI_TEST_KEY) when present — a standalone AIza… key in
 // its OWN Google Cloud project with its own spend cap, so a Veo test can NEVER touch the
 // AI-Studio/Antigravity shared wallet (which burned $100/day on 2026-06-27). Falls back to
@@ -36,8 +39,9 @@ const KEY = process.env.GEMINI_TEST_KEY || process.env.GEMINI_API_KEY || process
 // ── COST GUARD (added after a Gemini runaway burned $20 in 5 min — Antigravity, not us,
 //    but never again from OUR code). A persistent daily ledger caps Veo spend regardless
 //    of who calls this helper or how many times. Veo fast ≈ $0.40/clip; override via env.
-const CLIP_USD = Number(process.env.CR_VEO_CLIP_USD || 0.40)
-const DAILY_CAP_USD = Number(process.env.CR_VEO_DAILY_CAP_USD || 5.0) // ~12 clips/day max
+// fal Kling std ≈ $0.42/5s clip; Veo fast ≈ $0.40/8s. Per-engine default, env-overridable.
+const CLIP_USD = Number(process.env.CR_VEO_CLIP_USD || (ENGINE === 'fal' ? 0.45 : 0.40))
+const DAILY_CAP_USD = Number(process.env.CR_VEO_DAILY_CAP_USD || 5.0) // ~11-12 clips/day max
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const LEDGER = path.join(__dirname, '..', '.veo-spend.jsonl')
 function today() { return new Date().toISOString().slice(0, 10) } // UTC day bucket
@@ -52,8 +56,10 @@ function spentToday() {
 }
 function recordSpend(usd) { mkdirSync(path.dirname(LEDGER), { recursive: true }); appendFileSync(LEDGER, JSON.stringify({ day: today(), ts: new Date().toISOString(), usd, model: MODEL }) + '\n') }
 
-if (!PROMPT || !OUT) { console.error('usage: --prompt "..." --out clip.mp4'); process.exit(2) }
-if (!KEY) { console.error('Missing GEMINI_API_KEY'); process.exit(2) }
+const FAL_KEY = process.env.FAL_KEY || process.env.FAL_API_KEY
+if (!PROMPT || !OUT) { console.error('usage: --prompt "..." --out clip.mp4 [--engine veo|fal]'); process.exit(2) }
+if (ENGINE === 'fal') { if (!FAL_KEY) { console.error('Missing FAL_KEY'); process.exit(2) } }
+else if (!KEY) { console.error('Missing GEMINI_API_KEY'); process.exit(2) }
 
 const already = spentToday()
 if (already + CLIP_USD > DAILY_CAP_USD) {
@@ -64,7 +70,42 @@ if (already + CLIP_USD > DAILY_CAP_USD) {
 const BASE = 'https://generativelanguage.googleapis.com/v1beta'
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
-async function main() {
+// ── fal Kling text-to-video (queue pattern mirrored from HealthBrew's proven fal calls).
+//    Same output contract as Veo: writes an mp4 to OUT, records spend, non-zero on failure.
+async function falGenerate() {
+  const model = getArg('model') && ENGINE === 'fal' ? MODEL : 'fal-ai/kling-video/v2.5-turbo/pro/text-to-video'
+  const dur = getArg('fal-duration', '5') // Kling: "5" or "10"
+  const submit = await fetch(`https://queue.fal.run/${model}`, {
+    method: 'POST', headers: { Authorization: `Key ${FAL_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ prompt: PROMPT, duration: dur, aspect_ratio: ASPECT }),
+  })
+  if (!submit.ok) { console.error(`fal submit ${submit.status}: ${(await submit.text()).slice(0, 200)}`); process.exit(1) }
+  const job = await submit.json()
+  console.log(`fal job queued: ${job.request_id || '(no id)'}`)
+  const started = Date.now()
+  let done = false
+  while (Date.now() - started < MAX_POLL_MS) {
+    await sleep(5000)
+    const s = await fetch(job.status_url, { headers: { Authorization: `Key ${FAL_KEY}` } })
+    const st = await s.json()
+    if (st.status === 'COMPLETED') { done = true; break }
+    if (st.status === 'FAILED') { console.error('fal failed:', JSON.stringify(st).slice(0, 200)); process.exit(1) }
+    console.log('  …' + (st.status || 'pending').toLowerCase())
+  }
+  if (!done) { console.error('fal timed out'); process.exit(1) }
+  const r = await fetch(job.response_url, { headers: { Authorization: `Key ${FAL_KEY}` } })
+  const result = await r.json()
+  const url = result?.video?.url || result?.videos?.[0]?.url
+  if (!url) { console.error('fal done but no video url:', JSON.stringify(result).slice(0, 200)); process.exit(1) }
+  const dl = await fetch(url)
+  if (!dl.ok) { console.error('fal download failed:', dl.status); process.exit(1) }
+  writeFileSync(OUT, Buffer.from(await dl.arrayBuffer()))
+  if (!existsSync(OUT) || statSync(OUT).size < 10000) { console.error('fal mp4 too small'); process.exit(1) }
+  recordSpend(CLIP_USD)
+  console.log(`fal clip saved: ${OUT} (${Math.round(statSync(OUT).size / 1024)} KB) · today's spend ~$${spentToday().toFixed(2)}/${DAILY_CAP_USD}`)
+}
+
+async function veoGenerate() {
   // 1) Submit the long-running generation.
   const submit = await fetch(`${BASE}/models/${MODEL}:predictLongRunning?key=${KEY}`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -103,4 +144,5 @@ async function main() {
   console.log(`Veo clip saved: ${OUT} (${Math.round(statSync(OUT).size / 1024)} KB) · today's Veo spend ~$${(spentToday()).toFixed(2)}/${DAILY_CAP_USD}`)
 }
 
-main().catch((e) => { console.error('Veo FATAL:', e.message); process.exit(1) })
+const main = ENGINE === 'fal' ? falGenerate : veoGenerate
+main().catch((e) => { console.error(`${ENGINE} FATAL:`, e.message); process.exit(1) })
