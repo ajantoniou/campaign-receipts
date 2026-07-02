@@ -101,7 +101,16 @@ theme in the cold-open, and let it frame the whole episode. The FIRST scene's la
 should read like that theme.
 
 THE ARC (this is the whole point — connect the stories, don't list them):
-- Open like a host: an energetic cold-open that NAMES the theme. e.g. "This week it's Wall Street — three lawmakers, one private-equity giant, and the bill they just passed. Let's follow the money."
+- COLD OPEN = the PUNCHLINE, in the FIRST sentence. The #1 retention rule for short-form
+  (verified from a $1M/mo short-form operator, 2026-07-01): the first 3 seconds decide
+  whether they stay. So the FIRST words must be the most shocking fact of the week — the
+  money + the vote/company — stated as a hook that makes them NEED the rest.
+  BANNED openers (throat-clearing that loses viewers): "Welcome back", "Welcome to",
+  "This week on", "In this episode", "Today we", "Hey everyone", "we found a pattern".
+  DO open like: "Ninety-three lawmakers took money from private equity. Then every one of
+  them voted for the bill private equity wanted." OR "Blackstone gave three senators two
+  point one million dollars. This week, those same three wrote the rules for Blackstone."
+  Name the THEME inside that hook — don't spend a sentence setting it up first.
 - "First up, ..." — lead with the single most interesting money trail (biggest figure or juiciest connection). Tell it as a mini-story: picture → the money → the twist → why it matters.
 - Then connective tissue between every story: "In other news, we also learned that ...", "But the one that stopped us cold — ...", "And you won't believe it — another story of possible influence, a wire transfer of ...".
 - Close like a host: invite them back + the disclaimer.
