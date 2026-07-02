@@ -37,6 +37,11 @@ const getArg = (k, d = null) => args.find((a) => a.startsWith(`--${k}=`))?.split
 const SKIP_TTS = args.includes('--skip-tts')
 const NO_VEO = args.includes('--no-veo')
 const MAX_VEO = Number(getArg('max-veo', 2))
+// AI-MOTION (founder 2026-07-01): fal Kling clip behind EVERY beat as a moving background,
+// with the branded card overlaid on top (translucent so motion shows at the edges, text
+// stays fully legible). Opt-in — the static-card path stays the safe fallback. Engine=fal.
+const FAL_MOTION = args.includes('--fal-motion') || (process.env.CR_VIDEO_ENGINE || '').toLowerCase() === 'fal'
+const CARD_OPACITY = Number(process.env.CR_CARD_OPACITY || 0.86) // card over motion; legibility gate
 
 function isoMonday(d = new Date()) {
   const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()))
@@ -371,7 +376,37 @@ async function main() {
   const totalDur = holds.reduce((a, b) => a + b, 0)
   console.log(`[plan] runtime ≈ ${totalDur.toFixed(1)}s across ${N} scenes`)
 
-  // (No Veo — founder 2026-06-25: the looping 8s clip looked cheap. Static cards only.)
+  // ── AI-MOTION backgrounds (fal Kling): one FRESH clip per beat, NEVER looped. Each
+  //    scene gets a cinematic, on-theme, TEXT-FREE background; the branded card is overlaid
+  //    on top. Fail-soft: any clip that doesn't generate → that scene stays a static card.
+  //    Cost-guarded downstream (veo-generate.mjs $5/day ledger). --fal-motion / engine=fal.
+  const motionClip = {} // sceneIdx → local bg mp4 path
+  if (FAL_MOTION) {
+    const motionDir = path.join(BUILD, 'motion'); fs.mkdirSync(motionDir, { recursive: true })
+    const bgPrompt = (s) => {
+      const ind = (s.industry || '').toLowerCase()
+      // Abstract, institutional, NON-partisan, NO text/people/logos — pure atmosphere.
+      const themes = {
+        finance: 'slow aerial drift over a glass financial district at dusk, money-flow light trails, cinematic',
+        'real estate': 'slow push across a city skyline of luxury towers at golden hour, cranes, cinematic',
+        'private equity': 'slow dolly through a marble corporate lobby, cold light, cinematic, empty',
+        defense: 'slow aerial over the Pentagon and a calm military airfield at dawn, cinematic, no action',
+        health: 'slow glide through a modern hospital corridor, soft clinical light, cinematic, empty',
+        energy: 'slow aerial over power lines and turbines at dusk, warm haze, cinematic',
+        tech: 'slow drift through a server room with blue light and a data-center exterior, cinematic',
+      }
+      const base = themes[ind] || 'slow cinematic push across the US Capitol dome at dusk, golden hour, documentary'
+      return `${base}. Muted navy and warm gold palette. No text, no captions, no people's faces, no logos. Subtle film grain.`
+    }
+    for (let i = 0; i < N; i++) {
+      const outp = path.join(motionDir, `bg-${String(i + 1).padStart(2, '0')}.mp4`)
+      const r = spawnSync('node', [path.join(ROOT, 'scripts', 'pipeline', 'veo-generate.mjs'),
+        '--engine', 'fal', '--prompt', bgPrompt(scenes[i]), '--out', outp, '--aspect', '16:9', '--fal-duration', '5'],
+        { stdio: 'inherit', env: process.env })
+      if (r.status === 0 && fs.existsSync(outp) && fs.statSync(outp).size > 10000) { motionClip[i] = outp; console.log(`[motion] scene ${i + 1}: fal bg ready`) }
+      else console.log(`[motion] scene ${i + 1}: no fal bg (status ${r.status}) — static card fallback`)
+    }
+  }
 
   // 3) Cards + overlays → PNG. Each scene = static card (name/money/bill) + the photo
   //    composited into the RESERVED right zone (x=1300) so it never covers the text.
@@ -389,9 +424,22 @@ async function main() {
   const clip = (i) => path.join(clipsDir, `scene-${String(i + 1).padStart(2, '0')}.mp4`)
   for (let i = 0; i < N; i++) {
     const dur = holds[i]
-    const inputs = ['-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng]
+    const hasMotion = !!motionClip[i]
+    // Input 0 is the background: a fal motion clip (if present) OR the static card.
+    // With motion, the card becomes a translucent OVERLAY on top of the moving bg.
+    const inputs = hasMotion
+      ? ['-i', motionClip[i], '-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng]
+      : ['-framerate', String(FPS), '-loop', '1', '-t', String(dur), '-i', cardPng(i), '-loop', '1', '-t', String(dur), '-i', persistPng]
     let idx = 2
-    let fc = `[0:v]scale=${W}:${H},format=yuv420p[bg];[bg][1:v]overlay=0:0:format=auto[v1]`
+    let fc
+    if (hasMotion) {
+      // bg = fal clip, filled to frame, frozen on last frame if shorter than the hold (NO
+      // visual loop). Card overlaid at CARD_OPACITY so motion breathes at the edges.
+      fc = `[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},tpad=stop_mode=clone:stop_duration=${dur},trim=0:${dur},setpts=PTS-STARTPTS,format=yuv420p[bg];` +
+           `[1:v]format=rgba,colorchannelmixer=aa=${CARD_OPACITY}[card];[bg][card]overlay=0:0:format=auto[v1]`
+    } else {
+      fc = `[0:v]scale=${W}:${H},format=yuv420p[bg];[bg][1:v]overlay=0:0:format=auto[v1]`
+    }
     let last = '[v1]'
     if (portraitPng[i]) {
       inputs.push('-loop', '1', '-t', String(dur), '-i', portraitPng[i])
@@ -407,8 +455,12 @@ async function main() {
     // composite (NOT a loop — one continuous 3% zoom over the whole hold) + faint film
     // grain + a 0.4s fade-in. Calm, produced, never repeats.
     const frames = Math.max(2, Math.round(dur * FPS))
-    const zoom = `zoompan=z='min(zoom+0.00035,1.03)':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS}`
-    fc += `;${last}${zoom},noise=alls=6:allf=t,fade=t=in:st=0:d=0.4,format=yuv420p[vout]`
+    // With a fal motion bg, the clip already moves — skip the ken-burns zoom (double motion
+    // looks off). Static cards keep the slow push-in. Both get grain + fade-in.
+    const motionFx = hasMotion
+      ? `noise=alls=5:allf=t,fade=t=in:st=0:d=0.4,format=yuv420p`
+      : `zoompan=z='min(zoom+0.00035,1.03)':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},noise=alls=6:allf=t,fade=t=in:st=0:d=0.4,format=yuv420p`
+    fc += `;${last}${motionFx}[vout]`
     sh('ffmpeg', ['-y', ...inputs, '-filter_complex', fc,
       '-map', '[vout]', '-r', String(FPS), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'fast', '-crf', '20', '-an', '-t', String(dur), clip(i)])
     console.log(`[clip] scene ${i + 1} ${dur.toFixed(1)}s${portraitPng[i] ? ' +photo' : ''}${logoRowPng[i] ? ' +logos' : ''}`)
