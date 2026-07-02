@@ -377,6 +377,40 @@ async function main() {
   const voteExposes = await computeVoteExposes()
   console.log(`Vote exposés (voted YES on an industry bill + took that industry's money): ${voteExposes.length}`)
 
+  // 4b) CROSS-WEEK DEDUP (P0, founder audit 2026-07-01: all 6 of one week's stories were
+  //     re-runs of the prior week's — the biggest money trails stay top-ranked forever, so
+  //     without an exclusion the machine republishes the same exposés weekly).
+  //     Rules: an EXPOSÉ key (vote:{bill} / expose:{pol}:{bill}) is banned FOREVER — the
+  //     same vote/sponsorship is never news twice. Gatekeeper/committee-industry keys get
+  //     an 8-week COOLDOWN — they may legitimately resurface later with fresh bills.
+  const COOLDOWN_WEEKS = 8
+  const priorHashes = new Map() // dedupe_hash -> most recent week_of it was published
+  {
+    const { data: prior } = await supabase
+      .from('cr_story_candidates').select('dedupe_hash, week_of, source_refs')
+      .lt('week_of', WEEK_OF)
+    for (const r of prior || []) {
+      if (!r.dedupe_hash) continue
+      const cur = priorHashes.get(r.dedupe_hash)
+      const kind = r.source_refs?.[0]?.entity_type || ''
+      if (!cur || r.week_of > cur.week) priorHashes.set(r.dedupe_hash, { week: r.week_of, kind })
+    }
+  }
+  const weeksBetween = (a, b) => Math.round((new Date(b) - new Date(a)) / (7 * 864e5))
+  const isDup = (entityKey) => {
+    const hit = priorHashes.get(sha1(entityKey))
+    if (!hit) return false
+    if (/expose/.test(hit.kind) || /^(vote|expose):/.test(entityKey)) return true // forever
+    return weeksBetween(hit.week, WEEK_OF) < COOLDOWN_WEEKS
+  }
+
+  // 4c) MATERIALITY GUARDRAIL (founder 2026-07-02): never report a story under $100K —
+  //     UNLESS multiple organizations' contributions AGGREGATE past $100K (a bloc story
+  //     qualifies on its combined donor total). Fewer, bigger, more damning stories beat
+  //     a slate padded with $10K trails. Env-tunable: CR_MIN_STORY_USD.
+  const MIN_STORY_USD = Number(process.env.CR_MIN_STORY_USD || 100_000)
+  const material = (soloUsd, aggregateUsd = 0) => Math.max(soloUsd || 0, aggregateUsd || 0) >= MIN_STORY_USD
+
   // 5) Compose the slate. Exposés lead (the real "why" story). Then industry→committee
   //    jurisdiction stories, then named gatekeepers, for breadth.
   const polCands = candidates.filter((c) => c.pol)
@@ -399,6 +433,9 @@ async function main() {
   for (const x of voteLeads) {
     if (picked.length >= TARGET) break
     if (seenExposeBill.has(x.bill.id)) continue
+    if (isDup(`vote:${x.bill.id}`)) { console.log(`  [dedup] skip vote exposé (already published): ${x.bill.id} ${x.pol.name}`); continue }
+    const blocAgg = (x.bloc || []).reduce((s, m) => s + m.total, 0)
+    if (!material(x.total, blocAgg)) { console.log(`  [guardrail] skip vote exposé under $${MIN_STORY_USD / 1000}K: ${x.pol.name} (${usd(Math.max(x.total, blocAgg))})`); continue }
     seenExposeBill.add(x.bill.id); seenExposePol.add(x.pol.id)
     picked.push({ isExpose: true, exposeKind: 'vote', expose: x, branch: x.branch, amt: x.total, score: 1200 + Math.log10(x.total + 1) * 40, pol: x.pol, e: { id: null, entity_key: `vote:${x.bill.id}`, entity_type: 'vote_expose' } })
   }
@@ -406,12 +443,14 @@ async function main() {
   for (const x of exposes) {
     if (picked.length >= TARGET) break
     if (seenExposePol.has(x.pol.id)) continue
+    if (isDup(`expose:${x.pol.id}:${x.bill.id}`)) { console.log(`  [dedup] skip sponsor exposé (already published): ${x.pol.name}`); continue }
+    if (!material(x.total)) { console.log(`  [guardrail] skip sponsor exposé under $${MIN_STORY_USD / 1000}K: ${x.pol.name} (${usd(x.total)})`); continue }
     seenExposePol.add(x.pol.id)
     picked.push({ isExpose: true, exposeKind: 'sponsor', expose: x, branch: x.branch, amt: x.total, score: 1000 + Math.log10(x.total + 1) * 40, pol: x.pol, e: { id: null, entity_key: `expose:${x.pol.id}:${x.bill.id}`, entity_type: 'expose' } })
   }
   // (a) named-gatekeeper stories next (strongest event archetype), 1 per branch.
   for (const br of ['Executive', 'House', 'Senate', 'States']) {
-    const top = polCands.find((c) => c.branch === br && !seenKey.has(c.e.entity_key) && !seenExposePol.has(c.pol?.id))
+    const top = polCands.find((c) => c.branch === br && !seenKey.has(c.e.entity_key) && !seenExposePol.has(c.pol?.id) && !isDup(c.e.entity_key) && material(c.amt))
     if (top && picked.length < TARGET) { picked.push(top); seenKey.add(top.e.entity_key) }
   }
   // (b) ONE story per (regulating COMMITTEE, industry). The real unit is "industry
@@ -429,6 +468,8 @@ async function main() {
   groups.sort((a, b) => b.score - a.score)
   for (const lead of groups) {
     if (picked.length >= TARGET) break
+    if (isDup(lead.e.entity_key)) { console.log(`  [dedup] skip committee story (cooldown): ${lead.e.entity_key}`); continue }
+    if (!material(lead.amt)) { console.log(`  [guardrail] skip committee story under $${MIN_STORY_USD / 1000}K: ${lead.e.entity_key} (${usd(lead.amt)})`); continue }
     picked.push(lead); seenKey.add(lead.e.entity_key)
   }
   picked.sort((a, b) => b.score - a.score)
